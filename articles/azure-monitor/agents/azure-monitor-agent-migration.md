@@ -2,7 +2,7 @@
 title: Migrate from legacy agents to Azure Monitor Agent
 description: This article provides guidance for migrating from the existing legacy agents to the new Azure Monitor Agent (AMA) and data collection rules (DCRs).
 ms.topic: conceptual
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: shseth
 ms.date: 9/14/2022 
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Migrate to Azure Monitor Agent from Log Analytics agent
 
-[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines, in Azure and on-premises. It introduces a simplified, flexible method of configuring collection configuration called [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). This article outlines the benefits of migrating to Azure Monitor Agent (AMA) and provides guidance on how to implement a successful migration.
+[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines, in both Azure and non-Azure (on-premises and third-party clouds) environments. It introduces a simplified, flexible method of configuring collection configuration called [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). This article outlines the benefits of migrating to Azure Monitor Agent and provides guidance on how to implement a successful migration.
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you're currently using the Log Analytics agent with Azure Monitor or other supported features and services, you should start planning your migration to Azure Monitor Agent by using the information in this article.
@@ -28,7 +28,7 @@ Azure Monitor Agent provides the following benefits over legacy agents:
   - DCRs let you configure data collection for specific machines connected to a workspace as compared to the "all or nothing" approach of legacy agents.
   - With DCRs, you can define which data to ingest and which data to filter out to reduce workspace clutter and save on costs.
 - **Simpler management** of data collection, including ease of troubleshooting:
-  - Easy **multihoming** on Windows and Linux.
+  - Easy *multihoming* on Windows and Linux.
   - Centralized, "in the cloud" agent configuration makes every action simpler and more easily scalable throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time.
   - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
 - **A single agent** that consolidates all features necessary to address all telemetry data collection needs across servers and client devices running Windows 10 or 11. A single agent is the goal, although Azure Monitor Agent currently converges with the Log Analytics agents.
@@ -44,14 +44,14 @@ Your migration plan to the Azure Monitor Agent should take into account:
 - **Installing Azure Monitor Agent alongside a legacy agent:** If you're setting up a *new environment* with resources, such as deployment scripts and onboarding templates, and you still need a legacy agent, assess the effort of migrating to Azure Monitor Agent later. If the setup will take a significant amount of rework, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort.
 
     Azure Monitor Agent can run alongside the legacy Log Analytics agents on the same machine so that you can continue to use existing functionality during evaluation or migration. You can begin the transition, but ensure you understand the limitations:
-    - Be careful in collecting duplicate data from the same machine. Duplicate data could skew query results and affect downstream features like alerts, dashboards, or workbooks. For example, VM Insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents.
+    - Be careful when you collect duplicate data from the same machine. Duplicate data could skew query results and affect downstream features like alerts, dashboards, or workbooks. For example, VM Insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You might also have configured the workspace to collect Windows events and Syslog events from agents.
     If you install Azure Monitor Agent and create a data collection rule for these events and performance data, you'll collect duplicate data. If you're using both agents to collect the same type of data, make sure the agents are *collecting data from different machines* or *sending the data to different destinations*. Collecting duplicate data also generates more charges for data ingestion and retention.
     
     - Running two telemetry agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
 
 ## Prerequisites
 
-Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use of Azure Monitor Agent. For on-premises servers or other cloud-managed servers, [installing the Azure Arc agent](/azure/azure-arc/servers/agent-overview) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Azure Arc for this purpose comes at no added cost. It's not mandatory to use Azure Arc for server management overall, so you can continue using your existing on-premises management solutions. After the Azure Arc agent is installed, you can follow the same guidance in this article across Azure and on-premises for migration.
+Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use with Azure Monitor Agent. For non-Azure servers, [installing the Azure Arc agent](/azure/azure-arc/servers/agent-overview) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Azure Arc for this purpose comes at no added cost. It's not mandatory to use Azure Arc for server management overall. You can continue using your existing non-Azure management solutions. After the Azure Arc agent is installed, you can follow the same guidance in this article across Azure and non-Azure for migration.
 
 ## Migration testing
 
@@ -63,7 +63,7 @@ After you *validate* that data is flowing as expected with Azure Monitor Agent, 
 
 ## At-scale migration using Azure Policy
 
-We recommend using [Azure Policy](../../governance/policy/overview.md) to migrate a large number of agents. Start by analyzing your current monitoring setup with the Log Analytics agent by using the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper-preview) to find sources like virtual machines, virtual machine scale sets, and on-premises servers.
+We recommend using [Azure Policy](../../governance/policy/overview.md) to migrate a large number of agents. Start by analyzing your current monitoring setup with the Log Analytics agent by using the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper-preview). Use this tool to find sources like virtual machines, virtual machine scale sets, and non-Azure servers.
 
 Use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator-preview) to migrate legacy agent configuration, including data sources and destinations, from the workspace to the new DCRs.
 

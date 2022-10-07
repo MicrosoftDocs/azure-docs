@@ -20,7 +20,11 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 - An Azure subscription.
 
-- A resource group in the subscription where you're a member of the *Owner/Contributor* role.
+- A resource group in the subscription where you have the *Owner*, *Contributor*, or *Azure Arc VMware Private Clouds Onboarding* role for onboarding.
+
+### Azure Arc Resource Bridge
+
+- Azure Arc Resource Bridge IP needs access to the URLs listed [here](../vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md#resource-bridge-networking-requirements).
 
 ### vCenter Server
 
@@ -136,12 +140,12 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 | **vCenter password** | Enter the password for the vSphere account. |
 | **Data center selection** | Select the name of the datacenter (as shown in the vSphere client) where the Azure Arc resource bridge's VM should be deployed. |
 | **Network selection** | Select the name of the virtual network or segment to which the VM must be connected. This network should allow the appliance to communicate with vCenter Server and the Azure endpoints (or internet). |
-| **Static IP / DHCP** | If you have DHCP server in your network and want to use it, enter **y**. Otherwise, enter **n**. </br>When you choose a static IP configuration, you're asked for the following information: </br> 1. **Static IP address prefix**: Network address in CIDR notation. For example: **192.168.0.0/24**. </br> 2. **Static gateway**: Gateway address. For example: **192.168.0.0**. </br> 3. **DNS servers**: Comma-separated list of DNS servers. </br> 4. **Start range IP**: Minimum size of two available IP addresses is required. One IP address is for the VM, and the other is reserved for upgrade scenarios. Provide the starting IP address of that range. </br> 5. **End range IP**: Last IP address of the IP range requested in the previous field. </br> 6. **VLAN ID** (optional) |
+| **Static IP / DHCP** | If you have DHCP server in your network and want to use it, enter **y**. Otherwise, enter **n**. If you are using a DHCP server, reserve the IP address assigned to the Azure Arc Resource Bridge VM (Appliance VM IP). </br>When you choose a static IP configuration, you're asked for the following information: </br> 1. **Static IP address prefix**: Network address in CIDR notation. For example: **192.168.0.0/24**. </br> 2. **Static gateway**: Gateway address. For example: **192.168.0.0**. </br> 3. **DNS servers**: IP address(es) of DNS server(s) used by Azure Arc Resource Bridge VM for DNS resolution. VM must be able to resolve external sites, like mcr.microsoft.com and the vCenter server. </br> 4. **Start range IP**: Minimum size of two available IP addresses is required. One IP address is for the VM, and the other is reserved for upgrade scenarios. Provide the starting IP address of that range. Ensure the Start range IP has internet access. </br> 5. **End range IP**: Last IP address of the IP range requested in the previous field. Ensure the End range IP has internet access. </br> 6. **VLAN ID** (optional) |
 | **Resource pool** | Select the name of the resource pool to which the Azure Arc resource bridge's VM will be deployed. |
 | **Data store** | Select the name of the datastore to be used for the Azure Arc resource bridge's VM. |
 | **Folder** | Select the name of the vSphere VM and the template folder where the Azure Arc resource bridge's VM will be deployed. |
 | **VM template Name** | Provide a name for the VM template that will be created in your vCenter Server instance based on the downloaded OVA file. For example: **arc-appliance-template**. |
-| **Control Pane IP** address | Provide a static IP address that's outside the DHCP range but still available on the network. Ensure that this IP address isn't assigned to any other machine on the network. Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address.|
+| **Control Plane IP** address | Provide a static IP address that's outside the DHCP range but still available on the network. Ensure that this IP address isn't assigned to any other machine on the network. Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. Control Plane IP must have internet access. |
 | **Appliance proxy settings** | Enter **y** if there's a proxy in your appliance network. Otherwise, enter **n**. </br> You need to populate the following boxes when you have a proxy set up: </br> 1. **Http**: Address of the HTTP proxy server. </br> 2. **Https**: Address of the HTTPS proxy server. </br> 3. **NoProxy**: Addresses to be excluded from the proxy. </br> 4. **CertificateFilePath**: For SSL-based proxies, the path to the certificate to be used.
 
 After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
