@@ -5,7 +5,8 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 10/07/2022
+ms.custom: engagement-fy23
 ---
 
 # Overview: Connection options for Azure IoT device developers

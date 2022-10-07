@@ -4,8 +4,8 @@ description: Learn how to use Azure IoT to do embedded device development and bu
 author: ryanwinter
 ms.author: rywinter
 ms.service: iot-develop
-ms.topic: overview 
-ms.date: 01/11/2021
+ms.date: 10/07/2022
+ms.custom: engagement-fy23
 ---
 
 # What is Azure IoT device and application development?
