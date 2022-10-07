@@ -8,7 +8,7 @@ ms.workload: identity
 ms.topic: how-to
 author: barclayn
 ms.author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.reviewer: krbain
 ms.date: 06/24/2022
 ms.custom: it-pro

@@ -90,7 +90,9 @@ To run the create Azure resources workflow:
 
 1. Open the `azuredeploy.yaml` file in `.github/workflows` within your repository.
 
-1. Update the value of `AZURE_RESOURCE_GROUP` to your resource group name.
+1. Update the value of `AZURE_RESOURCE_GROUP` to your resource group name. 
+
+1. Update the values of `WEB_APP_NAME` and `SQL_SERVER_NAME` to your web app name and sql server name.
 
 1. Go to **Actions** and select **Run workflow**.
 

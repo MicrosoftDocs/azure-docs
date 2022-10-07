@@ -254,7 +254,7 @@ Upgrade the server as follows:
    * Microsoft Azure Site Recovery Provider
    * Microsoft Azure Site Recovery Configuration Server/Process Server
    * Microsoft Azure Site Recovery Configuration Server Dependencies
-   * MySQL Server 5.5
+   * MySQL Server 5.7
 4. Run the following command from and admin command prompt.
    ```
    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration

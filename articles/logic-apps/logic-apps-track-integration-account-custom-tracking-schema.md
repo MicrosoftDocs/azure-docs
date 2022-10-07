@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/01/2020
+ms.date: 08/20/2022
 ---
 
 # Create custom tracking schemas that monitor end-to-end workflows in Azure Logic A

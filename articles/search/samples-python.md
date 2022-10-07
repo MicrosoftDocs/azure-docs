@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 09/09/2022
 ---
 
 # Python code samples for Azure Cognitive Search

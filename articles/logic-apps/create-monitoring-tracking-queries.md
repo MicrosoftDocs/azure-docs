@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, estfan, azla
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 08/20/2022
 ---
 
 # View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
 > This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 

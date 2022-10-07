@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 If your endpoints are running AnyConnect or the Cisco Secure Client version 4.10 MR5 or earlier, you will need to synchronize the ObjectGUID attribute for user identity attribution. You will need to reconfigure any Umbrella policy on groups after importing groups from Azure AD.
 
 > [!NOTE]
-> The on-premise Umbrella AD Connector should be turned off before importing the ObjectGUID attribute.
+> The on-premises Umbrella AD Connector should be turned off before importing the ObjectGUID attribute.
 
 When using Microsoft Azure AD Connect, the ObjectGUID attribute of users is not synchronized from on-premises AD to Azure AD by default. To synchronize this attribute, enable the optional **Directory Extension attribute sync** and select the objectGUID attributes for users.
 

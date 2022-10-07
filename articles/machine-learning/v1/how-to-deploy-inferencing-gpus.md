@@ -53,7 +53,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment-v1.md).
 
 ```python
 from azureml.core import Workspace
@@ -274,7 +274,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-For more information on creating a client application, see [Create client to consume deployed web service](../how-to-consume-web-service.md).
+For more information on creating a client application, see [Create client to consume deployed web service](how-to-consume-web-service.md).
 
 ## Clean up the resources
 

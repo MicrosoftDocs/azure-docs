@@ -237,7 +237,7 @@ If you have 100 regions, 200 departments, and 2,000 customers, that gives you 10
 
 Again, this limit isn't for an individual metric. It's for the sum of all such metrics across a subscription and region.
 
-The following steps will provide more information to assist with troubleshooting.
+Follow the steps below to see your current total active time series metrics, and more information to assist with troubleshooting.
 
 1. Navigate to the Monitor section of the Azure portal.
 1. Select **Metrics** on the left hand side.

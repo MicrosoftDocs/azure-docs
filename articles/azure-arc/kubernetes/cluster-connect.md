@@ -2,7 +2,7 @@
 title: "Use the cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 07/22/2022
+ms.date: 08/30/2022
 ms.topic: how-to
 description: "Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
@@ -49,6 +49,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
   ```azurecli
@@ -74,12 +77,15 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
   |`*.servicebus.windows.net` | 443 |
   |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+
 - Replace the placeholders and run the below command to set the environment variables used in this document:
 
   ```azurepowershell
   $CLUSTER_NAME = <cluster-name>
   $RESOURCE_GROUP = <resource-group-name>
-  $ARM_ID_CLUSTER = (az connectedk8s show -n $CLUSTER_NAME -g $RESOURCE_GROUP --query id -o tsv)
+  $ARM_ID_CLUSTER = (Get-AzConnectedKubernetes -ResourceGroupName $RESOURCE_GROUP -Name $CLUSTER_NAME).Id
   ```
 
 ---
@@ -99,7 +105,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
    - For an Azure AD application:
 
      ```azurecli
-     AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query objectId -o tsv)
+     AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query id -o tsv)
      ```
 
 1. Authorize the entity with appropriate permissions.
@@ -114,6 +120,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
      ```azurecli
      az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
+     az role assignment create --role "Azure Arc Enabled Kubernetes Cluster User Role" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
      ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -179,7 +186,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     ```
 
     ```console
-    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
+    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed 's/$/\n/g')
     ```
 1. Get the token to output to console
   

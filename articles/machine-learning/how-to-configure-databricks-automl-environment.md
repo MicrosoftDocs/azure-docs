@@ -108,13 +108,13 @@ In AutoML config, when using Azure Databricks add the following parameters:
 ## ML notebooks that work with Azure Databricks
 
 Try it out:
-+ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
++ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
 ![Select Import](./media/how-to-configure-environment/azure-db-screenshot.png)
 ![Import Panel](./media/how-to-configure-environment/azure-db-import.png)
 
-+ Learn how to [create a pipeline with Databricks as the training compute](./how-to-create-machine-learning-pipelines.md).
++ Learn how to [create a pipeline with Databricks as the training compute](v1/how-to-create-machine-learning-pipelines.md).
 
 ## Troubleshooting
 

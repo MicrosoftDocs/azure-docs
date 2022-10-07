@@ -4,7 +4,7 @@ description: Learn how to execute SQL Server Integration Services (SSIS) package
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 08/09/2022
 author: chugugrace
 ms.author: chugu
 ---

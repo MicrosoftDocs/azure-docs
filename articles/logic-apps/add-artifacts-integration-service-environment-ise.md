@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/28/2021
+ms.date: 08/20/2022
 ---
 
 # Add resources to your integration service environment (ISE) in Azure Logic Apps

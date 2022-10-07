@@ -10,62 +10,72 @@ items:
     href: /previous-versions/azure/iot-hub-device-update/understand-device-update
 - name: Tutorials
   items:
-  - name: Image update on Raspberry Pi
-    href: device-update-raspberry-pi.md
-  - name: Use device update on a simulator
+  - name: Try Device Update with a simulator
     href: device-update-simulator.md
-  - name: Package update on Ubuntu Server 18.04 x64
+  - name: Update a device image
+    href: device-update-raspberry-pi.md
+  - name: Update device packages
     href: device-update-ubuntu-agent.md
-  - name: Device Update for Azure Real-time-operating-system
-    href: device-update-azure-real-time-operating-system.md
-  - name: Proxy Update using device update binary agent
+  - name: Update device components or connected sensors
     href: device-update-howto-proxy-updates.md
 - name: Concepts
   items:
-  - name: Device Update account and instance
-    href: device-update-resources.md
-  - name: Device Update agent
-    href: device-update-agent-overview.md
-  - name: User roles and access
-    href: device-update-control-access.md
-  - name: Apt manifest
-    href: device-update-apt-manifest.md
-  - name: Compliance
-    href: device-update-compliance.md
-  - name: Groups
-    href: device-update-groups.md
-  - name: Deployments
-    href: device-update-deployments.md
-  - name: Configuration file
-    href: device-update-configuration-file.md
-  - name: Update manifest
-    href: update-manifest.md
-  - name: How Device Update uses Plug and Play
-    href: device-update-plug-and-play.md
-  - name: Security
-    href: device-update-security.md
-  - name: Support for disconnected devices
-    href: connected-cache-disconnected-device-update.md
-  - name: Configure Connected Cache for Device Update
-    href: connected-cache-configure.md
-  - name: Import updates
-    href: import-concepts.md
-  - name: Import schema and API details
-    href: import-schema.md
-  - name: Device Update limits
-    href: device-update-limits.md
-  - name: Proxy updates
-    href: device-update-proxy-updates.md
-  - name: Multi-step updates
-    href: device-update-multi-step-updates.md  
-  - name: Components enumerator
-    href: components-enumerator.md   
+  - name: Account management
+    items:
+    - name: Device Update account and instance
+      href: device-update-resources.md
+    - name: User roles and access
+      href: device-update-control-access.md
+    - name: Device Update limits
+      href: device-update-limits.md
+    - name: Monitor Device Update for IoT Hub
+      href: monitor-device-update-iot-hub.md
+  - name: Devices 
+    items:
+    - name: Device Update agent
+      href: device-update-agent-overview.md
+    - name: How Device Update uses Plug and Play
+      href: device-update-plug-and-play.md
+    - name: Compliance
+      href: device-update-compliance.md
+    - name: Groups
+      href: device-update-groups.md
+    - name: Configuration file
+      href: device-update-configuration-file.md
+    - name: Networking requirements
+      href: device-update-networking.md
+    - name: Components enumerator
+      href: components-enumerator.md   
+  - name: Updates and deployments
+    items:
+    - name: Import updates
+      href: import-concepts.md
+    - name: Import manifest
+      href: import-schema.md
+    - name: Update manifest
+      href: update-manifest.md
+    - name: Apt manifest
+      href: device-update-apt-manifest.md
+    - name: Deployments
+      href: device-update-deployments.md
+    - name: Proxy updates
+      href: device-update-proxy-updates.md
+    - name: Multi-step updates
+      href: device-update-multi-step-updates.md
+    - name: Region mapping for BCDR
+      href: device-update-region-mapping.md  
+  - name: Updating disconnected devices
+    items:
+    - name: Support for disconnected devices
+      href: connected-cache-disconnected-device-update.md
+    - name: Configure Connected Cache for Device Update
+      href: connected-cache-configure.md
   - name: Diagnostic features
     href: device-update-diagnostics.md
+  - name: Security
+    href: device-update-security.md
   - name: Network security
     href: network-security.md
-  - name: Networking requirements
-    href: device-update-networking.md
 - name: How-to guides
   items:
   - name: Create a Device Update account
@@ -87,6 +97,8 @@ items:
   - name: Configure private endpoints
     href: configure-private-endpoints.md
     displayName: Azure CLI, az iot, az iot device-update
+  - name: Device Update for Azure Real Time Operating System
+    href: device-update-azure-real-time-operating-system.md
   - name: Use Microsoft Connected Cache
     items:
     - name: Single gateway

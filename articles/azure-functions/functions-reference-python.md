@@ -944,6 +944,7 @@ Here's a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
 * [Can't import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
+* [Troubleshoot Errors with Protobuf](recover-python-functions.md#troubleshoot-errors-with-protocol-buffers)
 
 All known issues and feature requests are tracked through the [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 

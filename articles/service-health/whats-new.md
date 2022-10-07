@@ -10,7 +10,7 @@ ms.date: 07/20/2022
 This article lists recent changes in the Azure Service Health service. 
 
 ## Azure Status page location changed
-On July 25, 2022 the Azure status page location changed to [azure.status.microsoft](https://azure.status.microsoft) from status.azure.com. The older page automatically redirects to the new one. 
+On July 25, 2022 the Azure status page location changed to [azure.status.microsoft](https://azure.status.microsoft) from status.azure.com.
 
 ## User interface changes in Azure Status page
 The following changes were made on July 25, 2022: 

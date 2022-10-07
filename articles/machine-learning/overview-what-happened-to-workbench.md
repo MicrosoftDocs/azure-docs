@@ -86,7 +86,7 @@ Now that support for the old CLI has ended, you can no longer redeploy models or
 In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs.
 
 Learn more in these articles:
-+ [Where and how to deploy models](how-to-deploy-managed-online-endpoints.md)
++ [Where and how to deploy models](./v1/how-to-deploy-and-where.md)
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 
 ## Next steps
@@ -101,4 +101,4 @@ Start with [Quickstart: Get started with Azure Machine Learning](quickstart-crea
   + [Use a Jupyter notebook to train image classification models](tutorial-train-deploy-notebook.md)
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
-  + [Use the ML extension to the CLI](how-to-train-cli.md)
+  + [Train models](how-to-train-model.md)

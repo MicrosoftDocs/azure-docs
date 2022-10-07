@@ -104,9 +104,6 @@ New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCoun
 
 ### [Azure CLI](#tab/azure-cli)
 
-> [!Important]
-> You can't change node taints through the CLI after the node pool is created.
-
 You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally killing system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools. 
 
 The following command adds a dedicated node pool of mode type system with a default count of three nodes.

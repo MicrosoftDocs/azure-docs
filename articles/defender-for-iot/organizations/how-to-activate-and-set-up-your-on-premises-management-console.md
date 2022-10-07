@@ -44,6 +44,8 @@ After you sign in for the first time, you need to activate the on-premises manag
 
    The on-premises management console can be associated to one or more subscriptions. The activation file is associated with all the selected subscriptions and the number of committed devices at the time of download.
 
+   [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="Screenshot that shows selecting multiple subscriptions." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png":::
 
    If you haven't already onboarded Defender for IoT to a subscription, see [Onboard a Defender for IoT plan for OT networks](how-to-manage-subscriptions.md#onboard-a-defender-for-iot-plan-for-ot-networks).
@@ -378,4 +380,4 @@ To unassign and delete a sensor:
 
 ## Next steps
 
-For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
+For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md) and [Manage individual sensors](how-to-manage-individual-sensors.md).

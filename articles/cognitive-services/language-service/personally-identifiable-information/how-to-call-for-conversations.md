@@ -31,7 +31,7 @@ Currently the conversational PII preview API only supports English language.
 
 ### Region support
 
-Currently the conversational PII preview API supports the following regions: East US, North Europe and UK south.
+Currently the conversational PII preview API supports all Azure regions supported by the Language service.
 
 ## Submitting data
 
@@ -82,7 +82,7 @@ When you get results from PII detection, you can stream the results to an applic
 Use the following example if you have conversations transcribed using the Speech service's [speech-to-text](../../Speech-Service/speech-to-text.md) feature:
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \
@@ -213,7 +213,7 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 Use the following example if you have conversations that originated in text. For example, conversations through a text-based chat client.
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \

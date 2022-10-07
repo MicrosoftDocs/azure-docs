@@ -1,13 +1,13 @@
 ---
 title: Create a Power BI visual offer in Partner Center for Microsoft AppSource
 description: Learn how to create a Power BI visual offer in Partner Center.
-author: posurnis
-ms.author: posurnis
+author: trkeya
+ms.author: trkeya
 ms.reviewer: pooja.surnis
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/20/2022
+ms.date: 08/09/2022
 ---
 
 # Create a Power BI visual offer
@@ -63,8 +63,6 @@ Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will e
         > [!NOTE]
         > This capability is currently in Public Preview.
     - **My offer requires purchase of a service or offers additional in-app purchase** to manage licenses and transactions independently.
-        > [!NOTE]
-        > This capability is currently in Public Preview.
     - **My offer does not require purchase of a service and does not offer in app purchases** to provide a free offer.
 
 1. Under **Power BI certification** (optional), read the description carefully and if you want to request [Power BI certification](/power-bi/developer/visuals/power-bi-custom-visuals-certified), select the check box. [Certified](/power-bi/developer/visuals/power-bi-custom-visuals-certified) Power BI visuals meet certain specified code requirements that the Microsoft Power BI team has tested and approved. We recommend that you submit and publish your Power BI visual *before* you request certification, because the certification process takes extra time that could delay publishing of your offer.

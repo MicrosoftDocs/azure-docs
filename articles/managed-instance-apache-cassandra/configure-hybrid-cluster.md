@@ -219,7 +219,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 ## <a id="hybrid-real-time-migration"></a>Use hybrid cluster for real-time migration
 
-The above instructions provide guidance for configuring a hybrid cluster. However, this is also a great way of achieving a seamless zero-downtime migration. If you have an on-premise or other Cassandra environment that you want to decommission with zero downtime, in favour of running your workload in Azure Managed Instance for Apache Cassandra, the following steps must be completed in this order:
+The above instructions provide guidance for configuring a hybrid cluster. However, this is also a great way of achieving a seamless zero-downtime migration. If you have an on-premises or other Cassandra environment that you want to decommission with zero downtime, in favour of running your workload in Azure Managed Instance for Apache Cassandra, the following steps must be completed in this order:
 
 1. Configure hybrid cluster - follow the instructions above.
 1. Temporarily disable automatic repairs in Azure Managed Instance for Apache Cassandra for the duration of the migration:

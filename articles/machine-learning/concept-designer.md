@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 10/21/2021
+ms.date: 08/03/2022
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
 ---
 
@@ -24,7 +24,7 @@ Azure Machine Learning designer is a drag-and-drop interface used to train and d
 The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to organize shared resources such as:
 
 + [Pipelines](#pipeline)
-+ [Datasets](#datasets)
++ [Data](#data)
 + [Compute resources](#compute)
 + [Registered models](v1/concept-azure-machine-learning-architecture.md#models)
 + [Published pipelines](#publish)
@@ -34,12 +34,12 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 
 Use a visual canvas to build an end-to-end machine learning workflow. Train, test, and deploy models all in the designer:
 
-+ Drag-and-drop [datasets](#datasets) and [components](#component) onto the canvas.
++ Drag-and-drop [data assets](#data) and [components](#component) onto the canvas.
 + Connect the components to create a [pipeline draft](#pipeline-draft).
 + Submit a [pipeline run](#pipeline-job) using the compute resources in your Azure Machine Learning workspace.
 + Convert your **training pipelines** to **inference pipelines**.
-+ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
-    + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
++ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and data assets.
+    + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and data assets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
 + [Deploy](#deploy) a **real-time inference pipeline** to an online endpoint to make predictions on new data in real time.
 
@@ -47,7 +47,7 @@ Use a visual canvas to build an end-to-end machine learning workflow. Train, tes
 
 ## Pipeline
 
-A [pipeline](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) consists of data assets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -55,8 +55,8 @@ As you edit a pipeline in the designer, your progress is saved as a **pipeline d
 
 A valid pipeline has these characteristics:
 
-* Datasets can only connect to components.
-* components can only connect to either datasets or other components.
+* Data assets can only connect to components.
+* components can only connect to either data assets or other components.
 * All input ports for components must have some connection to the data flow.
 * All required parameters for each component must be set.
 
@@ -68,9 +68,9 @@ Each time you run a pipeline, the configuration of the pipeline and its results 
 
 Pipeline jobs are grouped into [experiments](v1/concept-azure-machine-learning-architecture.md#experiments) to organize job history. You can set the experiment for every pipeline job. 
 
-## Datasets
+## Data
 
-A machine learning dataset makes it easy to access and work with your data. Several [sample datasets](samples-designer.md#datasets) are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
+A machine learning data asset makes it easy to access and work with your data. Several [sample data assets](samples-designer.md#datasets) are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more data assets as you need them.
 
 ## Component
 

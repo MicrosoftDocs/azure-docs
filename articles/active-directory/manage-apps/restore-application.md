@@ -20,11 +20,8 @@ zone_pivot_groups: enterprise-apps-minus-portal
 
 In this article, you'll learn how to restore a soft deleted enterprise application in your Azure Active Directory (Azure AD) tenant. Soft deleted enterprise applications can be restored from the recycle bin within the first 30 days after their deletion. After the 30-day window, the enterprise application is permanently deleted and can't be restored.
 
-When an [application registration is deleted](../develop/howto-remove-app.md) in its home tenant through app registrations in the Azure portal, the enterprise application, which is its corresponding service principal also gets deleted. Restoring the deleted application registration through the Azure portal won't restore its corresponding service principal, but will instead create a new one. 
-
-Currently, the [soft deleted enterprise applications](delete-application-portal.md) can't be viewed or restored through the Azure portal. Therefore, if you had configurations on the previous enterprise application, you can't restore them through the Azure portal. To recover your previous configurations, first delete the enterprise application that was restored through the Azure portal, then follow the steps in this article to recover the soft deleted enterprise application. For more information on frequently asked questions about deletion and recovery of applications, see [Deleting and recovering applications FAQs](delete-recover-faq.yml.
-
-
+>[!IMPORTANT]
+>If you deleted an [application registration](../develop/howto-remove-app.md) in its home tenant through app registrations in the Azure portal, the enterprise application, which is its corresponding service principal also got deleted. If you restore the deleted application registration through the Azure portal, its corresponding service principal, won't be restored. Instead, this action will create a new service principal. Therefore, if you had configurations on the previous enterprise application, you can't restore them through the Azure portal. Use the workaround provided in this article to recover the deleted service principal and its previous configurations.
 ## Prerequisites
 
 To restore an enterprise application, you need:
@@ -32,8 +29,9 @@ To restore an enterprise application, you need:
 - An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - A [soft deleted enterprise application](delete-application-portal.md) in your tenant.
-
 ## View restorable enterprise applications
+
+To recover your enterprise application with its previous configurations, first delete the enterprise application that was restored through the Azure portal, then take the following steps to recover the soft deleted enterprise application. For more information on frequently asked questions about deletion and recovery of applications, see [Deleting and recovering applications FAQs](delete-recover-faq.yml).
 
 :::zone pivot="aad-powershell"
 

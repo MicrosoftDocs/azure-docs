@@ -14,7 +14,7 @@ ms.custom: avverma, devx-track-azurepowershell
 # Tutorial: Automatically scale a virtual machine scale set with Azure PowerShell
 
 > [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
