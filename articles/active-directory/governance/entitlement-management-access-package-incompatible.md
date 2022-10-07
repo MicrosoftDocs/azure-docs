@@ -90,7 +90,7 @@ Follow these steps to view the list of other access packages that have indicated
 
 ## Identifying users who already have incompatible access to another access package (Preview)
 
-If you've configured incompatible access settings on an access package that already has users assigned to it, then any of those users who also have an assignment to the incompatible access package or groups won't be able to re-request access.
+If you've configured incompatible access settings on an access package that already has users assigned to it, then you can download a list of those users who have that additional access. Those users who also have an assignment to the incompatible access package won't be able to re-request access.
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
 
