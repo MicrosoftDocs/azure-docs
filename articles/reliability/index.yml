@@ -25,26 +25,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: API Management
-            url: migrate-api-mgt.md
-          - text: App Service Environment
-            url: migrate-app-service-environment.md
-          - text: App Service
-            url: migrate-app-service.md
-          - text: Application Gateway v2
-            url: migrate-app-gateway-v2.md
-          - text: Cache for Redis
-            url: migrate-cache-redis.md
-          - text: Log Analytics workspaces
-            url: migrate-monitor-log-analytics.md
-          - text: Container instances
-            url: migrate-container-instances.md
-          - text: Recovery Services vault
-            url: migrate-recovery-services-vault.md
-          - text: Storage accounts
-            url: migrate-storage.md
-          - text: Virtual Machines and virtual machine scale sets
-            url: migrate-vm.md
+          - text: Azure Functions
+          - url: reliability-functions.md
   # Card
   - title: Availability zone guides
     linkLists:
