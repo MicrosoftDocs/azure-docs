@@ -26,7 +26,7 @@
     items:
     - name: Overview
       href: concept-authentication-methods.md
-    - name: Manage authentication methods
+    - name: Manage 
       href: how-to-authentication-methods-manage.md
     - name: Microsoft Authenticator app
       href: concept-authentication-authenticator-app.md
