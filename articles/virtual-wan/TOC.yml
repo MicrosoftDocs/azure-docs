@@ -271,6 +271,8 @@
         href: packet-capture-site-to-site-powershell.md
     - name: Advanced Monitoring for P2S VPN
       href: monitor-point-to-site-connections.md
+- name: Guidelines for configuring ANF over Virtual WAN
+  href: configure-anf-on-vwan.md
 - name: Reference
   items:
   - name: Monitoring data
