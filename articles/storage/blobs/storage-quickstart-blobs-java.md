@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api
-ms.date: 10/06/2022
+ms.date: 10/07/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -109,9 +109,9 @@ Create a Java application named *blob-quickstart-v12*.
 
 ### Install the packages
 
-Open the *pom.xml* file in your text editor. 
+Open the `pom.xml` file in your text editor. 
 
-Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number. Using the **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.6.0/sdk/boms/azure-sdk-bom/README.md).
+Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number. Using **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.6.0/sdk/boms/azure-sdk-bom/README.md).
 
 ```xml
 <dependencyManagement>
@@ -149,7 +149,7 @@ Then add the following dependency elements to the group of dependencies. The **a
 From the project directory, follow steps to create the basic structure of the app:
 
 1. Navigate to the */src/main/java/com/blobs/quickstart* directory
-1. Open the *App.java* file in your editor
+1. Open the `App.java` file in your editor
 1. Delete the line `System.out.println("Hello world!");`
 1. Add the necessary `import` directives
 
@@ -264,7 +264,7 @@ You can authorize access to data in your storage account using the following ste
     Connect-AzAccount
     ```
 
-2. To use `DefaultAzureCredential`, make sure that the **azure-identity** dependency is added in *pom.xml*:
+2. To use `DefaultAzureCredential`, make sure that the **azure-identity** dependency is added in `pom.xml`:
 
     ```xml
     <dependency>
@@ -279,7 +279,7 @@ You can authorize access to data in your storage account using the following ste
 
 4. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
 
-    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
+    :::image type="content" source="./media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
     > [!NOTE]
     > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
@@ -388,7 +388,7 @@ Add this code to the end of the `Main` method:
 
 This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command:
+To run the code, navigate to the directory containing the `pom.xml` file and compile the project by using the following `mvn` command:
 
 ```console
 mvn compile
@@ -404,25 +404,6 @@ Run the following `mvn` command to execute the app:
 
 ```console
 mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonThreads=false
-```
-
-Alternatively, you can add `exec-maven-plugin` to *pom.xml*:
-
-```xml
-<plugin>
-  <groupId>org.codehaus.mojo</groupId>
-  <artifactId>exec-maven-plugin</artifactId>
-  <version>1.4.0</version>
-  <configuration>
-    <mainClass>com.blobs.quickstart.App</mainClass>
-    <cleanupDaemonThreads>false</cleanupDaemonThreads>
-  </configuration>
-</plugin>
-```
-With this plugin configured as shown above, you can execute the app with this command:
-
-```console
-mvn exec:java
 ```
 
 The output of the app is similar to the following example:
