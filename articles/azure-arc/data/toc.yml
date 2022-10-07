@@ -276,6 +276,8 @@ items:
               href: restore-adventureworks-sample-db-into-postgresql-server.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-server.md
+- name: Azure Arc-enabled SQL Server >
+  href: /sql/sql-server/azure-arc/overview
 - name: Reference
   items:
   - name: Release version log
