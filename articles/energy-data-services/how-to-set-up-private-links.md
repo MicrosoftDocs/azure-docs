@@ -1,5 +1,5 @@
 ---
-title: Private endpoints for Microsoft Energy Data Services
+title: Create a private endpoint for Microsoft Energy Data Services
 description: Learn how to set up private endpoints for Microsoft Energy Data Services by using Azure Private Link.
 author: Lakshmisha-KS
 ms.author: lakshmishaks
@@ -10,7 +10,7 @@ ms.custom: template-concept
 #Customer intent: As a developer, I want to set up private endpoints for Microsoft Energy Data Services.
 ---
 
-# Private endpoints for Microsoft Energy Data Services
+# Create a private endpoint for Microsoft Energy Data Services
 [Azure Private Link](../private-link/private-link-overview.md) provides private connectivity from a virtual network to Azure platform as a service (PaaS). It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 
 By using Azure Private Link, you can connect to a Microsoft Energy Data Services Preview instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Microsoft Energy Data Services instance over these private IP addresses. 
@@ -31,11 +31,11 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 
 1. From the **All resources** pane, choose a Microsoft Energy Data Services Preview instance.
 1. Select **Networking** from the list of settings.       
-1. Select the **Public Access** tab, and then select **Enabled from all networks** to allow traffic from all networks.
+1. On the **Public Access** tab, select **Enabled from all networks** to allow traffic from all networks.
 
     [![Screenshot of the Public Access tab.](media/how-to-manage-private-links/private-links-1-Networking.png)](media/how-to-manage-private-links/private-links-1-Networking.png#lightbox)
 	
-    To block traffic from all networks, select **Disabled**.
+    If you want to block traffic from all networks, select **Disabled**.
 
 1. Select the **Private Access** tab, and then select **Create a private endpoint**.
  
