@@ -26,7 +26,7 @@ After the certificates feature in Azure Batch is retired on February 29, 2024, a
 
 Azure Key Vault is a fully managed Azure service that provides controlled access to store and manage secrets, certificates, tokens, and keys. Key Vault provides security at the transport layer by ensuring that any data flow from the key vault to the client application is encrypted. Azure Key Vault gives you a secure way to store essential access information and to set fine-grained access control. You can manage all secrets from one dashboard. Choose to store a key in either software-protected or hardware-protected hardware security modules (HSMs). You also can set Key Vault to auto-renew certificates.
 
-For a complete guide on how to enable Azure Key Vault VM Extension with Pool User-assigned Managed Identity, please see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
+For a complete guide on how to enable Azure Key Vault VM Extension with Pool User-assigned Managed Identity, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
 
 ## FAQs
 
