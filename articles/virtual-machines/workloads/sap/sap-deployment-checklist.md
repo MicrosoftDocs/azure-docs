@@ -172,7 +172,7 @@ We recommend that you set up and validate a full HADR solution and security desi
    1.  Verify that [network security group and ASC](../../../virtual-network/network-security-groups-overview.md) rules work as expected and shield the protected resources.
    1.  Make sure that all resources that need to be encrypted are encrypted. Define and implement processes to back up certificates, store and access those certificates, and restore the encrypted entities.
    1.  For storage encryption, server-side encrption with platform managed key (SSE-PMK) is enabled for every managed disks in Azure by default. [Key management](/azure/virtual-machines/disk-encryption) with customer managed keys can be considered, if required for customer owned key rotation.
-   1.  [Host based server-side encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) should not be enabled for performance reasons on M-series family VMs.
+   1.  [Host based server-side encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) should not be enabled for performance reasons on M-series family Linux VMs.
    1.  Do not use Azure Disk Encryption with SAP as [OS images](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems) for SAP are not supported.
    1.  Database native encryption can be considered, such as transparent data encryption (TDE). Encryption key management and location must be secured. Database encryption occurs inside the VM and is independent of any storage encryption such as SSE.
 1. Performance testing. In SAP, based on SAP tracing and measurements, make these comparisons:
