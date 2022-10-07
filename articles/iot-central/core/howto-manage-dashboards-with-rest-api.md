@@ -3,7 +3,7 @@ title: Use the REST API to manage dashboards in Azure IoT Central
 description: How to use the IoT Central REST API to manage dashboards in an application
 author: v-krishnag
 ms.author: v-krishnag
-ms.date: 09/23/2022
+ms.date: 10/06/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -49,65 +49,72 @@ Use the following request to create a dashboard.
 PUT https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
 ```
 
-dashboardId - Unique ID for the dashboard which is a DTMI identifier. To learn more, see [Digital Twin Modeling Identifier]
+`dashboardId` - A unique [DTMI](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier) identifier for the dashboard.
 
 The request body has some required fields:
 
 * `@displayName`: Display name of the dashboard.
-* `@favorite`: Whether the dashboard is favorited or not.
+* `@favorite`: Is the dashboard in the favorites list.
 * `group`: Device group ID.
-* `Tile` : Configuration specifying tile object, including the layout, display name and configuration
+* `Tile` : Configuration specifying tile object, including the layout, display name, and configuration.
 
 Tile has some required fields:
 
-Name|Description
-----|-----------
-displayName|Display name of the tile.
-height|Height of the tile
-width|Width of the tile
-x|Horizontal position of the tile
-y|Vertical position of the tile
+| Name | Description |
+| ---- | ----------- |
+| `displayName` | Display name of the tile |
+| `height` | Height of the tile |
+| `width` | Width of the tile |
+| `x` | Horizontal position of the tile |
+| `y` | Vertical position of the tile |
 
-Tile object can have multiple configuations. This articles includes line chart, markdown and last known value tiles.
+The dimensions and location of a tile both use integer units. The smallest possible tile has a height and width of one.
+
+You can configure a tile object to display multiple types of data. This article includes examples of tiles that show line charts, markdown, and last known value. To learn more about the different tile types you can add to a dashboard, see [Tile types](howto-manage-dashboards.md#tile-types).
 
 ### Line chart tile
 
-The Line chart tile has the below configuration::
+Plot one or more aggregate telemetry values for one or more devices over a time period. For example, you can display a line chart to plot the average temperature and pressure of one or more devices during the past hour.
 
-Name| Description
-----|------------
-capabilities|Specifies the aggregate value of either property, telemetry or command to be displayed in the tile.
-devices|The list of associated devices to display
-format|The format configuration of the chart
-group|The ID of the device group to display
-queryRange|The query range configuration of the chart
-type|For this type of tile this value should be `lineChart`
+The line chart tile has the following configuration:
+
+| Name | Description |
+|--|--|
+| `capabilities` | Specifies the aggregate value of the telemetry to display. |
+| `devices` | The list of devices to display. |
+| `format` | The format configuration of the chart such as the axes to use. |
+| `group` | The ID of the device group to display. |
+| `queryRange` | The time range and resolution to display.|
+| `type` | `lineChart` |
 
 ### Markdown tile
 
-The markdown tile has the below configuration:
+Clickable tiles that display a heading and description text formatted in Markdown. The URL can be a relative link to another page in the application or an absolute link to an external site.
+The markdown tile has the following configuration:
 
-Name|Description
-----|-----------
-description|Markdown string to render inside the tile
-href|Link to visit when tile is clicked
-image|Base64 encoded
-type|For this type of tile this value should be `markdown`
+| Name | Description |
+|--|--|
+| `description` | The markdown string to render inside the tile. |
+| `href` | The link to visit when the tile is selected. |
+| `image` | A base64 encoded image to display. |
+| `type` | `markdown` |
 
 ### Last known value tile
 
-The last known value (LKV) tile has the below configuration:
+Display the latest telemetry values for one or more devices. For example, you can use this tile to display the most recent temperature, pressure, and humidity values for one or more devices.
 
-Name|Description
-----|-----------
-capabilities|Specifies the capability to be displayed in the tile.
-devices|The list of associated devices to display
-format|The format configuration of the LKV tile
-group|The ID of the device group to display
-showTrend|Show the trend between the last known value and the value before that
-type|For this type of tile this value should be `lkv`
+The last known value (LKV) tile has the following configuration:
 
-The following example shows a request body that adds a new dashboard with line chart tile, markdown tile and last known value tile
+| Name | Description |
+|--|--|
+| `capabilities` | Specifies the telemetry to display. |
+| `devices` | The list of devices to display. |
+| `format` | The format configuration of the LKV tile such as text size of word wrapping. |
+| `group` | The ID of the device group to display. |
+| `showTrend` | Show the difference between the last known value and the previous value. |
+| `type` | `lkv` |
+
+The following example shows a request body that adds a new dashboard with line chart, markdown, and last known value tiles. The LKV and line chart tiles are `2x2` tiles. The markdown tile is a `1x1` tile. The tiles are arranged on the top row of the dashboard:
 
 ```json
 {
@@ -148,7 +155,7 @@ The following example shows a request body that adds a new dashboard with line c
                 "href": "https://aka.ms/iotcentral-pnp-docs",
                 "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
             },
-            "x": 4,
+            "x": 2,
             "y": 0,
             "width": 1,
             "height": 1
@@ -180,7 +187,7 @@ The following example shows a request body that adds a new dashboard with line c
                     "resolution": "PT1M"
                 }
             },
-            "x": 5,
+            "x": 3,
             "y": 0,
             "width": 2,
             "height": 2
@@ -189,7 +196,7 @@ The following example shows a request body that adds a new dashboard with line c
     "favorite": false
 }
 ```
-
+<!-- TODO: Fix this - also check the image example above... -->
 The response to this request looks like the following example:
 
 ```json
@@ -236,7 +243,7 @@ The response to this request looks like the following example:
 
 ## Get a dashboard
 
-Use the following request to retreive the details of a dashboard.
+Use the following request to retrieve the details of a dashboard by using a dashboard ID.
 
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
@@ -286,7 +293,7 @@ The response to this request looks like the following example:
 }
 ```
 
-## Update a dashbboard
+## Update a dashboard
 
 ```http
 PATCH https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
@@ -382,7 +389,7 @@ The response to this request looks like the following example:
 
 ## Delete a dashboard
 
-Use the following request to delete a dashboard:
+Use the following request to delete a dashboard by using the dashboard ID:
 
 ```http
 DELETE https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
