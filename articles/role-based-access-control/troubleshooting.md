@@ -301,7 +301,7 @@ The [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)
 
 **Cause**
 
-To improve performance, PowerShell uses a cache when listing role assignments. There can be delay of around 10 minutes for the cache to be refreshed.
+The role assignment has been removed. However, to improve performance, PowerShell uses a cache when listing role assignments. There can be delay of around 10 minutes for the cache to be refreshed.
 
 **Solution**
 
@@ -311,7 +311,7 @@ Instead of listing the role assignments for a security principal, list all the r
 $validateRemovedRoles = Get-AzRoleAssignment -ObjectId $securityPrincipalObject.Id 
 ```
 
-Could be replaced with this command:
+Can be replaced with this command instead:
 
 ```powershell
 $validateRemovedRoles = Get-AzRoleAssignment -Scope /subscriptions/$subId | Where-Object -Property ObjectId -EQ $securityPrincipalObject.Id
