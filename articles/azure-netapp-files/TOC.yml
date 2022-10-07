@@ -322,7 +322,7 @@
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Guidelines for configuring ANF over Virtual WAN
-  href: configure-anf-on-vwan.md
+  href: ../virtual-wan/configure-anf-on-vwan.md
 - name: Reference
   items:
   - name: REST
