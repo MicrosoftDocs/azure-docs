@@ -978,7 +978,7 @@ For more information about the Form Recognizer Sample Labeling tool, review the 
 
 ### TLS 1.2 enforcement
 
-TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/cognitive-services-security.md).
+TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../../cognitive-services/security-features.md).
 
 ## January 2020
 

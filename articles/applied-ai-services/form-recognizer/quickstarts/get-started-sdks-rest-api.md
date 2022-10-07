@@ -128,7 +128,7 @@ To learn more about Form Recognizer features and development options, visit our 
 ::: zone pivot="programming-language-rest-api"
 
 ::: moniker range="form-recog-2.1.0"
-[!INCLUDE [REST API](../includes/get-started/rest-api.md)]
+[!INCLUDE [REST API](includes/get-started/rest-api.md)]
 ::: moniker-end
 
 ::: zone-end
