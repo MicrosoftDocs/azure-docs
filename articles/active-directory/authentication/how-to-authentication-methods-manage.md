@@ -37,13 +37,15 @@ Two other policies provide a legacy way to manage some authentication methods fo
 
 To see the authentication methods that can be enabled for the tenant for **Multifactor authentication**, sign in to the Azure AD portal, and click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
 
-::image type="content" border="true" source="./media/concept-authentication-strengths/service-settings.png" alt-text="Screenshot of MFA service settings.":::
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
-To see the authentication methods that can be enabled for the tenant for  **Password reset**, sign in to the Azure AD portal, and click **Password reset** > **Authentication methods**.
+To see the authentication methods that can be enabled for the tenant for **Password reset**, sign in to the Azure AD portal, and click **Password reset** > **Authentication methods**.
+
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
 
 ## How policies interact
 
-A user who is enabled for an authentication method in _any_ policy can sign in by using that method. 
+A user who is enabled for an authentication method in _any_ policy can register for that method and use it to sign in. 
 
 ## Transition between policies
 
