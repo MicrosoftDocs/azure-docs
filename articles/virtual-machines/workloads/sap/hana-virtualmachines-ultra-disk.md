@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # SAP HANA Azure virtual machine Ultra Disk storage configurations
-This document is about HANA storage configurations for Azure Ultra Disk storage as it was introduced as ultra low latency storage for DBMS and other applications that need ultra low latency storage. For general considerations around stripe sizes when using LVM, HANA data volume partitioning or other considerations that are independent of the particular storage type, check these two dosumcnets:
+This document is about HANA storage configurations for Azure Ultra Disk storage as it was introduced as ultra low latency storage for DBMS and other applications that need ultra low latency storage. For general considerations around stripe sizes when using LVM, HANA data volume partitioning or other considerations that are independent of the particular storage type, check these two documents:
 
 - [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - [Azure Storage types for SAP workload](./planning-guide-storage.md)

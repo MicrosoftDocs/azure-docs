@@ -51,9 +51,9 @@
   - name: Azure VM storage for HANA
     href: hana-vm-operations-storage.md
   - name: Premium storage for HANA
-    href: hana-vm-premium-ssd-v1.md
+    href: hana-virtualmachines-premium-ssd-v1.md
   - name: Ultra disk for HANA
-    href: hana-vm-ultra-disk.md
+    href: hana-virtualmachines-ultra-disk.md
   - name: SAP HANA with Azure NetApp Files
     href: hana-vm-operations-netapp.md
 - name: DBMS Guides (Azure VMs)
