@@ -125,6 +125,7 @@ After you've created your organization hierarchy you can use organizations in ar
 
 - [Organization dashboards](howto-manage-dashboards.md) that show information to users about devices in their organization.
 - [Device groups](tutorial-use-device-groups.md) for devices in specific organizations.
+- [IoT Edge deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests) for deployment manifests associated with specific organizations.
 - [Analytics](howto-create-analytics.md) for devices in specific organizations.
 - [Jobs](howto-manage-devices-in-bulk.md#create-and-run-a-job) that bulk manage devices in specific organizations.
 
@@ -138,7 +139,6 @@ You can set an organization as the default organization to use in your applicati
 To set the default organization, select **Settings** on the top menu bar:
 
 :::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization." lightbox="media/howto-create-organization/set-default-organization.png":::
-
 
 ## Add organizations to an existing application
 
@@ -156,7 +156,6 @@ The following limits apply to organizations:
 
 - The hierarchy can be no more than five levels deep.
 - The total number of organizations can't be more than 200. Each node in the hierarchy counts as an organization.
-
 
 ## Next steps
 

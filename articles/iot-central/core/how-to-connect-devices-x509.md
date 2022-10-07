@@ -361,7 +361,7 @@ You can repeat the above steps for _mytestselfcertsecondary_ certificate as well
 This section assumes you're using a group enrollment to connect your IoT Edge device. Follow the steps in the previous sections to:
 
 - [Generate root and device certificates](#generate-root-and-device-certificates)
-- [Create a group enrollment](#create-a-group-enrollment) <!-- No slightly different type of enrollment group - UPDATE!! -->
+- [Create a group enrollment](#create-a-group-enrollment)
 
 To connect the IoT Edge device to IoT Central using the X.509 device certificate:
 
