@@ -48,9 +48,13 @@
   items:
   - name: Azure Storage types for SAP
     href: planning-guide-storage.md
-  - name: Configure Azure VM storage
+  - name: Azure VM storage for HANA
     href: hana-vm-operations-storage.md
-  - name: SAP HANA with Azure NetApp Files
+    - name: Premium storage for HANA
+    href: hana-vm-premium-ssd-v1.md
+    - name: Ultra disk for HANA
+    href: hana-vm-ultra-disk.md
+    - name: SAP HANA with Azure NetApp Files
     href: hana-vm-operations-netapp.md
 - name: DBMS Guides (Azure VMs)
   items:
