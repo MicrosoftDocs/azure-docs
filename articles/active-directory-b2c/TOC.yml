@@ -499,7 +499,7 @@
   - name: Identity verification tools
     items:
     - name: Grit IEF editor 
-      href: partner-grit-ief-editor.md
+      href: partner-grit-editor.md
   - name: Domain name
     items:
     - name: b2clogin.com overview
