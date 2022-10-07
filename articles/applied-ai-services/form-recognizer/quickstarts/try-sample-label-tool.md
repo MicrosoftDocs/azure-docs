@@ -20,7 +20,7 @@ recommendations: false
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
 
-::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
 
 >[!TIP]
 >
@@ -292,5 +292,3 @@ That's it! You've learned how to use the Form Recognizer sample tool for Form Re
 
 >[!div class="nextstepaction"]
 > [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
-
-::: moniker-end
