@@ -72,15 +72,15 @@ To run a search job, in the Azure portal:
 
     Azure Monitor Logs runs the search job and creates a new table in your workspace for your search job results. 
 
-    :::image type="content" source="media/search-job/search-job-execution_1.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job is running and the search job results table will be available shortly." lightbox="media/search-job/search-job-execution_1.png":::
+    :::image type="content" source="media/search-job/search-job-execution-1.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job is running and the search job results table will be available shortly." lightbox="media/search-job/search-job-execution-1.png":::
 
 1. When the new table is ready, select **View tablename_SRCH** to view the table in Log Analytics.
 
-    :::image type="content" source="media/search-job/search-job-execution_2.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view." lightbox="media/search-job/search-job-execution_2.png":::
+    :::image type="content" source="media/search-job/search-job-execution-2.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view." lightbox="media/search-job/search-job-execution-2.png":::
 
     You can see the search job results as they begin flowing into the newly created search job results table.
 
-    :::image type="content" source="media/search-job/search-job-execution_3.png" alt-text="Screenshot that shows search job results table with data." lightbox="media/search-job/search-job-execution_3.png":::
+    :::image type="content" source="media/search-job/search-job-execution-3.png" alt-text="Screenshot that shows search job results table with data." lightbox="media/search-job/search-job-execution-3.png":::
 
     Azure Monitor Logs shows a **Search job is done** message at the end of the search job. The results table is now ready with all the records that match the search query. 
 
