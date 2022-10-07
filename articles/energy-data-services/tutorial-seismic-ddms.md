@@ -9,7 +9,7 @@ ms.date: 3/16/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Sample steps to interact with Seismic ddms
+# Tutorial: Sample steps to interact with Seismic DDMS
 
 Seismic DDMS provides the capability to operate on seismic data in the Microsoft Energy Data Services instance.
 
