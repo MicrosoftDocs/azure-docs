@@ -8,7 +8,7 @@ ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 10/06/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
-#Customer intent: As a developer, I want to set up customer-managed keys on Microsoft Energy Data Services
+#Customer intent: As a developer, I want to set up customer-managed keys on Microsoft Energy Data Services.
 ---
 # Data security and encryption in Microsoft Energy Data Services Preview
 
@@ -33,16 +33,16 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 
 **Step 1- Configure the key vault**
 
-1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?.
+1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?
 2. Using customer-managed keys with Microsoft Energy Data Services requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 3. To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md). When you create the key vault, select Enable purge protection.
 
    [![Screenshot of enabling purge protection and soft delete while creating key vault](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png#lightbox)
  
 4.	To enable purge protection on an existing key vault, follow these steps:
-   1. Navigate to your key vault in the Azure portal.
-   2. Under **Settings**, choose **Properties**.
-   3. In the **purge protection** section, choose **Enable purge protection**.
+      1. Navigate to your key vault in the Azure portal.
+      2. Under **Settings**, choose **Properties**.
+      3. In the **purge protection** section, choose **Enable purge protection**.
 
 **Step 2 - Add a key**
 1.	Next, add a key to the key vault.
