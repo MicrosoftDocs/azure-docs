@@ -10,7 +10,7 @@
   items:
     - name: Azure Percept overview
       href: overview-azure-percept.md   
-    - name: Azure Percept Studio overview v1
+    - name: Azure Percept Studio overview
       href: overview-azure-percept-studio.md   
     - name: Azure Percept DK and Vision device overview
       href: overview-azure-percept-dk.md   
