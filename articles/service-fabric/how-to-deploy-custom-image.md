@@ -44,7 +44,7 @@ When you create a new node type, you will need to modify your ARM template with 
 }
 ```
  
-The vmImageResourceId will be passed along to the VM ScaleSet as image reference Id, currently we support 3 types of resources:
+The vmImageResourceId will be passed along to the virtual machine scale set as an image reference ID, currently we support 3 types of resources:
 
 •	Managed Image (Microsoft.Compute/images)
 •	Shared Gallery Image (Microsoft.Compute/galleries/images)
@@ -56,5 +56,5 @@ Auto OS upgrade is also supported for custom image. To enable auto OS upgrade, t
 
 `/subscriptions/<subscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/galleries/<CustomImageGallery>/images/<CustomImageDef>`
 
-When node type is created with this as vmImageResourceId and the cluster has [auto OS upgrade](how-to-managed-cluster-upgrades.md) enabled, SFMC will monitor the published versions for this image definition and if any new version is published, start to reimage the VM ScaleSets created with this image definition which will bring them to the latest version.
+When node type is created with this as vmImageResourceId and the cluster has [auto OS upgrade](how-to-managed-cluster-upgrades.md) enabled, SFMC will monitor the published versions for this image definition and if any new version is published, start to reimage the virtual machine scale sets created with this image definition which will bring them to the latest version.
  
