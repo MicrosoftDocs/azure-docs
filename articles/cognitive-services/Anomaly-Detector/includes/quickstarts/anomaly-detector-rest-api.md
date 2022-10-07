@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/06/2022
 ms.author: mbullwin
+ms.custom: engagement-fy23
 ---
 
 In this quickstart, you learn how to detect anomalies in a batch of time series data using the Anomaly Detector service and cURL.
