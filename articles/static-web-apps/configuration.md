@@ -425,6 +425,15 @@ A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash 
 
 Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content which can negatively impact search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
 
+In case of using API Management, you can create a rewrite rule in you Api Management instance. 
+
+```
+<inbound>
+        <base />
+        <rewrite-uri template="@{ return context.Request.Url.Path + "/"; }" copy-unmatched-params="true" />
+</inbound>
+```
+
 The following normalization and redirect rules will apply for each of the available configurations:
 
 ### Always 
