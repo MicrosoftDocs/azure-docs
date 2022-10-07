@@ -290,13 +290,3 @@ gradle build
 ```console
 gradle run
 ```
-
-Congratulations! In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer Java library reference](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true)

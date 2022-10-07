@@ -186,10 +186,3 @@ See the [Sample invoice](https://github.com/Azure-Samples/cognitive-services-RES
 #### Response body
 
 See the [full sample output on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json).
-
-## Next steps
-
-Congratulations! In this quickstart, you used the Form Recognizer REST API to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
-
-> [!div class="nextstepaction"]
-> [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)

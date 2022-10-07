@@ -483,13 +483,3 @@ if __name__ == "__main__":
 ```console
 python form_recognizer_quickstart.py
 ```
-
-Congratulations! In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer Python reference library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true)

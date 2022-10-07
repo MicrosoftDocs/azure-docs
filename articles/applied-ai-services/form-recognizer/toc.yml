@@ -30,6 +30,9 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
+    - name: Form Recognizer SDKs and REST API
+      displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
+      href: quickstarts/get-started-sdk-rest-api.md
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-v3-form-recognizer-studio.md

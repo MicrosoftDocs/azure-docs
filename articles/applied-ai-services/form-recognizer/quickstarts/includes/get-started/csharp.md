@@ -42,7 +42,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -50,29 +50,29 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 1. On the start page, choose Create a new project.
 
-    :::image type="content" source="../../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+    :::image type="content" source="../../../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot of the Visual Studio create new project page.":::
+    :::image type="content" source="../../../media/quickstarts/create-new-project.png" alt-text="Screenshot of the Visual Studio create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studios configure new project dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studios configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 5.0 (Current)**, and then select **Create**.
 
-    :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio additional information dialog window.":::
+    :::image type="content" source="../../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio additional information dialog window.":::
 
 ### Install the client library with NuGet
 
  1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
+    :::image type="content" source="../../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
+     :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
  1. Select version **3.1.1** from the dropdown menu and select **Install**.
 
@@ -108,7 +108,7 @@ private static readonly AzureKeyCredential credential = new AzureKeyCredential(k
 
 1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to **Program.cs** file:
 
-    :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
+    :::image type="content" source="../../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
 1. Select a code sample to copy and paste into your application's Main method:
 
@@ -302,16 +302,6 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
 
 Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+  :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 <!-- --- -->
-
-Congratulations! In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer C#/.NET reference library](/dotnet/api/overview/azure/AI.FormRecognizer-readme)
