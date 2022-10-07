@@ -28,15 +28,14 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 ## Prerequisites
 
-- An Azure subscription.
-
+- An Azure subscription
 - An instance of [Microsoft Energy Data Services Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription.
 
 ## Get your Microsoft Energy Data Services instance details
 
-The first step is to get the following information from your [Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the Azure portal:
+The first step is to get the following information from your [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
 
-| Parameter          | Value to use             | Example                               |
+| Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
 | CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
 | CLIENT_SECRET      | Client secrets           |  _fl******************                |
@@ -68,7 +67,7 @@ Next, set up Postman:
 
        :::image type="content" source="media/tutorial-wellbore-ddms/postman-import-files.png" alt-text="Screenshot that shows importing collection and environment files in Postman."  lightbox="media/tutorial-wellbore-ddms/postman-import-files.png":::
   
-1. In the Postman environment, update **CURRENT VALUE** with the information from your [Energy Data Services instance](#get-your-microsoft-energy-data-services-instance-details):
+1. In the Postman environment, update **CURRENT VALUE** with the information from your [Microsoft Energy Data Services instance](#get-your-microsoft-energy-data-services-instance-details):
 
    1. In Postman, in the left menu, select **Environments**, and then select **Wellbore DDMS Environment**.
 
@@ -104,7 +103,7 @@ The Postman collection for Wellbore DDMS contains requests you can use to intera
 
 To generate a token:
 
-1. Import the following cURL command in Postman to generate a bearer token. Use the values from your Energy Data Services instance.
+1. Import the following cURL command in Postman to generate a bearer token. Use the values from your Microsoft Energy Data Services instance.
 
       ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
@@ -121,7 +120,7 @@ To generate a token:
 
 ## Use Wellbore DDMS APIs to work with well data records
 
-Successfully completing the Postman requests that are described in the following Wellbore DDMS APIs indicates success ingestion and retrieval of well records in your Microsoft Energy Data Services instance.
+Successfully completing the Postman requests that are described in the following Wellbore DDMS APIs indicates successful ingestion and retrieval of well records in your Microsoft Energy Data Services instance.
 
 ### Create a legal tag
 
@@ -187,7 +186,7 @@ Method: DELETE
 
 ## Next steps
 
-Go to the seismic DDMS sdutil tutorial to learn how to use sdutil to load seismic data into seismic store:
+Go to the Seismic Store DDMS sdutil tutorial to learn how to use sdutil to load seismic data into Seismic Store:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Seismic DDMS store sdutil](tutorial-seismic-ddms-sdutil.md)
+> [Tutorial: Seismic Store DDMS sdutil](tutorial-seismic-ddms-sdutil.md)
