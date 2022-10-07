@@ -17,7 +17,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 ## Prerequisites
 
-- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to the latest version.
+- [Install or upgrade the Azure CLI](/cli/azure/install-azure-cli) to version 2.30.0 or later.
 
 - Install the latest version of `connectedk8s` Azure CLI extension:
 
@@ -41,7 +41,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 ## Set up Azure AD applications
 
 
-### [AzureCLI v2.16 >= v2.36](#tab/AzureCLI236)
+### [AzureCLI v2.30 >= v2.36](#tab/AzureCLI236)
 #### Create a server application
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
@@ -65,7 +65,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
     ```
 
-1. Grant "Sign in and read user profile" API permissions to the application:
+1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](https://learn.microsoft.com/en-us/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
 
     ```azurecli     
         az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
@@ -118,7 +118,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     echo $SERVER_APP_ID
     ```
 
-1. Copy this JSON and save it in a file called oauth2-permissions.json.
+1. To grant "Sign in and read user profile" API permissions to the server application. Copy this JSON and save it in a file called oauth2-permissions.json: 
  
     ```json
     {
@@ -155,7 +155,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
         SERVER_APP_SECRET=$(az ad sp credential reset --id "${SERVER_APP_ID}"  --query password -o tsv) 
     ```
 
-1. Grant "Sign in and read user profile" API permissions to the application:
+1. Grant "Sign in and read user profile" API permissions to the application. [Additional information](https://learn.microsoft.com/en-us/cli/azure/ad/app/permission?view=azure-cli-latest#az-ad-app-permission-add-examples):
 
     ```azurecli
         az ad app permission add --id "${SERVER_APP_ID}" --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
@@ -166,6 +166,8 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     > An Azure tenant administrator has to run this step.
     > 
     > For usage of this feature in production, we recommend that you  create a different server application for every cluster.
+    > 
+    > RBAC for Azure Arc for kuberentes requires scope `AzureADMyOrg`. [Additional Information.] (https://learn.microsoft.com/en-us/azure/active-directory/develop/supported-accounts-validation)  
 
 #### Create a client application
 
@@ -195,6 +197,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     ```azurecli
         az ad app permission add --id "${CLIENT_APP_ID}" --api "$ENV:SERVER_APP_ID" --api-permissions <oAuthPermissionId>=Scope
         az ad app permission grant --id "${CLIENT_APP_ID}" --api <oAuthPermissionId> --scope User.Read
+        #
         az ad app update --id ${SERVER_APP_ID} --set  signInAudience=AzureADMyOrg
         CLIENT_OBJECT_ID=$(az ad app show --id "${CLIENT_APP_ID}" --query "id" -o tsv)
         az rest --method PATCH --headers "Content-Type=application/json" --uri https://graph.microsoft.com/v1.0/applications/${CLIENT_OBJECT_ID}/ --body '{"api":{"requestedAccessTokenVersion": 1}}'
@@ -211,16 +214,18 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
     ```json
     {
-      "Name": "Read authorization",
-      "IsCustom": true,
-      "Description": "Read authorization",
-      "Actions": ["Microsoft.Authorization/*/read"],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "AssignableScopes": [
-        "/subscriptions/<subscription-id>"
-      ]
+        "oauth2PermissionScopes": [
+            {
+                "adminConsentDescription": "Sign in and read user profile",
+                "adminConsentDisplayName": "Sign in and read user profile",
+                "id": "<oauth_app_ID>",
+                "isEnabled": true,
+                "type": "User",
+                "userConsentDescription": "Sign in and read user profile",
+                "userConsentDisplayName": "Sign in and read user profile",
+                "value": "User.Read"
+            }
+        ]
     }
     ```
 
