@@ -80,7 +80,7 @@ The following release notes are for version 15.0.0.0 of the Azure File Sync agen
 		Get-StorageSyncCloudTieringStatus -Path <server endpoint path or volume>
  		```
 - New diagnostic and troubleshooting tool 
-	- The Debug-StorageSyncServer cmdlet will diagnose common issues like certificate misconfiguration and incorrect server time. Also, we have simplified Azure Files Sync troubleshooting by merging the functionality of some of existing scripts and cmdlets (AFSDiag.ps1, FileSyncErrorsReport.ps1, Test-StorageSyncNetworkConnectivity) into the Debug-StorageSyncServer cmdlet.
+	- The Debug-StorageSyncServer cmdlet will diagnose common issues like certificate misconfiguration and incorrect server time. Also, we have simplified Azure File Sync troubleshooting by merging the functionality of some of existing scripts and cmdlets (AFSDiag.ps1, FileSyncErrorsReport.ps1, Test-StorageSyncNetworkConnectivity) into the Debug-StorageSyncServer cmdlet.
  
 		To run diagnostics on the server, run the following PowerShell commands:
  		```powershell
