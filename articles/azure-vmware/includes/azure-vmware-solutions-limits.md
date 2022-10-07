@@ -15,10 +15,10 @@ The following table describes the maximum limits for Azure VMware Solution.
 | **Resource** | **Limit** |
 | :-- | :-- |
 | vSphere clusters per private cloud | 12 |
-| Minimum number of ESXi hosts per cluster | 3 |
-| Maximum number of ESXi hosts per cluster | 16 |
+| Minimum number of ESXi hosts per cluster | 3 (hard-limit) |
+| Maximum number of ESXi hosts per cluster | 16 (hard-limit) |
 | Maximum number of ESXi hosts per private cloud | 96 |
-| Maximum number of vCenter Servers per private cloud | 1  |
+| Maximum number of vCenter Servers per private cloud | 1 (hard-limit)  |
 | Maximum number of HCX site pairings | 25 (any edition) |
 | Maximum number of Azure VMware Solution ExpressRoute max linked private clouds | 4<br />The virtual network gateway used determines the actual max linked private clouds.  For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
 | Maximum Azure VMware Solution ExpressRoute port speed | 10 Gbps<br />The virtual network gateway used determines the actual bandwidth. For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
@@ -27,7 +27,7 @@ The following table describes the maximum limits for Azure VMware Solution.
 | VMware Site Recovery Manager - Maximum number of protected Virtual Machines  | 3,000  |
 | VMware Site Recovery Manager - Maximum number of Virtual Machines per recovery plan  | 2,000  |
 | VMware Site Recovery Manager - Maximum number of protection groups per recovery plan  | 250  |
-| VMware Site Recovery Manager - RPO Values  | 5 min or higher *  |
+| VMware Site Recovery Manager - RPO Values  | 5 min or higher * (hard-limit)  |
 | VMware Site Recovery Manager - Maximum number of virtual machines per protection group  | 500  |
 | VMware Site Recovery Manager - Maximum number of recovery plans  | 250  |
 
