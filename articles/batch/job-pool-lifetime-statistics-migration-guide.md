@@ -20,7 +20,7 @@ To make statistical data available to customers, the Batch service performs aggr
 
 ## Feature end of support
 
-The lifetime statistics API is designed and maintained to help you gather information about usage of your Batch pools and jobs across the lifetime of your Batch account. Alternatives exist to gather this data such finer-grained statistics on a [per job](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics) or [per pool](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics) basis. Only the lifetime statistics APIs are being retired.
+The lifetime statistics API is designed and maintained to help you gather information about usage of your Batch pools and jobs across the lifetime of your Batch account. Alternatives exist to gather data at a fine-grained level on a [per job](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics) or [per pool](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics) basis. Only the lifetime statistics APIs are being retired.
 
 When the job and pool lifetime statistics API is retired on April 30, 2023, the API will no longer work, and it will return an appropriate HTTP response error code to the client.
 
@@ -28,7 +28,7 @@ When the job and pool lifetime statistics API is retired on April 30, 2023, the 
 
 ### Aggregate with per job or per pool statistics
 
-You can get statistics for any active job or pool in a Batch account. For jobs, you can issue a [Get Job](https://learn.microsoft.com/rest/api/batchservice/job/get) request and view the [JobStatistics object](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics). For pools, you can issue a [Get Pool](https://learn.microsoft.com/rest/api/batchservice/pool/get) request and view the [PoolStatistics object](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics). You will then be able to use these results and aggregate as needed across jobs and pools that are relevant for your analysis workflow.
+You can get statistics for any active job or pool in a Batch account. For jobs, you can issue a [Get Job](https://learn.microsoft.com/rest/api/batchservice/job/get) request and view the [JobStatistics object](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics). For pools, you can issue a [Get Pool](https://learn.microsoft.com/rest/api/batchservice/pool/get) request and view the [PoolStatistics object](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics). You'll then be able to use these results and aggregate as needed across jobs and pools that are relevant for your analysis workflow.
 
 ### Set up logs in the Azure portal
 
@@ -46,4 +46,4 @@ The Azure portal has various options to enable monitoring and logs. System logs 
 
 ## Next steps
 
-For more information, refer to the Batch [Job](https://learn.microsoft.com/rest/api/batchservice/job) or [Pool](https://learn.microsoft.com/rest/api/batchservice/pool) API. For Azure Monitr logs, please see [this article](../azure-monitor/logs/data-platform-logs.md).
+For more information, see the Batch [Job](https://learn.microsoft.com/rest/api/batchservice/job) or [Pool](https://learn.microsoft.com/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](../azure-monitor/logs/data-platform-logs.md).
