@@ -32,13 +32,13 @@ ms.author: greglin
 
 <sup>1</sup>These limits are applied to every individual virtual machine and not at the virtual network level. DNS queries exceeding these limits are dropped.
 
-**Private DNS Resolver**
+**DNS private resolver**
 
 | Resource | Limit |
 | --- | --- |
-| Private DNS resolvers per subscription |15|
-| Inbound endpoints per private DNS resolver |5|
-| Outbound endpoints per private DNS resolver |5|
+| DNS private resolvers per subscription |15|
+| Inbound endpoints per DNS private resolver |5|
+| Outbound endpoints per DNS private resolver |5|
 | Forwarding rules per DNS forwarding ruleset |1000|
 | Virtual network links per DNS forwarding ruleset |500|
 | Outbound endpoints per DNS forwarding ruleset |2|
