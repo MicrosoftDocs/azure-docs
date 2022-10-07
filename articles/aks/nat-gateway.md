@@ -136,7 +136,7 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
 Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. Some of these issues include:
 
 * **Unhealthy backend status**: When you deploy an AKS cluster with [Application Gateway Ingress Control (AGIC)][agic] and [Application Gateway][app-gw] in different VNets, the backend health status becomes "Unhealthy." The outbound connectivity fails because the peered networked IP isn't present in the CNI config of the Windows nodes.
-* **Node port reuse**: Windows OutboundNAT uses port to translate your pod IP to your Windows node host IP. This can cause an unstable connection to the external service due to the Windows and Azure Load Balancer [port exhaustion issue][port].
+* **Node port reuse**: Windows OutboundNAT uses port to translate your pod IP to your Windows node host IP. This can cause an unstable connection to the external service due a port exhaustion issue.
 * **Invalid traffic routing to internal service endpoints**: When you create a load balancer service with `externalTrafficPolicy` set to *Local*, kube-proxy on Windows doesn't create the proper rules in the IPTables to route traffic to the internal service endpoints.
 
 Windows enables OutboundNAT by default. You can manually disable OutboundNAT when creating new Windows agent pools by using `--disable-windows-outbound-nat`.
@@ -168,4 +168,3 @@ For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 [az-cli]: /cli/azure/install-azure-cli
 [agic]: ../application-gateway/ingress-controller-overview.md
 [app-gw]: ../application-gateway/overview.md
-[port]: ../load-balancer/load-balancer-outbound-connection#port-exhaustion.md
