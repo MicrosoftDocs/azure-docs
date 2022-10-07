@@ -78,6 +78,6 @@ keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/r
 
 ## Next steps
 
-- Learn how to build [automated regression testing in your CI/CD workflow](tutorial-cicd-azure-pipelines.md).
+- Learn how to build [automated regression testing in your CI/CD workflow](./tutorial-identify-performance-regression-with-cicd.md).
 - Learn how to [parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
 - Learn how to [load test secured endpoints](./how-to-test-secured-endpoints.md).
