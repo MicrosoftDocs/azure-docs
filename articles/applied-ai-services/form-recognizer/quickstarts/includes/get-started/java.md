@@ -33,11 +33,11 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ## Set up
 
@@ -91,7 +91,7 @@ mkdir -p src/main/java
 
 You'll create the following directory structure:
 
-:::image type="content" source="../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
+:::image type="content" source="../../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
 
 Navigate to the Java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and `import` statements:
 
@@ -185,10 +185,10 @@ This sample demonstrates how to analyze data from certain types of common docume
 
 You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
 
-* [**Invoice**](../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
-* [**Receipt**](../../concept-receipt.md): extracts text and key information from receipts.
-* [**ID document**](../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
-* [**Business-card**](../../concept-business-card.md): extracts text and key information from business cards.
+* [**Invoice**](../../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
+* [**Receipt**](../../../concept-receipt.md): extracts text and key information from receipts.
+* [**ID document**](../../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
+* [**Business-card**](../../../concept-business-card.md): extracts text and key information from business cards.
 
 Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Azure portal Form Recognizer instance):
 
