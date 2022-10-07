@@ -59,7 +59,7 @@ Elasticsearch Exporter Settings
 
 ### Pipelines
 
-During the Public Preview, only logs pipelines are supported. These are exposed in the custom resource specification of the Arc telemetry router and available for modification.  Currently, we do not allow configuration of receivers and processors in these pipelines - only exporters are changeable.  All pipelines must be prefixed with "logs" in order to be injected with the necessary receivers and processors. e.g., `logs/internal`
+During the Public Preview, only logs and metrics pipelines are supported. These are exposed in the custom resource specification of the Arc telemetry router and available for modification.  Currently, we do not allow configuration of receivers and processors in these pipelines - only exporters are changeable.  All pipelines must be prefixed with "logs" or "metrics" in order to be injected with the necessary receivers and processors. e.g., `logs/internal`
 
 Pipeline Settings
 
@@ -174,7 +174,7 @@ kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
 apiVersion: arcdata.microsoft.com/v1beta2
   kind: TelemetryRouter
   metadata:
-    creationTimestamp: "2022-09-08T16:54:04Z"
+    creationTimestamp: <timestamp>
     generation: 1
     name: arc-telemetry-router
     namespace: <namespace>
@@ -183,9 +183,9 @@ apiVersion: arcdata.microsoft.com/v1beta2
       controller: true
       kind: DataController
       name: datacontroller-arc
-      uid: 9c0443d8-1cc3-4c40-b600-3552272b3d3e
-    resourceVersion: "15000547"
-    uid: 3349f73a-0904-4063-a501-d92bd6d3e66e
+      uid: <uid>
+    resourceVersion: <resourceVersion>
+    uid: <uid>
   spec:
     collector:
       customerPipelines:
@@ -204,20 +204,22 @@ apiVersion: arcdata.microsoft.com/v1beta2
       - certificateName: arcdata-msft-elasticsearch-exporter-internal
       - certificateName: cluster-ca-certificate
   status:
-    lastUpdateTime: "2022-09-08T16:54:05.042806Z"
+    lastUpdateTime: <timestamp>
     observedGeneration: 1
     runningVersion: v1.12.0_2022-10-11
     state: Ready
 
 ```
 
-We are exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two TelemetryCollector customer resources are created. One collector is dedicated to inbound/interal telemetry layer while the 2nd is dedicated to outbound/external telemetry layer. You can see the index, service endpoint, and certificates it is using to do so.  This is provided as an example in the deployment, so you can see how to export to your own monitoring solutions.
+We are exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two OtelCollector custom resources are created. You can see the index, service endpoint, and certificates it is using to do so.  This is provided as an example in the deployment, so you can see how to export to your own monitoring solutions.
 
 You can run the following command to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
 
 ```bash
 kubectl describe otelcollector collector -n <namespace>
 ```
+
+The first of the two OtelCollector custom resources is the inbound collector, dedicated to the inbound telemetry layer. The inbound collector receives the logs and metrics, then exports them to a Kafka custom resource.
 
 ```yaml
 Name:         collector-inbound
@@ -236,7 +238,7 @@ Metadata:
     Kind:            TelemetryRouter
     Name:            arc-telemetry-router
     UID:             <uid>
-  Resource Version:  10506200
+  Resource Version:  <resourceVersion>
   UID:               <uid>
 Spec:
   Collector:
@@ -312,6 +314,11 @@ Status:
   State:            Ready
 Events:             <none>
 
+```
+
+The second of the two OtelCollector custom resources is the outbound collector, dedicated to the outbound telemetry layer. The outbound collector receives the logs and metrics data from the Kafka custom resource. Those logs and metrics can then be exported to the customer's monitoring solutions, such as Kafka or Elasticsearch.
+
+```yaml
 Name:         collector-outbound
 Namespace:    arc
 Labels:       <none>
@@ -320,7 +327,7 @@ Is Valid:     true
 API Version:  arcdata.microsoft.com/v1beta2
 Kind:         OtelCollector
 Metadata:
-  Creation Timestamp:  2022-10-06T22:54:10Z
+  Creation Timestamp:  <timestamp> 
   Generation:          1
   Owner References:
     API Version:     arcdata.microsoft.com/v1beta2
@@ -328,7 +335,7 @@ Metadata:
     Kind:            TelemetryRouter
     Name:            arc-telemetry-router
     UID:             <uid>
-  Resource Version:  10506201
+  Resource Version:  <resourceVersion>
   UID:               <uid>
 Spec:
   Collector:
@@ -410,9 +417,9 @@ Events:             <none>
 
 ```
 
-The purpose of this child resource is to provide a visual representation of the inner configuration of the collector, and you should see it in a *Ready* state.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource. 
+After deploying the Telemetry Router, both OtelCollector custom resources should be in a *Ready* state.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource. 
 
-If you look at the pods, you should see the two collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0` - as well:
+If you look at the pods, you should see the two collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0` - as well as the `kakfa-server-0` pod.
 
 ```bash
 kubectl get pods -n <namespace>
@@ -471,7 +478,7 @@ For example:
 **router.yaml**
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta2
 kind: TelemetryRouter
 metadata:
   name: arc-telemetry-router
@@ -529,7 +536,7 @@ You can test adding a new logs pipeline by updating the TelemetryRouter custom r
 **router.yaml**
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta2
 kind: TelemetryRouter
 metadata:
   name: arc-telemetry-router
@@ -593,7 +600,7 @@ For example:
 **router.yaml**
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta2
 kind: TelemetryRouter
 metadata:
   name: arc-telemetry-router
