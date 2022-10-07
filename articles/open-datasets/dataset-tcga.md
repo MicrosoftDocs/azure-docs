@@ -34,7 +34,7 @@ This dataset is stored in the East US 2 Azure regions. Allocating compute resour
 
 East US 2: 'https://datasettcga.blob.core.windows.net/dataset'
 
-[SAS Token](../storage/common/storage-sas-overview.md): ?sp=r&st=2022-09-23T17:51:10Z&se=2025-09-02T01:51:10Z&spr=https&sv=2021-06-08&sr=c&sig=k44eVLkcrrJZCMrqijJjywE4G%2BG%2BC0f7CZ0xZFlQB0A%3D
+[SAS Token](../storage/common/storage-sas-overview.md): ?sp=rl&st=2022-10-07T19:43:37Z&se=2030-10-02T03:43:37Z&spr=https&sv=2021-06-08&sr=c&sig=9YgXjisOpHJNgdeMb5lOOzBhA38PWGM8g2DHjo9A5Cs%3D
 
 
 ### Use Terms
