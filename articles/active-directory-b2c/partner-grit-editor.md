@@ -39,7 +39,7 @@ To get started with the IEF Editor, ensure the following prerequisites are met:
 
 The following illustration shows a sample code-development workflow from XML files to production.
 
-![Screenshot shows the sample code-development workflow.](./media/partner-grit-ief-editor/sample-code-development-workflow.png)
+![Screenshot shows the sample code-development workflow.](./media/partner-grit-editor/sample-code-development-workflow.png)
 
 | Step | Description |
 |:-----|:------|
