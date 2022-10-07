@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 
 
-# Edit your Azure Active Directory B2C Identity Experience Framework XML with Grit Visual Identity Experience Framework Editor
+# Edit Azure Active Directory B2C Identity Experience Framework (IEF) XML with Grit Visual IEF Editor
 
 [Grit Software Systems Visual Identity Experience Framework (IEF) Editor](https://www.gritiam.com/iefeditor), is a tool that saves time during Azure Active Directory B2C (Azure AD B2C) authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.
 
