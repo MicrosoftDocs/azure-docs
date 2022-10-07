@@ -143,8 +143,8 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Property | Type | Description |
 |----------|------|-------------|
-| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br> Please note: You'll be able to only exclude one group for number matching. |
-| includeTarget | featureTarget | A single entity that is included in this feature. <br> Please note: You'll be able to only set one group for number matching.|
+| excludeTarget | featureTarget | A single entity that is excluded from this feature. <br>You can only exclude one group for number matching. |
+| includeTarget | featureTarget | A single entity that is included in this feature. <br>You can only include one group for number matching.|
 | State | advancedConfigState | Possible values are:<br>**enabled** explicitly enables the feature for the selected group.<br>**disabled** explicitly disables the feature for the selected group.<br>**default** allows Azure AD to manage whether the feature is enabled or not for the selected group. |
 
 #### Feature target properties
@@ -163,7 +163,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 In **featureSettings**, you'll need to change the **numberMatchingRequiredState** from **default** to **enabled**. 
 
-Note that the value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you don't want to allow passwordless, use **push**. 
+The value of Authentication Mode can be either **any** or **push**, depending on whether or not you also want to enable passwordless phone sign-in. In these examples, we will use **any**, but if you don't want to allow passwordless, use **push**. 
 
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
@@ -208,7 +208,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
  
 ```
  
-To confirm this has applied, please run the GET request by using the following endpoint: 
+To confirm the change is applied, run the GET request by using the following endpoint: 
 
 ```http
 GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
