@@ -286,7 +286,7 @@ In this section, you'll add code to retrieve messages from the queue.
     {
         // TODO: Replace the <TOPIC SUBSCRIPTION NAME> placeholder
         string body = args.Message.Body.ToString();
-        Console.WriteLine($"Received: {body} from subscription: <TOPIC SUBSCRIPTION NAME>");
+        Console.WriteLine($"Received: {body} from subscription.");
 
         // complete the message. messages is deleted from the subscription. 
         await args.CompleteMessageAsync(args.Message);
