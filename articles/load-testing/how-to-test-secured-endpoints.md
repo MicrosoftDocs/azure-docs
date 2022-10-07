@@ -119,11 +119,11 @@ The following diagram shows how to use shared secrets or credentials to authenti
 
     1. Create a user-defined variable that retrieves the secret value with the `GetSecret` custom function:
 
-        :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-user-defined-variables.png" alt-text="Screenshot that shows the Authorization header added to a request in JMeter.":::
+        :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-user-defined-variables.png" alt-text="Screenshot that shows how to add a user-defined variable that uses the GetSecret function in JMeter.":::
 
     1. Update the JMeter sampler component to pass the secret in the request. For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header:
 
-        :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows the Authorization header added to a request in JMeter.":::
+        :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter.":::
         
 When you now run your load test, the JMeter script can retrieve the secret information from the secrets store and authenticate with the application endpoint.
 
