@@ -185,18 +185,8 @@ kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
 apiVersion: arcdata.microsoft.com/v1beta2
   kind: TelemetryRouter
   metadata:
-    creationTimestamp: <timestamp>
-    generation: 1
     name: arc-telemetry-router
     namespace: <namespace>
-    ownerReferences:
-    - apiVersion: arcdata.microsoft.com/v5
-      controller: true
-      kind: DataController
-      name: datacontroller-arc
-      uid: <uid>
-    resourceVersion: <resourceVersion>
-    uid: <uid>
   spec:
     collector:
       customerPipelines:
@@ -214,20 +204,15 @@ apiVersion: arcdata.microsoft.com/v1beta2
       certificates:
       - certificateName: arcdata-msft-elasticsearch-exporter-internal
       - certificateName: cluster-ca-certificate
-  status:
-    lastUpdateTime: <timestamp>
-    observedGeneration: 1
-    runningVersion: v1.12.0_2022-10-11
-    state: Ready
-
 ```
 
 We are exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two OtelCollector custom resources are created. You can see the index, service endpoint, and certificates it is using to do so.  These custom resources are provided as an example of the deployment, so you can see how to export to your own monitoring solutions.
 
-You can run the following command to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
+You can run the following commands to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
 
 ```bash
-kubectl describe otelcollector collector -n <namespace>
+kubectl describe otelcollector collector-inbound -n <namespace>
+kubectl describe otelcollector collector-outbound -n <namespace>
 ```
 
 The first of the two OtelCollector custom resources is the inbound collector, dedicated to the inbound telemetry layer. The inbound collector receives the logs and metrics, then exports them to a Kafka custom resource.
@@ -420,25 +405,7 @@ metricsdc-twq7r               2/2     Running     0          19h
 metricsui-psnvg               2/2     Running     0          19h
 ```
 
-To verify that the logs exporting is happening correctly, you can inspect the logs of the collector or look at Elasticsearch.
-
-To look at the logs of the collector, you will need to exec into the container by running the following command:
-
-```bash
- kubectl exec -it arctc-collector-outbound-0 -c otel-collector -- /bin/bash -n <namespace>
-
-cd /var/log/opentelemetry-collector/
-```
-
-If you look at the logs files, you should see successful POSTs to Elasticsearch with response code 200. 
-
-Example Output:
-
-```bash
-2022-08-30T16:08:33.455Z        debug   elasticsearchexporter@v0.53.0/exporter.go:182   Request roundtrip completed.    {"kind": "exporter", "name": "elasticsearch/arcdata/internal", "path": "/_bulk", "method": "POST", "duration": 0.006774934, "status": "200 OK"}
-```
-
-If there are successful POSTs, everything should be running correctly.
+To verify that the logs exporting is happening correctly, check elasticsearch or Kafka.
 
 ## **Exporting to Your Monitoring Solutions**
 
