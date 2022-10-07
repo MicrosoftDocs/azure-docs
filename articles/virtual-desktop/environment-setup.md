@@ -44,6 +44,7 @@ To publish resources to users, you must assign them to app groups. When assignin
     - The application crashes
     - Other negative effects on end-user experience and session performance
 - A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
+- Personal host pools only allow and support RemoteApp app groups.
 
 ## Workspaces
 

@@ -1,18 +1,18 @@
 ---
-title: Deploy Windows 7 virtual machine Azure Virtual Desktop - Azure
-description: How to configure and deploy a Windows 7 virtual machine on Azure Virtual Desktop.
+title: Deploy Windows 7 session host virtual machine Azure Virtual Desktop - Azure
+description: How to configure and deploy a Windows 7 session host virtual machine on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/11/2020
+ms.date: 08/08/2022
 ms.author: helohr
 manager: femila
 ---
-# Deploy a Windows 7 virtual machine on Azure Virtual Desktop
+# Deploy a Windows 7 session host virtual machine on Azure Virtual Desktop
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+The process to deploy a Windows 7 session host virtual machine (VM) for Azure Virtual Desktop is slightly different than for other versions of Windows. This guide will tell you how to deploy Windows 7 session host VMs.
 
-The process to deploy a Windows 7 virtual machine (VM) on Azure Virtual Desktop is slightly different than for VMs running later versions of Windows. This guide will tell you how to deploy Windows 7.
+> [!IMPORTANT]
+> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
 
 ## Prerequisites
 

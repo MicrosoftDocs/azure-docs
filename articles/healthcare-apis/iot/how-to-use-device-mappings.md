@@ -5,25 +5,28 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 09/27/2022
 ms.author: jasteppe
 ---
 
-# How to use Device mappings
+# How to use device mappings
 
-> [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
+This article describes how to configure the MedTech service device mapping.
 
-This article describes how to configure the MedTech service using Device mappings.
+The MedTech service requires two types of JSON-based mappings. The first type, **device mapping**, is responsible for mapping the device payloads sent to the MedTech service device message event hub end point. The device mapping extracts types, device identifiers, measurement date time, and the measurement value(s). 
 
-MedTech service requires two types of JSON-based mappings. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hubs end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). 
-
-The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
-
-The two types of mappings are composed into a JSON document based on their type. These JSON documents are then added to your MedTech service through the Azure portal. The Device mapping document is added through the **Device mapping** page and the FHIR destination mapping document through the **Destination** page.
+The second type, **Fast Healthcare Interoperability Resources (FHIR&#174;) destination mapping**, controls the mapping for FHIR resource. The FHIR destination mapping allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
 > [!NOTE]
-> Mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
+> Device and FHIR destination mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately.
+
+The two types of mappings are composed into a JSON document based on their type. These JSON documents are then added to your MedTech service through the Azure portal. The device mapping is added through the **Device mapping** page and the FHIR destination mapping through the **Destination** page.
+
+> [!TIP]
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service device and FHIR destination mappings; and export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
+
+> [!IMPORTANT]
+> Links to OSS projects on the GitHub website are for informational purposes only and do not constitute an endorsement or guarantee of any kind.  You should review the information and licensing terms on the OSS projects on GitHub before using it.   
 
 ## Device mappings overview
 
@@ -74,11 +77,11 @@ The content payload itself is an Azure Event Hubs message, which is composed of 
 
 The five device content-mapping types supported today rely on JSONPath to both match the required mapping and extracted values. More information on JSONPath can be found [here](https://goessner.net/articles/JsonPath/). All five template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSONPath expressions.
 
-You can define one or more templates within the Device mapping template. Each Event Hubs device message received is evaluated against all device mapping templates. 
+You can define one or more templates within the MedTech service device mapping. Each event hub device message received is evaluated against all device mapping templates. 
 
 A single inbound device message can be separated into multiple outbound messages that are later mapped to different observations in the FHIR service. 
 
-Various template types exist and may be used when building the Device mapping file.
+Various template types exist and may be used when building the MedTech service device mapping.
 
 |Name                                                                     | Description                                                                   |  
 |-------------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -96,6 +99,6 @@ Various template types exist and may be used when building the Device mapping fi
 In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
 
 >[!div class="nextstepaction"]
->[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+>[How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

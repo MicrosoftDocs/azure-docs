@@ -74,6 +74,9 @@ The following metadata information is requested by the agent from Azure:
 * Guest configuration policy assignments
 * Extension requests - install, update, and delete.
 
+> [!NOTE]
+> Azure Arc-enabled servers doesn't store/process customer data outside the region the customer deploys the service instance in.
+
 ## Deployment options and requirements
 
 To deploy the agent and connect a machine, certain [prerequisites](prerequisites.md) must be met. There are also [networking requirements](network-requirements.md) to be aware of.

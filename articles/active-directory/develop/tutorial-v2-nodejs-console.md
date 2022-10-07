@@ -147,7 +147,7 @@ const msalConfig = {
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
  * The scope is always in the format '<resource>/.default'. For more, visit:
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
+ * https://learn.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '/.default'],

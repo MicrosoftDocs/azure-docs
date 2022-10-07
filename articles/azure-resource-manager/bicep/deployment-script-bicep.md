@@ -36,9 +36,9 @@ The deployment script resource is only available in the regions where Azure Cont
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same Bicep file as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
+If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts).
 
 ## Configure the minimum permissions
 
@@ -616,7 +616,7 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a Microsoft Learn module:
+In this article, you learned how to use deployment scripts. To walk through a Learn module:
 
 > [!div class="nextstepaction"]
-> [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts)
+> [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)

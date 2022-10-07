@@ -30,7 +30,7 @@ When designing isolated environments, it's important to consider the following p
 
 * **Use only modern authentication** - Applications deployed in isolated environments must use claims-based modern authentication (for example, SAML, * Auth, OAuth2, and OpenID Connect) to use capabilities such as federation, Azure AD B2B collaboration, delegation, and the consent framework. This way, legacy applications that have dependency on legacy authentication methods such as NT LAN Manager (NTLM) won't carry forward in isolated environments.
 
-* **Enforce strong authentication** - Strong authentication must always be used when accessing the isolated environment services and infrastructure. Whenever possible, [passwordless authentication](/azure/active-directory/authentication/concept-authentication-passwordless) such as [Windows for Business Hello](/windows/security/identity-protection/hello-for-business/hello-overview) or a [FIDO2 security keys](/azure/active-directory/authentication/howto-authentication-passwordless-security-key)) should be used.
+* **Enforce strong authentication** - Strong authentication must always be used when accessing the isolated environment services and infrastructure. Whenever possible, [passwordless authentication](../authentication/concept-authentication-passwordless.md) such as [Windows for Business Hello](/windows/security/identity-protection/hello-for-business/hello-overview) or a [FIDO2 security keys](../authentication/howto-authentication-passwordless-security-key.md)) should be used.
 
 * **Deploy secure workstations** - [Secure workstations](/security/compass/privileged-access-devices) provide the mechanism to ensure that the platform and the identity that platform represents is properly attested and secured against exploitation. Two other approaches to consider are:
 
@@ -73,7 +73,7 @@ Provision [emergency access accounts](../roles/security-emergency-access.md) for
 
 Use [Azure managed identities](../managed-identities-azure-resources/overview.md) for Azure resources that require a service identity. Check the [list of services that support managed identities](../managed-identities-azure-resources/managed-identities-status.md) when designing your Azure solutions.
 
-If managed identities aren't supported or not possible, consider [provisioning service principal objects](/azure/active-directory/develop/app-objects-and-service-principals).
+If managed identities aren't supported or not possible, consider [provisioning service principal objects](../develop/app-objects-and-service-principals.md).
 
 ### Hybrid service accounts
 
@@ -142,7 +142,7 @@ Below are some specific recommendations for Azure solutions. For general guidanc
 
 * Define Conditional Access policies for [security information registration](../conditional-access/howto-conditional-access-policy-registration.md) that reflects a secure root of trust process on-premises (for example, for workstations in physical locations, identifiable by IP addresses, that employees must visit in person for verification).
 
-* Consider managing Conditional Access policies at scale with automation using [MS Graph CA API](/azure/active-directory/conditional-access/howto-conditional-access-apis)). For example, you can use the API to configure, manage, and monitor CA policies consistently across tenants.
+* Consider managing Conditional Access policies at scale with automation using [MS Graph CA API](../conditional-access/howto-conditional-access-apis.md)). For example, you can use the API to configure, manage, and monitor CA policies consistently across tenants.
 
 * Consider using Conditional Access to restrict workload identities. Create a policy to limit or better control access based on location or other relevant circumstances.
 
@@ -276,7 +276,7 @@ Below are some considerations when designing a governed subscription lifecycle p
 
 ## Operations
 
-The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), [Azure Security Benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](/azure/active-directory/fundamentals/active-directory-ops-guide-ops) for detailed guidance to operate individual environments.
+The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), [Azure Security Benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](./active-directory-ops-guide-ops.md) for detailed guidance to operate individual environments.
 
 ### Cross-environment roles and responsibilities
 
@@ -417,7 +417,7 @@ The following scenarios must be explicitly monitored and investigated:
 
   * Assignment to Azure resources using dedicated accounts for MCA billing tasks.
 
-* **Privileged role activity** - Configure and review security [alerts generated by Azure AD PIM](/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts). If locking down direct RBAC assignments isn't fully enforceable with technical controls (for example, Owner role has to be granted to product teams to do their job), then monitor direct assignment of privileged roles outside PIM by generating alerts whenever a user is assigned directly to access the subscription with Azure RBAC.
+* **Privileged role activity** - Configure and review security [alerts generated by Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md). If locking down direct RBAC assignments isn't fully enforceable with technical controls (for example, Owner role has to be granted to product teams to do their job), then monitor direct assignment of privileged roles outside PIM by generating alerts whenever a user is assigned directly to access the subscription with Azure RBAC.
 
 * **Classic role assignments** - Organizations should use the modern Azure RBAC role infrastructure instead of the classic roles. As a result, the following events should be monitored:
 

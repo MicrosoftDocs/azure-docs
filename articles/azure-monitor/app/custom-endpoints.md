@@ -10,6 +10,9 @@ ms.reviewer: newylie
 
 # Application Insights overriding default endpoints
 
+> [!WARNING]
+> Endpoint modification is not recommended. [Transition to connection strings](migrate-from-instrumentation-keys-to-connection-strings.md#migrate-from-application-insights-instrumentation-keys-to-connection-strings) to simplify configuration and eliminate the need for endpoint modification.
+
 To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]

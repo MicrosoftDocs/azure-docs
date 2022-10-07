@@ -15,26 +15,25 @@ Defender for IoT supports the entire breadth of IoT devices in your environment,
 In this tutorial, you learn about:
 
 > [!div class="checklist"]
-> * Integrating with Microsoft Defender for Endpoint
+> * Integration with Microsoft Defender for Endpoint
 > * Prerequisites for Enterprise IoT network monitoring with Defender for IoT
 > * How to prepare a physical appliance or VM as a network sensor
 > * How to onboard an Enterprise IoT sensor and install software
 > * How to view detected Enterprise IoT devices in the Azure portal
 > * How to view devices, alerts, vulnerabilities, and recommendations in Defender for Endpoint
 
-> [!IMPORTANT]
-> The **Enterprise IoT network sensor** is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Microsoft Defender for Endpoint integration
 
-Integrate with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to extend your security analytics capabilities, providing complete coverage across your Enterprise IoT devices. Defender for Endpoint analytics features include alerts, vulnerabilities, and recommendations for your enterprise devices.
+Defender for IoT integrates with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to extend your security analytics capabilities, providing complete coverage across your Enterprise IoT devices. Defender for Endpoint analytics features include alerts, vulnerabilities, and recommendations for your enterprise devices.
 
-After you've onboarded a plan for Enterprise IoT and set up your Enterprise IoT network sensor, your device data integrates automatically with Microsoft Defender for Endpoint.
+Microsoft 365 P2 customers can onboard a plan for Enterprise IoT through the Microsoft Defender for Endpoint portal. After you've onboarded a plan for Enterprise IoT, view discovered IoT devices and related alerts, vulnerabilities, and recommendations in Defender for Endpoint.
 
-- Discovered devices appear in both the Defender for IoT and Defender for Endpoint portals.
-- In Defender for Endpoint, view discovered IoT devices and related alerts, vulnerabilities, and recommendations.
+Microsoft 365 P2 customers can also install the Enterprise IoT network sensor (currently in **Public Preview**) to gain more visibility into additional IoT segments of the corporate network that were not previously covered by Defender for Endpoint. Deploying a network sensor is not a prerequisite for onboarding Enterprise IoT.
 
 For more information, see [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+
+> [!IMPORTANT]
+> The **Enterprise IoT network sensor** is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -100,7 +99,7 @@ This procedure describes how to prepare your physical appliance or VM to install
     | DNS | TCP/UDP | In/Out | 53  | Address resolution |
 
 
-1. Make sure that your physical appliance or VM can access the cloud using HTTP on port 443 to the following Microsoft domains:
+1. Make sure that your physical appliance or VM can access the cloud using HTTPS on port 443 to the following Microsoft endpoints:
 
     - **EventHub**: `*.servicebus.windows.net`
     - **Storage**: `*.blob.core.windows.net`
@@ -108,7 +107,7 @@ This procedure describes how to prepare your physical appliance or VM to install
     - **IoT Hub**: `*.azure-devices.net`
 
     > [!TIP]
-    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure domains that are specified above, along with their region.
+    > You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure endpoints that are specified above, along with their region.
     >
     > The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. To use this option, download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
@@ -150,7 +149,7 @@ The installation process checks to see if the required Docker version is already
 
 <a name="install"></a>**To install the sensor**:
 
-1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
+1. On your physical appliance or VM, sign in to the sensor's CLI using a terminal, such as PuTTY, or MobaXterm.
 
 1. Run the command that you'd saved from the Azure portal. For example:
 
@@ -212,14 +211,21 @@ Alternately, remove your sensor manually from the CLI. For more information, see
 
 For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-
 ## Next steps
 
 Continue viewing device data in both the Azure portal and Defender for Endpoint, depending on your organization's needs.
 
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
+- [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md)
+- [View and manage alerts on the Defender for IoT portal](how-to-manage-cloud-alerts.md)
+- [Use Azure Monitor workbooks in Microsoft Defender for IoT (Public preview)](workbooks.md)
+- [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md)
+- [Enterprise IoT networks frequently asked questions](faqs-eiot.md)
+
 In Defender for Endpoint, also view alerts data, recommendations and vulnerabilities related to your network traffic.
 
-For more information in Defender for Endpoint documentation, see:
+For more information in the Defender for Endpoint documentation, see:
 
 - [Onboard with Microsoft Defender for IoT in Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration)
 - [Defender for Endpoint device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview)

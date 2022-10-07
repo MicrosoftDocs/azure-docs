@@ -4,7 +4,7 @@ description: Tutorial - Learn how to extract data from a raw CSV dataset. Transf
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
-ms.date: 07/02/2019
+ms.date: 08/28/2022
 #Customer intent: As a data analyst, I need to load some data using Interactive Query, transform, and then export it to an Azure SQL database
 ---
 

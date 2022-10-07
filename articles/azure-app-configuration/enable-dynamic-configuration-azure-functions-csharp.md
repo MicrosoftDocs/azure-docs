@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/17/2019
+ms.date: 09/14/2022
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, azure-functions"
 ms.tgt_pltfrm: Azure Functions
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Reload data from App Configuration
 
-Azure Functions support running [in-process](/azure/azure-functions/functions-dotnet-class-library) or [isolated-process](/azure/azure-functions/dotnet-isolated-process-guide). The main difference in App Configuration usage between the two modes is how the configuration is refreshed. In the in-process mode, you must make a call in each function to refresh the configuration. In the isolated-process mode, there is support for middleware. The App Configuration middleware, `Microsoft.Azure.AppConfiguration.Functions.Worker`, enables the call to refresh configuration automatically before each function is executed.
+Azure Functions support running [in-process](../azure-functions/functions-dotnet-class-library.md) or [isolated-process](../azure-functions/dotnet-isolated-process-guide.md). The main difference in App Configuration usage between the two modes is how the configuration is refreshed. In the in-process mode, you must make a call in each function to refresh the configuration. In the isolated-process mode, there is support for middleware. The App Configuration middleware, `Microsoft.Azure.AppConfiguration.Functions.Worker`, enables the call to refresh configuration automatically before each function is executed.
 
 1. Update the code that connects to App Configuration and add the data refreshing conditions.
 
@@ -96,6 +96,14 @@ Azure Functions support running [in-process](/azure/azure-functions/functions-do
 
     > [!TIP]
     > When you are updating multiple key-values in App Configuration, you normally don't want your application to reload configuration before all changes are made. You can register a *sentinel key* and update it only when all other configuration changes are completed. This helps to ensure the consistency of configuration in your application.
+    >
+    > You may also do the following to minimize the risk of inconsistencies:
+    >
+    > * Design your application to be tolerable for transient configuration inconsistency
+    > * Warm-up your application before bringing it online (serving requests)
+    > * Carry default configuration in your application and use it when configuration validation fails
+    > * Choose a configuration update strategy that minimizes the impact to your application, for example, a low traffic timing.
+
 
 ### [In-process](#tab/in-process)
 

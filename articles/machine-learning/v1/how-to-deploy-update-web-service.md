@@ -32,6 +32,8 @@ In this article, you learn how to update a web service that was deployed with Az
                    workspace_name="myworkspace")
     ```
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Update web service
 
 To update a web service, use the `update` method. You can update the web service to use a new model, a new entry script, or new dependencies that can be specified in an inference configuration. For more information, see the documentation for [Webservice.update](/python/api/azureml-core/azureml.core.webservice.webservice.webservice#update--args-).
@@ -109,10 +111,10 @@ For more information, see the [az ml service update](/cli/azure/ml(v1)/service#a
 
 ## Next steps
 
-* [Troubleshoot a failed deployment](../how-to-troubleshoot-deployment.md)
-* [Create client applications to consume web services](../how-to-consume-web-service.md)
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
+* [Create client applications to consume web services](how-to-consume-web-service.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights.md)
-* [Collect data for models in production](../how-to-enable-data-collection.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)

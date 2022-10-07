@@ -15,25 +15,28 @@ ms.custom: devx-track-python
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
-> [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable a back-end application to configure a device and provide visibility on the device's conditions, module identities and module twins provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, they allow for isolated configuration and conditions for each component.
->
+[Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable a back-end application to configure a device and provide visibility on the device's conditions, module identities and module twins provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, they allow for isolated configuration and conditions for each component.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 At the end of this article, you have three Python apps:
 
-* **CreateModule**, which creates a device identity, a module identity, and associated security keys to connect your device and module clients.
+* **CreateModule**: creates a device identity, a module identity, and associated security keys to connect your device and module clients.
 
-* **UpdateModuleTwinDesiredProperties**, which sends updated module twin desired properties to your IoT Hub.
+* **UpdateModuleTwinDesiredProperties**: sends updated module twin, desired properties to your IoT Hub.
 
-* **ReceiveModuleTwinDesiredPropertiesPatch**, which receives the module twin desired properties patch on your device.
+* **ReceiveModuleTwinDesiredPropertiesPatch**: receives the module twin, desired properties patch on your device.
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+> [!NOTE]
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
+* [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 ## Get the IoT hub connection string
 
@@ -43,7 +46,7 @@ In this article, you create a back-end service that adds a device in the identit
 
 ## Create a device identity and a module identity in IoT Hub
 
-In this section, you create a Python service app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module can't connect to IoT hub unless it has an entry in the identity registry. For more information, see [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
+In this section, you create a Python service app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module can't connect to IoT hub unless it has an entry in the identity registry. For more information, see [Understand the identity registry in your IoT hub](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. The ID and key are case-sensitive. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 

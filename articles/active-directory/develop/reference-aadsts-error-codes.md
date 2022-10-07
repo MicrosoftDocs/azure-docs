@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/13/2022
+ms.date: 08/10/2022
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -134,6 +134,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt - User needs to enroll for second factor authentication (interactive). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt - Strong authentication is required and the user did not pass the MFA challenge. |
 | AADSTS50076 | UserStrongAuthClientAuthNRequired - Due to a configuration change made by the admin, or because you moved to a new location, the user must use multi-factor authentication to access the resource. Retry with a new authorize request for the resource. |
+| AADSTS50078 | UserStrongAuthExpired- Presented multi-factor authentication has expired due to policies configured by your administrator, you must refresh your multi-factor authentication to access '{resource}'.|
 | AADSTS50079 | UserStrongAuthEnrollmentRequired - Due to a configuration change made by the administrator, or because the user moved to a new location, the user is required to use multi-factor authentication. |
 | AADSTS50085 | Refresh token needs social IDP login. Have user try signing-in again with username -password |
 | AADSTS50086 | SasNonRetryableError |
@@ -165,6 +166,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS50146 | MissingCustomSigningKey - This app is required to be configured with an app-specific signing key. It is either not configured with one, or the key has expired or isn't yet valid. |
 | AADSTS50147 | MissingCodeChallenge - The size of the code challenge parameter isn't valid. |
 | AADSTS501481 | The Code_Verifier doesn't match the code_challenge supplied in the authorization request.|
+| AADSTS501491 |  InvalidCodeChallengeMethodInvalidSize - Invalid size of Code_Challenge parameter.|
 | AADSTS50155 | DeviceAuthenticationFailed - Device authentication failed for this user. |
 | AADSTS50158 | ExternalSecurityChallenge - External security challenge was not satisfied. |
 | AADSTS50161 | InvalidExternalSecurityChallengeConfiguration - Claims sent by external provider isn't enough or Missing claim requested to external provider. |
@@ -209,6 +211,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS70000 | InvalidGrant - Authentication failed. The refresh token isn't valid. Error may be due to the following reasons:<ul><li>Token binding header is empty</li><li>Token binding hash does not match</li></ul> |
 | AADSTS70001 | UnauthorizedClient - The application is disabled. To learn more, see the troubleshooting article for error [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory). |
 | AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). |
+| AADSTS700025 | InvalidClientPublicClientWithCredential - Client is public so neither 'client_assertion' nor 'client_secret' should be presented. |
 | AADSTS70003 | UnsupportedGrantType - The app returned an unsupported grant type. |
 | AADSTS700030 | Invalid certificate - subject name in certificate isn't authorized. SubjectNames/SubjectAlternativeNames (up to 10) in token certificate are: {certificateSubjects}. |
 | AADSTS70004 | InvalidRedirectUri - The app returned an invalid redirect URI. The redirect address specified by the client does not match any configured addresses or any addresses on the OIDC approve list. |
@@ -345,6 +348,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS7000215 | Invalid client secret is provided. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
+| AADSTS7000218 | The request body must contain the following parameter: 'client_assertion' or 'client_secret'. |
 | AADSTS7000222 | InvalidClientSecretExpiredKeysProvided - The provided client secret keys are expired. Visit the Azure portal to create new keys for your app, or consider using certificate credentials for added security: [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Provided Authorization Code is intended to use against other tenant, thus rejected. OAuth2 Authorization Code must be redeemed against same tenant it was acquired for (/common or /{tenant-ID} as appropriate) |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |

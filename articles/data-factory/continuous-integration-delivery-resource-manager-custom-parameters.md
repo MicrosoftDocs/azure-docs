@@ -197,6 +197,13 @@ Below is the current default parameterization template. If you need to add only 
         },
         "location": "="
     },
+    "Microsoft.DataFactory/factories/globalparameters": {
+        "properties": {
+                "*": { 
+                    "value": "=" 
+                }
+        }
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {

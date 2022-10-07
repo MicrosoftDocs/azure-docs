@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.date: 08/15/2022
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -148,7 +148,11 @@ A separate discovery process for AD DS LDAP servers occurs when LDAP is enabled 
 
 Incorrect or incomplete AD DS site topology or configuration can result in volume creation failures, problems with client queries, authentication failures, and failures to modify Azure NetApp Files AD connections.
 
-If the **AD Site Name** field is not specified in the Azure NetApp Files AD connection, Azure NetApp Files domain controller discovery will attempt to discover all domain controllers in the AD DS domain.  Enumerating all domain controllers and the associated services hosted on them can be a slow process. In this scenario, Azure NetApp Files might select a domain controller that is not in an optimal network location for supporting good communication with Azure NetApp Files or might even be unreachable. As a result, this behavior can result in slow share enumeration. It might also result in inconsistent or no access to Azure NetApp Files volumes that rely on AD DS domain controller communication.
+The AD Site Name field is required to create an Azure NetApp Files AD connection. The AD DS site defined must exist and be properly configured.
+
+Azure NetApp Files uses the AD DS Site to discover the domain controllers and subnets assigned to the AD DS Site defined in the AD Site Name. All domain controllers assigned to the AD DS Site must have good network connectivity from the Azure virtual network interfaces used by ANF and be reachable. AD DS domain controller VMs assigned to the AD DS Site that are used by Azure NetApp Files must be excluded from cost management policies that shut down VMs.
+
+You must update the AD DS Site configuration whenever new domain controllers are deployed into a subnet assigned to the AD DS site that is used by the Azure NetApp Files AD Connection. Ensure that the DNS SRV records for the site reflect any changes to the domain controllers assigned to the AD DS Site used by Azure NetApp Files.
 
 > [!NOTE]
 > Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC). To prevent Azure NetApp Files from using an RODC, do not configure the **AD Site Name** filed of the AD connections with an RODC.

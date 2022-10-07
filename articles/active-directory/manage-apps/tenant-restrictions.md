@@ -203,7 +203,7 @@ For specific details, refer to your proxy server documentation.
 
 ## Blocking consumer applications
 
-Applications from Microsoft that support both consumer accounts and organizational accounts, like OneDrive or Microsoft Learn can sometimes be hosted on the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
+Applications from Microsoft that support both consumer accounts and organizational accounts such as OneDrive can sometimes be hosted on the same URL. This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
 
 Some organizations attempt to fix this by blocking `login.live.com` in order to block personal accounts from authenticating.  This has several downsides:
 

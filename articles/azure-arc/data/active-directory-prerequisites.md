@@ -3,7 +3,7 @@ title: Deploy Azure Arc-enabled data services in Active Directory authentication
 description: Deploy Azure Arc-enabled data services in Active Directory authentication - prerequisites
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Entra Verified ID
 description: Learn how to start a presentation request in Verifiable Credentials
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
@@ -147,17 +147,17 @@ The `RequestCredential` provides information about the requested credentials the
 |---------|---------|---------|
 | `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
 | `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
-| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. |
+| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. If the `acceptedIssuers` collection is empty, then the presentation request will accept a credential type issued by any issuer. |
 | `configuration.validation` | [Configuration.Validation](#configurationvalidation-type) | Optional settings for presentation validation.|
 
 ### Configuration.Validation type
 
-The `Configuration.Validation` provides information about the presented credentials should be validated. It contains the following properties:
+The `Configuration.Validation` provides information about how the presented credentials should be validated. It contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
 | `allowRevoked` |  Boolean | Determines if a revoked credential should be accepted. Default is `false` (it shouldn't be accepted). |
-| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `true` (it should be validated). Setting this flag to `false` means you'll accept credentials from unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
+| `validateLinkedDomain` |  Boolean | Determines if the linked domain should be validated. Default is `false`. Setting this flag to `false` means you as a Relying Party application accept credentials from an unverified linked domain. Setting this flag to `true` means the linked domain will be validated and only verified domains will be accepted. |
 
 ## Successful response
 
@@ -194,7 +194,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 |Property |Type |Description |
 |---------|---------|---------|
 | `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
-| `code` |string |The code returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
+| `requestStatus` |string |The status returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
 | `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer's domain. </li><li>The verifiable credential issuer's domain validation status. </li></ul> |
@@ -205,7 +205,7 @@ The following example demonstrates a callback payload when the authenticator app
 ```json
 {
     "requestId": "e4ef27ca-eb8c-4b63-823b-3b95140eac11",
-    "code":"request_retrieved",
+    "requestStatus":"request_retrieved",
     "state": "92d076dd-450a-4247-aa5b-d2e75a1a5d58"
 }
 ```
@@ -215,11 +215,12 @@ The following example demonstrates a callback payload after the verifiable crede
 ```json
 {
   "requestId": "e4ef27ca-eb8c-4b63-823b-3b95140eac11",
-  "code": "presentation_verified",
+  "requestStatus": "presentation_verified",
   "state": "92d076dd-450a-4247-aa5b-d2e75a1a5d58",
   "subject": "did:ion:EiAlrenrtD3Lsw0GlbzS1O2YFdy3Xtu8yo35W<SNIP>…",
-  "issuers": [
+  "verifiedCredentialsData": [
     {
+      "issuer": "did:ion:issuer",
       "type": [
         "VerifiableCredential",
         "VerifiedCredentialExpert"
@@ -228,15 +229,20 @@ The following example demonstrates a callback payload after the verifiable crede
         "firstName": "Megan",
         "lastName": "Bowen"
       },
-      "domain": "https://contoso.com/",
-      "verified": "DNS",
-      "authority": "did:ion:….."
+      "credentialState": {
+        "revocationStatus": "VALID"
+      },
+      "domainValidation": {
+        "url": "https://contoso.com/"
+      }
     }
   ],
   "receipt": {
-    "id_token": "eyJraWQiOiJkaWQ6aW<SNIP>"
+    "id_token": "eyJraWQiOiJkaWQ6aW<SNIP>",
+    "vp_token": "...",
+    "state": "..."
   }
-} 
+}
 ```
 
 ## Next steps

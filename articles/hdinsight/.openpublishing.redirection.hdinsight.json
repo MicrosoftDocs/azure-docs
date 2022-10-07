@@ -10,6 +10,11 @@
         "redirect_document_id": false
     }, 
     {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-emulator-get-started.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/storm/apache-storm-write-data-lake-store.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false

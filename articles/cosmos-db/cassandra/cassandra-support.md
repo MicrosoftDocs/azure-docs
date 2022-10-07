@@ -1,8 +1,8 @@
 ---
 title: Apache Cassandra features supported by Azure Cosmos DB Cassandra API
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
-author: TheovanKraay
-ms.author: thvankra
+author: IriaOsara
+ms.author: iriaosara
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -236,7 +236,7 @@ Azure Cosmos DB Cassandra API is a managed service platform. The platform does n
 
 ## CQL shell
 
-<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). See the article [Enable notebooks for Azure Cosmos DB accounts](../enable-notebooks.md#supported-regions) for supported Azure Regions.
+<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../notebooks-overview.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`).
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH"::: -->
 
@@ -298,7 +298,7 @@ export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
 # Connect to Azure Cosmos DB API for Cassandra:
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl --protocol-version=4
 ```
 **Connect with Docker:**
 ```bash

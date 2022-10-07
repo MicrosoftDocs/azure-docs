@@ -6,7 +6,7 @@ ms.author: macerr
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 08/18/2022
 ---
 
 # Plan a solution template for an Azure application offer
@@ -27,7 +27,7 @@ The solution template plan type requires an [Azure Resource Manager template (AR
 
 ## Deployment package
 
-The deployment package contains all of the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
+The deployment package contains all the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
 
 All Azure applications must include these two files in the root folder of a .zip archive:
 
@@ -38,6 +38,9 @@ Maximum file sizes supported are:
 
 - Up to 1 Gb in total compressed .zip archive size
 - Up to 1 Gb for any individual uncompressed file within the .zip archive
+
+> [!TIP]
+> Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit#validate-templates-for-azure-marketplace) before publishing your Azure Application.
 
 ## Azure regions
 

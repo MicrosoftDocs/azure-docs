@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 09/16/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # Language identification (preview)
 
-Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification).
+Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).
 
 Language identification (LID) use cases include:
 
@@ -92,7 +92,7 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 
 ::: zone-end
 
-For more information, see [supported languages](language-support.md#language-identification).
+For more information, see [supported languages](language-support.md?tabs=language-identification).
 
 ### At-start and Continuous language identification
 

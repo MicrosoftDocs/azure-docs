@@ -4,7 +4,7 @@ description: Learn how to activate Azure AD roles in Azure AD Privileged Identit
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory

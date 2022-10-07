@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2022
+ms.date: 09/06/2022
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
 
@@ -36,9 +36,12 @@ The deployment script resource is only available in the regions where Azure Cont
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
-### Microsoft Learn
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Deployment script](../bicep/deployment-script-bicep.md).
 
-To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
+### Training resources
+
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts).
 
 ## Configure the minimum permissions
 
@@ -627,4 +630,4 @@ In this article, you learned how to use deployment scripts. To walk through a de
 > [Tutorial: Use deployment scripts in Azure Resource Manager templates](./template-tutorial-deployment-script.md)
 
 > [!div class="nextstepaction"]
-> [Learn module: Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/)
+> [Learn module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)

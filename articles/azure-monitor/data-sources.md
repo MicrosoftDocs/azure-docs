@@ -16,6 +16,10 @@ This article describes common sources of monitoring data collected by Azure Moni
 
 Some of these data sources use the [new data ingestion pipeline](essentials/data-collection.md) in Azure Monitor. This article will be updated as other data sources transition to this new data collection method.
 
+> [!NOTE]
+> Access to data in the Log Analytics Workspaces is governed as outline [here](https://learn.microsoft.com/azure/azure-monitor/logs/manage-access).
+>
+
 ## Application tiers
 
 Sources of monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections. See [Monitoring data locations in Azure](monitor-reference.md) for a description of each data location and how you can access its data.
@@ -86,7 +90,7 @@ The [Azure Activity log](essentials/platform-logs-overview.md) includes service 
 | Destination | Description | Reference |
 | ----------- | ----------- | --------- |
 | Azure Resource Manager control plane changes | Change Analysis provides a historical record of how the Azure resources that host your application have changed over time, using Azure Resource Graph | [Resources | Get Changes](../governance/resource-graph/how-to/get-resource-changes.md) |
-| Resource configurations and settings changes | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Azure Resource Manager configuration changes](./change/change-analysis.md#azure-resource-manager-configuration-changes) |
+| Resource configurations and settings changes | Change Analysis securely queries and computes IP Configuration rules, TLS settings, and extension versions to provide more change details in the app. | [Azure Resource Manager configuration changes](./change/change-analysis.md#azure-resource-manager-resource-properties-changes) |
 | Web app in-guest changes | Every 30 minutes, Change Analysis captures the deployment and configuration state of an application. | [Diagnose and solve problems tool for Web App](./change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool-for-web-app) |
 
 ## Azure resources

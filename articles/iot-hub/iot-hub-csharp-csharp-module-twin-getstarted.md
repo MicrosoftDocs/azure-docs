@@ -15,23 +15,22 @@ ms.custom: "amqp, devx-track-csharp"
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
-> [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
+[Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 At the end of this article, you have two .NET console apps:
 
-* **CreateIdentities**. This app creates a device identity, a module identity, and associated security key to connect your device and module clients.
+* **CreateIdentities**: creates a device identity, a module identity, and associated security key to connect your device and module clients.
 
-* **UpdateModuleTwinReportedProperties**. This app sends updated module twin reported properties to your IoT hub.
+* **UpdateModuleTwinReportedProperties**: sends updated module twin, reported properties to your IoT hub.
 
 > [!NOTE]
-> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
+> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Prerequisites
 
 * Visual Studio.
-
-* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
 * An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
@@ -45,9 +44,9 @@ At the end of this article, you have two .NET console apps:
 
 ## Update the module twin using .NET device SDK
 
-In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
+Now let's communicate to the cloud from your simulated device. Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
-Here's how to get your module connection string from the Azure portal. Sign in to the [Azure portal](https://portal.azure.com/). Navigate to your hub and select **Devices**. Find **myFirstDevice**. Select **myFirstDevice** to open it, and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** to save it for the console app.
+To retrieve your module connection string, navigate to your [IoT hub](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs) then select **Devices**. Find and select **myFirstDevice** to open it and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** and save it for the console app.
 
 :::image type="content" source="./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png":::
 
@@ -143,7 +142,7 @@ Here's how to get your module connection string from the Azure portal. Sign in t
     }
     ```
 
-    This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
+    Now you know how to retrieve the module twin and update reported properties with AMQP protocol.
 
 1. Optionally, you can add these statements to the **Main** method to send an event to IoT Hub from your module. Place these lines below the `try catch` block.
 
