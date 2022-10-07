@@ -62,7 +62,7 @@ Availability zone support is a property of the Premium plan. The following are t
   - The platform will enforce this minimum count behind the scenes if you specify an instance count fewer than three.
 - If you aren't using Premium plan or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](../reliability/migrate-functions.md).
 
-### SLA improvements
+### Pricing
 
 There's no additional cost associated with enabling availability zones. Pricing for a zone redundant Premium plan is the same as a single zone Premium plan. You'll be charged based on your Premium plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances.
 
@@ -144,7 +144,7 @@ After the zone-redundant plan is created and deployed, any function app hosted o
 
 ### Migrate your function app to a zone-redundant plan
 
-For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support, see [Migrate App Service to availability zone support](../reliability/migrate-functions.md).
+Azure Function Apps currently doesn't support in-place migration of existing function apps instances. For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support, see Migrate App Service to availability zone support](../reliability/migrate-functions.md).
 
 ### Zone down experience
 
