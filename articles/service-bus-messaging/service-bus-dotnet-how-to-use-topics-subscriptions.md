@@ -93,10 +93,10 @@ This section shows you how to create a .NET Core console application to send mes
     using Azure.Identity;
 
     // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+    ServiceBusClient client;
 
     // the sender used to publish messages to the topic
-    static ServiceBusSender sender;
+    ServiceBusSender sender;
 
     // number of messages to be sent to the topic
     private const int numOfMessages = 3;
@@ -155,10 +155,10 @@ This section shows you how to create a .NET Core console application to send mes
     using Azure.Messaging.ServiceBus;
 
     // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+    ServiceBusClient client;
 
     // the sender used to publish messages to the topic
-    static ServiceBusSender sender;
+    ServiceBusSender sender;
 
     // number of messages to be sent to the topic
     private const int numOfMessages = 3;
@@ -276,13 +276,13 @@ In this section, you'll add code to retrieve messages from the queue.
     using Azure.Identity;
 
     // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+    ServiceBusClient client;
 
     // the processor that reads and processes messages from the subscription
-    static ServiceBusProcessor processor;    
+    ServiceBusProcessor processor;    
 
     // handle received messages
-    static async Task MessageHandler(ProcessMessageEventArgs args)
+    async Task MessageHandler(ProcessMessageEventArgs args)
     {
         // TODO: Replace the <TOPIC SUBSCRIPTION NAME> placeholder
         string body = args.Message.Body.ToString();
@@ -293,7 +293,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
 
     // handle any errors when receiving messages
-    static Task ErrorHandler(ProcessErrorEventArgs args)
+    Task ErrorHandler(ProcessErrorEventArgs args)
     {
         Console.WriteLine(args.Exception.ToString());
         return Task.CompletedTask;
@@ -307,13 +307,13 @@ In this section, you'll add code to retrieve messages from the queue.
     using Azure.Messaging.ServiceBus;
 
     // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+    ServiceBusClient client;
 
     // the processor that reads and processes messages from the subscription
-    static ServiceBusProcessor processor;    
+    ServiceBusProcessor processor;    
 
     // handle received messages
-    static async Task MessageHandler(ProcessMessageEventArgs args)
+    async Task MessageHandler(ProcessMessageEventArgs args)
     {
         // TODO: Replace the <TOPIC SUBSCRIPTION NAME> placeholder
         string body = args.Message.Body.ToString();
@@ -324,7 +324,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
 
     // handle any errors when receiving messages
-    static Task ErrorHandler(ProcessErrorEventArgs args)
+    Task ErrorHandler(ProcessErrorEventArgs args)
     {
         Console.WriteLine(args.Exception.ToString());
         return Task.CompletedTask;

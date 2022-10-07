@@ -278,7 +278,7 @@ In this section, you'll create a .NET Core console application that receives mes
 
 In this section, you'll add code to retrieve messages from the queue.
 
-2. Within the `Program` class, add the following `using` statements and properties, just before the `Main` method.
+1. Within the `Program` class, add the following `using` statements and properties, just before the `Main` method.
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -290,10 +290,10 @@ In this section, you'll add code to retrieve messages from the queue.
     using Azure.Messaging.ServiceBus;
     
     // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+    ServiceBusClient client;
     
     // the processor that reads and processes messages from the queue
-    static ServiceBusProcessor processor;
+    ServiceBusProcessor processor;
     ```
     
     ### [Connection string](#tab/connection-string)
@@ -303,19 +303,19 @@ In this section, you'll add code to retrieve messages from the queue.
     using Azure.Messaging.ServiceBus;
     
     // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+    ServiceBusClient client;
     
     // the processor that reads and processes messages from the queue
-    static ServiceBusProcessor processor;
+    ServiceBusProcessor processor;
     ```
     
     ---
 
-3. Append the following methods to the end of the `Program` class.
+1. Append the following methods to the end of the `Program` class.
 
     ```csharp
     // handle received messages
-    static async Task MessageHandler(ProcessMessageEventArgs args)
+    async Task MessageHandler(ProcessMessageEventArgs args)
     {
         string body = args.Message.Body.ToString();
         Console.WriteLine($"Received: {body}");
@@ -325,14 +325,14 @@ In this section, you'll add code to retrieve messages from the queue.
     }
 
     // handle any errors when receiving messages
-    static Task ErrorHandler(ProcessErrorEventArgs args)
+    Task ErrorHandler(ProcessErrorEventArgs args)
     {
         Console.WriteLine(args.Exception.ToString());
         return Task.CompletedTask;
     }
     ```
 
-4. Append the following code to the end of the Program` class. The important steps are outlined below, with additional information in the code comments.
+1. Append the following code to the end of the Program` class. The important steps are outlined below, with additional information in the code comments.
     
     ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -439,21 +439,19 @@ In this section, you'll add code to retrieve messages from the queue.
     
     ---
 
-5. The completed `Program` class should match the following code:
+1. The completed `Program` class should match the following code:
     
     ### [Passwordless (Recommended)](#tab/passwordless)
     
     ```csharp
+    using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
     
     // the client that owns the connection and can be used to create senders and receivers
     ServiceBusClient client;
     
-    // the sender used to publish messages to the queue
-    ServiceBusSender sender;
-    
-    // number of messages to be sent to the queue
-    const int numOfMessages = 3;
+    // the processor that reads and processes messages from the queue
+    ServiceBusProcessor processor;
     
     // The Service Bus client types are safe to cache and use as a singleton for the lifetime
     // of the application, which is best practice when messages are being published or read
@@ -497,7 +495,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     
     // handle received messages
-    static async Task MessageHandler(ProcessMessageEventArgs args)
+    async Task MessageHandler(ProcessMessageEventArgs args)
     {
         string body = args.Message.Body.ToString();
         Console.WriteLine($"Received: {body}");
@@ -507,7 +505,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     
     // handle any errors when receiving messages
-    static Task ErrorHandler(ProcessErrorEventArgs args)
+    Task ErrorHandler(ProcessErrorEventArgs args)
     {
         Console.WriteLine(args.Exception.ToString());
         return Task.CompletedTask;
@@ -518,6 +516,8 @@ In this section, you'll add code to retrieve messages from the queue.
     
     ```csharp
     using Azure.Messaging.ServiceBus;
+    using System;
+    using System.Threading.Tasks;
     
     // the client that owns the connection and can be used to create senders and receivers
     ServiceBusClient client;
@@ -568,7 +568,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     
     // handle received messages
-    static async Task MessageHandler(ProcessMessageEventArgs args)
+    async Task MessageHandler(ProcessMessageEventArgs args)
     {
         string body = args.Message.Body.ToString();
         Console.WriteLine($"Received: {body}");
@@ -578,7 +578,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     
     // handle any errors when receiving messages
-    static Task ErrorHandler(ProcessErrorEventArgs args)
+    Task ErrorHandler(ProcessErrorEventArgs args)
     {
         Console.WriteLine(args.Exception.ToString());
         return Task.CompletedTask;
@@ -587,8 +587,8 @@ In this section, you'll add code to retrieve messages from the queue.
     
     ---
 
-7. Build the project, and ensure that there are no errors.
-8. Run the receiver application. You should see the received messages. Press any key to stop the receiver and the application.
+1. Build the project, and ensure that there are no errors.
+1. Run the receiver application. You should see the received messages. Press any key to stop the receiver and the application.
 
     ```console
     Wait for a minute and then press any key to end the processing
@@ -600,7 +600,7 @@ In this section, you'll add code to retrieve messages from the queue.
     Stopped receiving messages
     ```
 
-9. Check the portal again. Wait for a few minutes and refresh the page if you don't see `0` for **Active** messages.
+1. Check the portal again. Wait for a few minutes and refresh the page if you don't see `0` for **Active** messages.
 
     - The **Active** message count and **Current size** values are now **0**.
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages and three outgoing messages for the queue.
