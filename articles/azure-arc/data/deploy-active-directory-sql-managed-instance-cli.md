@@ -7,15 +7,13 @@ ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 04/28/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
 # Deploy Active Directory integrated Azure Arc-enabled SQL Managed Instance using Azure CLI
 
 This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication using Azure CLI.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 See these articles for specific instructions:
 
