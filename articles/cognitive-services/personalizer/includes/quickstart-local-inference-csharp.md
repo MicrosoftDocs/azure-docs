@@ -114,7 +114,7 @@ private const string ServiceEndpoint  = "https://REPLACE-WITH-YOUR-PERSONALIZER-
 private const string ResourceKey = "<REPLACE-WITH-YOUR-PERSONALIZER-KEY>";
 ```
 
-Next, construct the Rank and Reward URLs.
+Next, construct the Rank and Reward URLs. Note that setting `useLocalInference: true` as a parameter for `PersonalizerClientOptions` is required to enable local inference. 
 
 ```csharp
 static PersonalizerClient InitializePersonalizerClient(Uri url)
