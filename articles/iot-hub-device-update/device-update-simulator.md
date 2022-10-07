@@ -56,7 +56,7 @@ After the Device Update agent is running on an IoT device, you must add the devi
 1. Then, install the Device Update agent .deb packages.
 
    ```bash
-   sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
+   sudo apt-get install deviceupdate-agent
    ```
 
 1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the following command:
