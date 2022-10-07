@@ -35,7 +35,6 @@ Azure Functions supports both [zone-redundant and zonal instances](az-service-su
 <!-- EDITORIAL COMMENT: Function Apps team to list other SKUs that don’t support availability zones -->
 
 ### Regional availability
-<!-- EDITORIAL COMMENT: This section "regional availability" is not in the template. Should we add it?-->
 
 Zone-redundant Premium plans are available in the following regions:
 
