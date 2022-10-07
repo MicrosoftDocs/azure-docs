@@ -264,7 +264,7 @@ You can authorize access to data in your storage account using the following ste
     Connect-AzAccount
     ```
 
-2. To use `DefaultAzureCredential`, make sure that the **azure-identity** dependency is added in pom.xml:
+2. To use `DefaultAzureCredential`, make sure that the **azure-identity** dependency is added in *pom.xml*:
 
     ```xml
     <dependency>
@@ -406,7 +406,7 @@ Run the following `mvn` command to execute the app:
 mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
-Alternatively, you can also add the following plugin to pom.xml:
+Alternatively, you can add `exec-maven-plugin` to *pom.xml*:
 
 ```xml
 <plugin>
@@ -419,7 +419,7 @@ Alternatively, you can also add the following plugin to pom.xml:
   </configuration>
 </plugin>
 ```
-With this plugin, you can execute the app with this command:
+With this plugin configured as shown above, you can execute the app with this command:
 
 ```console
 mvn exec:java
