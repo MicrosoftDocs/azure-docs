@@ -10,38 +10,32 @@ ms.reviewer: bwren
 ---
 
 # Azure Monitor best practices: Cost optimization
-This article provides guidance on reducing your cloud monitoring costs by implementing and managing Azure Monitor in the most cost-effective manner. It explains how to take advantage of cost-saving features to help ensure that you're not paying for data collection that provides little value. It also provides guidance for regularly monitoring your usage so that you can proactively detect and identify sources responsible for excessive usage.
 
-You should start by understanding the different ways that Azure Monitor charges and how to view your monthly bill. See [Azure Monitor cost and usage](usage-estimated-costs.md) for a complete description and the different tools available to analyze your charges.
+[Azure Monitor](overview.md) helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+
+To understand how Azure Monitor supports cost optimization, start by understanding the different ways that Azure Monitor charges and how to view your monthly bill. See [Azure Monitor cost and usage](usage-estimated-costs.md) for a complete description of how Azure Monitor is billed and the different tools available to analyze your charges.
 
 ## Design considerations
 
 Azure Monitor includes the following design considerations:
 
-### Configure workspaces
+- Log Analytics workspace architecture
 
-You can start using Azure Monitor with a single Log Analytics workspace by using default options. As your monitoring environment grows, you'll need to make decisions about whether to have multiple services share a single workspace or create multiple workspaces. You want to evaluate configuration options that allow you to reduce your monitoring costs.
+You can start using Azure Monitor with a single Log Analytics workspace by using default options. As your monitoring environment grows, you'll need to make decisions about whether to have multiple services share a single workspace or create multiple workspaces. There can be cost implications with your workspace design, most notably when you combine different services such as operational data from Azure Monitor and security data from Microsoft Sentinel.
 
-
-
-As your monitoring environment becomes more complex, you'll need to consider whether to create more Log Analytics workspaces. This need might surface as you place resources in more regions or as you implement more services that use workspaces such as Microsoft Sentinel and Microsoft Defender for Cloud.
-
-There can be cost implications with your workspace design, most notably when you combine different services such as operational data from Azure Monitor and security data from Microsoft Sentinel. For a description of these implications and guidance on determining the most cost-effective solution for your environment, see:
-
-- [Workspaces with Microsoft Sentinel](logs/cost-logs.md#workspaces-with-microsoft-sentinel)
-- [Workspaces with Microsoft Defender for Cloud](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud)
+See [Design a Log Analytics workspace architecture](logs/workspace-design.md) for a list of criteria to consider when designing a workspace architecture.
 
 
 ## Checklist
 
-### Workspace design
+**Log Analytics workspace configuration**
 
 > [!div class="checklist"]
 > - Configure pricing tier or dedicated cluster to optimize your cost depending on your usage.
 > - Configure tables used for debugging, troubleshooting, and auditing as Basic Logs.
 > - Configure data retention and archiving.
 
-### Data collection
+**Data collection**
 
 > [!div class="checklist"]
 > - Configure diagnostic settings to collect only critical resource log categories from Azure resources.
@@ -49,17 +43,7 @@ There can be cost implications with your workspace design, most notably when you
 > - Use transformations to filter resource logs and events.
 > - Ensure that VMs aren't sending data to multiple workspaces.
 
-### Application insights
-
-> [!div class="checklist"]
-> - Use sampling to tune the amount of data collected by Application Insights.
-> - Limit the number of Ajax calls that can be reported in every page view or disable Ajax reporting. 
-> - Disable unneeded modules.
-> - Pre-aggregate metrics from any calls to TrackMetric.
-> - Limit the use of custom metrics.
-> - Ensure use of updated SDKs.
-
-### Monitor usage
+**Monitor usage**
 
 > [!div class="checklist"]
 > - Send alert when data collection is high.
@@ -70,12 +54,14 @@ There can be cost implications with your workspace design, most notably when you
 
 ## Configuration recommendations
 
-### Workspace design
+
+
+### Log Analytics workspace configuration
 
 | Recommendation | Description |
 |:---|:---|
 | Configure pricing tier or dedicated cluster to optimize your cost depending on your usage. | By default, workspaces will use pay-as-you-go pricing with no minimum data volume. If you collect enough amount of data, you can significantly decrease your cost by using a [commitment tier](logs/cost-logs.md#commitment-tiers). You commit to a daily minimum of data collected in exchange for a lower rate.<br><br>[Dedicated clusters](logs/logs-dedicated-clusters.md) provide more functionality and cost savings if you ingest at least 500 GB per day collectively among multiple workspaces in the same region. Unlike commitment tiers, workspaces in a dedicated cluster don't need to individually reach 500 GB.<br><br>See [Azure Monitor Logs pricing details](logs/cost-logs.md) for information on commitment tiers and guidance on determining which is most appropriate for your level of usage. See [Usage and estimated costs](usage-estimated-costs.md#usage-and-estimated-costs) to view estimated costs for your usage at different pricing tiers.
-| Configure tables used for debugging, troubleshooting, and auditing as Basic Logs. | Except for [tables that don't incur charges](logs/cost-logs.md#data-size-calculation), all data in a Log Analytics workspace is billed at the same rate by default. You might be collecting data that you query infrequently or that you need to archive for compliance but rarely access. You can significantly reduce your costs by optimizing your data retention and archiving and configuring [Basic Logs](logs/basic-logs-configure.md)..<br><br>Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. They can't be used for alerting, their retention is set to eight days, they support a limited version of the query language, and there's a cost for querying them. If you query these tables infrequently, this query cost can be more than offset by the reduced ingestion cost.<br><br>The decision whether to configure a table for Basic Logs is based on the following criteria:<br><br>- The table currently [supports Basic Logs](logs/basic-logs-configure.md#which-tables-support-basic-logs).<br>- You don't require more than eight days of data retention for the table.<br>- You only require basic queries of the data using a limited version of the query language.<br>- The cost savings for data ingestion over a month exceed the expected cost for any expected queries<br><br>See [Query Basic Logs in Azure Monitor (preview)](.//logs/basic-logs-query.md) for information on query limitations. See [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more information about Basic Logs. |
+| Configure tables used for debugging, troubleshooting, and auditing as Basic Logs. | Except for [tables that don't incur charges](logs/cost-logs.md#data-size-calculation), all data in a Log Analytics workspace is billed at the same rate by default. You might be collecting data that you query infrequently or that you need to archive for compliance but rarely access. You can significantly reduce your costs by optimizing your data retention and archiving and configuring [Basic Logs](logs/basic-logs-configure.md)..<br><br>Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. They can't be used for alerting, their retention is set to eight days, they support a limited version of the query language, and there's a cost for querying them. If you query these tables infrequently, this query cost can be more than offset by the reduced ingestion cost.<br><br>See [Query Basic Logs in Azure Monitor (preview)](.//logs/basic-logs-query.md) for information on query limitations. See [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more information about Basic Logs. |
 | Configure data retention and archiving. | Data collected in a Log Analytics workspace is retained for 31 days at no charge. The time period is 90 days if Microsoft Sentinel is enabled on the workspace. You can retain data beyond the default for trending analysis or other reporting, but there's a charge for this retention.<br><br>Your retention requirement might be for compliance reasons or for occasional investigation or analysis of historical data. In this case, you should configure [Archived Logs](logs/data-retention-archive.md), which allows you to retain data for up to seven years at a reduced cost. There's a cost to search archived data or temporarily restore it for analysis. If you require infrequent access to this data, this cost is more than offset by the reduced retention cost.<br><br>You can configure retention and archiving for all tables in a workspace or configure each table separately. The options allow you to optimize your costs by setting only the retention you require for each data type. |
 
 
@@ -86,7 +72,7 @@ The most straightforward strategy to reduce your costs for data ingestion and re
 |:---|:---|
 | Configure diagnostic settings to collect only critical resource log categories from Azure resources. | The data volume for [resource logs](essentials/resource-logs.md) varies significantly between services, so you should only collect the categories that are required. You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries.<br><br>Diagnostic settings don't allow granular filtering of resource logs. You might require certain logs in a particular category but not others. In this case, use [transformations](essentials/data-collection-transformations.md) on the workspace to filter logs that you don't require. You can also filter out the value of certain columns that you don't require to save additional cost.  |
 | Configure VM agents to collect only critical events. | Virtual machines can vary significantly in the amount of data they collect, depending on the amount of telemetry generated by the applications and services they have installed. See [the table below](#virtual-machines) for the most common data collected from virtual machines and strategies for limiting them for each of the Azure Monitor agents. |
-| Use transformations to filter resource logs and events. | 
+| Use transformations to filter resource logs and events. | Use [data collection rule transformations in Azure Monitor](essentials//data-collection-transformations.md) to filter incoming data to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its billable size as described in [Data size calculation](logs/cost-logs.md#data-size-calculation). |
 | Ensure that VMs aren't sending data to multiple workspaces. |
 | Application insights | There are multiple methods that you can use to limit the amount of data collected by Application Insights. See 
 
@@ -120,17 +106,11 @@ Virtual machines can vary significantly in the amount of data they collect, depe
 
 ## Reduce the amount of data collected
 
-
-
 The configuration change varies depending on the data source. The following sections provide guidance for configuring common data sources to reduce the data they send to the workspace.
 
 
 
-### Use transformations to filter events
 
-The bulk of data collection from virtual machines will be from Windows or Syslog events. While you can provide more filtering with the Azure Monitor agent, you still might be collecting records that provide little value. Use [transformations](essentials//data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
-
-See the following section on filtering data with transformations for a summary on where to implement filtering and transformations for different data sources.
 
 ### Multi-homing agents
 
@@ -150,13 +130,17 @@ See the documentation for other services that store their data in a Log Analytic
 - **Microsoft Sentinel**: [Reduce costs for Microsoft Sentinel](../sentinel/billing-reduce-costs.md)
 - **Defender for Cloud**: [Setting the security event option at the workspace level](../defender-for-cloud/enable-data-collection.md#setting-the-security-event-option-at-the-workspace-level)
 
-## Filter data with transformations (preview)
 
-You can use [data collection rule transformations in Azure Monitor](essentials//data-collection-transformations.md) to filter incoming data to reduce costs for data ingestion and retention. In addition to filtering records from the incoming data, you can filter out columns in the data, reducing its billable size as described in [Data size calculation](logs/cost-logs.md#data-size-calculation).
+### When to use transformations
 
-Use ingestion-time transformations on the workspace to further filter data for workflows where you don't have granular control. For example, you can select categories in a [diagnostic setting](essentials/diagnostic-settings.md) to collect resource logs for a particular service, but that category might also send records that you don't need. Create a transformation for the table that service uses to filter out records you don't want.
+The bulk of data collection from virtual machines will be from Windows or Syslog events. While you can provide more filtering with the Azure Monitor agent, you still might be collecting records that provide little value. Use [transformations](essentials//data-collection-transformations.md) to implement more granular filtering and also to filter data from columns that provide little value. For example, you might have a Windows event that's valuable for alerting, but it includes columns with redundant or excessive data. You can create a transformation that allows the event to be collected but removes this excessive data.
 
-You can also use ingestion-time transformations to lower the storage requirements for records you want by removing columns without useful information. For example, you might have error events in a resource log that you want for alerting. But you might not require certain columns in those records that contain a large amount of data. You can create a transformation for the table that removes those columns.
+See the following section on filtering data with transformations for a summary on where to implement filtering and transformations for different data sources.
+
+
+Use [workspace transformations](essentials/data-collection-transformations.md#workspace-transformation-dcr) to further filter data for workflows where you don't have granular control. For example, you can select categories in a [diagnostic setting](essentials/diagnostic-settings.md) to collect resource logs for a particular service, but that category might also send records that you don't need. Create a transformation for the table that service uses to filter out records you don't want.
+
+You can also use transformations to lower the storage requirements for records you want by removing columns without useful information. For example, you might have error events in a resource log that you want for alerting. But you might not require certain columns in those records that contain a large amount of data. You can create a transformation for the table that removes those columns.
 
 The following table shows methods to apply transformations to different workflows.
 

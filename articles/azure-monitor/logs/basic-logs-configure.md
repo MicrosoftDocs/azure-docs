@@ -13,6 +13,14 @@ Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-p
 > [!IMPORTANT]
 > You can switch a table's plan once a week. The Basic Logs feature is not available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
+## When should I use Basic Logs?
+The decision whether to configure a table for Basic Logs is based on the following criteria:
+
+- The table currently [supports Basic Logs](#which-tables-support-basic-logs).
+- You don't require more than eight days of data retention for the table.
+- You only require basic queries of the data using a limited version of the query language.
+- The cost savings for data ingestion over a month exceed the expected cost for any expected queries
+
 ## Which tables support Basic Logs?
 By default, all tables in your Log Analytics are Analytics tables, and available for query and alerts. 
 You can currently configure the following tables for Basic Logs:
