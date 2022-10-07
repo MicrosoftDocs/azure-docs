@@ -78,8 +78,8 @@ The following table lists the supported cryptographic algorithms and key strengt
 * In the [algorithms and keys table](#table1) above:
   * IKE corresponds to Main Mode or Phase 1
   * IPsec corresponds to Quick Mode or Phase 2
-  * DH Group specifies the Diffie-Hellmen Group used in Main Mode or Phase 1
-  * PFS Group specified the Diffie-Hellmen Group used in Quick Mode or Phase 2
+  * DH Group specifies the Diffie-Hellman Group used in Main Mode or Phase 1
+  * PFS Group specified the Diffie-Hellman Group used in Quick Mode or Phase 2
 
 * IKE Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
 
