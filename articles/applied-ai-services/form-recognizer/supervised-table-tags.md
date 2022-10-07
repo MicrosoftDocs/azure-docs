@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 07/11/2022
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
-ms.custom: ignite-fall-2021
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 
 # Use table tags to train your custom template model

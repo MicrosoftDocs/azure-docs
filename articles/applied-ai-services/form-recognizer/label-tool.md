@@ -9,8 +9,8 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 06/23/2022
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
-keywords: document processing
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->

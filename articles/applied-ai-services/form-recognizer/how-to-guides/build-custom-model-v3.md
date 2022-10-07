@@ -7,8 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 10/07/2022
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
+recommendations: false
 ---
 
 # Build your training dataset for a custom model

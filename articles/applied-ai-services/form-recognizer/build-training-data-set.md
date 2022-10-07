@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
-ms.custom: ignite-fall-2021
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 
 # Build a training data set for a custom model
