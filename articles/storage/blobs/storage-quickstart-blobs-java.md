@@ -101,7 +101,7 @@ Create a Java application named *blob-quickstart-v12*.
    cd blob-quickstart-v12
    ```
 
-1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This is where the blob data files will be created and stored.
+1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This folder is where the blob data files will be created and stored.
 
     ```console
     mkdir data
@@ -127,7 +127,7 @@ Add **azure-sdk-bom** to take a dependency on the latest version of the library.
 </dependencyManagement>
 ```
 
-Then add the following dependency elements to the group of dependencies. Note that the **azure-identity** dependency is needed for passwordless authentication.
+Then add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless authentication.
 
 ```xml
 <dependency>
@@ -146,14 +146,14 @@ Then add the following dependency elements to the group of dependencies. Note th
 
 ### Set up the app framework
 
-From the project directory, follow steps to create the basic structure of the app::
+From the project directory, follow steps to create the basic structure of the app:
 
 1. Navigate to the */src/main/java/com/blobs/quickstart* directory
 1. Open the *App.java* file in your editor
 1. Delete the line `System.out.println("Hello world!");`
-1. Add the necessary `import` directives, as shown below
+1. Add the necessary `import` directives
 
-The code should resemble the following:
+The code should resemble this framework:
 
 ```java
 package com.blobs.quickstart;
@@ -178,7 +178,7 @@ public class App
 
 ## Object model
 
-Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 - The storage account
 - A container in the storage account
@@ -198,7 +198,7 @@ Use the following Java classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob Storage client library for Java:
+These example code snippets show you how to perform the following actions with the Azure Blob Storage client library for Java:
 
 - [Authenticate the client](#authenticate-the-client)
 - [Create a container](#create-a-container)
@@ -216,7 +216,7 @@ Application requests to Azure Blob Storage must be authorized. Using the `Defaul
 
 You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the access key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
 
-## [Passwordless (Recommended)](#tab/managed-identity)
+### [Passwordless (Recommended)](#tab/managed-identity)
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for Java. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
@@ -226,17 +226,17 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
-### Assign roles to your Azure AD user
+#### Assign roles to your Azure AD user
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### Sign-in and connect your app code to Azure using DefaultAzureCredential
+#### Sign-in and connect your app code to Azure using DefaultAzureCredential
 
 You can authorize access to data in your storage account using the following steps:
 
 1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
 
-    ### [Azure CLI](#tab/sign-in-azure-cli)
+    #### [Azure CLI](#tab/sign-in-azure-cli)
 
     Sign-in to Azure through the Azure CLI using the following command:
 
@@ -244,9 +244,9 @@ You can authorize access to data in your storage account using the following ste
     az login
     ```
 
-    ### [Visual Studio Code](#tab/sign-in-visual-studio-code)
+    #### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-    You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+    You'll need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
 
     On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
 
@@ -256,7 +256,7 @@ You can authorize access to data in your storage account using the following ste
     az login
     ```
 
-    ### [PowerShell](#tab/sign-in-powershell)
+    #### [PowerShell](#tab/sign-in-powershell)
 
     Sign-in to Azure using PowerShell via the following command:
 
@@ -271,7 +271,6 @@ You can authorize access to data in your storage account using the following ste
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity</artifactId>
-      <version>1.6.0</version>
     </dependency>
     ```
 
@@ -281,12 +280,12 @@ You can authorize access to data in your storage account using the following ste
 
 4. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
 
-    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
+    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
     > [!NOTE]
     > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
 
-## [Connection String](#tab/connection-string)
+### [Connection String](#tab/connection-string)
 
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
@@ -295,7 +294,7 @@ A connection string includes the storage account access key and uses it to autho
 
 [!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
 
-### Configure your storage connection string
+#### Configure your storage connection string
 
 After you copy the connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
 
@@ -305,7 +304,7 @@ After you copy the connection string, write it to a new environment variable on 
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
-After you add the environment variable in Windows, you must start a new instance of the command window. If you are using Visual Studio on Windows, you may need to relaunch Visual Studio after creating the environment variable for the change to be detected.
+After you add the environment variable in Windows, you must start a new instance of the command window.
 
 **Linux**:
 
@@ -313,7 +312,7 @@ After you add the environment variable in Windows, you must start a new instance
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-### Configure the connection string
+#### Configure the connection string
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
@@ -337,7 +336,7 @@ BlobServiceClient client = new BlobServiceClientBuilder()
 
 ### Create a container
 
-Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it is unique.
+Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it's unique.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -358,7 +357,7 @@ The code snippet completes the following steps:
 
 1. Creates a text file in the local *data* directory.
 1. Gets a reference to a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object by calling the [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. This method creates the blob if it doesn't already exist, but will not overwrite it if it does.
+1. Uploads the local text file to the blob by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. This method creates the blob if it doesn't already exist, but won't overwrite it if it does.
 
 ### List the blobs in a container
 
@@ -380,7 +379,7 @@ Add this code to the end of the `Main` method:
 
 The following code cleans up the resources the app created by removing the entire container using the [delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) method. It also deletes the local files created by the app.
 
-The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were created correctly, before they are deleted.
+The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were created correctly, before they're deleted.
 
 Add this code to the end of the `Main` method:
 
@@ -448,7 +447,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean up process, check your *data* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean-up process, check your *data* folder for the two files. You can open them and observe that they're identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 
