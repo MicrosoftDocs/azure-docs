@@ -1,8 +1,8 @@
 ---
-title: AD FS support in MSAL.NET 
+title: AD FS support in MSAL.NET
 description: Learn about Active Directory Federation Services (AD FS) support in the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/22/2022
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL.NET so I can decide if this platform meets my application development needs and requirements.
@@ -27,7 +27,7 @@ Microsoft Authentication Library for .NET (MSAL.NET) supports two scenarios for 
 
 ## MSAL connects to Azure AD, which is federated with AD FS
 
-MSAL.NET supports connecting to Azure AD, which signs in managed-users (users managed in Azure AD) or federated users (users managed by another identity provider such as AD FS). MSAL.NET does not know about the fact that users are federated. As far as it’s concerned, it talks to Azure AD.
+MSAL.NET supports connecting to Azure AD, which signs in managed-users (users managed in Azure AD) or federated users (users managed by another identity provider such as AD FS). MSAL.NET does not know about the fact that users are federated. As far as it's concerned, it talks to Azure AD.
 
 The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 

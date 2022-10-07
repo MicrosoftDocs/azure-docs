@@ -2,7 +2,7 @@
 title: Instantiate a public client app (MSAL.NET)
 description: Learn how to instantiate a public client application with configuration options using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: mmacy
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: marsma
+ms.author: dmwendia
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how to use application config options so I can instantiate a public client app.
@@ -33,13 +33,13 @@ In MSAL.NET 4.1+ the default redirect URI (Reply URI) can now be set with the `p
 
 This method's behavior is dependent upon the platform that you are using at the time. Here is a table that describes what redirect URI is set on certain platforms:
 
-Platform  | Redirect URI  
+Platform  | Redirect URI
 ---------  | --------------
-Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
 UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`
 .NET Core | `http://localhost`
 
-For the UWP platform, is enhanced the experience by enabling SSO with the browser by setting the value to the result of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. 
+For the UWP platform, is enhanced the experience by enabling SSO with the browser by setting the value to the result of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`.
 
 For .NET Core, MSAL.Net is setting the value to the local host to enable the user to use the system browser for interactive authentication.
 
