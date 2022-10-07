@@ -183,16 +183,16 @@ A less costly alternative for such configurations could look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | comments |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
-| E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | VM type not HANA certified <br /> Will not achieve less than 1ms storage latency<sup>1</sup> |
+| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
+| E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | VM type not HANA certified <br /> won't achieve less than 1ms storage latency<sup>1</sup> |
 | M32ts | 192 GiB | 500 MB/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 5,000<sup>2</sup> |
-| E20ds_v4 | 160 GiB | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
-| E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | VM type not HANA certified <br /> Will not achieve less than 1ms storage latency<sup>1</sup> |
-| E32ds_v4 | 256 GiB | 768 MBps | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
+| E20ds_v4 | 160 GiB | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
+| E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | VM type not HANA certified <br /> won't achieve less than 1ms storage latency<sup>1</sup> |
+| E32ds_v4 | 256 GiB | 768 MBps | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
 | M32ls | 256 GiB | 500 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 5,000<sup>2</sup> |
-| E48ds_v4 | 384 GiB | 1,152 MBps | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
-| E64v3 | 432 GiB | 1,200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
-| E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
+| E48ds_v4 | 384 GiB | 1,152 MBps | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
+| E64v3 | 432 GiB | 1,200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
+| E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | won't achieve less than 1ms storage latency<sup>1</sup> |
 | M64ls | 512 GiB | 1,000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
 | M32dms_v2, M32ms_v2 | 875 GiB | 500 MB/s | 6 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 5,000<sup>2</sup> |
 | M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MB/s | 7 x P15 | 1 x E30 | 1 x E6 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
@@ -207,9 +207,9 @@ A less costly alternative for such configurations could look like:
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 
 
-<sup>1</sup> [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency will not be less than 1ms
+<sup>1</sup> [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency won't be less than 1ms
 
-<sup>2</sup> The VM family supports [Azure Write Accelerator](../../how-to-enable-write-accelerator.md), but there is a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
+<sup>2</sup> The VM family supports [Azure Write Accelerator](../../how-to-enable-write-accelerator.md), but there's a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
 
 In the case of combining the data and log volume for SAP HANA, the disks building the striped volume should not have read cache or read/write cache enabled.
 

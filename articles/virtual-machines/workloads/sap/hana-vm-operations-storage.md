@@ -45,14 +45,14 @@ In the on-premises world, you rarely had to care about the I/O subsystems and it
 - Read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
 - Write activity of at least 250 MB/sec for **/hana/data** with 16 MB and 64 MB I/O sizes
 
-Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is **mandatory** to leverage Azure premium storage, Ultra disk, or ANF for **/hana/data** and **/hana/log** volumes. 
+Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is **mandatory** to use Azure premium storage, Ultra disk, or ANF for **/hana/data** and **/hana/log** volumes. 
 
 
 Some guiding principles in selecting your storage configuration for HANA can be listed like:
 
 - Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../sizes-memory.md). 
-- When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. Writing savepoints, SAP HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
+- When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. SAP HANA writing savepoints, HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
 - If you are considering using HANA System Replication, you need to use exactly the same type of Azure storage for **/hana/data** and **/hana/log** for all the VMs participating in the HANA System Replication configuration. For example, using Azure premium storage for **/hana/data** with one VM and Azure Ultra disk for **/hana/log** in another VM within the same HANA System replication configuration, is not supported
 
 
@@ -61,14 +61,14 @@ Some guiding principles in selecting your storage configuration for HANA can be 
 
 
 ## Stripe sets versus SAP HANA data volume partitioning
-Using Azure premium storage you may hit the best price/performance ratio when you stripe the **/hana/data** and/or **/hana/log** volume across multiple Azure disks. Instead of deploying larger disk volumes that provide the more on IOPS or throughput needed. So far this was accomplished with LVM and MDADM volume managers which are part of Linux. The method of striping disks is decades old and well known. As beneficial as those striped volumes are to get to the IOPS or throughput capabilities you may need, it adds complexities around managing those striped volumes. Especially in cases when the volumes need to get extended in capacity. At least for **/hana/data**, SAP introduced an alternative method that achieves the same goal as striping across multiple Azure disks. Since SAP HANA 2.0 SPS03, the HANA indexserver is able to stripe its I/O activity across multiple HANA data files, which are located on different Azure disks. The advantage is that you don't have to take care of creating and managing a striped volume across different Azure disks. The SAP HANA functionality of data volume partitioning is described in detail in:
+Using Azure premium storage you may hit the best price/performance ratio when you stripe the **/hana/data** and/or **/hana/log** volume across multiple Azure disks. Instead of deploying larger disk volumes that provide the more on IOPS or throughput needed. Creating a single volume across multiple Azure disks can be accomplished with LVM and MDADM volume managers, which are part of Linux. The method of striping disks is decades old and well known. As beneficial as those striped volumes are to get to the IOPS or throughput capabilities you may need, it adds complexities around managing those striped volumes. Especially in cases when the volumes need to get extended in capacity. At least for **/hana/data**, SAP introduced an alternative method that achieves the same goal as striping across multiple Azure disks. Since SAP HANA 2.0 SPS03, the HANA indexserver is able to stripe its I/O activity across multiple HANA data files, which are located on different Azure disks. The advantage is that you don't have to take care of creating and managing a striped volume across different Azure disks. The SAP HANA functionality of data volume partitioning is described in detail in:
 
 - [The HANA Administrator's Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog about SAP HANA – Partitioning Data Volumes](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
 - [SAP Note #2400005](https://launchpad.support.sap.com/#/notes/2400005)
 - [SAP Note #2700123](https://launchpad.support.sap.com/#/notes/2700123)
 
-Reading through the details, it is apparent that leveraging this functionality takes away complexities of volume manager based stripe sets. You also realize that the HANA data volume partitioning is not only working for Azure block storage, like Azure premium storage. You can use this functionality as well to stripe across NFS shares in case these shares have IOPS or throughput limitations.  
+Reading through the details, it is apparent that applying this functionality takes away complexities of volume manager based stripe sets. You also realize that the HANA data volume partitioning is not only working for Azure block storage, like Azure premium storage. You can use this functionality as well to stripe across NFS shares in case these shares have IOPS or throughput limitations.  
 
 
 ## Linux I/O Scheduler mode
@@ -100,10 +100,10 @@ Accumulating a number of Azure VHDs underneath a stripe set, is accumulative fro
 
 
 ## Azure Premium Storage configurations for HANA
-For detailed storage configuration recommendations using Azure premium storage read the document [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
+For detailed HANA storage configuration recommendations using Azure premium storage, read the document [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
 
 ## Azure Ultra disk storage configuration for SAP HANA
-For detailed storage configuration recommendations using Azure Ultra disk read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
+For detailed HANA storage configuration recommendations using Azure Ultra Disk, read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
 
 ## NFS v4.1 volumes on Azure NetApp Files
 For detail on ANF for HANA, read the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
