@@ -160,7 +160,7 @@ sections:
           
             Azure CLI:
           
-            azurecli
+            ```azurecli
             az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
             ```
           
