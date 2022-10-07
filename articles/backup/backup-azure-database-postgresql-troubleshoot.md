@@ -118,10 +118,6 @@ The Azure Backup service uses the credentials mentioned in the key-vault to acce
 
 The Azure Backup service uses the credentials mentioned in the key-vault to access the database as a database user. The relevant key vault and the secret are [provided during configuration of backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases). Ensure that backup vault's MSI is given access to key vault as documented [here](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
 
-## UserErrorSSLDisabled
-
-SSL needs to be enabled for connections to the server.
-
 ## UserErrorDBNotFound
 
 Ensure that the database and the relevant server exist.

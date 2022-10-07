@@ -22,6 +22,10 @@ landingContent:
         links:
           - text: What is DevOps Starter?
             url: overview.md
+      - linkListType: overview
+        links:
+          - text: Retirement and Migration
+            url: retirement-and-migration.md
       - linkListType: video
         links:
           - text: Create CI/CD with the DevOps Starter using Azure DevOps (8:53)

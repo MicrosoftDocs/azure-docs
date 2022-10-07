@@ -56,7 +56,7 @@ Customers can deploy the BMC Helix platform with the cloud deployment of their c
 
 ## Botmetric
 
-See the [Botmetric introduction for Azure](https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/).
+See the [Botmetric introduction for Azure](https://nutanix.medium.com/announcing-botmetric-cost-governance-beta-in-microsoft-azure-ee6b361c303e).
 
 ## Circonus
 
