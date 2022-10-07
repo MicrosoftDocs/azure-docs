@@ -151,7 +151,7 @@ These instructions are for building the sample on Windows. For other environment
 
 ### Compile and run
 
-1. Go to the *iothub_ll_telemetry_sample* project directory from the CMake directory (`azure-iot-sdk-c/cmake`) that you created earlier, and compile the sample:
+1. Go to the `iothub_ll_telemetry_sample` project directory from the CMake directory (`azure-iot-sdk-c/cmake`) that you created earlier, and compile the sample:
 
     ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
@@ -172,7 +172,7 @@ These instructions are for building the sample on Windows. For other environment
 
 Implementing the distributed tracing feature without using the C SDK is more complex. We don't recommend it.
 
-First, you must implement all the IoT Hub protocol primitives in your messages by following the developer guide [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md). Then, edit the protocol properties in the MQTT and AMQP messages to add `tracestate` as a *system property*. 
+First, you must implement all the IoT Hub protocol primitives in your messages by following the developer guide [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md). Then, edit the protocol properties in the MQTT and AMQP messages to add `tracestate` as a system property. 
 
 Specifically:
 
@@ -211,7 +211,7 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 1. With Visual Studio Code installed, install the latest version of [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
 
-1. Open Visual Studio Code and go to the **Explorer** tab and the **Azure IoT Hub** section. 
+1. Open Visual Studio Code, and go to the **Explorer** tab and the **Azure IoT Hub** section. 
 
 1. Select the ellipsis (...) next to **Azure IoT Hub** to see a submenu. Choose the **Select IoT Hub** option to retrieve your IoT hub from Azure. 
 
@@ -293,8 +293,8 @@ To support wider adoption for distributed tracing, Microsoft is contributing to 
 1. The IoT device decides (with help from the cloud) that this message should be assigned with a trace context.
 1. The SDK adds a `tracestate` value to the message property, which contains the time stamp for message creation.
 1. The IoT device sends the message to IoT Hub.
-1. The message arrives at IoT Hub gateway.
-1. IoT Hub looks for the `tracestate` value in the message properties and checks whether it's in the correct format. If so, IoT Hub generates a globally unique `trace-id` value for the message and a `span-id` value for the "hop". IoT Hub records these values in the [IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview) under the `DiagnosticIoTHubD2C` operation.
+1. The message arrives at the IoT Hub gateway.
+1. IoT Hub looks for the `tracestate` value in the message properties and checks whether it's in the correct format. If so, IoT Hub generates a globally unique `trace-id` value for the message and a `span-id` value for the "hop." IoT Hub records these values in the [IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview) under the `DiagnosticIoTHubD2C` operation.
 1. When the message processing is finished, IoT Hub generates another `span-id` value and logs it, along with the existing `trace-id` value, under the `DiagnosticIoTHubIngress` operation.
 1. If routing is enabled for the message, IoT Hub writes it to the custom endpoint. IoT Hub logs another `span-id` value with the same `trace-id` value under the `DiagnosticIoTHubEgress` category.
 1. IoT Hub repeats the preceding steps for each message that's generated.
@@ -302,7 +302,7 @@ To support wider adoption for distributed tracing, Microsoft is contributing to 
 ## Public preview limits and considerations
 
 - The proposal for the W3C Trace Context standard is currently a working draft.
-- The only development language that the client SDK supports is currently C.
+- The only development language that the client SDK currently supports is C.
 - Cloud-to-device twin capability isn't available for the [IoT Hub basic tier](iot-hub-scaling.md#basic-and-standard-tiers). However, IoT Hub will still log to Azure Monitor if it sees a properly composed trace context header.
 - To ensure efficient operation, IoT Hub will impose a throttle on the rate of logging that can occur as part of distributed tracing.
 
