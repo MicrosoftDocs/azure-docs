@@ -87,8 +87,10 @@ The following table lists the supported cryptographic algorithms and key strengt
 >    * 10.1.0.0/16 <====> 172.16.0.0/16
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
 >    * 10.2.0.0/16 <====> 172.16.0.0/16
-
-For more information regarding policy-based traffic selectors, see [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+>    
+>    For more information regarding policy-based traffic selectors, see [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+> 
+> 6. DPD timeout - The default value is 45 seconds on Azure VPN gateways. Setting the timeout to shorter periods will cause IKE to rekey more aggressively, causing the connection to appear to be disconnected in some instances. This may not be desirable if your on-premises locations are farther away from the Azure region where the VPN gateway resides, or the physical link condition could incur packet loss. The general recommendation is to set the timeout between **30 to 45** seconds.
 
 The following table lists the corresponding Diffie-Hellman Groups supported by the custom policy:
 
@@ -363,6 +365,18 @@ To enable "UsePolicyBasedTrafficSelectors" when connecting to an on-premises pol
 
 ```powershell
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -UsePolicyBasedTrafficSelectors $True
+```
+
+Similar to "UsePolicyBasedTrafficSelectors", configuring DPD timeout can be performed outside of the Ipsec policy being applied:
+
+```powershell
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -DpdTimeoutInSeconds 30
+```
+
+Either/both **Policy-based traffic selector** and **DPD timeout** options can be specified with **Default** policy, without a custom IPsec/IKE policy, if desired.
+
+```powershell
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True -DpdTimeoutInSeconds 30 
 ```
 
 You can get the connection again to check if the policy is updated.
