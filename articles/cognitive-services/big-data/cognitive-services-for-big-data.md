@@ -5,6 +5,7 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 10/28/2021
 ms.author: marhamil
@@ -140,7 +141,7 @@ Cognitive Services for big data is an example of how we can integrate intelligen
 
 - [The Azure Cognitive Services on Spark: Clusters with Embedded Intelligent Services](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Spark Summit Keynote: Scalable AI for Good](https://databricks.com/session_eu19/scalable-ai-for-good)
-- [Cognitive Services for big data in Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Cognitive Services for big data in Azure Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
 - [Lightning Talk on Large Scale Intelligent Microservices](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## Next steps

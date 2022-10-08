@@ -145,8 +145,6 @@
         href: container-registry-vnet.md
       - name: Allow access by trusted services
         href: allow-access-trusted-services.md
-      - name: Encrypt with customer-managed key
-        href: container-registry-customer-managed-keys.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
       - name: Authentication

@@ -22,6 +22,16 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## October 2022
+
+- **AMD compute SKUs for General Purpose and Business Critical tiers in in Azure Database for MySQL - Flexible Server**
+
+  You can now choose between Intel and AMD hardware for Azure Database for MySQL flexible servers based on the General Purpose (Dadsv5-series) and Business Critical (Eadsv5-series) tiers. AMD SKU offers competitive price-performance options to all Azure Database for MySQL - Flexible server users. To ensure transparency when working in the portal, you can select the compute hardware vendor for both primary and secondary server. After you determine the best compute processor for your workload, deploy flexible servers in an increased number of availability regions and zones. [Learn more](./concepts-service-tiers-storage.md)
+
+- **Autoscale IOPS in Azure Database for MySQL - Flexible Server**
+
+  You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs. With this feature you pay only for the IO you use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Auto scale IO eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL customers. [Learn more](./concepts-service-tiers-storage.md)
+
 ## September 2022
 
 - **Read replica for HA enabled Azure Database for MySQL - Flexible Server (General Availability)**

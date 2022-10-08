@@ -7,6 +7,7 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/30/2022
 ---
@@ -53,7 +54,7 @@ When setting up a shared private link resource, make sure the group ID value is 
 | Azure Storage - Blob | `blob` <sup>1,</sup> <sup>2</sup>  |
 | Azure Storage - Data Lake Storage Gen2 | `dfs` and `blob` |
 | Azure Storage - Tables | `table` <sup>2</sup> |
-| Azure Cosmos DB - SQL API | `Sql`|
+| Azure Cosmos DB for NoSQL | `Sql`|
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault for [customer-managed keys](search-security-manage-encryption-keys.md) | `vault` |

@@ -2,11 +2,11 @@
 title: 'Azure Monitor best practices: Cost management'
 description: Guidance and recommendations for reducing your cost for Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.date: 03/31/2022
 ms.reviewer: bwren
-
 ---
 
 # Azure Monitor best practices: Cost management
@@ -118,7 +118,7 @@ See the documentation for other services that store their data in a Log Analytic
 
 - **Container insights**: [Understand monitoring costs for Container insights](containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost)
 - **Microsoft Sentinel**: [Reduce costs for Microsoft Sentinel](../sentinel/billing-reduce-costs.md)
-- **Defender for Cloud**: [Setting the security event option at the workspace level](../defender-for-cloud/enable-data-collection.md#setting-the-security-event-option-at-the-workspace-level)
+- **Defender for Cloud**: [Setting the security event option at the workspace level](../defender-for-cloud/working-with-log-analytics-agent.md#data-collection-tier)
 
 ## Filter data with transformations (preview)
 

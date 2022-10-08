@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 06/27/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -180,7 +180,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 
 ## Parameters
 
-Parameters help simplify your policy management by reducing the number of policy definitions. Think 
+Parameters help simplify your policy management by reducing the number of policy definitions. Think
 of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,

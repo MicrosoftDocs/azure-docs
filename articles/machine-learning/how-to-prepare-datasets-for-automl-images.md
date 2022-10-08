@@ -7,11 +7,11 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl 
 ms.topic: how-to
-ms.custom: template-how-to, sdkv2, event-tier1-build-2022
+ms.custom: template-how-to, sdkv2, event-tier1-build-2022, ignite-2022
 ms.date: 05/26/2022
 ---
 
-# Prepare data for computer vision tasks with automated machine learning (preview)
+# Prepare data for computer vision tasks with automated machine learning
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 

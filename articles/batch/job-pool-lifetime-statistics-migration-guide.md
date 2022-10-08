@@ -5,7 +5,7 @@ author: harperche
 ms.author: harpercheng
 ms.service: batch
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 10/06/2022
 ---
 
 # Migrate from job and pool lifetime statistics API to logs in Batch
@@ -14,21 +14,25 @@ The Azure Batch lifetime statistics API for jobs and pools will be retired on *A
 
 ## About the feature
 
-Currently, you can use API to retrieve lifetime statistics for jobs and pools in Batch. You can use the API to get lifetime statistics for all the jobs and pools in a Batch account or for a specific job or pool. The API collects statistical data from when the Batch account was created until the last time the account was updated or from when a job or pool was created. A customer might use the job and pool lifetime statistics API to help them analyze and evaluate their Batch usage.
+Currently, you can use API to retrieve lifetime statistics for [jobs](https://learn.microsoft.com/rest/api/batchservice/job/get-all-lifetime-statistics) and [pools](https://learn.microsoft.com/rest/api/batchservice/pool/get-all-lifetime-statistics) in Batch. The API collects statistical data from when the Batch account was created for all jobs and pools created for the lifetime of the Batch account.
 
-To make statistical data available to customers, the Batch service allocates batch pools and schedule jobs with an in-house MapReduce implementation to do a periodic, background rollup of statistics. The aggregation is performed for all Batch accounts, pools, and jobs in each region, regardless of whether a customer needs or queries the stats for their account, pool, or job. The operating cost includes 11 VMs allocated in each region to execute MapReduce aggregation jobs. For busy regions, we had to increase the pool size further to accommodate the extra aggregation load.
-
-The MapReduce aggregation logic was implemented by using legacy code, and no new features are being added or improvised due to technical challenges with legacy code. Still, the legacy code and its hosting repository need to be updated frequently to accommodate increased loads in production and to meet security and compliance requirements. Also, because the API is featured to provide lifetime statistics, the data is growing and demands more storage and performance issues, even though most customers don't use the API. The Batch service currently uses all the compute and storage usage charges that are associated with MapReduce pools and jobs.
+To make statistical data available to customers, the Batch service performs aggregation and roll-ups on a periodic basis. Due to these lifetime stats APIs being rarely exercised by Batch customers, these APIs are being retired as alternatives exist.
 
 ## Feature end of support
 
-The lifetime statistics API is designed and maintained to help you troubleshoot your Batch services. However, not many customers actually use the API. The customers who use the API are interested in extracting details for not more than a month. More advanced ways of getting data about logs, pools, and jobs can be collected and used on a need basis by using Azure portal logs, alerts, log export, and other methods.
+The lifetime statistics API is designed and maintained to help you gather information about usage of your Batch pools and jobs across the lifetime of your Batch account. Alternatives exist to gather data at a fine-grained level on a [per job](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics) or [per pool](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics) basis. Only the lifetime statistics APIs are being retired.
 
 When the job and pool lifetime statistics API is retired on April 30, 2023, the API will no longer work, and it will return an appropriate HTTP response error code to the client.
 
-## Alternative: Set up logs in the Azure portal
+## Alternatives
 
-The Azure portal has various options to enable the logs. System logs and diagnostic logs can provide statistical data. For more information, see [Monitor Batch solutions](./monitoring-overview.md).
+### Aggregate with per job or per pool statistics
+
+You can get statistics for any active job or pool in a Batch account. For jobs, you can issue a [Get Job](https://learn.microsoft.com/rest/api/batchservice/job/get) request and view the [JobStatistics object](https://learn.microsoft.com/rest/api/batchservice/job/get#jobstatistics). For pools, you can issue a [Get Pool](https://learn.microsoft.com/rest/api/batchservice/pool/get) request and view the [PoolStatistics object](https://learn.microsoft.com/rest/api/batchservice/pool/get#poolstatistics). You'll then be able to use these results and aggregate as needed across jobs and pools that are relevant for your analysis workflow.
+
+### Set up logs in the Azure portal
+
+The Azure portal has various options to enable monitoring and logs. System logs and diagnostic logs can provide statistical data with custom solutions. For more information, see [Monitor Batch solutions](./monitoring-overview.md).
 
 ## FAQs
 
@@ -42,4 +46,4 @@ The Azure portal has various options to enable the logs. System logs and diagnos
 
 ## Next steps
 
-For more information, see [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
+For more information, see the Batch [Job](https://learn.microsoft.com/rest/api/batchservice/job) or [Pool](https://learn.microsoft.com/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](../azure-monitor/logs/data-platform-logs.md).

@@ -29,6 +29,10 @@ For the applications in other languages we currently recommend using the SDKs:
 * [JavaScript](./javascript.md)
 * [Python](./opencensus-python.md)
 
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Next steps
 
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md)

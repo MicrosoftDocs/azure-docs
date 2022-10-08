@@ -6,21 +6,22 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/20/2022
 ms.author: sidandrews
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 
-# Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+# Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault
 
-Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys** or CMK).
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+
+Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys** or CMK).
 
 :::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Layers of encryption around customer data":::
 
-You must store customer-managed keys in [Azure Key Vault](../key-vault/general/overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
+You must store customer-managed keys in [Azure Key Vault](../key-vault/general/overview.md) and provide a key for each Azure Cosmos DB account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
-> Currently, customer-managed keys are available only for new Azure Cosmos accounts. You should configure them during account creation.
+> Currently, customer-managed keys are available only for new Azure Cosmos DB accounts. You should configure them during account creation.
 
 ## <a id="register-resource-provider"></a> Register the Azure Cosmos DB resource provider for your Azure subscription
 
@@ -91,7 +92,7 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Copying the key's key identifier":::
 
-## Create a new Azure Cosmos account
+## <a id="create-a-new-azure-cosmos-account"></a>Create a new Azure Cosmos DB account
 
 ### Using the Azure portal
 
@@ -141,7 +142,7 @@ Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
 
 ### Using an Azure Resource Manager template
 
-When you create a new Azure Cosmos account through an Azure Resource Manager template:
+When you create a new Azure Cosmos DB account through an Azure Resource Manager template:
 
 - Pass the URI of the Azure Key Vault key that you copied earlier under the **keyVaultKeyUri** property in the **properties** object.
 
@@ -207,7 +208,7 @@ New-AzResourceGroupDeployment `
 
 ### <a id="using-azure-cli"></a> Using the Azure CLI
 
-When you create a new Azure Cosmos account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the `--key-uri` parameter.
+When you create a new Azure Cosmos DB account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the `--key-uri` parameter.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -337,7 +338,7 @@ az cosmosdb create \
 
 ### To create a continuous backup account by using an Azure Resource Manager template
 
-When you create a new Azure Cosmos account through an Azure Resource Manager template:
+When you create a new Azure Cosmos DB account through an Azure Resource Manager template:
 
 - Pass the URI of the Azure Key Vault key that you copied earlier under the **keyVaultKeyUri** property in the **properties** object.
 - Use **2021-11-15** or later as the API version.
@@ -378,13 +379,13 @@ Double encryption only applies to the main Azure Cosmos DB transactional storage
  
 ## Key rotation
 
-Rotating the customer-managed key used by your Azure Cosmos account can be done in two ways.
+Rotating the customer-managed key used by your Azure Cosmos DB account can be done in two ways.
 
 - Create a new version of the key currently used from Azure Key Vault:
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Screenshot of the New Version option in the Versions page of the Azure portal.":::
 
-- Swap the key currently used with a different one by updating the key URI on your account. From the Azure portal, go to your Azure Cosmos account and select **Data Encryption** from the left menu:
+- Swap the key currently used with a different one by updating the key URI on your account. From the Azure portal, go to your Azure Cosmos DB account and select **Data Encryption** from the left menu:
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Screenshot of the Data Encryption menu option in the Azure portal.":::
 
@@ -431,7 +432,7 @@ No, there's no charge to enable this feature.
 
 ### What data gets encrypted with the customer-managed keys?
 
-All the data stored in your Azure Cosmos account is encrypted with the customer-managed keys, except for the following metadata:
+All the data stored in your Azure Cosmos DB account is encrypted with the customer-managed keys, except for the following metadata:
 
 - The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-db-account)
 
@@ -441,7 +442,7 @@ All the data stored in your Azure Cosmos account is encrypted with the customer-
 
 - The values of your containers' [partition keys](./partitioning-overview.md)
 
-### Are customer-managed keys supported for existing Azure Cosmos accounts?
+### Are customer-managed keys supported for existing Azure Cosmos DB accounts?
 
 This feature is currently available only for new accounts.
 
@@ -453,13 +454,13 @@ Yes, Azure Synapse Link only supports configuring customer-managed keys using yo
 
 Not currently, but container-level keys are being considered.
 
-### How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
+### How can I tell if customer-managed keys are enabled on my Azure Cosmos DB account?
 
-From the Azure portal, go to your Azure Cosmos account and watch for the **Data Encryption** entry in the left menu; if this entry exists, customer-managed keys are enabled on your account:
+From the Azure portal, go to your Azure Cosmos DB account and watch for the **Data Encryption** entry in the left menu; if this entry exists, customer-managed keys are enabled on your account:
 
 :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="The Data Encryption menu entry":::
 
-You can also programmatically fetch the details of your Azure Cosmos account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
+You can also programmatically fetch the details of your Azure Cosmos DB account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
 
 ### How do customer-managed keys affect periodic backups?
 
@@ -497,4 +498,4 @@ The only operation possible when the encryption key has been revoked is account 
 ## Next steps
 
 - Learn more about [data encryption in Azure Cosmos DB](./database-encryption-at-rest.md).
-- Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md).
+- Get an overview of [secure access to data in Azure Cosmos DB](secure-access-to-data.md).

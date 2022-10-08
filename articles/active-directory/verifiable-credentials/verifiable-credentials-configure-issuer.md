@@ -144,6 +144,9 @@ Now that you have a new credential, you're going to gather some information abou
 
 1. Copy your **Tenant ID**, and record it for later. The Tenant ID is the guid in the manifest URL highlighted in red above.
 
+    >[!NOTE]
+    > When setting up access policies for Azure Key Vault, you must add the access policies for both **Verifiable Credentials Service Request** and **Verifiable Credentials Service**.
+
 ## Download the sample code
 
 The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:

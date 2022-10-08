@@ -2,7 +2,9 @@
 title: Permissions to repositories in Azure Container Registry
 description: Create a token with permissions scoped to specific repositories in a Premium registry to pull or push images, or perform other actions
 ms.topic: article
-ms.date: 02/04/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
 ---

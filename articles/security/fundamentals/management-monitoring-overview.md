@@ -113,7 +113,7 @@ Learn more:
 
 Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources as well as those in your hybrid cloud environment. 
 
-Defender for Cloud performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
+Defender for Cloud performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) to provide detailed security recommendations tailored for your environment.
 
 Defender for Cloud helps you optimize and monitor the security of your Azure resources by:
 

@@ -87,7 +87,7 @@ The following ARM template will create an Automanage custom profile. Details on 
     "resources": [
       {
         "type": "Microsoft.Automanage/configurationProfiles",
-        "apiVersion": "2021-04-30-preview",
+        "apiVersion": "2022-05-04",
         "name": "[parameters('customProfileName')]",
         "location": "[parameters('location')]",
         "properties": {

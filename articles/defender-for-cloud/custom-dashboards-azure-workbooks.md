@@ -2,6 +2,7 @@
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.author: benmansheim
 author: bmansheim
 ms.date: 01/23/2022
@@ -92,7 +93,8 @@ Learn more about using these scanners:
 
 - [Find vulnerabilities with Microsoft threat and vulnerability management](deploy-vulnerability-assessment-tvm.md)
 - [Find vulnerabilities with the integrated Qualys scanner](deploy-vulnerability-assessment-vm.md)
-- [Scan your registry images for vulnerabilities](defender-for-containers-usage.md)
+- [Scan your ACR images for vulnerabilities](defender-for-containers-va-acr.md)
+- [Scan your ECR images for vulnerabilities](defender-for-containers-va-ecr.md)
 - [Scan your SQL resources for vulnerabilities](defender-for-sql-on-machines-vulnerability-assessment.md)
 
 Findings for each resource type are reported in separate recommendations:

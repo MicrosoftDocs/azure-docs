@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: AutoML- train object detection model'
 titleSuffix: Azure Machine Learning
-description: Train an object detection model to identify if an image contains certain objects with automated ML and the Azure Machine Learning CLI v2 and Python SDK v2(preview).
+description: Train an object detection model to identify if an image contains certain objects with automated ML and the Azure Machine Learning CLI v2 and Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -10,10 +10,10 @@ author: swatig007
 ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 05/26/2022
-ms.custom: devx-track-python, automl, event-tier1-build-2022
+ms.custom: devx-track-python, automl, event-tier1-build-2022, ignite-2022
 ---
 
-# Tutorial: Train an object detection model (preview) with AutoML and Python
+# Tutorial: Train an object detection model with AutoML and Python
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -21,10 +21,8 @@ ms.custom: devx-track-python, automl, event-tier1-build-2022
 > * [v1](v1/tutorial-auto-train-image-models-v1.md)
 > * [v2 (current version)](tutorial-auto-train-image-models.md)
 
->[!IMPORTANT]
-> The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.
 
-In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2 (preview).
+In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
 This object detection model identifies whether the image contains objects, such as a can, carton, milk bottle, or water bottle.
 
 Automated ML accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
@@ -339,6 +337,7 @@ limits:
 # [Python SDK](#tab/python)
 
 [!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+
 ---
 
 
@@ -417,7 +416,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 ```
 
 # [Python SDK](#tab/python)
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 When you've configured your AutoML Job to the desired settings, you can submit the job.
 
@@ -659,8 +658,8 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Deployed your model
 > * Visualized detections
 
-* [Learn more about computer vision in automated ML (preview)](concept-automated-ml.md#computer-vision-preview).
-* [Learn how to set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
+* [Learn more about computer vision in automated ML](concept-automated-ml.md#computer-vision).
+* [Learn how to set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md).
 * [Learn how to configure incremental training on computer vision models](how-to-auto-train-image-models.md#incremental-training-optional).
 * See [what hyperparameters are available for computer vision tasks](reference-automl-images-hyperparameters.md).
 * Code examples:

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/01/2022
@@ -97,7 +97,7 @@ For an overview of the service, read [What is Azure Machine Learning?](overview-
 
 Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
-  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)
   + [Use a Jupyter notebook to train image classification models](tutorial-train-deploy-notebook.md)
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 

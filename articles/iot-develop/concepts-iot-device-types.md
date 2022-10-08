@@ -5,7 +5,8 @@ author: ryanwinter
 ms.author: rywinter
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 10/07/2022
+ms.custom: engagement-fy23
 ---
 
 # Overview of Azure IoT device types
@@ -18,7 +19,7 @@ Some important factors when choosing your hardware are cost, power consumption, 
 
 * **Power:** How much power a device consumes is important if the device will be utilizing batteries and not connected to the power grid. MCUs are often designed for lower power scenarios and can be a better choice for extending battery life.
 
-* **Network Access:** There are many ways to connect a device to a cloud service. Ethernet, Wi-fi and cellular and some of the available options. The connection type you choose will depend on where the device is deployed and how it is used. For example, cellular can be an attractive option given the high coverage, however for high traffic devices it can an expensive. Hardwired ethernet provides cheaper data costs but with the downside of being less portable.
+* **Network Access:** There are many ways to connect a device to a cloud service. Ethernet, Wi-fi and cellular and some of the available options. The connection type you choose will depend on where the device is deployed and how it's used. For example, cellular can be an attractive option given the high coverage, however for high traffic devices it can an expensive. Hardwired ethernet provides cheaper data costs but with the downside of being less portable.
 
 * **Input and Outputs:** The inputs and outputs available on the device directly affect the devices operating capabilities. A microcontroller will typically have many I/O functions built directly into the chip and provides a wide choice of sensors to connect directly.
 
@@ -27,7 +28,7 @@ IoT devices can be separated into two broad categories, microcontrollers (MCUs) 
 
 **MCUs** are less expensive and simpler to operate than MPUs. An MCU will contain many of the functions, such as memory, interfaces, and I/O within the chip itself. An MPU will draw this functionality from components in supporting chips. An MCU will often use a real-time OS (RTOS) or run bare-metal (No OS) and provide real-time response and highly deterministic reactions to external events.
 
-**MPUs** will generally run a general purpose OS, such as Windows, Linux, or MacOSX, that provide a non-deterministic real-time response. There is typically no guarantee to when a task will be completed. 
+**MPUs** will generally run a general purpose OS, such as Windows, Linux, or MacOSX that provide a non-deterministic real-time response. There's typically no guarantee to when a task will be completed. 
 
 :::image type="content" border="false" source="media/concepts-iot-device-types/mcu-vs-mpu.png" alt-text="MCU vs MPU":::
 

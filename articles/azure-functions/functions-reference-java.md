@@ -4,7 +4,7 @@ description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, ignite-2022
 ---
 
 # Azure Functions Java developer guide
@@ -15,7 +15,7 @@ As a Java developer, if you're new to Azure Functions, please consider first rea
 
 | Getting started | Concepts| Scenarios/samples |
 | -- | -- | -- |
-| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hub trigger and Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li></ul> |
+| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hub trigger and Azure Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li></ul> |
 
 ## Java function basics
 
@@ -414,7 +414,7 @@ To send multiple output values, use `OutputBinding<T>` defined in the `azure-fun
     }
 ```
 
-You invoke this function on an HttpRequest. It writes multiple values to Queue storage.
+You invoke this function on an `HttpRequest` object. It writes multiple values to Queue storage.
 
 ## HttpRequestMessage and HttpResponseMessage
 

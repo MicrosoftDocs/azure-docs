@@ -2,6 +2,7 @@
 title: How to enable Microsoft Defender for SQL servers on machines
 description: Learn how to protect your Microsoft SQL servers on Azure VMs, on-premises, and in hybrid and multicloud environments with Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.author: benmansheim
 author: bmansheim
 ms.date: 07/28/2022
@@ -67,7 +68,7 @@ To enable this plan:
 
 <a name="auto-provision-mma"></a>
 
-- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent](enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
+- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [customize the Log Analytics agent configuration](working-with-log-analytics-agent.md). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server on Azure Arc-enabled servers** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Defender for Cloud recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”.
 
 - **SQL Server on-premises** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you can connect the machine to Azure by either:

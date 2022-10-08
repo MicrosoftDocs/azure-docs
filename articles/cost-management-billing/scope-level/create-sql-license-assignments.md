@@ -38,7 +38,7 @@ The prerequisite roles differ depending on the agreement type.
 
 
 > [!NOTE]
-> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
+> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or Microsoft Cloud Partner Program subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
 
 ## Create a SQL license assignment
 
@@ -46,7 +46,7 @@ In the following procedure, you navigate from **Cost Management + Billing** to *
 
 1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Screenshot showing Azure portal navigation to Cost Management + Billing." lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
-1. Use one of the following two steps, depending on you agreement type:
+1. Use one of the following two steps, depending on your agreement type:
     - If you have an Enterprise Agreement, select a billing scope.  
         :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Screenshot showing EA billing scope selection." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
     - If you have a Microsoft Customer Agreement, select a billing profile.  

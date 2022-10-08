@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 # Build an IoT solution by using Stream Analytics
@@ -137,7 +137,7 @@ There are several resources that can easily be deployed in a resource group toge
 2. Locate the Resource Group that you named in the previous section.
 
 3. Verify that the following resources are listed in the resource group:
-   - One Cosmos DB Account
+   - One Azure Cosmos DB Account
    - One Azure Stream Analytics Job
    - One Azure Storage Account
    - One Azure Event Hub
@@ -165,7 +165,7 @@ There are several resources that can easily be deployed in a resource group toge
    - **Registration** input is an Azure Blob storage connection, pointing to a static registration.json file, used for lookups as needed. This reference data input is used in later variations of the query syntax.
 
 4. Examine the Outputs of the TollApp sample job.
-   - **Cosmos DB** output is a Cosmos database container that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
+   - **Azure Cosmos DB** output is an Azure Cosmos DB database container that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
 
 ## Start the TollApp streaming job
 Follow these steps to start the streaming job:
@@ -176,7 +176,7 @@ Follow these steps to start the streaming job:
 
 3. After a few moments, once the job is running, on the **Overview** page of the streaming job, view the **Monitoring** graph. The graph should show several thousand input events, and tens of output events.
 
-## Review the CosmosDB output data
+## Review the Azure Cosmos DB output data
 1. Locate the resource group that contains the TollApp resources.
 
 2. Select the Azure Cosmos DB Account with the name pattern **tollapp\<random\>-cosmos**.
@@ -223,7 +223,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. On the **Start job** pane, select **Now**.
 
 ### Review the total time in the output
-Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job. Review the latest JSON documents.
+Repeat the steps in the preceding section to review the Azure Cosmos DB output data from the streaming job. Review the latest JSON documents.
 
 For example, this document shows an example car with a certain license plate, the entrytime and exit time, and the DATEDIFF calculated durationinminutes field showing the toll booth duration as two minutes:
 ```JSON
@@ -258,7 +258,7 @@ WHERE Registration.Expired = '1'
 
 1. Repeat the steps in the preceding section to update the TollApp streaming job query syntax.
 
-2. Repeat the steps in the preceding section to review the CosmosDB output data from the streaming job.
+2. Repeat the steps in the preceding section to review the Azure Cosmos DB output data from the streaming job.
 
 Example output:
 ```json

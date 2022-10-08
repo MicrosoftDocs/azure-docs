@@ -2,7 +2,9 @@
 title: Scan registry images with Microsoft Defender for Cloud
 description: Learn about using Microsoft Defender for container registries to scan images in your Azure container registries
 ms.topic: article
-ms.date: 05/19/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Scan registry images with Microsoft Defender for Cloud

@@ -2,9 +2,9 @@
 title: Monitoring AKS data reference
 description: Important reference material needed when you monitor AKS 
 ms.service: container-service
-ms.custom: subject-monitoring
+ms.custom: subject-monitoring, ignite-2022
 ms.date: 07/18/2022
-ms.topic: reference
+ms.topic: conceptual
 ---
 
 # Monitoring AKS data reference
@@ -25,7 +25,7 @@ The following table lists the platform metrics collected for AKS.  Follow each l
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
-In addition to the above platform metrics, Azure Monitor container insights collects [these custom metrics](../azure-monitor/containers/container-insights-metric-alerts.md#metrics-collected) for nodes, pods, containers, and persistent volumes.
+In addition to the above platform metrics, Azure Monitor container insights collects [these custom metrics](../azure-monitor/containers/container-insights-custom-metrics.md) for nodes, pods, containers, and persistent volumes.
 
 ## Metric dimensions
 

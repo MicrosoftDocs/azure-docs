@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 05/25/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
+ms.custom: ignite-2022
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 
@@ -951,7 +952,7 @@ public static void SendInstanceInfo(
 {
     HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
 }
 ```
@@ -969,7 +970,7 @@ modules.exports = async function(context, ctx) {
 
     const payload = client.createHttpManagementPayload(ctx.instanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     context.bindings.document = JSON.stringify({
         id: ctx.instanceId,
         payload,

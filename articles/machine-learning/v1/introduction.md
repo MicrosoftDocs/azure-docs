@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: larryfr
 author: BlackMist
 ms.date: 05/10/2022
-ms.custom: cliv1, event-tier1-build-2022
+ms.custom: cliv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Azure Machine Learning SDK & CLI (v1) 
@@ -26,7 +26,7 @@ All articles in this section document the use of the first version of Azure Mach
 
 ## SDK v1
 
-The Azure SDK examples in articles in this section require the `azureml-core`, or Python SDK v1 for Azure Machine Learning. The Python SDK v2 is now available in preview.
+The Azure SDK examples in articles in this section require the `azureml-core`, or Python SDK v1 for Azure Machine Learning. The Python SDK v2 is now available.
 
 The v1 and v2 Python SDK packages are incompatible, and v2 style of coding will not work for articles in this directory. However, machine learning workspaces and all underlying resources can be interacted with from either, meaning one user can create a workspace with the SDK v1 and another can submit jobs to the same workspace with the SDK v2.
 

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2, event-tier1-build-2022, ignite-2022
 
 author: Abeomor
 ms.author: osomorog
@@ -14,9 +14,9 @@ ms.date: 05/04/2022
 ms.reviewer: larryfr
 ---
 
-# Migrate logging from SDK v1 to SDK v2 (preview)
+# Migrate logging from SDK v1 to SDK v2
 
-The Azure Machine Learning Python SDK v2 does not provide native logging APIs. Instead, we recommend that you use [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). If you're migrating from SDK v1 to SDK v2 (preview), use the information in this section to understand the MLflow equivalents of SDK v1 logging APIs.
+The Azure Machine Learning Python SDK v2 does not provide native logging APIs. Instead, we recommend that you use [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). If you're migrating from SDK v1 to SDK v2, use the information in this section to understand the MLflow equivalents of SDK v1 logging APIs.
 
 ## Setup
 
@@ -53,7 +53,7 @@ experiment = Experiment(ws, "create-experiment-sdk-v1")
 azureml_run = experiment.start_logging()
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 # Set the MLflow experiment and start a run
@@ -71,7 +71,7 @@ __SDK v1__
 azureml_run.log("sample_int_metric", 1)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_metric("sample_int_metric", 1)
@@ -85,7 +85,7 @@ __SDK v1__
 azureml_run.log("sample_boolean_metric", True)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_metric("sample_boolean_metric", 1)
@@ -99,7 +99,7 @@ __SDK v1__
 azureml_run.log("sample_string_metric", "a_metric")
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_text("sample_string_text", "string.txt")
@@ -115,7 +115,7 @@ __SDK v1__
 azureml_run.log_image("sample_image", path="Azure.png")
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_artifact("Azure.png")
@@ -134,7 +134,7 @@ plt.plot([1, 2, 3])
 azureml_run.log_image("sample_pyplot", plot=plt)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 import matplotlib.pyplot as plt
@@ -158,7 +158,7 @@ list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
 azureml_run.log_list('sample_list', list_to_log)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
@@ -180,7 +180,7 @@ __SDK v1__
 azureml_run.log_row("sample_table", col1=5, col2=10)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 metrics = {"sample_table.col1": 5, "sample_table.col2": 10}
@@ -203,7 +203,7 @@ table = {
 azureml_run.log_table("table", table)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 # Add a metric for each column prefixed by metric name. Similar to log_row
@@ -238,7 +238,7 @@ ACCURACY_TABLE = '{"schema_type": "accuracy_table", "schema_version": "v1", "dat
 azureml_run.log_accuracy_table('v1_accuracy_table', ACCURACY_TABLE)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 ACCURACY_TABLE = '{"schema_type": "accuracy_table", "schema_version": "v1", "data": {"probability_tables": ' +\
@@ -265,7 +265,7 @@ CONF_MATRIX = '{"schema_type": "confusion_matrix", "schema_version": "v1", "data
 azureml_run.log_confusion_matrix('v1_confusion_matrix', json.loads(CONF_MATRIX))
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 CONF_MATRIX = '{"schema_type": "confusion_matrix", "schema_version": "v1", "data": {"class_labels": ' + \
@@ -289,7 +289,7 @@ PREDICTIONS = '{"schema_type": "predictions", "schema_version": "v1", "data": {"
 azureml_run.log_predictions('test_predictions', json.loads(PREDICTIONS))
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 PREDICTIONS = '{"schema_type": "predictions", "schema_version": "v1", "data": {"bin_averages": [0.25,' + \
@@ -313,7 +313,7 @@ RESIDUALS = '{"schema_type": "residuals", "schema_version": "v1", "data": {"bin_
 azureml_run.log_residuals('test_residuals', json.loads(RESIDUALS))
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 RESIDUALS = '{"schema_type": "residuals", "schema_version": "v1", "data": {"bin_edges": [100, 200, 300], ' + \

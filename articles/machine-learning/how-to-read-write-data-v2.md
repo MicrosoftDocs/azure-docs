@@ -10,7 +10,7 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: ssalgadodev
 ms.date: 05/26/2022
-ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
+ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
 
@@ -22,7 +22,7 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 > * [v1](v1/how-to-train-with-datasets.md)
 > * [v2 (current version)](how-to-read-write-data-v2.md)
 
-Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2(preview) and the Azure Machine Learning CLI extension v2. 
+Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2 and the Azure Machine Learning CLI extension v2. 
  
 ## Prerequisites
 
@@ -363,7 +363,7 @@ returned_job.services["Studio"].endpoint
 
 ## Data in pipelines 
 
-If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2 (preview). 
+If you're working with Azure Machine Learning pipelines, you can read data into and move data between pipeline components with the Azure Machine Learning CLI v2 extension or the Python SDK v2. 
 
 ### Azure Machine Learning CLI v2
 The following YAML file demonstrates how to use the output data from one component as the input for another component of the pipeline using the Azure Machine Learning CLI v2 extension:
@@ -372,7 +372,7 @@ The following YAML file demonstrates how to use the output data from one compone
 
 :::code language="yaml" source="~/azureml-examples-main/CLI/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
-### Python SDK v2 (preview)
+### Python SDK v2
 
 The following example defines a pipeline containing three nodes and moves data between each node.
 

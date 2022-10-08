@@ -100,7 +100,7 @@ Both Azure AD security groups and Microsoft 365 groups can be created from the A
 | What can the group contain?| Users<br>Groups<br>Service principals<br>Devices| Users only |
 | Where is the group created?| Azure AD portal<br>Microsoft 365 portal (if to be mail enabled)<br>PowerShell<br>Microsoft Graph<br>End user portal| Microsoft 365 portal<br>Azure AD portal<br>PowerShell<br>Microsoft Graph<br>In Microsoft 365 applications |
 | Who creates by default?| Administrators <br>Users| Administrators<br>Users |
-| Who can be added by default?| Internal users (tenant members)| Tenant members and guests from any organization |
+| Who can be added by default?| Internal users (tenant members) and guest users | Tenant members and guests from any organization |
 | What does it grant access to?| Only resources to which it's assigned.| All group-related resources:<br>(Group mailbox, site, team, chats, and other included Microsoft 365 resources)<br>Any other resources to which group is added |
 | Can be used with| Conditional Access<br>Entitlement Management<br>Group licensing| Conditional Access<br>Entitlement Management<br>Sensitivity labels |
 

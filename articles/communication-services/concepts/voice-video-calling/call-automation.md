@@ -16,7 +16,7 @@ ms.custom: private_preview
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly.
 > Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
 
-Azure Communication Services Call Automation provides developers the ability to build  server-based, intelligent call workflows for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, etc.) to steer and control calls based on your business logic.
+Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows for voice and PSTN channels. The SDKs, available for .NET and Java, uses an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, etc.) to steer and control calls based on your business logic.
 
 ## Common Use Cases
 
@@ -30,7 +30,7 @@ Some of the common use cases that can be build using Call Automation include:
 
 ACS Call Automation can be used to build calling workflows for customer service scenarios, as depicted in the high-level architecture below. You can answer inbound calls or make outbound calls. Execute actions like playing a welcome message, connecting the customer to a live agent on an ACS Calling SDK client app to answer the incoming call request. With support for ACS PSTN or Direct Routing, you can then connect this workflow back to your contact center.  
 
-![Diagram of calling flow for a customer service scenario.](./call-automation-architecture.png)
+![Diagram of calling flow for a customer service scenario.](./media/call-automation-architecture.png)
 
 ## Capabilities
 
@@ -60,16 +60,9 @@ The following list presents the set of features that are currently available in 
 
 Call Automation uses a REST API interface to receive requests and provide responses to all actions performed within the service. Due to the asynchronous nature of calling, most actions will have corresponding events that are triggered when the action completes successfully or fails.
 
-Event Grid – Azure Communication Services uses Event Grid to deliver the IncomingCall event. This event can be triggered:
-- by an inbound PSTN call to a number you've acquired in the portal,
-- by connecting your telephony infrastructure using an SBC,
-- for one-on-one calls between Communication Service users,
-- when a Communication Services user is added to an existing call (group call),
-- an existing 1:1 call is transferred to a Communication Service user.
+Azure Communication Services uses Event Grid to deliver the [IncomingCall event](../../concepts/voice-video-calling/incoming-call-notification.md) and HTTPS Webhooks for all mid-call action callbacks.
 
-Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for call state change events and responses to mid-call actions.
-
-![Screenshot of flow for incoming call and actions.](./action-architecture.png)
+![Screenshot of flow for incoming call and actions.](./media/action-architecture.png)
 
 
 ## Call Actions

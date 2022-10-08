@@ -140,6 +140,46 @@ If you don't need to work with tokens in your app, you can disable the token sto
 
 If you [enable application logging](troubleshoot-diagnostic-logs.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
 
+### Considerations when using Azure Front Door
+
+When using Azure App Service with Easy Auth behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
+
+1) Disable Caching for the authentication workflow
+
+    See [Disable cache for auth workflow](/azure/static-web-apps/front-door-manual#disable-cache-for-auth-workflow) to learn more on how to configure rules in Azure Front Door to disable caching for authentication and authorization-related pages.
+
+2) Use the Front Door endpoint for redirects
+
+    App Service is usually not accessible directly when exposed via Azure Front Door. This can be prevented, for example, by exposing App Service via Private Link in Azure Front Door Premium. To prevent the authentication workflow to redirect traffic back to App Service directly, it is important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
+
+3) Ensure that App Service is using the right redirect URI
+
+    In some configurations, the App Service is using the App Service FQDN as the redirect URI instead of the Front Door FQDN. This will lead to an issue when the client is being redirected to App Service instead of Front Door. To change that, the `forwardProxy` setting needs to be set to `Standard` to make App Service respect the `X-Forwarded-Host` header set by Azure Front Door.
+    
+    Other reverse proxies like Azure Application Gateway or 3rd-party products might use different headers and need a different forwardProxy setting.
+    
+    This configuration cannot be done via the Azure portal today and needs to be done via `az rest`:
+    
+    **Export settings**
+    
+    `az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME?api-version=2020-09-01 --method get > auth.json`
+    
+    **Update settings**
+    
+    Search for 
+    ```json
+    "httpSettings": {
+      "forwardProxy": {
+        "convention": "Standard"
+      }
+    }
+    ```
+    and ensure that `convention` is set to `Standard` to respect the `X-Forwarded-Host` header used by Azure Front Door.
+    
+    **Import settings**
+    
+    `az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME?api-version=2020-09-01 --method put --body @auth.json`
+    
 ## More resources
 
 - [How-To: Configure your App Service or Azure Functions app to use Azure AD login](configure-authentication-provider-aad.md)

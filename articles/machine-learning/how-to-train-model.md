@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/25/2022
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, ignite-2022
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API
@@ -22,11 +22,6 @@ Azure Machine Learning provides multiple ways to submit ML training jobs. In thi
 * Azure CLI extension for machine learning: The `ml` extension, also referred to as CLI v2.
 * Python SDK v2 for Azure Machine Learning.
 * REST API: The API that the CLI and SDK are built on.
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

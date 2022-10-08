@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 01/24/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1, sdkv1, event-tier1-build-2022
+ms.custom: devx-track-python, contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up AutoML training with Python
@@ -47,8 +47,6 @@ For this article you need,
 Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](../concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting-computer-vision--nlp).
 
 >[!NOTE]
-> Support for computer vision tasks: image classification (multi-class and multi-label), object detection, and instance segmentation is available in public preview. [Learn more about computer vision tasks in automated ML](../concept-automated-ml.md#computer-vision-preview). 
->
 >Support for natural language processing (NLP) tasks: image classification (multi-class and multi-label) and named entity recognition is available in public preview. [Learn more about NLP tasks in automated ML](../concept-automated-ml.md#nlp). 
 >
 > These preview capabilities are provided without a service-level agreement. Certain features might not be supported or might have constrained functionality. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -449,7 +447,7 @@ RunDetails(run).show()
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](../how-to-auto-train-image-models.md)
+>  * [Computer vision tasks](../how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](../how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](../how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML runs from local computes or Azure Databricks clusters](../how-to-configure-auto-train.md#compute-to-run-experiment)

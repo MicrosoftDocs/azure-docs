@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 09/19/2022
+ms.date: 10/04/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -16,6 +16,19 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # What's new in Azure Cognitive Service for Language?
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## October 2022
+
+* The summarization feature now has the following capabilities:
+    * [Document summarization](./summarization/overview.md):
+        * Abstractive summarization, which generates a summary of a document that may not use the same words as those in the document, but captures the main idea.
+    * [Conversation summarization](./summarization/overview.md?tabs=document-summarization?tabs=conversation-summarization)
+        * Chapter title summarization, which returns suggested chapter titles of input conversations.
+        * Narrative summarization, which returns call notes, meeting notes or chat summaries of input conversations.
+* Expanded language support for:
+    * [Sentiment analysis](./sentiment-opinion-mining/language-support.md)
+    * [Key phrase extraction](./key-phrase-extraction/language-support.md)
+    * [Named entity recognition](./key-phrase-extraction/language-support.md)
 
 ## September 2022
 

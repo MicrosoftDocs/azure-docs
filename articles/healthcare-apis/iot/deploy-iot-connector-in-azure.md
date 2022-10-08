@@ -1,12 +1,12 @@
 ---
 title: Choosing a method of deployment for MedTech service in Azure - Azure Health Data Services
 description: In this article, you'll learn how to choose a method to deploy the MedTech service in Azure.
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/30/2022
-ms.author: v-smcevoy
+ms.date: 10/10/2022
+ms.author: jasteppe
 ---
 
 # Choose a deployment method
@@ -19,9 +19,9 @@ The different deployment methods are:
 - Azure PowerShell and Azure CLI automation
 - Manual deployment
 
-## Azure ARM QuickStart template with Deploy to Azure button
+## Azure ARM Quickstart template with Deploy to Azure button
 
-Using a Quickstart template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity RBAC roles, a provisioned workspace and namespace, an Event Hubs instance, a FHIR service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but does not allow for much customization.
+Using a Quickstart template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity RBAC roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but does not allow for much customization.
 
 For more information about the Quickstart template and the Deploy to Azure button, see [Deploy the MedTech service with a QuickStart template](deploy-02-new-button.md).
 

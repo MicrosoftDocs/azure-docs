@@ -33,18 +33,17 @@ To benefit from this article, you'll need to:
 
 - Access an Azure subscription. If you don't have one already, [create a free account](https://azure.microsoft.com/free/).
 - Run the code in this article using either an Azure Machine Learning compute instance or your own Jupyter notebook.
-    - Azure Machine Learning compute instance - no downloads or installation necessary
+    - Azure Machine Learning compute instance—no downloads or installation necessary
         - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-        - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > jobs > single-step > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow**.
-    - You can use the pre-populated code in the samples deep learning folder to complete this tutorial.
-- Your Jupyter notebook server
-    - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
-    - Download the following files:
-        - training script [tf_mnist.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/tf_mnist.py) 
-        - scoring script [score.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/score.py)
-        - sample request file [sample-request.json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/request/sample-request.json)
+        - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > python > jobs > single-step > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow**.
+    - Your Jupyter notebook server
+        - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
+- Download the following files:
+    - training script [tf_mnist.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/tf_mnist.py) 
+    - scoring script [score.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/score.py)
+    - sample request file [sample-request.json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/request/sample-request.json)
 
-    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page.
+You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page.
 
 
 [!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
@@ -120,11 +119,10 @@ For more information about the MNIST dataset, visit [Yan LeCun's website](http:/
 
 In this article, we've provided the training script *tf_mnist.py*. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
 
-> [!NOTE]
-> The provided training script does the following:
-> - handles the data preprocessing, splitting the data into test and train data;
-> - trains a model, using the data; and
-> - returns the output model.
+The provided training script does the following:
+- handles the data preprocessing, splitting the data into test and train data;
+- trains a model, using the data; and 
+- returns the output model.
 
 During the pipeline run, you'll use MLFlow to log the parameters and metrics. To learn how to enable MLFlow tracking, see [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
 
@@ -173,11 +171,11 @@ Once completed, the job will register a model in your workspace (as a result of 
 ### What happens during job execution
 As the job is executed, it goes through the following stages:
 
-- **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress. If a curated environment is specified, the cached image backing that curated environment will be used.
+- **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the job history and can be viewed to monitor progress. If a curated environment is specified, the cached image backing that curated environment will be used.
 
 - **Scaling**: The cluster attempts to scale up if it requires more nodes to execute the run than are currently available.
 
-- **Running**: All scripts in the script folder *src* are uploaded to the compute target, data stores are mounted or copied, and the script is executed. Outputs from *stdout* and the *./logs* folder are streamed to the run history and can be used to monitor the run.
+- **Running**: All scripts in the script folder *src* are uploaded to the compute target, data stores are mounted or copied, and the script is executed. Outputs from *stdout* and the *./logs* folder are streamed to the job history and can be used to monitor the job.
 
 ## Tune model hyperparameters
 
@@ -242,7 +240,7 @@ In the following code, you'll create a single deployment that handles 100% of th
 The code to deploy the model to the endpoint does the following:
 
 - deploys the best version of the model that you registered earlier;
-- scores the model, using the `core.py` file; and
+- scores the model, using the `score.py` file; and
 - uses the same curated environment (that you declared earlier) to perform inferencing.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=blue_deployment)]

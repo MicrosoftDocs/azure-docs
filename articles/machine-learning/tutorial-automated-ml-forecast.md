@@ -10,8 +10,8 @@ ms.author: larryfr
 ms.reviewer: nibaccam
 author: blackmist
 ms.date: 10/21/2021
-ms.custom: automl
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
+ms.custom: automl, ignite-2022
+#Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
 # Tutorial: Forecast demand with no-code automated machine learning in the Azure Machine Learning studio
@@ -30,7 +30,7 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of a classification model, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-* For a code first example of an object detection model, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* For a code first example of an object detection model, see the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 
 ## Prerequisites
 

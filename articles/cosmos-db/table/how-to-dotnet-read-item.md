@@ -1,25 +1,25 @@
 ---
-title: Read an item in Azure Cosmos DB Table API using .NET
-description: Learn how to read an item in your Azure Cosmos DB Table API account using the .NET SDK
+title: Read an item in Azure Cosmos DB for Table using .NET
+description: Learn how to read an item in your Azure Cosmos DB for Table account using the .NET SDK
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
-# Read an item in Azure Cosmos DB Table API using .NET
+# Read an item in Azure Cosmos DB for Table using .NET
 
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
-Items in Azure Cosmos DB represent a specific entity stored within a table. In the Table API, an item consists of a set of key-value pairs uniquely identified by the composite of the row and partition keys.
+Items in Azure Cosmos DB represent a specific entity stored within a table. In the API for Table, an item consists of a set of key-value pairs uniquely identified by the composite of the row and partition keys.
 
 ## Reading items using the composite key
 
-Every item in Azure Cosmos DB Table API has a unique identifier specified by the composite of the **row** and **partition** keys. These composite keys are stored as the ``RowKey`` and ``PartitionKey`` properties respectively. Within the scope of a table, two items can't share the same unique identifier composite.
+Every item in Azure Cosmos DB for Table has a unique identifier specified by the composite of the **row** and **partition** keys. These composite keys are stored as the ``RowKey`` and ``PartitionKey`` properties respectively. Within the scope of a table, two items can't share the same unique identifier composite.
 
 Azure Cosmos DB requires both the unique identifier and the partition key value of an item to perform a read of the item. Specifically, providing the composite key will perform a quick *point read* of that item with a predictable cost in request units (RUs).
 
@@ -57,7 +57,7 @@ The [``TableClient.GetEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient
 
 ## Next steps
 
-Now that you've read various items, try one of our tutorials on querying Azure Cosmos DB Table API data.
+Now that you've read various items, try one of our tutorials on querying Azure Cosmos DB for Table data.
 
 > [!div class="nextstepaction"]
-> [Query Azure Cosmos DB by using the Table API](tutorial-query-table.md)
+> [Query Azure Cosmos DB by using the API for Table](tutorial-query.md)

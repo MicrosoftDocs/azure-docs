@@ -1,26 +1,26 @@
 ---
-title: Create a document in Azure Cosmos DB MongoDB API using .NET
-description: Learn how to work with a document in your Azure Cosmos DB MongoDB API database using the .NET SDK.
+title: Create a document in Azure Cosmos DB for MongoDB using .NET
+description: Learn how to work with a document in your Azure Cosmos DB for MongoDB database using the .NET SDK.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/22/2022
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 
-# Manage a document in Azure Cosmos DB MongoDB API using .NET
+# Manage a document in Azure Cosmos DB for MongoDB using .NET
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Manage your MongoDB documents with the ability to insert, update, and delete documents.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET project.
 
-[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
+[API for MongoDB reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
 ## Insert a document
 
@@ -42,7 +42,7 @@ To update a document, specify the query filter used to find the document along w
 
 ## Bulk updates to a collection
 
-You can perform several different types of operations at once with the **bulkWrite** operation. Learn more about how to [optimize bulk writes for Cosmos DB](optimize-write-performance.md#tune-for-the-optimal-batch-size-and-thread-count). 
+You can perform several different types of operations at once with the **bulkWrite** operation. Learn more about how to [optimize bulk writes for Azure Cosmos DB](optimize-write-performance.md#tune-for-the-optimal-batch-size-and-thread-count). 
 
 The following bulk operations are available:
 
@@ -67,5 +67,5 @@ To delete documents, use a query to define how the documents are found.
 
 ## See also
 
-- [Get started with Azure Cosmos DB MongoDB API and JavaScript](how-to-javascript-get-started.md)
+- [Get started with Azure Cosmos DB for MongoDB and JavaScript](how-to-javascript-get-started.md)
 - [Create a database](how-to-javascript-manage-databases.md)

@@ -19,7 +19,7 @@ items:
       items:
       - name: Choose a deployment method
         href: deploy-iot-connector-in-azure.md
-      - name: QuickStart template
+      - name: Quickstart template
         href: deploy-02-new-button.md
       - name: Azure PowerShell & CLI
         href: deploy-08-new-ps-cli.md

@@ -230,8 +230,7 @@ az containerapp create \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
   --ingress 'external' \
-  --registry-server $ACR_NAME.azurecr.io \
-  --query configuration.ingress.fqdn
+  --registry-server $ACR_NAME.azurecr.io
 ```
 
 # [PowerShell](#tab/powershell)
@@ -245,8 +244,7 @@ az containerapp create `
   --env-vars API_BASE_URL=https://$API_BASE_URL `
   --target-port 3000 `
   --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io"  `
-  --query configuration.ingress.fqdn
+  --registry-server "$ACR_NAME.azurecr.io"
 ```
 
 ---

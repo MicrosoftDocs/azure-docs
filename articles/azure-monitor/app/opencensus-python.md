@@ -557,6 +557,10 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 * [OpenCensus Integrations](https://github.com/census-instrumentation/opencensus-python#extensions)
 * [Azure Monitor Sample Applications](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor)
 
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Next steps
 
 * [Tracking incoming requests](./opencensus-python-dependency.md)

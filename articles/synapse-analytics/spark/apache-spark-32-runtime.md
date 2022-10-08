@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 06/13/2022 
 ms.author: dacoelho
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, ignite-2022
 ms.reviewer: martinle
 ---
 

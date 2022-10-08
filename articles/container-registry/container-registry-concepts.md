@@ -2,7 +2,9 @@
 title: About registries, repositories, images, and artifacts
 description: Introduction to key concepts of Azure container registries, repositories, container images, and other artifacts.
 ms.topic: article
-ms.date: 01/29/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # About registries, repositories, and artifacts

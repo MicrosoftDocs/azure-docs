@@ -84,6 +84,8 @@
       href: howto-conditional-access-policy-block-access.md
     - name: Require MFA for Intune enrollment
       href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json
+    - name: Require authentication strength for external users
+      href: howto-conditional-access-policy-authentication-strength-external.md
   - name: Configure resilience defaults
     href: resilience-defaults.md
   - name: Configure report only mode

@@ -1,5 +1,5 @@
 ---
-title: 'Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)'
+title: 'Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2'
 titleSuffix: Azure Machine Learning
 description: Build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
-# Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)
+# Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 

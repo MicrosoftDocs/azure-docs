@@ -28,7 +28,7 @@ We recommend the following approach to upgrade to Standard SKU public IP address
     | Resource using Basic SKU public IP addresses | Decision path |
     | ------ | ------ |
     | Virtual Machine or Virtual Machine Scale Sets | Use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). |
-    | Load Balancer (Basic) | Use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli).   |
+    | Load Balancer (Basic) | Use this [guidance to upgrade from Basic to Standard Load Balancer](../../load-balancer/load-balancer-basic-upgrade-guidance.md).   |
     | VPN Gateway (Basic) | Cannot dissociate and upgrade. Create a [new VPN gateway with a SKU type other than Basic](../../vpn-gateway/tutorial-create-gateway-portal.md). |
     | Application Gateway (v1) | Cannot dissociate and upgrade. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
 1. Verify your application and workloads are receiving traffic through the Standard SKU public IP address. Then delete your Basic SKU public IP address resource. 

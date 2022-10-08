@@ -4,6 +4,7 @@ description: Learn about key features of Azure ExpressRoute Direct and informati
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/31/2021
 ms.author: duau
@@ -15,7 +16,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
-* Massive Data Ingestion into services like Storage and Cosmos DB
+* Massive data ingestion into services like Azure Storage and Azure Cosmos DB
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity like: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 

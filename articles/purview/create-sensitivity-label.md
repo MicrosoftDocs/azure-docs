@@ -5,6 +5,7 @@ author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-map
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/22/2022
 ---
@@ -28,7 +29,7 @@ Microsoft Purview allows you to apply sensitivity labels to assets, enabling you
 * **Label travels with the data:** The sensitivity labels created in Microsoft Purview Information Protection can also be extended to the Microsoft Purview Data Map, SharePoint, Teams, Power BI, and SQL. When you apply a label on an office document and then scan it into the Microsoft Purview Data Map, the label will be applied to the data asset. While the label is applied to the actual file in Microsoft Purview Information Protection, it's only added as metadata in the Microsoft Purview map. While there are differences in how a label is applied to an asset across various services/applications, labels travel with the data and is recognized by all the services you extend it to.
 * **Overview of your data estate:** Microsoft Purview provides insights into your data through pre-canned reports. When you scan data into the Microsoft Purview Data Map, we hydrate the reports with information on what assets you have, scan history, classifications found in your data, labels applied, glossary terms, etc.
 * **Automatic labeling:** Labels can be applied automatically based on sensitivity of the data. When an asset is scanned for sensitive data, autolabeling rules are used to decide which sensitivity label to apply. You can create autolabeling rules for each sensitivity label, defining which classification/sensitive information type constitutes a label.
-* **Apply labels to files and database columns:** Labels can be applied to files in storage like Azure Data Lake, Azure Files, etc. and to schematized data like columns in Azure SQL DB, Cosmos DB, etc.
+* **Apply labels to files and database columns:** Labels can be applied to files in storage such as Azure Data Lake or Azure Files as well as to schematized data such as columns in Azure SQL Database or Azure Cosmos DB.
 
 Sensitivity labels are tags that you can apply on assets to classify and protect your data. Learn more about [sensitivity labels here](/microsoft-365/compliance/create-sensitivity-labels).
 
@@ -54,7 +55,7 @@ Sensitivity labels are supported in the Microsoft Purview Data Map for the follo
 |Data type  |Sources  |
 |---------|---------|
 |Automatic labeling for files     |   - Azure Blob Storage</br>- Azure Files</br>- Azure Data Lake Storage Gen 1 and Gen 2</br>- Amazon S3|
-|Automatic labeling for schematized data assets    |  - SQL server</br>- Azure SQL database</br>- Azure SQL Managed Instance</br>- Azure Synapse Analytics workspaces</br>- Azure Cosmos Database (SQL API)</br> - Azure database for MySQL</br> - Azure database for PostgreSQL</br> - Azure Data Explorer</br>  |
+|Automatic labeling for schematized data assets    |  - SQL server</br>- Azure SQL database</br>- Azure SQL Managed Instance</br>- Azure Synapse Analytics workspaces</br>- Azure Cosmos DB for NoSQL</br> - Azure Database for MySQL</br> - Azure Database for PostgreSQL</br> - Azure Data Explorer</br>  |
 | | |
 
 ## Labeling for SQL databases

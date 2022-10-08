@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: overview
 ms.author: sunila
 author: sunilagarwal
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ms.date: 06/24/2022
 adobe-target: true
 ---
@@ -36,7 +36,6 @@ Azure Database for PostgreSQL powered by the PostgreSQL community edition is ava
 
 - Single Server
 - Flexible Server
-- Hyperscale (Citus)
 
 ### Azure Database for PostgreSQL - Single Server
 
@@ -61,22 +60,9 @@ Flexible servers are best suited for
 
 For a detailed overview of flexible server deployment mode, see [flexible server overview](../flexible-server/overview.md).
 
-### Azure Database for PostgreSQL – Hyperscale (Citus)
-
-The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding. Its query engine parallelizes incoming SQL queries across these servers for faster responses on large datasets. It serves applications that require greater scale and performance, generally workloads that are approaching--or already exceed--100 GB of data.
-
-The Hyperscale (Citus) deployment option delivers:
-
-- Horizontal scaling across multiple machines using sharding
-- Query parallelization across these servers for faster responses on large datasets
-- Excellent support for multi-tenant applications, real-time operational analytics, and high-throughput transactional workloads
-
-Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](./concepts-connection-libraries.md) and minimal changes.
-
 ## Next steps
 
 Learn more about the three deployment modes for Azure Database for PostgreSQL and choose the right options based on your needs.
 
 - [Single Server](./overview-single-server.md)
 - [Flexible Server](../flexible-server/overview.md)
-- [Hyperscale (Citus)](../hyperscale/overview.md)

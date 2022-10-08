@@ -321,10 +321,9 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     remoteVideoContainer.className = 'remote-video-container';
 
     /**
-     * isReceiving API is currently an @alpha feature. Do not use in production.
-     * To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
-     * Create a CSS class to style your loading spinner. Take a look at our
-     * video calling quickstart, to see how to create a loading spinner.
+     * isReceiving API is currently a @beta feature.
+     * To use this api, please use 'beta' version of Azure Communication Services Calling Web SDK.
+     * Create a CSS class to style your loading spinner.
      *
     let loadingSpinner = document.createElement('div');
     loadingSpinner.className = 'loading-spinner';

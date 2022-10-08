@@ -1,8 +1,9 @@
 ---
 title: Pre-migration steps for data migration to Azure Cosmos DB's API for MongoDB
-description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Cosmos DB.
+description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Azure Cosmos DB.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/05/2022
 author: gahl-levy
@@ -10,7 +11,7 @@ ms.author: gahllevy
 ---
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
 > Please read this entire guide before carrying out your pre-migration steps.
@@ -101,7 +102,7 @@ The results are printed as an output in the DMA notebook and saved to a CSV file
 
 > [!NOTE]
 > Database Migration Assistant is a preliminary utility meant to assist you with the pre-migration steps. It does not perform an end-to-end assessment.
-> In addition to running the DMA, we also recommend you to go through [the supported features and syntax](./feature-support-42.md), [Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
+> In addition to running the DMA, we also recommend you to go through [the supported features and syntax](./feature-support-42.md), [Azure Cosmos DB limits and quotas](../concepts-limits.md#per-account-limits) in detail, as well as perform a proof-of-concept prior to the actual migration.
 
 ## Pre-migration mapping
 
@@ -138,7 +139,7 @@ Figure out what Azure Cosmos DB resources you'll create. This means stepping thr
 * Anticipate that each MongoDB database will become an Azure Cosmos DB database.
 * Anticipate that each MongoDB collection will become an Azure Cosmos DB collection.
 * Choose a naming convention for your Azure Cosmos DB resources. Barring any change in the structure of databases and collections, keeping the same resource names is usually a fine choice.
-* Determine whether you'll be using sharded or unsharded collections in Cosmos DB. The unsharded collection limit is 20 GB. Sharding, on the other hand, helps achieve horizontal scale that is critical to the performance of many workloads.
+* Determine whether you'll be using sharded or unsharded collections in Azure Cosmos DB. The unsharded collection limit is 20 GB. Sharding, on the other hand, helps achieve horizontal scale that is critical to the performance of many workloads.
 * If using sharded collections, *do not assume that your MongoDB collection shard key becomes your Azure Cosmos DB collection shard key. Do not assume that your existing MongoDB data model/document structure is what you'll employ on Azure Cosmos DB.* 
    * Shard key is the single most important setting for optimizing the scalability and performance of Azure Cosmos DB, and data modeling is the second most important. Both of these settings are immutable and cannot be changed once they are set; therefore it is highly important to optimize them in the planning phase. Follow the guidance in the [Immutable decisions](#immutable-decisions) section for more information.
 * Azure Cosmos DB does not recognize certain MongoDB collection types such as capped collections. For these resources, just create normal Azure Cosmos DB collections.
@@ -166,11 +167,11 @@ The following Azure Cosmos DB configuration choices cannot be modified or undone
 * The following are key factors that affect the number of required RUs:
    * **Document size**: As the size of an item/document increases, the number of RUs consumed to read or write the item/document also increases.
 
-   * **Document property count**:The number of RUs consumed to create or update a document is related to the number, complexity and length of its properties. You can reduce the request unit consumption for write operations by [limiting the number of indexed properties](mongodb-indexing.md).
+   * **Document property count**:The number of RUs consumed to create or update a document is related to the number, complexity and length of its properties. You can reduce the request unit consumption for write operations by [limiting the number of indexed properties](indexing.md).
 
    * **Query patterns**: The complexity of a query affects how many request units are consumed by the query. 
 
-* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-mongodb-account.md) using the `getLastRequestStastistics` command to get the request charge, which will output the number of RUs consumed:
+* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.md) using the `getLastRequestStastistics` command to get the request charge, which will output the number of RUs consumed:
 
     `db.runCommand({getLastRequestStatistics: 1})`
 
@@ -178,7 +179,7 @@ The following Azure Cosmos DB configuration choices cannot be modified or undone
 
     `{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}`
 
-* You can also use [the diagnostic settings](../cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).  
+* You can also use [the diagnostic settings](../monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).  
 
 ## Pre-migration logistics planning
 
@@ -239,13 +240,13 @@ In the pre-migration phase, spend some time to plan what steps you will take tow
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
-* Migrate to Azure Cosmos DB API for MongoDB
+* Migrate to Azure Cosmos DB for MongoDB
    * [Offline migration using MongoDB native tools](tutorial-mongotools-cosmos-db.md)
    * [Offline migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db.md)
    * [Online migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db-online.md)
    * [Offline/online migration using Azure Databricks and Spark](migrate-databricks.md)
-* [Post-migration guide](post-migration-optimization.md) - optimize steps once you have migrated to Azure Cosmos DB API for MongoDB
-* [Provision throughput on Azure Cosmos containers and databases](../set-throughput.md)
+* [Post-migration guide](post-migration-optimization.md) - optimize steps once you have migrated to Azure Cosmos DB for MongoDB
+* [Provision throughput on Azure Cosmos DB containers and databases](../set-throughput.md)
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Global Distribution in Azure Cosmos DB](../distribute-data-globally.md)
 * [Indexing in Azure Cosmos DB](../index-overview.md)

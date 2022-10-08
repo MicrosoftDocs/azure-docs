@@ -2,7 +2,7 @@
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: include
-ms.date: 08/06/2021
+ms.date: 10/11/2022
 ms.author: lianwei
 ---
 

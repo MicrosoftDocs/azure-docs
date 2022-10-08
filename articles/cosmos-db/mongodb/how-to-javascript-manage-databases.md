@@ -1,19 +1,19 @@
 ---
 title: Manage a MongoDB database using JavaScript
-description: Learn how to manage your Cosmos DB resource when it provides the MongoDB API with a JavaScript SDK.
+description: Learn how to manage your Azure Cosmos DB resource when it provides the API for MongoDB with a JavaScript SDK.
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 
 # Manage a MongoDB database using JavaScript
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Your MongoDB server in Azure Cosmos DB is available from the common npm packages for MongoDB such as:
 
@@ -22,7 +22,7 @@ Your MongoDB server in Azure Cosmos DB is available from the common npm packages
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-javascript-samples) are available on GitHub as a JavaScript project.
 
-[MongoDB API reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (npm)](https://www.npmjs.com/package/mongodb)
+[API for MongoDB reference documentation](https://docs.mongodb.com/drivers/node) | [MongoDB Package (npm)](https://www.npmjs.com/package/mongodb)
 
 ## Name a database
 
@@ -113,5 +113,5 @@ The preceding code snippet displays the following example console output:
 
 ## See also
 
-- [Get started with Azure Cosmos DB MongoDB API and JavaScript](how-to-javascript-get-started.md)
+- [Get started with Azure Cosmos DB for MongoDB and JavaScript](how-to-javascript-get-started.md)
 - Work with a collection](how-to-javascript-manage-collections.md)

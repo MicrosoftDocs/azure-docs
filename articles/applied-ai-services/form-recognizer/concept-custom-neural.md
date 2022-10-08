@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -107,7 +107,7 @@ Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Form Recognizer 3.0 ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)| [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
@@ -128,17 +128,8 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 
 ## Next steps
 
-* Train a custom model:
+Learn to create and compose custom models:
 
-  > [!div class="nextstepaction"]
-  > [How to train a model](how-to-guides/build-custom-model-v3.md)
-
-* Learn more about custom template models:
-
-  > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md )
-
-* View the REST API:
-
-    > [!div class="nextstepaction"]
-    > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+> [!div class="nextstepaction"]
+> [**Build a custom model**](how-to-guides/build-a-custom-model.md)
+> [**Compose custom models**](how-to-guides/compose-custom-models.md)

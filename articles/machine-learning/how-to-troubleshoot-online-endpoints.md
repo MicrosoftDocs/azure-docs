@@ -10,7 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: larryfr
 ms.date: 04/12/2022
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
+ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
@@ -18,10 +18,6 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
 

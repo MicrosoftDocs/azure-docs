@@ -6,14 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: contperf-fy21q1, data4ml, sdkv1
+ms.custom: contperf-fy21q1, data4ml, sdkv1, ignite-2022
 ms.author: xunwan
 author: xunwan
 ms.reviewer: nibaccam
-ms.date: 05/24/2022
-
-# Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
-
+ms.date: 09/22/2022
+#Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 ---
 
 # Create data assets
@@ -115,6 +113,22 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
+# [Studio](#tab/Studio)
+
+To create a Folder data asset in the Azure Machine Learning studio, use the following steps:
+
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
+
+1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
+:::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
+
+1. Give your data asset a name and optional description. Then, select the "Folder (uri_folder)" option under Type, if it is not already selected.
+:::image type="content" source="./media/how-to-create-data-assets/create-data-asset-folder-type.png" alt-text="In this screenshot, choose Folder (uri folder) in the Type dropdown.":::
+
+1. You have a few options for your data source. If you already have the path to the folder you want to upload, choose "From a URI". If your folder is already stored in Azure, choose "From Azure storage". If you want to upload your folder from your local drive, choose "From local files".
+:::image type="content" source="./media/how-to-create-data-assets/create-data-asset.png" alt-text="This screenshot shows data asset source choices.":::
+
+1. Follow the steps, once you reach the Review step, click Create on the last page
 ---
 
 ## Create a `uri_file` data asset
@@ -166,7 +180,22 @@ my_data = Data(
 
 ml_client.data.create_or_update(my_data)
 ```
+# [Studio](#tab/Studio)
 
+To create a File data asset in the Azure Machine Learning studio, use the following steps:
+
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
+
+1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
+:::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
+
+1. Give your data asset a name and optional description. Then, select the "File (uri_file)" option under Type.
+:::image type="content" source="./media/how-to-create-data-assets/create-data-asset-file-type.png" alt-text="In this screenshot, choose File (uri folder) in the Type dropdown.":::
+
+1. You have a few options for your data source. If you already have the path to the file you want to upload, choose "From a URI". If your file is already stored in Azure, choose "From Azure storage". If you want to upload your file from your local drive, choose "From local files".
+:::image type="content" source="./media/how-to-create-data-assets/create-data-asset.png" alt-text="This screenshot shows data asset source choices.":::
+
+1. Follow the steps, once you reach the Review step, click Create on the last page
 ---
    
 ## Create a `mltable` data asset
@@ -277,11 +306,29 @@ my_data = Data(
 
 ml_client.data.create_or_update(my_data)
 ```
-
 > [!NOTE]
-> The path points to the **folder** containing the MLTable artifact.
+> The path points to the **folder** containing the MLTable artifact. 
 
+# [Studio](#tab/Studio)
+
+To create a Table data asset in the Azure Machine Learning studio, use the following steps. 
+> [!NOTE]
+> You must have a **folder** prepared containing the MLTable artifact.
+
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
+
+1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
+:::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
+
+1. Give your data asset a name and optional description. Then, select the "Table (mltable)" option under Type.
+:::image type="content" source="./media/how-to-create-data-assets/create-data-asset-table-type.png" alt-text="In this screenshot, choose Table (mltable) in the Type dropdown.":::
+
+1. You have a few options for your data source. If you already have the path to the folder you want to upload, choose "From a URI". If your folder is already stored in Azure, choose "From Azure storage". If you want to upload your folder from your local drive, choose "From local files".
+:::image type="content" source="./media/how-to-create-data-assets/create-data-asset.png" alt-text="This screenshot shows data asset source choices.":::
+
+1. Follow the steps, once you reach the Review step, click Create on the last page
 ---
+
 
 ## Next steps
 

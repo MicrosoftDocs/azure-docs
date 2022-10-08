@@ -3,16 +3,16 @@ title: Order device connection events fr Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state
 services: iot-hub
 ms.service: iot-hub
+ms.custom: ignite-2022
 author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog 
-
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
-Azure Event Grid helps you build event-based applications and easily integrate IoT events in your business solutions. This article walks you through a setup which can be used to track and store the latest device connection state in Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. We are going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB.
+Azure Event Grid helps you build event-based applications and easily integrate IoT events in your business solutions. This article walks you through a setup which can be used to track and store the latest device connection state in Azure Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Azure Cosmos DB. We are going to use a stored procedure, which is an application logic that is executed against a collection in Azure Cosmos DB.
 
 The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you are converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
 
@@ -20,7 +20,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * An active Azure account. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/free-trial/).
 
-* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-java.md#create-a-database-account) for a walkthrough.
+* An active Azure Cosmos DB for NoSQL account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-java.md#create-a-database-account) for a walkthrough.
 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
@@ -30,7 +30,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 First, create a stored procedure and set it up to run a logic that compares sequence numbers of incoming events and records the latest event per device in the database.
 
-1. In your Cosmos DB SQL API, select **Data Explorer** > **Items** > **New Stored Procedure**.
+1. In your Azure Cosmos DB for NoSQL, select **Data Explorer** > **Items** > **New Stored Procedure**.
 
    ![Create stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -208,9 +208,9 @@ In your logic app workflow, conditions help run specific actions after passing t
   
    ![Add action if true](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-3. Search for Cosmos DB and select **Azure Cosmos DB - Execute stored procedure**
+3. Search for Azure Cosmos DB and select **Azure Cosmos DB - Execute stored procedure**
 
-   ![Search for CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
+   ![Search for Azure Cosmos DB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
 4. Fill in **cosmosdb-connection** for the **Connection Name** and select the entry in the table, then select **Create**. You see the **Execute stored procedure** panel. Enter the values for the fields:
 
@@ -322,9 +322,9 @@ You see something similar to the following output that shows the sensor data and
 
 You have now run a sample application to collect sensor data and send it to your IoT hub.
 
-### Observe events in Cosmos DB
+### Observe events in Azure Cosmos DB
 
-You can see results of the executed stored procedure in your Cosmos DB document. Here's what it looks like. Each row contains the latest device connection state per device.
+You can see results of the executed stored procedure in your Azure Cosmos DB document. Here's what it looks like. Each row contains the latest device connection state per device.
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 

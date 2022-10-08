@@ -6,8 +6,9 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
+ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 09/02/2022
+ms.date: 09/29/2022
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -123,16 +124,16 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Cosmos-DeleteDataFailed
 
-- **Message**: Failed to delete data from cosmos after 3 times retry.
-- **Cause**: The throughput on the Cosmos collection is small and leads to meeting throttling or row data not existing in Cosmos.
+- **Message**: Failed to delete data from Azure Cosmos DB after 3 times retry.
+- **Cause**: The throughput on the Azure Cosmos DB collection is small and leads to meeting throttling or row data not existing in Azure Cosmos DB.
 - **Recommendation**: Please take the following actions to solve this problem:
-    - If the error is 404, make sure that the related row data exists in the Cosmos collection.
-    - If the error is throttling, please increase the Cosmos collection throughput or set it to the automatic scale.
-    - If the error is request timed out, please set 'Batch size' in the Cosmos sink to smaller value, for example 1000.
+    - If the error is 404, make sure that the related row data exists in the Azure Cosmos DB collection.
+    - If the error is throttling, please increase the Azure Cosmos DB collection throughput or set it to the automatic scale.
+    - If the error is request timed out, please set 'Batch size' in the Azure Cosmos DB sink to smaller value, for example 1000.
 
 ### Error code: DF-Cosmos-FailToResetThroughput
 
-- **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
+- **Message**: Azure Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
 - **Cause**: The throughput scale operation of the Azure Cosmos DB can't be performed because another scale operation is in progress.
 - **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
@@ -146,7 +147,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Either accountName or accountEndpoint should be specified.
 - **Cause**: Invalid account information is provided.
-- **Recommendation**: In the Cosmos DB linked service, specify the account name or account endpoint.
+- **Recommendation**: In the Azure Cosmos DB linked service, specify the account name or account endpoint.
 
 ### Error code: DF-Cosmos-InvalidAccountKey
 
@@ -158,7 +159,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Invalid connection mode.
 - **Cause**: An invalid connection mode is provided.
-- **Recommendation**: Confirm that the supported mode is **Gateway** and **DirectHttps** in Cosmos DB settings.
+- **Recommendation**: Confirm that the supported mode is **Gateway** and **DirectHttps** in Azure Cosmos DB settings.
 
 ### Error code: DF-Cosmos-InvalidPartitionKey
 
@@ -167,13 +168,13 @@ This section lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
 - **Message**: Partition key is not mapped in sink for delete and update operations.
 - **Cause**: An invalid partition key is provided.
-- **Recommendation**: In Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
+- **Recommendation**: In Azure Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
 
 ### Error code: DF-Cosmos-InvalidPartitionKeyContent
 
 - **Message**: partition key should start with /.
 - **Cause**: An invalid partition key is provided.
-- **Recommendation**: Ensure that the partition key start with `/` in Cosmos DB sink settings, for example: `/movieId`.
+- **Recommendation**: Ensure that the partition key start with `/` in Azure Cosmos DB sink settings, for example: `/movieId`.
 
 ### Error code: DF-Cosmos-PartitionKeyMissed
 
@@ -189,8 +190,8 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Cosmos-ShortTypeNotSupport
 
-- **Message**: Short data type is not supported in Cosmos DB.
-- **Cause**: The short data type is not supported in the Azure Cosmos DB.
+- **Message**: Short data type is not supported in Azure Cosmos DB.
+- **Cause**: The short data type is not supported in the Azure Cosmos DB instance.
 - **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
 
 ### Error code: DF-Delimited-ColumnDelimiterMissed
@@ -595,6 +596,14 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: The SQL database's firewall setting blocks the data flow to access.
 - **Recommendation**: Please check the firewall setting for your SQL database, and allow Azure services and resources to access this server.
 
+### Error code: DF-MSSQL-InvalidCertificate
+
+- **Message**: SQL server configuration error, please either install a trusted certificate on your server or change 'encrypt' connection string setting to false and 'trustServerCertificate' connection string setting to true.
+- **Cause**: SQL server configuration error.
+- **Recommendations**: Install a trusted certificate on your SQL server, or change `encrypt` connection string setting to false and `trustServerCertificate` connection string setting to true.
+
+
+
 ### Error code: DF-PGSQL-InvalidCredential
 
 - **Message**: User/password should be specified.
@@ -717,6 +726,65 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: This error is a data flow system error or SAP server system error.
 - **Recommendation**: Check the error message. If it contains SAP server related error stacktrace, contact SAP admin for assistance. Otherwise, contact Microsoft support for further assistance.
 
+### Error code: DF-SAPODP-NotReached
+
+- **Message**: partner '.*' not reached
+- **Causes and recommendations**: This is a connectivity issue. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
+
+  | Cause analysis | Recommendation |
+  | :--- | :--- |
+  | Your SAP server is shut down. | Check your SAP server is started. |
+  | Your IP or port of the self-hosted integration runtime is not in SAP network security rule. | Check your IP or port of self-hosted integration runtime is in your SAP network security rule. |
+  | Self-hosted integration runtime proxy issue. | Check your self-hosted integration runtime proxy. |
+  | Incorrect parameters input (e.g. wrong SAP server name or IP). | Check your input parameters: SAP server name, IP. |
+
+### Error code: DF-SAPODP-DependencyNotFound
+- **Message**: Could not load file or assembly 'sapnco, Version=*
+- **Cause**: You don't download and install SAP .NET connector on the machine of the self-hosted integration runtime.
+- **Recommendation**: Follow [Set up a self-hosted integration runtime](sap-change-data-capture-shir-preparation.md) to set up the self-hosted integration runtime for the SAP CDC connector.
+
+### Error code: DF-SAPODP-NoAuthForFunctionModule
+- **Message**: No REF authorization for function module RODPS_REPL_CONTEXT_GET_LIST
+- **Cause**: Lack of authorization to execute the related function module.
+- **Recommendation**: Follow this [SAP notes](https://launchpad.support.sap.com/#/notes/460089) to add the required authorization profile to your SAP account.
+
+### Error code: DF-SAPODP-OOM
+
+- **Message**: No more memory available to add rows to an internal table
+- **Cause**: SAP Table connector has its limitation for big table extraction. SAP Table underlying relies on an RFC which will read all the data from the table into the memory of SAP system, so out of memory (OOM) issue will happen when we extracting big tables.
+- **Recommendation**: Use SAP CDC connector to do full load directly from your source system, then move delta to SAP Landscape Transformation Replication Server (SLT) after init without delta is released.
+
+### Error code: DF-SAPODP-SourceNotSupportDelta
+
+- **Message**: Source .* does not support deltas
+- **Cause**: The ODP context/ODP name you specified does not support delta.
+- **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2752413).
+
+### Error code: DF-SAPODP-SAPI-LIMITATION
+
+- **Message**: Error Number 518, Source .* not found, not released or not authorized
+- **cause**: Check if your context is SAPI. If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
+- **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2646092).
+
+### Error code: DF-SAPODP-KeyColumnsNotSpecified
+
+
+- **Message**: Key column(s) should be specified for non-insertable operations (updates/deletes)
+- **Cause**: This error occurs when you skip selecting **Key Columns** in the sink table.
+- **Recommendations**: Allowing delete, upsert and update options requires a key column to be specified. Specify one or more columns for the row matching in sink.
+
+### Error code: DF-SAPODP-InsufficientResource
+
+- **Message**: A short dump has occurred in a database operation
+- **Cause**: SAP system ran out of resources, which resulted in short dump in SAP server.
+- **Recommendations**: Contact your SAP administrator to address the problem in SAP instance and retry.
+
+### Error code: DF-SAPODP-ExecuteFuncModuleWithPointerFailed
+
+- **Message**: Execute function module .* with pointer .* failed
+- **Cause**: SAP system issue.
+- **Recommendations**: Go to SAP instance, and check ST22 (short dump, similar to windows dump) and review the code where the error happened. In most cases, SAP offers hints on various possibilities for further troubleshooting.
+
 ### Error code: DF-Snowflake-IncompatibleDataType
 
 - **Message**: Expression type does not match column data type, expecting VARIANT but got VARCHAR.
@@ -779,6 +847,18 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Storage type can either be blob or gen2.
 - **Cause**: An invalid storage type is provided for staging.
 - **Recommendation**: Check the storage type of the linked service used for staging and make sure that it's Blob or Gen2.
+
+### Error code: DF-SQLDW-StagingStorageNotSupport
+
+- **Message**: Staging Storage with partition DNS enabled is not supported if enable staging. Please uncheck enable staging in sink using Synapse Analytics.
+- **Cause**: Staging storage with partition DNS enabled is not supported if you enable staging.
+- **Recommendations**: Uncheck **Enable staging** in sink when using Azure Synapse Analytics.
+
+### Error code: DF-SQLDW-DataTruncation
+
+- **Message**: Your target table has a column with (n)varchar or (n)varbinary type that has a smaller column length limitation than real data, please either adjust the column definition in your target table or change the source data.
+- **Cause**: Your target table has a column with varchar or varbinary type that has a smaller column length limitation than real data.
+- **Recommendations**: Adjust the column definition in your target table or change the source data.
 
 ### Error code: DF-Synapse-DBNotExist
 
