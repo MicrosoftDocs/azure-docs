@@ -750,7 +750,7 @@ To update and run the provisioning sample with your device information:
 
 ## Confirm your device provisioning registration
 
-To see which IoT hub your device was provisioned to, examine the registration records of the enrollment group:
+In this tutorial, you used the *Static configuration* allocation policy to assign devices that register through the enrollment group to the same IoT hub. However, for allocations where a device might be provisioned to one of a number of IoT hubs, you can examine the enrollment group's registration records to see which IoT hub the device was provisioned to:
 
 1. In Azure portal, go to your DPS instance.
 
@@ -776,29 +776,15 @@ To verify the device on your IoT hub:
 
     :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Device is registered with the IoT hub":::
 
-OLD STEPS
-
-1. Go to the [Azure portal](https://portal.azure.com).
-
-2. On the left-hand menu or on the portal page, select **All resources**.
-
-3. Select the IoT hub to which your device was assigned.
-
-4. In the **Explorers** menu, select **IoT Devices**.
-
-5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Device is registered with the IoT hub":::
-
 > [!NOTE]
-> If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+> If you changed the *initial device twin state* from the default value in the enrollment group, a device can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 >
 
 ## Clean up resources
 
 If you plan to continue working on and exploring the device client sample, don't clean up the resources created in this tutorial. If you don't plan to continue, use the following steps to delete all resources created in this tutorial.
 
-### Delete your device enrollment
+### Delete your enrollment group
 
 1. Close the device client sample output window on your machine.
 
@@ -823,7 +809,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 1. At the top of the page, select  **Delete**.
 
-### Delete your device registration from IoT Hub
+### Delete device registration(s) from IoT Hub
 
 1. From the left-hand menu in the Azure portal, select **All resources**.
 
@@ -831,7 +817,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the device(s) you registered in this tutorial.
+4. Select the check box next to the *DEVICE ID* of the device(s) you registered in this tutorial. For example, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*.
 
 5. At the top of the page, select  **Delete**.
 
