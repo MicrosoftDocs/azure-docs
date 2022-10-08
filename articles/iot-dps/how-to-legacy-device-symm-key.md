@@ -193,27 +193,27 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a symmetric key enrollment group
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
+1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your Device Provisioning Service instance.
 
-2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page. 
+1. Select the **Manage enrollments** tab and then select **+ Add enrollment group** at the top of the page.
 
-3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
+1. On **Add Enrollment Group**, enter the following information:
 
-   - **Group name**: Enter **mylegacydevices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
+   * **Group name**: Enter **mylegacydevices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
-   - **Attestation Type**: Select **Symmetric Key**.
+   * **Attestation Type**: Select **Symmetric Key**.
 
-   - **Auto Generate Keys**: Check this box.
+   * **Auto Generate Keys**: Check this box.
 
-   - **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
+   * **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
 
-   - **Select the IoT hubs this group can be assigned to**: Select one of your hubs.
+   * **Select the IoT hubs this group can be assigned to**: Select one of the IoT hubs from the drop-down list.
 
      ![Add enrollment group for symmetric key attestation](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. Once you saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab. 
+1. Select **Save**. When you save the enrollment, IoT Hub generates the **Primary Key** and **Secondary Key** and adds them to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab.
 
-    Open the enrollment and copy the value of your generated **Primary Key**. This key is your master group key.
+1. Open the enrollment and copy the value of the **Primary Key**. This key is your master group key.
 
 ## Choose a unique registration ID for the device
 
@@ -244,7 +244,7 @@ Replace the value of `--key` argument with the **Primary Key** from your enrollm
 Replace the value of `--registration-id` argument with your registration ID.
 
 ```azurecli
-az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+az iot dps enrollment-group compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
 Example result:
@@ -414,7 +414,7 @@ To update and run the provisioning sample with your device information:
 3. Open a command prompt and go to the *SymmetricKeySample* in the cloned sdk repository:
 
     ```cmd
-    cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample\'
+    cd .\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample
     ```
 
 4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
@@ -422,9 +422,8 @@ To update and run the provisioning sample with your device information:
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
     | `--s` or `--IdScope`              | True     | The ID Scope of the DPS instance |
-    | `--i` or `--Id`                   | True     | The registration ID when using individual enrollment, or the desired device ID when using group enrollment. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). The device ID must comply with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties). |
-    | `--p` or `--PrimaryKey`           | True     | The primary key of the individual or group enrollment. |
-    | `--e` or `--EnrollmentType`       | False    | The type of enrollment: `Individual` or `Group`. Defaults to `Individual` |
+    | `--i` or `--Id`                   | True     | The registration ID for the device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
+    | `--p` or `--PrimaryKey`           | True     | The primary key for an individual enrollment or the derived device key for a group enrollment. |
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 
@@ -440,7 +439,7 @@ To update and run the provisioning sample with your device information:
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
     ```
 
-7. You should now see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
+7. You should see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
 
      ```output
     D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --s 0ne00000A0A --i sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
@@ -449,12 +448,11 @@ To update and run the provisioning sample with your device information:
     Initialized for registration Id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6.
     Registering with the device provisioning service...
     Registration status: Assigned.
-    Device sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 registered to ExampleIoTHub.azure-devices.net.
+    Device sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 registered to MyExampleHub.azure-devices.net.
     Creating symmetric key authentication for IoT Hub...
     Testing the provisioned device with IoT Hub...
     Sending a telemetry message...
     Finished.
-    Enter any key to exit.
     ```
 
 ::: zone-end
@@ -464,6 +462,7 @@ To update and run the provisioning sample with your device information:
 The sample provisioning code accomplishes the following tasks, in order:
 
 1. Authenticates your device with your Device Provisioning resource using the following four parameters:
+
     * `PROVISIONING_HOST`
     * `PROVISIONING_IDSCOPE`
     * `PROVISIONING_REGISTRATION_ID`
@@ -484,30 +483,36 @@ To update and run the provisioning sample with your device information:
 3. Open a command prompt for executing Node.js commands, and go to the following directory:
 
     ```cmd
-    cd azure-iot-sdk-node/provisioning/device/samples
+    cd azure-iot-sdk-node\provisioning\device\samples
     ```
 
-4. In the *provisioning/device/samples* folder, open *register_symkey.js* and review the code. Notice that the sample code sets a custom payload:
+4. In the *provisioning/device/samples* folder, open *register_symkey.js* and review the code. 
+
+    The sample defaults to MQTT as the transport protocol. If you want to use a different protocol comment out the following line and uncomment the line for the appropriate protocol.
+
+    ```javascript
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    ```
+
+    Notice, also, that the sample code sets a custom payload:
 
     ```nodejs
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it is not needed with for this quick start. A custom payload can be used when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You may comment out this code, as it is not needed with for this tutorial. A custom payload can be used when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
-     The `provisioningClient.register()` method attempts the registration of your device.
-
-    No further changes are needed.
+    The `provisioningClient.register()` method attempts the registration of your device.
 
 5. In the command prompt, run the following commands to set environment variables used by the sample:
 
-    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
+    * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
     * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
-    set PROVISIONING_HOST=<provisioning-global-endpoint>
+    set PROVISIONING_HOST=global.azure-devices-provisioning.net
     ```
 
     ```cmd
@@ -535,16 +540,12 @@ To update and run the provisioning sample with your device information:
 7. You should now see something similar to the following output. A "Hello World" string is sent to the hub as a test message.
 
      ```output
-    Initializing the device provisioning client...
-    Initialized for registration Id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6.
-    Registering with the device provisioning service...
-    Registration status: Assigned.
-    Device sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 registered to ExampleIoTHub.azure-devices.net.
-    Creating symmetric key authentication for IoT Hub...
-    Testing the provisioned device with IoT Hub...
-    Sending a telemetry message...
-    Finished.
-    Enter any key to exit.
+    registration succeeded
+    assigned hub=MyExampleHub.azure-devices.net
+    deviceId=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+    payload=undefined
+    Client connected
+    send status: MessageEnqueued
     ```
 
 ::: zone-end
@@ -580,13 +581,13 @@ To update and run the provisioning sample with your device information:
 
 4. In the command prompt, run the following commands to set environment variables used by the sample:
 
-    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
+    * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
     * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
-    set PROVISIONING_HOST=<provisioning-global-endpoint>
+    set PROVISIONING_HOST=global.azure-devices-provisioning.net
     ```
 
     ```cmd
@@ -617,33 +618,32 @@ To update and run the provisioning sample with your device information:
 
      ```output
     D:\azure-iot-sdk-python\samples\async-hub-scenarios>python provision_symmetric_key.py
-    RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
     The complete registration result is
     sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-    docs-test-iot-hub.azure-devices.net
+    MyExampleHub.azure-devices.net
     initialAssignment
     null
     Will send telemetry from the provisioned device
-    sending message #8
-    sending message #9
-    sending message #3
-    sending message #10
-    sending message #4
+    sending message #1
     sending message #2
+    sending message #3
+    sending message #4
+    sending message #5
     sending message #6
     sending message #7
-    sending message #1
-    sending message #5
-    done sending message #8
-    done sending message #9
-    done sending message #3
-    done sending message #10
-    done sending message #4
+    sending message #8
+    sending message #9
+    sending message #10
+    done sending message #1
     done sending message #2
+    done sending message #3
+    done sending message #4
+    done sending message #5
     done sending message #6
     done sending message #7
-    done sending message #1
-    done sending message #5
+    done sending message #8
+    done sending message #9
+    done sending message #10
     ```
 
 ::: zone-end
@@ -677,16 +677,16 @@ To update and run the provisioning sample with your device information:
 
 4. Set the value of the following variables for your DPS and device enrollment:
 
-    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
-    * Replace `<primarykey>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
+    * Replace `[Your scope ID here]` with the **ID Scope** that you copied in step 2.
+    * Replace `[Your Provisioning Service Global Endpoint here]` with the **Global device endpoint**: global.azure-devices-provisioning.net. This endpoint is the same for all DPS instances.
+    * Replace `[Enter your Symmetric Key here]` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
+    * Replace `[Enter your Registration ID here]` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
 
     ```java
-    private static final String SCOPE_ID = "<id-scope>";
-    private static final String GLOBAL_ENDPOINT = "<provisioning-global-endpoint>";
-    private static final String SYMMETRIC_KEY = "<primarykey>";
-    private static final String REGISTRATION_ID = "<registration-id>";
+    private static final String SCOPE_ID = "[Your scope ID here]";
+    private static final String GLOBAL_ENDPOINT = "[Your Provisioning Service Global Endpoint here]";
+    private static final String SYMMETRIC_KEY = "[Enter your Symmetric Key here]";
+    private static final String REGISTRATION_ID = "[Enter your Registration ID here]";
     ```
 
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
@@ -713,20 +713,40 @@ To update and run the provisioning sample with your device information:
     ```output
     Starting...
     Beginning setup.
-    Initialized a ProvisioningDeviceClient instance using SDK version 1.11.0
-    Starting provisioning thread...
+    WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+    2022-10-07 18:14:48,388 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Initialized a ProvisioningDeviceClient instance using SDK version 2.0.2
+    2022-10-07 18:14:48,390 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Starting provisioning thread...
     Waiting for Provisioning Service to register
-    Opening the connection to device provisioning service...
-    Connection to device provisioning service opened successfully, sending initial device registration message
-    Authenticating with device provisioning service using symmetric key
-    Waiting for device provisioning service to provision this device...
-    Current provisioning status: ASSIGNING
-    Device provisioning service assigned the device successfully
-    IotHUb Uri : <Your IoT hub name>.azure-devices.net
+    2022-10-07 18:14:48,392 INFO (global.azure-devices-provisioning.net-002edcf5-CxnPendingConnectionId-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Opening the connection to device provisioning service...
+    2022-10-07 18:14:48,518 INFO (global.azure-devices-provisioning.net-002edcf5-Cxn002edcf5-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Connection to device provisioning service opened successfully, sending initial device registration message
+    2022-10-07 18:14:48,521 INFO (global.azure-devices-provisioning.net-002edcf5-Cxn002edcf5-azure-iot-sdk-RegisterTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.RegisterTask] - Authenticating with device provisioning service using symmetric key
+    2022-10-07 18:14:49,252 INFO (global.azure-devices-provisioning.net-002edcf5-Cxn002edcf5-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Waiting for device provisioning service to provision this device...
+    2022-10-07 18:14:49,253 INFO (global.azure-devices-provisioning.net-002edcf5-Cxn002edcf5-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Current provisioning status: ASSIGNING
+    2022-10-07 18:14:52,459 INFO (global.azure-devices-provisioning.net-002edcf5-Cxn002edcf5-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Device provisioning service assigned the device successfully
+    IotHUb Uri : MyExampleHub.azure-devices.net
     Device ID : sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+    2022-10-07 18:14:58,424 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-10-07 18:14:58,436 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-10-07 18:14:58,440 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Initialized a DeviceClient instance using SDK version 2.1.1
+    2022-10-07 18:14:58,450 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - Opening MQTT connection...
+    2022-10-07 18:14:58,471 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT CONNECT packet...
+    2022-10-07 18:14:59,314 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT CONNECT packet was acknowledged
+    2022-10-07 18:14:59,315 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT SUBSCRIBE packet for topic devices/sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6/messages/devicebound/#
+    2022-10-07 18:14:59,378 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT SUBSCRIBE packet for topic devices/sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6/messages/devicebound/# was acknowledged
+    2022-10-07 18:14:59,379 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - MQTT connection opened successfully
+    2022-10-07 18:14:59,381 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - The connection to the IoT Hub has been established
+    2022-10-07 18:14:59,383 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Updating transport status to new status CONNECTED with reason CONNECTION_OK
+    2022-10-07 18:14:59,389 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceIO] - Starting worker threads
+    2022-10-07 18:14:59,392 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking connection status callbacks with new status details
+    2022-10-07 18:14:59,395 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
+    2022-10-07 18:14:59,404 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
     Sending message from device to IoT Hub...
+    2022-10-07 18:14:59,408 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
     Press any key to exit...
-    Message received! Response status: OK_EMPTY
+    2022-10-07 18:14:59,409 DEBUG (MyExampleHub.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
+    2022-10-07 18:14:59,777 DEBUG (MQTT Call: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
+    2022-10-07 18:14:59,779 DEBUG (MyExampleHub.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] ) with status OK
+    Message received! Response status: OK
     ```
 
 ::: zone-end
