@@ -8,7 +8,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 10/07/2022
+ms.date: 10/09/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -101,6 +101,9 @@ Accumulating multiple Azure disks underneath a stripe set, is accumulative from 
 
 ## Azure Premium Storage configurations for HANA
 For detailed HANA storage configuration recommendations using Azure premium storage, read the document [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
+
+## Azure Premium SSD v2 configurations for HANA
+For detailed HANA storage configuration recommendations using Azure premium ssd v2 storage, read the document [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 
 ## Azure Ultra disk storage configuration for SAP HANA
 For detailed HANA storage configuration recommendations using Azure Ultra Disk, read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)

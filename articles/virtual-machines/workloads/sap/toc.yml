@@ -52,6 +52,8 @@
     href: hana-vm-operations-storage.md
   - name: Premium storage for HANA
     href: hana-vm-premium-ssd-v1.md
+      - name: Premium SSD v2 for HANA
+    href: hana-vm-premium-ssd-v2.md
   - name: Ultra disk for HANA
     href: hana-vm-ultra-disk.md
   - name: SAP HANA with Azure NetApp Files
