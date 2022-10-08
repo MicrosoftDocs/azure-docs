@@ -17,14 +17,11 @@ This tutorial shows how to securely provision multiple simulated symmetric key d
 
 Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
 
-If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This tutorial assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
+If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This tutorial assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices.
 
 This tutorial also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
 
 This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
-
-> [!NOTE]
-> The sample used in this tutorial is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/device/samples/How%20To/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-sdk-csharp](https://github.com/Azure/azure-iot-sdk-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this tutorial to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
 ## Prerequisites
 
@@ -33,7 +30,7 @@ This tutorial is oriented toward a Windows-based workstation. However, you can p
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 ::: zone pivot="programming-language-ansi-c"
 
-* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015, Visual Studio 2017, and Visual Studio 2015 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
 ::: zone-end
 
@@ -753,6 +750,34 @@ To update and run the provisioning sample with your device information:
 
 ## Confirm your device provisioning registration
 
+To see which IoT hub your device was provisioned to, examine the registration records of the enrollment group:
+
+1. In Azure portal, go to your DPS instance.
+
+1. In the **Settings** menu, select **Manage enrollments**.
+
+1. Select **Enrollment Groups**.
+
+1. Select the enrollment group you used for this tutorial, *mylegacydevices*.
+
+1. On the **Enrollment Group Details** page, select the **Registration Records** tab.
+
+1. Find the device ID for your device **Device Id** column and note down the IoT hub in the **Assigned IoT Hub** column. The device ID is the same as the registration ID, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*. (For devices that register through an enrollment group, the device ID registered to IoT Hub is always the same as the registration ID.) You can select the record to see more details like the initial twin assigned to the device.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/individual-enrollment-after-registration.png" alt-text="Screenshot that shows the individual enrollment registration status tab for the device on Azure portal.":::
+
+To verify the device on your IoT hub:
+
+1. In Azure portal, go to the IoT hub that your device was assigned to.
+
+1. In the **Device management** menu, select **Devices**.
+
+1. If your device was provisioned successfully, its device ID, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
+
+    :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Device is registered with the IoT hub":::
+
+OLD STEPS
+
 1. Go to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
@@ -763,34 +788,7 @@ To update and run the provisioning sample with your device information:
 
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-    :::zone pivot="programming-language-ansi-c"
-
     :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Device is registered with the IoT hub":::
-
-    ::: zone-end
-    :::zone pivot="programming-language-csharp"
-
-    :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="CSharp device is registered with the IoT hub":::
-
-    ::: zone-end
-
-    :::zone pivot="programming-language-nodejs"
-
-    :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Node.js device is registered with the IoT hub":::
-
-    ::: zone-end
-
-    :::zone pivot="programming-language-python"
-
-    :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Python device is registered with the IoT hub":::
-
-    ::: zone-end
-
-    ::: zone pivot="programming-language-java"
-
-    :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Java device is registered with the IoT hub":::
-
-    ::: zone-end
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
@@ -798,23 +796,32 @@ To update and run the provisioning sample with your device information:
 
 ## Clean up resources
 
-If you plan to continue working on and exploring the device client sample, don't clean up the resources created in this quickstart. If you don't plan to continue, use the following steps to delete all resources created by this quickstart.
+If you plan to continue working on and exploring the device client sample, don't clean up the resources created in this tutorial. If you don't plan to continue, use the following steps to delete all resources created in this tutorial.
 
 ### Delete your device enrollment
 
 1. Close the device client sample output window on your machine.
 
-2. From the left-hand menu in the Azure portal, select **All resources**.
+1. From the left-hand menu in the Azure portal, select **All resources**.
 
-3. Select your Device Provisioning Service.
+1. Select your DPS instance.
 
-4. In the **Settings** menu, select **Manage enrollments**.
+1. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the **Individual Enrollments** tab.
+1. Select the **Enrollment Groups** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart.
+1. Select the enrollment group you used for this tutorial, *mylegacydevices*.
 
-7. At the top of the page, select  **Delete**.
+1. On the **Enrollment Group Details** page, select the check box next to the **Device Id** column header. This will select all of the registration records for the enrollment group. Then select **Delete Registrations** at the top of the page to delete all the registration records associated with the enrollment group.
+
+    > [!IMPORTANT]
+    > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
+
+1. Go back to the **Manage Enrollments** page and make sure the **Enrollment Groups** tab is selected.
+
+1. Select the check box next to the *GROUP NAME* of the enrollment group you used for this tutorial, *mylegacydevices*.
+
+1. At the top of the page, select  **Delete**.
 
 ### Delete your device registration from IoT Hub
 
@@ -824,83 +831,9 @@ If you plan to continue working on and exploring the device client sample, don't
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the device you registered in this quickstart.
+4. Select the check box next to the *DEVICE ID* of the device(s) you registered in this tutorial.
 
 5. At the top of the page, select  **Delete**.
-
-## Create a device image to provision
-
-In this section, you will update a provisioning sample named **prov\_dev\_client\_sample** located in the Azure IoT C SDK you set up earlier. 
-
-This sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence will cause the device to be recognized and assigned to the IoT hub you configured on the enrollment group. This would be completed for each device that would be provisioned using the enrollment group.
-
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note down the **_ID Scope_** value.
-
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
-
-2. In Visual Studio, open the **azure_iot_sdks.sln** solution file that was generated by running CMake earlier. The solution file should be in the following location:
-
-    ```
-    \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
-    ```
-
-3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
-
-4. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier. 
-
-    ```c
-    static const char* id_scope = "0ne00002193";
-    ```
-
-5. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown below:
-
-    ```c
-    SECURE_DEVICE_TYPE hsm_type;
-    //hsm_type = SECURE_DEVICE_TYPE_TPM;
-    //hsm_type = SECURE_DEVICE_TYPE_X509;
-    hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-    ```
-
-6. Find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** which is commented out.
-
-    ```c
-    // Set the symmetric key if using they auth type
-    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
-    ```
-
-    Uncomment the function call, and replace the placeholder values (including the angle brackets) with the unique registration ID for your device and the derived device key you generated.
-
-    ```c
-    // Set the symmetric key if using they auth type
-    prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
-    ```
-   
-    Save the file.
-
-7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
-
-8. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
-
-    The following output is an example of the simulated device successfully booting up, and connecting to the provisioning Service instance to be assigned to an IoT hub:
-
-    ```cmd
-    Provisioning API Version: 1.2.8
-
-    Registering Device
-
-    Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
-    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
-    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
-
-    Registration Information received from service: 
-    test-docs-hub.azure-devices.net, deviceId: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-    Press enter key to exit:
-    ```
-
-9. In the portal, navigate to the IoT hub your simulated device was assigned to and click the **IoT Devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top. 
-
-    ![Device is registered with the IoT hub](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
 ## Security concerns
 
