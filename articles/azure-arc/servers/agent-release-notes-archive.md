@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 09/09/2022
+ms.date: 10/08/2022
 ms.custom: references_regions
 ---
 
@@ -36,7 +36,7 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 
 ### Known issues
 
-- `azcmagent logs` doesn't collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](deployment-options.md#agent-installation-details).
+- `azcmagent logs` doesn't collect Guest Configuration logs in this release. You can locate the log directories in the [agent installation details](agent-overview.md#agent-resources).
 
 ### New features
 
