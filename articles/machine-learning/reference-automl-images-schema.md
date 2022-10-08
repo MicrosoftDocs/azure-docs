@@ -282,7 +282,7 @@ The following schemas are applicable when the input request contains one image.
 
 #### Image classification (binary/multi-class)
 
-Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.  `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for classification, see the [explainability for classification section](#image-classification-binarymulti-class-2).
+Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.  `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for image classification, see the [explainability for image classification section](#image-classification-binarymulti-class-2).
 
 ```json
 [
@@ -308,7 +308,7 @@ Endpoint for image classification returns all the labels in the dataset and thei
 
 #### Image classification multi-label
 
-For image classification multi-label, model endpoint returns labels and their probabilities. `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for classification, see the [explainability for classification section](#image-classification-multi-label-2).
+For image classification multi-label, model endpoint returns labels and their probabilities. `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for multi-label classification, see the [explainability for image classification multi-label section](#image-classification-multi-label-2).
 
 ```json
 [
@@ -437,7 +437,7 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 
 ## Data format for Online Scoring and Explainability (XAI)
 > [!WARNING]
->  **Explainability** is supported only for **multi-class classification** and **multi-label classification**. While generating explanations on online endpoint, if you encounter timeout issues, use [batch scoring notebook](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/jobs/automl-standalone-jobs/automl-image-classification-multiclass-batch-scoring) to generate explanations.
+>  **Explainability** is supported only for **multi-class classification** and **multi-label classification**. While generating explanations on online endpoint, if you encounter timeout issues, use [batch scoring notebook](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs/automl-image-classification-multiclass-batch-scoring) to generate explanations.
 
 In this section, we document the input data format required to make predictions and generate explanations for the predicted class/classes using a deployed model. There's no separate deployment needed for explainability. The same endpoint for online scoring can be utilized to generate explanations. We just need to pass some extra explainability related parameters in input schema and get either visualizations of explanations and/or attribution score matrices (pixel level explanations).
 
@@ -449,7 +449,7 @@ In this section, we document the input data format required to make predictions 
 
 ### Input format (XAI)
 
-The following input formats are supported to generate predictions and explanations on any classification task using task-specific model endpoint. After we [deploy the model](../how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following schema to get predictions and explanations.
+The following input formats are supported to generate predictions and explanations on any classification task using task-specific model endpoint. After we [deploy the model](./how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following schema to get predictions and explanations.
 
 ```json
 {
@@ -532,7 +532,7 @@ Predictions made on model endpoints follow different schema depending on the tas
 The following schemas are defined for the case of two input images
 
 #### Image classification (binary/multi-class)
-Output schema is [same as described above](#Data-schema-for-online-scoring) except that `visualizations` and `attributions` key values won't be `None`, if these keys were set to `True` in the request.
+Output schema is [same as described above](#data-schema-for-online-scoring) except that `visualizations` and `attributions` key values won't be `None`, if these keys were set to `True` in the request.
 
 If `model_explainability`, `visualizations`, `attributions` are set to `True` in the input request, then the output will have `visualizations` and `attributions`. More details on these parameters are explained in the following table. Visualizations and attributions are generated against a class that has the highest probability score.  
 
@@ -583,7 +583,7 @@ If `model_explainability`, `visualizations`, `attributions` are set to `True` in
 
 
 > [!WARNING]
-> While generating explanations on online endpoint, make sure to select only few classes based on confidence score in order to avoid timeout issues on the endpoint or use the endpoint with GPU instance type. To generate explanations for large number of classes in multi-label classification, refer to [batch scoring notebook](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/jobs/automl-standalone-jobs/automl-image-classification-multiclass-batch-scoring).
+> While generating explanations on online endpoint, make sure to select only few classes based on confidence score in order to avoid timeout issues on the endpoint or use the endpoint with GPU instance type. To generate explanations for large number of classes in multi-label classification, refer to [batch scoring notebook](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs/automl-image-classification-multiclass-batch-scoring).
 
 ```json
 [
