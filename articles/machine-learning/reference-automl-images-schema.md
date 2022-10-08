@@ -280,9 +280,9 @@ Predictions made on model endpoints follow different structure depending on the 
 
 The following schemas are applicable when the input request contains one image.
 
-#### Image classification
+#### Image classification (binary/multi-class)
 
-Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.  `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for classification, see the [explainability for classification section](#image-classification-2).
+Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.  `visualizations` and `attributions` are related to explainability and when the request is only for scoring, values for these keys will always be None. For more information on explainability input and output schema for classification, see the [explainability for classification section](#image-classification-binarymulti-class-2).
 
 ```json
 [
@@ -531,7 +531,7 @@ Predictions made on model endpoints follow different schema depending on the tas
 
 The following schemas are defined for the case of two input images
 
-#### Image classification
+#### Image classification (binary/multi-class)
 Output schema is [same as described above](#Data-schema-for-online-scoring) except that `visualizations` and `attributions` key values won't be `None`, if these keys were set to `True` in the request.
 
 If `model_explainability`, `visualizations`, `attributions` are set to `True` in the input request, then the output will have `visualizations` and `attributions`. More details on these parameters are explained in the following table. Visualizations and attributions are generated against a class that has the highest probability score.  
