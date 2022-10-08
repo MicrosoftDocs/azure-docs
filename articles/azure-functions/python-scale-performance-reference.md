@@ -64,11 +64,11 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 
-A function without the `async` keyword is run automatically in an ThreadPoolExecutor thread pool:
+A function without the `async` keyword is run automatically in a ThreadPoolExecutor thread pool:
 
 ```python
-# Runs in an ThreadPoolExecutor threadpool. Number of threads is defined by PYTHON_THREADPOOL_THREAD_COUNT. 
-# The example is intended to show how default synchronous function are handled.
+# Runs in a ThreadPoolExecutor threadpool. Number of threads is defined by PYTHON_THREADPOOL_THREAD_COUNT. 
+# The example is intended to show how default synchronous functions are handled.
 
 def main():
     some_blocking_socket_io()
@@ -84,18 +84,18 @@ Here are a few examples of client libraries that has implemented async pattern:
  
 ##### Understanding async in Python worker
 
-When you define `async` in front of a function signature, Python will mark the function as a coroutine. When calling the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop and allow event loop to process next task during the wait time.
+When you define `async` in front of a function signature, Python will mark the function as a coroutine. When calling the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop and allows event loop to process next task during the wait time.
 
 In our Python Worker, the worker shares the event loop with the customer's `async` function and it is capable for handling multiple requests concurrently. We strongly encourage our customers to make use of asyncio compatible libraries (e.g. [aiohttp](https://pypi.org/project/aiohttp/), [pyzmq](https://pypi.org/project/pyzmq/)). Employing these recommendations will greatly increase your function's throughput compared to those libraries implemented in synchronous fashion.
 
 > [!NOTE]
->  If your function is declared as `async` without any `await` inside its implementation, the performance of your function will be severely impacted since the event loop will be blocked which prohibit the Python worker to handle concurrent requests.
+>  If your function is declared as `async` without any `await` inside its implementation, the performance of your function will be severely impacted since the event loop will be blocked which prohibits the Python worker from handling concurrent requests.
 
 #### Use multiple language worker processes
 
 By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers.
 
-For CPU bound apps, you should set the number of language worker to be the same as or higher than the number of cores that are available per function app. To learn more, see [Available instance SKUs](functions-premium-plan.md#available-instance-skus). 
+For CPU bound apps, you should set the number of language workers to be the same as or higher than the number of cores that are available per function app. To learn more, see [Available instance SKUs](functions-premium-plan.md#available-instance-skus). 
 
 I/O-bound apps may also benefit from increasing the number of worker processes beyond the number of cores available. Keep in mind that setting the number of workers too high can impact overall performance due to the increased number of required context switches. 
 
@@ -111,7 +111,7 @@ For CPU-bound apps, you should keep the setting to a low number, starting from 1
 
 For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. the recommendation is to start with the Python default - the number of cores + 4 and then tweak based on the throughput values you are seeing.
 
-For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present. Also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
+For mixed workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present. Also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
 
 > [!NOTE]
 >  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](functions-best-practices.md).
