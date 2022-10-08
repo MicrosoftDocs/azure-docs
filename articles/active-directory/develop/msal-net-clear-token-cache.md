@@ -2,7 +2,7 @@
 title: Clear the token cache (MSAL.NET)
 description: Learn how to clear the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: Dickson-Mwendia
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dmwendia
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how how to clear the token cache so I can .
@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Clear the token cache using MSAL.NET
 
-When you [acquire an access token](msal-acquire-cache-tokens.md) using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should first call the `AcquireTokenSilent` method to verify if an acceptable token is in the cache.
+When you [acquire an access token](msal-acquire-cache-tokens.md) using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should first call the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. 
 
 Clearing the cache is achieved by removing the accounts from the cache. This does not remove the session cookie which is in the browser, though.  The following example instantiates a public client application, gets the accounts for the application, and removes the accounts.
 

@@ -1,8 +1,8 @@
 ---
-title: Acquire a token from the cache (MSAL.NET)
+title: Acquire a token from the cache (MSAL.NET) 
 description: Learn how to acquire an access token silently (from the token cache) using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: Dickson-Mwendia
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: dmwendia
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 #Customer intent: As an application developer, I want to learn how how to use the AcquireTokenSilent method so I can acquire tokens from the cache.
@@ -24,7 +24,7 @@ For authentication flows that require a user interaction, MSAL caches the access
 
 The recommended pattern is to call the `AcquireTokenSilent` method first.  If `AcquireTokenSilent` fails, then acquire a token using other methods.
 
-In the following example, the application first attempts to acquire a token from the token cache.  If a `MsalUiRequiredException` exception is thrown, the application acquires a token interactively.
+In the following example, the application first attempts to acquire a token from the token cache.  If a `MsalUiRequiredException` exception is thrown, the application acquires a token interactively. 
 
 ```csharp
 var accounts = await app.GetAccountsAsync();
