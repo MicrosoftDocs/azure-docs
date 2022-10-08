@@ -122,6 +122,8 @@
     href: monitoring-and-alerts-overview.md
   - name: Security
     items:
+    - name: Enhanced soft delete
+      href: backup-azure-enhanced-soft-delete-about.md
     - name: Multi-user authorization
       href: multi-user-authorization-concept.md
   - name: Backup architecture
@@ -578,6 +580,8 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
+    - name: Configure and manage enhanced soft delete
+      href: backup-azure-enhanced-soft-delete-configure-manage.md
     - name: Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
     - name: Soft delete

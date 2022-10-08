@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 10/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- October 2022
+  - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
 - September 2022
   - [Built-in Azure Monitor alerting for Azure Backup is now generally available](#built-in-azure-monitor-alerting-for-azure-backup-is-now-generally-available)
 - June 2022
@@ -43,6 +45,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Enhanced soft delete for Azure Backup (preview)
+
+Enhanced soft delete feature is an improvement of the existing soft delete capability that provides recovery of data in the scenarios of accidental/ malicious deletion. With enhanced soft delete, you can now make soft delete irreversible to prevent malicious actors from disabling it and deleting backups.
+
+You can also customize soft delete retention period for which soft deleted data must be retained. Enhanced soft delete is available for Recovery Services vaults and Backup vaults.
+
+For more information, see [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
 
 ## Built-in Azure Monitor alerting for Azure Backup is now generally available
 
