@@ -3,7 +3,7 @@ title: 'Quickstart: Direct web traffic using the portal'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: ryan-pfalz
+author: ryanpfalz
 ms.author: ryanpfalz
 ms.date: 10/07/2022
 ms.topic: quickstart
