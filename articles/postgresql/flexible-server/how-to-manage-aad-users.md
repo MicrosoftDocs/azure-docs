@@ -27,11 +27,12 @@ If you would like to learn about how to create and manage Azure subscription use
 ## Create or Delete Azure AD administrators using Azure portal or ARM API
 
 1. Open **Authentication** page for your PostgreSQL server in Azure portal
-  TODO: paste screenshot.
-  
 1. To add an administrator - click **Add Azure AD Admin**  and select a user, group, application or a managed identity from the current Aad tenant.
 1. To remove an administrator - click on Delete icon for the one to remove.
 1. **Save** the changes and wait for provisioning operation to completed.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/how-to-manage-aad-users/add-aad-principal-via-portal.png" alt-text="manage aad administrators via portal":::
 
 > [!NOTE]
 > Support for Azure AD Administrators management via Azure SDK, az cli and Azure Powershell is coming soon,
