@@ -18,7 +18,7 @@ Soft delete for Azure Backup enables you to recover your backup data even after 
 
 While *basic soft delete* has already been available for Recovery Services vaults for a while, *enhanced soft delete* provides you additional data protection capabilities.
 
-In This article describes about:
+In this article, you'll learn about:
 
 >[!div class="checklist"]
 >- What's soft delete?
@@ -37,7 +37,7 @@ After deletion (while the data is in soft deleted state), if you need the delete
 
 The following diagram shows the typical flow of a backup item (or a backup instance) that gets deleted:
 
-:::image type="content" source="./media/backup-azure-enhanced-soft-delete/enhanced-soft-delete-for-azure-backup-flow-diagram.png" alt-text="Diagram showing the flow of backup items or instance that gets deleted from a vault with soft delete enabled.":::
+:::image type="content" source="./media/backup-azure-enhanced-soft-delete/enhanced-soft-delete-for-azure-backup-flow-diagram-inline.png" alt-text="Diagram showing the flow of backup items or instance that gets deleted from a vault with soft delete enabled." lightbox="./media/backup-azure-enhanced-soft-delete/enhanced-soft-delete-for-azure-backup-flow-diagram-expanded.png":::
 
 ## What's new with enhanced soft delete?
 
@@ -99,4 +99,4 @@ Soft deleted data involves no retention cost for the default duration of *14* da
 
 ## Next steps
 
-[Configure and manage enhanced soft delete for Azure Backup (preview)](backup-azure-enhanced-soft-delete-configure-manage).
+[Configure and manage enhanced soft delete for Azure Backup (preview)](backup-azure-enhanced-soft-delete-configure-manage.md).
