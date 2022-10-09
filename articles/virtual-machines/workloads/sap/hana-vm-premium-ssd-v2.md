@@ -1,5 +1,5 @@
 ---
-title: SAP HANA Azure virtual machine premium ssd v2configurations | Microsoft Docs
+title: SAP HANA Azure virtual machine premium ssd v2 configurations | Microsoft Docs
 description: Storage recommendations HANA using premium ssd v2.
 author: msjuergent
 manager: bburns
@@ -31,9 +31,9 @@ The major difference of Premium SSD v2 to the existing netWeaver and HANA certif
 - With Premium SSD v2, you pay the exact deployed capacity. Unlike with premium disk and Ultra disk, where brackets of sizes are being taken to determine the costs of capacity
 - Every Premium SSD v2 storage disk comes with 3000 IOPS and 125MB/sec on throughput that is included in the capacity pricing
 - Additional IOPS and throughput can be provisioned at any point in time and are charged separately
-- Latency of Premium SSD v2 is lower than premium storage, but higher than Ultra disk. But is sub-milliseconds, so, that it passes the SAP HANA KPIs without the help of any additiona functionality, like Azure Write Accelerator
+- Latency of Premium SSD v2 is lower than premium storage, but higher than Ultra disk. But is sub-milliseconds, so, that it passes the SAP HANA KPIs without the help of any additional functionality, like Azure Write Accelerator
 - **Like with Ultra disk, you can use Premium SSD v2 for /hana/data and /hana/log volumes without the need of any accelerators or additional caches**.
-- Like Ultra disk, Azure Premium SSD don't offer additional caching as premium storage does
+- Like Ultra disk, Azure Premium SSD doesn't offer caching options as premium storage does
 - With Premium SSD v2, the same storage configuration applies to the HANA certified Ev4, Ev5, and M-series VMs that offer the same memory 
 - Unlike premium storage, there is no disk bursting for Premium SSD v2
 
@@ -52,10 +52,10 @@ Not having Azure Write Accelerator support or support by additional caches makes
 
 When you look up the price list for Azure managed disks, then it becomes apparent that the cost scheme introduced with Premium SSD v2, gives you two general paths to pursue:
 
-- You try to simplify your storage architecture by using a single disk for **/hana/data** and **/hana/log** and pay for additional IOPS and throughput as needed to achieve the levels we recommend elow. With the awareness that a single disk has a throughput level of 1200MB/sec and 89K IOPS.
+- You try to simplify your storage architecture by using a single disk for **/hana/data** and **/hana/log** and pay for additional IOPS and throughput as needed to achieve the levels we recommend below. With the awareness that a single disk has a throughput level of 1200MB/sec and 89K IOPS.
 - You want to benefit of the 3000 IOPS and 125MB/sec that come for free with each sdisk. To do so, you would build multiple smaller disks that sum up to the capacity you need and then build a striped volume with a logical volume manager across these multiple disks. This would give you the possibility to reduce the IOPS and throughput cost factors. But would result in some more efforts in automating deployments and operating such solutions.
 
-Since we don't want to define which direction you should go, we are leaving the decision to you on whether to take the single disc approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are extremely critical and demand a lot of throughput for the **/hana/data** volume
+Since we don't want to define which direction you should go, we are leaving the decision to you on whether to take the single disk approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are extremely critical and demand a lot of throughput for the **/hana/data** volume
 
 **Recommendation: The recommended configurations with Azure premium storage for production scenarios look like:**
 
