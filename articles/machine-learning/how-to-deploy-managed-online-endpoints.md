@@ -70,6 +70,8 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 # [Azure CLI](#tab/azure-cli)
 
+### Clone the sample repository
+
 To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
 
 ```azurecli
@@ -81,7 +83,9 @@ cd cli
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
-To set your endpoint name, choose one of the following commands, depending on your operating system (replace `YOUR_ENDPOINT_NAME` with a unique name).
+### Set an endpoint name
+
+To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
 
 For Unix, run this command:
 
