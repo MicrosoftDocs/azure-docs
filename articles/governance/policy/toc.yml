@@ -193,6 +193,12 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: Policy applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
+  - name: Policy attestation
+    displayName: manual policy, compliance, attestation
+    href: ./concepts/attestation-structure.md
   - name: React to policy state change events
     displayName: event grid, subject, topic, subscription
     href: ./concepts/event-overview.md

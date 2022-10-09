@@ -9,6 +9,9 @@ ms.date: 04/18/2022
 
 # Pattern syntax
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and [punctuation](luis-reference-application-settings.md#punctuation-normalization) you want to ignore. It is **not** a regular expression.
 
 > [!CAUTION]
