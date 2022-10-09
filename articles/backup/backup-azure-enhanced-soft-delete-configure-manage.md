@@ -214,8 +214,8 @@ Follow these steps:
 
 1. Go to your *vault* > **Properties**.
 
-1. In the **Properties** page, under **Soft delete**, select **Update**.
-1. On the **Soft Delete settings** blade, clear the **Enable soft delete** checkbox to disable soft delete. 
+1. On the **Properties** page, under **Soft delete**, select **Update**.
+1. In the **Soft Delete settings** blade, clear the **Enable soft delete** checkbox to disable soft delete. 
 
 >[!Note]
 >You can't disable soft delete if **Enable Always-on Soft Delete** is enabled for this vault.
