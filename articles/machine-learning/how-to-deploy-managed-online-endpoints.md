@@ -478,12 +478,12 @@ To create the deployment named `blue` under the endpoint, run the following code
 
 This deployment might take up to 15 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
 
+> [!TIP]
+> * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
+
 > [!IMPORTANT]
 > The `--all-traffic` flag in the above `az ml online-deployment create` allocates 100% of the traffic to the endpoint to the newly created deployment. Though this is helpful for development and testing purposes, for production, you might want to open traffic to the new deployment through an explicit command. For example,
 > `az ml online-endpoint update -n $ENDPOINT_NAME --traffic "blue=100"` 
-
-> [!TIP]
-> * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 
 # [Python](#tab/python)
 
