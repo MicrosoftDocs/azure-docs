@@ -279,6 +279,8 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az account set —subscription "storage-account-subscription-id"
+
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
 az account set —subscription "workspace-subscription-id"
@@ -289,11 +291,13 @@ az monitor log-analytics workspace linked-storage create —type Query —resour
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+Select-AzSubscription "StorageAccount-subscription-id"
+
+$storageAccountId = (Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name").id
 
 Select-AzSubscription "workspace-subscription-id"
 
-New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccountId
 ```
 
 # [REST](#tab/rest)
@@ -329,6 +333,8 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+az account set —subscription "storage-account-subscription-id"
+
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
 az account set —subscription "workspace-subscription-id"
@@ -339,11 +345,13 @@ az monitor log-analytics workspace linked-storage create —type ALerts —resou
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
+Select-AzSubscription "StorageAccount-subscription-id"
+
+$storageAccountId = (Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name").id
 
 Select-AzSubscription "workspace-subscription-id"
 
-New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
+New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccountId
 ```
 
 # [REST](#tab/rest)
