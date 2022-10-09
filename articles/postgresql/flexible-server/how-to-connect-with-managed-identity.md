@@ -57,11 +57,12 @@ az ad sp list --display-name vm-name --query [*].appId --out tsv
 Now, connect as the Azure AD administrator user to your PostgreSQL database, and run the following SQL statements, replacing `CLIENT_ID` with the client ID you retrieved for your system-assigned managed identity:
 
 ```sql
-SET aad_validate_oids_in_tenant = off;
-CREATE ROLE myuser WITH LOGIN PASSWORD 'CLIENT_ID' IN ROLE azure_ad_user;
+select * from pgaadauth_create_principal('<identity_name>', false, false);
 ```
 
-The managed identity now has access when authenticating with the username `myuser` (replace with a name of your choice).
+For more details on managing Azure AD enabled database roles see [how to manage Azure AD enabled PostgreSQL roles](./how-to-manage-aad-users.md)
+
+The managed identity now has access when authenticating with the identity name as a role name and Azure AD token as a password.
 
 ## Retrieving the access token from Azure Instance Metadata service
 
