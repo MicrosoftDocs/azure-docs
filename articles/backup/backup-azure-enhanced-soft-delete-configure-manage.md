@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Configure and manage enhanced soft delete in Azure Backup (preview)
 
-This article describes about how to configure and use enhanced soft delete to protect your data and recover backups, if they're deleted.
+This article describes how to configure and use enhanced soft delete to protect your data and recover backups, if they're deleted.
 
 In this article, you'll learn about:
 
@@ -43,7 +43,7 @@ Follow these steps to enable soft delete for Recovery Services vaults:
 
 1. Under **Soft delete**, select **Update** to modify the soft delete setting.
 
-   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/open-soft-delete-properties-blade.png" alt-text="Screenshot showing you how to open Soft Delete blade.":::
+   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/open-soft-delete-properties-blade-inline.png" alt-text="Screenshot showing you how to open Soft Delete blade." lightbox="./media/backup-azure-enhanced-soft-delete/open-soft-delete-properties-blade-expanded.png":::
 
 1. If soft delete settings are disabled for any workload type in the **Soft Delete** blade, select the respective checkboxes to enable them.
 
@@ -85,7 +85,7 @@ Follow these steps:
 1. Choose the number of days between *14* and *180* to specify the soft delete retention period.
 
    >[!Note]
-   >There is no cost for enabling soft delete  for *14* days. However, you're charged for deleted soft delete instances if soft delete retention period is *>14* days. Learn about the [pricing details](backup-azure-enhanced-soft-delete-about.md#pricing).
+   >There is no cost for enabling soft delete  for *14* days. However, you're charged for the soft delete instances if soft delete retention period is *>14* days. Learn about the [pricing details](backup-azure-enhanced-soft-delete-about.md#pricing).
 
 1. Select the **Enable Always-on Soft Delete** checkbox to enable soft delete always-on and make it irreversible.
 
@@ -100,7 +100,7 @@ Follow these steps:
 
 ## Delete a backup item
 
-You can delete backup items/instances even if the soft delete settings are enabled. However, if the soft delete is enabled, the deleted items don't get permanently deleted immediately and stays in soft deleted state as per [configured retention period](#enable-soft-delete-with-always-on-state).
+You can delete backup items/instances even if the soft delete settings are enabled. However, if the soft delete is enabled, the deleted items don't get permanently deleted immediately and stays in soft deleted state as per [configured retention period](#enable-soft-delete-with-always-on-state). Soft delete delays permanent deletion of backup data by retaining deleted data for the duration of *14*-*180* days.
 
 **Choose a vault**
 
@@ -215,7 +215,7 @@ Follow these steps:
 1. Go to your *vault* > **Properties**.
 
 1. In the **Properties** page, under **Soft delete**, select **Update**.
-1. In the **Soft Delete settings** blade, clear the **Enable soft delete** checkbox to disable soft delete. 
+1. On the **Soft Delete settings** blade, clear the **Enable soft delete** checkbox to disable soft delete. 
 
 >[!Note]
 >You can't disable soft delete if **Enable Always-on Soft Delete** is enabled for this vault.

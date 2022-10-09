@@ -31,7 +31,7 @@ In this article, you'll learn about:
 
 ## What's soft delete?
 
-Soft delete primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration  (14-180 days) called soft delete retention period.
+Soft delete primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration (14-180 days) called soft delete retention period.
 
 After deletion (while the data is in soft deleted state), if you need the deleted data, you can undelete. This returns the data to stop protection with retain data state. You can then use it to perform restore operations or you can resume backups for this instance. 
 
@@ -68,7 +68,7 @@ The soft delete retention is the duration (in days) for which a deleted item is 
 >[!Important]
 >Soft delete retention for *14* days involves no cost. However, [regular backup charges apply for additional retention days](#pricing).
 >
->By default, soft delete retention is set to *14* days and you can change it any time. However, the soft delete retention that is active at the time of the deletion governs retention of the item in soft deleted state.
+>By default, soft delete retention is set to *14* days and you can change it any time. However, the *soft delete retention period* that is active at the time of the deletion governs retention of the item in soft deleted state.
 
 ## Soft deleted items reregistration
 
