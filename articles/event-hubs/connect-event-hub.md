@@ -2,31 +2,33 @@
 title: Connect to an Azure event hub - .NET
 description: This article shows different ways of connecting to an event hub in Azure Event Hubs. 
 ms.topic: how-to
-ms.date: 09/16/2022 
+ms.date: 10/10/2022 
 ---
 
 # Connect to an event hub (.NET)
-This article shows how to connect t an event hub in different ways by using the .NET SDK. The examples use [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient), which is used to send messages to an event hub. You can use similar variations of constructors for [EventHubConsumerClient](/dotnet/api/azure.messaging.eventhubs.consumer.eventhubconsumerclient) to consume events from an event hub. 
+This article shows how to connect to an event hub in different ways by using the .NET SDK. The examples use [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient), which is used to send messages to an event hub. You can use similar variations of constructors for [EventHubConsumerClient](/dotnet/api/azure.messaging.eventhubs.consumer.eventhubconsumerclient) to consume events from an event hub. 
 
 ## Connect using a connection string
 This section shows how to connect to an event hub using a connection string to a namespace or an event hub. 
 
-If you have connection string to the namespace and you know the event hub name, you could use the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) constructor that has the connection string and the event hub name parameter. 
+If you have connection string to the namespace and the event hub name, use the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) constructor that has the connection string and the event hub name parameter. 
 
 ```csharp
 // Use the constructor that takes the connection string to the namespace and event hub name
 producerClient = new EventHubProducerClient(NAMESPACE-CONNECTIONSTRING, EVENTHUBNAME);
 ```
 
-Alternatively, you can append `;EntityPath=<EVENTHUBNAME>` the namespace's connection string and use the constructor that takes only the connection string. Here's an exmaple: `NAMESPACECONNECTIONSTRING;EntityPath=<EVENTHUBNAME>`. You can also use this constructor if you have a connection string to the event hub (not the namespace).
+Alternatively, you can append `;EntityPath=<EVENTHUBNAME>` the namespace's connection string and use the constructor that takes only the connection string. 
 
 ```csharp
 // Use the constructor that takes the connection string to the namespace and event hub name
 producerClient = new EventHubProducerClient(connectionString);
 ```
 
+You can also use this constructor if you have a connection string to the event hub (not the namespace).
+
 ## Connect using a policy name and its key value
-The following example shows you how to connect to an event hub using a SAS policy name and its key value. 
+The following example shows you how to connect to an event hub using a name and value of the SAS policy you created for an event hub. 
 
 ```csharp
 //use the constructor that takes AzureNamedKeyCredential parameter
@@ -60,7 +62,7 @@ private static string createToken(string resourceUri, string keyName, string key
 ## Connect using Azure AD application
 
 1. Create an Azure AD application.
-1. Grant application
+1. Assign application's service principal to the appropriate [role-based access control (RBAC) role](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) (owner, sender, or receiver). For more information, see [Authorize access with Azure Active Directory](authorize-access-azure-active-directory.md).
 
 ```csharp
 var clientSecretCredential = new ClientSecretCredential("TENANTID", "CLIENTID", "CLIENTSECRET");
@@ -69,7 +71,7 @@ producerClient = new EventHubProducerClient("NAMESPACENAME.servicebus.windows.ne
 
 ## Next steps
 
-You can learn more about Event Hubs by visiting the following links:
+Review samples on GitHub: 
 
-* [Event Hubs overview](./event-hubs-about.md)
-* [Create an event hub](event-hubs-create.md)
+* [Azure.Messaging.EventHubs samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+* [Azure.Messaging.EventHubs.Processor](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor)
