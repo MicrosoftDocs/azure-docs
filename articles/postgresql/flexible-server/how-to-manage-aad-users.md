@@ -41,7 +41,7 @@ If you like to learn about how to create and manage Azure subscription users and
 
 Once first Azure AD administrator is created from the Azure portal or API you can use the administrator role to manage Azure AD roles in your Azure Database for PostgreSQL Flexible Server.
 
-We recommend getting familiar with [Microsoft identity platform](../../articles\active-directory\develop\v2-overview.md) for best use of Azure AD integration with Azure Database for PostgreSQL Flexible Servers.
+We recommend getting familiar with [Microsoft identity platform](../../active-directory/develop/v2-overview.md). for best use of Azure AD integration with Azure Database for PostgreSQL Flexible Servers.
 
 ### Principal Types
 
@@ -49,7 +49,7 @@ Azure Database for PostgreSQL Flexible servers internally stores mapping between
 Each PostgreSQL database role can be mapped to one of the following Azure AD object types:
 
 1. **User** - Including Tenant local and guest users.
-2. **Service Principal**. Including [Applications and Managed identities](../../articles\active-directory\develop\app-objects-and-service-principals.md).
+2. **Service Principal**. Including [Applications and Managed identities](../../active-directory/develop/app-objects-and-service-principals.md)
 3. **Group**  When a PostgreSQL Role is linked to an Azure AD group, any user or service principal member of this group can connect to the Azure Database for PostgreSQL Flexible Server instance with the group role.
 
 ### Listing Azure AD roles using SQL
@@ -83,7 +83,7 @@ select * from pgaadauth_create_principal_with_oid('accounting_application', '000
 **Parameters:**
 - *roleName* - Name of the role to be created.
 - *objectId* - Unique object identifier of the Azure AD object:
-   - For **Users**, **Groups** and **Managed Identities** the ObjectId can be found by searching for the object name in Azure AD page in Azure Portal.    [See this guide as example](https://learn.microsoft.com/en-us/partner-center/find-ids-and-domain-names)
+   - For **Users**, **Groups** and **Managed Identities** the ObjectId can be found by searching for the object name in Azure AD page in Azure Portal. [See this guide as example](/partner-center/find-ids-and-domain-names)
    - For **Applications**, Objectid of the corresponding **Service Principal** must be used. In Azure Portal the required ObjectId can be found on **Enterprise Applications** page.
 - *objectType* - Type of the Azure AD object to link to this role.
 - *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via Portal or API.
