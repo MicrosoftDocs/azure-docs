@@ -57,7 +57,7 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 >Classic prebuilt components provides prebuilt component majorly for data processing and tradition machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >
 >
->Custom component provides the ability to provide your own code as a custom component. It support sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
 >
 >This article applies to classic prebuilt components. 
 
