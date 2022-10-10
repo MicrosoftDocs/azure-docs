@@ -31,7 +31,7 @@ For information about the pricing and capacities of individual SignalR Service, 
    
 3. Click **Change** and select **Standard** Tier in the pop out blade.
    
-    ![Scale up on Portal](./media/signalr-howto-scale/signalr-howto-scale-up.png)
+    ![Screenshot of scaling up on Portal.](./media/signalr-howto-scale/signalr-howto-scale-up.png)
 
 4. Select **Save**.
 
@@ -44,7 +44,7 @@ For information about the pricing and capacities of individual SignalR Service, 
    
 3. Choose the unit in the **Manual scale** sector.
 
-    ![Scale out on Portal](./media/signalr-howto-scale/signalr-howto-scale-out.png)
+    ![Screenshot of scaling out on Portal.](./media/signalr-howto-scale/signalr-howto-scale-out.png)
 
 4. Select **Save**.
 
