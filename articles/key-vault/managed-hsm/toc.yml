@@ -60,6 +60,8 @@ items:
   items:
   - name: Secure key release policy grammar 
     href: policy-grammar.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell
     href: /powershell/azure#key_vault
   - name: Azure CLI
