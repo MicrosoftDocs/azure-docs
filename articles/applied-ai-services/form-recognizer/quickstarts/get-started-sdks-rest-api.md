@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-formre
 recommendations: false
 ---
 
-# Quickstart: Form Recognizer SDKs | REST API
+# Get started: Form Recognizer SDKs or REST API
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]

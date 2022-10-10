@@ -33,7 +33,7 @@ items:
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-v3-form-recognizer-studio.md
-    - name: Get started with the client-library SDKs or REST API
+    - name: "Get started: client-library SDKs or REST API"
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
@@ -47,7 +47,7 @@ items:
   - name: Migrate to Form Recognizer v3.0
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-migration-guide.md
-  - name: Use the client-library SDKs or REST API
+  - name: Use Form Recognizer models
     displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document,ormRecognizerClient, form recognizer client, boundingBox, box, begin_recognize, v2.1
     href: how-to-guides/use-sdk-rest-api.md
   - name: Check my usage and estimate the cost
@@ -61,16 +61,16 @@ items:
     - name: Build a custom model (v3.0)
       displayName: tables, labels, ocr, template, neural, input, train, training, sets, testing
       href: how-to-guides/build-custom-model-v3.md
-    - name: Assemble a training data set
+    - name: Build and train a custom model (v2.1)
       displayName: tables, labels, ocr, upload
       href: build-training-data-set.md
-    - name: Deploy the sample-labeling tool
+    - name: Deploy the sample-labeling tool (v2.1)
       displayName: FOTT, migration, containers, docker
       href: deploy-label-tool.md
-    - name: Train a custom model with the sample-labeling tool
+    - name: Train a custom model with the sample-labeling tool (v2.1)
       displayName: FOTT, migration, containers, docker
       href: label-tool.md
-    - name: Use table tags to train your custom model
+    - name: Use table tags to train your custom model (v2.1)
       displayName: FOTT, migration, dynamic
       href: supervised-table-tags.md
     - name: Compose custom models

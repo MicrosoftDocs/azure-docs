@@ -14,7 +14,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD051 -->
 
-# Use Form Recognizer SDKs or REST API
+# Use Form Recognizer models
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
