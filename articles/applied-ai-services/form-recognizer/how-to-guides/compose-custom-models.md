@@ -358,17 +358,13 @@ Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-libr
 
 Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve a model ID as follows:
 
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-### [**Form Recognizer Sample Labeling tool**](#tab/fott)
+### [**Form Recognizer Sample Labeling tool**](#tab/studio)
 
 When you train models using the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
 
 :::image type="content" source="../media/fott-training-results.png" alt-text="Screenshot: training results window.":::
 
-### [**REST API**](#tab/rest-api)
+### [**REST API**](#tab/rest)
 
 The [**REST API**](../quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
@@ -387,19 +383,11 @@ The [**REST API**](../quickstarts/try-sdk-rest-api.md?pivots=programming-languag
 * Python | [CustomFormModelInfo Class](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.customformmodelinfo?view=azure-python&preserve-view=true&branch=main#variables "Azure SDK for Python")
 
 ---
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
 #### Compose your custom models
 
 After you've gathered your custom models corresponding to a single form type, you can compose them into a single model.
 
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-### [**Form Recognizer Sample Labeling tool**](#tab/fott)
+### [**Form Recognizer Sample Labeling tool**](#tab/studio)
 
 The **Sample Labeling tool** enables you to quickly get started training models and  composing them to a single model ID.
 
@@ -417,7 +405,7 @@ When the operation completes, your newly composed model will appear in the list.
 
   :::image type="content" source="../media/custom-model-compose.png" alt-text="Screenshot of the model compose window." lightbox="../media/custom-model-compose-expanded.png":::
 
-### [**REST API**](#tab/rest-api)
+### [**REST API**](#tab/rest)
 
 Using the **REST API**, you can make a  [**Compose Custom Model**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel) request to create a single composed model from existing models. The request body requires a string array of your `modelIds` to compose and you can optionally define the `modelName`.
 
@@ -435,19 +423,11 @@ Use the programming language code of your choice to create a composed model that
 
 ---
 
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
 ## Analyze documents with your custom or composed model
 
  The custom form **Analyze** operation requires you to provide the `modelID`  in the call to Form Recognizer. You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
 
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
-
-### [**Form Recognizer Sample Labeling tool**](#tab/fott)
+### [**Form Recognizer Sample Labeling tool**](#tab/studio)
 
 1. On the tool's left-pane menu, select the **Analyze icon** (light bulb).
 
@@ -459,7 +439,7 @@ Use the programming language code of your choice to create a composed model that
 
 :::image type="content" source="../media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
-### [**REST API**](#tab/rest-api)
+### [**REST API**](#tab/rest)
 
 Using the REST API, you can make an [Analyze Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) request to analyze a document and extract key-value pairs and table data.
 
@@ -476,10 +456,6 @@ Using the programming language of your choice to analyze a form or document with
 * [**Python**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.1/sample_recognize_custom_forms.py)
 
 ---
-
-::: moniker-end
-
-::: moniker range="form-recog-2.1.0"
 
 Test your newly trained models by [analyzing forms](../quickstarts/try-sdk-rest-api.md#analyze-forms-with-a-custom-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](../label-tool.md#improve-results).
 
