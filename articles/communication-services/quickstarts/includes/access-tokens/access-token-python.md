@@ -101,14 +101,15 @@ print(token_result.token)
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expires_on` response property indicates the lifetime of the access token.
 
-Alternatively, you can customize the token expiration time as little as an hour or as long as 24 hours by specifying in the optional parameter `token_expires_in`. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time.
+## Set a custom token expiration time
+
+The default token expiration time is 24 hours but you can configure it by providing a value between an hour and 24 hours to the optional parameter `token_expires_in`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
 
 ```python
 # Issue an access token with validity of an hour and the "voip" scope for an identity
 token_expires_in = timedelta(hours=1)
 token_result = client.get_token(identity, ["voip"], token_expires_in=token_expires_in)
-print("\nIssued an access token with 'voip' scope and custom expiration that expires at " + token_result.expires_on + ":")
-print(token_result.token)
+
 ```
 
 ## Create an identity and issue an access token in the same request
@@ -125,22 +126,6 @@ token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on
 print("\nCreated an identity with ID: " + identity.properties['id'])
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
-print(token)
-```
-
-You can also customize of the token expiration time in this API as little as an hour or as long as 24 hours to your specific needs by specifying in the optional parameter `token_expires_in`. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time.
-
-```python
-# Issue an identity and an access token with validity of an hour and the "voip" scope for the new identity
-token_expires_in = timedelta(hours=1)
-identity_token_result = client.create_user_and_token(["voip"], token_expires_in=token_expires_in)
-
-# Get the token details from the response
-identity = identity_token_result[0]
-token = identity_token_result[1].token
-expires_on = identity_token_result[1].expires_on
-print("\nCreated an identity with ID: " + identity.properties['id'])
-print("\nIssued an access token with 'voip' scope and custom expiration that expires at " + expires_on + ":")
 print(token)
 ```
 
@@ -188,19 +173,13 @@ Azure Communication Services - Access Tokens Quickstart
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at <token expiration time>:
-<token signature here>
-
-Issued an access token with 'voip' scope and custom expiration that expires at <token expiration time>:
-<token signature here>
+Issued an access token with 'voip' scope that expires at 2022-10-11T07:34:29.9028648+00:00:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMF8wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJzY3AiOjE3OTIsImNzaSI6IjE2NjUzODcyNjkiLCJleHAiOjE2NjUzOTA4NjksImFjc1Njb3BlIjoidm9pcCIsInJlc291cmNlSWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJyZXNvdXJjZUxvY2F0aW9uIjoidW5pdGVkc3RhdGVzIiwiaWF0IjoxNjY1Mzg3MjY5fQ.kTXpQQtY7w6O82kByljZXrKtBvNNOleDE5m06LapzLeoWfRZCCpJQcDzBoLRA146mOhNzLZ0b5WMNTa5tD-0hWCiicDwgKLMASEGY9g0EvNQOidPff47g2hh6yqi9PKiDPp-t5siBMYqA6Nh6CQ-Oeh-35vcRW09VfcqFN38IgSSzJ7QkqBiY_QtfXz-iaj81Td0287KO4U1y2LJIGiyJLWC567F7A_p1sl6NmPKUmvmwM47tyCcQ1r_lfkRdeyDmcrGgY6yyI3XJZQbpxyt2DZqOTSVPB4PuRl7iyXxvppEa4Uo_y_BdMOOWFe6YTRB5O5lhI8m7Tf0LifisxX2sw
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
 
-Issued an access token with 'voip' scope that expires at <token expiration time>:
-<token signature here>
-
-Issued an access token with 'voip' scope and custom expiration that expires at <token expiration time>:
-<token signature here>
+Issued an access token with 'voip' scope that expires at 2022-10-11T07:34:29.9028648+00:00:
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMF8wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJzY3AiOjE3OTIsImNzaSI6IjE2NjUzODcyNjkiLCJleHAiOjE2NjUzOTA4NjksImFjc1Njb3BlIjoidm9pcCIsInJlc291cmNlSWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJyZXNvdXJjZUxvY2F0aW9uIjoidW5pdGVkc3RhdGVzIiwiaWF0IjoxNjY1Mzg3MjY5fQ.kTXpQQtY7w6O82kByljZXrKtBvNNOleDE5m06LapzLeoWfRZCCpJQcDzBoLRA146mOhNzLZ0b5WMNTa5tD-0hWCiicDwgKLMASEGY9g0EvNQOidPff47g2hh6yqi9PKiDPp-t5siBMYqA6Nh6CQ-Oeh-35vcRW09VfcqFN38IgSSzJ7QkqBiY_QtfXz-iaj81Td0287KO4U1y2LJIGiyJLWC567F7A_p1sl6NmPKUmvmwM47tyCcQ1r_lfkRdeyDmcrGgY6yyI3XJZQbpxyt2DZqOTSVPB4PuRl7iyXxvppEa4Uo_y_BdMOOWFe6YTRB5O5lhI8m7Tf0LifisxX2sw
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
