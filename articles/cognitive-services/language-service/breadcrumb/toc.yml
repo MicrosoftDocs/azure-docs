@@ -19,4 +19,4 @@
     items:
     - name: Language Service           # Destination doc set name
       tocHref: /legal/cognitive-services/language-service      # Destination doc set route
-      topicHref: /azure/cognitive-services/speech-service/index    # Original doc set route
+      topicHref: /azure/cognitive-services/language-service/index    # Original doc set route
