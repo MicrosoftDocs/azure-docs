@@ -38,7 +38,7 @@ In this scenario, you've deployed an application endpoint in a virtual network o
 
 :::image type="content" source="media/concept-azure-load-testing-vnet-injection/azure-hosted-private-endpoint.png" alt-text="Diagram that shows the set-up for load testing a private endpoint hosted on Azure.":::
 
-When you deploy Azure Load Testing in the virtual network, the load test engines can now communicate with the application endpoint. If you've used separate subnets for the application endpoint and Azure Load Testing, make sure that communication between the subsets isn't blocked, for example by a network security group (NSG). Learn how [network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
+When you deploy Azure Load Testing in the virtual network, the load test engines can now communicate with the application endpoint. If you've used separate subnets for the application endpoint and Azure Load Testing, make sure that communication between the subnets isn't blocked, for example by a network security group (NSG). Learn how [network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
 
 ## Scenario: Load test a public endpoint with access restrictions
 
