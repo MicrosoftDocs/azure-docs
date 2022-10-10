@@ -6,8 +6,8 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.custom: ignite-fall-2021
+ms.date: 10/10/2022
+ms.custom:
 ---
 
 # Supported data sources and file types
@@ -20,7 +20,8 @@ The table below shows the supported capabilities for each data source. Select th
 
 |**Category**|  **Data Store**  |**Technical metadata** |**Classification** |**Lineage** | **Access Policy** | **Data Sharing** |
 |---|---|---|---|---|---|---|
-| Azure | [Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes (Preview)](register-scan-azure-blob-storage-source.md#access-policy) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
+| Azure |[Multiple sources](register-scan-azure-multiple-sources.md)| [Yes](register-scan-azure-multiple-sources.md#register) | [Yes](register-scan-azure-multiple-sources.md#scan) | No |[Yes (Preview)](register-scan-azure-multiple-sources.md#access-policy) | No |
+||[Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes (Preview)](register-scan-azure-blob-storage-source.md#access-policy) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
 ||    [Azure Cosmos DB](register-scan-azure-cosmos-database.md)| [Yes](register-scan-azure-cosmos-database.md#register) | [Yes](register-scan-azure-cosmos-database.md#scan)|No*|No| No|
 ||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | No | No|
 || [Azure Data Factory](how-to-link-azure-data-factory.md) | [Yes](how-to-link-azure-data-factory.md) | No | [Yes](how-to-link-azure-data-factory.md) | No | No|

@@ -322,7 +322,7 @@ Source storage account can support up to 20 targets, and target storage account 
 ### Register the data source in Microsoft Purview for Data Use Management
 The Azure Storage resource needs to be registered first with Microsoft Purview before you can create access policies.
 To register your resource, follow the **Prerequisites** and **Register** sections of this guide:
--   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
+-   [Register Azure Data Lake Storage (ADLS) Gen2 in Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
 
 After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
