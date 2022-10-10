@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 09/24/2022
 author: bharathim
 ms.author: bselvaraj
-ms.reviewer: priyabratp
+ms.reviewer: karav
 ---
 
 # Microsoft Energy Data Services Preview partners
