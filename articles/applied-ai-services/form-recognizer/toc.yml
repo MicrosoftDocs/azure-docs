@@ -30,12 +30,12 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
-    - name: Form Recognizer SDKs and REST API
-      displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
-      href: quickstarts/get-started-sdks-rest-api.md
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-v3-form-recognizer-studio.md
+    - name: Get started with the client-library SDKs or REST API
+      displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
+      href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
       displayName: tables, labels, ocr, bounding box
       href: quickstarts/try-sample-label-tool.md
@@ -47,12 +47,9 @@ items:
   - name: Migrate to Form Recognizer v3.0
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-migration-guide.md
-  - name: Use SDKs or REST API | v3.0
-    displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document, v3.0
-    href: how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true
-  - name: Use SDKs or REST API | v2.1
-    displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize, v2.1
-    href: how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true
+  - name: Use the client-library SDKs or REST API
+    displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document,ormRecognizerClient, form recognizer client, boundingBox, box, begin_recognize, v2.1
+    href: how-to-guides/use-sdk-rest-api.md
   - name: Check my usage and estimate the cost
     displayName: price, metrics, dashboard, check, estimate
     href: how-to-guides/estimate-cost.md
@@ -64,20 +61,18 @@ items:
     - name: Build a custom model (v3.0)
       displayName: tables, labels, ocr, template, neural, input, train, training, sets, testing
       href: how-to-guides/build-custom-model-v3.md
-    - name: Build a custom model (v2.1)
-      items:
-      - name: Assemble a training data set
-        displayName: tables, labels, ocr, upload
-        href: build-training-data-set.md
-      - name: Deploy the sample-labeling tool
-        displayName: FOTT, migration, containers, docker
-        href: deploy-label-tool.md
-      - name: Train a custom model with the sample-labeling tool
-        displayName: FOTT, migration, containers, docker
-        href: label-tool.md
-      - name: Use table tags to train your custom model
-        displayName: FOTT, migration, dynamic
-        href: supervised-table-tags.md
+    - name: Assemble a training data set
+      displayName: tables, labels, ocr, upload
+      href: build-training-data-set.md
+    - name: Deploy the sample-labeling tool
+      displayName: FOTT, migration, containers, docker
+      href: deploy-label-tool.md
+    - name: Train a custom model with the sample-labeling tool
+      displayName: FOTT, migration, containers, docker
+      href: label-tool.md
+    - name: Use table tags to train your custom model
+      displayName: FOTT, migration, dynamic
+      href: supervised-table-tags.md
     - name: Compose custom models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
       href: compose-custom-models.md

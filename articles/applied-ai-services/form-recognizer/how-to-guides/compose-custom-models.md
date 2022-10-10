@@ -429,7 +429,7 @@ Use the programming language code of your choice to create a composed model that
 
  The custom form **Analyze** operation requires you to provide the `modelID`  in the call to Form Recognizer. You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
 
-<!-- Applies to FOTT but labeled studio to eliminate tab grouping warning -->
+
 ### [**Form Recognizer Sample Labeling tool**](#tab/studio)
 
 1. On the tool's left-pane menu, select the **Analyze icon** (light bulb).
