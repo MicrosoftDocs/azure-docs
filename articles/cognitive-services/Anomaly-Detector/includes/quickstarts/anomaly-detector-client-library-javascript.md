@@ -215,7 +215,7 @@ Anomalies were detected from the series at index:
 
 ### Understanding your results
 
-In the code above, we call the Anomaly Detector API to detect anomalies through the entire time series as a batch with the client's [detectEntireSeries()](/javascript/api/@azure/ai-anomaly-detector/anomalydetectorclient?view=azure-node-preview#@azure-ai-anomaly-detector-anomalydetectorclient-detectentireseries) method. We store the returned [AnomalyDetectorDetectEntireSeriesResponse](/javascript/api/@azure/ai-anomaly-detector/anomalydetectordetectentireseriesresponse?view=azure-node-preview) object. Then we iterate through the response's `isAnomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+In the code above, we call the Anomaly Detector API to detect anomalies through the entire time series as a batch with the client's [detectEntireSeries()](/javascript/api/@azure/ai-anomaly-detector/anomalydetectorclient?view=azure-node-preview#@azure-ai-anomaly-detector-anomalydetectorclient-detectentireseries&preserve-view=true) method. We store the returned [AnomalyDetectorDetectEntireSeriesResponse](/javascript/api/@azure/ai-anomaly-detector/anomalydetectordetectentireseriesresponse?view=azure-node-preview&preserve-view=true) object. Then we iterate through the response's `isAnomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
 ## Clean up resources
 
