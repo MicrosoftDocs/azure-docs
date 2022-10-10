@@ -334,19 +334,21 @@ function updateMetadata() {
 
     function updateMetadataCallback(err, items, responseOptions) {
         if(err) throw new Error("Error" + err.message);
-            if(items.length != 1) throw 'Unable to find metadata document';
 
-            var metadataItem = items[0];
+        if(items.length != 1) throw 'Unable to find metadata document';
 
-            // update metadata
-            metadataItem.createdItems += 1;
-            metadataItem.createdNames += " " + createdItem.id;
-            var accept = container.replaceDocument(metadataItem._self,
-                metadataItem, function(err, itemReplaced) {
-                        if(err) throw "Unable to update metadata, abort";
-                });
-            if(!accept) throw "Unable to update metadata, abort";
-            return;
+        var metadataItem = items[0];
+
+        // update metadata
+        metadataItem.createdItems += 1;
+        metadataItem.createdNames += " " + createdItem.id;
+        var accept = container.replaceDocument(metadataItem._self,
+            metadataItem, function(err, itemReplaced) {
+                    if(err) throw "Unable to update metadata, abort";
+            });
+
+        if(!accept) throw "Unable to update metadata, abort";
+        return;
     }
 }
 ```

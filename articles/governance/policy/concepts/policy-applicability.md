@@ -8,7 +8,7 @@ author: timwarner-msft
 ---
 # What is applicability in Azure Policy?
 
-When a policy definition is assigned to a scope, Azure Policy scans every resource in that scope to determine what should be considered for compliance evaluation. A resource will only be assessed for compliance if it is considered **applicable** to the given policy assignment. 
+When a policy definition is assigned to a scope, Azure Policy determines which resources in that scope should be considered for compliance evaluation. A resource will only be assessed for compliance if it is considered **applicable** to the given policy assignment. 
 
 Applicability is determined by several factors:
 - **Conditions** in the `if` block of the [policy rule](../concepts/definition-structure.md#policy-rule).

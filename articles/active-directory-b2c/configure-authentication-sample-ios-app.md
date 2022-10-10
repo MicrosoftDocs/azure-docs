@@ -148,7 +148,7 @@ Update the following class members:
 
 ## Step 6: Run and test the mobile app
 
-1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-the-simulator-or-on-a-device).
+1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device).
 
 1. Select **Sign In**, and then sign up or sign in with your Azure AD B2C local or social account.
 

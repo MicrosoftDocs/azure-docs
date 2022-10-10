@@ -888,12 +888,16 @@ items:
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-database.md
+      - name: Configure Synapse Link with managed virtual network
+        href: ./synapse-link/connect-synapse-link-sql-database-vnet.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: SQL Server 2022
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-server-2022.md
+      - name: Configure Synapse Link with managed virtual network
+        href: ./synapse-link/connect-synapse-link-sql-server-2022-vnet.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: Dataverse

@@ -17,21 +17,24 @@
         items:
         - name: Azure portal
           href: quickstart-portal.md
-        - name: Azure CLI
+        - name: Command line
           href: get-started.md
-      - name: With a custom container image
+      - name: With an existing container image
         expanded: true
         items:
         - name: Azure portal
           href: get-started-existing-container-image-portal.md
-        - name: Azure CLI
+        - name: Command line
           href: get-started-existing-container-image.md
+      - name: With code on your local machine
+        expanded: true
+        items:
+        - name: Command line
+          href: quickstart-code-to-cloud.md
         - name: Visual Studio
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
-      - name: With code on your local machine
-        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
@@ -78,18 +81,26 @@
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
-    - name: Use managed identities
-      href: managed-identity.md
+    - name: Managed identities
+      items:
+      - name: Use managed identities
+        href: managed-identity.md
+      - name: Azure Container Registry image pull with managed identity
+        href: managed-identity-image-pull.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: Set up HTTPS ingress
+    - name: Set up HTTPS or TCP ingress
       href: ingress.md
     - name: Set up custom domains and certificates
       href: custom-domains-certificates.md
     - name: Connect to a cloud service using Service Connector
-      href: service-connector.md
+      items:
+        - name: .NET app with Blob Storage
+          href: service-connector.md
+        - name: Java Quarkus app with Postgres DB
+          href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Connect multiple apps
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions

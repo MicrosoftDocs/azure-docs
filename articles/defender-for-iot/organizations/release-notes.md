@@ -63,9 +63,77 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>- **Microsoft Sentinel integration**: <br>- [Investigation enhancements with IOT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub) |
+|**OT networks**     |**All supported OT sensor software versions**: <br>- [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal-public-preview)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks-public-preview)<br><br> **All OT sensor software versions 22.x**: [Updates for Azure cloud connection firewall rules](#updates-for-azure-cloud-connection-firewall-rules-public-preview) <br><br>**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>**Microsoft Sentinel integration**: <br>- [Investigation enhancements with IoT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub)|
 
-### Investigation enhancements with IOT device entities in Microsoft Sentinel
+### Security recommendations for OT networks (Public preview)
+
+Defender for IoT now provides security recommendations to help customers manage their OT/IoT network security posture. Defender for IoT recommendations help users form actionable, prioritized mitigation plans that address the unique challenges of OT/IoT networks. Use recommendations for lower your network's risk and attack surface.
+
+You can see the following security recommendations from the Azure portal for detected devices across your networks:
+
+- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure operating mode states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+
+- **Review unauthorized devices**. Devices with this recommendation must be identified and authorized as part of the network baseline. We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.
+
+Access security recommendations from one of the following locations:
+
+- The **Recommendations** page, which displays all current recommendations across all detected OT devices.
+
+- The **Recommendations** tab on a device details page, which displays all current recommendations for the selected device.
+
+From either location, select a recommendation to drill down further and view lists of all detected OT devices that are currently in a *healthy* or *unhealthy* state, according to the selected recommendation. From the **Unhealthy devices** or **Healthy devices** tab, select a device link to jump to the selected device details page. For example:
+
+:::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
+
+For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
+
+### Device vulnerabilities from the Azure portal (Public preview)
+
+Defender for IoT now provides vulnerability data in the Azure portal for detected OT network devices. Vulnerability data is based on the repository of standards based vulnerability data documented at the [US government National Vulnerability Database (NVD)](https://www.nist.gov/programs-projects/national-vulnerability-database-nvd).
+
+Access vulnerability data in the Azure portal from the following locations:
+
+- On a device details page select the **Vulnerabilities** tab to view current vulnerabilities on the selected device. For example, from the **Device inventory** page, select a specific device and then select **Vulnerabilities**.
+
+    For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
+
+- A new **Vulnerabilities** workbook displays vulnerability data across all monitored OT devices. Use the **Vulnerabilities** workbook to view data like CVE by severity or vendor, and full lists of detected vulnerabilities and vulnerable devices and components.
+
+    Select an item in the **Device vulnerabilities**, **Vulnerable devices**, or **Vulnerable components** tables to view related information in the tables on the right.
+
+    For example:
+
+    :::image type="content" source="media/release-notes/vulnerabilities-workbook.png" alt-text="Screenshot of a Vulnerabilities workbook in Defender for IoT.":::
+
+    For more information, see [Use Azure Monitor workbooks in Microsoft Defender for IoT](workbooks.md).
+
+### Updates for Azure cloud connection firewall rules (Public preview)
+
+OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more. Connected Azure services include IoT Hub, Blob Storage, Event Hubs, and the Microsoft Download Center.
+
+For OT sensors with software versions 22.x and higher, Defender for IoT now supports increased security when adding outbound allow rules for connections to Azure. Now you can define your outbound allow rules to connect to Azure without using wildcards.
+
+When defining outbound allow rules to connect to Azure, you'll need to enable HTTPS traffic to each of the required endpoints on port 443. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.
+
+For supported sensor versions, download the full list of required secure endpoints from the following locations in the Azure portal:
+
+- **A successful sensor registration page**: After onboarding a new OT sensor, version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoints you'll need to add as secure outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
+
+    For example:
+
+    :::image type="content" source="media/release-notes/download-endpoints.png" alt-text="Screenshot of a successful OT sensor registration page with the download endpoints link.":::
+
+- **The Sites and sensors page**: Select an OT sensor with software versions 22.x or higher, or a site with one or more supported sensor versions. Then, select **More actions** > **Download endpoint details** to download the JSON file. For example:
+
+    :::image type="content" source="media/release-notes/download-endpoints-sites-sensors.png" alt-text="Screenshot of the Sites and sensors page with the download endpoint details link.":::
+
+For more information, see:
+
+- [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Networking requirements](how-to-set-up-your-network.md#sensor-access-to-azure-portal)
+
+### Investigation enhancements with IoT device entities in Microsoft Sentinel
 
 Defender for IoT's integration with Microsoft Sentinel now supports an IoT device entity page. When investigating incidents and monitoring IoT security in Microsoft Sentinel, you can now identify your most sensitive devices and jump directly to more details on each device entity page.
 

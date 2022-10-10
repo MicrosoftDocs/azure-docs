@@ -12,9 +12,11 @@ ms.date: 12/17/2021
 
 # Guidance for running self-hosted gateway on Kubernetes in production
 
-In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly-available manner, use configuration backups to handle temporary disconnects and many more.
+In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly available manner, use configuration backups to handle temporary disconnects and many more.
 
 This article provides guidance on how to run [self-hosted gateway](./self-hosted-gateway-overview.md) on Kubernetes for production workloads to ensure that it will run smoothly and reliably.
+
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
 
 ## Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
@@ -57,11 +59,11 @@ An alternative is to use Kubernetes Event-driven Autoscaling (KEDA) allowing you
 
 ### Traffic-based autoscaling
 
-Kubernetes does not provide an out-of-the-box mechanism for traffic-based autoscaling.
+Kubernetes doesn't provide an out-of-the-box mechanism for traffic-based autoscaling.
 
 Kubernetes Event-driven Autoscaling (KEDA) provides a few ways that can help with traffic-based autoscaling:
 
-- You can scale based on metrics from a Kubernetes ingress if they are available in [Prometheus](https://keda.sh/docs/latest/scalers/prometheus/) or [Azure Monitor](https://keda.sh/docs/latest/scalers/azure-monitor/) by using an out-of-the-box scaler
+- You can scale based on metrics from a Kubernetes ingress if they're available in [Prometheus](https://keda.sh/docs/latest/scalers/prometheus/) or [Azure Monitor](https://keda.sh/docs/latest/scalers/azure-monitor/) by using an out-of-the-box scaler
 - You can install [HTTP add-on](https://github.com/kedacore/http-add-on), which is available in beta, and scales based on the number of requests per second.
 
 ## Container resources
@@ -153,7 +155,7 @@ Consider using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/work
 ## Security
 The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
 
-Here is an example of the security context for the self-hosted gateway:
+Here's an example of the security context for the self-hosted gateway:
 ```yml
 securityContext:
   allowPrivilegeEscalation: false

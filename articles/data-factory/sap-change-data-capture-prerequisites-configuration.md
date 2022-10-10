@@ -70,7 +70,7 @@ ODP offers various data extraction contexts or *source object types*. Although m
 
   - [2232584 - To release SAP extractors for ODP API](https://launchpad.support.sap.com/#/notes/2232584) for a list of all SAP-delivered DataSources (more than 7,400) that have been released
 
-### Set up the SAP replication server
+### Set up the SAP Landscape Transformation Replication Server
 
 SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ). You can use SLT as a proxy in data extraction ODP. You can install SLT on an SAP source system as an SAP Data Migration Server (DMIS) add-on or use it on a standalone replication server. To use SLT as a proxy, complete the following steps:
 
