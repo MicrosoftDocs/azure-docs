@@ -64,7 +64,7 @@ Azure Cache for Redis supports zone redundant configurations in the Premium and 
 
 The following diagram illustrates the zone redundant configuration for the Premium tier:
 
-:::image type="content"  alt-text="Diagram showing standard replication for high availability in Azure Cache"  source="../azure-cache-for-redis/media/cache-high-availability/zone-redundancy.png":::
+:::image type="content"  alt-text="Diagram showing standard replication for Premium support zone-redundant configuration in Azure Cache"  source="../azure-cache-for-redis/media/cache-high-availability/zone-redundancy.png":::
 
 Azure Cache for Redis distributes nodes in a zone redundant cache in a round-robin manner over the selected Availability Zones. It also determines which node will serve as the primary initially.
 
@@ -132,7 +132,7 @@ When entire Azure regions or datacenters experience downtime, your mission-criti
 
 ### Geo-replication 
 
-Geo-replication is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is primarily designed for disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache. For more information on how to set it up, see [Configure geo-replication for Premium Azure Cache for Redis instances](./cache-how-to-geo-replication.md).
+Geo-replication is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is primarily designed for disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache. For more information on how to set it up, see [Configure geo-replication for Premium Azure Cache for Redis instances](../azure-cache-for-redis/cache-how-to-geo-replication.md).
 
 If the region hosting the primary cache goes down, you’ll need to start the failover by: first, unlinking the secondary cache, and then, updating your application to point to the secondary cache for reads and writes.
 
@@ -140,15 +140,15 @@ If the region hosting the primary cache goes down, you’ll need to start the fa
 
 Applicable tiers: **Enterprise**, **Enterprise Flash**
 
-The Enterprise tiers support a more advanced form of geo-replication called [active geo-replication](cache-how-to-active-geo-replication.md). The Azure Cache for Redis Enterprise software uses conflict-free replicated data types to support writes to multiple cache instances, merges changes, and resolves conflicts. You can join up to five Enterprise tier cache instances in different Azure regions to form a geo-replication group.
+The Enterprise tiers support a more advanced form of geo-replication called [active geo-replication](../azure-cache-for-redis/cache-how-to-active-geo-replication.md). The Azure Cache for Redis Enterprise software uses conflict-free replicated data types to support writes to multiple cache instances, merges changes, and resolves conflicts. You can join up to five Enterprise tier cache instances in different Azure regions to form a geo-replication group.
 
-An application using such a cache can read and write to any of the geo-distributed cache instances through their corresponding endpoints. The application should use what is the closest to each application instance, giving you the lowest latency. For more information, see [Configure active geo-replication for Enterprise Azure Cache for Redis instances](cache-how-to-active-geo-replication.md).
+An application using such a cache can read and write to any of the geo-distributed cache instances through their corresponding endpoints. The application should use what is the closest to each application instance, giving you the lowest latency. For more information, see [Configure active geo-replication for Enterprise Azure Cache for Redis instances](../azure-cache-for-redis/cache-how-to-active-geo-replication.md).
 
 If a region of one of the caches in your replication group goes down, your application needs to switch to another region that is available.
 
 When a cache in your replication group is unavailable, we recommend monitoring memory usage for other caches in the same replication group. While one of the caches is down, all other caches in the replication group start saving metadata that they couldn't share with the cache that is down. If the memory usage for the available caches starts growing at a high rate after one of the caches goes down, consider unlinking the cache that is unavailable from the replication group.
 
-For more information on force-unlinking, see [Force-Unlink if there's region outage](cache-how-to-active-geo-replication.md#force-unlink-if-theres-a-region-outage).
+For more information on force-unlinking, see [Force-Unlink if there's region outage](../azure-cache-for-redis/cache-how-to-active-geo-replication.md#force-unlink-if-theres-a-region-outage).
 
 ### Delete and recreate cache
 
@@ -156,7 +156,7 @@ Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash*
 
 If you experience a regional outage, consider recreating your cache in a different region, and updating your application to connect to the new cache instead. It's important to understand that data will be lost during a regional outage. Your application code should be resilient to data loss.
 
-Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored, and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](./cache-moving-resources.md).
+Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored, and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](../azure-cache-for-redis/cache-moving-resources.md).
 
 ### Cross-region disaster recovery in multi-region geography
 <!-- Placeholder for more information -->
