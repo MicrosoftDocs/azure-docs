@@ -32,13 +32,6 @@ In this tutorial, you accomplish the following tasks:
 > [!TIP]
 > If you're looking for a template (Microsoft Bicep or Hashicorp Terraform) that demonstrates how to create a secure workspace, see [Tutorial - Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
-After completing this tutorial, you will have the following architecture:
-
-* An Azure Virtual Network, which contains three subnets:
-    * __Training__: Contains the Azure Machine Learning workspace, dependency services, and resources used for training models.
-    * __Scoring__: Contains resources used to deploy models as endpoints.
-    * __AzureBastionSubnet__: Used by the Azure Bastion service to securely connect clients to Azure Virtual Machines.
-
 ## Prerequisites
 
 * Familiarity with Azure Virtual Networks and IP networking. If you are not familiar, try the [Fundamentals of computer networking](/training/modules/network-fundamentals/) module.
