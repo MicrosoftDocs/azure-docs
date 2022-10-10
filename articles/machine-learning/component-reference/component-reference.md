@@ -16,7 +16,7 @@ ms.date: 11/09/2020
 >[!Note]
 > Designer support two type of components, classic prebuilt components and custom components. This two types of components  are not compatible. 
 >
->Classic prebuilt components provides prebuilt component majorly for data processing and tradition machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>Classic prebuilt components provides a prebuilt component majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >
 >
 >Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
