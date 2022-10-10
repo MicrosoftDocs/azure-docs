@@ -41,7 +41,7 @@ The following diagram shows routing traffic from on-premises to an ANF volume in
 
 To learn how to install an Azure Firewall in a Virtual WAN hub, see [Configure Azure Firewall in a Virtual WAN hub](howto-firewall.md). To force different traffic flows via the Azure Firewall installed in the hub, see [How to configure Virtual WAN Hub routing intent and routing policies](how-to-routing-policies.md).
 
-To force the ANF bound traffic through Azure Firewall in the Virtual WAN hub, the effective routes of the virtual hub should have the specific IP address of the ANF volume pointing to the Azure Firewall. The following Azure portal clip shows an example virtual hub effective routes. Note the listing of 10.2.0.5/32. 
+To force the ANF bound traffic through Azure Firewall in the Virtual WAN hub, the effective routes of the virtual hub should have the specific IP address of the ANF volume pointing to the Azure Firewall. The following Azure portal clip shows an example virtual hub effective routes. Note the listing of 10.2.0.5/32. The static routing entry's destination prefix is [IP-ANF-Volume]/32 and the next hop is [Azure-firewall-in-hub].
 
 :::image type="content" source="./media/configure-anf-on-vwan/effectiveroutes.png" alt-text="inclusion of specific routes in virtual hub effective routes":::
 
