@@ -1,12 +1,12 @@
 ---
 title: Manual deployment and post-deployment of the MedTech service using the Azure portal - Azure Health Data Services
 description: In this article, you'll learn how to manually create a deployment and post-deployment of the MedTech service in the Azure portal.
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 08/30/2022
-ms.author: v-smcevoy
+ms.author: jasteppe
 ---
 
 # Part 3: Manual Deployment and Post-deployment of MedTech service
@@ -32,7 +32,7 @@ Your screen should look something like this:
 
 ## Manual Post-deployment requirements
 
-There are two post-deployment steps you must perform or the MedTech service can't read device data from the device message event hub, and it also can't read or write to the FHIR service. These steps are:
+There are two post-deployment steps you must perform or the MedTech service can't read device data from the device message event hub, and it also can't read or write to the Fast Healthcare Interoperability Resources (FHIR&#174;) service. These steps are:
 
 1. Grant access to the device message event hub.
 2. Grant access to the FHIR service.
