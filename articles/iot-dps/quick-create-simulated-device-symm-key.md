@@ -390,13 +390,13 @@ To update and run the provisioning sample with your device information:
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```cmd
-    dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
+    dotnet run --i <id-scope> --r <registration-id> --p <primarykey>
     ```
 
 7. You should now see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
 
      ```output
-    D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+    D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --i 0ne00000A0A --r symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
 
     Initializing the device provisioning client...
     Initialized for registration Id symm-key-csharp-device-01.
