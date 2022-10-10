@@ -59,7 +59,7 @@ az ad sp create-for-rbac `
 
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
-The return value from this command  includes the service principal's `appId`, `password` and `tenant`.  You need to pass these values to the `az containerapp github-action add` command.
+The return values from this command  includes the service principal's `appId`, `password` and `tenant`.  You need to pass these values to the `az containerapp github-action add` command.
 
 The following example shows you how to add an integration while using a personal access token.
 
