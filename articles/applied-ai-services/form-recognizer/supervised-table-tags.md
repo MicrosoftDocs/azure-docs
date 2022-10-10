@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/11/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
 monikerRange: 'form-recog-2.1.0'

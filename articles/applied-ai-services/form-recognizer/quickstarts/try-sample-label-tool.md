@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
 monikerRange: 'form-recog-2.1.0'

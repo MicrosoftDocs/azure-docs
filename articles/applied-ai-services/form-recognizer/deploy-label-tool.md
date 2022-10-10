@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-2.1.0'
 recommendations: false

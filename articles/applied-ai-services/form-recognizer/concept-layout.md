@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -104,11 +104,11 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ```json
 "paragraphs": [
-	{
-	    "spans": [],
-	    "boundingRegions": [],
-	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
-	}
+    {
+        "spans": [],
+        "boundingRegions": [],
+        "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+    }
 ]
 ```
 ### Paragraph roles<sup> 🆕</sup>
@@ -149,17 +149,17 @@ The pages collection is the very first object you see in the service response.
 
 ```json
 "pages": [
-	{
-	    "pageNumber": 1,
-	    "angle": 0,
-	    "width": 915,
-	    "height": 1190,
-	    "unit": "pixel",
-	    "words": [],
-	    "lines": [],
-	    "spans": [],
-	    "kind": "document"
-	}
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": [],
+        "kind": "document"
+    }
 ]
 ```
 ### Text lines and words
