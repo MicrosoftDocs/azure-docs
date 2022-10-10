@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 > [!IMPORTANT]
 > Azure Virtual Desktop for Azure Stack HCI is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta.
 
 Azure Virtual Desktop for Azure Stack HCI (preview) lets you deploy Azure Virtual Desktop session hosts to your on-premises Azure Stack HCI infrastructure. You can also use Azure Virtual Desktop for Azure Stack HCI to manage your session hosts from the Azure portal. If you already have an existing on-premises Virtual Desktop Infrastructure (VDI) deployment, Azure Virtual Desktop for Azure Stack HCI can improve your administrator and end-user experience. If you're already using Azure Virtual Desktop in the cloud, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
 
