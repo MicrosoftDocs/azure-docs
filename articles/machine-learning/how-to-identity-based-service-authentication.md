@@ -149,7 +149,7 @@ There are two scenarios in which you can apply identity-based data access in Azu
 - Accessing storage services
 - Training machine learning models
 
-The identity-based access allows you to use [role-based access controls (RBAC)](https://learn.microsoft.com/azure/storage/blobs/assign-azure-role-data-access) to restrict which identities, such as users or compute resources, have access to the data. 
+The identity-based access allows you to use [role-based access controls (RBAC)](/azure/storage/blobs/assign-azure-role-data-access) to restrict which identities, such as users or compute resources, have access to the data. 
 
 ### Accessing storage services
 
@@ -183,13 +183,13 @@ If you're training a model on a remote compute target and want to access the dat
 
 Certain machine learning scenarios involve working with private data. In such cases, data scientists may not have direct access to data as Azure AD users. In this scenario, the managed identity of a compute can be used for data access authentication. In this scenario, the data can only be accessed from a compute instance or a machine learning compute cluster executing a training job.
 
-With this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information on configuring the managed identity for the compute cluster, see the [compute cluster](#compute-cluster) section. For information on using configuring Azure RBAC for the storage, see [role-based access controls]https://learn.microsoft.com/azure/storage/blobs/assign-azure-role-data-access].
+With this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information on configuring the managed identity for the compute cluster, see the [compute cluster](#compute-cluster) section. For information on using configuring Azure RBAC for the storage, see [role-based access controls](/storage/blobs/assign-azure-role-data-access).
 
 ### Work with virtual networks
 
 By default, Azure Machine Learning can't communicate with a storage account that's behind a firewall or in a virtual network.
 
-You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires extra steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [How to configure virtual network scenarios](.v1/how-to-access-data.md#virtual-network). 
+You can configure storage accounts to allow access only from within specific virtual networks. This configuration requires extra steps to ensure data isn't leaked outside of the network. This behavior is the same for credential-based data access. For more information, see [How to configure virtual network scenarios](v1/how-to-access-data.md#virtual-network). 
 
 If your storage account has virtual network settings, that dictates what identity type and permissions access is needed. For example for data preview and data profile, the virtual network settings determine what type of identity is used to authenticate data access. 
  
