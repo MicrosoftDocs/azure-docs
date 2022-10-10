@@ -52,6 +52,8 @@ A verification of identity or tool used in an access control system. Credentials
 A searchable inventory of assets and their associated metadata that allows users to find and curate data across a data estate. The Data Catalog also includes a business glossary where subject matter experts can provide terms and definitions to add a business context to an asset.
 ## Data curator
 A role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
+## Data Estate Insights
+An area of the Microsoft Purview governance portal that provides up-to-date reports and actionable insights about the data estate.
 ## Data map
 A metadata repository that is the foundation of the Microsoft Purview governance portal. The data map is a graph that describes assets across a data estate and is populated through scans and other data ingestion processes. This graph helps organizations understand and govern their data by providing rich descriptions of assets, representing data lineage, classifying assets, storing relationships between assets, and housing information at both the technical and semantic layers. The data map is an open platform that can be interacted with and accessed through Apache Atlas APIs or the Microsoft Purview governance portal.
 ## Data map operation
@@ -91,9 +93,7 @@ A scan that detects and processes assets that have been created, modified, or de
 ## Ingested asset
 An asset that has been scanned, classified (when applicable), and added to the Microsoft Purview Data Map. Ingested assets are discoverable and consumable within the data catalog through automated scanning or external connections, such as Azure Data Factory and Azure Synapse.
 ## Insight reader
-A role that provides read-only access to insights reports for collections where the insights reader also has the **Data reader** role.
-## Data Estate Insights
-An area of the Microsoft Purview governance portal that provides up-to-date reports and actionable insights about the data estate.
+A role that provides read-only access to Data Estate Insights reports. Insight readers must have at least data reader role access to a collection to view reports about that specific collection.
 ## Integration runtime
 The compute infrastructure used to scan in a data source.
 ## Lineage
@@ -104,6 +104,8 @@ An area within the Microsoft Purview Governance Portal where you can manage conn
 The minimum percentage of matches among the distinct data values in a column that must be found by the scanner for a classification to be applied.
 
 For example, a minimum match threshold of 60% for employee ID requires that 60% of all distinct values among the sampled data in a column match the data pattern set for employee ID. If the scanner samples 128 values in a column and finds 60 distinct values in that column, then at least 36 of the distinct values (60%) must match the employee ID data pattern for the classification to be applied.
+## Physical asset
+An asset that represents a physical data object. Physical assets are different from business assets because they represent real data. For example, a database is a physical asset.
 ## Policy
 A statement or collection of statements that controls how access to data and data sources should be authorized. 
 ## Object type

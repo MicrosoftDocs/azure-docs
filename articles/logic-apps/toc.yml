@@ -439,8 +439,10 @@
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     - name: Enterprise integration with queues and events
       href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
-  - name: Connectors - Full details
-    href: /connectors/
+  - name: Managed connector reference
+    href: /connectors/connector-reference/connector-reference-logicapps-connectors
+  - name: Built-in service provider connector reference - Standard
+    href: /azure/logic-apps/connectors/built-in/reference
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
   - name: Azure CLI - Consumption
