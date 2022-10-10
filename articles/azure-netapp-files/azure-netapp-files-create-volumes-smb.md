@@ -26,7 +26,7 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 * The [SMB Continuous Availability](#continuous-availability) feature is currently in preview. You must submit a waitlist request before you can use this feature.
-* The [non-browsable shares](#non-browsable-shares) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
+* The [non-browsable shares](#non-browseable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
 
 1. Register the feature: 
 
