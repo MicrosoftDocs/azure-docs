@@ -358,6 +358,7 @@ Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-libr
 
 Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve a model ID as follows:
 
+<!-- Applies to FOTT but labeled studio to eliminate tab grouping warning -->
 ### [**Form Recognizer Sample Labeling tool**](#tab/studio)
 
 When you train models using the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
