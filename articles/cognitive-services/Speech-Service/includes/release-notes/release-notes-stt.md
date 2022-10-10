@@ -5,6 +5,17 @@ ms.topic: include
 ms.date: 01/08/2022
 ms.author: eur
 ---
+### 2022-Oct release
+
+#### New Speech-to-text-locales:
+
+Added 1 new locale as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `ml-IN`         | Malayalam (India) |
+
+
 ### 2022-July release
 
 #### New Speech-to-text-locales:
