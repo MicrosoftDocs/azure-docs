@@ -136,6 +136,7 @@ A few examples on how combining multiple Premium SSD v2 disk with a stripe set c
 | M416ms_v2 | 11,400 GiB | 4 | 13,680 | 25,000 | 12,000 | 13,000 | 1,200 MBps | 500 MBps | 700 MBps |
 
 For **/hana/log**, a similar approach could look like:
+
 | VM SKU | RAM | number of <br />disks | individual disk<br /> size | Proposed IOPS | Default IOPS provisioned | Additional IOPS <br />provisioned | Proposed throughput<br /> for volume | Default throughput provisioned | Additional throughput <br />provisioned |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | E32(d)s_v5 | 256 GiB | 1 | 128 GB | 3,000 | 3,000 | 0 | 275 MBps | 125 MBps | 150 MBps |
