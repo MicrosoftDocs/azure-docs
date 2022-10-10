@@ -125,7 +125,7 @@ To configure single sign-on on **Kronos Workforce Dimensions** side, you need to
 
 In this section, you create a user called Britta Simon in Kronos Workforce Dimensions. Work with [Kronos Workforce Dimensions support team](mailto:support@kronos.com) to add the users in the Kronos Workforce Dimensions platform. Users must be created and activated before you use single sign-on.
 
-> ![NOTE]
+> [!NOTE]
 > Original Microsoft documentation advises to contact UKG Support via email to create your AAD Users. While this option is available please consider the following self-service options. 
 
 ### Manual Process 
