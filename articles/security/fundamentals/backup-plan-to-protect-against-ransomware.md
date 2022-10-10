@@ -162,7 +162,7 @@ In this article, you learned how to improve your backup and restore plan to prot
 
 Key industry information:
 
-- [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report?rtc=1) (see pages 22-24)
+- [2021 Microsoft Digital Defense Report](https://www.microsoft.com/security/business/microsoft-digital-defense-report) (see pages 10-19)
 
 Microsoft Azure:
 
