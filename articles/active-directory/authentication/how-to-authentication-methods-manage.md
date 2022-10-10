@@ -52,9 +52,9 @@ A user who is enabled for an authentication method in _any_ policy can register 
 
 The registration process first checks Authentication methods policy. If the user belongs to a group that is enabled Microsoft Authenticator, the user can register it. 
 
-If not, the registration process checks **Multifactor Authentication**. If **Notification through mobile app** or **Verification code from mobile app or hardware token** are enabled, any user can register Microsoft Authenticator. 
+If not, the registration process checks **Multifactor Authentication**. If **Notification through mobile app** or **Verification code from mobile app or hardware token** are enabled, any user in the tenant can register Microsoft Authenticator. 
 
-If Microsoft Authenticator isn't enabled in either policy, the registration process checks authentication methods enabled for **Password reset**. Any user can register Microsoft Authenticator if any of these settings are enabled:
+If Microsoft Authenticator isn't enabled in either policy, the registration process checks which authentication methods are enabled for **Password reset**. Any user in the tenant can register Microsoft Authenticator if any of these settings are enabled:
 
 - Mobile app notification
 - Mobile app code
