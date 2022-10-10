@@ -150,11 +150,11 @@ The following PowerShell cmdlets are available to *proof up* or request MFA regi
 
 ### Authentication strength policies for external users
 
-[Authentication strength](../authentication/concept-authentication-strengths.md) is a Conditional Access control that lets you define a specific combination of multifactor authentication (MFA) methods that an external user must complete to access your resources. This control is especially useful for restricting external access to sensitive apps in your organization because you can enforce specific authentication methods, such as a phishing-resistant method, for external users.
+[Authentication strength](https://aka.ms/b2b-auth-strengths) is a Conditional Access control that lets you define a specific combination of multifactor authentication (MFA) methods that an external user must complete to access your resources. This control is especially useful for restricting external access to sensitive apps in your organization because you can enforce specific authentication methods, such as a phishing-resistant method, for external users.
 
 You also have the ability to apply authentication strength to the different types of [guest or external users](#assigning-conditional-access-policies-to-external-user-types-preview) that you collaborate or connect with. This means you can enforce authentication strength requirements that are unique to your B2B collaboration, B2B direct connect, and other external access scenarios.
 
-Azure AD provides three [built-in authentication strengths](../authentication/concept-authentication-strengths.md#built-in-authentication-strengths):
+Azure AD provides three [built-in authentication strengths](https://aka.ms/b2b-auth-strengths):
 
 - Multifactor authentication strength
 - Passwordless MFA strength

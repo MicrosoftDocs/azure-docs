@@ -18,15 +18,15 @@ ms.collection: M365-identity-device-management
 
 Authentication strength is a Conditional Access control that lets you define a specific combination of multifactor authentication (MFA) methods that an external user must complete to access your resources. This control is especially useful for restricting external access to sensitive apps in your organization. For example, you can create a Conditional Access policy, require a phishing-resistant authentication strength in the policy, and assign it to guests and external users.
 
-Azure AD provides three [built-in authentication strengths](../authentication/concept-authentication-strengths.md#built-in-authentication-strengths):
+Azure AD provides three [built-in authentication strengths](https://aka.ms/b2b-auth-strengths):
 
 - Multifactor authentication strength
 - Passwordless MFA strength
 - Phishing-resistant MFA strength
 
-You can use one of the built-in strengths or create a [custom authentication strength](../authentication/concept-authentication-strengths.md#custom-authentication-strengths) based on the authentication methods you want to require.
+You can use one of the built-in strengths or create a [custom authentication strength](https://aka.ms/b2b-auth-strengths) based on the authentication methods you want to require.
 
-In external user scenarios, the MFA authentication methods that a resource tenant can accept vary depending on whether the user is completing MFA in their home tenant or in the resource tenant. For details, see [Conditional Access authentication strength](../authentication/concept-authentication-strengths.md#custom-authentication-strengths).
+In external user scenarios, the MFA authentication methods that a resource tenant can accept vary depending on whether the user is completing MFA in their home tenant or in the resource tenant. For details, see [Conditional Access authentication strength](https://aka.ms/b2b-auth-strengths).
 
 > [!NOTE]
 > Currently, you can only apply authentication strength policies to external users who authenticate with Azure AD. For email one-time passcode, SAML/WS-Fed, and Google federation users, use the [MFA grant control](concept-conditional-access-grant.md#require-multi-factor-authentication) to require MFA.
@@ -46,10 +46,11 @@ Determine if one of the built-in authentication strengths will work for your sce
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**.
 1. Review the built-in authentication strengths to see if one of them meets your requirements.
-1. If you want to enforce a different set of authentication methods, [create a custom authentication strength](../authentication/concept-authentication-strengths.md#custom-authentication-strengths).
+1. If you want to enforce a different set of authentication methods, [create a custom authentication strength](https://aka.ms/b2b-auth-strengths).
 
 > [!NOTE]
-The authentication methods that external users can use to satisfy MFA requirements are different depending on whether the user is completing MFA in their home tenant or the resource tenant. See the table in [Conditional Access authentication strength](../authentication/concept-authentication-strengths.md#custom-authentication-strengths).
+The authentication methods that external users can use to satisfy MFA requirements are different depending on whether the user is completing MFA in their home tenant or the resource tenant. See the table in [Conditional Access authentication strength](https://aka.ms/b2b-auth-strengths).
+
 ## Create a Conditional Access policy
 
 Use the following steps to create a Conditional Access policy that applies an authentication strength to external users.
