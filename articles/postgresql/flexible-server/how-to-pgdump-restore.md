@@ -64,7 +64,7 @@ Use the following syntax to perform a pg_dump:
 
 ## Best practices for pg_restore
 
-Few of the options that can be used to reduce the overall restore time using pg_restore are listed below.
+Here are a few of the options that can be used to reduce the overall restore time using pg_restore are listed below.
 
 #### Parallel restore
 
