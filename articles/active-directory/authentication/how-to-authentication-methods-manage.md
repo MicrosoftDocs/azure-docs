@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 10/10/2022
 
 ms.author: justinha
 author: justinha
@@ -35,17 +35,32 @@ To manage the Authentication methods policy, click **Security** > **Authenticati
 
 Two other policies, located in **Multifactor authentication** settings and **Password reset** settings, provide a legacy way to manage some authentication methods for all users in the tenant. You can't control who uses an enabled authentication method, or how the method can be used. A [Global Administrator](../roles/permissions-reference.md#global-administrator) is needed to manage these policies. 
 
-To manage **Multifactor authentication** methods across the tenant, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
+To manage these MFA methods across the tenant, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
-To manage **Password reset** authentication methods across the tenant, click **Password reset** > **Authentication methods**.
+To manage these password reset authentication methods across the tenant, click **Password reset** > **Authentication methods**.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
 
-## How policies interact
+>[!NOTE]
+>OATH tokens and security questions can be enabled only for all users in the tenant by using these policies. 
 
-A user who is enabled for an authentication method in _any_ policy can register for that method and use it to sign in. 
+## Policy checks during registration
+
+A user who is enabled for an authentication method in _any_ policy can register that method. Let's walk through an example where a user wants to register Microsoft Authenticator. 
+
+The registration process first checks Authentication methods policy. If the user belongs to a group that is enabled Microsoft Authenticator, the user can register it. 
+
+If not, the registration process checks **Multifactor Authentication**. If **Notification through mobile app** or **Verification code from mobile app or hardware token** are enabled, any user can register Microsoft Authenticator. 
+
+If Microsoft Authenticator isn't enabled in either policy, the registration process checks authentication methods enabled for **Password reset**. Any user can register Microsoft Authenticator if any of these settings are enabled:
+
+- Mobile app notification
+- Mobile app code
+- Mobile phone
+
+Whether they can use that method to sign-in depends on other factors in the policy. For example, 
 
 ## Transition between policies
 
