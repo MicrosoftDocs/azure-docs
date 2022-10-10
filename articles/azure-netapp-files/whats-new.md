@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 09/09/2022
+ms.date: 10/10/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -20,8 +20,8 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 * [Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (Preview)
+    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files large volumes break this barrier by enabling volumes of 100 TiB to 500TiB in size. Large volumes enable a variety of use cases and workloads that require large volumes with a single directory namespace.   
     
-
 ## August 2022
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
