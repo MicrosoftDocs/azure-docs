@@ -78,7 +78,7 @@ In this quickstart, you used a form Form Recognizer model to analyze various for
 > [**Try the Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [**Explore our how-to documentation and take a deeper dive into Form Recognizer models**](../use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> [**Explore our how-to documentation and take a deeper dive into Form Recognizer models**](../how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"

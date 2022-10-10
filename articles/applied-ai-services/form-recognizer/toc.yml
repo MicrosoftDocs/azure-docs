@@ -52,7 +52,7 @@ items:
     href: how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true
   - name: Use SDKs or REST API | v2.1
     displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize, v2.1
-    href: use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true
+    href: how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true
   - name: Check my usage and estimate the cost
     displayName: price, metrics, dashboard, check, estimate
     href: how-to-guides/estimate-cost.md
@@ -79,13 +79,8 @@ items:
         displayName: FOTT, migration, dynamic
         href: supervised-table-tags.md
     - name: Compose custom models
-      items:
-        - name: Compose models v3.0
-          displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
-          href: compose-custom-models-v3.md
-        - name: Compose models v2.1
-          displayName: FOTT, label, ocr, confidence, bounding box
-          href: compose-custom-models-v2-1.md
+      displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
+      href: compose-custom-models.md
   - name: Back up and recover models
     displayName: disaster, recovery, region, copy, modelId, model ID
     href: disaster-recovery.md
