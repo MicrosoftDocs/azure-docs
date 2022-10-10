@@ -23,15 +23,15 @@ ms.reviewer: cynthn
 Azure allows you to have the flexibility of running a mix of uninterruptible regular VMs and interruptible Spot VMs for virtual machine scale set deployments. You are able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following:
 
 - Reduce compute infrastructure costs by leveraging the deep discounts of Spot VMs
-- Maintain capacity availability through On-Demand VMs in the scale set deployment
+- Maintain capacity availability through uninterruptible regular VMs in the scale set deployment
 - Provide reassurance that all your VMs will not be taken away simultaneously due to evictions before the infrastructure has time to react and recover the evicted capacity
-- Simplify the scale-out and scale-in of compute workloads that require both Spot and On-Demand VMs by letting Azure orchestrate the creation and deletion of VMs
+- Simplify the scale-out and scale-in of compute workloads that require both Spot and regular VMs by letting Azure orchestrate the creation and deletion of VMs
 
 You can configure a custom percentage distribution across Spot and regular VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base regular uninterruptible VMs you would like to maintain in the virtual machine scale set during any scale operation.
 
 ## Template
 
-The Spot Priority Mix feature is currently supported by ARM REST API or template deployments. To create a virtual machine scale set with a mix of priorities, add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:
+You can set your Spot Priority Mix by using a template to add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:
 
 ```json
 "priorityMixPolicy": {
@@ -50,7 +50,7 @@ You can refer to this [ARM template example](https://paste.microsoft.com/f84d2f8
 
 You can set your Spot Priority Mix in the Scaling tab of the virtual machine scale sets creation process in the Azure portal. The following steps will instruct you on how to access this feature during that process. 
 
-1. Log in to the [Azure portal](https://portal.azure.com) through our [public preview access link](https://aka.ms/SpotMix).
+1. Log in to the [Azure portal](https://portal.azure.com) through the [public preview access link](https://aka.ms/SpotMix).
 1. In the search bar, search for and select **Virtual machine scale sets**.
 1. Select **Create** on the **Virtual machine scale sets** page.
 1. In the **Basics** tab, fill out the required fields and select **Flexible** as the **Orchestration** mode.
