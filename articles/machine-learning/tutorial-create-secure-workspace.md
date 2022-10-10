@@ -334,14 +334,10 @@ There are several ways that you can connect to the secured workspace. The steps 
 
 ### Create a jump box (VM)
 
-1. In the [Azure portal](https://portal.azure.com), 
-
-### Create a jump box (VM)
-
 Use the following steps to create an Azure Virtual Machine to use as a jump box. Azure Bastion enables you to connect to the VM desktop through your browser. From the VM desktop, you can then use the browser on the VM to connect to resources inside the VNet, such as Azure Machine Learning studio. Or you can install development tools on the VM. 
 
     > [!TIP]
-    > The steps below create a Windows-based Data Science Virtual Machine. If your Azure subscription has specific policy requirements, you can use another virtual machine. For example, if you have a policy that requires you to authenticate to Azure Active Directory when connecting to a service, use a Windows 10 or 11 enterprise image instead.
+    > The steps below create a Windows-based Data Science Virtual Machine. If your Azure subscription has specific policy requirements, you can use another virtual machine. For example, if you have a policy that requires you to authenticate to Azure Active Directory when connecting to a service, or that the VM must be domain joined, you might use a Windows 10 or 11 enterprise image instead.
 
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select the __Data science virtual machine - Windows__ entry, and then select __Create__.
 
