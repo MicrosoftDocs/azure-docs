@@ -162,7 +162,7 @@ Certificate contacts contain contact information to send notifications triggered
 TLS certificates can help encrypt communications over the internet and establish the identity of websites, making the entry point and mode of communication secure.  Additionally, a chained certificate signed by a public CA can help verify that the entities holding the certificates are whom they claim to be. As an example, the following are some excellent use cases of using certificates to secure communication and enable authentication:
 * Intranet/Internet websites: protect access to your intranet site and ensure encrypted data transfer over the internet using TLS certificates.
 * IoT and Networking devices: protect and secure your devices by using certificates for authentication and communication.
-* Cloud/Multi-Cloud: secure cloud-based applications on-prem, cross-cloud, or in your cloud provider's tenant.
+* Cloud/Multi-Cloud: secure cloud-based applications on-premises, cross-cloud, or in your cloud provider's tenant.
 
 ### Code signing
 
