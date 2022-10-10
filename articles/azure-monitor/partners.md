@@ -213,7 +213,7 @@ For more information, see the [Moogsoft documentation](https://www.moogsoft.com/
 
 ## New Relic
 
-![New Relic logo.](./media/partners/newrelic_logo.png)
+![New Relic logo.](./media/partners/newrelic-logo.png)
 
 Microsoft Azure integration monitoring from New Relic gives you an overview of your ecosystem – cloud migrations, digital transformations and cloud native applications using New Relic Observability Platform.
  
