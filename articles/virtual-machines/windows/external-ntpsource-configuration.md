@@ -1,6 +1,6 @@
 ---
-title: Tyme Mechanism for Active Directory Windows Virtual Machines in Azure
-description: Tyme Mechanism for Active Directory Windows Virtual Machines in Azure
+title: Time Mechanism for Active Directory Windows Virtual Machines in Azure
+description: Time Mechanism for Active Directory Windows Virtual Machines in Azure
 author: NDVALPHA
 ms.service: virtual-machines
 ms.collection: windows
@@ -10,7 +10,7 @@ ms.date: 08/05/2022
 ms.author: ndelvillar
 ---
 
-# Configure Tyme Mechanism for Active Directory Windows Virtual Machines in Azure
+# Configure Time Mechanism for Active Directory Windows Virtual Machines in Azure
 
 **Applies to:** :heavy_check_mark: Windows Virtual Machines
 
@@ -22,7 +22,7 @@ Time synchronization in Active Directory should be managed by only allowing the 
 
 All other Domain Controllers would then sync time against the PDC, and all other members will get their time from the Domain Controller that satisfied that member's authentication request.
 
-If you have an Active Directory domain running on virtual machines hosted in Azure, follow these steps to properly setup Time Sync.
+If you have an Active Directory domain running on virtual machines hosted in Azure, follow these steps to properly set up Time Sync.
 
 >[!NOTE]
 >This guide focuses on usign the **Group Policy Management** console to perform the configuration. You can achieve the same results by using the Command Prompt, PowerShell, or by manually modifying the Registry; however those methods are not in scope in this article. 
@@ -68,16 +68,16 @@ For all other domain members that are not Domain Controllers, you will need to m
 
 ## Back up the Registry
 
-- From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-- In the *Registry Editor* window, locate and click the registry key or subkey that you want to back up.
-- From the *File* menu select *Export*.
-- In the *Export Registry File* dialog box, select the location to which you want to save the backup copy, type a name for the backup file in the *File name* field, and then click *Save*.
+1. From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+2. In the *Registry Editor* window, locate and click the registry key or subkey that you want to back up.
+3. From the *File* menu select *Export*.
+4. In the *Export Registry File* dialog box, select the location to which you want to save the backup copy, type a name for the backup file in the *File name* field, and then click *Save*.
 
 ## Restore a Registry backup
 
-- From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-- In the *Registry Editor* window, from the *File* menu select *Import*.
-- In the *Import Registry File* dialog box, select the location to which you saved the backup copy, select the backup file, and then click *Open*.
+1. From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+2. In the *Registry Editor* window, from the *File* menu select *Import*.
+3. In the *Import Registry File* dialog box, select the location to which you saved the backup copy, select the backup file, and then click *Open*.
 
 ## GPO to Disable the VMICTimeProvider
 
