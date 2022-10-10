@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# When to use an Azure Multi-Factor Authentication Provider
+# When to use an Azure Multi-Factor Authentication provider
 
 > [!IMPORTANT]
 > Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated, but migration is no longer possible. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
@@ -30,15 +30,15 @@ Note the SDK has been deprecated and will only continue to work until November 1
 
 ## What is an MFA provider?
 
-There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally. The per-user option calculates the number of users who are eligible to perform MFA, which is all users in Azure AD, and all enabled users in MFA Server. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
+There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if some users authenticate only occasionally. The per-user option calculates the number of users who are eligible to perform MFA, which is all users in Azure AD, and all enabled users in MFA Server. This option is best if some users have licenses but you need to extend MFA to more users beyond your licensing limits.
 
 ## Manage your MFA provider
 
-You cannot change the usage model (per enabled user or per authentication) after an MFA provider is created.
+You can't change the usage model (per enabled user or per authentication) after an MFA provider is created.
 
 If you purchased enough licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
 
-If your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the MFA Provider.
+If your MFA provider isn't linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options aren't transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the MFA Provider.
 
 ### Removing an authentication provider
 
@@ -61,7 +61,7 @@ Azure MFA Servers linked to providers will need to be reactivated using credenti
 
 ![Delete an auth provider from the Azure portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-When you have confirmed that all settings have been migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
+When you confirm that all settings are migrated, you can browse to the **Azure portal** > **Azure Active Directory** > **Security** > **MFA** > **Providers** and select the ellipses **...** and select **Delete**.
 
 > [!WARNING]
 > Deleting an authentication provider will delete any reporting information associated with that provider. You may want to save activity reports before deleting your provider.
