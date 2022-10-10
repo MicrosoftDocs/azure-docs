@@ -120,6 +120,8 @@ Check whether the storage throughput for the different suggested volumes meets t
 
 A few examples on how combining multiple Premium SSD v2 disk with a stripe set could impact the requirement to provision more IOPS or throughput for **/hana/data** is displayed in this table:
 
+| VM SKU | RAM | number of <br />disks | individual disk<br /> size | Proposed IOPS | Default IOPS provisioned | Additional IOPS <br />provisioned | Proposed throughput<br /> for volume | Default throughput provisioned | Additional throughput <br />provisioned |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | E32(d)s_v5 | 256 GiB | 1 | 304 GB | 3,000 | 3,000 | 0 | 425 MBps | 125 MBps | 300 MBps |
 | E32(d)s_v5 | 256 GiB | 2 | 152 GB | 3,000 | 6,000 | 0 | 425 MBps | 250 MBps | 175 MBps |
 | E32(d)s_v5 | 256 GiB | 4 | 76 GB | 3,000 | 12,000 | 0 | 425 MBps | 500 MBps | 0 MBps |
