@@ -171,5 +171,4 @@ You can perform the following actions:
 ## Next steps
 
 - [Identify performance bottlenecks with Azure Load Testing in the Azure portal](./quickstart-create-and-run-load-test.md)
-- [Set up automated load testing with CI/CD in Azure Pipelines](./tutorial-cicd-azure-pipelines.md)
-- [Set up automated load testing with CI/CD in GitHub Actions](./tutorial-cicd-github-actions.md)
+- [Set up automated load testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md)

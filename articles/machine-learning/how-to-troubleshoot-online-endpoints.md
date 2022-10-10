@@ -16,9 +16,7 @@ ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
 
 # Troubleshooting online endpoints deployment and scoring
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!IMPORTANT]
 > SDK v2 is currently in public preview.
@@ -51,7 +49,7 @@ Local deployment is deploying a model to a local Docker environment. Local deplo
 
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. 
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 To use local deployment, add `--local` to the appropriate CLI command:
 
@@ -59,7 +57,7 @@ To use local deployment, add `--local` to the appropriate CLI command:
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To use local deployment, add  `local=True` parameter in the command:
 
@@ -98,7 +96,7 @@ To debug conda installation problems, try the following:
 
 You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 To see log output from container, use the following CLI command:
 
@@ -130,7 +128,7 @@ You can also get logs from the storage initializer container by passing `–-con
 
 Add `--help` and/or `--debug` to commands to see more information. 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To see log output from container, use the `get_logs` method as follows:
 
@@ -237,13 +235,13 @@ If your container could not start, this means scoring could not happen. It might
 
 To get the exact reason for an error, run: 
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 ml_client.online_deployments.get_logs(
@@ -301,13 +299,13 @@ Make sure the model is registered to the same workspace as the deployment. Use t
 
 - For example: 
   
-  # [CLI](#tab/CLI)
+  # [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml model show --name <model-name> --version <version>
   ```
  
-  # [Python](#tab/python)
+  # [Python SDK](#tab/python)
 
   ```python
   ml_client.models.get(name="<model-name>", version=<version>)
@@ -327,13 +325,13 @@ You can also check if the blobs are present in the workspace storage account.
   
 - If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
-  # [CLI](#tab/CLI)
+  # [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
   ```
 
-  # [Python](#tab/python)
+  # [Python SDK](#tab/python)
 
   ```python
   ml_client.online_deployments.get_logs(
@@ -438,8 +436,8 @@ When you access online endpoints with REST requests, the returned status codes a
 | 404 | Not found | Your URL isn't correct. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
+| 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
+| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
 ## Common network isolation issues

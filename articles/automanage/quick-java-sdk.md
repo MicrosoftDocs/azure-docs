@@ -77,5 +77,6 @@ client
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 Learn how to conduct more operations with the Java Automanage Client by visiting the [azure-sdk-for-java repo](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/automanage/azure-resourcemanager-automanage).
 

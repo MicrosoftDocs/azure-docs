@@ -50,7 +50,7 @@ landingContent:
           - text: Create an Azure Data Factory with an ARM template
             url: ./quickstart-create-data-factory-resource-manager-template.md
           - text: Use the Copy Data tool
-            url: ./quickstart-create-data-factory-copy-data-tool.md
+            url: ./quickstart-hello-world-copy-data-tool.md
       - linkListType: how-to-guide
         links:
           - text: Expressions and functions in Azure Data Factory
@@ -58,7 +58,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Learn data integration at scale with Azure Data Factory
-            url: /learn/paths/data-integration-scale-azure-data-factory/
+            url: /training/paths/data-integration-scale-azure-data-factory/
   - title: Data movement
     linkLists:
       - linkListType: overview

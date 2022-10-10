@@ -14,14 +14,14 @@ ms.custom: "include file"
 
 When you disable customer-managed keys, your storage account is once again encrypted with Microsoft-managed keys.
 
-# [Azure portal](#tab/portal)
+# [Azure portal](#tab/azure-portal)
 
 To disable customer-managed keys in the Azure portal, follow these steps:
 
 1. Navigate to your storage account and display the **Encryption** settings.
 1. Deselect the checkbox next to the **Use your own key** setting.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To disable customer-managed keys with PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) with the `-StorageEncryption` option, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 

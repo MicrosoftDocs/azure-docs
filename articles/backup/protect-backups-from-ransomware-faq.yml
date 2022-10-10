@@ -31,7 +31,7 @@ sections:
           
             Soft delete is enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it’s permanently lost. We recommend not to disable this feature. If backups are deleted and soft delete isn’t enabled, you or Microsoft can’t recover the deleted backup data. Use [Multi-user authorization (MUA)](multi-user-authorization.md) as an additional layer of protection for these critical operations on your Recovery Services vault to validate operation before disabling this feature. For more information, see [How to enable, manage, and when to disable soft delete for Azure Backup](backup-azure-security-feature-cloud.md)?
             
-            We also recommend to use Multi-user authorization (MUA) to protection critical operations on your Recovery Services vault.
+            We also recommend using Multi-user authorization (MUA) to protection critical operations on your Recovery Services vault.
           
           - **Ensure Multi-user authorization (MUA) is enabled to protect against rogue admin scenario**.
           
@@ -40,11 +40,11 @@ sections:
             - [How does MUA using Resource Guard works?](multi-user-authorization.md)
             - [Provide Just-In-Time access on Resource Guard using Privileged Identity Management](multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
           
-          - **Set up alerts and notifications for critical backup operations**.
+          - **Set-up alerts and notifications for critical backup operations**.
           
-            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they are configured correctly for timely alerts and required actions. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+            Azure Backup provides multiple monitoring and notification capabilities for a wide range of [scenarios](monitoring-and-alerts-overview.md#monitoring-and-reporting-scenarios). Ensure they're configured correctly for timely alerts and required actions. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
             
-            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup-preview).
+            We recommend you to use [Azure Monitor for Alerts to receive alerts/notifications on critical operations](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup).
           
           - **Ensure network connectivity between backup services and workloads is secure**.
           
@@ -87,7 +87,7 @@ sections:
           
             Periodically perform data recovery test of your backups to verify the backup configurations and availability of the backup data meet your organization’s recovery needs, and expected RPO and RTO requirements. Define your backup recovery test strategy to include the scope of test recovery and frequency for performing a test recovery.
           
-      - question: How to block (un)intentional deletion of  backup data?
+      - question: How to block intentional or unintentional deletion of  backup data?
         answer: |
           - **Enable Soft delete is enabled to protect backups from accidental or malicious deletes**.
           

@@ -36,7 +36,7 @@ items:
          displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
          href: quickstarts/try-v3-form-recognizer-studio.md
        - name: Form Recognizer SDKs and REST API v3.0
-         displayName: get started, documentAnalysisClient, document analysis client, AzureKeyCredential, azure key credential, AnalyzeResult, analyze result, output, polygon, bounding, boundingPolygon, key, endpoint, packages, headers
+         displayName: get started, documentAnalysisClient, document analysis client, AzureKeyCredential, azure key credential, AnalyzeResult, analyze result, output, polygon,begin_analyze_document , boundingPolygon, key, endpoint, packages, headers
          href: quickstarts/get-started-v3-sdk-rest-api.md
    - name: Form Recognizer v2.1
      items:
@@ -44,28 +44,28 @@ items:
        displayName: tables, labels, ocr, bounding box
        href: quickstarts/try-sample-label-tool.md
      - name: Form Recognizer SDKs and REST API v2.1
-       displayName: formRecognizerClient, form recognizer client
+       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
        href: quickstarts/get-started-v2-1-sdk-rest-api.md
 - name: How-to guides
   items:
   - name: Create a Form Recognizer resource
     displayName: endpoint, key, portal
     href:  create-a-form-recognizer-resource.md
-  - name: Check my usage and estimate the cost
-    displayName: price, metrics, dashboard, check, estimate
-    href: how-to-guides/estimate-cost.md
+  - name: Use SDKs or REST API | v3.0
+    displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document, v3.0
+    href: how-to-guides/v3-0-sdk-rest-api.md
   - name: Migrate to Form Recognizer v3.0
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-migration-guide.md
-  - name: Use the prebuilt-read model (v3.0)
-    displayName: documentAnalysisClient, document analysis client, AnalyzeResult, analyze, output
-    href: how-to-guides/use-prebuilt-read.md
+  - name: Use SDKs or REST API | v2.1
+    displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize, v2.1
+    href: how-to-guides/v2-1-sdk-rest-api.md
+  - name: Check my usage and estimate the cost
+    displayName: price, metrics, dashboard, check, estimate
+    href: how-to-guides/estimate-cost.md
   - name: Create SAS tokens for storage containers
     displayName: blob, delegation, shared, explorer
     href:  create-sas-tokens.md
-  - name: Use SDKs and the REST API (v2.1)
-    displayName: formRecognizerClient, form recognizer client, boundingBox, bounding box, begin_analyze
-    href: how-to-guides/try-sdk-rest-api.md
   - name: Custom models
     items:
     - name: Build a custom model (v3.0)
@@ -85,14 +85,14 @@ items:
       - name: Use table tags to train your custom model
         displayName: FOTT, migration, dynamic
         href: supervised-table-tags.md
-  - name: Composed models
-    items:
-     - name: Compose models v3.0
-       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
-       href: compose-custom-models-v3.md
-     - name: Compose models v2.1
-       displayName: FOTT, label, ocr, confidence, bounding box
-       href: compose-custom-models-v2-1.md
+    - name: Compose custom models
+      items:
+        - name: Compose models v3.0
+          displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
+          href: compose-custom-models-v3.md
+        - name: Compose models v2.1
+          displayName: FOTT, label, ocr, confidence, bounding box
+          href: compose-custom-models-v2-1.md
   - name: Back up and recover models
     displayName: disaster, recovery, region, copy, modelId, model ID
     href: disaster-recovery.md
@@ -155,28 +155,28 @@ items:
     href: concept-model-overview.md
   - name: Form Recognizer Studio | v3.0
     href: concept-form-recognizer-studio.md
-  - name: General document model | v3.0
-    displayName: key value pairs, selection marks, structured
-    href: concept-general-document.md
-  - name: W-2 form model | v3.0
-    displayName: wages, taxes, salary, employees
-    href: concept-w2.md
   - name: Read OCR model | v3.0
     displayName: text
     href: concept-read.md
-  - name: Layout model
+  - name: General document model | v3.0
+    displayName: key value pairs, selection marks, structured
+    href: concept-general-document.md
+  - name: Layout model | v3.0, v2.0
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: Invoice model
+  - name: W-2 form model | v3.0
+    displayName: wages, taxes, salary, employees
+    href: concept-w2.md
+  - name: Invoice model | v3.0, v2.0
     displayName: sales, vendors, VAT
     href: concept-invoice.md
-  - name: Receipt model
+  - name: Receipt model | v3.0, v2.0
     displayName: sales, merchants
     href: concept-receipt.md
-  - name: ID document model
+  - name: ID document model | v3.0, v2.0
     displayName: passport, visa, ID, social security, green card
     href: concept-id-document.md
-  - name: Business card model
+  - name: Business card model | v3.0, v2.0
     displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     href: concept-business-card.md
   - name: Custom models
@@ -190,12 +190,12 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, signatures
       href: concept-custom-neural.md
-    - name: Accuracy and confidence scores
-      displayName: tables, labels, ocr, performance, signatures
-      href: concept-accuracy-confidence.md
-  - name: Composed models
-    displayName: custom, assign, modelId, model ID, template, neural
-    href:  concept-composed-models.md
+    - name: Composed models
+      displayName: custom, assign, modelId, model ID, template, neural
+      href:  concept-composed-models.md
+  - name: Accuracy and confidence scores
+    displayName: tables, labels, ocr, performance, signatures
+    href: concept-accuracy-confidence.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps
