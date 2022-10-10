@@ -130,7 +130,7 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
     >[!WARNING]
     > You must run PowerShell by using admin credentials for the tenant that you're trying to delete. Only homed-in admins have access to manage the directory via Powershell. You can't use guest user admins, Microsoft accounts, or multiple directories. 
     >
-    > Before you proceed, verify that you're connected to the tenant that you want to delete with the MSOnline module. We recommended that you run the `Get-MsolDomain` command to confirm that you're connected to the correct tenant ID and `onmicrosoft.com` domain.
+    > Before you proceed, verify that you're connected to the tenant that you want to delete with the MSOnline module. We recommend that you run the `Get-MsolDomain` command to confirm that you're connected to the correct tenant ID and `onmicrosoft.com` domain.
 
 5. Run the following command to set the tenant context: 
 
