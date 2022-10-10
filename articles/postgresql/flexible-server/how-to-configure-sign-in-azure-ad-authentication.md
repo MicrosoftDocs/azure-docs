@@ -25,7 +25,7 @@ Only Azure AD administrator users can create/enable users for Azure AD-based aut
 
 ## Prerequisites 
 
-The below two steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by tenant administrator or a user with tenant admin rights and this is one time activity per tenant.
+The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by tenant administrator or a user with tenant admin rights and this is one time activity per tenant.
 
 Install AzureAD PowerShell: AzureAD Module
 
@@ -42,8 +42,19 @@ Step 2: New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed
 ```
 This command will grant Azure Database for PostgreSQL Flexible Server Service Principal read access to customer tenant to request Graph API tokens for AAD validation tasks. AppID (5657e26c-cc92-45d9-bc47-9da6cfdb4ed) in the above command is the AppID for Azure Database for PostgreSQL Flexible Server Service.
 
+### Step 3: Networking Requirements 
 
-## Setting Up Azure AD Admin
+Azure Active Directory is a multi-tenant application and requires outbound connectivity to perform certain operations like adding AAD admins/ groups etc and additional networking rules are required for AAD connectivity to work depending upon your network topology.
+
+  `Public access (allowed IP addresses)`
+
+No additional networking rules are required.
+
+ `Private access (VNet Integration)`
+
+*  An outbound NSG rule to allow virtual network traffic to reach AzureActiveDirectory service tag only.
+
+* Optionally, if you’re using a proxy then please add a new firewall rule to allow http/s traffic to reach AzureActiveDirectory service tag only.
 
 Please complete the above prerequisites steps before adding AAD administrator to your server. To set the Azure AD admin  during server provisioning, please follow the below steps. 
 

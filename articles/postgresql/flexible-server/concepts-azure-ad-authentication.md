@@ -90,14 +90,14 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 > [!NOTE]
 > Login with the deleted Azure AD user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL this access will be revoked immediately.
-- If all Azure AD admins are removed from the server, the server will no longer be associated with an Azure AD tenant, and therefore all Azure AD logins will be disabled for the server. 
-- Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name added, Therefore, if a user is deleted from Azure AD and then a new user with the same name added, the new user will not be able to connect with the existing role. 
 
-- 
+- Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name added, Therefore, if a user is deleted from Azure AD and then a new user with the same name added, the new user will not be able to connect with the existing role. 
+ 
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for PostgreSQL, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
 - For an overview of logins, users, and database roles Azure Database for PostgreSQL, see [Create users in Azure Database for PostgreSQL - Flexible Server](how-to-create-users.md).
+- To learn how to manage AAD users for Flexible Server, see [Manage AAD users - Azure Database for PostgreSQL - Flexible Server](how-to-manage-aad-users.md).
 
 <!--Image references-->
 
