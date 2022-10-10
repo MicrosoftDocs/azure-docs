@@ -23,7 +23,7 @@ To support you with this goal, the Azure Active Directory (Azure AD) portal give
 - **[Audit](concept-audit-logs.md)** – Information about changes applied to your tenant, such as users and group management or updates applied to your tenant’s resources.
 - **[Provisioning](concept-provisioning-logs.md)** – Activities performed by a provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
 
-The classic sign-in log in Azure AD provides you with an overview of interactive user sign-ins. In addition, you now have access to three additional sign-in logs that are now in preview:
+The classic sign-in log in Azure AD provides you with an overview of interactive user sign-ins. Three additional sign-in logs are now in preview:
 
 - Non-interactive user sign-ins
 
