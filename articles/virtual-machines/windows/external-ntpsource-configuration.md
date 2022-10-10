@@ -68,21 +68,22 @@ For all other domain members that are not Domain Controllers, you will need to m
 
 ## Back up the registry manually
 
-- Select Start, type regedit.exe in the search box, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-- In Registry Editor, locate and click the registry key or subkey that you want to back up.
-- Select File -> Export.
-- In the Export Registry File dialog box, select the location to which you want to save the backup copy, and then type a name for the backup file in the File name field.
-- Select Save.
+- From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+- In the *Registry Editor* window, locate and click the registry key or subkey that you want to back up.
+- From the *File* menu select *Export*.
+- In the *Export Registry File* dialog box, select the location to which you want to save the backup copy, type a name for the backup file in the *File name* field, and then click *Save*.
 
 ## Restore a manual backup
 
-- Select Start, type regedit.exe, and then press Enter. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-- In Registry Editor, click File -> Import.
-- In the Import Registry File dialog box, select the location to which you saved the backup copy, select the backup file, and then click Open.
+- From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
+- In the *Registry Editor* windows, from the *File* menu select *Import*.
+- In the *Import Registry File* dialog box, select the location to which you saved the backup copy, select the backup file, and then click *Open*.
+
+## GPO to Disable the VMICTimeProvider
 
 Configure the following Group Policy Object to enable domain members to synchronize time with Domain Controllers in their corresponding Active Directory Site:
 
-To check current time source in the domain member, from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
+To check current time source, login to any domain member and from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
 
 1. From a Domain Controller go to *Start* run *gpmc.msc*.
 2. Browse to the Forest and Domain where you want to create the GPO.
@@ -100,7 +101,7 @@ To check current time source in the domain member, from an elevated command prom
 8. Link the GPO to the Organizational Unit where your members are located.
 9. Wait or manually force a *Group Policy Update* on the domain member.
 
-From an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the Domain Controller that satisfied the client's authentication request.
+Go back to the domain member and from an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the Domain Controller that satisfied the member's authentication request.
 
 ## Next steps
 
