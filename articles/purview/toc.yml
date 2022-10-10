@@ -124,6 +124,8 @@ items:
     items:
     - name: Data owner policies
       href: concept-policies-data-owner.md
+    - name: DevOps policies
+      href: concept-policies-devops.md
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
   - name: Data Estate Insights

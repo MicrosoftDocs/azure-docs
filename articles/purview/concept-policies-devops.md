@@ -45,14 +45,14 @@ A DevOps policy on a data resource is enforced on the data resource itself and a
 ## A sample scenario to demonstrate the concept and the benefits
 Bob and Alice are DevOps users at their company. Given their role, they need to log in to dozens of Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, creates an Azure AD group and includes Alice and Bob. He then uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this Azure AD group access at resource group level, to Resource Group 1, which hosts the Azure SQL servers.
 
-![Example of DevOps policy on resource group](./media/concept-policies-devops/devops-policy-on-resource-group.png).
+![Diagram shows an example of DevOps policy on resource group](./media/concept-policies-devops/devops-policy-on-resource-group.png).
 
 #### These are the benefits:
-1. Mateo doesn't have to create local logins in each logical server
-2. The policies from Microsoft Purview improve security by helping limit local privileged access. This is what we call PoLP (Principle of Least Privilege). In the scenario, Mateo only grants the minimum access necessary that Bob and Alice need to perform the task of monitoring performance.
-3. When new Azure SQL servers are added to the Resource Group, Mateo doesn't need to update the policies in Microsoft Purview for them to be effective on the new logical servers.
-4. If Alice or Bob leave their job and get backfilled, Mateo just updates the Azure AD group, without having to make any changes to the servers or to the policies he created in Microsoft Purview.
-5. At any point in time, Mateo or the company’s auditor can see what access has been granted directly in Microsoft Purview Studio.
+- Mateo doesn't have to create local logins in each logical server
+- The policies from Microsoft Purview improve security by helping limit local privileged access. This is what we call PoLP (Principle of Least Privilege). In the scenario, Mateo only grants the minimum access necessary that Bob and Alice need to perform the task of monitoring performance.
+- When new Azure SQL servers are added to the Resource Group, Mateo doesn't need to update the policies in Microsoft Purview for them to be effective on the new logical servers.
+- If Alice or Bob leave their job and get backfilled, Mateo just updates the Azure AD group, without having to make any changes to the servers or to the policies he created in Microsoft Purview.
+- At any point in time, Mateo or the company’s auditor can see what access has been granted directly in Microsoft Purview Studio.
 
 ## More info
 - DevOps policies can be created, updated and deleted by any user holding *Policy Author* role at root collection level in Microsoft Purview.
