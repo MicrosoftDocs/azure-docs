@@ -147,6 +147,12 @@ The table below shows few entries from Hub 1's effective routes in the defaultRo
 
 To manage network changes in NVA Branch 1 or establish connectivity between new sites like NVA Branch 1, there is no additional configuration required on Hub 1 because the BGP peering between Hub 1 and NVA will dynamically update the route tables. The configuration and maintenance are, therefore, simplified.
 
+#### Limitations
+
+* You must create a BGP adjacency between the NVA and both instances of the virtual HUB route server, not creating this BGP adjacency with the 2 instances of the route server can cause issues when propagating learned routes into the HUB and other remote HUBs within the same virtual WAN resource.
+* The next hop IP address on the routes being advertised from the NVA to the virtual HUB route server has to be the same as the IP address of the NVA, the IP address configured on the BGP peer. Having a different IP address advertised as next hop IS NOT supported on virtual WAN at the moment.
+
+
 ## Next steps
 
 * [Configure BGP peering with a virtual hub](create-bgp-peering-hub-portal.md).
