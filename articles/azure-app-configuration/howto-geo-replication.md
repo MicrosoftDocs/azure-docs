@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 10/10/2022
 ms.author: mametcal
 ms.custom: devx-track-azurecli
-zone_pivot_groups: appconfig-provider
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
 ---
@@ -94,7 +93,7 @@ When geo-replication is enabled, and if one replica isn't accessible, you can le
 > [!NOTE]
 > You can only use Azure AD authentication to connect to replicas. Authentication with access keys is not supported during the preview.
 
-:::zone target="docs" pivot="framework-dotnet"
+### [.NET](#tab/dotnet)
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
@@ -117,9 +116,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
-:::zone-end
-
-:::zone target="docs" pivot="framework-spring"
+### [Java Spring](#tab/spring)
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="https://<first-replica-endpoint>.azconfig.io"
@@ -131,7 +128,7 @@ spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="https://<second-repl
 > - `azure-spring-cloud-appconfiguration-config-web`
 > - `azure-spring-cloud-starter-appconfiguration-config`
 
-:::zone-end
+---
 
 The failover may occur if the App Configuration provider observes the following conditions.
 - Receives responses with service unavailable status (HTTP status code 500 or above).
