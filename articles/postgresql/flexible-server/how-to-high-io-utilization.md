@@ -75,7 +75,7 @@ ORDER BY duration DESC;
 
 High IO can also be seen in scenarios where a checkpoint is happening too frequently. One way to identify this is by checking the Postgres log file for the following log text "LOG: checkpoints are occurring too frequently."
 
-You could also investigate using an approach where periodic snapshots of `pg_stat_bgwriter` with a timestamp is saved.Using the snapshots saved the average checkpoint interval, number of checkpoints requested and number of checkpoints timed can be calculated. 
+You could also investigate using an approach where periodic snapshots of `pg_stat_bgwriter` with a timestamp is saved. Using the snapshots saved the average checkpoint interval, number of checkpoints requested and number of checkpoints timed can be calculated. 
 
 #### Disruptive autovacuum daemon process
 
