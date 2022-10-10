@@ -370,7 +370,7 @@ When you train models using the [**Form Recognizer Sample Labeling tool**](https
 
 ### [**REST API**](#tab/rest-api)
 
-The [**REST API**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
+The [**REST API**](../quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
 :::image type="content" source="../media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
 
@@ -481,11 +481,11 @@ Using the programming language of your choice to analyze a form or document with
 
 ::: moniker range="form-recog-2.1.0"
 
-Test your newly trained models by [analyzing forms](./quickstarts/try-sdk-rest-api.md#analyze-forms-with-a-custom-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](label-tool.md#improve-results).
+Test your newly trained models by [analyzing forms](../quickstarts/try-sdk-rest-api.md#analyze-forms-with-a-custom-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](../label-tool.md#improve-results).
 
 ## Manage your custom models
 
-You can [manage your custom models](./quickstarts/try-sdk-rest-api.md#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) from your account.
+You can [manage your custom models](../quickstarts/try-sdk-rest-api.md#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) from your account.
 
 Great! You've learned the steps to create custom and composed models and use them in your Form Recognizer projects and applications.
 
