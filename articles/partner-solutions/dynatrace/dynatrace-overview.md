@@ -29,7 +29,7 @@ Dynatrace for Azure provides the following capabilities:
 
 - **Single-Sign on to Dynatrace** - You need not sign up or sign in separately to Dynatrace. Sign in once in the Azure portal and seamlessly transition to Dynatrace portal when needed.
 
-- **Log forwarder** - Enables automated forwarding of subscription activity and resource logs to Dynatrace
+- **Log monitoring** - Enables automated monitoring of subscription activity and resource logs to Dynatrace
 
 - **Manage Dynatrace OneAgent on VMs and App Services** - Provides a single experience to install and uninstall Dynatrace OneAgent on virtual machines and App Services.
 
