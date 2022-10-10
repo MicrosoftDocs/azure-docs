@@ -35,9 +35,11 @@ On-demand bursting can be enabled with either the Azure portal, the Azure PowerS
 
 # [Portal](#tab/azure-portal)
 
-In the portal, on-demand bursting can only be enabled on existing disks. To enable on-demand bursting:
+A managed disk must be larger than 512 GiB to enable on-demand bursting.
 
-1. Sign in to the Azure portal and navigate to your disk.
+To enable on-demand bursting for an existing disk:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your disk.
 1. Select **Configuration** and select **Enable on-demand bursting**.
 1. Select **Save**.
 
