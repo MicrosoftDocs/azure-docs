@@ -120,7 +120,7 @@ Store the received identity with mapping to your application's users (for exampl
 Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
 
 ```javascript
-// Issue an access token with validity of 24 hours and the "voip" scope for an identity
+// Issue an access token with a validity of 24 hours and the "voip" scope for an identity
 let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 
 // Get the token and its expiration date from the response
@@ -133,10 +133,10 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Set a custom token expiration time
 
-The default token expiration time is 1440 minutes but you can configure it by providing a value between 60 minutes and 1440 minutes to the optional parameter `tokenExpiresInMinutes`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+The default token expiration time is 24 hours (1440 minutes), but you can configure it by providing a value between 60 minutes and 1440 minutes to the optional parameter `tokenExpiresInMinutes`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
 
 ```javascript
-// Issue an access token with validity of an hour and the "voip" scope for an identity
+// Issue an access token with a validity of an hour and the "voip" scope for an identity
 const tokenOptions: GetTokenOptions = { tokenExpiresInMinutes: 60 };
 let tokenResponse = await identityClient.getToken
 (identityResponse, ["voip"], tokenOptions);
@@ -147,7 +147,7 @@ let tokenResponse = await identityClient.getToken
 You can use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. Again, you create it with the `voip` scope.
 
 ```javascript
-// Issue an identity and an access token with  validity of 24 hours and the "voip" scope for the new identity
+// Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
 let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
 
 // Get the token, its expiration date, and the user from the response

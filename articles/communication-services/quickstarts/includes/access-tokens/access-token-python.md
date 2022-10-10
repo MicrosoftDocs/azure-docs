@@ -93,7 +93,7 @@ Store the received identity with mapping to your application's users (for exampl
 Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
 
 ```python
-# Issue an access token with validity of 24 hours and the "voip" scope for an identity
+# Issue an access token with a validity of 24 hours and the "voip" scope for an identity
 token_result = client.get_token(identity, ["voip"])
 print("\nIssued an access token with 'voip' scope that expires at " + token_result.expires_on + ":")
 print(token_result.token)
@@ -103,10 +103,10 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Set a custom token expiration time
 
-The default token expiration time is 24 hours but you can configure it by providing a value between an hour and 24 hours to the optional parameter `token_expires_in`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `token_expires_in`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
 
 ```python
-# Issue an access token with validity of an hour and the "voip" scope for an identity
+# Issue an access token with a validity of an hour and the "voip" scope for an identity
 token_expires_in = timedelta(hours=1)
 token_result = client.get_token(identity, ["voip"], token_expires_in=token_expires_in)
 
@@ -117,7 +117,7 @@ token_result = client.get_token(identity, ["voip"], token_expires_in=token_expir
 You can use the `create_user_and_token` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
 
 ```python
-# Issue an identity and an access token with validity of 24 hours and the "voip" scope for the new identity
+# Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
 identity_token_result = client.create_user_and_token(["voip"])
 
 # Get the token details from the response

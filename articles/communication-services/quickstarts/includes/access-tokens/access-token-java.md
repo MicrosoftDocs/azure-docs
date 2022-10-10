@@ -141,7 +141,7 @@ Use the `getToken` method to issue an access token for your Communication Servic
 In the following code, use the user variable that you created in the preceding step to get a token.
 
 ```java
-// Issue an access token with validity of 24 hours and the "voip" scope for a user identity
+// Issue an access token with a validity of 24 hours and the "voip" scope for a user identity
 List<CommunicationTokenScope> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
 AccessToken accessToken = communicationIdentityClient.getToken(user, scopes);
 OffsetDateTime expiresAt = accessToken.getExpiresAt();
@@ -153,10 +153,10 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Set a custom token expiration time
 
-The default token expiration time is 24 hours but you can configure it by providing a value between an hour and 24 hours to the optional parameter `tokenExpiresIn`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `tokenExpiresIn`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
 
 ```java
-// Issue an access token with validity of an hour and the "voip" scope for a user identity
+// Issue an access token with a validity of an hour and the "voip" scope for a user identity
 List<CommunicationTokenScope> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
 Duration tokenExpiresIn = Duration.ofHours(1);
 AccessToken accessToken = communicationIdentityClient.getToken(user, scopes, tokenExpiresIn);
@@ -168,7 +168,7 @@ Alternatively, you can use the 'createUserAndToken' method to create a new entry
 issue an access token at the same time.
 
 ```java
-//Create an identity and issue token with validity of 24 hours in one call
+//Create an identity and issue token with a validity of 24 hours in one call
 List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
 CommunicationUserIdentifierAndToken result = communicationIdentityClient.createUserAndToken(scopes);
 CommunicationUserIdentifier user = result.getUser();

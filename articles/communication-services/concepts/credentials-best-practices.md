@@ -22,7 +22,7 @@ Communication Token Credential (Credential) is an authentication primitive that 
 
 ## Choosing the session lifetime
 
-Depending on your scenario, you may want to choose a proper session lifetime for your tokens. The following best practices or a combination of them can help you to achieve an optimal solution for your application:
+Depending on your scenario, you may want to adjust the lifespan of tokens issued for your application. The following best practices or their combination can help you achieve the optimal solution for your scenario:
 - [Customize the token expiration time](#set-a-custom-token-expiration-time) to your specific needs.
 - Initialize the Credential with a [static token](#static-token) for one-off Chat messages or time-limited Calling sessions.
 - Use a [callback function](#callback-function) for agents using the application for longer periods of time.
