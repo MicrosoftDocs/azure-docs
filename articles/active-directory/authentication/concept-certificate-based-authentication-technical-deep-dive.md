@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 10/10/2022
 
 
 ms.author: justinha
@@ -98,16 +98,16 @@ Because multiple authentication binding policy rules can be created with differe
 1. Policy OID rules will take precedence over certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first, and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strong authentication binding priority than the issuer.
 1. If one CA binds to MFA, all user certificates that the CA issues qualify as MFA. The same logic applies for single-factor authentication.
 1. If one policy OID binds to MFA, all user certificates that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as MFA.
-1. If there' a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, where one binds to single-factor authentication and the other binds to MFA) then treat the certificate as a single-factor authentication.
+1. If there's a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, where one binds to single-factor authentication and the other binds to MFA) then treat the certificate as a single-factor authentication.
 1. One certificate can only have one valid strong authentication binding (that is, a certificate can't bind to both single-factor and MFA).
 
 ## Understanding the username binding policy
 
 The username binding policy helps validate the certificate of the user. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to UserPrincipalName attribute of the user object to determine the user.
 
-### Achieve higher security with Certificate bindings
+### Achieve higher security with certificate bindings
 
-There are four supported values for this attribute, with two mappings considered low-affinity (insecure) and the other two considered high-affinity bindings. In general, mapping types are considered high-affinity if they're based on identifiers that you can't reuse. Therefore, all mapping types based on usernames and email addresses are considered low-affinity. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
+There are four supported methods. In general, mapping types are considered high-affinity if they're based on identifiers that you can't reuse (Such as Subject Key Identifiers or SHA1 Public Key). These identifiers convey a higher assurance that a only a single certificate can be used to authenticate the respective user. Therefore, all mapping types based on usernames and email addresses are considered low-affinity. Therefore, Azure AD implements two mappings considered low-affinity (based on reusable identifiers), and the other two are considered high-affinity bindings. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
 
 |Certificate mapping Field | Examples of values in certificateUserIds | User object attributes | Type | 
 |--------------------------|--------------------------------------|------------------------|----------|

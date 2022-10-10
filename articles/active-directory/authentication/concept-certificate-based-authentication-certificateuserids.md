@@ -49,9 +49,7 @@ Tenant admins can use the following steps Azure portal to update certificate use
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/user.png" alt-text="Screenshot of test user account.":::
 
-1. Select a user, click the **Properties** tab, and click **Edit Properties**. 
-
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/view.png" alt-text="Screenshot of how to edit Properties.":::
+1. Click a user, and click **Edit Properties**. 
 
 1. Next to **Authorization info**, click **View**.
 

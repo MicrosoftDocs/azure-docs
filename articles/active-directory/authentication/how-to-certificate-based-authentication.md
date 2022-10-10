@@ -5,7 +5,7 @@ description: Topic that shows how to configure Azure AD certificate-based authen
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 10/10/2022
 
 ms.author: justinha
 author: vimrang
@@ -37,7 +37,7 @@ Make sure that the following prerequisites are in place:
 >Make sure the PKI is secure and can't be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both users whom are synchronized from on-premises and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls, such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
 >[!NOTE]
->Tenant admins can use high-affinity bindings to achieve higher security and helps mitigate attacks from a compromised PKI. For more information, see [high-affinity bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
+>When evaluating a PKI, it is important to review certificate issuance policies and enforcement. As mentioned, adding certificate authorities (CAs) to Azure AD configuration allows certificates issued by those CAs to authenticate any user in Azure AD. For this reason, it is important to consider how and when the CAs are allowed to issue certificates, and how they implement reusable identifiers. Where administrators need to ensure only a specific certificate is able to be used to authenticate a user, admins should exclusively use high-affinity bindings to achieve a higher level of assurance that only a specific certificate is able to authenticate the user. For more information, see [high-affinity bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
 
 ## Steps to configure and test Azure AD CBA
 

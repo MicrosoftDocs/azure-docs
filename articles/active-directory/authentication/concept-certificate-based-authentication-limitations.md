@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 10/10/2022
 
 ms.author: justinha
 author: vimrang
@@ -52,7 +52,7 @@ The following scenarios aren't supported:
 | Operating system | Certificate on-device/Derived PIV |       Smart cards      |
 |:-----------------|:---------------------------------:|:----------------------:|
 | Windows          |          &#x2705;                 |        &#x2705;        |
-| MacOS            |          &#x2705;                 |        &#x2705;        |
+| macOS            |          &#x2705;                 |        &#x2705;        |
 | iOS              |          &#x2705;                 | Supported vendors only |
 | Android          |          &#x2705;                 | Supported vendors only |
 
@@ -62,13 +62,12 @@ The following scenarios aren't supported:
 | Operating system |  Chrome certificate on-device   |  Chrome smart card   |   Safari certificate on-device  |   Safari  smart card |    Edge certificate on-device    |    Edge smart card    |
 |:-----------------|:----------:|:----------:|:----------:|:----------:|:-----------------|:----------:|
 | Windows          |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  |  
-| MacOS            |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  | 
+| macOS            |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  | 
 | iOS              |  &#10060;  |  &#10060;  |  &#x2705;  |  Supported vendors only  |      &#10060;     |  &#10060; |
 | Android          | &#x2705;  | &#10060;    |  N/A       | N/A        |    &#10060;     | &#10060;  |
 
 >[!NOTE]
-> On iOS and Android mobile, edge browser users can sign into edge to set up profile with MSAL like the Add account flow in profile. When logged into Edge with a profile, CBA is supported with 
-> on-device certificates and smart cards.
+> On iOS and Android mobile, Edge browser users can sign into Edge to set up a profile by using the Microsoft Authentication Library (MSAL), like the Add account flow. When logged in to Edge with a profile, CBA is supported with on-device certificates and smart cards.
 
 ## Smart card providers
 
