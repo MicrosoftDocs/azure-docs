@@ -388,6 +388,7 @@ The [**REST API**](../quickstarts/try-sdk-rest-api.md?pivots=programming-languag
 
 After you've gathered your custom models corresponding to a single form type, you can compose them into a single model.
 
+<!-- Applies to FOTT but labeled studio to eliminate tab grouping warning -->
 ### [**Form Recognizer Sample Labeling tool**](#tab/studio)
 
 The **Sample Labeling tool** enables you to quickly get started training models and  composing them to a single model ID.
@@ -428,6 +429,7 @@ Use the programming language code of your choice to create a composed model that
 
  The custom form **Analyze** operation requires you to provide the `modelID`  in the call to Form Recognizer. You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
 
+<!-- Applies to FOTT but labeled studio to eliminate tab grouping warning -->
 ### [**Form Recognizer Sample Labeling tool**](#tab/studio)
 
 1. On the tool's left-pane menu, select the **Analyze icon** (light bulb).
