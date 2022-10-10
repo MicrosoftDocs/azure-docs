@@ -9,6 +9,12 @@ ms.date: 09/29/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
+
+ms.custom: ignite-2022
+
+ms.custom: ignite-2022
+
+ms.custom: ignite-2022
 ---
 
 # Jupyter Notebooks in Azure Cosmos DB (preview)

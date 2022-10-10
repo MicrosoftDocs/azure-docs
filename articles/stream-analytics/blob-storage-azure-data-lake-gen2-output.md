@@ -4,6 +4,7 @@ description: This article describes blob storage and Azure Data Lake Gen 2 as ou
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 10/12/2022
 ---

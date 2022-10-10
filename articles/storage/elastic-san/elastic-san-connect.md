@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Connect to Elastic SAN (preview) volumes

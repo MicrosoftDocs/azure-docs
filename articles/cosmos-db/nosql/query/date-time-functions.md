@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 # Date and time functions (Azure Cosmos DB)
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

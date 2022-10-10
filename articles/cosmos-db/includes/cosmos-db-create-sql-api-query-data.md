@@ -8,7 +8,7 @@
  ms.date: 04/05/2019
  ms.author: sidandrews
 ms.reviewer: mjbrown
- ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 You can use queries in Data Explorer to retrieve and filter your data.
 

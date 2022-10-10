@@ -6,7 +6,7 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/07/2020
-ms.custom: subject-monitoring 
+ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Monitoring Azure Cosmos DB data reference

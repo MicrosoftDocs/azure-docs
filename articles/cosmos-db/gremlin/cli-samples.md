@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 08/19/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, ignite-2022
 ---
 
 # Azure CLI samples for Azure Cosmos DB for Gremlin

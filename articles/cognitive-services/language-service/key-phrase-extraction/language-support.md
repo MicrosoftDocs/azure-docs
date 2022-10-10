@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 07/28/2022
 ms.author: aahi
-ms.custom: language-service-key-phrase, ignite-fall-2021
+ms.custom: language-service-key-phrase, ignite-fall-2021, ignite-2022
 ---
 
 # Language support for Key Phrase Extraction

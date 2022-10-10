@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 # String functions (Azure Cosmos DB)
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

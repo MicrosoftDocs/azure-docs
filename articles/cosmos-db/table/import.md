@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: table
 ms.topic: tutorial
 ms.date: 03/03/2022
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 # Migrate your data to an Azure Cosmos DB for Table account
@@ -89,7 +89,3 @@ Learn how to query data by using the Azure Cosmos DB for Table.
 
 > [!div class="nextstepaction"]
 >[How to query data?](tutorial-query.md)
-
-
-
-

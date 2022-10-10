@@ -4,11 +4,11 @@ description: Learn about the scalar expression SQL syntax for Azure Cosmos DB. T
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: sidandrews
 ms.reviewer: mjbrown
-
 ---
 # Scalar expressions in Azure Cosmos DB SQL queries
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

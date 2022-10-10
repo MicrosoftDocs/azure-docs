@@ -2,6 +2,7 @@
 title: Defender for Cloud Planning multicloud security compliance requirements guidance AWS standards GCP standards
 description: Learn about determining compliance requirements in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
 # Determine compliance requirements

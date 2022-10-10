@@ -5,6 +5,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 10/05/2021
 ---

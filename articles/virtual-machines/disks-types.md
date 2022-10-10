@@ -7,7 +7,7 @@ ms.date: 10/12/2022
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Azure managed disk types

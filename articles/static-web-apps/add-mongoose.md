@@ -4,6 +4,7 @@ description: Learn to access data in Azure Cosmos DB using Mongoose from an Azur
 author: GeekTrainer
 ms.author: chrhar
 ms.service: static-web-apps
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 01/25/2021
 ---

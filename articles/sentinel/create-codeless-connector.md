@@ -4,6 +4,7 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 06/30/2022
 ---
 # Create a codeless connector for Microsoft Sentinel (Public preview)

@@ -2,6 +2,7 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh

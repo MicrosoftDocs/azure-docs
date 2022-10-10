@@ -6,9 +6,8 @@ tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 04/21/2022
-ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli, ignite-2022
 keywords: azure cli samples, azure cli examples, azure cli code samples
-
 ---
 # CLI samples for Azure App Service
 

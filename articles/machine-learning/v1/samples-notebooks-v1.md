@@ -11,7 +11,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/27/2021
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 #Customer intent: As a professional data scientist, I find and run example Jupyter Notebooks for Azure Machine Learning.
 ---
 
@@ -56,4 +56,3 @@ Explore the [MachineLearningNotebooks](https://github.com/Azure/MachineLearningN
 For more GitHub sample projects and examples, see these repos:
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 + [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
-

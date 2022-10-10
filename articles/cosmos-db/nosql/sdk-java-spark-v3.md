@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 11/12/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-2022
 ---
 
 # Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL: Release notes and resources

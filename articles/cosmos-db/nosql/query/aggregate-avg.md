@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 # AVG (Azure Cosmos DB)
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

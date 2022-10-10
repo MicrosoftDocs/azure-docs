@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.date: 08/11/2022
-ms.custom: "mvc, references_regions"
+ms.custom: mvc, references_regions, ignite-2022
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server

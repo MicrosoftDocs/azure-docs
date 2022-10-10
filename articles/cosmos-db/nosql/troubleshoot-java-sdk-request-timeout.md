@@ -4,6 +4,7 @@ description: Learn how to diagnose and fix Java SDK request timeout exceptions w
 author: kushagrathapar
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting

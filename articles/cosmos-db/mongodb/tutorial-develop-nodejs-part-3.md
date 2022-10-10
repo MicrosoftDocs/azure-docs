@@ -8,7 +8,7 @@ ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: gahllevy
-ms.custom: seodec18, devx-track-js
+ms.custom: seodec18, devx-track-js, ignite-2022
 ms.reviewer: mjbrown
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Build the UI with Angular

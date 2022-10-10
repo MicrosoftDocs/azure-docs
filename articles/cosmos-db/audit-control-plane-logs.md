@@ -4,9 +4,9 @@ description: Learn how to audit the control plane operations such as add a regio
 ms.author: esarroyo
 author: StefArroyo 
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/13/2021
-
 ---
 
 # How to audit Azure Cosmos DB control plane operations

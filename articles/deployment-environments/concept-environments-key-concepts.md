@@ -2,6 +2,7 @@
 title: Azure Deployment Environments key concepts
 description: Learn the key concepts behind Azure Deployment Environments.
 ms.service: deployment-environments
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.author: meghaanand
 author: anandmeg

@@ -7,7 +7,7 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/07/2021
-ms.custom: seodec18, "seo-nov-2020"
+ms.custom: seodec18, seo-nov-2020, ignite-2022
 ---
 # Change feed in Azure Cosmos DB
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin](includes/appliesto-nosql-mongodb-cassandra-gremlin.md)]

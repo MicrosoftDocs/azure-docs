@@ -6,9 +6,9 @@ ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/01/2019
-
 ---
 
 # Connect to Azure Cosmos DB for Apache Cassandra from Spark

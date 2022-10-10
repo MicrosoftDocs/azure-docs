@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: seodec18, devx-track-js
+ms.custom: seodec18, devx-track-js, ignite-2022
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

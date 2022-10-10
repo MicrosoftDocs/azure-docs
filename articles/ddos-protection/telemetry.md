@@ -7,10 +7,10 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
 ms.author: abell
-
 ---
 # Tutorial: View and configure Azure DDoS protection telemetry
 

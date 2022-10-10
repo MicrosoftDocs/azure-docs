@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/16/2022
 ms.topic: how-to
-ms.custom: sdkv2
+ms.custom: sdkv2, ignite-2022
 ---
 
 # Use authentication credential secrets in Azure Machine Learning jobs

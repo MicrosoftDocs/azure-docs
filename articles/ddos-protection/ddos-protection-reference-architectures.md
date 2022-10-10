@@ -8,7 +8,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
 ms.author: abell
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, ignite-2022
 ---
 
 # Azure DDoS Protection reference architectures

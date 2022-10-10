@@ -6,6 +6,7 @@ ms.date: 09/09/2022
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
+ms.custom: ignite-2022
 ---
 
 # Propagate Kubernetes resource objects from an Azure Kubernetes Fleet Manager resource to member clusters (preview)

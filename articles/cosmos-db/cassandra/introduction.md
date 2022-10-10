@@ -6,6 +6,7 @@ ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 11/25/2020
 ---

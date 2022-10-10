@@ -4,6 +4,7 @@ description: Learn about the architecture of Microsoft Defender for Containers f
 author: bmansheim
 ms.author: benmansheim
 ms.topic: overview
+ms.custom: ignite-2022
 ms.date: 06/19/2022
 ---
 # Defender for Containers architecture

@@ -8,7 +8,7 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 08/24/2022
 ms.author: dkshir
-ms.custom: [security-recommendations, amqp, mqtt]
+ms.custom: [security-recommendations, amqp, mqtt, ignite-2022
 ---
 
 # Security recommendations for Azure Internet of Things (IoT) deployment

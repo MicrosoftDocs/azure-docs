@@ -9,7 +9,7 @@ ms.subservice: synapse-link
 ms.date: 06/02/2021
 ms.author: rosouz
 ms.reviewer: sngun
-ms.custom: cosmos-db
+ms.custom: cosmos-db, ignite-2022
 ---
 
 # Azure Synapse Link for Azure Cosmos DB supported features

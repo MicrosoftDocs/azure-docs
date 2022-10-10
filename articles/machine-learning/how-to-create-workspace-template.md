@@ -6,14 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
 ms.date: 08/12/2022
-
-
-# Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
+#Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning

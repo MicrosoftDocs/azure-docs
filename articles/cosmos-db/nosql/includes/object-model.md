@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 09/22/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 Before you start building the application, let's look into the hierarchy of resources in Azure Cosmos DB. Azure Cosmos DB has a specific object model used to create and access resources. The Azure Cosmos DB creates resources in a hierarchy that consists of accounts, databases, containers, and items.

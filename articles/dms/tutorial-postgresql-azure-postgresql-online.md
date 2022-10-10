@@ -9,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019, devx-track-azurecli"
+ms.custom: seo-lt-2019, devx-track-azurecli, ignite-2022
 ms.topic: tutorial
 ms.date: 04/11/2020
 ---

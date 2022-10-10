@@ -4,6 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
+ms.custom: ignite-2022
 ms.date: 09/12/2022
 ms.author: robb
 ms.reviewer: priyamishra

@@ -6,7 +6,7 @@ ms.author: marielherzog #Required; microsoft alias of author; optional team alia
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 09/01/2022
 ms.service: energy-data-services
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+ms.custom: "template-overview #Required", leave this attribute/value as-is., ignite-2022
 ---
 
 # Domain data management services (DDMS)

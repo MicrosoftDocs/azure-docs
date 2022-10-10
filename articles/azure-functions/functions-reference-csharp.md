@@ -2,9 +2,8 @@
 title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ms.date: 09/15/2022
-
 ---
 # Azure Functions C# script (.csx) developer reference
 

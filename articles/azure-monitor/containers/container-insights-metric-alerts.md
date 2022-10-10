@@ -2,6 +2,7 @@
 title: Create metric alert rules in Container insights (preview)
 description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---

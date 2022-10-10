@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/26/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Quickstart: Azure Cosmos DB for NoSQL client library for .NET

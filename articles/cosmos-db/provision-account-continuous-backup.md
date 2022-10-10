@@ -7,9 +7,8 @@ ms.topic: how-to
 ms.date: 08/24/2022
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
-
 ---
 
 # Provision an Azure Cosmos DB account with continuous backup and point in time restore

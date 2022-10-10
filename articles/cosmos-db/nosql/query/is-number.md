@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: sidandrews
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 
 # IS_NUMBER (Azure Cosmos DB)

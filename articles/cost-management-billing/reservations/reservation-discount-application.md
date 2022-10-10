@@ -5,6 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders

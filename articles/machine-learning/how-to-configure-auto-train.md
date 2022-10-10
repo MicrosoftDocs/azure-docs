@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.date: 04/20/2022
 ms.topic: how-to
-ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up AutoML training with the Azure ML Python SDK v2

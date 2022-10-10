@@ -7,6 +7,7 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 02/26/2022
 ---

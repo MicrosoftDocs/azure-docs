@@ -4,7 +4,7 @@ description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
 ms.date: 09/20/2022
 zone_pivot_groups: connect-aws-accounts
-ms.custom: mode-other
+ms.custom: mode-other, ignite-2022
 ---
 # Quickstart: Connect your AWS accounts to Microsoft Defender for Cloud
 

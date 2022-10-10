@@ -8,9 +8,7 @@ ms.topic: how-to
 ms.date: 06/02/2022
 ms.author: jucocchi
 ms.devlang: csharp, java, javascript, python
-ms.custom:
-- devx-track-js
-- kr2b-contr-experiment
+ms.custom: devx-track-js, kr2b-contr-experiment, ignite-2022
 ---
 
 # Find the request unit charge for operations in Azure Cosmos DB for NoSQL

@@ -4,10 +4,10 @@ description: This article describes how to optimize write performance in the Azu
 author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: gahllevy
-
 ---
 
 # Optimize write performance in Azure Cosmos DB for MongoDB

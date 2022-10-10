@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 10/22/2021
  ms.author: jianleishen
- ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 |Category | Data store |  
 | :-------- | :----- |  
@@ -16,4 +16,3 @@
 | NoSQL | [Cassandra](../data-factory-onprem-cassandra-connector.md)<br/>[MongoDB](../data-factory-on-premises-mongodb-connector.md) | 
 | File | [Amazon S3](../data-factory-amazon-simple-storage-service-connector.md)<br/>[File system](../data-factory-onprem-file-system-connector.md)<br/>[FTP](../data-factory-ftp-connector.md)<br/>[HDFS](../data-factory-hdfs-connector.md)<br/>[SFTP](../data-factory-sftp-connector.md) |
 | Others | [Generic HTTP](../data-factory-http-connector.md)<br/>[Generic OData](../data-factory-odata-connector.md)<br/>[Generic ODBC](../data-factory-odbc-connector.md)<br/>[Salesforce](../data-factory-salesforce-connector.md)<br/>[Web table (table from HTML)](../data-factory-web-table-connector.md)|
-

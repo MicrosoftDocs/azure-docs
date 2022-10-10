@@ -7,8 +7,7 @@ ms.topic: conceptual
 ms.service: cache
 ms.date: 09/10/2020
 ms.reviewer: shijain
-ms.custom: subject-monitoring
-
+ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Explore Azure Monitor for Azure Cache for Redis

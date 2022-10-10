@@ -4,6 +4,7 @@ description: Learn about SQL SELECT clause for Azure Cosmos DB. Use SQL as an Az
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: sidandrews

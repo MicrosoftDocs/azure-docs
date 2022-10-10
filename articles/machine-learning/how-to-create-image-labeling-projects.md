@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: data4ml, ignite-fall-2021
+ms.custom: data4ml, ignite-fall-2021, ignite-2022
 ---
 
 # Create an image labeling project and export labels

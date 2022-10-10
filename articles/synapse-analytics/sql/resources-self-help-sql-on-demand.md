@@ -8,7 +8,7 @@ ms.date: 09/01/2022
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics

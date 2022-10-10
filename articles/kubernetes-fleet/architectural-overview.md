@@ -5,6 +5,7 @@ ms.date: 10/03/2022
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
+ms.custom: ignite-2022
 ms.topic: conceptual
 ---
 
@@ -83,4 +84,3 @@ The user can then create a `MultiClusterService` custom resource to indicate tha
 ## Next steps
 
 * Create an [Azure Kubernetes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md)
-

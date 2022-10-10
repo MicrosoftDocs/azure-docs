@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/02/2020
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 
 # Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
 ms.devlang: javascript
+ms.custom: ignite-2022
 ---
 
 # Use Multi-document transactions in Azure Cosmos DB for MongoDB

@@ -2,6 +2,7 @@
 title: "Overview of Azure Kubernetes Fleet Manager (preview)"
 services: kubernetes-fleet
 ms.service: kubernetes-fleet
+ms.custom: ignite-2022
 ms.date: 08/29/2022
 ms.topic: overview
 author: shashankbarsin

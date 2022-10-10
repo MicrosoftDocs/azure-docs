@@ -2,6 +2,7 @@
 title: Default Prometheus metrics configuration in Azure Monitor (preview)
 description: Lists the default targets, dashboards, and recording rules for Prometheus metrics in Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---

@@ -5,6 +5,7 @@ author: aliuy
 ms.author: andrl
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: mjbrown

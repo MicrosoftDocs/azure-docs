@@ -4,6 +4,7 @@ description: This documentation is provided as a resource for participants in th
 author: dileepraotv-github
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 01/06/2022
 ms.author: turao

@@ -4,11 +4,11 @@ description: Learn how to deploy an Azure Cosmos DB account, Azure App Service W
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-
 ---
 # Deploy Azure Cosmos DB and Azure App Service with a web app from GitHub using an Azure Resource Manager Template
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

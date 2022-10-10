@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/30/2022
 ms.author: girobins
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 
 # INDEX_OF (Azure Cosmos DB)

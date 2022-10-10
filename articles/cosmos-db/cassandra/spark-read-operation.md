@@ -10,7 +10,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.devlang: scala
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 # Read data from Azure Cosmos DB for Apache Cassandra tables using Spark
@@ -149,4 +149,3 @@ The following are additional articles on working with Azure Cosmos DB for Apache
  * [Delete operations](spark-delete-operation.md)
  * [Aggregation operations](spark-aggregation-operations.md)
  * [Table copy operations](spark-table-copy-operations.md)
-

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 04/18/2022
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ---
 
 # Restore an Azure Cosmos DB account that uses continuous backup mode

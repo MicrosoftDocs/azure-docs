@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 05/01/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # List and get databases and graphs for Azure Cosmos DB - API for MongoDB

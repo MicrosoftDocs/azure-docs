@@ -5,6 +5,7 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
 ms.devlang: csharp
+ms.custom: ignite-2022
 ---
 # Azure Functions developer guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.

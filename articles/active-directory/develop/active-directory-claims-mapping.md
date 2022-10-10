@@ -5,7 +5,7 @@ author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, ignite-2022
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/16/2021

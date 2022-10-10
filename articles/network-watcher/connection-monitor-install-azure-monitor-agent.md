@@ -4,6 +4,7 @@ description: This article describes how to install Azure monitor agent
 services: network-watcher
 author: v-ksreedevan
 ms.service: network-watcher
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/11/2022
 ms.author: v-ksreedevan

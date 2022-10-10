@@ -6,14 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: contperf-fy21q1, data4ml, sdkv1
+ms.custom: contperf-fy21q1, data4ml, sdkv1, ignite-2022
 ms.author: xunwan
 author: xunwan
 ms.reviewer: nibaccam
 ms.date: 09/22/2022
-
-# Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
-
+#Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 ---
 
 # Create data assets

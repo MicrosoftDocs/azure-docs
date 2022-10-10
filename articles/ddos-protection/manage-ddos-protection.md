@@ -6,7 +6,7 @@ ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
 ms.date: 10/12/2022
-ms.custom: template-quickstart
+ms.custom: template-quickstart, ignite-2022
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal

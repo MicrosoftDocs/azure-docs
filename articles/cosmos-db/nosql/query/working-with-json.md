@@ -4,6 +4,7 @@ description: Learn about to query and access nested JSON properties and use spec
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/19/2020
 ms.author: sidandrews

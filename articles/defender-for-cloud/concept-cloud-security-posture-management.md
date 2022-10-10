@@ -2,6 +2,7 @@
 title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/20/2022
 ---
 

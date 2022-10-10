@@ -4,6 +4,7 @@ description: The studio is a web portal for Azure Machine Learning workspaces. T
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: ignite-2022
 ms.topic: overview
 author: lgayhardt
 ms.author: lagayhar

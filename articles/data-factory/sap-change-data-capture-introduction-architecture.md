@@ -5,6 +5,7 @@ description: Learn about the SAP change data capture (CDC) capabilities in Azure
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: ulrichchrist

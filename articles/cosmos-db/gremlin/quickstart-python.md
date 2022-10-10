@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 03/29/2021
 author: manishmsfte
 ms.author: mansha
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-api, ignite-2022
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]

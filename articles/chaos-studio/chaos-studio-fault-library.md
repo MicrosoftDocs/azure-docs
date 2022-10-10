@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 06/16/2022
 ms.author: johnkem
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Chaos Studio fault and action library

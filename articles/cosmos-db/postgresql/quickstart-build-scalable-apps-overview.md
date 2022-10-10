@@ -5,6 +5,7 @@ ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
 ms.date: 08/11/2022

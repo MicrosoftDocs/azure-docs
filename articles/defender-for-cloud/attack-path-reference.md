@@ -3,6 +3,7 @@ title: Reference list of attack paths
 titleSuffix: Defender for Cloud
 description: This article lists Microsoft Defender for Cloud's list of attack paths based on resource.
 ms.topic: reference
+ms.custom: ignite-2022
 ms.date: 09/21/2022
 ---
 

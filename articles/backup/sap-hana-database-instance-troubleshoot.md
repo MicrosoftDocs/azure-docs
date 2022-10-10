@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 ms.date: 10/05/2022
 author: v-amallick
 ms.service: backup
+ms.custom: ignite-2022
 ms.author: v-amallick
 ---
 
@@ -155,21 +156,3 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 ## Next steps
 
 Learn about [Azure Backup service to back up database instances (preview)](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances-preview).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

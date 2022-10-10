@@ -11,6 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn

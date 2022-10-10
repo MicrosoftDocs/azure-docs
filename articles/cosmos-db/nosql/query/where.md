@@ -4,11 +4,11 @@ description: Learn about SQL WHERE clause for Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # WHERE clause in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

@@ -4,11 +4,11 @@ description: Learn about SQL logical operators supported by Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 01/07/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # Logical operators in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

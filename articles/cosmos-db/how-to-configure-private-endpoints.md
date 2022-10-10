@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: sidandrews 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Configure Azure Private Link for an Azure Cosmos DB account

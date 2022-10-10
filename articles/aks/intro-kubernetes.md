@@ -4,8 +4,7 @@ description: Learn the features and benefits of Azure Kubernetes Service to depl
 services: container-service
 ms.topic: overview
 ms.date: 02/24/2021
-
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ---
 
 # Azure Kubernetes Service

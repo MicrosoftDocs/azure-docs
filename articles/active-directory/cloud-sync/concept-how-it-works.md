@@ -6,6 +6,7 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.subservice: hybrid

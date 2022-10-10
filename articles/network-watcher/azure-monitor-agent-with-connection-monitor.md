@@ -4,6 +4,7 @@ description: This article describes how to monitor network connectivity in Conne
 services: network-watcher
 author: v-ksreedevan
 ms.service: network-watcher
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/11/2022
 ms.author: v-ksreedevan
@@ -55,5 +56,3 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 ## Next steps 
 
 - Install [Azure Connected machine agent](connection-monitor-connected-machine-agent.md).
-
-

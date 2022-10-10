@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 09/15/2022
-ms.custom: sdkv2
+ms.custom: sdkv2, ignite-2022
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
@@ -246,4 +246,3 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 + Convert this tutorial into a production ready [pipeline with reusable components](tutorial-pipeline-python-sdk.md).
 + Learn about all of the [deployment options](how-to-deploy-managed-online-endpoints.md) for Azure Machine Learning.
 + Learn how to [authenticate to the deployed model](how-to-authenticate-online-endpoint.md).
-

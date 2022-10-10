@@ -5,6 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.date: 09/11/2022
 ms.topic: how-to
+ms.custom: ignite-2022
 ---
 
 # Use Defender for Containers to scan your Azure Container Registry images for vulnerabilities

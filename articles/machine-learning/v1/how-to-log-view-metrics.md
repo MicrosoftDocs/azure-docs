@@ -8,7 +8,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 04/19/2021
 ms.topic: how-to
 ---

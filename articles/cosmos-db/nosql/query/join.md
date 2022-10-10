@@ -4,11 +4,11 @@ description: Learn how to JOIN multiple tables in Azure Cosmos DB to query the d
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # Joins in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

@@ -4,11 +4,11 @@ description: Learn about SQL equality and comparison operators supported by Azur
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 01/07/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # Equality and comparison operators in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

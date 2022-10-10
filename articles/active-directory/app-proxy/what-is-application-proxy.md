@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 08/29/2022
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, ignite-2022
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users

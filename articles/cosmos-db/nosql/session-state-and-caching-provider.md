@@ -4,6 +4,7 @@ description: Learn how to use Azure Cosmos DB as an ASP.NET session state and ca
 author: StefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/06/2022
 ---

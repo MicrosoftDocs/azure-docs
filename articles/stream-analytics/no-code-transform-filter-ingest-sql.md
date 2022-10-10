@@ -4,6 +4,7 @@ description: Learn how to use the no code editor to easily create a Stream Analy
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/12/2022
 ---

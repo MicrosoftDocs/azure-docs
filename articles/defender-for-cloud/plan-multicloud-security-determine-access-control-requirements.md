@@ -2,6 +2,7 @@
 title: Defender for Cloud Planning multicloud security determine access control requirements guidance
 description: Learn about determining access control requirements to meet business goals in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
 # Determine access control requirements

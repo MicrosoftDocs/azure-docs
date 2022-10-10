@@ -4,6 +4,7 @@ description: Learn how to use Kafka Connect to synchronize data from PostgreSQL 
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/02/2022
 ms.author: sidandrews
@@ -261,4 +262,3 @@ You can continue to insert more data into PostgreSQL and confirm that the record
 * [Provision throughput on containers and databases](../set-throughput.md)
 * [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
 * [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles
-

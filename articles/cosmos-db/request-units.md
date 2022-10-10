@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.custom: seo-nov-2020, cosmos-db-video
+ms.custom: seo-nov-2020, cosmos-db-video, ignite-2022
 ---
 # Request Units in Azure Cosmos DB
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]

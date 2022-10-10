@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/23/2022
 ms.author: pafarley
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: seodec18, devx-track-csharp, ignite-2022
 ---
 
 # What is Optical character recognition?

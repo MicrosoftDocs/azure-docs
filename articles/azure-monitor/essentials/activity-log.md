@@ -4,6 +4,7 @@ description: View the Azure Monitor activity log and send it to Azure Monitor Lo
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 07/01/2022
 ms.author: guywild
 ms.reviewer: orens

@@ -4,6 +4,7 @@ description: Learn how to set up alerts for Azure Cosmos DB using Log Analytics
 author: deborahc
 ms.author: dech 
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 02/08/2022
 ---
@@ -159,4 +160,3 @@ To learn about best practices for managing workloads that have partition keys re
 * How to [monitor normalized RU/s metric](monitor-normalized-request-units.md) in Azure Cosmos DB container.
 * How to [monitor throughput or request unit usage](monitor-request-unit-usage.md) of an operation in Azure Cosmos DB.
 * How to [interpret and debut 429 exceptions](sql/troubleshoot-request-rate-too-large.md) in Azure Cosmos DB container.
-
