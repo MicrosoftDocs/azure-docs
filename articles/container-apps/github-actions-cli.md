@@ -43,8 +43,7 @@ The first time you attach GitHub Actions to your container app, you need to prov
 az ad sp create-for-rbac \
   --name <SERVICE_PRINCIPAL_NAME> \
   --role "contributor" \
-  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> \
-  --sdk-auth
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>
 ```
 
 # [PowerShell](#tab/powershell)
@@ -53,15 +52,14 @@ az ad sp create-for-rbac \
 az ad sp create-for-rbac `
   --name <SERVICE_PRINCIPAL_NAME> `
   --role "contributor" `
-  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> `
-  --sdk-auth
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> 
 ```
 
 ---
 
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
-The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `clientId`, and `clientSecret`.
+The return value from this command  includes the service principal's `appId`, `password` and `tenant`.  You need to pass these values to the `az containerapp github-action add` command.
 
 The following example shows you how to add an integration while using a personal access token.
 
@@ -77,9 +75,9 @@ az containerapp github-action add \
   --registry-url <URL_TO_CONTAINER_REGISTRY> \
   --registry-username <REGISTRY_USER_NAME> \
   --registry-password <REGISTRY_PASSWORD> \
-  --service-principal-client-id <CLIENT_ID> \
-  --service-principal-client-secret <CLIENT_SECRET> \
-  --service-principal-tenant-id <TENANT_ID> \
+  --service-principal-client-id <appId> \
+  --service-principal-client-secret <password> \
+  --service-principal-tenant-id <tenant> \
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 
@@ -95,9 +93,9 @@ az containerapp github-action add `
   --registry-url <URL_TO_CONTAINER_REGISTRY> `
   --registry-username <REGISTRY_USER_NAME> `
   --registry-password <REGISTRY_PASSWORD> `
-  --service-principal-client-id <CLIENT_ID> `
-  --service-principal-client-secret <CLIENT_SECRET> `
-  --service-principal-tenant-id <TENANT_ID> `
+  --service-principal-client-id <appId> `
+  --service-principal-client-secret <password> `
+  --service-principal-tenant-id <tenant> `
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 
