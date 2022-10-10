@@ -104,7 +104,7 @@ This how-to guide shows how to add metadata to an integration account artifact. 
 
    The workflow's JSON definition appears, as shown in the following example:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/finished-logic-app-definition.png" alt-text="Screenshot of the HTTP action's JSON definition with the 'body', 'headers', 'method', and 'URI' properties highlighted.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/finished-http-action-definition.png" alt-text="Screenshot of the HTTP action's JSON definition with the 'body', 'headers', 'method', and 'URI' properties highlighted.":::
 
 1. On the code view toolbar, select **Designer**.
 
