@@ -151,7 +151,7 @@ A good practice would be to set it to 0.9. As an example, a value of 0.9 for a `
 
 ##### `checkpoint_timeout`
 
-The `checkpoint_timeout` value can be increased from default value set on the server.Please note while increasing the `checkpoint_timeout` take into consideration that increasing the value would also increase the time for crash recovery.
+The `checkpoint_timeout` value can be increased from default value set on the server. Please note while increasing the `checkpoint_timeout` take into consideration that increasing the value would also increase the time for crash recovery.
 
 #### Autovacuum tuning to decrease disruptions
 
