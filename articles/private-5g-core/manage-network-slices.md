@@ -48,7 +48,9 @@ To provision a new network slice:
 
 4. Select **Create**.
 5. Wait while the Azure portal deploys the new network slice. You'll see a confirmation screen when the deployment is complete.
-6. Navigate to the list of network slices, as described in [View existing network slices](#view-existing-network-slices), and confirm that the new slice exists and shows the expected configuration.
+6. Navigate to the list of network slices, as described in [View existing network slices](#view-existing-network-slices).
+7. Select **Refresh**.
+8. Confirm that the new slice exists and shows the expected configuration.
 
 ## Modify a network slice
 
@@ -65,7 +67,9 @@ To make changes to an existing network slice:
 
 4. Select **Modify**.
 5. Wait while the Azure portal redeploys the network slice with the new configuration. You'll see a confirmation screen when the deployment is complete.
-6. Navigate to the list of network slices, as described in [View existing network slices](#view-existing-network-slices), and confirm that your slice shows the updated configuration.
+6. Navigate to the list of network slices, as described in [View existing network slices](#view-existing-network-slices).
+7. Select **Refresh**.
+8. Confirm that your slice shows the updated configuration.
 
 ## Delete a network slice
 
