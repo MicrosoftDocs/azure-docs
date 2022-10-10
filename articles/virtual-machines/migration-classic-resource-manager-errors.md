@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 02/06/2020
+ms.date: 10/10/2022
 ms.author: tagore 
 ms.custom: devx-track-azurepowershell
 
