@@ -43,7 +43,7 @@ To achieve strong performance, it's advised to drop unique key constraints befor
 
 ##### Foreign key constraints
 
-It's is advised to drop foreign key constraints before initial data load and recreate once data load is completed.
+It's advised to drop foreign key constraints before initial data load and recreate once data load is completed.
 
 Changing the `session_replication_role` parameter to replica also disables all foreign key checks.However, be aware making the change can leave data in an inconsistent state if not properly used.
 
