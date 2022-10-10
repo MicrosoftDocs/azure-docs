@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters by submitting Azure Resource
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 12/10/2019
+ms.date: 08/05/2022
 ---
 
 # Create Apache Hadoop clusters using the Azure REST API
@@ -350,9 +350,3 @@ Now that you've successfully created an HDInsight cluster, use the following to 
 
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### Apache Storm clusters
-
-* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

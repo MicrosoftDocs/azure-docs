@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 07/20/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -83,7 +83,7 @@ To enable multifactor authentication, get the custom policy starter pack from Gi
 
 -  [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository from `https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack`, and then update the XML files in the **SocialAndLocalAccountsWithMFA** starter pack with your Azure AD B2C tenant name. The **SocialAndLocalAccountsWithMFA**  enables social and local sign in options, and multifactor authentication options, except for the Authenticator app - TOTP option.
 - To support the **Authenticator app - TOTP** MFA option, download the custom policy files from `https://github.com/azure-ad-b2c/samples/tree/master/policies/totp`, and then update the XML files with your Azure AD B2C tenant name. Make sure to include `TrustFrameworkExtensions.xml`, `TrustFrameworkLocalization.xml`, and `TrustFrameworkBase.xml` XML files from the **SocialAndLocalAccounts** starter pack.
-- Update your [page layout] to version `2.1.9`. For more information, see [Select a page layout](contentdefinitions.md#select-a-page-layout).
+- Update your [page layout] to version `2.1.14`. For more information, see [Select a page layout](contentdefinitions.md#select-a-page-layout).
 
 ::: zone-end
 

@@ -1,7 +1,6 @@
 ---
 title: Customize a Language model with Azure Video Indexer API
 description: Learn how to customize a Language model with the Azure Video Indexer API.
-services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article

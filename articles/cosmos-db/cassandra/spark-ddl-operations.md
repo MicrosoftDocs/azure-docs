@@ -18,7 +18,7 @@ This article details keyspace and table DDL operations against Azure Cosmos DB C
 
 ## Spark context
 
- The connector for Cassandra API requires the Cassandra connection details to be initialized as part of the spark context. When you launch a notebook, the spark context is already initialized and it is not advisable to stop and reinitialize it. One solution is to add the Cassandra API instance configuration at a cluster level, in the cluster spark configuration. This is a one-time activity per cluster. Add the following code to the Spark configuration as a space separated key value pair:
+ The connector for Cassandra API requires the Cassandra connection details to be initialized as part of the spark context. When you launch a notebook, the spark context is already initialized, and it isn't advisable to stop and reinitialize it. One solution is to add the Cassandra API instance configuration at a cluster level, in the cluster spark configuration. It's one-time activity per cluster. Add the following code to the Spark configuration as a space separated key value pair:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -26,6 +26,15 @@ This article details keyspace and table DDL operations against Azure Cosmos DB C
   spark.cassandra.connection.ssl.enabled true
   spark.cassandra.auth.username YOUR_COSMOSDB_ACCOUNT_NAME
   spark.cassandra.auth.password YOUR_COSMOSDB_KEY
+
+  //Throughput-related...adjust as needed
+  spark.cassandra.output.batch.size.rows  1  
+  // spark.cassandra.connection.connections_per_executor_max  10   // Spark 2.x
+  spark.cassandra.connection.remoteConnectionsPerExecutor  10   // Spark 3.x
+  spark.cassandra.output.concurrent.writes  1000  
+  spark.cassandra.concurrent.reads  512  
+  spark.cassandra.output.batch.grouping.buffer.size  1000  
+  spark.cassandra.connection.keep_alive_ms  600000000  
   ```
 
 ## Cassandra API-related configuration 
@@ -39,22 +48,13 @@ import com.datastax.spark.connector.cql.CassandraConnector
 //if using Spark 2.x, CosmosDB library for multiple retry
 //import com.microsoft.azure.cosmosdb.cassandra
 //spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
-
-//Throughput-related...adjust as needed
-spark.conf.set("spark.cassandra.output.batch.size.rows", "1")
-//spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10") // Spark 2.x
-spark.conf.set("spark.cassandra.connection.remoteConnectionsPerExecutor", "10") // Spark 3.x
-spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")
-spark.conf.set("spark.cassandra.concurrent.reads", "512")
-spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
-spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
 > [!NOTE]
-> If you are using Spark 3.0, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+> If you are using Spark 3.x, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
 
 > [!WARNING]
-> The Spark 3 samples shown in this article have been tested with Spark **version 3.0.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
+> The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.1**. Later versions of Spark and/or the Cassandra connector may not function as expected.
 
 ## Keyspace DDL operations
 
@@ -112,7 +112,7 @@ USE books_ks;
 DESCRIBE books;
 ```
 
-Provisioned throughput and default TTL values are not shown in the output of the previous command, you can get these values from the portal.
+Provisioned throughput and default TTL values aren't shown in the output of the previous command, you can get these values from the portal.
 
 ### Alter table
 

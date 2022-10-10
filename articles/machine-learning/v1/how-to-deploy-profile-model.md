@@ -22,6 +22,8 @@ This article shows how to profile a machine learning to model to determine how m
 > [!IMPORTANT]
 > This article applies to CLI v1 and SDK v1.  This profiling technique is not available for v2 of either CLI or SDK.
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Prerequisites
 
 This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](../how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.
@@ -135,12 +137,12 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## Next steps
 
-* [Troubleshoot a failed deployment](../how-to-troubleshoot-deployment.md)
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
-* [Create client applications to consume web services](../how-to-consume-web-service.md)
-* [Update web service](../how-to-deploy-update-web-service.md)
+* [Create client applications to consume web services](how-to-consume-web-service.md)
+* [Update web service](how-to-deploy-update-web-service.md)
 * [How to deploy a model using a custom Docker image](../how-to-deploy-custom-container.md)
-* [Use TLS to secure a web service through Azure Machine Learning](../how-to-secure-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](../how-to-enable-app-insights.md)
-* [Collect data for models in production](../how-to-enable-data-collection.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
 * [Create event alerts and triggers for model deployments](../how-to-use-event-grid.md)

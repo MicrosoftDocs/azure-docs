@@ -54,5 +54,5 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
 ## Next steps
 
-- [Quickstart: Register Spacecraft](register-spacecraft.md)
-- [Quickstart: Configure a contact profile](contact-profile.md)
+- [Register Spacecraft](register-spacecraft.md)
+- [Configure a contact profile](contact-profile.md)

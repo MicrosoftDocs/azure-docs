@@ -40,7 +40,7 @@ For NVA HA scenarios, HA ports offer the following advantages:
 
 The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as show in the following diagram, an HA Ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
 
-:::image type="content" source="./media/load-balancer-ha-ports-overview/nvaha.png" alt-text="Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode.":::
+:::image type="content" source="./media/load-balancer-ha-ports-overview/nvahathmb.png" alt-text="Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode." lightbox="media/load-balancer-ha-ports-overview/nvaha.png":::
 
 >[!NOTE]
 > If you are using NVAs, confirm with their providers how to best use HA ports and to learn which scenarios are supported.
@@ -93,7 +93,7 @@ You can configure **one** public standard load balancer resource for the backend
 
 - The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to the same backend **ipconfiguration(s)** isn't supported on a single front-end IP configuration unless both have Floating IP enabled.
 
-- IP fragmenting isn't supported. If a packet is already fragmented, it's forwarded based on the two-tuple [distribution mode](distribution-mode-concepts.md) when enabled on HA ports load-balancing rules.
+- IP fragmenting isn't supported. 
 
 - Flow symmetry for NVA scenarios with a backend instance and a single IP/single NIC configuration is supported only when used as shown in the diagram above. Flow symmetry isn't provided in any other scenario. Two or more load balancer resources and their rules make independent decisions and aren't coordinated. Flow symmetry isn't available with the use of multiple IP configurations. Flow symmetry isn't available when placing the NVA between a public and internal load balancer. We recommend the use of a single IP/single NIC configuration referenced in the architecture above.
 

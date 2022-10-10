@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/22/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
@@ -26,7 +26,7 @@ Azure AD Password Protection is designed with the following principles in mind:
 * Domain controllers (DCs) never have to communicate directly with the internet.
 * No new network ports are opened on DCs.
 * No AD DS schema changes are required. The software uses the existing AD DS *container* and *serviceConnectionPoint* schema objects.
-* No minimum AD DS domain or forest functional level (DFL/FFL) is required.
+* Any supported AD DS domain or forest functional level can be used.
 * The software doesn't create or require accounts in the AD DS domains that it protects.
 * User clear-text passwords never leave the domain controller, either during password validation operations or at any other time.
 * The software isn't dependent on other Azure AD features. For example, Azure AD password hash sync (PHS) isn't related or required for Azure AD Password Protection.

@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/14/2022
+ ms.date: 07/13/2022
  ms.author: cherylmc
 ---
 1. Sign in to the Azure portal as a user that is assigned the **Global administrator** role.
@@ -18,7 +18,7 @@
     Azure Government
 
     ```
-    https://login-us.microsoftonline.com/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
+    https://login.microsoftonline.us/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
     ````
 
     Microsoft Cloud Germany
@@ -30,7 +30,7 @@
     Azure China 21Vianet
 
     ```
-    https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
+    https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
    > [!NOTE]

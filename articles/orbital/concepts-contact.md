@@ -1,18 +1,18 @@
 ---
-title: Ground station contact - Azure Orbital GSaSS
+title: Ground station contact - Azure Orbital
 description: Learn more about the contact object and how to schedule a contact.
 author: hrshelar
 ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
-ms.date: 06/21/2022
+ms.date: 07/13/2022
 ms.author: hrshelar
 #Customer intent: As a satellite operator or user, I want to understand how to what the contact object is so I can manage my mission operations.
 ---
 
 # Ground station contact
 
-A contact occurs when the spacecraft is over a specified ground station. You can find available passes on the system and schedule them for use through Azure Orbital GSaaS. A contact and ground station pass mean the same thing.
+A contact occurs when the spacecraft is over a specified ground station. You can find available passes on the system and schedule them for use through Azure Orbital Ground Station (AOGS). A contact and ground station pass mean the same thing.
 
 When you schedule a contact, a contact object is created under your spacecraft object in your resource group. The contact only associated with this spacecraft and can't be transferred to another spacecraft, resource group, or region.
 
@@ -56,5 +56,5 @@ See [how-to schedule a contact](schedule-contact.md) for the Portal method. The 
 
 ## Next steps
 
-- [Quickstart: Schedule a contact](schedule-contact.md)
-- [How to: Update the Spacecraft TLE](update-tle.md)
+- [Schedule a contact](schedule-contact.md)
+- [Update the Spacecraft TLE](update-tle.md)

@@ -4,14 +4,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/15/2022
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
 
 Use this quickstart to create a sentiment analysis application with the client library for Java. In the following example, you will create a Java application that can identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
+
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
 ## Prerequisites
 
@@ -30,14 +32,14 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.9</version>
+        <version>5.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -65,7 +67,6 @@ public class Example {
 
     public static void main(String[] args) {
         TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
-        sentimentAnalysisExample(client);
         sentimentAnalysisWithOpinionMiningExample(client);
     }
     // Method to authenticate the client object with your key and endpoint.
@@ -75,34 +76,11 @@ public class Example {
                 .endpoint(endpoint)
                 .buildClient();
     }
-    // Example method for sentiment in text.
-    static void sentimentAnalysisExample(TextAnalyticsClient client)
-    {
-        // The text that need be analyzed.
-        String text = "I had the best day of my life. I wish you were there with me.";
-
-        DocumentSentiment documentSentiment = client.analyzeSentiment(text);
-        System.out.printf(
-                "Recognized document sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
-                documentSentiment.getSentiment(),
-                documentSentiment.getConfidenceScores().getPositive(),
-                documentSentiment.getConfidenceScores().getNeutral(),
-                documentSentiment.getConfidenceScores().getNegative());
-
-        for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
-            System.out.printf(
-                    "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
-                    sentenceSentiment.getSentiment(),
-                    sentenceSentiment.getConfidenceScores().getPositive(),
-                    sentenceSentiment.getConfidenceScores().getNeutral(),
-                    sentenceSentiment.getConfidenceScores().getNegative());
-        }
-    }
-    // Example method for detecting opinions in text.
+    // Example method for detecting sentiment and opinions in text.
     static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
     {
         // The document that needs be analyzed.
-        String document = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
+        String document = "The food and service were unacceptable. The concierge was nice, however.";
 
         System.out.printf("Document = %s%n", document);
 
@@ -130,7 +108,6 @@ public class Example {
         });
     }
 }
-
 ```
 
 > [!div class="nextstepaction"]
@@ -139,18 +116,26 @@ public class Example {
 ## Output
 
 ```console
-Recognized document sentiment: positive, positive score: 0.99, neutral score: 0.0, negative score: 0.0.
-Recognized sentence sentiment: positive, positive score: 0.99, neutral score: 0.0, negative score: 0.0.
-Recognized sentence sentiment: neutral, positive score: 0.25, neutral score: 0.72, negative score: 0.03.
-
-Document = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
-Recognized document sentiment: negative, positive score: 0.050000, neutral score: 0.030000, negative score: 0.920000.
-	Sentence sentiment: negative, positive score: 0.010000, neutral score: 0.000000, negative score: 0.990000.
-		Target sentiment: negative, target text: atmosphere
-			'negative' assessment sentiment because of "Bad". Is the assessment negated: false.
-	Sentence sentiment: negative, positive score: 0.140000, neutral score: 0.080000, negative score: 0.780000.
-	Sentence sentiment: negative, positive score: 0.010000, neutral score: 0.000000, negative score: 0.990000.
-		Target sentiment: negative, target text: Staff
-			'negative' assessment sentiment because of "friendly". Is the assessment negated: true.
-			'negative' assessment sentiment because of "helpful". Is the assessment negated: true.
+Document = The food and service were unacceptable. The concierge was nice, however.
+Recognized document sentiment: mixed, positive score: 0.470000, neutral score: 0.000000, negative score: 0.520000.
+	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 0.990000.
+		Target sentiment: negative, target text: food
+			'negative' assessment sentiment because of "unacceptable". Is the assessment negated: false.
+		Target sentiment: negative, target text: service
+			'negative' assessment sentiment because of "unacceptable". Is the assessment negated: false.
+	Sentence sentiment: positive, positive score: 0.940000, neutral score: 0.010000, negative score: 0.050000.
+		Target sentiment: positive, target text: concierge
+			'positive' assessment sentiment because of "nice". Is the assessment negated: false.
 ```
+
+[!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [Sentiment analysis and opinion mining language support](../../language-support.md)
+* [How to call the API](../../how-to/call-api.md)  
+* [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable)
+* [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)

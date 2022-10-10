@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Data Box, Azure Data Box Heavy FAQ 
+  title: Azure Data Box, Azure Data Box Heavy FAQ  
   description: Contains frequently asked questions and answers for Azure Data Box and Azure Data Box Heavy, a cloud solution that enables you to transfer large amounts of data into Azure.
   services: databox
   author: v-dalc
@@ -8,7 +8,7 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: faq
-  ms.date: 05/06/2022
+  ms.date: 06/06/2022
   ms.author: alkohli
   ms.custom: references_regions
 
@@ -215,7 +215,7 @@ sections:
 
           ### How do I verify the data I copied onto my Data Box?
 
-          After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+          After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-prepare-to-ship.md#prepare-to-ship).
           
           ## [Data Box only](#tab/data-box)     
 
@@ -242,7 +242,7 @@ sections:
 
           ### How do I verify the data I copied onto my Data Box?
 
-          After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+          After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-prepare-to-ship.md#prepare-to-ship).
 
       - question: |
           Track status 
@@ -362,7 +362,7 @@ sections:
 
           ### E-ink display is not showing the return shipment label. What should I do?
 
-          E-link is only supported in the United States and EU regions. If the E-ink display in the Azure portal doesn't show the return shipping label, you can download the shipping label from the local web UI on the device after completing the **Prepare to ship** step. For more information, see [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
+          E-link is only supported in the United States and EU regions. If the E-ink display in the Azure portal doesn't show the return shipping label, you can download the shipping label from the local web UI on the device after completing the **Prepare to ship** step. For more information, see [Prepare to ship](data-box-deploy-prepare-to-ship.md#prepare-to-ship).
           
           When you have the shipping label, remove the old label and any sticker from the previous shipment. Insert the new label into the clear plastic sleeve attached to the device, ensuring that the shipping label is clearly visible.
 

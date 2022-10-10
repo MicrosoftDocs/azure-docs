@@ -77,8 +77,27 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
     > [![Screenshot showing the DNS name of the iotedge vm.](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
    
     > [!TIP]
-    > If you want to SSH into this VM after setup, use the associated **DNS name** with the following command:
+    > To SSH into this VM after setup, use the associated **DNS name** with the following command:
     `ssh <adminUsername>@<DNS_Name>`.
+
+ 1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string.
+
+   ```markdown
+   /etc/adu/du-config.json
+   ```
+
+ 5. Restart the Device Update agent by running the following command:
+
+   ```markdown
+    sudo systemctl restart adu-agent
+   ```
+
+Device Update for Azure IoT Hub software packages are subject to the following license terms:
+
+  * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE)
+  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
+
+Read the license terms before you use a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package. 
 
 ### Manually prepare a device
 
@@ -103,7 +122,7 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    /etc/adu/du-config.json
    ```
 
-1. Restart the Device Update agent by running the following command:
+5. Restart the Device Update agent by running the following command:
 
    ```markdown
     sudo systemctl restart adu-agent
@@ -119,10 +138,10 @@ Read the license terms before you use a package. Your installation and use of a 
 ## Add a tag to your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. On the left pane, under **IoT Edge**, find your IoT Edge device and go to the device twin or module twin.
+1. On the left pane, under **Devices**, find your IoT Edge device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using Device identity with Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
-    
+
     ```JSON
         "tags": {
                 "ADUGroup": "<CustomTagValue>"
@@ -131,7 +150,7 @@ Read the license terms before you use a package. Your installation and use of a 
 
 ## Import the update
 
-1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and select the **Assets** dropdown list. Download `Edge.package.update.samples.zip` by selecting it. Extract the contents of the folder to discover a sample APT manifest (sample-1.0.1-aziot-edge-apt-manifest.json) and its corresponding import manifest (sample-1.0.1-aziot-edge-importManifest.json).
+1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and select the **Assets** dropdown list. Download `Tutorial_IoTEdge_PackageUpdate.zip` by selecting it. Extract the contents of the folder to discover a sample APT manifest (sample-1.0.2-aziot-edge-apt-manifest.json) and its corresponding import manifest (sample-1.0.2-aziot-edge-importManifest.json).
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your IoT hub with Device Update. On the left pane, under **Automatic Device Management**, select **Updates**.
 1. Select the **Updates** tab.
 1. Select **+ Import New Update**.

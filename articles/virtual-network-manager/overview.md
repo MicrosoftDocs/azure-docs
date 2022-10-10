@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: virtual-network-manager
 ms.topic: overview
-ms.date: 07/06/2022
+ms.date: 08/11/2022
 ms.author: mbender
 ms.custom: references_regions, ignite-fall-2021
 #Customer intent: As an IT administrator, I want to learn about Azure Virtual Network Manager and what I can use it for.
@@ -24,11 +24,11 @@ Azure Virtual Network Manager is a management service that enables you to group,
 
 :::image type="content" source="./media/overview/management-group.png" alt-text="Diagram of management group in Virtual Network Manager.":::
 
-During the creation process, you define the scope for what your Azure Virtual Network Manager will manage. Defining a scope requires a [management group](../governance/management-groups/overview.md) to be created. After defining the scope, you enable features such as *Connectivity* and the *SecurityAdmin* role for your Virtual Network Manager.
+During the creation process, you define the scope for what your Azure Virtual Network Manager will manage. Your Network Manager will only have the delegated access to apply configurations within this scope boundary. Defining a scope can be done directly on a list of subscriptions. However it's recommended to use [management groups](../governance/management-groups/overview.md) to define your scope. Management groups provide hierarchical organization to your subscriptions. After defining the scope, you deploy configuration types including *Connectivity* and the *SecurityAdmin rules* for your Virtual Network Manager.
 
-After you deploy the Virtual Network Manager instance, you then create a *network group* by using conditional statements to select virtual networks by name, tags, or IDs (dynamic membership). You can also select specific virtual networks (static membership). The network group rules defined are reflected in Azure Policy as a custom initiative definition and corresponding assignment that illustrate the rules you defined for virtual network membership. For more information about Azure Policy initiatives, see [Azure Policy initiative structure](../governance/policy/concepts/initiative-definition-structure.md). These policies are available in read-only mode today. For more information about how to create, update, and delete these policies, see [Network groups and Azure Policy](concept-network-groups.md#network-group-and-azure-policy). You then create connectivity and/or security configuration(s) applied to those network groups based on your topology and security needs. 
+After you deploy the Virtual Network Manager instance, you create a *network group*, which serves as a logical container of networking resources to apply configurations at scale. You can manually select individual virtual networks to be added to your network group, known as static membership. Or you can use Azure Policy to define conditions that will govern your group membership dynamically, or dynamic membership. For more information about Azure Policy initiatives, see [Azure Virtual Network Manager and Azure Policy](concept-network-groups.md#network-group-and-azure-policy).  
 
-A connectivity configuration enables you to create a mesh or a hub-and-spoke network topology. A security configuration allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created your desired network groups and configurations, you can deploy the configurations to any region of your choosing.
+Next, you create connectivity and/or security configuration(s) applied to those network groups based on your topology and security needs. A [connectivity configuration](concept-connectivity-configuration.md) enables you to create a mesh or a hub-and-spoke network topology. A [security configuration](concept-security-admins.md) allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created your desired network groups and configurations, you can deploy the configurations to any region of your choosing.
 
 ## Key benefits
 

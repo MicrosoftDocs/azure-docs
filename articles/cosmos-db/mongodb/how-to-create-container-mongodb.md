@@ -43,12 +43,17 @@ This article explains the different ways to create a collection in Azure Cosmos 
 ## <a id="dotnet-mongodb"></a>Create using .NET SDK
 
 ```csharp
-// Create a collection with a partition key by using Mongo Shell:
-db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: "hashed" } } )
+var bson = new BsonDocument
+{
+    { "customAction", "CreateCollection" },
+    { "collection", "<CollectionName>" },//update CollectionName
+    { "shardKey", "<ShardKeyName>" }, //update ShardKey
+    { "offerThroughput", 400} //update Throughput
+};
+var shellCommand = new BsonDocumentCommand<BsonDocument>(bson);
+// Create a collection with a partition key by using Mongo Driver:
+db.RunCommand(shellCommand);
 ```
-
-> [!Note]
-> MongoDB wire protocol does not understand the concept of [Request Units](../request-units.md). To create a new collection with provisioned throughput on it, use the Azure portal or Cosmos DB SDKs for SQL API.
 
 If you encounter timeout exception when creating a collection, do a read operation to validate if the collection was created successfully. The read operation throws an exception until the collection create operation is successful. For the list of status codes supported by the create operation see the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article.
 

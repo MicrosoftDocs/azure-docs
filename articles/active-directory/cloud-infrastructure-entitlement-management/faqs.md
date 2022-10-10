@@ -2,13 +2,14 @@
 title: Frequently asked questions (FAQs) about Permissions Management
 description: Frequently asked questions (FAQs) about Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Frequently asked questions (FAQs)
@@ -107,7 +108,7 @@ For information about permissions usage reports, see [Generate and download the 
 
 ## Does Permissions Management integrate with third-party ITSM (Information Technology Service Management) tools?
 
-Permissions Management integrates with ServiceNow.
+Integration with ITMS tools, such as ServiceNow, is in the future roadmap.
 
 ## How is Permissions Management being deployed?
 
@@ -169,8 +170,7 @@ Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
 - For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
 - For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).
-- For more information about Microsoft’s policy and practices for Data Subject Requests for GDPR and CCPA: [https://docs.microsoft.com/en-us/compliance/regulatory/gdpr-dsr-azure](https://docs.microsoft.com/compliance/regulatory/gdpr-dsr-azure).
-
+- For more information, see [Azure Data Subject Requests for the GDPR and CCPA](/compliance/regulatory/gdpr-dsr-azure).
 
 ## Next steps
 

@@ -1,37 +1,37 @@
 ### YamlMime:Landing
 
-title: Azure Custom Providers documentation
-summary: Define custom APIs that extend the Azure experience
+title: Azure Custom Resource Providers documentation
+summary: Define custom APIs that extend the Azure experience.
 
 metadata:
-  title: Azure Custom Providers documentation
-  description: Azure Custom Providers is an extensibility platform to Azure that enables you define to custom APIs
+  title: Azure Custom Resource Providers documentation
+  description: Azure Custom Resource Providers is an extensibility platform to Azure that enables you to define custom APIs.
   ms.service: azure-custom-providers
   ms.topic: landing-page
   ms.collection: na
-  author: tfitzmac
-  ms.author: tomfitz
+  author: davidsmatlak
+  ms.author: davidsmatlak
   ms.date: 01/02/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: About Azure Custom Providers
+  - title: About Azure Custom Resource Providers
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure Custom Providers?
+          - text: What are Azure Custom Resource Providers?
             url: overview.md
       - linkListType: concept
         links:
-          - text: Azure Policy for custom provider associations
+          - text: Azure Policy for custom resource provider associations
             url: concepts-built-in-policy.md
           - text: Resource onboarding overview
             url: concepts-resource-onboarding.md
-      
+
   # Card
-  - title: Create custom providers
+  - title: Create custom resource providers
     linkLists:
       - linkListType: quickstart
         links:
@@ -39,13 +39,13 @@ landingContent:
             url: create-custom-provider.md
       - linkListType: tutorial
         links:
-          - text: Get started with custom providers
+          - text: Get started with custom resource providers
             url: tutorial-get-started-with-custom-providers.md
           - text: Set up Azure Functions
             url: tutorial-custom-providers-function-setup.md
           - text: Author a RESTful endpoint
             url: tutorial-custom-providers-function-authoring.md
-          - text: Create and utilize custom providers
+          - text: Create and utilize custom resource providers
             url: tutorial-custom-providers-create.md
           - text: Extend resources
             url: tutorial-resource-onboarding.md
@@ -65,7 +65,5 @@ landingContent:
             url: proxy-resource-endpoint-reference.md
           - text: Custom resource cache reference
             url: proxy-cache-resource-endpoint-reference.md
-          - text: Custom provider RESTful endpoint reference
+          - text: Custom resource provider RESTful endpoint reference
             url: reference-custom-providers-csharp-endpoint.md
-          
-        

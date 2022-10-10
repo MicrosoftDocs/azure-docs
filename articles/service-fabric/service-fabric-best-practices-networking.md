@@ -1,10 +1,12 @@
 ---
 title: Azure Service Fabric networking best practices
 description: Rules and design considerations for managing network connectivity using Azure Service Fabric.
-author: chrpap
 ms.topic: conceptual
-ms.date: 03/01/2022
-ms.author: chrpap
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Networking

@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 07/29/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -88,6 +88,14 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Cause**: A problem with the CosmosDbSqlApi operation.  This applies to the Cosmos DB (SQL API) connector specifically.
 
 - **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](../cosmos-db/troubleshoot-dot-net-sdk.md). For further help, contact the Azure Cosmos DB team.
+
+## Error code: CosmosDbSqlApiPartitionKeyExceedStorage
+
+- **Message**: `The size of data each logical partition can store is limited, current partitioning design and workload failed to store more than the allowed amount of data for a given partition key value.`
+
+- **Cause**: The data size of each logical partition is limited, and the partition key reached the maximum size of your logical partition.
+
+- **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](../cosmos-db/partitioning-overview.md#logical-partitions).
 
 ## Next steps
 

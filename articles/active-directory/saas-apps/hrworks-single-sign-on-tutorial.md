@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/29/2021
+ms.date: 09/09/2022
 ms.author: jeedes
 ---
 
@@ -48,6 +48,8 @@ To configure the integration of HRworks Single Sign-On into Azure AD, you need t
 1. In the **Add from the gallery** section, type **HRworks Single Sign-On** in the search box.
 1. Select **HRworks Single Sign-On** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for HRworks Single Sign-On
 
 Configure and test Azure AD SSO with HRworks Single Sign-On using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in HRworks Single Sign-On.
@@ -77,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://login.hrworks.de/?companyId=<COMPANY_ID>&directssologin=true`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [HRworks Single Sign-On Client support team](https://www.hrworks.de/dienstleistungen/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. See [HRworks Single Sign-On Helpcenter article](https://help.hrworks.de/en/single-sign-on) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

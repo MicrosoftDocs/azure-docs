@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Azure Traffic Manager profile - Bicep'
 description: This quickstart article describes how to create an Azure Traffic Manager profile by using Bicep.
 services: traffic-manager
-author: schaffererin
-ms.author: v-eschaffer
+author: greg-lindsay
+ms.author: greglin
 ms.date: 06/20/2022
 ms.topic: quickstart
 ms.service: traffic-manager
@@ -51,7 +51,7 @@ One Azure resource is defined in the Bicep file:
 
     ---
 
-    The Bicep file deployment creates a profile with two external endpoints. **Endpoint1** uses a target endpoint of `www.microsoft.com` with the location in **North Europe**. **Endpoint2** uses a target endpoint of `docs.microsoft.com` with the location in **South Central US**.
+    The Bicep file deployment creates a profile with two external endpoints. **Endpoint1** uses a target endpoint of `www.microsoft.com` with the location in **North Europe**. **Endpoint2** uses a target endpoint of `learn.microsoft.com` with the location in **South Central US**.
 
     > [!NOTE]
     > **uniqueDNSname** needs to be a globally unique name in order for the Bicep file to deploy successfully.
@@ -90,7 +90,7 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     nslookup -type=cname {relativeDnsName}
     ```
 
-    You should get a canonical name of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.
+    You should get a canonical name of either `www.microsoft.com` or `learn.microsoft.com` depending on which region is closer to you.
 
     # [PowerShell](#tab/PowerShell)
 
@@ -98,11 +98,11 @@ Use Azure CLI or Azure PowerShell to validate the deployment.
     Resolve-DnsName -Name {relativeDnsname} | Select-Object NameHost | Select -First 1
     ```
 
-    You should get a NameHost of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.
+    You should get a NameHost of either `www.microsoft.com` or `learn.microsoft.com` depending on which region is closer to you.
 
     ---
 
-3. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `docs.microsoft.com` respectively.
+3. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `learn.microsoft.com` respectively.
 
     # [CLI](#tab/CLI)
 

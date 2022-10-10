@@ -7,6 +7,8 @@ items:
     href: overview.md
   - name: What is the Space Partner Community?
     href: space-partner-program-overview.md
+  - name: What is Azure Orbital Analytics?
+    href: overview-analytics.md  
 - name: Quickstart
   items:
   - name: Register a spacecraft
@@ -15,28 +17,28 @@ items:
     href: contact-profile.md
   - name: Schedule a contact
     href: schedule-contact.md
-- name: Tutorials
+- name: How-to guides
   items:
   - name: Prepare network to send and receive data
     href: prepare-network.md
   - name: License your spacecraft
     href: license-spacecraft.md
+  - name: Integrate partner network ground stations
+    href: partner-network-integration.md 
+  - name: Configure the RF chain
+    href: modem-chain.md 
   - name: Receive real-time telemetry
     href: receive-real-time-telemetry.md
   - name: Update the spacecraft TLE
     href: update-tle.md
   - name: Cancel a contact
     href: delete-contact.md
-- name: How-to guides
+- name: Tutorials
   items:
-  - name: Earth Observation
-    items:
-    - name: Schedule a contact with NASA's AQUA public satellite
-      href: downlink-aqua.md 
-    - name: Collect and process AQUA satellite payload
-      href: satellite-imagery-with-orbital-ground-station.md
-    - name: Integrate partner network ground stations
-      href: partner-network-integration.md     
+  - name: Schedule a contact with NASA's AQUA public satellite
+    href: downlink-aqua.md 
+  - name: Collect and process AQUA satellite payload
+    href: satellite-imagery-with-orbital-ground-station.md    
 - name: Concepts
   items:
   - name: Contact
@@ -46,4 +48,6 @@ items:
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md
   - name: Spacecraft object
-    href: spacecraft-object.md  
+    href: spacecraft-object.md
+  - name: Organize spaceborne geospatial data with STAC
+    href: organize-stac-data.md   

@@ -4,14 +4,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/15/2022
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics)
 
 Use this quickstart to create a Text Analytics for health application with the client library for Java. In the following example, you will create a Java application that can identify medical [entities](../../concepts/health-entity-categories.md), [relations](../../concepts/relation-extraction.md), and [assertions](../../concepts/assertion-detection.md) that appear in text.
+
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
 ## Prerequisites
 
@@ -30,14 +32,14 @@ Use this quickstart to create a Text Analytics for health application with the c
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.9) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.9</version>
+        <version>5.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -142,7 +144,7 @@ public class Example {
 
 ```console
 Poller status: IN_PROGRESS.
-Operation created time: 2022-06-13T19:05:56Z, expiration time: 2022-06-14T19:05:56Z.
+Operation created time: 2022-09-15T19:06:11Z, expiration time: 2022-09-16T19:06:11Z.
 Poller status: SUCCESSFULLY_COMPLETED.
 Results of Azure Text Analytics for health entities" Model, version: 2022-03-01
 Document ID = 0

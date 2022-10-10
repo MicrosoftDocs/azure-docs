@@ -16,7 +16,7 @@ Application Gateway web application firewall (WAF) protects web applications fro
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.1 by default, but you can choose to use any other supported CRS version.
+The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
 CRS 3.2 offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
@@ -35,7 +35,7 @@ The WAF protects against the following web vulnerabilities:
 
 ### OWASP CRS 3.2
 
-CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.2.0 version.
 
 > [!NOTE]
 > CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
@@ -60,7 +60,7 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 
 ### OWASP CRS 3.1
 
-CRS 3.1 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.1 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.1.1 version.
 
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
@@ -84,7 +84,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 ### OWASP CRS 3.0
 
-CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
 
 |Rule group|Description|
 |---|---|
@@ -185,6 +185,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920274|Invalid character in request headers (outside of very strict set)|
 |920280|Request Missing a Host Header|
 |920290|Empty Host Header|
+|920300|Request Missing an Accept Header|
 |920310|Request Has an Empty Accept Header|
 |920311|Request Has an Empty Accept Header|
 |920320|Missing User Agent Header|
@@ -272,7 +273,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -529,7 +530,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = JavaScript URI Vector|

@@ -7,16 +7,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/17/2022
+ms.date: 08/03/2022
 ms.custom: references_regions 
 ---
 
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up to date with service updates. 
+Learn about the latest updates to Azure Cognitive Search. The following links supplement this article:
 
-* [**Preview features**](search-api-preview.md) is a list of current features that haven't been approved for production workloads.
-* [**Previous versions**](/previous-versions/azure/search/) is an archive of earlier feature announcements.
+* [**Previous versions**](/previous-versions/azure/search/) is an archive of feature announcements from 2019 and 2020.
+* [**Preview features**](search-api-preview.md) are announced here in "What's New", mixed in with announcements about general availability or feature retirement. If you need to quickly determine the status of a particular feature, visit the preview features page to see if it's listed.
 
 ## June 2022
 

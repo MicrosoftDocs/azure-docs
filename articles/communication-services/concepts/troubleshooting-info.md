@@ -258,10 +258,10 @@ To verify your Teams License eligibility via Teams web client, follow the steps 
 
 1. Open your browser and navigate to [Teams web client](https://teams.microsoft.com/).
 1. Sign in with credentials that have a valid Teams license. 
-1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://www.teams.live.com domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
+1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://teams.live.com/v2/ domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
 
 #### Checking your current Teams license via Microsoft Graph API
-You can find your current Teams license using [licenseDetails](https://docs.microsoft.com/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
+You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
 
 1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Sign in to Graph Explorer using the credentials.
@@ -304,7 +304,7 @@ You can find your current Teams license using [licenseDetails](https://docs.micr
         ]
     }
     ```
-1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md#eligible-teams-licenses)
+1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
 
 
 ## Calling SDK error codes
@@ -352,6 +352,7 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 4006 | The Destination/To number isn't reachable| Try resending the message at a later time |
 | 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
 | 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
+| 4009 | Message is rejected by Microsoft Entitlement System| Most often it happens if fraudulent activity is detected. Please contact support for more details |
 | 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
 | 5002 | Message Delivery Timeout|  Try resending the message |

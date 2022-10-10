@@ -3,7 +3,7 @@ title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
 author: lakmeedee
 ms.author: dejv
-ms.reviewer: cynthn
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to

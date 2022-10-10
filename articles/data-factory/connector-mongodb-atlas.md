@@ -19,7 +19,15 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 ## Supported capabilities
 
-You can copy data from MongoDB Atlas database to any supported sink data store, or copy data from any supported source data store to MongoDB Atlas database. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This MongoDB Atlas connector is supported for the following capabilities:
+
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 Specifically, this MongoDB Atlas connector supports **versions up to 4.2**.
 

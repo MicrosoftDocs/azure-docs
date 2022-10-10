@@ -98,9 +98,22 @@ Since you pay for the computing resources your App Service plan allocates (see [
 
 Isolate your app into a new App Service plan when:
 
-- The app is resource-intensive.
+- The app is resource-intensive. The number may actually be lower depending on how resource intensive the hosted applications are, however as a general guidance, you may refer to the table below:
+
+  | App Service Plan SKU | Max Apps |
+  |--|--|
+  | B1, S1, P1v2, I1v1 | 8 |
+  | B2, S2, P2v2, I2v1 | 16 |
+  | B3, S3, P3v2, I3v1 | 32 |
+  | P1v3, I1v2 | 16 |
+  | P2v3, I2v2 | 32 |
+  | P3v3, I3v2 | 64 |
+
 - You want to scale the app independently from the other apps in the existing plan.
 - The app needs resource in a different geographical region.
+
+> [!NOTE]
+>  An active slot is also classified as an active app as it too is competing for resources on the same App Service Plan.
 
 This way you can allocate a new set of resources for your app and gain greater control of your apps.
 

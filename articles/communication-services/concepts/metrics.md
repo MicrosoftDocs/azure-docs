@@ -2,11 +2,11 @@
 title: Metric definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of metrics available in the Azure portal.
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -77,12 +77,13 @@ The following operations are available on SMS API request metrics:
 
 The following operations are available on Authentication API request metrics:
 
-| Operation / Route    | Description                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| CreateIdentity       | Creates an identity representing a single user. |
-| DeleteIdentity       | Deletes an identity. |
-| CreateToken          | Creates an access token. |
-| RevokeToken          | Revokes all access tokens created for an identity before a time given. |
+| Operation / Route             | Description                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity                | Creates an identity representing a single user. |
+| DeleteIdentity                | Deletes an identity. |
+| CreateToken                   | Creates an access token. |
+| RevokeToken                   | Revokes all access tokens created for an identity before a time given. |
+| ExchangeTeamsUserAccessToken  | Exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
 
 :::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
 

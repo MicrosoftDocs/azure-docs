@@ -31,7 +31,7 @@ zone_pivot_groups: programming-languages-set-twenty-six
 
 # Tutorial: Create and connect a client application to your Azure IoT Central application
 
-This tutorial shows you how to connect a client application to your Azure IoT Central application. The application simulates the behavior of a temperature controller device. When the application connects to IoT Central, it sends the model ID of the temperature controller device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add customizations and views to the device template to enable an operator to interact with a device.
+This tutorial shows you how to connect a client application to your Azure IoT Central application. The application simulates the behavior of a temperature controller device. When the application connects to IoT Central, it sends the model ID of the temperature controller device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add  views to the device template to enable an operator to interact with a device.
 
 In this tutorial, you learn how to:
 

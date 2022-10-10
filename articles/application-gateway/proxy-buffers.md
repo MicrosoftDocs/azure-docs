@@ -5,7 +5,7 @@ services: application-gateway
 author: jaesoni
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 12/01/2021
+ms.date: 08/03/2022
 ms.author: jaysoni
 #Customer intent: As a user, I want to know how can I disable/enable proxy buffers.
 ---
@@ -73,4 +73,4 @@ For reference, visit [Azure SDK for .NET](/dotnet/api/microsoft.azure.management
 ## Limitations
 - API version 2020-01-01 or later should be used to configure buffers.
 - Currently, these changes are supported only through ARM templates.
-- Request and Response Buffers cannot be disabled for WAF v2 SKU.
+- Request and Response Buffers can only be disabled for the WAF v2 SKU if request body checking is disabled. Otherwise, Request and Response Buffers cannot be disabled for the WAF v2 SKU.

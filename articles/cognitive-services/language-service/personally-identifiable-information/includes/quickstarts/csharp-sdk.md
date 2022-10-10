@@ -4,14 +4,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/15/2022
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
-[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+[Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet) | [Additional samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 
 Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for .NET. In the following example, you'll create a C# application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
+
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 
 ## Prerequisites
@@ -32,7 +34,7 @@ Use this quickstart to create a Personally Identifiable Information (PII) detect
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a "Hello World" project with a single C# source file: *program.cs*.
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.2.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -59,7 +61,7 @@ namespace Example
         // Example method for detecting sensitive information (PII) from text 
         static void RecognizePIIExample(TextAnalyticsClient client)
         {
-            string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
+            string document = "Call our office at 312-555-1234, or send an email to support@contoso.com.";
         
             PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
         
@@ -97,7 +99,8 @@ namespace Example
 ## Output
 
 ```console
+Redacted Text: Call our office at ************, or send an email to *******************.
 Recognized 2 PII entities:
-Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
-Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
+Text: 312-555-1234, Category: PhoneNumber, SubCategory: , Confidence score: 0.8
+Text: support@contoso.com, Category: Email, SubCategory: , Confidence score: 0.8
 ```

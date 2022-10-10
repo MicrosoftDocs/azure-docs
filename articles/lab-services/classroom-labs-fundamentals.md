@@ -16,7 +16,7 @@ Azure Lab Services is a SaaS (software as a service) solution, which means that 
 
 Azure Lab Services does provide a couple of areas that allow you to use your own resources with Lab Services.  For more information about using VMs on your own network, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) to use virtual network injection instead of virtual network peering.  To reuse images from an Azure Compute Gallery, see how to [attach a compute gallery](how-to-attach-detach-shared-image-gallery.md).
 
-Below is the basic architecture of a lab.  The lab plan is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Azure Lab Services. Let’s talk about what is in Azure Lab Service's subscriptions in more detail.
+Below is the basic architecture of a lab without advanced networking enabled.  The lab plan is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Azure Lab Services. Let’s talk about what is in Azure Lab Service's subscriptions in more detail.
 
 :::image type="content" source="./media/classroom-labs-fundamentals/labservices-basic-architecture.png" alt-text="Architecture diagram of basic lab in Azure Lab Services.":::
 
@@ -32,7 +32,7 @@ These subscriptions are monitored for suspicious activity.  It's important to no
 
 ## Virtual Network
 
-Each lab is isolated by its own virtual network.  If the lab is using [advanced networking](how-to-connect-vnet-injection.md), then each lab using the same subnet that has been delegated to Azure Lab Services and connected to the lab plan.  
+By default, each lab is isolated by its own virtual network.  
 
 Students connect to their virtual machine through a load balancer.  No student virtual machines have a public IP address; they only have a private IP address.  The connection string for the student will be the public IP address of the load balancer and a random port between:
 
@@ -40,6 +40,8 @@ Students connect to their virtual machine through a load balancer.  No student v
 - 4990-4999 and 7000-8999 for RDP connections
 
 Inbound rules on the load balancer forward the connection, depending on the operating system, to either port 22 (SSH) or port 3389 (RDP) of the appropriate virtual machine. An NSG prevents outside traffic on any other ports.
+
+If the lab is using [advanced networking](how-to-connect-vnet-injection.md), then each lab is using the same subnet that has been delegated to Azure Lab Services and connected to the lab plan. You'll also be responsible for creating an [NSG with an inbound security rule to allow RDP and SSH traffic](how-to-connect-vnet-injection.md#associate-delegated-subnet-with-nsg) so students can connect to their VMs.
 
 ## Access control to the virtual machines
 

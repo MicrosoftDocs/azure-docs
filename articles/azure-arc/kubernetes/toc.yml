@@ -73,17 +73,23 @@
     href: agent-upgrade.md
   - name: Securely connect to cluster from anywhere
     href: cluster-connect.md
+  - name: Use Private Link Scope
+    href: private-link.md
   - name: Azure portal Kubernetes resource view
     href: kubernetes-resource-view.md
   - name: Use Azure AD RBAC for authorization checks
     href: azure-rbac.md
   - name: Deploy applications to cluster
     items:
+      - name: GitOps (Flux v2)
+        items:
+        - name: At-scale deployment of Flux v2 configurations using Azure Policy
+          href: use-azure-policy-flux-2.md
       - name: GitOps (Flux v1)
         items:
         - name: Deploy Helm charts using GitOps (Flux v1)
           href: use-gitops-with-helm.md
-        - name: At-scale deployment of configurations using Azure Policy (Flux v1)
+        - name: At-scale deployment of Flux v1 configurations using Azure Policy
           href: use-azure-policy.md
   - name: Manage your cluster
     items:
@@ -114,8 +120,10 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: policy-reference.md
+  - name: Azure CLI
+    href: /cli/azure/connectedk8s
   - name: Azure PowerShell
-    href: /powershell/module/Az.ConnectedKubernetes/
+    href: /powershell/module/az.connectedkubernetes#connected-kubernetes
 - name: Resources
   items:
     - name: Region availability

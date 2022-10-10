@@ -55,8 +55,8 @@ Each of these features has one or more try-it-out experiences in Vision Studio t
 ## Cleaning up resources
 
 If you want to remove a Cognitive Services resource after using Vision Studio, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can't delete your resource directly from Vision Studio, so use one of the following methods:
-* [Using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#clean-up-resources)
-* [Using the Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#clean-up-resources)
+* [Using the Azure portal](../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows#clean-up-resources)
+* [Using the Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows#clean-up-resources)
 
 > [!TIP]
 > In Vision Studio, you can find your resource's details (such as its name and pricing tier) as well as switch resources by selecting the Settings icon in the top-right corner of the Vision Studio screen).

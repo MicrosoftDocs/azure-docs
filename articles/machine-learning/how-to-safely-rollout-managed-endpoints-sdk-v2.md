@@ -5,9 +5,9 @@ description: Safe rollout for online endpoints using Python SDK v2 (preview).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: ssambare
+ms.author: sehan
 ms.reviewer: larryfr
-author: shivanissambare
+author: dem108
 ms.date: 05/25/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, sdkv2, deployment
@@ -189,7 +189,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/model-1/sample-request.json) file.
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-1/sample-request.json) file.
 
 ```python
 # test the blue deployment with some sample data
@@ -256,9 +256,9 @@ green_deployment = ManagedOnlineDeployment(
 ml_client.begin_create_or_update(green_deployment)
 ```
 
-## Test the 'green' deployment
+### Test the new deployment
 
-Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/model-2/sample-request.json) file.
+Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-2/sample-request.json) file.
 
 ```python
 ml_client.online_endpoints.invoke(
@@ -268,38 +268,83 @@ ml_client.online_endpoints.invoke(
 )
 ```
 
-1. Test the new deployment with a small percentage of live traffic:
+## Test the deployment with mirrored traffic (preview)
 
-    Once you've tested your green deployment, allocate a small percentage of traffic to it:
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-    ```python
-    endpoint.traffic = {"blue": 90, "green": 10}
-    ml_client.begin_create_or_update(endpoint)
-    ```
+Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the blue deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors.
 
-    Now, your green deployment will receive 10% of requests.
+> [!WARNING]
+> Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
 
-1. Send all traffic to your new deployment:
+The following command mirrors 10% of the traffic to the `green` deployment:
 
-    Once you're satisfied that your green deployment is fully satisfactory, switch all traffic to it.
+```python
+endpoint.mirror_traffic = {"green": 10}
+ml_client.begin_create_or_update(endpoint)
+```
 
-    ```python
-    endpoint.traffic = {"blue": 0, "green": 100}
-    ml_client.begin_create_or_update(endpoint)
-    ```
+> [!IMPORTANT]
+> Mirroring has the following limitations:
+> * You can only mirror traffic to one deployment.
+> * Mirrored traffic is not currently supported with K8s.
+> * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
+>
+> Also note the following behavior:
+> * A deployment can only be set to live or mirror traffic, not both.
+> * You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
+> * You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to endpoint without specifying the deployment. 
 
-1. Remove the old deployment:
+:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
 
-    ```python
-    ml_client.online_deployments.delete(name="blue", endpoint_name=online_endpoint_name)
-    ```
+After testing, you can set the mirror traffic to zero to disable mirroring:
+
+```python
+endpoint.mirror_traffic = {"green": 0}
+ml_client.begin_create_or_update(endpoint)
+```
+
+## Test the new deployment with a small percentage of live traffic:
+
+Once you've tested your green deployment, allocate a small percentage of traffic to it:
+
+```python
+endpoint.traffic = {"blue": 90, "green": 10}
+ml_client.begin_create_or_update(endpoint)
+```
+
+Now, your green deployment will receive 10% of requests.
+    
+:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
+
+## Send all traffic to your new deployment:
+
+Once you're satisfied that your green deployment is fully satisfactory, switch all traffic to it.
+
+```python
+endpoint.traffic = {"blue": 0, "green": 100}
+ml_client.begin_create_or_update(endpoint)
+```
+
+## Remove the old deployment:
+
+```python
+ml_client.online_deployments.delete(name="blue", endpoint_name=online_endpoint_name)
+```
 
 ## Delete endpoint
+
+If you aren't going use the deployment, you should delete it with:
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
 ## Next steps
-
-* Explore online endpoint samples - [https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints)
+- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
+- [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
+- [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md)
+- [Troubleshooting  online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)

@@ -5,7 +5,7 @@ services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 07/27/2022
 ms.author: halkazwini
 #Customer intent: As an IT administrator, I want to learn about Azure Route Server and what I can use it for.
 ---
@@ -30,11 +30,17 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 * You no longer need to update [User-Defined Routes](../virtual-network/virtual-networks-udr-overview.md) manually whenever your NVA announces new routes or withdraw old ones. 
 
-* You can peer multiple instances of your NVA with Azure Route Server. You can configure the BGP attributes in your NVA and, depending on your design (for example, active-active for performance or active-passive for resiliency), let Azure Route Server know which NVA instance is active or which one is passive. 
+* You can peer multiple instances of your NVA with Azure Route Server. You can configure the BGP attributes in your NVA and, depending on your design (for example, active-active for performance or active-passive for resiliency), let Azure Route Server know which NVA instance is active or which one is passive.
 
 * The interface between NVA and Azure Route Server is based on a common standard protocol. As long as your NVA supports BGP, you can peer it with Azure Route Server. For more information, see [Route Server supported routing protocols](route-server-faq.md#protocol).
 
 * You can deploy Azure Route Server in any of your new or existing virtual network. 
+
+## Route Server Limits
+
+Azure Route Server has the following limits (per deployment).
+
+[!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 ## FAQ
 
@@ -44,4 +50,4 @@ For frequently asked questions about Azure Route Server, see [Azure Route Server
 
 - [Learn how to configure Azure Route Server](quickstart-configure-route-server-powershell.md)
 - [Learn how Azure Route Server works with Azure ExpressRoute and Azure VPN](expressroute-vpn-support.md)
-- [Learn module: Introduction to Azure Route Server](/learn/modules/intro-to-azure-route-server)
+- [Learn module: Introduction to Azure Route Server](/training/modules/intro-to-azure-route-server)

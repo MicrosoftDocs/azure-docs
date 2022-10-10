@@ -105,7 +105,7 @@ This table lists the methods that you can use to create a virtual network and su
 
 ## Network security groups
 
-A [network security group (NSG)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
 
 NSGs contain two sets of rules, inbound and outbound. The priority for a rule must be unique within each set. 
 

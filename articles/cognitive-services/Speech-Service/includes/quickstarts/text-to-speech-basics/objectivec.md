@@ -14,11 +14,21 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Set up the environment
 
 The Speech SDK for Objective-C is distributed as a framework bundle. The framework supports both Objective-C and Swift on both iOS and macOS.
 
 The Speech SDK can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded directly [here](https://aka.ms/csspeech/macosbinary) and linked manually. This guide uses a CocoaPod. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
+
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Synthesize to speaker output
 
@@ -33,9 +43,8 @@ Follow these steps to synthesize speech in a macOS application.
     ```ObjectiveC
     - (void)buttonPressed:(NSButton *)button {
         // Creates an instance of a speech config with specified subscription key and service region.
-        // Replace with your own subscription key and service region (e.g., "westus").
-        NSString *speechKey = @"YourSubscriptionKey";
-        NSString *serviceRegion = @"YourServiceRegion";
+        NSString *speechKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPEECH_KEY"];
+        NSString *serviceRegion = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPEECH_REGION"];
         
         SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:speechKey region:serviceRegion];
         speechConfig.speechSynthesisVoiceName = @"en-US-JennyNeural";
@@ -57,16 +66,28 @@ Follow these steps to synthesize speech in a macOS application.
     }
     ```
 
-1. In `AppDelegate.m`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `AppDelegate.m`, use the [environment variables that you previously set](#set-environment-variables) for your Speech resource key and region.
+    
+    ```ObjectiveC
+    NSString *speechKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPEECH_KEY"];
+    NSString *serviceRegion = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPEECH_REGION"];
+    ```
+
 1. Optionally in `AppDelegate.m`, include a speech synthesis voice name as shown here: 
     ```ObjectiveC
     speechConfig.speechSynthesisVoiceName = @"en-US-JennyNeural";
     ```
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
-1. Build and run the example code by selecting **Product** -> **Run** from the menu or selecting the **Play** button.
+1. Build and run the example code by selecting **Product** > **Run** from the menu or selecting the **Play** button.
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 After you input some text and select the button in the app, you should hear the synthesized audio played.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=OBJECTIVEC&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
