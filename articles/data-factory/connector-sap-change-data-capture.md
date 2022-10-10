@@ -26,7 +26,7 @@ This SAP CDC connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
-|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;, &#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
@@ -40,7 +40,7 @@ The SAP CDC connector supports basic authentication or Secure Network Communicat
 
 To use this SAP CDC connector, you need to:
 
-- Set up a self-hosted integration runtime (version 3.17 or later). For more information, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
+- Set up a self-hosted integration runtime. The most recent version can be found in [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
 
 - Download the 64-bit [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the self-hosted integration runtime machine. During installation, make sure you select the **Install Assemblies to GAC** option in the **Optional setup steps** window.
 
@@ -59,7 +59,7 @@ Follow the steps described in [Prepare the SAP CDC linked service](sap-change-da
 
 ## Dataset properties
 
-To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-the-source-dataset)
+To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-the-source-dataset).
 
 ## Transform data with the SAP CDC connector
 
@@ -87,4 +87,9 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-key-columns.png" alt-text="Screenshot of the key columns selection in source options of mapping data flow source.":::
 
-1. For details on the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
+1. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
+
+1. If **Run mode** is set to **Full on every run**, the tab **Optimize** offers additional selection and partitioning options. Each partition condition (the screenshot below shows an example with two conditions) will trigger a separate extraction process in the connected SAP system. Up to three of these extraction process are executed in parallel.
+
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
+

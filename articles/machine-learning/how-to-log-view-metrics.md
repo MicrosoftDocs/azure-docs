@@ -10,10 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/28/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # Log metrics, parameters and files with MLflow
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
 > * [v1](./v1/how-to-log-view-metrics.md)

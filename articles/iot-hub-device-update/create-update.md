@@ -38,109 +38,46 @@ Once you have your update files, create an import manifest to describe the updat
 > [!TIP]
 > Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also just view sample import manifest files from those tutorials for reference.
 
-1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) `Azure/iot-hub-device-update` [Git repository](https://github.com/Azure/iot-hub-device-update).
+1. Install the [Azure Command-Line Interface (CLI)](https://learn.microsoft.com/cli/azure/) if you haven't already done so.
 
-2. Navigate to `Tools/AduCmdlets` in your local clone from PowerShell.
+2. Run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Compatibility Properties, Update Handler and associated properties, and file(s)**. See [Import schema and API information](import-schema.md) for details on what values you can use for each item. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
 
-3. Run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Properties, Handler, Installed Criteria, Files**. See [Import schema and API information](import-schema.md) for details on what values you can use. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
-
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-
-    Import-Module ./AduUpdate.psm1
-
-    $updateId = New-AduUpdateId -Provider Contoso -Name Toaster -Version 1.0
-
-    $compat = New-AduUpdateCompatibility -Properties @{ manufacturer = 'Contoso'; model = 'Toaster' }
-
-    $installStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1'-HandlerProperties @{ installedCriteria = '1.0' } -Files 'path to your update file'
-
-    $update = New-AduImportManifest -UpdateId $updateId -Compatibility $compat -InstallationSteps $installStep
-
-    # Write the import manifest to a file, ideally next to the update file(s).
-    $update | Out-File "./$($updateId.provider).$($updateId.name).$($updateId.version).importmanifest.json" -Encoding utf8
+    ```azurecli
+    az iot device-update update init v5
+    --update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
     ```
 
-Once you've created your import manifest, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
+Once you've created your import manifest and saved it as a JSON file, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
 
 ## Create an advanced Device Update import manifest for a proxy update
 
-If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you may need to create multiple import manifests. You can use the same PowerShell script from the previous section to create parent and child import manifests for complex updates. Run the following commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use.
+If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you may need to create multiple import manifests. You can use the same Azure CLI approach from the previous section to create both a _parent_ import manifest and some number of _child_ import manifests for complex updates. Run the following Azure CLI commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use. In the example below, there are three updates to be deployed to the device: 1 parent update and 2 child updates:
 
-  ```powershell
-    Import-Module $PSScriptRoot/AduUpdate.psm1 -ErrorAction Stop
-    
-    # We will use arbitrary files as update payload files.
-    $childFile = "$env:TEMP/childFile.bin.txt"
-    $parentFile = "$env:TEMP/parentFile.bin.txt"
-    "This is a child update payload file." | Out-File $childFile -Force -Encoding utf8
-    "This is a parent update payload file." | Out-File $parentFile -Force -Encoding utf8
-    
-    # ------------------------------
-    # Create a child update
-    # ------------------------------
-    Write-Host 'Preparing child update ...'
-    
-    $microphoneUpdateId = New-AduUpdateId -Provider Contoso -Name Microphone -Version $UpdateVersion
-    $microphoneCompat = New-AduUpdateCompatibility -Manufacturer Contoso -Model Microphone
-    $microphoneInstallStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1' -Files $childFile
-    $microphoneUpdate = New-AduImportManifest -UpdateId $microphoneUpdateId `
-                                                 -IsDeployable $false `
-                                                 -Compatibility $microphoneCompat `
-                                                 -InstallationSteps $microphoneInstallStep `
-                                                 -ErrorAction Stop -Verbose:$VerbosePreference
-    
-    # ------------------------------
-    # Create another child update
-    # ------------------------------
-    Write-Host 'Preparing another child update ...'
-    
-    $speakerUpdateId = New-AduUpdateId -Provider Contoso -Name Speaker -Version $UpdateVersion
-    $speakerCompat = New-AduUpdateCompatibility -Manufacturer Contoso -Model Speaker
-    $speakerInstallStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1' -Files $childFile
-    $speakerUpdate = New-AduImportManifest -UpdateId $speakerUpdateId `
-                                              -IsDeployable $false `
-                                              -Compatibility $speakerCompat `
-                                              -InstallationSteps $speakerInstallStep `
-                                              -ErrorAction Stop -Verbose:$VerbosePreference
-    
-    # ------------------------------------------------------------
-    # Create the parent update which parents the child update above
-    # ------------------------------------------------------------
-    Write-Host 'Preparing parent update ...'
-    
-    $parentUpdateId = New-AduUpdateId -Provider Contoso -Name Toaster -Version $UpdateVersion
-    $parentCompat = New-AduUpdateCompatibility -Manufacturer Contoso -Model Toaster
-    $parentSteps = @()
-    $parentSteps += New-AduInstallationStep -Handler 'microsoft/script:1' -Files $parentFile -HandlerProperties @{ 'arguments'='--pre'} -Description 'Pre-install script'
-    $parentSteps += New-AduInstallationStep -UpdateId $microphoneUpdateId -Description 'Microphone Firmware'
-    $parentSteps += New-AduInstallationStep -UpdateId $speakerUpdateId -Description 'Speaker Firmware'
-    $parentSteps += New-AduInstallationStep -Handler 'microsoft/script:1' -Files $parentFile -HandlerProperties @{ 'arguments'='--post'} -Description 'Post-install script'
-    
-    $parentUpdate = New-AduImportManifest -UpdateId $parentUpdateId `
-                                          -Compatibility $parentCompat `
-                                          -InstallationSteps $parentSteps `
-                                          -ErrorAction Stop -Verbose:$VerbosePreference
-    
-    # ------------------------------------------------------------
-    # Write all to files
-    # ------------------------------------------------------------
-    Write-Host 'Saving manifest and update files ...'
-    
-    New-Item $Path -ItemType Directory -Force | Out-Null
-    
-    $microphoneUpdate | Out-File "$Path/$($microphoneUpdateId.Provider).$($microphoneUpdateId.Name).$($microphoneUpdateId.Version).importmanifest.json" -Encoding utf8
-    $speakerUpdate | Out-File "$Path/$($speakerUpdateId.Provider).$($speakerUpdateId.Name).$($speakerUpdateId.Version).importmanifest.json" -Encoding utf8
-    $parentUpdate | Out-File "$Path/$($parentUpdateId.Provider).$($parentUpdateId.Name).$($parentUpdateId.Version).importmanifest.json" -Encoding utf8
-    
-    Copy-Item $parentFile -Destination $Path -Force
-    Copy-Item $childFile -Destination $Path -Force
-    
-    Write-Host "Import manifest JSON files saved to $Path" -ForegroundColor Green
-    
-    Remove-Item $childFile -Force -ErrorAction SilentlyContinue | Out-Null
-    Remove-Item $parentFile -Force -ErrorAction SilentlyContinue | Out-Null
-  ```
+```azurecli
+    az iot device-update update init v5
+    --update-provider <replace with a child update Provider> --update-name <replace with a child update Name> --update-version <replace with a child update Version>
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
+	  --output json >"<replace with the path where you want your import manifest created, including the full file name>"
+    az iot device-update update init v5
+    --update-provider <replace with a child update Provider> --update-name <replace with a child update Name> --update-version <replace with a child update Version> 
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
+	  --output json >"<replace with the path where you want your import manifest created, including the full file name>"
+    az iot device-update update init v5
+    --update-provider <replace with the parent update Provider> --update-name <replace with the parent update Name> --update-version <replace with the parent update Version> 
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
+	  --step provider=<replace with first child update provider> name=<replace with first child update name> version=<replace with first child update version>
+	  --step provider=<replace with second child update provider> name=<replace with second child update name> version=<replace with second child update version
+	  --output json >"<replace with the path where you want your import manifest created, including the full file name>"
+```
 
 ## Next steps
 

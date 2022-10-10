@@ -17,7 +17,7 @@ Get started with the [GitHub Actions](https://docs.github.com/en/actions/learn-g
 
 With GitHub Actions, you can speed up your CI/CD process by building, scanning, and pushing images to a public or private [Container Registry](https://azure.microsoft.com/services/container-registry/) from your workflows.
 
-In this article, we'll make use of the [Container image scan](https://github.com/marketplace/actions/container-image-scan) from the [GitHub Marketplace](https://github.com/marketplace).
+In this article, we'll make use of the [Container image scan](https://github.com/marketplace/actions/test-container-image-scan) from the [GitHub Marketplace](https://github.com/marketplace).
 
 ## Prerequisites
 
@@ -145,7 +145,7 @@ Build and tag the image using the following snippet in the workflow. The followi
 
 ## Scan the image
 
-Before pushing the built image into the container registry, make sure you scan and check the image for any vulnerabilities by using the [Container image scan action](https://github.com/marketplace/actions/container-image-scan).
+Before pushing the built image into the container registry, make sure you scan and check the image for any vulnerabilities by using the [Container image scan action](https://github.com/marketplace/actions/test-container-image-scan).
 
 Add the following code snippet into the workflow, which will scan the image for any ***critical vulnerabilities*** such that the image that will be pushed is secure and complies with the standards.
 

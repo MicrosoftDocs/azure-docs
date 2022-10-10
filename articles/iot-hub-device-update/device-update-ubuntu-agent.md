@@ -150,7 +150,7 @@ Read the license terms before you use a package. Your installation and use of a 
 
 ## Import the update
 
-1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and select the **Assets** dropdown list. Download `Edge.package.update.samples.zip` by selecting it. Extract the contents of the folder to discover a sample APT manifest (sample-1.0.1-aziot-edge-apt-manifest.json) and its corresponding import manifest (sample-1.0.1-aziot-edge-importManifest.json).
+1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and select the **Assets** dropdown list. Download `Tutorial_IoTEdge_PackageUpdate.zip` by selecting it. Extract the contents of the folder to discover a sample APT manifest (sample-1.0.2-aziot-edge-apt-manifest.json) and its corresponding import manifest (sample-1.0.2-aziot-edge-importManifest.json).
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your IoT hub with Device Update. On the left pane, under **Automatic Device Management**, select **Updates**.
 1. Select the **Updates** tab.
 1. Select **+ Import New Update**.
