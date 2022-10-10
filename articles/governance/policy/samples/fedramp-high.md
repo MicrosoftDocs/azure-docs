@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for FedRAMP High
 description: Details of the FedRAMP High Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/03/2022
+ms.date: 10/10/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -1613,9 +1613,9 @@ Policy And Procedures
 |[Create a data inventory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F043c1e56-5a16-52f8-6af8-583098ff3e60) |CMA_0096 - Create a data inventory |Manual, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0096.json) |
 |[Maintain records of processing of personal data](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F92ede480-154e-0e22-4dca-8b46a74a3a51) |CMA_0353 - Maintain records of processing of personal data |Manual, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0353.json) |
 
-### Updates During Installations / Removals
+### Automated Unauthorized Component Detection
 
-**ID**: FedRAMP High CM-8 (1)
+**ID**: FedRAMP High CM-8 (3)
 **Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
