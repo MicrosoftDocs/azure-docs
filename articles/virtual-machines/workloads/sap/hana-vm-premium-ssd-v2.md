@@ -31,6 +31,7 @@ The major difference of Premium SSD v2 to the existing netWeaver and HANA certif
 - With Premium SSD v2, you pay the exact deployed capacity. Unlike with premium disk and Ultra disk, where brackets of sizes are being taken to determine the costs of capacity
 - Every Premium SSD v2 storage disk comes with 3000 IOPS and 125MB/sec on throughput that is included in the capacity pricing
 - Additional IOPS and throughput can be provisioned at any point in time and are charged separately
+Changes to the provisioned IOPS and throughput can be executed one in 6h
 - Latency of Premium SSD v2 is lower than premium storage, but higher than Ultra disk. But is sub-milliseconds, so, that it passes the SAP HANA KPIs without the help of any additional functionality, like Azure Write Accelerator
 - **Like with Ultra disk, you can use Premium SSD v2 for /hana/data and /hana/log volumes without the need of any accelerators or additional caches**.
 - Like Ultra disk, Azure Premium SSD doesn't offer caching options as premium storage does
