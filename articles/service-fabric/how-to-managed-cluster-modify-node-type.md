@@ -356,7 +356,7 @@ Set-AzServiceFabricManagedNodeType -ResourceGroupName $rgName -ClusterName $clus
 
 ## Modify the VM SKU for a node type
 
-To modify the VM SKU size used for a node type using an ARM Template, adjust the `vmSize` property with the new value and do a cluster deployment for the setting to take effect. The managed cluster provider will reimage each instance by upgrade domain.  For a list of SKU options, please refer to the [VM sizes - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes).  
+To modify the VM SKU size used for a node type using an ARM Template, adjust the `vmSize` property with the new value & do a cluster deployment for the setting to take effect. The managed cluster provider will reimage each instance by upgrade domain.  For a list of SKU options, please refer to the [VM sizes - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes).  
 
 ```json
      {
