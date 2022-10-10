@@ -283,7 +283,7 @@ To understand the types of logs, see [Azure IoT Hub distributed tracing logs](mo
 
 Many IoT solutions, including the [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot) (English only), generally follow a variant of the [microservice architecture](/azure/architecture/microservices/). As an IoT solution grows more complex, you end up using a dozen or more microservices. These microservices might or might not be from Azure. 
 
-Pinpointing where IoT messages are dropping or slowing down can become challenging. For example, imagine that you have an IoT solution that uses 5 different Azure services and 1,500 active devices. Each device sends 10 device-to-cloud messages per second, for a total of 15,000 messages per second. But you notice that your web app sees only 10,000 messages per second. How do you find the culprit?
+Pinpointing where IoT messages are dropping or slowing down can be challenging. For example, imagine that you have an IoT solution that uses 5 different Azure services and 1,500 active devices. Each device sends 10 device-to-cloud messages per second, for a total of 15,000 messages per second. But you notice that your web app sees only 10,000 messages per second. How do you find the culprit?
 
 For you to reconstruct the flow of an IoT message across services, each service should propagate a *correlation ID* that uniquely identifies the message. After Azure Monitor collects correlation IDs in a centralized system, you can use those IDs to see message flow. This method is called the [distributed tracing pattern](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
