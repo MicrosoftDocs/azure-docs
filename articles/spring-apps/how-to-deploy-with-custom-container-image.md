@@ -115,7 +115,7 @@ The following matrix shows what features are supported in each application type.
 | VMware Tanzu® Service Registry                                  | ✔️ | ❌  | Enterprise tier only  |
 | VNET                                                            | ✔️ | ✔️ | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet)  |
 | Outgoing IP Address                                             | ✔️ | ✔️ |   |
-| E2E TLS                                                         | ✔️ | ✔️ | Trust a self-signed CA is supported by [manual installation](#trust-a-certificate-authority-in-the-image)  |
+| E2E TLS                                                         | ✔️ | ✔️ | [Trust a self-signed CA](#trust-a-certificate-authority)  |
 | Liveness and readiness settings                                 | ✔️ | ✔️ |   |
 | Advanced troubleshooting - thread/heap/JFR dump                 | ✔️ | ❌  | The image must include `bash` and JDK with `PATH` specified.   |
 | Bring your own storage                                          | ✔️ | ✔️ |   |
@@ -135,7 +135,15 @@ The following matrix shows what features are supported in each application type.
 
 The following points will help you address common situations when deploying with a custom image.
 
-### Trust a Certificate Authority in the image
+### Trust a Certificate Authority
+
+There're two options to trust a Certificate Authority:
+
+**Option 1: Upload via Azure Spring Apps**
+
+You can follow [this guide](./how-to-use-tls-certificate.md) to load the CA certs into your apps. Then the certs will be mounted into the location `/etc/azure-spring-cloud/certs/public/`.
+
+**Option 2: Manual installation in the image**
 
 To trust a CA in the image, set the following variables depending on your environment:
 
@@ -261,8 +269,9 @@ az spring app deployment create \
     --service <your-service-name>
 ```
 
-> [!NOTE]
-> Automating deployments using Azure Pipelines Tasks or GitHub Actions are not currently supported.
+### CI/CD
+
+Automating deployments using Azure Pipelines Tasks or GitHub Actions are supported now. See: [Azure Pipelines Tasks](./how-to-cicd.md) and [GitHub Actions](./how-to-github-actions.md)
 
 ## Next steps
 
