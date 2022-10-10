@@ -23,7 +23,7 @@ recommendations: false
 
 Get started with the latest version of Azure Form Recognizer. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Form Recognizer models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
+To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md) page.
 
 ::: moniker-end
 
@@ -89,7 +89,7 @@ In this quickstart, you used a form Form Recognizer model to analyze various for
 
 Get started with Azure Form Recognizer using the programming language of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDKs into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
+To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md) page.
 
 ::: moniker-end
 
