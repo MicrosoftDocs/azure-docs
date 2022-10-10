@@ -150,9 +150,13 @@ In the context of private mobile networks, a single RAN can connect to both a pr
 
 ### Maximum Transmission Units (MTU)
 
-Maximum Transmission Units (MTU) allow you to specify the largest data packet size allowed within the packet core instance. Packets that exceed the MTU are split into smaller packets via IPv4 fragmentation and reassembled at their destination. To avoid transmission issues caused by IPv4 fragmentation, an appropriate MTU should be configured. However, it is not uncommon for some large packets (up to 1500 bytes) to still be fragmented.
+The Maximum Transmission Unit (MTU) is a property of an IP link. Packets that exceed a link’s MTU are split into smaller packets via IPv4 fragmentation and reassembled at their destination.
 
-By default, the packet core instance is configured to have an UE MTU of 1440 bytes and a RAN MTU of 1500 bytes. You can optionally configure an UE MTU of 1500 and a RAN MTU of 1560 or higher - this avoids all IP fragmentation, but requires RAN support and additional configuration.
+To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet core instructs UEs what MTU they should use. However, MTUs of less than 1500 are not always observed in practice and may lead to fragmentation with certain UEs.
+
+IP packets from the UE are tunnelled through from the RAN, due to this the MTU value sent to the UE must be 60 bytes smaller than the MTU value used by the RAN. RANs typically come pre-configured with an MTU of 1500. The Packet Core’s default UE MTU is therefore 1440 bytes. This default value maximizes RAN interoperability, but risks that certain UEs will not observe the MTU of 1440 and will generate larger packets that require IPv4 fragmentation.
+
+If supported by your RAN, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher, and set the UE MTU to 1500 instead of its default value of 1440. This setup prevents any potential IPv4 fragmentation.
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
