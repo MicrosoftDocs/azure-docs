@@ -39,7 +39,6 @@ With composed models, you can assign multiple custom models to a composed model 
 |**Custom neural models v3.0 (preview)**|Not Supported|Not Supported|Supported|Not Supported|
 |**Custom Neural models v3.0 (GA)**|Not Supported|Not Supported|Not Supported|Supported|
 
-
 * To compose a model trained with a prior version of the API (v2.1 or earlier), train a model with the v3.0 API using the same labeled dataset. That addition will ensure that the v2.1 model can be composed with other models.
 
 * Models composed with v2.1 of the API will continue to be supported, requiring no updates.
@@ -48,24 +47,29 @@ With composed models, you can assign multiple custom models to a composed model 
 
 ## Development options
 
-The following resources areSupportedby Form Recognizer **v3.0** :
+::: moniker range="form-recog-3.0.0"
+The following resources are supported by Form Recognizer **v3.0** :
 
 | Feature | Resources |
 |----------|-------------|
 |_**Custom model**_| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[Java SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[JavaScript SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[Python SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|
 | _**Composed model**_| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/ComposeDocumentModel)</li><li>[C# SDK](/dotnet/api/azure.ai.formrecognizer.training.formtrainingclient.startcreatecomposedmodel)</li><li>[Java SDK](/java/api/com.azure.ai.formrecognizer.training.formtrainingclient.begincreatecomposedmodel)</li><li>[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-latest#@azure-ai-form-recognizer-documentmodeladministrationclient-begincomposemodel&preserve-view=true)</li><li>[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python#azure-ai-formrecognizer-formtrainingclient-begin-create-composed-model&preserve-view=true)</li></ul>|
+::: moniker-end
 
-The following resources areSupportedby Form Recognizer v2.1:
+::: moniker range="form-recog-2.1.0"
+
+The following resources are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
 |_**Custom model**_| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 | _**Composed model**_ |<ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/Compose)</li><li>[C# SDK](/dotnet/api/azure.ai.formrecognizer.training.createcomposedmodeloperation?view=azure-dotnet&preserve-view=true)</li><li>[Java SDK](/java/api/com.azure.ai.formrecognizer.models.createcomposedmodeloptions?view=azure-java-stable&preserve-view=true)</li><li>JavaScript SDK</li><li>[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python#azure-ai-formrecognizer-formtrainingclient-begin-create-composed-model&preserve-view=true)</li></ul>|
-
+::: moniker-end
 
 ## Next steps
 
 Learn to create and compose custom models:
 
 > [!div class="nextstepaction"]
-> [**Form Recognizer v2.1**](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true)
+> [**Build a custom model**](how-to-guides/build-a-custom-model.md)
+> [**Compose custom models**](how-to-guides/compose-custom-models.md)

@@ -65,20 +65,10 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-08-31
 }
 ```
 
-
 ## Next steps
 
-* * Train a custom model:
+Learn to create and compose custom models:
 
-  > [!div class="nextstepaction"]
-  > [How to train a model](how-to-guides/build-custom-model-v3.md)
-
-* Learn more about custom neural models:
-
-  > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md )
-
-* View the REST API:
-
-    > [!div class="nextstepaction"]
-    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+> [!div class="nextstepaction"]
+> [**Build a custom model**](how-to-guides/build-a-custom-model.md)
+> [**Compose custom models**](how-to-guides/compose-custom-models.md)
