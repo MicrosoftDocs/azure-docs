@@ -14,7 +14,7 @@ ms.date: 11/09/2020
 # Algorithm & component reference for Azure Machine Learning designer
 
 >[!Note]
-> Designer support two type of components, classic prebuilt components and custom components. This two types of components  are not compatible. 
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
 >
 >Classic prebuilt components provides a prebuilt component majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >
