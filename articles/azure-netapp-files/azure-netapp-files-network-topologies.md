@@ -107,6 +107,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity from on-premises to a volume in a spoke VNet   over VPN gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
+|     Connectivity over Active/Passive Zone Redundant gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
 |     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
 
