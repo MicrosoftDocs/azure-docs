@@ -118,7 +118,34 @@ For the **/hana/log** volume. the configuration would look like:
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase either IOPS, and/or throughput on the individual disks you're using. 
 
+A few examples on how combining multiple Premium SSD v2 disk with a stripe set could impact the requirement to provision more IOPS or throughput for **/hana/data** is displayed in this table:
 
+| E32(d)s_v5 | 256 GiB | 1 | 304 GB | 3,000 | 3,000 | 0 | 425 MBps | 125 MBps | 300 MBps |
+| E32(d)s_v5 | 256 GiB | 2 | 152 GB | 3,000 | 6,000 | 0 | 425 MBps | 250 MBps | 175 MBps |
+| E32(d)s_v5 | 256 GiB | 4 | 76 GB | 3,000 | 12,000 | 0 | 425 MBps | 500 MBps | 0 MBps |
+| E96(d)s_v5 | 672 GiB | 1 | 304 GB | 3,000 | 3,000 | 0 | 425 MBps | 125 MBps | 300 MBps |
+| E96(d)s_v5 | 672 GiB | 2 | 152 GB | 3,000 | 6,000 | 0 | 425 MBps | 250 MBps | 175 MBps |
+| E96(d)s_v5 | 672 GiB | 4 | 76 GB | 3,000 | 12,000 | 0 | 425 MBps | 500 MBps | 0 MBps |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 1 | 2,464 GB | 12,000 | 3,000 | 9,000 | 800 MBps | 125 MBps | 675 MBps |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2 | 1,232 GB | 12,000 | 6,000 | 6,000 | 800 MBps | 250 MBps | 550 MBps |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 4 | 2,464 GB | 12,000 | 12,000 | 0 | 800 MBps | 500 MBps | 300 MBps |
+| M416ms_v2 | 11,400 GiB | 1 | 13,680 | 25,000 | 3,000 | 22,000 | 1,200 MBps | 125 MBps | 1,075 MBps |
+| M416ms_v2 | 11,400 GiB | 2 | 13,680 | 25,000 | 6,000 | 19,000 | 1,200 MBps | 250 MBps | 950 MBps |
+| M416ms_v2 | 11,400 GiB | 4 | 13,680 | 25,000 | 12,000 | 13,000 | 1,200 MBps | 500 MBps | 700 MBps |
+
+For **/hana/log**, a similar approach could look like:
+| VM SKU | RAM | number of <br />disks | individual disk<br /> size | Proposed IOPS | Default IOPS provisioned | Additional IOPS <br />provisioned | Proposed throughput<br /> for volume | Default throughput provisioned | Additional throughput <br />provisioned |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| E32(d)s_v5 | 256 GiB | 1 | 128 GB | 3,000 | 3,000 | 0 | 275 MBps | 125 MBps | 150 MBps |
+| E32(d)s_v5 | 256 GiB | 2 | 64 GB | 3,000 | 6,000 | 0 | 275 MBps | 250 MBps | 25 MBps |
+| E96(d)s_v5 | 672 GiB | 1 | 512 GB | 3,000 | 3,000 | 0 | 275 MBps | 125 MBps | 150 MBps |
+| E96(d)s_v5 | 672 GiB | 2 | 512 GB | 3,000 | 6,000 | 0 | 275 MBps | 250 MBps | 25 MBps |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 1 | 512 GB | 4,000 | 3,000 | 1,000 | 300 MBps | 125 MBps | 175 MBps |
+| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2 | 256 GB | 4,000 | 6,000 | 0 | 300 MBps | 250 MBps | 50 MBps |
+| M416ms_v2 | 11,400 GiB | 1 | 512 GB | 5,000 | 3,000 | 2,000 | 400 MBps | 125 MBps | 275 MBps |
+| M416ms_v2 | 11,400 GiB | 2 | 256 GB | 5,000 | 6,000 | 0 | 400 MBps | 250 MBps | 150 MBps |
+
+These tables combined with the [prices of IOPS and throughput](https://azure.microsoft.com/pricing/details/managed-disks/) should give you an idea how striping across mulitple Premium SSd v2 disks could reduce the costs for the particular storage configuration your are looking at. Based on these calculations, you can decide whether to mvoe ahead with a single disk approach for **/hana/data** and/or **/hana/log**. 
 
 ## Next steps
 For more information, see:
