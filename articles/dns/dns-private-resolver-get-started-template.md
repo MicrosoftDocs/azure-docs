@@ -84,3 +84,24 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 1. Select the resource group that you created in the previous section.
 
 1. The resource group should contain the following resources:
+
+    :::image type="content" source="./media/dns-resolver-getstarted-template/dns-resolver-resource-group.png" alt-text="DNS private resolver deployment resource group":::
+
+1. Select the DNS private resolver service to verify the provisioning and current state.
+
+    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-page.png" alt-text="Azure DNS private resolver":::
+
+1. Select the Inbound Endpoints and Outbound Endpoints to verify that the endpoints are created and the outbound endpoint is associated with the forwarding ruleset.
+
+    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-inbound-endpoint.png" alt-text="DNS private resolver inbound endpoint":::
+
+    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-outbound-endpoint.png" alt-text="DNS private resolver outbound endpoint":::
+
+1. Select the **Associated ruleset** from the outbound endpoint page to verify the forwarding ruleset and rules creation.
+
+    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-forwarding-rule.png" alt-text="DNS private resolver forwarding rulesets":::
+
+1. Verify the resolver Virtual network is linked with forwarding ruleset.
+
+    :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-vnet-link.png" alt-text="DNS private resolver VNET link":::
+
