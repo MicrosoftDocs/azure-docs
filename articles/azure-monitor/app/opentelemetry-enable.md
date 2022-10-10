@@ -320,13 +320,13 @@ var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttr
 
 // Set ResourceBuilder on the provider.
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .SetResourceBuilder(resourceBuilder)
-        .AddSource("OTel.AzureMonitor.Demo")
-        .AddAzureMonitorTraceExporter(o =>
-        {
-            o.ConnectionString = "<Your Connection String>";
-        })
-        .Build();
+    .SetResourceBuilder(resourceBuilder)
+    .AddSource("OTel.AzureMonitor.Demo")
+    .AddAzureMonitorTraceExporter(o =>
+    {
+        o.ConnectionString = "<Your Connection String>";
+    })
+    .Build();
 ```
 
 
@@ -390,7 +390,22 @@ You may want to enable sampling to reduce your data ingestion volume which reduc
 
 #### [.NET](#tab/net)
 
-Placeholder
+In this example, we utilize the `ApplicationInsightsSampler` which offers compatibility with Application Insights SDKs.
+
+```dotnetcli
+dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
+```
+
+```csharp
+using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddSource("OTel.AzureMonitor.Demo")
+    .SetSampler(new ApplicationInsightsSampler(0.4F))
+    .AddAzureMonitorTraceExporter(o =>
+    {
+     o.ConnectionString = "<Your Connection String>";
+    })
+    .Build();
+```
 
 #### [Node.js](#tab/nodejs)
 
@@ -417,19 +432,19 @@ The following libraries are validated to work with the preview release.
 #### [.NET](#tab/net)
 
 Requests
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
-  [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc7)
+- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
+  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
 - [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
-  [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc7)
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
 
 Dependencies
 - [HTTP
-  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
-  [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc7)
+  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
 - [SQL
-  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) version:
-  [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc7)
+  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
 
 #### [Node.js](#tab/nodejs)
 
