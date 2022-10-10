@@ -165,9 +165,11 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 
 ### Replica configuration
 
-A replica is created by using the same compute and storage settings as the primary. After a replica is created, [CHECK!]several settings can be changed including storage and backup retention period.
+During creation the following settings can be changed: 
+* Storage size: can only be increased. 
+* Firewall rules: all operations are allowed
 
-Firewall rules, virtual network rules, and parameter settings are inherited from the primary server to the replica when the replica is created.
+Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, backup retention period, server parameters, authentication method, firewall rules etc.
 
 ### Scaling
 
