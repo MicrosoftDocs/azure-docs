@@ -144,7 +144,8 @@ There are two ways to manually create your AAD users in WFD.  You can either sel
 
 1. Click on **AAD_to_WFD_Env_Variables** and add the values provided by UKG Support pertaining to your WFD instance. 
 
-    >[!NOTE]:  access_token and refresh_token should be empty as these will automatically populate as a result of the Obtain Access Token HTTP Request.   
+    > [!NOTE]
+    > access_token and refresh_token should be empty as these will automatically populate as a result of the Obtain Access Token HTTP Request.   
 
 1. Open the **Create AAD User in WFD** HTTP Request and update highlighted properties within the JSON payload: 
 
@@ -322,7 +323,8 @@ There are two ways to manually create your AAD users in WFD.  You can either sel
     }
     ```
 
-    >[!NOTE]:  The personInformation.emailAddress.address and the user.userAccount.userName must both match the targeted AAD User you are trying to create in WFD. 
+    > [!NOTE]
+    > The personInformation.emailAddress.address and the user.userAccount.userName must both match the targeted AAD User you are trying to create in WFD. 
 
 1. In the upper-righthand corner, select the **Environments** drop-down-box and select **AAD_to_WFD_Env_Variables**. 
 
@@ -330,7 +332,8 @@ There are two ways to manually create your AAD users in WFD.  You can either sel
 
 1. If the authentication call was successful, you should see a 200 response with an access token returned. This access token will also now show in the **CURRENT VALUE** column in the environment variables for the **access_token** entry. 
 
-    >[!NOTE]:  If an access_token is not received, confirm that all variables in the environment variables are correct.  User credentials should be a super user account. 
+    > [!NOTE]
+    > If an access_token is not received, confirm that all variables in the environment variables are correct. User credentials should be a super user account. 
 
 1. Once an **access_token** is obtained, select the **AAD_to_WFD_Env_Variables** HTTP Request and click the **Send** button.  If the request is successful you will receive a 200 HTTP status back. 
 
