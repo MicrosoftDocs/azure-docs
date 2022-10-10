@@ -11,11 +11,11 @@ ms.reviewer: cegraybl
 
 Azure Container Registry (ACR) gives you the option to create and configure the *Conditional Access policy*. 
 
-The [Conditional Access Policy](/azure/active-directory/conditional-access/overview) is designed to enforce strong authentication. The authentication is based on the location, trusted and compliant devices, user assigned roles, authorization method, and the client applications. The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
+The [Conditional Access policy](/azure/active-directory/conditional-access/overview) is designed to enforce strong authentication. The authentication is based on the location, trusted and compliant devices, user assigned roles, authorization method, and the client applications. The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
 
-Learn more about [Conditional Access Policy](/azure/active-directory/conditional-access/overview), the [conditions](/azure/active-directory/conditional-access/overview#common-signals) you'll take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview#common-decisions)
+Learn more about [Conditional Access policy](/azure/active-directory/conditional-access/overview), the [conditions](/azure/active-directory/conditional-access/overview#common-signals) you'll take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview#common-decisions)
 
-The Conditional Access policy applies after the first-factor authentication to the Azure Container Registry is complete. The purpose of Conditional Access for ACR is for user authentication only. The policy enables the user to choose the controls and further blocks or grants access based on the policy decisions.
+The Conditional Access policy applies after the first-factor authentication to the Azure Container Registry is complete. The purpose of Conditional Access for ACR is for user authentication only. The policy enables the user to chose the controls and further blocks or grants access based on the policy decisions.
 
 In this article, you'll learn to
 
@@ -80,7 +80,7 @@ First, create a Conditional Access policy and assign your test group of users as
 
 1. To apply and activate the policy, Select **Create**.
 
-    :::image type="content" alt-text="A screenshot to activate the conditional access policy." source="media/container-registry-enable-conditional-policy/06-enable-conditional-access-policy.png":::
+    :::image type="content" alt-text="A screenshot to activate the Conditional Access policy." source="media/container-registry-enable-conditional-policy/06-enable-conditional-access-policy.png":::
 
 We have now completed creating the Conditional Access policy for the Azure Container Registry.
 
@@ -112,7 +112,7 @@ You can enable the Conditional Access policy, as follows:
 
 ### Assign a built-in policy definition to disable ARM audience token authentication - Azure portal.
   
-You can enable registry's conditional access policy in the [Azure portal](https://portal.azure.com). 
+You can enable registry's Conditional Access policy in the [Azure portal](https://portal.azure.com). 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) 
 
@@ -136,7 +136,7 @@ You can enable registry's conditional access policy in the [Azure portal](https:
    
      :::image type="content" source="media/container-registry-enable-conditional-policy/05-built-in-policy-definitions.png" alt-text="Screenshot of built-in-policy-definitions":::
 
-Azure Container Registry has two built-in policy definitions for Conditional Access Policy
+Azure Container Registry has two built-in policy definitions for Conditional Access policy
 
 >* `Container registries should have ARM audience token authentication disabled.` - This policy will report, block any non-compliant resources, and also sends a request to update non-compliant to compliant.
 >* `Configure container registries to disable ARM audience token authentication.` - This policy offers remediation and updates non-compliant to compliant resources.
