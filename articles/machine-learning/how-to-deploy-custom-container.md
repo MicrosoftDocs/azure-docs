@@ -55,8 +55,10 @@ cd azureml-examples/cli
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/sdk/endpoints/online/custom-container
+cd azureml-examples/sdk
 ```
+
+See also [the example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container.ipynb) but note that `3. Test locally` section in the notebook assumes to run under the `azureml-examples/sdk` directory.
 
 ---
 
@@ -347,7 +349,7 @@ Using the `MLClient` created earlier, we will get a handle to the endpoint. The 
 - `request_file` - File with request data
 - `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/custom-container).
+We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/custom-container).
 
 ```python
 # test the blue deployment with some sample data

@@ -236,7 +236,7 @@ Azure Cosmos DB Cassandra API is a managed service platform. The platform does n
 
 ## CQL shell
 
-<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). See the article [Enable notebooks for Azure Cosmos DB accounts](../enable-notebooks.md#supported-regions) for supported Azure Regions.
+<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../notebooks-overview.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`).
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH"::: -->
 

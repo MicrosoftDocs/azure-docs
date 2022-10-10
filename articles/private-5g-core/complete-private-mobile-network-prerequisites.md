@@ -75,7 +75,7 @@ For each site you're deploying, do the following:
 ## Configure Domain Name System (DNS) servers
 
 > [!IMPORTANT]
-> If you don't configure DNS servers for a data network, all UEs using that network will be unable to resolve domain names and access the public internet.
+> If you don't configure DNS servers for a data network, all UEs using that network will be unable to resolve domain names.
 
 DNS allows the translation between human-readable domain names and their associated machine-readable IP addresses. Depending on your requirements, you have the following options for configuring a DNS server for your data network:
 

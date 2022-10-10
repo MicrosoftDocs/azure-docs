@@ -8,37 +8,27 @@ items:
   - name: Introduction to Data Factory
     href: introduction.md
     displayName: orchestration
-  - name: What's new in Azure Data Factory
+  - name: What's new (recent months)
     href: whats-new.md
+  - name: What's new (archived months)
+    href: whats-new-archive.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create data factory - User interface (UI)
-    href: quickstart-create-data-factory-portal.md
-  - name: Create data factory - Copy data tool
-    href: quickstart-create-data-factory-copy-data-tool.md
+  - name: Get started with Azure Data Factory
+    href: quickstart-get-started.md
+  - name: Create a data factory
+    href: quickstart-create-data-factory.md
+  - name: Hello World - How to copy data
+    href: quickstart-hello-world-copy-data-tool.md
     displayName: timeout
-  - name: Create data factory - Azure CLI
-    href: quickstart-create-data-factory-azure-cli.md
-  - name: Create data factory - Azure PowerShell
-    href: quickstart-create-data-factory-powershell.md
-  - name: Create data factory - .NET
-    href: quickstart-create-data-factory-dot-net.md
-  - name: Create data factory - Python
-    href: quickstart-create-data-factory-python.md
-  - name: Create data factory - REST
-    href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-data-factory-bicep.md
-  - name: Create data factory - ARM template
-    displayName: Resource Manager
-    href: quickstart-create-data-factory-resource-manager-template.md
-  - name: Create data flow
+  - name: Create a data flow
     href: data-flow-create.md
+  - name: Training modules
+    href: quickstart-learn-modules.md
 - name: Tutorials
   items:
   - name: List of tutorials
@@ -306,6 +296,20 @@ items:
     href: concepts-data-redundancy.md
 - name: How-to guides 
   items:
+  - name: Create Data Factory Programmatically
+    items:
+    - name: Create data factory - Azure CLI
+      href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Create data factory - .NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Create data factory - Python
+      href: quickstart-create-data-factory-python.md
+    - name: Create data factory - REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Create data factory - Bicep
+      href: quickstart-create-data-factory-bicep.md
   - name: Author
     items:
     - name: Visually author data factories
@@ -537,6 +541,8 @@ items:
         href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
+    - name: SAP CDC
+      href: connector-sap-change-data-capture.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
       displayName: timeout
@@ -1097,8 +1103,26 @@ items:
       href: plan-manage-costs.md 
       displayName: diu
     - name: Pricing examples     
-      href: pricing-concepts.md
-      displayName: diu  
+      items:
+      - name: Overview
+        href: pricing-concepts.md
+        displayName: diu 
+      - name: Copy data from AWS S3 to Azure Blob storage
+        href: pricing-examples-s3-to-blob.md
+      - name: Copy data and transform with Azure Databricks
+        href: pricing-examples-copy-transform-azure-databricks.md
+      - name: Copy/transform data with dynamic parameters
+        href: pricing-examples-copy-transform-dynamic-parameters.md
+      - name: Run SSIS packages on Azure-SSIS integration runtime
+        href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
+      - name: Using mapping data flow debug for a workday
+        href: pricing-examples-mapping-data-flow-debug-workday.md
+      - name: Transform blob data with mapping data flows
+        href: pricing-examples-transform-mapping-data-flows.md
+      - name: Data integration with Managed VNET
+        href: pricing-examples-data-integration-managed-vnet.md
+      - name: Get delta data from SAP ECC via SAP CDC in mapping data flows
+        href: pricing-examples-get-delta-data-from-sap-ecc.md
   - name: Troubleshooting guides
     items:
     - name: Azure Data Factory Studio
@@ -1259,7 +1283,7 @@ items:
     href: industry-sap-connectors.md
   - name: SAP templates
     href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) solution (preview)
+  - name: SAP change data capture (CDC) capabilities (preview)
     items:
     - name: Overview and architecture
       href: sap-change-data-capture-introduction-architecture.md
@@ -1272,10 +1296,6 @@ items:
       href: sap-change-data-capture-prepare-linked-service-source-dataset.md
     - name: Debug the Data Factory copy activity
       href: sap-change-data-capture-debug-shir-logs.md
-    - name: Use the SAP data partitioning template
-      href: sap-change-data-capture-data-partitioning-template.md
-    - name: Use the SAP data replication template
-      href: sap-change-data-capture-data-replication-template.md
     - name: Manage your solution
       href: sap-change-data-capture-management.md
     displayName: SAP, change data capture, CDC
