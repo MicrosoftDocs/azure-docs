@@ -28,15 +28,15 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 ### Data flow
 
-- Amazon S3 source connector added [Learn more](connector-amazon-simple-storage-service?tabs=data-factory.md)
-- Google Sheets REST-based connector added as Source (Preview) [Learn more](connector-google-sheets?tabs=data-factory.md)
+- Amazon S3 source connector added [Learn more](connector-amazon-simple-storage-service.md?tabs=data-factory)
+- Google Sheets REST-based connector added as Source (Preview) [Learn more](connector-google-sheets.md?tabs=data-factory)
 - Maximum column optimization in dataflow [Learn more](format-delimited-text.md#mapping-data-flow-properties)
 - SAP Change Data Capture capabilities in Mapping Data Flow (Preview) - Extract and transform data changes from SAP systems for a more efficient data refresh [Learn more](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector)
 - Writing data to a lookup field via alternative keys supported in Dynamics 365/CRM connectors for mapping data flows [Learn more](connector-dynamics-crm-office-365.md?tabs=data-factory#writing-data-to-a-lookup-field-via-alternative-keys)
 
 ### Data movement
 
-Support to convert Oracle NUMBER type to corresponding integer in source [Learn more](connector-oracle?tabs=data-factory.md#oracle-as-source)
+Support to convert Oracle NUMBER type to corresponding integer in source [Learn more](connector-oracle.md?tabs=data-factory#oracle-as-source)
 
 ### Monitoring
 
