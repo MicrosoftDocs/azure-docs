@@ -92,7 +92,7 @@ A value of 0.9 is always recommended.
 
 `max_wal_size`
 
-The max_wal_size can be set to maximum allowed value on the Flexible server, which is 64 GB while we do the initial data load.
+The max_wal_size can be set to the maximum allowed value on the Flexible server, which is 64 GB while we do the initial data load.
 
 `wal_compression`
 
