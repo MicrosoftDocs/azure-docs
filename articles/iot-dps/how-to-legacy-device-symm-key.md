@@ -15,7 +15,7 @@ zone_pivot_groups: iot-dps-set1
 
 This tutorial shows how to securely provision multiple simulated symmetric key devices to a single IoT Hub using an enrollment group.
 
-Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
+Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. For such devices, the Azure IoT Hub Device Provisioning Service (DPS) includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based on unique information like the MAC address or a serial number.
 
 If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This tutorial assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices.
 
@@ -30,7 +30,12 @@ This tutorial is oriented toward a Windows-based workstation. However, you can p
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 ::: zone pivot="programming-language-ansi-c"
 
-* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015, Visual Studio 2017, and Visual Studio 2015 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2019, Visual Studio 2017, and Visual Studio 2015 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+
+* Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
+
+    >[!IMPORTANT]
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
 
 ::: zone-end
 
@@ -76,20 +81,15 @@ An enrollment group that uses [symmetric key attestation](concepts-symmetric-key
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device, during the device's boot sequence.
+In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device during the device's boot sequence.
 
-1. Download the latest [CMake build system](https://cmake.org/download/).
+1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
-    >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+1. Select the **Tags** tab at the top of the page.
 
-2. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
+1. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-3. Select the **Tags** tab at the top of the page.
-
-4. Copy the tag name for the latest release of the Azure IoT C SDK.
-
-5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository(replace `<release-tag>` with the tag you copied in the previous step).
+1. In a Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository (replace `<release-tag>` with the tag you copied in the previous step).
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -99,14 +99,14 @@ In this section, you'll prepare a development environment that's used to build t
 
     This operation could take several minutes to complete.
 
-6. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
+1. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
 
     ```cmd
     mkdir cmake
     cd cmake
     ```
 
-7. The code sample uses a symmetric key to provide attestation. Run the following command to build a version of the SDK specific to your development client platform that includes the device provisioning client:
+1. The code sample uses a symmetric key to provide attestation. Run the following command to build a version of the SDK specific to your development client platform that includes the device provisioning client:
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -115,7 +115,7 @@ In this section, you'll prepare a development environment that's used to build t
     >[!TIP]
     >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-8. When the build completes successfully, the last few output lines will look similar to the following output:
+1. When the build completes successfully, the last few output lines will look similar to the following output:
 
     ```output
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -363,6 +363,9 @@ To update and run the provisioning sample with your device information:
     prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
     ```
 
+    > [!CAUTION]
+    > Be aware that this step leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
+
 8. Save the file.
 
 9. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
@@ -418,9 +421,9 @@ To update and run the provisioning sample with your device information:
 
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
-    | `--s` or `--IdScope`              | True     | The ID Scope of the DPS instance |
-    | `--i` or `--Id`                   | True     | The registration ID for the device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
-    | `--p` or `--PrimaryKey`           | True     | The primary key for an individual enrollment or the derived device key for a group enrollment. |
+    | `--i` or `--IdScope`              | True     | The ID Scope of the DPS instance |
+    | `--r` or `--RegistrationId`       | True     | The registration ID for the device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). |
+    | `--p` or `--PrimaryKey`           | True     | The primary key of an individual enrollment or the derived device key of a group enrollment. |
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 
@@ -433,7 +436,7 @@ To update and run the provisioning sample with your device information:
     * Replace `<primarykey>` with the derived device key that you generated.
 
     ```cmd
-    dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
+    dotnet run --i <id-scope> --r <registration-id> --p <primarykey>
     ```
 
 7. You should see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
@@ -686,6 +689,9 @@ To update and run the provisioning sample with your device information:
     private static final String REGISTRATION_ID = "[Enter your Registration ID here]";
     ```
 
+    > [!CAUTION]
+    > Be aware that this step leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
+
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
 
     ```cmd
@@ -832,10 +838,6 @@ If you plan to continue working on and exploring the device client sample, don't
 4. Select the check box next to the *DEVICE ID* of the device(s) you registered in this tutorial. For example, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*.
 
 5. At the top of the page, select  **Delete**.
-
-## Security concerns
-
-Be aware that this leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
 
 ## Next steps
 
