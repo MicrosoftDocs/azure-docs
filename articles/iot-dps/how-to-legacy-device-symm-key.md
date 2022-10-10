@@ -764,7 +764,7 @@ In this tutorial, you used the *Static configuration* allocation policy to assig
 
 1. Find the device ID for your device **Device Id** column and note down the IoT hub in the **Assigned IoT Hub** column. The device ID is the same as the registration ID, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*. (For devices that register through an enrollment group, the device ID registered to IoT Hub is always the same as the registration ID.)
 
-    :::image type="content" source="./media/how-to-device-symm-key/enrollment-group-registration-records.png" alt-text="Screenshot that shows the enrollment group registration records on Azure portal.":::
+    :::image type="content" source="./media/how-to-legacy-device-symm-key/enrollment-group-registration-records.png" alt-text="Screenshot that shows the enrollment group registration records on Azure portal.":::
 
      You can select the record to see more details like the initial twin assigned to the device.
 
