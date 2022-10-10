@@ -23,7 +23,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 In this article, learn how to run your Keras training scripts using the Azure Machine Learning (AzureML) Python SDK v2.
 
-The example code in this article use AzureML to train, register, and deploy a Keras model built using the TensorFlow backend. The model, a deep neural network (DNN) built with the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview), classifies handwritten digits from the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
+The example code in this article uses AzureML to train, register, and deploy a Keras model built using the TensorFlow backend. The model, a deep neural network (DNN) built with the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview), classifies handwritten digits from the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
 Keras is a high-level neural network API capable of running top of other popular DNN frameworks to simplify development. With AzureML, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
