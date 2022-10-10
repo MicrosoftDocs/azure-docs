@@ -92,7 +92,7 @@ To create the registry key that overrides push notifications:
 Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property under featureSettings to **enabled**, and include or exclude groups:
 
 ```
-https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
 >[!NOTE]
@@ -178,7 +178,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 //Change the Query to PATCH and Run query
  
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -195,7 +195,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
       }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -211,7 +211,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 To confirm the change is applied, run the GET request by using the following endpoint: 
 
 ```http
-GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
 #### Example of how to enable number matching for a single group
@@ -225,7 +225,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -242,7 +242,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -257,7 +257,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 To verify, run GET again and verify the ObjectID:
 
 ```http
-GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
 #### Example of removing the excluded group from number matching
@@ -271,7 +271,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -288,7 +288,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -306,7 +306,7 @@ To turn number matching off, you'll need to PATCH remove **numberMatchingRequire
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -323,7 +323,7 @@ To turn number matching off, you'll need to PATCH remove **numberMatchingRequire
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
