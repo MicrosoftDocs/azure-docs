@@ -7,8 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/05/2021
-ms.custom: 
-- cosmos-db-video
+ms.custom: cosmos-db-video, ignite-2022
 adobe-target: true
 ---
 

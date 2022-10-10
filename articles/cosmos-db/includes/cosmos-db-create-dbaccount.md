@@ -5,7 +5,7 @@ ms.reviewer: mjbrown
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 07/02/2021
- ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 1. From the Azure portal menu or the **Home page**, select **Create a resource**.

@@ -4,11 +4,11 @@ description: Learn about SQL keywords for Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 10/05/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # Keywords in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

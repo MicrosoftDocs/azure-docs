@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 04/29/2022
 ms.author: sidandrews
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Partial document update in Azure Cosmos DB

@@ -2,6 +2,7 @@
 author: alexwolfmsft
 ms.service: cosmos-db
 ms.subservice: table
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 08/22/2022
 ms.author: alexwolf

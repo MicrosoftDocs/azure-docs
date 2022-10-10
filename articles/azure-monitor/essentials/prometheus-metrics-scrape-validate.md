@@ -2,6 +2,7 @@
 title: Create and validate custom configuration file for Prometheus metrics in Azure Monitor (preview)
 description: Describes how to create custom configuration file Prometheus metrics in Azure Monitor and use validation tool before applying to Kubernetes cluster.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---

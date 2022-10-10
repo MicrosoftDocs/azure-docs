@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/1/2022
 ms.author: shwetn
 ms.reviewer: sidandrews
-ms.custom: references_regions 
+ms.custom: references_regions, ignite-2022
 ---
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)

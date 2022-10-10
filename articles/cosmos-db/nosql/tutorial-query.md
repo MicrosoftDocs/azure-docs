@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: tutorial-develop, mvc
+ms.custom: tutorial-develop, mvc, ignite-2022
 ms.topic: tutorial
 ms.date: 08/26/2021
 ---

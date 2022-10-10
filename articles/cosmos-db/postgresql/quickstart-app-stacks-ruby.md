@@ -5,6 +5,7 @@ ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: ignite-2022
 ms.topic: quickstart
 recommendations: false
 ms.date: 09/28/2022

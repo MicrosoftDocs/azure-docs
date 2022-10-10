@@ -5,6 +5,7 @@ description: Resolutions for common problems with outbound connectivity with Azu
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 04/21/2022
 ms.author: mbender

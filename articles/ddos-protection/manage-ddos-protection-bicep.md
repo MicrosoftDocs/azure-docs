@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, ignite-2022
 ms.author: abell
 ms.date: 10/12/2022
 ---

@@ -9,8 +9,7 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Tuning query performance with Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

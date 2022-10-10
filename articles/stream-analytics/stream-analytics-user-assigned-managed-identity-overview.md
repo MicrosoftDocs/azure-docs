@@ -4,6 +4,7 @@ description: This article describes configuring user-assigned managed identities
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/29/2022
 ---

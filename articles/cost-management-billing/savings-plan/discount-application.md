@@ -7,6 +7,7 @@ ms.author: banders
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 10/12/2022
 ---
@@ -28,4 +29,3 @@ At the end of the savings plan term, the billing discount expires, and the resou
 ## Next steps
 
 - [Manage Azure savings plans](manage-savings-plan.md)
-

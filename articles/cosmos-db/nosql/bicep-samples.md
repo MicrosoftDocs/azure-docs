@@ -4,6 +4,7 @@ description: Use Bicep to create and configure Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/13/2021
 ms.author: sidandrews

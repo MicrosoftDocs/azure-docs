@@ -5,7 +5,7 @@ description: Use Azure Functions to create a serverless function that is invoked
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.custom: cc996988-fb4f-47
+ms.custom: cc996988-fb4f-47, ignite-2022
 ---
 # Create a function triggered by Azure Cosmos DB
 

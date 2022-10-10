@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 09/29/2021
 ms.author: jianleishen
-ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime) | Supported by [self-hosted IR](../concepts-integration-runtime.md#self-hosted-integration-runtime) |

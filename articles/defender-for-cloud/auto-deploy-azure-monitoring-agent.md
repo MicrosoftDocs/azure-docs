@@ -5,7 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
 ms.date: 08/03/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, ignite-2022
 ---
 
 # Deploy the Azure Monitor Agent to protect your servers with Microsoft Defender for Cloud

@@ -10,7 +10,7 @@ author: ManojBableshwar
 ms.reviewer: larryfr
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, ignite-2022
 ---
 
 # Manage Azure Machine Learning registries (preview)
@@ -192,4 +192,3 @@ Microsoft.MachineLearningServices/registries/delete | Allows the user to delete 
 ## Next steps
 
 * [Learn how to share models, components and environments across workspaces with registries (preview)](./how-to-share-models-pipelines-across-workspaces-with-registries.md)
-

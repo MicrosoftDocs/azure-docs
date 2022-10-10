@@ -4,6 +4,7 @@ description: Learn how to ingest data from Kafka to Azure Cosmos DB for Apache C
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: sidandrews

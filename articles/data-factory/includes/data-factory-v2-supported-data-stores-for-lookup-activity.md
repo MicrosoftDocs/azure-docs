@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 05/31/2022
 ms.author: jianleishen
-ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 | Category | Data store |

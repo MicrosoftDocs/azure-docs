@@ -4,6 +4,7 @@ description: This article describes using Azure Database Explorer as an output f
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/26/2022
 ---

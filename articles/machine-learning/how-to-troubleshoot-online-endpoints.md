@@ -10,7 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: larryfr
 ms.date: 04/12/2022
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
+ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 

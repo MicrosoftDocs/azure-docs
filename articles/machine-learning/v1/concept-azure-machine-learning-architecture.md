@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/21/2021
-ms.custom: seoapril2019, seodec18
+ms.custom: seoapril2019, seodec18, ignite-2022
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 

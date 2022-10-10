@@ -5,6 +5,7 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: mjbrown
@@ -330,4 +331,3 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 
 > [!div class="nextstepaction"]
 > [Distribute your data globally](../nosql/tutorial-global-distribution.md)
-

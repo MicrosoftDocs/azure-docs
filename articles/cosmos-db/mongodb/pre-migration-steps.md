@@ -3,6 +3,7 @@ title: Pre-migration steps for data migration to Azure Cosmos DB's API for Mongo
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/05/2022
 author: gahl-levy

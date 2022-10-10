@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.reviewer: mjbrown
-ms.custom: synapse-cosmos-db
+ms.custom: synapse-cosmos-db, ignite-2022
 ---
 
 # What is Azure Synapse Link for Azure Cosmos DB?

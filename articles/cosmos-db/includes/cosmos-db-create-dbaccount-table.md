@@ -8,7 +8,7 @@
  ms.date: 07/02/2021
  ms.author: sidandrews
 ms.reviewer: mjbrown
- ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
@@ -41,4 +41,3 @@ ms.reviewer: mjbrown
 6. It takes a few minutes to create the account. You'll see a message that states **Your deployment is underway**. Wait for the deployment to finish, and then select **Go to resource**.
 
     :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="The Azure portal notifications pane":::
-

@@ -10,8 +10,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
 ms.author: abell 
-ms.custom: devx-track-azurepowershell, mode-api
-
+ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 ---
 # Quickstart: Create and configure Azure DDoS Network Protection using Azure PowerShell
 

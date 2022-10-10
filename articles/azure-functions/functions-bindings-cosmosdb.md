@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB triggers and bindings in Azur
 ms.topic: reference
 ms.date: 11/21/2017
 ms.devlang: csharp, javascript
-ms.custom: "devx-track-csharp, seodec18"
+ms.custom: devx-track-csharp, seodec18, ignite-2022
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x

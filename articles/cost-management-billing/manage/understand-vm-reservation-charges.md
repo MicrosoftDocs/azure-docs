@@ -5,6 +5,7 @@ author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 10/03/2022
 ms.author: banders

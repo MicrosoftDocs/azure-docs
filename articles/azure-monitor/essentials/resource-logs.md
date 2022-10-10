@@ -4,10 +4,10 @@ description: Learn how to stream Azure resource logs to a Log Analytics workspac
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 05/09/2022
 ms.author: bwren
 ms.reviewer: lualderm
-
 ---
 
 # Azure resource logs

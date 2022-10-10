@@ -10,7 +10,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.author: abell
 ms.date: 10/12/2022
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Inline L7 DDoS Protection with Gateway Load Balancer and Partner NVAs

@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 07/30/2021
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 
 # Use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB 

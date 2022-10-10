@@ -6,7 +6,7 @@ ms.author: johnkem
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 

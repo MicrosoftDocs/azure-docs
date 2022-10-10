@@ -4,10 +4,10 @@ description: Get answers to common questions about  Azure Resource Mover
 author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 02/21/2021
 ms.author: raynew
-
 ---
 
 # Common questions

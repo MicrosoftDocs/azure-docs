@@ -7,7 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.custom: cosmos-db-video
+ms.custom: cosmos-db-video, ignite-2022
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB

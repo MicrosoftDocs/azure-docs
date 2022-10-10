@@ -4,6 +4,7 @@ description: Prevent your Azure Cosmos DB for Apache Cassandra operations from h
 author: dileepraotv-github
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: turao
@@ -101,4 +102,3 @@ See the following articles to learn about throughput provisioning in Azure Cosmo
 * [Request units and throughput in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](how-to-provision-throughput.md) 
 * [Partition key best practices](partitioning.md)
-

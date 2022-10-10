@@ -2,6 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 10/22/2021
 ms.author: jianleishen
@@ -37,4 +38,3 @@ ms.author: jianleishen
 | &nbsp; |[Generic ODBC](../data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../data-factory-salesforce-connector.md) |✓ | |
 | &nbsp; |[Web Table (table from HTML)](../data-factory-web-table-connector.md) |✓ | |
-

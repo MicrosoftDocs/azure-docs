@@ -3,7 +3,7 @@ title: Overview of Azure Cosmos DB for PostgreSQL
 description: Read an overview guide for running Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: overview

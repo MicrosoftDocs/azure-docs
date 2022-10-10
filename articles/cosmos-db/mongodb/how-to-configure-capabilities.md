@@ -3,6 +3,7 @@ title: Configure your API for MongoDB account capabilities
 description: Learn how to configure your API for MongoDB account capabilities
 author: gahl-levy
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/06/2022
 ms.author: gahllevy

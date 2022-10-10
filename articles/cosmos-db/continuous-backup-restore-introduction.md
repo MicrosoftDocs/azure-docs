@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/24/2022
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: references_regions, cosmos-db-video
+ms.custom: references_regions, cosmos-db-video, ignite-2022
 ---
 
 # Continuous backup with point-in-time restore in Azure Cosmos DB

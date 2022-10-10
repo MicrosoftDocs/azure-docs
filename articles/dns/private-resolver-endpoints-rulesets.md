@@ -4,6 +4,7 @@ description: In this article, understand the Azure DNS Private Resolver endpoint
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/09/2022
 ms.author: greglin

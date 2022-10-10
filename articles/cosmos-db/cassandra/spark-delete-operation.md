@@ -9,6 +9,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.devlang: scala
+ms.custom: ignite-2022
 ---
 
 # Delete data in Azure Cosmos DB for Apache Cassandra tables from Spark

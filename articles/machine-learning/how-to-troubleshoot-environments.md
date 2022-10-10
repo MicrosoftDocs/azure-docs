@@ -9,7 +9,7 @@ author: edebar01
 ms.author:  ericadebarge
 ms.date: 03/01/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-python, event-tier1-build-2022
+ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 ---
 
 # Troubleshooting environment image builds using troubleshooting log error messages

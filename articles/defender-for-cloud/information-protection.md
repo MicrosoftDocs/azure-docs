@@ -4,6 +4,7 @@ description: Use Microsoft Purview's data sensitivity classifications in Microso
 author: bmansheim
 ms.author: benmansheim
 ms.topic: overview
+ms.custom: ignite-2022
 ms.date: 06/29/2022
 ---
 # Prioritize security actions by data sensitivity (Preview)

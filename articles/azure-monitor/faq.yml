@@ -5,6 +5,7 @@ metadata:
   services: azure-monitor
   ms.topic: faq
   ms.service: azure-monitor
+  ms.custom: ignite-2022
   author: bwren
   ms.author: bwren
   ms.date: 06/23/2022

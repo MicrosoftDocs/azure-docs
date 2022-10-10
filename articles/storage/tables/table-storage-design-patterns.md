@@ -10,7 +10,7 @@ ms.date: 06/24/2021
 ms.author: tamram
 ms.subservice: tables
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Table design patterns
 

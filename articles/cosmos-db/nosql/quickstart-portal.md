@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.custom: mode-ui
+ms.custom: mode-ui, ignite-2022
 ---
 # Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

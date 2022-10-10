@@ -4,7 +4,7 @@ titleSuffix: Microsoft Defender for Cloud
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multicloud resources
 ms.topic: quickstart
 ms.date: 09/20/2022
-ms.custom: mode-other
+ms.custom: mode-other, ignite-2022
 ---
 
 # Quickstart: Enable enhanced security features

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Using Azure ultra disks

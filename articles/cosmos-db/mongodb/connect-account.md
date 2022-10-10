@@ -5,6 +5,7 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.reviewer: mjbrown
@@ -12,7 +13,6 @@ adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./connect-mongodb-account-experimental
-
 ---
 # Connect a MongoDB application to Azure Cosmos DB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

@@ -8,10 +8,9 @@ ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-
 ---
 # Azure Cosmos DB for NoSQL: Java SDK v4 examples
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

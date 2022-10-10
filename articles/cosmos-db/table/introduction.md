@@ -5,9 +5,9 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: table
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 11/03/2021
-
 ---
 # Introduction to Azure Cosmos DB: API for Table
 [!INCLUDE[Table](../includes/appliesto-table.md)]

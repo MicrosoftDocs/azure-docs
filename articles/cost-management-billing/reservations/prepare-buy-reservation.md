@@ -5,6 +5,7 @@ author: bandersmsft
 ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/07/2022
 ms.author: banders

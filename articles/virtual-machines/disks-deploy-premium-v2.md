@@ -7,7 +7,7 @@ ms.date: 10/12/2022
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Deploy a Premium SSD v2

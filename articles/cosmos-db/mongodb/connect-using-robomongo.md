@@ -3,11 +3,11 @@ title: Use Robo 3T to connect to Azure Cosmos DB
 description: Learn how to connect to Azure Cosmos DB using Robo 3T and Azure Cosmos DB's API for MongoDB
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-
 ---
 # Use Robo 3T with Azure Cosmos DB's API for MongoDB
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

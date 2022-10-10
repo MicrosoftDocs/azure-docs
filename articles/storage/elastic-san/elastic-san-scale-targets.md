@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Elastic SAN (preview) scale targets

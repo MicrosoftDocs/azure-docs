@@ -6,7 +6,7 @@ ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp, contperf-fy21q1
+ms.custom: devx-track-csharp, contperf-fy21q1, ignite-2022
 ---
 
 # Install and use the Azure Cosmos DB Emulator for local development and testing

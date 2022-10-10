@@ -6,7 +6,7 @@ ms.author: johnkem
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept, ignite-fall-2021, ignite-2022
 ---
 
 # Faults and actions in Azure Chaos Studio

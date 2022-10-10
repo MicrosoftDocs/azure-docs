@@ -5,6 +5,7 @@ description: Learn how to use Azure Log Analytics to improve the performance and
 author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/12/2021
 ms.author: esarroyo 

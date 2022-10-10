@@ -7,6 +7,7 @@ author: shijaiswal
 ms.service: network-watcher
 ms.topic: troubleshooting
 ms.workload:  infrastructure-services
+ms.custom: ignite-2022
 ms.date: 10/12/2022
 ms.author: shijaiswal
 ---

@@ -7,7 +7,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 09/19/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # [Document summarization](#tab/document-summarization)

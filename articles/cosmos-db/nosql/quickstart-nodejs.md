@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 09/22/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, ignite-2022
 ---
 
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB for NoSQL account

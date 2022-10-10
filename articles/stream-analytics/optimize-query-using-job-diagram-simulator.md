@@ -4,6 +4,7 @@ description: This article provides guidance for evaluating query parallelism and
 author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/12/2022
 ---
@@ -80,5 +81,3 @@ If you want to learn more about query parallelization and job diagram, check out
 * [Debug queries using job diagram](debug-locally-using-job-diagram-vs-code.md)
 * [Stream Analytics job diagram (preview) in Azure portal](./job-diagram-with-metrics.md)
 * [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md).
-
-

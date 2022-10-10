@@ -9,9 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom:
-- "seo-lt-2019"
-- kr2b-contr-experiment
+ms.custom: seo-lt-2019, kr2b-contr-experiment, ignite-2022
 ms.topic: troubleshooting
 ms.date: 05/18/2022
 ---

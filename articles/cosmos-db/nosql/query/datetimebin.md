@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: conceptual 
 ms.date: 05/27/2022 
 ms.author: jucocchi 
-ms.custom: query-reference 
+ms.custom: query-reference, ignite-2022
 --- 
 
 # DateTimeBin (Azure Cosmos DB)

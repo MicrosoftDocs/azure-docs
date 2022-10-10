@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2021
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 # Data encryption in Azure Cosmos DB 

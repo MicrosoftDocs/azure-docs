@@ -6,6 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 09/02/2022
 ---

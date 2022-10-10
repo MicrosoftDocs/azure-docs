@@ -10,10 +10,10 @@ editor: ''
 ms.service: private-link
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-
 ---
 
 # Troubleshoot Azure Private Endpoint connectivity problems

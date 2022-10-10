@@ -6,7 +6,7 @@ author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, ignite-2022
 ---
 
 # Using OpenFaaS on AKS

@@ -5,6 +5,7 @@ author: StefArroyo
 ms.author: esarroyo 
 services: cosmos-db
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 05/20/2021
 ---

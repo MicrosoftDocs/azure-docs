@@ -4,6 +4,7 @@ description: Understand how indexing works in Azure Cosmos DB, different types o
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.author: sidandrews

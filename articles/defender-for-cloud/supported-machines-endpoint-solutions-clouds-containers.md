@@ -3,7 +3,7 @@ title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
 ms.date: 08/10/2022
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Defender for Containers feature availability

@@ -7,8 +7,7 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/28/2022
 ms.author: maquaran
-ms.custom: devx-track-dotnet, contperf-fy21q2
-
+ms.custom: devx-track-dotnet, contperf-fy21q2, ignite-2022
 ---
 
 # Azure Cosmos DB SQL SDK connectivity modes

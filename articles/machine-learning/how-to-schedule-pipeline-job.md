@@ -9,8 +9,7 @@ ms.author: lochen
 author: cloga
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, ignite-2022
 ---
 
 # Schedule machine learning pipeline jobs (preview)

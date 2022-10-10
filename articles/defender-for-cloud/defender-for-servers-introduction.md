@@ -5,6 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.date: 06/22/2022
 ms.topic: conceptual
+ms.custom: ignite-2022
 ---
 # Overview of Microsoft Defender for Servers
 

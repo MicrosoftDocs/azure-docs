@@ -3,6 +3,7 @@ title: Running the emulator on Docker for Windows
 itleSuffix: Running the Azure Cosmos DB emulator on Docker for Windows
 description: Learn how to run and use the Azure Cosmos DB Emulator on Docker for Windows. Using the emulator you can develop and test your application locally for free, without creating an Azure subscription.
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo

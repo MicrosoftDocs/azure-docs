@@ -5,6 +5,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.reviewer: mjbrown

@@ -4,6 +4,7 @@ description: Store structured data in the cloud using Azure Table storage or the
 ms.service: cosmos-db
 ms.subservice: table
 ms.devlang: ruby
+ms.custom: ignite-2022
 ms.topic: sample
 ms.date: 07/23/2020
 author: seesharprun

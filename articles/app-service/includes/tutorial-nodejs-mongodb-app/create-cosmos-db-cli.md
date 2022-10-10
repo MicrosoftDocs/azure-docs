@@ -2,6 +2,7 @@
 author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
+ms.custom: ignite-2022
 ms.date: 01/30/2022
 ---
 A new Azure Cosmos DB account is created by using the [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) command.

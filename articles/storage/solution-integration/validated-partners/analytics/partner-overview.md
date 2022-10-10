@@ -9,7 +9,7 @@ ms.date: 04/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-
+ms.custom: ignite-2022
 ---
 
 # Azure Storage analytics and big data partners
