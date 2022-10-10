@@ -12,7 +12,7 @@ ms.date: 10/10/2022
 
 # Run tests across multiple operating systems and browsers with Microsoft Playwright Testing Preview
 
-In this article, you'll learn how to configure your Playwright tests to run cross platform with Microsoft Playwright Testing Preview. With Microsoft Playwright Testing you can run your Playwright tests on hosted browsers across multiple operating systems, regardless of your local developer environment.
+In this article, you'll learn how to configure your Playwright tests to run cross platform with Microsoft Playwright Testing Preview. With Microsoft Playwright Testing, you can run your Playwright tests on hosted browsers across multiple operating systems, regardless of your local developer environment.
 
 You can specify the target operating system and browser configuration for your existing Playwright tests by updating the Playwright configuration file. Microsoft Playwright Testing enables you to configure a default OS for all your tests, or to define multiple OS-browsers test project configurations.
 
@@ -30,7 +30,7 @@ Learn more about the [operating systems and browsers that Microsoft Playwright T
 
 You specify the target operating system for your Playwright tests in the `playwright.config.ts` (or `playwright.config.js`) file. If you don't specify an OS, Microsoft Playwright Testing by default uses the latest Ubuntu version to run your tests.
 
-The `connectOptions` property contains the service-related configuration, such as the target OS. You can specify the `connectOptions` at the top-level `PlaywrightTestConfig` level, or specify it for a [test project](https://playwright.dev/docs/test-advanced#projects).
+The `connectOptions` property contains the service-related configuration, such as the target OS. You can specify the `connectOptions` at the `PlaywrightTestConfig` level, or specify it for a [test project](https://playwright.dev/docs/test-advanced#projects).
 
 Use the `PlaywrightService.connectOptions()` function to configure the target OS. The function takes two input parameters:
 
