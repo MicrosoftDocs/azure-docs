@@ -4,8 +4,8 @@ description: This article describes how you can manage Azure AD enabled roles to
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: anchudno
-author: anchudno
+ms.author: achudnovskij
+author: achudnovskij
 ms.date: 09/26/2022
 ---
 
