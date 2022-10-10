@@ -360,6 +360,10 @@ Scans can be managed or run again on completion
 
 ## Access policy
 
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [Data owner policies](concept-policies-data-owner.md)
+
 ### Access policy pre-requisites on Azure SQL Database
 [!INCLUDE [Access policies specific Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 

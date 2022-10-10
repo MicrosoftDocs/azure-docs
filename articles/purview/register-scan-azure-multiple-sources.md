@@ -154,6 +154,11 @@ To manage a scan, do the following:
 
 ## Access Policy
 
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [Data owner policies](concept-policies-data-owner.md)
+
+
 ### Access policy pre-requisites on Azure Storage accounts
 To be able to enforce policies from Microsoft Purview, data sources under a resource group or subscription need to be configured first. Instructions vary based on the data source type.
 Please review whether they support Microsoft Purview policies, and if so, the specific instructions to enable them, under the Access Policy link in the [Microsoft Purview connector document](./microsoft-purview-connector-overview.md).

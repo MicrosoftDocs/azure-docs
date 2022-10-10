@@ -328,6 +328,11 @@ Source storage account can support up to 20 targets, and target storage account 
 
 ## Access policy
 
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [Data owner policies](concept-policies-data-owner.md)
+- [Self-service access policies](concept-self-service-data-access-policy.md)
+
 ### Access policy pre-requisites on Azure Storage accounts
 [!INCLUDE [Access policies Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
