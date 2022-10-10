@@ -62,6 +62,46 @@ You can set your Spot Priority Mix in the Scaling tab of the virtual machine sca
 
 1. Continue through the virtual machine scale set creation process. 
 
+## Azure CLI
+
+You can set your Spot Priority Mix using Azure CLI by setting the `priority` flag to `Spot` and including the `regular-priority-count` and `regular-priority-percentage` flags.  
+
+```azurecli
+az vmss create -n myScaleSet \
+		-g myResourceGroup \
+		--orchestration-mode flexible \
+		--regular-priority-count 2 \
+		--regular-priority-percentage 50 \
+		--orchestration-mode flexible \
+		--instance-count 4 \
+		--image Centos \
+		--priority Spot \
+		--eviction-policy Deallocate \
+		--single-placement-group False \
+```
+
+## Azure Powershell
+
+You can set your Spot Priority Mix using Azure Powershell by setting the `Priority` flag to `Spot` and including the `BaseRegularPriorityCount` and `RegularPriorityPercentage` flags.  
+
+```azurepowershell
+$vmssConfig = New-AzVmssConfig `
+            -Location "East US" `
+            -SkuCapacity 4 `
+            -SkuName Standard_D2_v5 `
+            -OrchestrationMode 'Flexible' `
+            -EvictionPolicy 'Delete' `
+            -PlatformFaultDomainCount 1 `
+            -Priority 'Spot' `
+            -BaseRegularPriorityCount 2 `
+            -RegularPriorityPercentage 50;
+
+New-AzVmss `
+            -ResourceGroupName myResourceGroup `
+            -Name myScaleSet `
+            -VirtualMachineScaleSet $vmssConfig;
+
+```
 
 ## Next steps
 
