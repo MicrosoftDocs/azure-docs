@@ -28,16 +28,14 @@ A common way to assign Azure AD roles to a user is on the **Assigned roles** pag
 
 > [!Note]
 > If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../roles/manage-roles-portal.md). This feature is currently limited to assigning only one role at a time. You can't currently select multiple roles and assign them to a user all at once.
->
-> ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
+
+![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
 ## Assign a role to a user
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in using a Global administrator account for the directory.
 
 2. Search for and select **Azure Active Directory**.
-
-      ![Azure portal search for Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
 3. Select **Users**.
 
