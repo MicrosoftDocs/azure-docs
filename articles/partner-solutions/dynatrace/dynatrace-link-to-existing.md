@@ -64,7 +64,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
     > [!NOTE]
     > Linking requires that the environment and the Dynatrace resource reside in the   same Azure region. The user that is performing the linking action should have   administrator permissions on the Dynatrace environment being linked. If the   environment that you want to link to does not appear in the dropdown list, check if   any of these conditions are not satisfied.
 
-1. Select **Next: Metrics and logs** to configure metrics and logs.
+Select **Next: Metrics and logs** to configure metrics and logs.
 
 ### Configure metrics and logs
 
@@ -87,7 +87,7 @@ The logs sent to Dynatrace are charged by Azure. For more information, see the 
 
     Metrics for virtual machines and App Services can be collected by installing the Dynatrace OneAgent after the Dynatrace resource has been created and an existing Dynatrace environment has been linked to it.
 
-1. Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
+Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
 
 ### Configure single sign-on
 
@@ -95,7 +95,7 @@ The logs sent to Dynatrace are charged by Azure. For more information, see the 
     > [!NOTE]
     > You cannot set up single sign-on when linking the Dynatrace resource to an existing Dynatrace environment. You can do so after creating the Dynatrace resource. For more information, see [Reconfigure single sign-on](dynatrace-how-to-manage.md#reconfigure-single-sign-on).
 
-1. Select **Next: Tags**.
+Select **Next: Tags**.
 
 ### Add tags
 
@@ -103,7 +103,7 @@ The logs sent to Dynatrace are charged by Azure. For more information, see the 
 
    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-custom-tags.png" alt-text="Screenshot showing list of tags for a Dynatrace resource.":::
 
-1. When you've finished adding tags, select **Next: Review+Create.**
+When you've finished adding tags, select **Next: Review+Create.**
 
 ### Review and create
 
