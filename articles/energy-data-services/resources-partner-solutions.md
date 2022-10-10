@@ -6,12 +6,15 @@ ms.topic: conceptual
 ms.date: 09/24/2022
 author: bharathim
 ms.author: bselvaraj
-ms.reviewer: wiassaf
+ms.reviewer: priyabratp
 ---
 
-# Microsoft Energy Data Services partners
+# Microsoft Energy Data Services Preview partners
 
-This article highlights Microsoft Energy Data Services partners.
+Partner community is the growth engine for Microsoft. To help our customers quickly realize the benefits of Microsoft Energy Data Services Preview, we've worked closely with many partners who have tested their software applications and tools on our data platform. 
+
+## Partner solutions
+This article highlights Microsoft partners with software solutions officially supporting Microsoft Energy Data Services.
 
 | Partner | Description | Website/Product link |
 | ------- | ----------- | -------------------- |
@@ -20,7 +23,7 @@ This article highlights Microsoft Energy Data Services partners.
 | Interica | Interica OneView&trade; harnesses the power of application connectors to extract rich metadata from live projects discovered across the organization. IOV scans automatically discover content and extract detailed metadata at the sub-element level. Quickly and easily discover data across multiple file systems and data silos, and clearly determine which projects contain selected data objects to inform business decisions. Live data discovery enables businesses to see a complete holistic view of subsurface project landscapes for improved time to decisions, more efficient data search, and effective storage management. | [Accelerate Microsoft Energy Data Services adoption with Interica OneView&trade;](https://www.petrosys.com.au/interica-oneview-connecting-to-microsoft-data-services/) [Interica OneView&trade;](https://www.petrosys.com.au/assets/Interica_OneView_Accelerate_MEDS_Azure_adoption.pdf) [Interica OneView&trade; connecting to Microsoft Data Services](https://youtu.be/uPEOo3H01w4)|
 
 
-## Next Steps
+## Next steps
 To learn more about Microsoft Energy Data Services, visit
 > [!div class="nextstepaction"]
 > [What is Microsoft Energy Data Services Preview?](overview-microsoft-energy-data-services.md)
