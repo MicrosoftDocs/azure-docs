@@ -67,4 +67,4 @@ Learn more about how to set up Teams for Azure Virtual Desktop at [Use Microsoft
 
 Learn about known issues, limitations, and how to log issues at [Troubleshoot Teams on Azure Virtual Desktop](troubleshoot-teams.md).
 
-Learn about the latest version of the Remote Desktop WebRTC Redirector Service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-websocket.md).
+Learn about the latest version of the Remote Desktop WebRTC Redirector Service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-webrtc.md).

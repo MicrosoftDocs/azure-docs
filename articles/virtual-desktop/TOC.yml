@@ -154,7 +154,7 @@
   - name: Fair Share technologies
     href: /troubleshoot/windows-server/remote/fair-share-enabled-by-default-in-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Supported features for Teams
-    href: teams-supported-features
+    href: teams-supported-features.md
 - name: How-to guides
   items:
   - name: Migrate your deployment

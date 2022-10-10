@@ -64,7 +64,7 @@ The Remote Desktop WebRTC Redirector Service is required to run Teams on Azure V
 
 4. Follow the prompts. Once it's completed, select **Finish**.
 
-You can find more information about the latest version of the WebSocket service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-websocket.md).
+You can find more information about the latest version of the WebSocket service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-webrtc.md).
 
 ## Install Teams on Azure Virtual Desktop
 
@@ -140,4 +140,4 @@ See [Supported features for Teams on Azure Virtual Desktop](teams-supported-feat
 
 Learn about known issues, limitations, and how to log issues at [Troubleshoot Teams on Azure Virtual Desktop](troubleshoot-teams.md).
 
-Learn about the latest version of the WebSocket Service at [What's new in the WebSocket Service for Azure Virtual Desktop](whats-new-websocket.md).
+Learn about the latest version of the WebSocket Service at [What's new in the WebSocket Service for Azure Virtual Desktop](whats-new-webrtc.md).
