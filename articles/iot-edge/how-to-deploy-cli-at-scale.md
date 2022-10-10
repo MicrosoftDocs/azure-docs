@@ -177,6 +177,9 @@ The same can also be expressed with:
 >[!NOTE]
 >Currently, all layered deployments must include an `edgeAgent` object to be considered valid. Even if a layered deployment only updates module properties, include an empty object. For example: `"$edgeAgent":{}`. A layered deployment with an empty `edgeAgent` object will be shown as **targeted** in the `edgeAgent` module twin, not **applied**.
 
+>[!NOTE]
+>If the image of a layered deployment resides in a private container registry, the registry credentials need to be provided on the "base" automatic deployment.
+
 In summary, to create a layered deployment:
 
 - Add the `--layered` flag to the Azure CLI create command.
