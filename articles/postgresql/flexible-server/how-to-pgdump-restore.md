@@ -42,7 +42,7 @@ Before the starting the pg_dump process, consider if table vacuuming is necessar
 select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_tup::float*100) dead_pct,autovacuum_count,last_vacuum,last_autovacuum,last_autoanalyze,last_analyze from pg_stat_all_tables where n_live_tup >0;
 ```
 
-The **dead_pct** column in the above query gives percentage of dead tuples when compared to live tuples.A high dead_pct value for a table might point to the table not being properly vacuumed.For tuning autovacuum, review the article [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
+The **dead_pct** column in the above query gives percentage of dead tuples when compared to live tuples. A high dead_pct value for a table might point to the table not being properly vacuumed. For tuning autovacuum, review the article [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 
 
 As a one of case perform manual vacuum analyze of the tables that are identified.
