@@ -146,7 +146,7 @@ Not all Tanzu Buildpacks support all service binding types. The following table 
 |Go    |❌|❌|❌|✅|❌|
 |Python|❌|❌|❌|❌|❌|
 |NodeJS|❌|✅|✅|✅|✅|
-|[Static Files](how-to-enterprise-deploy-static-file.md)|❌|❌|❌|✅|❌|
+|[WebServers](how-to-enterprise-deploy-static-file.md)|❌|❌|❌|✅|❌|
 
 To edit service bindings for the builder, select **Edit**. After a builder is bound to the service bindings, the service bindings are enabled for an app deployed with the builder.
 
