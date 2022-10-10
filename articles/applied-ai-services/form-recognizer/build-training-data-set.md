@@ -16,7 +16,7 @@ recommendations: false
 
 # Build a training data set for a custom model
 
-**Applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**. **Other versions:** [Form Recognizer v3.0](how-to-guides/build-custom-model-v3.md?view=form-recog-3.0.0&preserve-view=true)
+**Applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**. **Other versions:** [Form Recognizer v3.0](how-to-guides/build-custom-model-v3.md?view=form-recog-3.0.0&preserve-view=true)
 
 
 When you use the Form Recognizer custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
