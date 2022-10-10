@@ -13,11 +13,11 @@ ms.reviewer: shseth
 # Azure Monitor agent on Windows client devices
 This article provides instructions and guidance for using the client installer for Azure Monitor Agent. It also explains how to leverage Data Collection Rules on Windows client devices.
 
-With the new client installer available in this preview, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
+Using the new client installer described here, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
 Both the [extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
 
 ### Comparison with virtual machine extension
-Here is a comparison between client installer and VM extension for Azure Monitor agent. It also highlights which parts are in preview:
+Here is a comparison between client installer and VM extension for Azure Monitor agent:
 
 | Functional component | For VMs/servers via extension | For clients via installer|
 |:---|:---|:---|
