@@ -92,9 +92,13 @@ With inbound settings, you select which external users and groups will be able t
 
 ### To change inbound B2B collaboration settings
 
-1. Select the **B2B collaboration** tab.
+1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 
-1. (This step applies to **Organizational settings** only.) If you're configuring inbound access settings for a specific organization, select one of the following:
+1. Select **External Identities** > **Cross-tenant access settings**.
+
+1. Under **Organizational settings** select the link in the **Inbound access** column and the **B2B collaboration** tab.
+
+1. If you're configuring inbound access settings for a specific organization, select one of the following:
 
    - **Default settings**: Select this option if you want the organization to use the default inbound settings (as configured on the **Default** settings tab). If customized settings were already configured for this organization, you'll need to select **Yes** to confirm that you want all settings to be replaced by the default settings. Then select **Save**, and skip the rest of the steps in this procedure.
 
