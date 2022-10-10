@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/07/2022
+ms.date: 10/10/2022
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -27,7 +27,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* The [non-browsable shares](#nonbrowsable-shares) and [access-based enumeration](access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
+* The [non-browsable shares](#non-browsable-shares) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
 
 1. Register the feature: 
 
