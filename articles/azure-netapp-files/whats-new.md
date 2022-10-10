@@ -12,15 +12,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/07/2022
+ms.date: 10/10/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [Access-based enumeration share settings](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)
-    [Also available for dual-protocol volumes](create-volumes-dual-protocol.md#create-a-dual-protocol-volume)
+* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) (preview)
+    Access-based enumeration (ABE) displays only the files and folders that a user has permissions to access. If a user does not have Read (or equivalent) permissions for a folder, the Windows client hides the folder from the user’s view. This new capability provides an additional layer of security by only displaying files and folders a user has access to, and as a result hiding file and folder information a user has no access to. You can now enable ABE on Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [dual-protocol](create-volumes-dual-protocol.md#access-based-enumeration) (with NTFS security style) volumes. 
 
 ## August 2022
 
