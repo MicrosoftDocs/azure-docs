@@ -17,7 +17,7 @@ This tutorial shows how to securely provision multiple simulated symmetric key d
 
 Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. For such devices, the Azure IoT Hub Device Provisioning Service (DPS) includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based on unique information like the MAC address or a serial number.
 
-If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This tutorial assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices.
+If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would'nt have a secret key embedded in your device images. This tutorial assumes that neither an HSM nor a certificate is a viable option. However, it's assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices.
 
 This tutorial also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
 
@@ -75,7 +75,7 @@ This tutorial is oriented toward a Windows-based workstation. However, you can p
 
 A unique registration ID will be defined for each device based on information that identifies that device. For example, the MAC address or a serial number.
 
-An enrollment group that uses [symmetric key attestation](concepts-symmetric-key-attestation.md) will be created with the Device Provisioning Service. The enrollment group will include a group master key. That master key will be used to hash each unique registration ID to produce a unique device key for each device. The device will use that derived device key with its unique registration ID to attest with the Device Provisioning Service and be assigned to an IoT hub.
+An enrollment group that uses [symmetric key attestation](concepts-symmetric-key-attestation.md) will be created with the Device Provisioning Service. The enrollment group will include a group master key. The group master key will be used to hash each unique registration ID to produce a unique device key for each device. The device will use the derived device key with its unique registration ID to attest with the Device Provisioning Service to be assigned to an IoT hub.
 
 ## Prepare your development environment
 
@@ -251,7 +251,7 @@ Example result:
 ```
 # [Windows](#tab/windows)
 
-If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
 Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
@@ -274,7 +274,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 # [Linux](#tab/linux)
 
-If you are using a Linux workstation, you can use openssl to generate your 
+If you're using a Linux workstation, you can use openssl to generate your 
 derived device key as shown in the following example.
 
 Replace the value of **KEY** with the **Primary Key** you noted earlier.
@@ -356,7 +356,7 @@ To update and run the provisioning sample with your device information:
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function call, and replace the placeholder values (including the angle brackets) with the registration ID and the derived device key.
+    Uncomment the function call and replace the placeholder values (including the angle brackets) with the registration ID you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device) and the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```c
     // Set the symmetric key if using they auth type
@@ -364,7 +364,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     > [!CAUTION]
-    > Be aware that this step leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
+    > Be aware that this step leaves the derived device key included as part of the image for each device, which isn't a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
 
 8. Save the file.
 
@@ -432,7 +432,7 @@ To update and run the provisioning sample with your device information:
 6. Build and run the sample code using the following command:
 
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** for your device.
+    * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
     * Replace `<primarykey>` with the derived device key that you generated.
 
     ```cmd
@@ -486,9 +486,9 @@ To update and run the provisioning sample with your device information:
     cd azure-iot-sdk-node\provisioning\device\samples
     ```
 
-4. In the *provisioning/device/samples* folder, open *register_symkey.js* and review the code. 
+4. In the *provisioning/device/samples* folder, open *register_symkey.js* and review the code.
 
-    The sample defaults to MQTT as the transport protocol. If you want to use a different protocol comment out the following line and uncomment the line for the appropriate protocol.
+    The sample defaults to MQTT as the transport protocol. If you want to use a different protocol, comment out the following line and uncomment the line for the appropriate protocol.
 
     ```javascript
     var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
@@ -500,7 +500,7 @@ To update and run the provisioning sample with your device information:
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it is not needed with for this tutorial. A custom payload can be used when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You may comment out this code, as it's not needed with for this tutorial. A custom payload can be used when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
     The `provisioningClient.register()` method attempts the registration of your device.
 
@@ -508,7 +508,7 @@ To update and run the provisioning sample with your device information:
 
     * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
+    * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
     * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
@@ -583,7 +583,7 @@ To update and run the provisioning sample with your device information:
 
     * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
+    * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
     * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
@@ -680,7 +680,7 @@ To update and run the provisioning sample with your device information:
     * Replace `[Your scope ID here]` with the **ID Scope** that you copied in step 2.
     * Replace `[Your Provisioning Service Global Endpoint here]` with the **Global device endpoint**: global.azure-devices-provisioning.net. This endpoint is the same for all DPS instances.
     * Replace `[Enter your Symmetric Key here]` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
-    * Replace `[Enter your Registration ID here]` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
+    * Replace `[Enter your Registration ID here]` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
 
     ```java
     private static final String SCOPE_ID = "[Your scope ID here]";
@@ -690,7 +690,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     > [!CAUTION]
-    > Be aware that this step leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
+    > Be aware that this step leaves the derived device key included as part of the image for each device, which isn't a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
 
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
 
@@ -756,7 +756,7 @@ To update and run the provisioning sample with your device information:
 
 ## Confirm your device provisioning registration
 
-In this tutorial, you used the *Static configuration* allocation policy to assign devices that register through the enrollment group to the same IoT hub. However, for allocations where a device might be provisioned to one of a number of IoT hubs, you can examine the enrollment group's registration records to see which IoT hub the device was provisioned to:
+In this tutorial, you used the *Static configuration* allocation policy to assign devices that register through the enrollment group to the same IoT hub. However, for allocations where a device might be provisioned to one of several IoT hubs, you can examine the enrollment group's registration records to see which IoT hub the device was provisioned to:
 
 1. In Azure portal, go to your DPS instance.
 
@@ -790,7 +790,7 @@ To verify the device on your IoT hub:
 
 ## Provision more devices (optional)
 
-To provision additional devices through the enrollment group, follow the steps in the preceding sections to:
+To provision more devices through the enrollment group, follow the steps in the preceding sections to:
 
 1. [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
 
@@ -816,7 +816,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 1. Select the enrollment group you used for this tutorial, *mylegacydevices*.
 
-1. On the **Enrollment Group Details** page, select the **Registration Records** tab, then select the check box next to the **Device Id** column header. This will select all of the registration records for the enrollment group. Select **Delete Registrations** at the top of the page to delete all the registration records associated with the enrollment group.
+1. On the **Enrollment Group Details** page, select the **Registration Records** tab. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete Registrations** at the top of the page to delete the registration records.
 
     > [!IMPORTANT]
     > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
