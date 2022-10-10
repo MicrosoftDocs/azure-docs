@@ -12,9 +12,9 @@ ms.author: asrastog
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
-Azure Event Grid helps you build event-based applications and easily integrate IoT events in your business solutions. This article walks you through a setup which can be used to track and store the latest device connection state in Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. We are going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB.
+Azure Event Grid helps you build event-based applications and easily integrate IoT events in your business solutions. This article walks you through a setup, which can be used to track and store the latest device connection state in Cosmos DB. We'll use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. We're going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB.
 
-The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you are converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
+The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This sequence is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Let's create a stored procedure and configure it to compare sequence numbers of 
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png" alt-text="Screenshot of how to create a new stored procedure in the Azure portal." lightbox="media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png":::
 
-2. Enter **LatestDeviceConnectionState** for the stored procedure ID and paste the following in the **Stored Procedure body**. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number.
+2. Enter **LatestDeviceConnectionState** for the stored procedure ID and paste the following in the **Stored Procedure body**. This code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -127,7 +127,7 @@ Let's create a stored procedure and configure it to compare sequence numbers of 
 
 ## Create a logic app
 
-Let's create a logic app and add an Event grid trigger that monitors the resource group for your virtual machine.
+Let's create a logic app and add an Event Grid trigger that monitors the resource group for your virtual machine.
 
 ### Create a logic app resource
 
@@ -313,7 +313,7 @@ Let's use the Raspberry Pi web simulator to simulate device connection.
 
 ### Run a sample application on the Raspberry Pi web simulator
 
-This will trigger a device connected event.
+This sample app will trigger a device connected event.
 
 1. In the coding area, replace the placeholder in Line 15 with your Azure IoT Hub device connection string that you saved at the end of the previous section.
 
