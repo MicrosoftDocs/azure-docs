@@ -11,7 +11,7 @@ ms.date: 08/31/2022
 
 The primary [What's new in Sentinel](whats-new.md) release notes page contains updates for the last six months, while this page contains older items.
 
-For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog/label-name/What's%20New).
 
 Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -153,7 +153,7 @@ We're evolving our free trial experience to include the following updates:
 
    Only the Microsoft Sentinel charges are waived during the 31-day trial period.
 
-Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to additional capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+Usage beyond these limits will be charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/) page. Charges related to additional capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
 
 > [!TIP]
 > During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days you've left until it expires.
@@ -482,7 +482,7 @@ For more information, see:
 ## July 2021
 
 - [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
-- [Use Azure AD data with Microsoft Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
+- [Use Azure AD data with Microsoft Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-microsoft-sentinels-identityinfo-table-public-preview)
 - [Enrich Entities with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
@@ -549,7 +549,7 @@ See this [complete description of the updated Azure Defender connector](connect-
 
 ## June 2021
 
-- [Upgrades for normalization and the Microsoft Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
+- [Upgrades for normalization and the Microsoft Sentinel Information Model](#upgrades-for-normalization-and-the-microsoft-sentinel-information-model)
 - [Updated service-to-service connectors](#updated-service-to-service-connectors)
 - [Export and import analytics rules (Public preview)](#export-and-import-analytics-rules-public-preview)
 - [Alert enrichment: alert details (Public preview)](#alert-enrichment-alert-details-public-preview)
@@ -611,9 +611,9 @@ This month we've reorganized our [Microsoft Sentinel documentation](index.yml), 
 
 ## May 2021
 
-- [Microsoft Sentinel PowerShell module](#azure-sentinel-powershell-module)
+- [Microsoft Sentinel PowerShell module](#microsoft-sentinel-powershell-module)
 - [Alert grouping enhancements](#alert-grouping-enhancements)
-- [Microsoft Sentinel solutions (Public preview)](#azure-sentinel-solutions-public-preview)
+- [Microsoft Sentinel solutions (Public preview)](#microsoft-sentinel-solutions-public-preview)
 - [Continuous Threat Monitoring for SAP solution (Public preview)](#continuous-threat-monitoring-for-sap-solution-public-preview)
 - [Threat intelligence integrations (Public preview)](#threat-intelligence-integrations-public-preview)
 - [Fusion over scheduled alerts (Public preview)](#fusion-over-scheduled-alerts-public-preview)
@@ -621,7 +621,7 @@ This month we've reorganized our [Microsoft Sentinel documentation](index.yml), 
 - [IP Entity page (Public preview)](#ip-entity-page-public-preview)
 - [Activity customization (Public preview)](#activity-customization-public-preview)
 - [Hunting dashboard (Public preview)](#hunting-dashboard-public-preview)
-- [Incident teams - collaborate in Microsoft Teams (Public preview)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
+- [Incident teams - collaborate in Microsoft Teams (Public preview)](#microsoft-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
 
 
@@ -772,7 +772,7 @@ For more information, see [Tutorial: Investigate incidents with Microsoft Sentin
 - [New detections for Azure Firewall](#new-detections-for-azure-firewall)
 - [Automation rules and incident-triggered playbooks (Public preview)](#automation-rules-and-incident-triggered-playbooks-public-preview) (including all-new playbook documentation)
 - [New alert enrichments: enhanced entity mapping and custom details (Public preview)](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details-public-preview)
-- [Print your Microsoft Sentinel workbooks or save as PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [Print your Microsoft Sentinel workbooks or save as PDF](#print-your-microsoft-sentinel-workbooks-or-save-as-pdf)
 - [Incident filters and sort preferences now saved in your session (Public preview)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Microsoft 365 Defender incident integration (Public preview)](#microsoft-365-defender-incident-integration-public-preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
@@ -1093,7 +1093,7 @@ Microsoft Sentinel uses the Log Analytics agent to sent events to your workspace
 For more information, see the [Log Analytics documentation](../azure-monitor/agents/log-analytics-agent.md) and the [Log Analytics agent release notes](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## November 2020
 
-- [Monitor your Playbooks' health in Microsoft Sentinel](#monitor-your-playbooks-health-in-azure-sentinel)
+- [Monitor your Playbooks' health in Microsoft Sentinel](#monitor-your-playbooks-health-in-microsoft-sentinel)
 - [Microsoft 365 Defender connector (Public preview)](#microsoft-365-defender-connector-public-preview)
 
 ### Monitor your Playbooks' health in Microsoft Sentinel
