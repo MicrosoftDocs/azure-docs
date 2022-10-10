@@ -33,7 +33,7 @@ First, make sure your training data set follows the input requirements for Form 
 
 ## Training data tips
 
-Follow these additional tips to further optimize your data set for training.
+Follow these tips to further optimize your data set for training.
 
 * If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
 * For filled-in forms, use examples that have all of their fields filled in.
@@ -48,7 +48,7 @@ If you want to use manually labeled data, you'll also have to upload the *.label
 
 ### Organize your data in subfolders (optional)
 
-By default, the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API will only use form documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
+By default, the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API will only use documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
 
 ```json
 {
@@ -73,7 +73,7 @@ If you add the following content to the request body, the API will train with do
 
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
-* [Train a model and extract form data using the client library or REST API](quickstarts/try-sdk-rest-api.md)
+* [Train a model and extract document data using the client library or REST API](quickstarts/try-sdk-rest-api.md)
 * [Train with labels using the sample labeling tool](label-tool.md)
 
 ## See also

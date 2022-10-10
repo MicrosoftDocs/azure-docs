@@ -40,7 +40,7 @@ Once you've put together the set of forms or documents for training, you'll need
 
 The Form Recognizer Studio provides and orchestrates all the API calls required to complete your dataset and train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you'll need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you'll need to [initialize your subscription, resource group, and resource](../quickstarts/try-v3-form-recognizer-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio, select the **Custom models** tile, on the custom models page and select the **Create a project** button.
 
@@ -55,7 +55,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 
     :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
 
-1. Next select the storage account where you uploaded your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
+1. Next select the storage account you used to upload your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
     :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
 
