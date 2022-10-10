@@ -31,7 +31,7 @@ In this article, you'll learn about:
 
 ## Enable soft delete with always-on state
 
-Soft delete is enabled by default for all new vaults you create. To keep the settings enabled and make it irreversible, select **Enable Always-on Soft Delete**.
+Soft delete is enabled by default for all new vaults you create. To make enabled settings irreversible, select **Enable Always-on Soft Delete**.
 
 **Choose a vault**
 
@@ -129,7 +129,7 @@ Follow these steps:
 
 1. In the **Backup center**, go to the *backup instance* that you want to delete.
 
-1. Select **Stop Backup**.
+1. Select **Stop backup**.
 
    :::image type="content" source="./media/backup-azure-enhanced-soft-delete/stop-backup-for-backup-vault-items-inline.png" alt-text="Screenshot showing how to initiate the stop backup process for backup items in Backup vault." lightbox="./media/backup-azure-enhanced-soft-delete/stop-backup-for-backup-vault-items-expanded.png":::
 
@@ -175,7 +175,7 @@ Follow these steps:
 
 1. Go to the *deleted backup instance* that you want to recover.
 
-   You can also use the **Backup center** to go to the *instance* by applying athe filter **Protection status == Soft deleted** in the *Backup instances*.
+   You can also use the **Backup center** to go to the *instance* by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
 
 1. Select **Undelete** corresponding to the *soft deleted instance*.
 

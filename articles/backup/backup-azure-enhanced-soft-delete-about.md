@@ -11,7 +11,7 @@ ms.author: v-amallick
 
 # About Enhanced soft delete for Azure Backup (preview)
 
-Soft delete for Azure Backup enables you to recover your backup data even after it's deleted. This is useful when:
+[Soft delete](backup-azure-security-feature-cloud.md) for Azure Backup enables you to recover your backup data even after it's deleted. This is useful when:
 
 - You've accidentally deleted backup data and you need it back.
 - Backup data is maliciously deleted by ransomware or bad actors.
@@ -33,7 +33,7 @@ In this article, you'll learn about:
 
 [Soft delete](backup-azure-security-feature-cloud.md) primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration (*14*-*180* days) called soft delete retention period.
 
-After deletion (while the data is in soft deleted state), if you need the deleted data, you can undelete. This returns the data to stop protection with retain data state. You can then use it to perform restore operations or you can resume backups for this instance. 
+After deletion (while the data is in soft deleted state), if you need the deleted data, you can undelete. This returns the data to *stop protection with retain data* state. You can then use it to perform restore operations or you can resume backups for this instance.
 
 The following diagram shows the flow of a backup item (or a backup instance) that gets deleted:
 
@@ -43,8 +43,9 @@ The following diagram shows the flow of a backup item (or a backup instance) tha
 
 The key benefits of enhanced soft delete are:
 
-- **Always-on soft delete**: You can now opt to set soft delete always-on (irreversible). Once you opt for always-on, you can't disable the soft delete settings for the vault. [Learn more](#states-of-soft-delete-settings).
-- **Configurable soft delete retention**: You can now specify the duration for which you want to retain backup data after deletion, ranging from *14* to *180* days. By default, the retention duration is set to *14* days (as per basic soft delete) for the vault, and you can extend it as per the requirement.
+- **Always-on soft delete**: You can now opt to set soft delete always-on (irreversible). Once opted, you can't disable the soft delete settings for the vault. [Learn more](#states-of-soft-delete-settings).
+- **Configurable soft delete retention**: You can now specify the retention duration for deleted backup data, ranging from *14* to *180* days. By default, the retention duration is set to *14* days (as per basic soft delete) for the vault, and you can extend it as required.
+
   >[!Note]
   >The soft delete doesn't cost you for first 14 days of retention; however, you're charged for the period beyond 14 days. [Learn more](#states-of-soft-delete-settings).
 - **Re-registration of soft deleted items**: You can now register the items in soft deleted state with another vault. However, you can't register the same item with two vaults for active backups. 
