@@ -66,17 +66,17 @@ For all other domain members that are not Domain Controllers, you will need to m
 >[!IMPORTANT]
 >Remember that serious problems might occur if you modify the registry incorrectly. Therefore, make sure that you follow these steps carefully and test them on a couple of test virtual machines to make sure you will get the expected outcome. For added protection, back up the registry before you modify it. Then, you can restore the registry if a problem occurs. For how to back up and restore the Windows Registry follow the steps below.
 
-## Back up the registry manually
+## Back up the Registry
 
 - From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
 - In the *Registry Editor* window, locate and click the registry key or subkey that you want to back up.
 - From the *File* menu select *Export*.
 - In the *Export Registry File* dialog box, select the location to which you want to save the backup copy, type a name for the backup file in the *File name* field, and then click *Save*.
 
-## Restore a manual backup
+## Restore a Registry backup
 
 - From *Start* type *regedit.exe*, and then press `Enter`. If you are prompted for an administrator password or for confirmation, type the password or provide confirmation.
-- In the *Registry Editor* windows, from the *File* menu select *Import*.
+- In the *Registry Editor* window, from the *File* menu select *Import*.
 - In the *Import Registry File* dialog box, select the location to which you saved the backup copy, select the backup file, and then click *Open*.
 
 ## GPO to Disable the VMICTimeProvider
