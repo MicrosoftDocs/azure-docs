@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/04/2022
+ms.date: 10/10/2022
 ms.author: mbullwin
 ms.custom: devx-track-js
 ---
@@ -39,23 +39,33 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init` command to create a node application with a `package.json` file.
+Create a `package.json` file with the following contents:
 
-```console
-npm init
+```json
+{
+  "name": "@azure-samples/ai-anomaly-detector-js",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Azure Data Tables client library samples for JavaScript",
+  "engine": {
+    "node": ">=12.0.0"
+  },
+  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector/ai-anomaly-detector",
+  "dependencies": {
+    "@azure/ai-anomaly-detector": "next",
+    "@azure/core-auth": "^1.3.0",
+    "csv-parse": "^4.4.0"
+  }
+}
 ```
 
 ### Install the client library
 
-Install the required npm packages:
+Install the required npm packages by running the following from the same directory as your package.json file:
 
 ```console
- npm install csv-parse
- npm install @azure/core-auth
- npm install @azure/ai-anomaly-detector
+npm install
 ```
-
-Your app's `package.json` file will be updated with the dependencies.
 
 ## Retrieve key and endpoint
 
@@ -65,7 +75,7 @@ To successfully make a call against the Anomaly Detector service, you'll need th
 |--------------------------|-------------|
 | `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
 | `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
-|`DATA_PATH` | This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv). Example path: `c:\\test\\request-data.csv`  |
+|`DATA_PATH` | This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv).
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
@@ -120,106 +130,60 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
 Create a file named `index.js` and replace with the following code:
 
 ```javascript
-// <imports>
-'use strict'
+/const { AnomalyDetectorClient, KnownTimeGranularity } = require("@azure/ai-anomaly-detector");
+const { AzureKeyCredential } = require("@azure/core-auth");
 
-const fs = require('fs');
+const fs = require("fs");
 const parse = require("csv-parse/lib/sync");
-const { AnomalyDetectorClient } = require('@azure/ai-anomaly-detector');
-const { AzureKeyCredential } = require('@azure/core-auth');
 
-let CSV_FILE = './request-data.csv'; //this assumes your datafile is in the same directory as your index.js file
+// You will need to set this environment variables or edit the following values
+const apiKey = process.env["ANOMALY_DETECTOR_API_KEY"] || "";
+const endpoint = process.env["ANOMALY_DETECTOR_ENDPOINT"] || "";
+const datapath = "./request-data.csv";
 
-// Authentication variables
-let key = process.env.ANOMALY_DETECTOR_API_KEY;
-let endpoint = process.env.ANOMALY_DETECTOR_ENDPOINT;
+function read_series_from_file(path) {
+  let result = Array();
+  let input = fs.readFileSync(path).toString();
+  let parsed = parse(input, { skip_empty_lines: true });
+  parsed.forEach(function(e) {
+    result.push({ timestamp: new Date(e[0]), value: Number(e[1]) });
+  });
+  return result;
+}
 
-// Points array for the request body
-let points = [];
+async function main() {
+  // create client
+  const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey));
 
+  // construct request
+  const request = {
+    series: read_series_from_file(datapath),
+    granularity: KnownTimeGranularity.daily
+  };
 
-let anomalyDetectorClient = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(key));
+  // get entire detect result
+  const result = await client.detectEntireSeries(request);
 
-function readFile() {
-    let input = fs.readFileSync(CSV_FILE).toString();
-    let parsed = parse(input, { skip_empty_lines: true });
-    parsed.forEach(function (e) {
-        points.push({ timestamp: new Date(e[0]), value: parseFloat(e[1]) });
+  if (
+    result.isAnomaly.some(function(anomaly) {
+      return anomaly === true;
+    })
+  ) {
+    console.log("Anomalies were detected from the series at index:");
+    result.isAnomaly.forEach(function(anomaly, index) {
+      if (anomaly === true) {
+        console.log(index);
+      }
     });
+  } else {
+    console.log("There is no anomaly detected from the series.");
+  }
 }
-readFile()
 
-async function batchCall() {
-    // Create request body for API call
-    let body = { series: points, granularity: 'daily' }
-    // Make the call to detect anomalies in whole series of points
-    await anomalyDetectorClient.detectEntireSeries(body)
-        .then((response) => {
-            console.log("Batch (entire) anomaly detection):")
-            for (let item = 0; item < response.isAnomaly.length; item++) {
-                if (response.isAnomaly[item]) {
-                    console.log("An anomaly was detected from the series, at row " + item)
-                }
-            }
-        }).catch((error) => {
-            console.log(error)
-        })
-
-}
-batchCall()
-
-async function lastDetection() {
-
-    let body = { series: points, granularity: 'daily' }
-    // Make the call to detect anomalies in the latest point of a series
-    await anomalyDetectorClient.detectLastPoint(body)
-        .then((response) => {
-            console.log("Latest point anomaly detection:")
-            if (response.isAnomaly) {
-                console.log("The latest point, in row " + points.length + ", is detected as an anomaly.")
-            } else {
-                console.log("The latest point, in row " + points.length + ", is not detected as an anomaly.")
-            }
-        }).catch((error) => {
-            console.log(error)
-        })
-}
-lastDetection()
-
-async function changePointDetection() {
-
-    let body = { series: points, granularity: 'daily' }
-    // get change point detect results
-    await anomalyDetectorClient.detectChangePoint(body)
-        .then((response) => {
-            if (
-                response.isChangePoint.some(function (changePoint) {
-                    return changePoint === true;
-                })
-            ) {
-                console.log("Change points were detected from the series at index:");
-                response.isChangePoint.forEach(function (changePoint, index) {
-                    if (changePoint === true) {
-                        console.log(index);
-                    }
-                });
-            } else {
-                console.log("There is no change point detected from the series.");
-            }
-        }).catch((error) => {
-            console.log(error)
-        })
-}
-changePointDetection();
+main().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
 ```
-
-### Detect anomalies in the entire dataset
-
-In the code above, we call the Anomaly Detector API three times. The first call is to detect anomalies through the entire time series as a batch with the client's [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#entiredetect-request--msrest-requestoptionsbase-) method. We store the returned [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse) object. Then we iterate through the response's `isAnomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
-
-The second call determines if your latest data point is an anomaly using the client's [lastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#lastdetect-request--msrest-requestoptionsbase-) method, and store the returned [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse) object. The response's `isAnomaly` value is a boolean that specifies that point's anomaly status.  
-
-The final call detects change points in the time series with the client's [detectChangePoint()](https://go.microsoft.com/fwlink/?linkid=2090788) method. Store the returned [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) object. Iterate through the response's `isChangePoint` list, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
 
 ## Run the application
 
@@ -228,6 +192,30 @@ Run the application with the `node` command on your quickstart file.
 ```console
 node index.js
 ```
+
+### Output
+
+```console
+Anomalies were detected from the series at index:
+3
+18
+21
+22
+23
+24
+25
+28
+29
+30
+31
+32
+35
+44
+```
+
+### Understanding your results
+
+In the code above, we call the Anomaly Detector API to detect anomalies through the entire time series as a batch with the client's [detectEntireSeries()](/javascript/api/@azure/ai-anomaly-detector/anomalydetectorclient?view=azure-node-preview#@azure-ai-anomaly-detector-anomalydetectorclient-detectentireseries) method. We store the returned [AnomalyDetectorDetectEntireSeriesResponse](/javascript/api/@azure/ai-anomaly-detector/anomalydetectordetectentireseriesresponse?view=azure-node-preview) object. Then we iterate through the response's `isAnomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
 ## Clean up resources
 
