@@ -17,7 +17,7 @@ adobe-target: true
 The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm from the designer for a predictive analytics model.
 
 >[!Note]
-> Designer support two type of components, classic prebuilt components and custom components. This two types of components  are not compatible. 
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
 >
 >Classic prebuilt components provides prebuilt component majorly for data processing and tradition machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
 >
