@@ -1,13 +1,13 @@
 ---
 title: Get high availability and cost savings with Spot Priority Mix for Virtual Machine Scale Sets
-description: Learn how to run a mix of Spot VMs and On-Demand VMs for Virtual Machine Scale Sets to achieve high availability and cost savings.
+description: Learn how to run a mix of Spot VMs and uninterruptible regular VMs for Virtual Machine Scale Sets to achieve high availability and cost savings.
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 10/12/2022
 ms.reviewer: cynthn
 ---
 
@@ -20,16 +20,16 @@ ms.reviewer: cynthn
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure allows you to have the flexibility of running a mix of regular On-Demand VMs and Spot VMs for virtual machine scale set deployments. You are able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following:
+Azure allows you to have the flexibility of running a mix of uninterruptible regular VMs and interruptible Spot VMs for virtual machine scale set deployments. You are able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following:
 
 - Reduce compute infrastructure costs by leveraging the deep discounts of Spot VMs
 - Maintain capacity availability through On-Demand VMs in the scale set deployment
 - Provide reassurance that all your VMs will not be taken away simultaneously due to evictions before the infrastructure has time to react and recover the evicted capacity
 - Simplify the scale-out and scale-in of compute workloads that require both Spot and On-Demand VMs by letting Azure orchestrate the creation and deletion of VMs
 
-You can configure a custom percentage distribution across Spot and regular VMs. The platform will automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base regular uninterruptible VMs you would like to maintain in the virtual machine scale set during any scale operation.
+You can configure a custom percentage distribution across Spot and regular VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base regular uninterruptible VMs you would like to maintain in the virtual machine scale set during any scale operation.
 
-## REST API
+## Template
 
 The Spot Priority Mix feature is currently supported by ARM REST API or template deployments. To create a virtual machine scale set with a mix of priorities, add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:
 
