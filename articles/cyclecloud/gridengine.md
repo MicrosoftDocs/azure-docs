@@ -426,6 +426,24 @@ where `physical_cpu` is the complex name:
 ]
 ```
 
+Ordering is also important when you want a particular behavior for a specific attribute, like making sure
+only one slot will be allocate per node on a selected nodearray:
+
+```json
+    "default_resources": [
+    {
+      "select": {"node.nodearray": "FPGA"},
+      "name": "slots",
+      "value": "1",
+    },
+    {
+      "select": {},
+      "name": "slots",
+      "value": "node.vcpu_count"
+    },
+]
+```
+
 ## Hostgroups
 
 The CycleCloud autoscaler, in attempting to satisfy job requirements, will map nodes to
