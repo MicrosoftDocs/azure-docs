@@ -6,7 +6,7 @@ ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: how-to 
 ms.date: 07/05/2022
-ms.custom: "template-how-to #Required", leave this attribute/value as-is., ignite-2022
+ms.custom: template-how-to, ignite-2022
 ---
 
 # How to manage data partitions?

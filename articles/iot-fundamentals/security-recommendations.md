@@ -2,13 +2,12 @@
 title:  Security recommendations for Azure IoT | Microsoft Docs
 description: This article summarizes additional steps to ensure security in your Azure IoT Hub solution. 
 author: dsk-2015
-
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 08/24/2022
 ms.author: dkshir
-ms.custom: [security-recommendations, amqp, mqtt, ignite-2022
+ms.custom: security-recommendations, amqp, mqtt, ignite-2022
 ---
 
 # Security recommendations for Azure Internet of Things (IoT) deployment

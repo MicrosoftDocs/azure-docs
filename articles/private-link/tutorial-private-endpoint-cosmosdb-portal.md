@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 06/22/2022
-ms.custom: "template-tutorial #Required", leave this attribute/value as-is., ignite-2022
+ms.custom: template-tutorial, ignite-2022
 ---
 
 # Tutorial: Connect to an Azure Cosmos DB account using an Azure Private Endpoint
