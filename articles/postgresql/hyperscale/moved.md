@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 recommendations: false
-ms.date: 10/05/2022
+ms.date: 10/10/2022
 ---
 
 # Where is Azure Database for PostgreSQL - Hyperscale (Citus)?
@@ -16,25 +16,30 @@ Hyperscale (Citus) is now [Azure Cosmos DB for
 PostgreSQL](../../cosmos-db/postgresql/introduction.md). The new service is
 backward compatible with Hyperscale (Citus), and adds new features.
 
-Existing Hyperscale (Citus) server groups will be automatically migrated to Azure
+Existing Hyperscale (Citus) server groups will automatically become Azure
 Cosmos DB for PostgreSQL clusters, with zero downtime.
 
 > [!NOTE]
 >
-> The migration will happen October 29th, 2022. During the migration process,
-> the cluster may temporarily disappear in the Azure portal for both Hyperscale
-> (Citus) and Cosmos DB. There will be no service downtime for users of the
-> database, only a possible interruption in the portal user interface.
+> The change will happen October 29th, 2022. During this process, the cluster
+> may temporarily disappear in the Azure portal for both Hyperscale (Citus) and
+> Cosmos DB. There will be no service downtime for users of the database, only
+> a possible interruption in the portal administrative interface.
+
+## What remains the same?
+
+* **Exiting features.** All Hyperscale (Citus) features continue to be supported.
+* **Pricing model.** Azure Cosmos DB for PostgreSQL has the same pricing as Hyperscale (Citus).
+* **System architecture.** Some terminology has changed, but the technical architecture remains the same.
+* **Database connection strings.** Connection strings don't change; application code connects the same way.
 
 ## What changes?
 
-| What | Changes |
-|------|---------|
-| Existing features | All Hyperscale (Citus) features continue to be supported |
-| Pricing model | Same pricing as Hyperscale (Citus) |
-| System architecture | Some terminology has changed, but the technical architecture remains the same |
-| Database connection strings | Connection strings don't change, application code connects the same |
-| New features | Cross-region read replicas; data loading from Azure blob storage |
+* **New features.**
+  * Cross-region read replicas.
+  * Data loading from Azure blob storage.
+  * Online tenant isolation.
+  * Online table distribution.
 
 ## Next steps
 
