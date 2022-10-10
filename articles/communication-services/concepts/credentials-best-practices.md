@@ -20,10 +20,22 @@ This article provides best practices for managing [User Access Tokens](./authent
 
 Communication Token Credential (Credential) is an authentication primitive that wraps User Access Tokens. It's used to authenticate users in Communication Services, such as Chat or Calling. Additionally, it provides built-in token refreshing functionality for the convenience of the developer.
 
-## Initialization
+## Choosing the session lifetime
 
-Depending on your scenario, you may want to initialize the Credential with a [static token](#static-token) or a [callback function](#callback-function) returning tokens.
-No matter which method you choose, you can supply the tokens to the Credential via the Azure Communication Identity API.
+Depending on your scenario, you may want to choose a proper session lifetime for your tokens. The following best practices or a combination of them can help you to achieve an optimal solution for your application:
+- [Customize the token expiration time](#set-a-custom-token-expiration-time) to your specific needs.
+- Initialize the Credential with a [static token](#static-token) for one-off Chat messages or time-limited Calling sessions.
+- Use a [callback function](#callback-function) for agents using the application for longer periods of time.
+
+### Set a custom token expiration time
+When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours but you can customize it by providing a value between an hour and 24 hours to the optional parameter as follow:
+
+```javascript
+const tokenOptions = { tokenExpiresInMinutes: 60 };
+const user = { communicationUserId: userId };
+const scopes = ["chat"];
+let communicationIdentityToken = await identityClient.getToken(user, scopes, tokenOptions);
+```
 
 ### Static token
 
@@ -31,14 +43,6 @@ For short-lived clients, initialize the Credential with a static token. This app
 
 ```javascript
 let communicationIdentityToken = await identityClient.getToken({ communicationUserId: userId }, ["chat", "voip"]);
-const tokenCredential = new AzureCommunicationTokenCredential(communicationIdentityToken.token);
-```
-
-Another feature to worth mentioning here is that you can customize the token expiration time between 1 and 24 hours to your specific needs. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time. We recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. You can customize the token expiration time as follow:
-
-```javascript
-const tokenOptions: GetTokenOptions = { tokenExpiresInMinutes: 60 };
-let communicationIdentityToken = await identityClient.getToken({ communicationUserId: userId }, ["chat", "voip"], tokenOptions);
 const tokenCredential = new AzureCommunicationTokenCredential(communicationIdentityToken.token);
 ```
 
