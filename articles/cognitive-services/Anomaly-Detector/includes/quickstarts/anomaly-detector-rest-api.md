@@ -72,7 +72,7 @@ At a command prompt, run the following command. You'll need to insert the follow
 - A valid JSON file of time series data to test for anomalies. If you don't have your own file, you can create a sample.json file from the [Request body sample](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect).
 
 ```cmd
-curl -v -X POST "%ANOMALY_DETECTOR_ENDPOINT%/anomalydetector/v1.0/timeseries/entire/detect"
+curl -v POST "%ANOMALY_DETECTOR_ENDPOINT%/anomalydetector/v1.0/timeseries/entire/detect"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: %ANOMALY_DETECTOR_API_KEY%"
 -d "@path_to_sample_file.json" 
