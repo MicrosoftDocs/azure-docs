@@ -56,9 +56,7 @@ When using the comma-separated value (CSV) export functionality of Azure Resourc
 result set is limited to 55,000 records. This is a platform limit that cannot be overridden by filing an Azure support ticket.
 
 To download CSV results from the Azure portal, browse to the Azure Resource Graph Explorer and run a
-query. On the toolbar, click **Download as CSV** as shown in the following screenshot:
-
-:::image type="content" source="./arg-export-csv.png" alt-text="Azure Resource Graph Explorer in Azure portal with Download as CSV button highlighted.":::
+query. On the toolbar, click **Download as CSV**.
 
 ## Skipping records
 
