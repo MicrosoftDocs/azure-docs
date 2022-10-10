@@ -82,7 +82,7 @@ An admin can determine whether the certificates are single-factor or multifactor
 
 ### Single-factor certificate authentication
 
-When a user has a single-factor certificate, they can't perform multifactor authentication. There is no support for a second factor when the first factor is a single-factor certificate. We're working to add support for second factors.
+When a user has a single-factor certificate, they can't perform multifactor authentication. There's no support for a second factor when the first factor is a single-factor certificate. We're working to add support for second factors.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-not-allowed.png" alt-text="Screenshot of MFA not allowed for single factor certificate." :::  
 
@@ -107,7 +107,7 @@ The username binding policy helps validate the certificate of the user. By defau
 
 ### Achieve higher security with certificate bindings
 
-There are four supported methods. In general, mapping types are considered high-affinity if they're based on identifiers that you can't reuse (Such as Subject Key Identifiers or SHA1 Public Key). These identifiers convey a higher assurance that a only a single certificate can be used to authenticate the respective user. Therefore, all mapping types based on usernames and email addresses are considered low-affinity. Therefore, Azure AD implements two mappings considered low-affinity (based on reusable identifiers), and the other two are considered high-affinity bindings. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
+There are four supported methods. In general, mapping types are considered high-affinity if they're based on identifiers that you can't reuse (Such as Subject Key Identifiers or SHA1 Public Key). These identifiers convey a higher assurance that only a single certificate can be used to authenticate the respective user. Therefore, all mapping types based on usernames and email addresses are considered low-affinity. Therefore, Azure AD implements two mappings considered low-affinity (based on reusable identifiers), and the other two are considered high-affinity bindings. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
 
 |Certificate mapping Field | Examples of values in certificateUserIds | User object attributes | Type | 
 |--------------------------|--------------------------------------|------------------------|----------|
@@ -145,11 +145,11 @@ Here's an example of potential values for UPN and certificateUserIDs:
 Azure AD User Principal Name = Bob.Smith@Contoso.com <br>
 certificateUserIDs = [x509:\<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]<br>
 
-Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits mapping PrincipalName to Azure AD UPN & SKI values in certificateUserIds, that certificate can only match a single Azure AD account. With unique constraint on both UserPrincipalName and certificateUserIds, no other user account can have the same values and cannot successfully authenticate with the same certificate. 
+Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits mapping PrincipalName to Azure AD UPN & SKI values in certificateUserIds, that certificate can only match a single Azure AD account. With unique constraint on both UserPrincipalName and certificateUserIds, no other user account can have the same values and can't successfully authenticate with the same certificate. 
 
 ## Understanding the certificate revocation process
 
-The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation will not revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation).
+The certificate revocation process allows the admin to revoke a previously issued certificate from being used for future authentication. The certificate revocation won't revoke already issued tokens of the user. Follow the steps to manually revoke tokens at [Configure revocation](active-directory-certificate-based-authentication-get-started.md#step-3-configure-revocation).
 
 Azure AD downloads and caches the customers certificate revocation list (CRL) from their certificate authority to check if certificates are revoked during the authentication of the user.
 
@@ -174,7 +174,7 @@ The following steps are a typical flow of the CRL check:
 1. Azure AD will attempt to download the CRL at the first sign-in event of any user with a certificate of the corresponding trusted issuer or certificate authority. 
 1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and, if available, **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
 1. The user certificate-based authentication will fail if:
-   - A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size, or latency constraints.
+   - A CRL has been configured for the trusted issuer and Azure AD can't download the CRL, due to availability, size, or latency constraints.
    - The user's certificate is listed as revoked on the CRL.
    
      :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
