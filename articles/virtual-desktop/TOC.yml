@@ -16,8 +16,8 @@
       href: whats-new-azure-monitor.md
     - name: FSLogix
       href: /fslogix/whats-new?context=/azure/virtual-desktop/context/context
-    - name: WebSocket
-      href: whats-new-websocket.md
+    - name: WebRTC Redirector Service
+      href: whats-new-webrtc.md
     - name: Remote Desktop clients
       items:
       - name: Windows (Desktop)
@@ -369,7 +369,7 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection (preview)
     href: troubleshoot-multimedia-redirection.md
-  - name: Teams for Azure Virtual Desktop
+  - name: Teams on Azure Virtual Desktop
     href: troubleshoot-teams.md
 - name: Reference
   items:

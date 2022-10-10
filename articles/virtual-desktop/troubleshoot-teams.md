@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot Teams for Azure Virtual Desktop - Azure
-description: Known issues and troubleshooting instructions for Teams for Azure Virtual Desktop.
+title: Troubleshoot Microsoft Teams on Azure Virtual Desktop - Azure
+description: Known issues and troubleshooting instructions for Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 10/07/2022
+ms.date: 10/12/2022
 ms.author: helohr
 manager: femila
 ---
 
-# Troubleshoot Teams for Azure Virtual Desktop
+# Troubleshoot Microsoft Teams for Azure Virtual Desktop
 
-This article describes known issues and limitations for Teams for Azure Virtual Desktop, as well as how to log issues and contact support.
+This article describes known issues and limitations for Teams on Azure Virtual Desktop, as well as how to log issues and contact support.
 
 ## Known issues and limitations
 
@@ -44,6 +44,6 @@ To contact Microsoft Teams support, go to the [Microsoft 365 admin center](/micr
 
 ## Next steps
 
-Learn more about how to set up Teams for Azure Virtual Desktop at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
+Learn more about how to set up Teams on Azure Virtual Desktop at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
 
 Learn more about the WebSocket Services for Teams on Azure Virtual Desktop at [What's new in the WebSocket Service](whats-new-websocket.md).

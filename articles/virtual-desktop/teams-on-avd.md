@@ -1,23 +1,17 @@
 ---
-title: Microsoft Teams on Azure Virtual Desktop - Azure
+title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/27/2022
+ms.date: 10/12/2022
 ms.author: helohr
 manager: femila
 ---
 # Use Microsoft Teams on Azure Virtual Desktop
 
->[!NOTE]
->Media optimization for Microsoft Teams is only available for the following two clients:
->
->- Windows Desktop client for Windows 10 or 11 machines, version 1.2.1026.0 or later.
->- macOS Remote Desktop client, version 10.7.7 or later.
-
 Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality. To learn more about how to use Microsoft Teams in Virtual Desktop Infrastructure (VDI) environments, see [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi/).
 
-With media optimization for Microsoft Teams, the Remote Desktop client handles audio and video locally for Teams calls and meetings. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms. To redirect local devices in your remote session, check out [Customize Remote Desktop Protocol properties for a host pool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
+With media optimization for Microsoft Teams, the Remote Desktop client handles audio and video locally for Teams calls and meetings by redirecting it to the local device. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
 
 ## Prerequisites
 
@@ -25,13 +19,19 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later device that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
-- Connect to a Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise virtual machine (VM).
+- Connect to an Azure Virtual Desktop session host running Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise.
+- The latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+Media optimization for Microsoft Teams is only available for the following two clients:
+
+- Windows Desktop client for Windows 10 or 11 machines, version 1.2.1026.0 or later.
+- macOS Remote Desktop client, version 10.7.7 or later.
 
 For more information about which features Teams on Azure Virtual Desktop supports and minimum required client versions, see [Supported features for Teams on Azure Virtual Desktop](teams-supported-features.md).
 
 ## Prepare to install the Teams desktop app
 
-This section will show you how to install the Teams desktop app on your Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
+This section will show you how to install the Teams desktop app on your Windows 10 or 11 Enterprise multi-session or Windows 10 or 11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### Prepare your image for Teams
 
@@ -52,15 +52,23 @@ New-Item -Path "HKLM:\SOFTWARE\Microsoft\Teams" -Force
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Teams" -Name IsWVDEnvironment -PropertyType DWORD -Value 1 -Force
 ```
 
-### Install the Teams WebSocket Service
+### Install the Remote Desktop WebRTC Redirector Service
 
-Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+The Remote Desktop WebRTC Redirector Service is required to run Teams on Azure Virtual Desktop. To install the service:
 
-You can find more information about the latest version of the WebSocket service at [What's new in the WebSocket Service](whats-new-websocket.md).
+1. Sign in to a session host as a local administrator.
 
-## Install Microsoft Teams for Azure Virtual Desktop
+2. Download the [Remote Desktop WebRTC Redirector Service installer](https://aka.ms/msrdcwebrtcsvc/msi).
 
-You can deploy the Teams desktop app using a per-machine or per-user installation. To install Microsoft Teams in your Azure Virtual Desktop environment:
+3. Open the file that you downloaded to start the setup process.
+
+4. Follow the prompts. Once it's completed, select **Finish**.
+
+You can find more information about the latest version of the WebSocket service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-websocket.md).
+
+## Install Teams on Azure Virtual Desktop
+
+You can deploy the Teams desktop app using a per-machine or per-user installation. To install Teams on Azure Virtual Desktop:
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
@@ -72,7 +80,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
         ```
 
-        This process is the default installation, which installs Teams to the **%AppData%** user folder. Teams won't work properly with per-user installation on a non-persistent setup.
+        This process is the default installation, which installs Teams to the **%AppData%** user folder. Per-user installation only works on personal host pools.
 
     - Per-machine installation
 
@@ -82,26 +90,19 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
         This process installs Teams to the `%ProgramFiles(x86)%` folder on a 64-bit operating system and to the `%ProgramFiles%` folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
 
-        There are two flags that may be set when installing teams, **ALLUSER=1** and **ALLUSERS=1**. It's important to understand the difference between these parameters. The **ALLUSER=1** parameter is used only in VDI environments to specify a per-machine installation. The **ALLUSERS=1** parameter can be used in non-VDI and VDI environments. When you set this parameter, **Teams Machine-Wide Installer** appears in Program and Features in Control Panel as well as Apps & features in Windows Settings. All users with admin credentials on the machine can uninstall Teams.
+        During this process, you can set the *ALLUSER=1* and the *ALLUSERS=1* parameters. The following table lists the differences between these two parameters.
 
+        |Parameter|Purpose|
+        |---|---|
+        |ALLUSER=1|Used in virtual desktop infrastructure (VDI) environments to specify per-machine installation.|
+        |ALLUSERS=1|Used in both non-VDI and VDI environments to make the Teams Machine-Wide Installer appear in Programs and Features under the Control Panel and in Apps & Features in Windows Settings. The installer lets all users with admin credentials uninstall Teams.|
+        
         > [!NOTE]
         > We recommend you use per-machine installation for better centralized management for both persistent and non-persistent setups.
         >
         > Users and admins can't disable automatic launch for Teams during sign-in at this time.
 
-3. To uninstall the MSI from the host VM, run this command:
-
-      ```powershell
-      msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
-      ```
-
-      This uninstalls Teams from the Program Files (x86) folder or Program Files folder, depending on the operating system environment.
-
-      > [!NOTE]
-      > When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
-
->[!IMPORTANT]
->If you're using a version of the Remote Desktop client for macOS that's earlier than 10.7.7, in order to use our latest Teams optimization features, you'll need to update your client to version 10.7.7 or later, then go to **Microsoft Remote Desktop Preferences** > **General** and enable Teams optimizations. If you're using the client for the first time and already have version 10.7.7 or later installed, you won't need to do this, because Teams optimizations are enabled by default.
+        When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
 
 ## Verify media optimizations loaded
 

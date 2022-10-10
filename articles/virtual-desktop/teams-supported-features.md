@@ -3,18 +3,18 @@ title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 10/12/2022
 ms.author: helohr
 manager: femila
 ---
 
-# Supported features for Teams on Azure Virtual Desktop
+# Supported features for Microsoft Teams on Azure Virtual Desktop
 
-This article lists the features that Microsoft Teams for Azure Virtual Desktop currently supports and the minimum requirements to use each feature.
+This article lists the features of Microsoft Teams that Azure Virtual Desktop currently supports and the minimum requirements to use each feature.
 
 ## Supported features
 
-|Feature|Windows Desktop client|MacOS client|
+|Feature|Windows Desktop client|macOS client|
 |---|---|---|
 |Audio/video call|Yes|Yes|
 |Screen share|Yes|Yes|
@@ -35,14 +35,14 @@ This article lists the features that Microsoft Teams for Azure Virtual Desktop c
 
 ## Minimum requirements
 
-The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure VIrtual Desktop, we recommend using the latest versions of each client, which you can find in the following list:
+The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure VIrtual Desktop, we recommend using the latest supported versions of each client, which you can find in the following list:
 
 - [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
 - [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [Teams WebSocket service](https://aka.ms/msrdcwebrtcsvc/msi)
+- [Teams WebRTC Service](https://aka.ms/msrdcwebrtcsvc/msi)
 - [Teams desktop app](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm)
 
-|Supported features|Minimum Windows Desktop client version |Minimum MacOS client version|Minimum WebSocket version|Minimum Teams version|
+|Supported features|Windows Desktop client version |macOS client version|WebRTC Service version|Teams version|
 |---|---|---|---|---|
 |Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
 |Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
@@ -60,3 +60,11 @@ The following table lists the minimum required versions for each Teams feature. 
 |Dynamic e911|1.2.2600 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
 |Diagnostic overlay|1.2.3316 and later|Not supported|1.0.2006.23001 and later|Updates within 90 days of the current version|
 |Noise suppression|1.2.3316 and later|Not supported|1.0.2006.1101 and later|Updates within 90 days of the current version|
+
+## Next steps
+
+Learn more about how to set up Teams for Azure Virtual Desktop at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md).
+
+Learn about known issues, limitations, and how to log issues at [Troubleshoot Teams on Azure Virtual Desktop](troubleshoot-teams.md).
+
+Learn about the latest version of the Remote Desktop WebRTC Redirector Service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-websocket.md).
