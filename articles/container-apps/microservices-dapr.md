@@ -18,7 +18,6 @@ ms.devlang: azurecli
 You learn how to:
 
 > [!div class="checklist"]
-
 > * Create a Container Apps environment for your container apps
 > * Create an Azure Blob Storage state store for the container app
 > * Deploy two apps that produce and consume messages and persist them in the state store
@@ -177,7 +176,7 @@ $StorageAcctKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName
 
 # [Bash](#tab/bash)
 
-Create a config file named *statestore.yaml* with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. The following example shows how your *statestore.yaml* file should look when configured for your Azure Blob Storage account:
+Open a text editor and create a config file named *statestore.yaml* with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. The following example shows how your *statestore.yaml* file should look when configured for your Azure Blob Storage account:
 
 ```yaml
 # statestore.yaml for Azure Blob storage component
