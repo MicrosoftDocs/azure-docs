@@ -108,7 +108,7 @@ You can configure an inbound [ip-filter](/api-management-access-restriction-poli
 
 ### Check Front Door header
 
-Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](/api-management-access-restriction-policies.md#CheckHTTPHeader) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. This header value is the **Front Door ID**, which is shown in the portal on the **Overview** page of the Front Door profile.
+Requests routed through Front Door include headers specific to your Front Door configuration. You can configure the [check-header](api-management-access-restriction-policies.md#CheckHTTPHeader) policy to filter incoming requests based on the unique value of the `X-Azure-FDID` HTTP request header that is sent to API Management. This header value is the **Front Door ID**, which is shown in the portal on the **Overview** page of the Front Door profile.
 
 In the following policy example, the Front Door ID is specified using a [named value](api-management-howto-properties.md) named `FrontDoorId`. 
 
