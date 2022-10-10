@@ -33,7 +33,7 @@ items:
     - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-v3-form-recognizer-studio.md
-    - name: "Get started: client-library SDKs or REST API"
+    - name: "Get started with Form Recognizer"
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
@@ -63,7 +63,7 @@ items:
       href: how-to-guides/build-a-custom-model.md
     - name: Compose custom models
       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
-      href: compose-custom-models.md
+      href: how-to-guides/compose-custom-models.md
     - name: Deploy the sample-labeling tool
       displayName: FOTT, migration, containers, docker
       href: deploy-label-tool.md
