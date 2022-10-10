@@ -110,14 +110,14 @@ Follow these steps:
 
 1. Go to the *backup item* that you want to delete.
 1. Select **Stop backup**.
-1. On the **Stop backup** page, select **Delete backup data** to delete all backups for an instance.
-1. Provide the applicable information, and then select  **Stop backup**.
+1. On the **Stop Backup** page, select **Delete Backup Data** from the drop-down list to delete all backups for the instance.
+1. Provide the applicable information, and then select  **Stop backup** to delete all backups for the instance.
 
-   Once the deletion operation completes, the backup item is moved to soft deleted state. In the **Backup items**, the soft deleted item is marked in *Red*. Also, the last backup status indicates that backups are disabled for the item.
+   Once the *delete* operation completes, the backup item is moved to soft deleted state. In the **Backup items**, the soft deleted item is marked in *Red*. Also, the last backup status indicates that backups are disabled for the item.
 
    :::image type="content" source="./media/backup-azure-enhanced-soft-delete/soft-deleted-backup-items-marked-red-inline.png" alt-text="Screenshot showing the soft deleted backup items marked red." lightbox="./media/backup-azure-enhanced-soft-delete/soft-deleted-backup-items-marked-red-expanded.png":::
 
-   In the details for the item, the soft deleted item displays no recovery point. Also, a notification appears to mention the state of the item, and the number of days left before the item is permanently deleted. You can select **Undelete** to recover the soft deleted items.
+   In the item details, the soft deleted item shows no recovery point. Also, a notification appears to mention the state of the item, and the number of days left before the item is permanently deleted. You can select **Undelete** to recover the soft deleted items.
 
    :::image type="content" source="./media/backup-azure-enhanced-soft-delete/soft-deleted-item-shows-no-recovery-point-inline.png" alt-text="Screenshot showing the soft deleted backup item that shows no recovery point." lightbox="./media/backup-azure-enhanced-soft-delete/soft-deleted-item-shows-no-recovery-point-expanded.png":::
 
@@ -136,9 +136,9 @@ Follow these steps:
 
    You can also select **Delete** in the instance view to delete backups.
 
-1. On the **Stop Backup** page, choose **Delete Backup Data** from the drop-down list to delete all backups for the instance.
+1. On the **Stop Backup** page, select **Delete Backup Data** from the drop-down list to delete all backups for the instance.
 
-1. Provide the necessary information, and then select **Stop backup** to initiate the deletion of the backup instance.
+1. Provide the applicable information, and then select **Stop backup** to initiate the deletion of the backup instance.
 
    :::image type="content" source="./media/backup-azure-enhanced-soft-delete/start-stop-backup-process.png" alt-text="Screenshot showing how to stop the backup process.":::
 
