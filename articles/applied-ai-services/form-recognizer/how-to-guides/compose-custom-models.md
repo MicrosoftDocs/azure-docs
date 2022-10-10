@@ -18,9 +18,10 @@ recommendations: false
 <!-- markdownlint-disable MD024 -->
 
 ::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker-end
 
-> [!NOTE]
-> This how-to guide references Form Recognizer v3.0 . To use Form Recognizer v2.1 , see [Compose custom models v2.1](../compose-custom-models-v2-1.md).
+::: moniker range="form-recog-3.0.0"
 
 A composed model is created by taking a collection of custom models and assigning them to a single model ID. You can assign up to 100 trained custom models to a single composed model ID. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis. Composed models are useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
@@ -112,7 +113,6 @@ Label files contain key-value associations that a user has entered manually. The
 Once you have your label files, you can include them with by calling the training method with the *useLabelFile* parameter set to `true`.
 
 :::image type="content" source="../media/studio/rest-use-labels.png" alt-text="Screenshot showing the useLabelFile optional parameter.":::
-
 
 ### [Client libraries](#tab/sdks)
 
@@ -274,9 +274,10 @@ Try one of our Form Recognizer quickstarts:
 :::moniker-end
 
 ::: moniker range="form-recog-2.1.0"
+!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+::: moniker-end
 
-> [!NOTE]
-> This how-to guide references Form Recognizer v2.1 . To try Form Recognizer v3.0 , see [Compose custom models v3.0](compose-custom-models.md?iew=form-recog-3.0.0&preserve-view=true).
+::: moniker range="form-recog-2.1.0"
 
 Form Recognizer uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
 
@@ -284,7 +285,7 @@ Form Recognizer uses advanced machine-learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](../label-tool.md), [REST APIs](../quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](../quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
 ## Sample Labeling tool
 
@@ -294,7 +295,7 @@ Try extracting data from custom forms using our Sample Labeling tool. You'll nee
 
 * A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+ :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 > [!div class="nextstepaction"]
 > [Try it](https://fott-2-1.azurewebsites.net/projects/create)
@@ -303,11 +304,11 @@ In the Form Recognizer UI:
 
 1. Select **Use Custom to train a model with labels and get key value pairs**.
 
-      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot of the FOTT tool select custom model option.":::
+      :::image type="content" source="../media/label-tool/fott-use-custom.png" alt-text="Screenshot of the FOTT tool select custom model option.":::
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot of the FOTT tool select new project option.":::
+    :::image type="content" source="../media/label-tool/fott-new-project.png" alt-text="Screenshot of the FOTT tool select new project option.":::
 
 ## Create your models
 
@@ -322,22 +323,22 @@ The steps for building, training, and using custom and composed models are as fo
 
 ## Assemble your training dataset
 
-Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](build-training-data-set.md#custom-model-input-requirements) for Form Recognizer.
+Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../build-training-data-set.md#custom-model-input-requirements) for Form Recognizer.
 
 ## Upload your training dataset
 
-You'll need to [upload your training data](build-training-data-set.md#upload-your-training-data)
-to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+You'll need to [upload your training data](../build-training-data-set.md#upload-your-training-data)
+to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Train your custom model
 
-You [train your model](./quickstarts/try-sdk-rest-api.md#train-a-custom-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
+You [train your model](../quickstarts/try-sdk-rest-api.md#train-a-custom-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
 
 When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-Form Recognizer uses the [Layout](concept-layout.md) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model. Add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key value pairs and tables using supervised learning capabilities.
+Form Recognizer uses the [Layout](../concept-layout.md) API to learn the expected sizes and positions of typeface and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model. Add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key value pairs and tables using supervised learning capabilities.
 
-[Get started with Train with labels](label-tool.md)
+[Get started with Train with labels](../label-tool.md)
 
 > [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -361,17 +362,17 @@ Once the training process has successfully completed, your custom model will be 
 
 When you train models using the [**Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
 
-:::image type="content" source="media/fott-training-results.png" alt-text="Screenshot: training results window.":::
+:::image type="content" source="../media/fott-training-results.png" alt-text="Screenshot: training results window.":::
 
 ### [**REST API**](#tab/rest-api)
 
 The [**REST API**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
-:::image type="content" source="media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
+:::image type="content" source="../media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
 
 ### [**Client-library SDKs**](#tab/sdks)
 
- The [**client-library SDKs**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp#train-a-custom-model) return a model object that can be queried to return the trained model ID:
+ The [**client-library SDKs**](../quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp#train-a-custom-model) return a model object that can be queried to return the trained model ID:
 
 * C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
 
@@ -403,7 +404,7 @@ After you have completed training, compose your models as follows:
 
 When the operation completes, your newly composed model will appear in the list.
 
-  :::image type="content" source="media/custom-model-compose.png" alt-text="Screenshot of the model compose window." lightbox="media/custom-model-compose-expanded.png":::
+  :::image type="content" source="../media/custom-model-compose.png" alt-text="Screenshot of the model compose window." lightbox="../media/custom-model-compose-expanded.png":::
 
 ### [**REST API**](#tab/rest-api)
 
@@ -437,7 +438,7 @@ Use the programming language code of your choice to create a composed model that
 
 1. The tool will apply tags in bounding boxes and report the confidence percentage for each tag.
 
-:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+:::image type="content" source="../media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 ### [**REST API**](#tab/rest-api)
 
