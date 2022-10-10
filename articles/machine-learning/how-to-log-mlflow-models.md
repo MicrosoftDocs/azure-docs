@@ -24,6 +24,7 @@ A model in MLflow is also an artifact, but with a specific structure that serves
 
 Logging models has the following advantages:
 > [!div class="checklist"]
+> * Models can be directly loaded for inference using `mlflow.<flavor>.load_model` and use the `predict` function.
 > * You don't need to provide a scoring script nor an environment for deployment.
 > * Swagger is enabled in endpoints automatically and the __Test__ feature can be used in Azure ML studio.
 > * Models can be used as pipelines inputs directly.
