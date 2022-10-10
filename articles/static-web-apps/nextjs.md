@@ -5,13 +5,12 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic:  how-to
-
-ms.date: 04/22/2022
+ms.date: 10/12/2022
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
 # Deploy Next.js websites on Azure Static Web Apps
-Next.js support on Azure Static Web Apps can be categorised as two deployment models, [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) (also known as Static Site Generation (SSG)) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
+Next.js support on Azure Static Web Apps can be categorised as two deployment models, [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
 
 ## Static HTML export
 

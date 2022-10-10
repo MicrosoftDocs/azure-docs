@@ -142,7 +142,7 @@
           href: nextjs.md
           items:
           - name: Statically generated Next.js
-            href: deploy-nextjs-ssg.md
+            href: deploy-nextjs-static-export.md
           - name: Hybrid Next.js application (preview)
             href: deploy-nextjs-hybrid.md
         - name: Nuxt.js

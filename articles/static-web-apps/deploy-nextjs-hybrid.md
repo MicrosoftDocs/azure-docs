@@ -5,7 +5,7 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 03/26/2022
+ms.date: 10/12/2022
 ms.author: aapowell
 ms.custom: devx-track-js
 ---

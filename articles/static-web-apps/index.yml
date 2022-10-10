@@ -60,7 +60,7 @@ landingContent:
           - text: Hugo
             url: publish-hugo.md
           - text: Next.js Static HTML Export
-            url: deploy-nextjs-ssg.md
+            url: deploy-nextjs-static-export.md
           - text: Hybrid Next.js (preview)
             url: deploy-nextjs-hybrid.md
           - text: Nuxt.js
