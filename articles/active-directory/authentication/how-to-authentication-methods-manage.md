@@ -19,13 +19,13 @@ ms.custom: contperf-fy20q4
 ---
 # How to manage authentication methods for Azure Active Directory
 
-Azure Active Directory (Azure AD) provides various authentication methods to support different scenarios for sign-in. Each method can be configured specifically to meet customer goals for the sign-in experience and security. This topic explains how you can manage authentication methods for Azure AD, and how configuration options affect user sign-in. 
+Azure Active Directory (Azure AD) provides several authentication methods to support a range of sign-in scenarios. Administrators can specifically configure each method to meet goals for user experience and security. This topic explains how you can manage authentication methods for Azure AD, and how configuration options affect user sign-in. 
 
 ## Authentication methods policy
 
 The Authentication methods policy is the recommended way to manage authentication methods, including modern methods like passwordless authentication. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can use this policy to enable authentication methods for specific users and groups. Each method also has configuration parameters to control how that method can be used. 
 
-For example, you can enable phone sign-in, and optionally specify whether an office phone can be used in addition to a mobile phone. If you enable passwordless authentication with Microsoft Authenticator, you can add the location of the sign-in request, or the name of the application that requires the sign-in. These options help can customers further improve security and tailor the sign-in experience for their users.
+For example, if you want to enable phone sign-in, you can also specify whether an office phone can be used in addition to a mobile phone. If you want to enable passwordless authentication with Microsoft Authenticator, you can add the location of the sign-in request, or the name of the application that requires the sign-in. These options help administrators improve security and tailor the sign-in experience for their users.
 
 To view the Authentication methods policy, click **Security** > **Authentication methods** > **Policies**.
 
@@ -33,7 +33,7 @@ To view the Authentication methods policy, click **Security** > **Authentication
 
 ## MFA and password settings
 
-Two other policies provide a legacy way to manage some authentication methods for the entire tenant. They are the **Multifactor authentication** settings and **Password reset** settings. These policies affect all users in tenant. There's no granular control over who uses each authentication method, and no configuration parameters to control how a method can be used. They can be managed only by a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
+Two other policies, located in **Multifactor authentication** settings and **Password reset** settings, provide a legacy way to manage some authentication methods for all users in the tenant. You can't control who uses each authentication method, or how a method can be used. A [Global Administrator](../roles/permissions-reference.md#global-administrator) is needed to manage these policies. 
 
 To see the authentication methods that can be enabled for the tenant for **Multifactor authentication**, sign in to the Azure AD portal, and click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
 
