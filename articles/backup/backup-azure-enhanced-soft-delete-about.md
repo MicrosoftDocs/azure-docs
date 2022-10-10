@@ -22,7 +22,7 @@ In this article, you'll learn about:
 
 >[!div class="checklist"]
 >- What's soft delete?
->- What's new with enhanced soft delete?
+>- What's enhanced soft delete?
 >- States of soft delete setting
 >- Soft delete retention
 >- Soft deleted items reregistration
@@ -31,15 +31,15 @@ In this article, you'll learn about:
 
 ## What's soft delete?
 
-Soft delete primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration (*14*-*180* days) called soft delete retention period.
+[Soft delete](backup-azure-security-feature-cloud.md) primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration (*14*-*180* days) called soft delete retention period.
 
 After deletion (while the data is in soft deleted state), if you need the deleted data, you can undelete. This returns the data to stop protection with retain data state. You can then use it to perform restore operations or you can resume backups for this instance. 
 
-The following diagram shows the typical flow of a backup item (or a backup instance) that gets deleted:
+The following diagram shows the flow of a backup item (or a backup instance) that gets deleted:
 
 :::image type="content" source="./media/backup-azure-enhanced-soft-delete/enhanced-soft-delete-for-azure-backup-flow-diagram-inline.png" alt-text="Diagram showing the flow of backup items or instance that gets deleted from a vault with soft delete enabled." lightbox="./media/backup-azure-enhanced-soft-delete/enhanced-soft-delete-for-azure-backup-flow-diagram-expanded.png":::
 
-## What's new with enhanced soft delete?
+## What's enhanced soft delete?
 
 The key benefits of enhanced soft delete are:
 
@@ -58,12 +58,12 @@ The following table lists the soft delete properties for vaults:
 | State | Description |
 | --- | --- |
 | **Disabled** | Deleted items aren't retained in the soft deleted state, and are permanently deleted. |
-| **Enabled** | This is the default state for a new vault. <br><br> Deleted items are retained for the specified soft delete retention period, and are permanently deleted after the expiry of the soft delete retention duration. <br><br> Disabling of soft delete leads to immediate purging of deleted data. |
-| **Enabled and always-on** | Deleted items  are retained for the specified soft delete retention period, and are permanently deleted after the expiry of the soft delete retention duration. <br><br> Once you opt for this state, soft delete can't be disabled. |
+| **Enabled** | This is the default state for a new vault. <br><br> Deleted items are retained for the specified soft delete retention period, and are permanently deleted after the expiry of the soft delete retention duration. <br><br> Disabling soft delete immediate purges deleted data. |
+| **Enabled and always-on** | Deleted items are retained for the specified soft delete retention period, and are permanently deleted after the expiry of the soft delete retention duration. <br><br> Once you opt for this state, soft delete can't be disabled. |
 
 ## Soft delete retention
 
-The soft delete retention is the duration (in days) for which a deleted item is retained in the soft deleted state. Once the soft delete retention period elapses (from the date of deletion), the item is permanently deleted, and you can't undelete. You can choose the soft delete retention duration between 14 and 180 days. Longer durations  allow you to recover data from threats that may take time to identify (for example, Advanced Persistent Threats).
+Soft delete retention is the retention period (in days) of a deleted item in soft deleted state. Once the soft delete retention period elapses (from the date of deletion), the item is permanently deleted, and you can't undelete. You can choose the soft delete retention period between *14* and *180* days. Longer durations allow you to recover data from threats that may take time to identify (for example, Advanced Persistent Threats).
 
 >[!Note]
 >Soft delete retention for *14* days involves no cost. However, [regular backup charges apply for additional retention days](#pricing).
@@ -90,7 +90,7 @@ For example, you've deleted backups for one of the instances in the vault that h
 ## Supported scenarios
 
 - Enhanced soft delete is currently available in the following regions: West Central US, Australia East, North Europe.
-- It's supported for Recovery Services vaults and Backup vaults. Also, it supports both new and existing vaults.
+- It's supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
 - All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
 
 ## Next steps
