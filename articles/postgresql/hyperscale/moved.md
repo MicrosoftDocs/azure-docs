@@ -28,7 +28,7 @@ Cosmos DB for PostgreSQL clusters, with zero downtime.
 
 ## What remains the same?
 
-* **Exiting features.** All Hyperscale (Citus) features continue to be supported.
+* **Existing features.** All Hyperscale (Citus) features continue to be supported.
 * **Pricing model.** Azure Cosmos DB for PostgreSQL has the same pricing as Hyperscale (Citus).
 * **System architecture.** Some terminology has changed, but the technical architecture remains the same.
 * **Database connection strings.** Connection strings don't change; application code connects the same way.
