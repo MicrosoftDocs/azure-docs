@@ -46,7 +46,7 @@ productDirectory:
           text: Observability platform that centralizes log, metric, and tracing analytics.
   # Card 4
     - title: Dynatrace
-      imageSrc: ./media/index/datadog.svg
+      imageSrc: ./media/index/dynatrace.svg
       links:
         - url: ./dynatrace/dynatrace-overview.md
           text:  Provides deep cloud observability, advanced AIOps, and continuous runtime application security.
