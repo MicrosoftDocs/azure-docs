@@ -99,7 +99,7 @@ We currently have tested the following clients:
 
 These are the steps that a user/application will need to do authenticate with Azure AD described below:
 
-### Prerequisites
+### CLI Prerequisites
 
 You can follow along in Azure Cloud Shell, an Azure VM, or on your local machine. Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
 
