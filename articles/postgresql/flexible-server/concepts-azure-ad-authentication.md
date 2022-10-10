@@ -52,19 +52,19 @@ The following high-level diagram summarizes how authentication works using Azure
 ![authentication flow][1]
 
 
- Please use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
+ Use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
 
 
 ## Managing PostgreSQL Access For AD Principals
 
-When Azure AD authentication is enabled and Azure AD principal is added as an Azure AD administrator the account gets the same privileges as the original PostgreSQL administrator. Only AAD administrator can manage other AAD enabled roles on the server using azure portal or database API. The Azure AD administrator login can be an Azure AD user, Azure AD group, Service Principal or Managed Identity. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the PostgreSQL server. Multiple Azure AD administrators can be configured at any time and you can optionally disable password authentication to an Azure Database for PostgreSQL Flexible Server for better auditing and compliance needs.
+When Azure AD authentication is enabled and Azure AD principal is added as an Azure AD administrator the account gets the same privileges as the original PostgreSQL administrator. Only AAD administrator can manage other AAD enabled roles on the server using Azure Portal or Database API. The Azure AD administrator login can be an Azure AD user, Azure AD group, Service Principal or Managed Identity. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the PostgreSQL server. Multiple Azure AD administrators can be configured at any time and you can optionally disable password authentication to an Azure Database for PostgreSQL Flexible Server for better auditing and compliance needs.
 
 ![admin structure][2]
 
  >[!NOTE]
  > Service Principal or Managed Identity can now act as fully functional Azure AD Administrator in Flexible Server and this was a limitation in our Single Server.
 
-Azure AD administrators that created via Portal, API or SQL would have the same permissions as the regular admin user created during server provisioning and database permissions for non-admin AAD enabled roles are managed similar to regular roles. Additionally, Azure AD authentication is only possible if the Azure AD admin was created for Azure Database for PostgreSQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously can no longer connect to the database using their Azure Active Directory credentials.
+Azure AD administrators that are created via Portal, API or SQL would have the same permissions as the regular admin user created during server provisioning. Additionally, database permissions for non-admin AAD enabled roles are managed similar to regular roles. 
 
 ## Connecting using Azure AD identities
 
@@ -80,18 +80,18 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 
 > [!NOTE]
-> Please use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
+> Use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
 
 ## Additional considerations
 
 - Multiple Azure AD principals (a user, group, service principal or managed identity) can be configured as Azure AD Administrator for an Azure Database for PostgreSQL server at any time.
 - Only an Azure AD administrator for PostgreSQL can initially connect to the Azure Database for PostgreSQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
--  If an Azure AD principal is deleted from Azure AD, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role is still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
+-  If an Azure AD principal is deleted from Azure AD, it still remains as PostgreSQL role, but it will no longer be able to acquire new access token. In this case, although the matching role still exists in the database it won't be able to authenticate to the server. Database administrators need to transfer ownership and drop roles manually.
 
 > [!NOTE]
 > Login with the deleted Azure AD user can still be done till the token expires (up to 60 minutes from token issuing).  If you also remove the user from Azure Database for PostgreSQL this access will be revoked immediately.
 
-- Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and then a new user with the same name added, Therefore, if a user is deleted from Azure AD and then a new user with the same name added, the new user will not be able to connect with the existing role. 
+- Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and a new user is added with the same name the new user won't be able to connect with the existing role. 
  
 ## Next steps
 
