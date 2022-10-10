@@ -360,10 +360,8 @@ To create an AKS cluster that uses an Internal Load Balancer, use the `load_bala
 from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Change to the name of the subnet that contains AKS
-subnet_name = "default"
 # When you create an AKS cluster, you can specify Internal Load Balancer to be created with provisioning_config object
-provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer', load_balancer_subnet = subnet_name)
+provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer')
 
 # Create the cluster
 aks_target = ComputeTarget.create(workspace = ws,
