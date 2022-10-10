@@ -1,6 +1,6 @@
 ---
 title: Configure secure online endpoint with TLS/SSL
-description: Learn about the AzureML extension, available configuration settings and different deployment scenarios, and verify and managed AzureML extension
+description: Learn about how to use TLS/SSL to configure secure Kubernetes online endpoint
 titleSuffix: Azure Machine Learning
 author: jiaochenlu
 ms.author: chenlujiao
