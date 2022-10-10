@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 10/10/2022
 
 ms.author: justinha
 author: justinha
@@ -28,11 +28,11 @@ An Azure Multi-Factor Auth Provider is used to take advantage of features provid
 
 Note the SDK has been deprecated and will only continue to work until November 14, 2018. After that time, calls to the SDK will fail.
 
-## What is an MFA Provider?
+## What is an MFA provider?
 
-There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
+There are two types of Auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally. The per-user option calculates the number of users who are eligible to perform MFA, which is all users in Azure AD, and all enabled users in MFA Server. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
 
-## Manage your MFA Provider
+## Manage your MFA provider
 
 You cannot change the usage model (per enabled user or per authentication) after an MFA provider is created.
 
