@@ -6,6 +6,8 @@
   href: business-continuity-management-program.md
 - name: Reliability support guides
   items:
+  - name: Batch
+    href: reliability-batch.md
   - name: Cache for Redis
     href: reliability-cache.md
   - name: Azure Functions 
