@@ -1,5 +1,5 @@
 ---
-title: 'Configure virtual hub routing preference - Preview'
+title: 'Configure virtual hub routing preference'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN virtual hub routing preference.
 author: cherylmc
@@ -8,14 +8,10 @@ ms.topic: conceptual
 ms.date: 05/30/2022
 ms.author: cherylmc
 ---
-# Configure virtual hub routing preference (Preview)
+# Configure virtual hub routing preference
 
 The following steps help you configure virtual hub routing preference settings. For information about this feature, see [Virtual hub routing preference](about-virtual-hub-routing-preference.md).
 
-> [!IMPORTANT]
-> The Virtual WAN feature **Hub routing preference** is currently in public preview. If you are interested in trying this feature, please follow the documentation below.
-This public preview is provided without a service-level agreement and shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## Configure
 
