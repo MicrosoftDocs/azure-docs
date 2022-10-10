@@ -43,14 +43,6 @@ Create a `package.json` file with the following contents:
 
 ```json
 {
-  "name": "@azure-samples/ai-anomaly-detector-js",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Azure Data Tables client library samples for JavaScript",
-  "engine": {
-    "node": ">=12.0.0"
-  },
-  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/anomalydetector/ai-anomaly-detector",
   "dependencies": {
     "@azure/ai-anomaly-detector": "next",
     "@azure/core-auth": "^1.3.0",
