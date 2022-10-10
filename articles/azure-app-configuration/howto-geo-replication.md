@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: csharp, java
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 10/10/2022
 ms.author: mametcal
 ms.custom: devx-track-azurecli
 zone_pivot_groups: appconfig-provider
@@ -126,7 +126,7 @@ spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="https://<first-repli
 spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="https://<second-replica-endpoint>.azconfig.io"
 ```
 > [!NOTE]
-> The failover support is available if you use version of **2.9.0** or later of any of the following packages.
+> The failover support is available if you use version of **2.10.0-beta.1** or later of any of the following packages.
 > - `azure-spring-cloud-appconfiguration-config`
 > - `azure-spring-cloud-appconfiguration-config-web`
 > - `azure-spring-cloud-starter-appconfiguration-config`
