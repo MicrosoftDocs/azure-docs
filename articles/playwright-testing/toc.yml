@@ -38,3 +38,13 @@ items:
       href: how-to-manage-access-keys.md
     - name: Manage users and roles
       href: how-to-assign-roles.md
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
+    - name: Supported browsers and operating systems
+      href: resource-supported-operating-systems-browsers.md

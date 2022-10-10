@@ -51,6 +51,10 @@ landingContent:
             url: how-to-setup-continuous-testing-with-azure-pipelines.md
           - text: Test private endpoints
             url: how-to-test-private-endpoints.md
+      - linkListType: reference
+        links:
+          - text: Supported browsers and operating systems
+            url: resource-supported-operating-systems-browsers.md
 
   - title: Manage workspaces
     linkLists:
