@@ -478,8 +478,42 @@ Dependencies
 ### Metrics
 
 #### [.NET](#tab/net)
+The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry MeterProvider. This code must be in the application startup. For ASP.NET Core, it's done typically in the ConfigureServices method of the application Startup class. For ASP.NET applications, it's done typically in Global.asax.cs.
 
-- Placeholder
+```csharp
+using System.Diagnostics.Metrics;
+using Azure.Monitor.OpenTelemetry.Exporter;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+public class Program
+{
+    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main()
+    {
+        using var meterProvider = Sdk.CreateMeterProviderBuilder()
+            .AddMeter("OTel.AzureMonitor.Demo")
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = "<Your Connection String>";
+            })
+            .Build();
+
+        Counter<long> MyFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
+
+        MyFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
+        MyFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
+        MyFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
+        MyFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
+        MyFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
+        MyFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
+
+        System.Console.WriteLine("Press Enter key to exit.");
+        System.Console.ReadLine();
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
@@ -517,9 +551,9 @@ Any [attributes](#add-span-attributes) you add to spans are exported as custom p
 ##### [.NET](#tab/net)
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
-    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
-    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 1. Use a custom processor:
 
