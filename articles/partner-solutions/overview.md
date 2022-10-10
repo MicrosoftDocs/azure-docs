@@ -12,35 +12,20 @@ ms.author: franlanglois
 
 # Azure Native ISV Services overview
 
-Azure Native ISV Services enables customers to easily provision, manage, and tightly integrate most used ISV software and services. These services are reliable, highly available, and integrated into Azure.
-
-<!-- image later
-:::image type="content" source="media/overview/azure-container-apps-example-scenarios.png" alt-text="Example scenarios for Azure Container Apps.":::
-
- -->
+Azure Native ISV Services enables customers to easily provision, manage, and tightly integrate most used ISV software and services on Azure. Currently, there are six services publicly available across these areas: observability, data, networking, and storage. For a list of all our current ISV partner service, see [Extend Azure with Azure Native ISV Services](partners.md).
 
 ## Features of Azure Native ISV Services
-<!-- We need intro text here -->
+
 A comprehensive list of features of Azure Native ISV Services is listed below.
-<!-- are the next headings features? I can't tell.-->
 
-## Resource management
-<!-- We need intro text here -->
-- Use Arm template, SDK, CLI and the Azure portal to create and manage services
-- Customers engage with a single entity (Microsoft) for billing and support. No separate license purchase required to use Azure Native ISV Services.
+### Unified Operations
 
-## VNet injection
-<!-- We need intro text here -->
+- Integrated onboarding: Use ARM template, SDK, CLI and the Azure portal to create and manage services.
+- Unified management: Manage entire lifecycle of these ISV services through the Azure portal.
+- Unified access: Use Single Sign-on (SSO) through Azure Active Directory--no need for separate ISV authentications for subscribing to the service.
 
-VNet Injection provides private data plane access to Azure service native services from customers’ virtual networks. Injected workloads do not require customers to do any configurations for addressing management needs of the injected workloads.
+### Integrations
 
-## Integrations
-<!-- We need intro text here -->
-- Azure active directory integrations enable Single Sign On capabilities to navigate to partner apps from Azure
-- Log forwarding easily configure Azure service native resources to route logs to Event Hub
-
-## Features Overview
-<!-- We need intro text here -->
-[!VIDEO https://youtu.be/npHXMZAnrhs](https://youtu.be/npHXMZAnrhs)
-
-## What's next?
+- VNet injection: provides private data plane access to Azure Native ISV services from customers’ virtual networks.
+- Unified billing: Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license purchase is required to use Azure Native ISV Services.
+- Log and metrics: Use Microsoft Azure Monitor for collecting telemetry across all Azure environments.

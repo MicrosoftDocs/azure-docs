@@ -19,10 +19,10 @@ Azure Native ISV Services are available through the Marketplace.
 
 |Partner  |Description  |
 |---|---------|
-|[Datadog](datadog/overview.md)     |    Monitor your servers, clouds, metrics, and apps in one place.|
-|[Elastic](elastic/overview.md)     |    Monitor the health and performance of your Azure environment.     |
-|[Logz.io](logzio/overview.md)     |    Monitor the health and performance of your Azure environment.    |
-|[Dynatrace for Azure](dynatrace/dynatrace-overview.md)   |   Use Dynatrace for Azure for monitoring your workloads using the Azure portal.      |
+|[Datadog](datadog/overview.md) |  Monitoring and analytics platform for large scale applications. |
+|[Elastic](elastic/overview.md) | Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.  |
+|[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. |
+|[Dynatrace for Azure](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  |
 
 ## Data and Storage
 
@@ -35,5 +35,3 @@ Azure Native ISV Services are available through the Marketplace.
 |Partner  |Description  |
 |---|---------|
 |[NGINX for Azure (preview)](nginx/nginx-overview.md)   | Use NGINX for Azure (preview) as a reverse proxy within your Azure environment. |
-
-## What's next?

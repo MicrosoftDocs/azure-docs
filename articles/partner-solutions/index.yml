@@ -24,7 +24,7 @@ highlightedContent:
 
 productDirectory:
   title: Our Partners
-  summary: 
+  summary: Brief descriptions of our partner offerings
   items:
     # Card 1
     - title: Elastic
