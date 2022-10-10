@@ -82,9 +82,22 @@ There are three different ways to check an app instance using a probe. Each prob
 
   There are no available properties to be customized for now.
 
-### Customize your application by using the Azure CLI
+### Customize your application
 
-The following steps show you how to customize your application.
+### [Azure portal](#tab/azure-portal)
+The following steps show you how to customize your application using Azure portal.
+
+1. Under **Settings**, select Apps and select the application from the list.
+![Screenshot that shows select apps.](./media/spring-apps-health-probes/select-app.jpg)
+2. Select **Configuration** from the left table of contents, and then select **Health probes**.
+3. You could enable/disable any health probe and config all properties provided here.
+![Screenshot that shows config probes.](./media/spring-apps-health-probes/probe-config.jpg)
+4. To set the termination grace period seconds, select **General settings** and config here.
+![Screenshot that shows config termination grace period.](./media/spring-apps-health-probes/termination-grace-period-config.jpg)
+
+### [Azure CLI](#tab/azure-cli)
+
+The following steps show you how to customize your application using Azure CLI.
 
 1. Use the following command to create an application with liveness probe and readiness probe:
 
