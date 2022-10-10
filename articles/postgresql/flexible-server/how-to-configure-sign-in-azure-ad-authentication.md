@@ -193,9 +193,13 @@ To enable an Azure AD group for access to your database, use the same mechanism 
 Example:
 
 ```
-CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
+select * from pgaadauth_create_principal('Prod DB Readonly', false, false).
 ```
+
 When logging in, members of the group will use their personal access tokens, but sign with the group name specified as the username.
+
+> [!NOTE]
+> PostgreSQL Flexible Servers supports Managed Identities as group members.
 
 ### Step 2: Log in to the user’s Azure Subscription
 
@@ -251,80 +255,10 @@ Important considerations when connecting as a group member:
 
 You're now authenticated to your PostgreSQL server using Azure AD authentication.
 
-## Creating Azure AD users in Azure Database for PostgreSQL
-
-To add an Azure AD user to your Azure Database for PostgreSQL database, perform the following steps after connecting (see later section on how to connect):
-
-1. First ensure that the Azure AD user `<user>@yourtenant.onmicrosoft.com` is a valid user in Azure AD tenant.
-2. Sign in to your Azure Database for PostgreSQL instance as the Azure AD Admin user.
-3. Create role `<user>@yourtenant.onmicrosoft.com` in Azure Database for PostgreSQL.
-4. Make `<user>@yourtenant.onmicrosoft.com` a member of role azure_ad_user. This must only be given to Azure AD users.
-
-**Example:**
-
-```sql
-
-CREATE ROLE "<user>@yourtenant.onmicrosoft.com" WITH
-LOGIN
-NOSUPERUSER
-INHERIT
-NOREPLICATION;
-SECURITY LABEL FOR pgaadauth
-ON ROLE "<user>@yourtenant.onmicrosoft.co"
-IS 'aadauth';
-```
-
-> [!NOTE]
-> Authenticating a user through Azure AD doesn't give the user any permissions to access objects within the Azure Database for PostgreSQL database. You must grant the user the required permissions manually.
-
-## Token Validation
-
-Azure AD authentication in Azure Database for PostgreSQL Flexible Server ensures that the user exists in the PostgreSQL server, and it checks the authenticity of the token by validating its contents. The following token validation steps are performed:
-
-- Token is signed by Azure AD and hasn't been tampered with
-- Token was issued by Azure AD for the tenant associated with the server
-- Token hasn't expired
-- Token is for the Azure Database for PostgreSQL resource (and not another Azure resource)
-
-## Networking Requirements
-
-Azure Active Directory is a multi-tenant application and AAD authentication in Azure Database for PostgreSQL Flexible Server requires outbound internet connectivity to perform certain operations like adding AAD admins, groups, service principals etc. 
-
-Public access (allowed IP addresses) connectivity option doesn't require any extra networking rules for AAD authentication to work.
-
-Private access (VNet Integration) requires one or both  below networking rules depending upon network topology for AAD authentication to work. 
-
--  An outbound NSG rule to allow virtual network traffic to reach AzureActiveDirectory service tag only.
--  While using proxy please add a new firewall rule to allow http/s traffic to reach AzureActiveDirectory service tag only.
-
-
-## Migrating existing PostgreSQL users to Azure AD-based authentication
-
-You can enable Azure AD authentication for existing users. There are two cases to consider:
-
-### Case 1: PostgreSQL username matches the Azure AD User Principal Name
-
-In the unlikely case that your existing users already match the Azure AD user names, you can grant the `azure_ad_user` role to them in order to enable them for Azure AD authentication:
-
-```sql
-GRANT azure_ad_user TO "existinguser@yourtenant.onmicrosoft.com";
-```
-
-They'll now be able to sign in with Azure AD credentials instead of using their previously configured PostgreSQL user password.
-
-### Case 2: PostgreSQL username is different than the Azure AD User Principal Name
-
-If a PostgreSQL user either does not exist in Azure AD or has a different username, you can use Azure AD groups to authenticate as this PostgreSQL user. You can migrate existing Azure Database for PostgreSQL Flexible users to Azure AD by creating an Azure AD group with a name that matches the PostgreSQL user, and then granting role azure_ad_user to the existing PostgreSQL user:
-
-```sql
-GRANT azure_ad_user TO "DBReadUser";
-```
-
-This assumes you've created a group "DBReadUser" in your Azure AD. Users belonging to that group will now be able to sign in to the database as this user.
-
 ## Next steps
 
 * Review the overall concepts for [Azure Active Directory authentication with Azure Database for PostgreSQL - Flexible Server](concepts-azure-ad-authentication.md)
+* Learn how to create and manage Azure AD enabled PostgreSQL roles [Manage Azure AD roles in Azure Database for PostgreSQL - Flexible Server](Manage Azure AD roles in Azure Database for PostgreSQL - Flexible Server.md)
 
 <!--Image references-->
 
