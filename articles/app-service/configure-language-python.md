@@ -428,7 +428,7 @@ When attempting to run database migrations with a Django app, you may see "sqlit
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
-If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app.md#3-verify-connection-settings).
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app.md#2-verify-connection-settings).
 
 #### Other issues
 
