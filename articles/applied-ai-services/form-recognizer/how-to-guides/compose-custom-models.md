@@ -274,7 +274,7 @@ Try one of our Form Recognizer quickstarts:
 :::moniker-end
 
 ::: moniker range="form-recog-2.1.0"
-!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
 ::: moniker-end
 
 ::: moniker range="form-recog-2.1.0"
@@ -354,9 +354,13 @@ Using the Form Recognizer Sample Labeling tool, the REST API, or the Client-libr
 1. [**Gather your custom model IDs**](#gather-your-custom-model-ids)
 1. [**Compose your custom models**](#compose-your-custom-models)
 
-#### Gather your custom model IDs
+### Gather your custom model IDs
 
 Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve a model ID as follows:
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 ### [**Form Recognizer Sample Labeling tool**](#tab/fott)
 
@@ -383,10 +387,17 @@ The [**REST API**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language
 * Python | [CustomFormModelInfo Class](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.customformmodelinfo?view=azure-python&preserve-view=true&branch=main#variables "Azure SDK for Python")
 
 ---
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 #### Compose your custom models
 
 After you've gathered your custom models corresponding to a single form type, you can compose them into a single model.
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 ### [**Form Recognizer Sample Labeling tool**](#tab/fott)
 
@@ -424,9 +435,17 @@ Use the programming language code of your choice to create a composed model that
 
 ---
 
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
 ## Analyze documents with your custom or composed model
 
  The custom form **Analyze** operation requires you to provide the `modelID`  in the call to Form Recognizer. You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 ### [**Form Recognizer Sample Labeling tool**](#tab/fott)
 
@@ -457,6 +476,10 @@ Using the programming language of your choice to analyze a form or document with
 * [**Python**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.1/sample_recognize_custom_forms.py)
 
 ---
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 Test your newly trained models by [analyzing forms](./quickstarts/try-sdk-rest-api.md#analyze-forms-with-a-custom-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](label-tool.md#improve-results).
 
