@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/10/2022
 ms.custom: references_regions
 ---
 # Provision access to Arc-enabled SQL Server for DevOps actions (preview)
@@ -29,8 +29,15 @@ This how-to guide shows how to provision access via Microsoft Purview to Arc-ena
 - East US
 - East US2
 - South Central US
+- West US3
 - Canada Central
+- Brazil South
+- North Europe
 - West Europe
+- France Central
+- UK South
+- Japan East
+- Australia East
 
 ## Security considerations for SQL Server
 - The Server admin can turn off the Microsoft Purview policy enforcement.
@@ -171,4 +178,3 @@ Check the blog and related docs
 * Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8)
 * Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
 * Blog: [Deep dive on SQL Performance Monitor and SQL Security Auditor permissions](https://techcommunity.microsoft.com/t5/sql-server-blog/new-granular-permissions-for-sql-server-2022-and-azure-sql-to/ba-p/3607507)
-
