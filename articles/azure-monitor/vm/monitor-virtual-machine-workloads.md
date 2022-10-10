@@ -97,6 +97,19 @@ The following sample creates an alert when a specific Windows event is created. 
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
+
+### Filtering events
+
+
+| Source | Target | Description | Filtering method |
+|:---|:---|:---|:---|
+| Azure Monitor agent | Azure tables | Collect data from standard sources such as Windows events, Syslog, and performance data and send to Azure tables in Log Analytics workspace. | Use XPath in the data collection rule (DCR) to collect specific data from client machines. Use transformations to further filter specific events or remove unnecessary columns. |
+|  | Custom tables | Collecting data outside of standard data sources is not yet supported. | |
+| Log Analytics agent | Azure tables | Collect data from standard sources such as Windows events, Syslog, and performance data and send it to Azure tables in the Log Analytics workspace. | Configure data collection on the workspace. Use workspace transformations to filter records and columns. |
+| | Custom tables | Configure [custom logs](agents/data-sources-custom-logs.md) on the workspace to collect file-based text logs. | Configure ingestion-time transformation in the workspace DCR to filter or transform incoming data. You must first migrate the custom table to the new logs ingestion API. |
+
+
+
 ## Custom performance counters
 You might need performance counters created by applications or the guest operating system that aren't collected by VM insights. Configure the Log Analytics workspace to collect this [performance data](../agents/data-sources-windows-events.md). There's a cost for the ingestion and retention of this data in the workspace. Be careful to not collect performance data that's already being collected by VM insights.
 
