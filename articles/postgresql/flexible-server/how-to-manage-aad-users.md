@@ -41,7 +41,7 @@ If you like to learn about how to create and manage Azure subscription users and
 
 Once first Azure AD administrator is created from the Azure portal or API you can use the administrator role to manage Azure AD roles in your Azure Database for PostgreSQL Flexible Server.
 
-We recommend getting familiar with [Microsoft identity platform](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-overview) for best use of Azure AD integration with Azure Database for PostgreSQL Flexible Servers.
+We recommend getting familiar with [Microsoft identity platform](../../articles\active-directory\develop\v2-overview.md) for best use of Azure AD integration with Azure Database for PostgreSQL Flexible Servers.
 
 ### Principal Types
 
@@ -49,7 +49,7 @@ Azure Database for PostgreSQL Flexible servers internally stores mapping between
 Each PostgreSQL database role can be mapped to one of the following Azure AD object types:
 
 1. **User** - Including Tenant local and guest users.
-2. **Service Principal**. Including [Applications and Managed identities](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals).
+2. **Service Principal**. Including [Applications and Managed identities](../../articles\active-directory\develop\app-objects-and-service-principals.md).
 3. **Group**  When a PostgreSQL Role is linked to an Azure AD group, any user or service principal member of this group can connect to the Azure Database for PostgreSQL Flexible Server instance with the group role.
 
 ### Listing Azure AD roles using SQL
