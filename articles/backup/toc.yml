@@ -580,8 +580,6 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Configure and manage enhanced soft delete
-      href: backup-azure-enhanced-soft-delete-configure-manage.md
     - name: Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
     - name: Soft delete
@@ -592,6 +590,8 @@
         href: soft-delete-virtual-machines.md
       - name: For SQL Server and SAP HANA in Azure VMs
         href: soft-delete-sql-saphana-in-azure-vm.md
+    - name: Configure and manage enhanced soft delete
+      href: backup-azure-enhanced-soft-delete-configure-manage.md 
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection
