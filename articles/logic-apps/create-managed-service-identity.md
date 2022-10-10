@@ -21,7 +21,7 @@ Azure Logic Apps supports the [*system-assigned* managed identity](../active-dir
 
 * A logic app resource can share the same user-assigned identity across a group of other logic app resources.
 
-This article shows how to enable and set up a managed identity for your logic app and provides an example for how use the identity for authentication. Unlike the system-assigned identity, which you don't have to manually create, you *do* have to manually create the user-assigned identity. This article shows how to create a user-assigned identity using the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
+This article shows how to enable and set up a managed identity for your logic app and provides an example for how to use the identity for authentication. Unlike the system-assigned identity, which you don't have to manually create, you *do* have to manually create the user-assigned identity. This article shows how to create a user-assigned identity using the Azure portal and Azure Resource Manager template (ARM template). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
 | Tool | Documentation |
 |------|---------------|
