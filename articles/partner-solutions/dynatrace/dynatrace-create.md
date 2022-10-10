@@ -82,7 +82,7 @@ When the checkbox for Azure resource logs is selected, by default, logs are forw
     - All Azure resources with tags defined in exclude rules don't send logs to Dynatrace..
     - If there's a conflict between an inclusion and exclusion rule, the exclusion rule applies.
   
-    The logs sent to Dynatrace are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+The logs sent to Dynatrace are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
     > [!NOTE]
     > Metrics for virtual machines and App Services can be collected by installing the Dynatrace OneAgent after the Dynatrace resource has been created.
