@@ -147,7 +147,7 @@ select round (pg_wal_lsn_diff ('LSN value when run second time', 'LSN value when
 
 ##### `checkpoint_completion_target`
 
-A good practice would be to set it to 0.9.As an example a value of 0.9 for a `checkpoint_timeout` of 5 minutes indicates the target to complete a checkpoint is 270 sec [0.9*300 sec].A value of 0.9 provides fairly consistent I/O load.A aggressive value of `check_point_completion_target` may result in increased IO load on the server.
+A good practice would be to set it to 0.9. As an example, a value of 0.9 for a `checkpoint_timeout` of 5 minutes indicates the target to complete a checkpoint is 270 sec [0.9*300 sec]. A value of 0.9 provides fairly consistent I/O load. An aggressive value of `check_point_completion_target` may result in increased IO load on the server.
 
 ##### `checkpoint_timeout`
 
