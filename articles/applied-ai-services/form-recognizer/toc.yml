@@ -61,6 +61,9 @@ items:
     - name: Build a custom model
       displayName: tables, labels, ocr, template, neural, input, train, training, sets, testing
       href: how-to-guides/build-a-custom-model.md
+    - name: Compose custom models
+      displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
+      href: compose-custom-models.md
     - name: Deploy the sample-labeling tool
       displayName: FOTT, migration, containers, docker
       href: deploy-label-tool.md
@@ -70,9 +73,6 @@ items:
     - name: Use table tags to train your custom model
       displayName: FOTT, migration, dynamic
       href: supervised-table-tags.md
-    - name: Compose custom models
-      displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
-      href: compose-custom-models.md
   - name: Back up and recover models
     displayName: disaster, recovery, region, copy, modelId, model ID
     href: disaster-recovery.md
