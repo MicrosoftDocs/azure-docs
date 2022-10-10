@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 08/01/2022
+ms.date: 09/27/2022
 ms.author: madsd
 ---
 
@@ -19,6 +19,9 @@ App Service Environment is a single-tenant deployment of Azure App Service that 
 You must delegate the subnet to `Microsoft.Web/hostingEnvironments`, and the subnet must be empty.
 
 The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. It's a good idea to use a `/24` address space (256 addresses) for your subnet, to ensure enough addresses to support production scale.
+
+>[!NOTE]
+> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If your App Service Environment has for example 2 Windows Container App Service plans each with 25 instances and each with 5 apps running, you will need 300 IP addresses and additional addresses to support horizontal (up/down) scale.
 
 If you use a smaller subnet, be aware of the following:
 

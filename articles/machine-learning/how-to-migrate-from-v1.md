@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: s-polly
 ms.author: scottpolly
-ms.date: 06/01/2022
+ms.date: 09/23/2022
 ms.reviewer: blackmist
 ms.custom: devx-track-azurecli, devplatv2
 ---
@@ -84,11 +84,14 @@ Do consider migrating the code for creating a workspace to v2. Typically Azure r
 > [!IMPORTANT]
 > If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
 
+
 ### Connection (workspace connection in v1)
 
 Workspace connections from v1 are persisted on the workspace, and fully available with v2.
 
 We recommend migrating the code for creating connections to v2.
+For a comparison of SDK v1 and v2 code, see [Migrate workspace management from SDK v1 to SDK v2](migrate-to-v2-resource-workspace.md).
+
 
 ### Datastore
 
@@ -102,9 +105,9 @@ Compute of type `AmlCompute` and `ComputeInstance` are fully available for use i
 
 We recommend migrating the code for creating compute to v2.
 
-### Endpoint and deployment (endpoint or web service in v1)
+### Endpoint and deployment (endpoint and web service in v1)
 
-You can continue using your existing v1 model deployments. For new model deployments, we recommend migrating to v2. In v2, we offer managed endpoints or Kubernetes endpoints. The following table guides our recommendation:
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend migrating to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md). The following table guides our recommendation:
 
 |Endpoint type in v2|Migrate from|Notes|
 |-|-|-|
@@ -113,6 +116,9 @@ You can continue using your existing v1 model deployments. For new model deploym
 |Managed batch endpoint|ParallelRunStep in a pipeline for batch scoring|Enterprise-grade managed model deployment infrastructure with massively parallel batch processing for production.|
 |Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
 |Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
+
+For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
+For upgrade steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Jobs (experiments, runs, pipelines in v1)
 
@@ -124,7 +130,9 @@ To migrate, you'll need to change your code for submitting jobs to v2. We recomm
 
 What you run *within* the job does not need to be migrated to v2. However, it is recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more details, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
 
-We recommend migrating the code for creating jobs to v2. You can see [how to train models with the CLI (v2)](how-to-train-cli.md) and the [job YAML references](reference-yaml-job-command.md) for authoring jobs in v2 YAMLs.
+We recommend migrating the code for creating jobs to v2. You can see [how to train models](how-to-train-model.md) and the [job YAML references](reference-yaml-job-command.md) for authoring jobs in v2 YAMLs.
+
+For a comparison of SDK v1 and v2 code, see [Migrate script run from SDK v1 to SDK v2](migrate-to-v2-command-job.md).
 
 ### Data (datasets in v1)
 
@@ -136,17 +144,33 @@ For details on data in v2, see the [data concept article](concept-data.md).
 
 We recommend migrating the code for [creating data assets](how-to-create-data-assets.md) to v2.
 
+For a comparison of SDK v1 and v2 code, see [Migrate data management from SDK v1 to v2](migrate-to-v2-assets-data.md).
+
+
 ### Model
 
 Models created from v1 can be used in v2. In v2, explicit model types are introduced. Similar to data assets, it may be easier to re-create a v1 model as a v2 model, setting the type appropriately.
 
-We recommend migrating the code for creating models with [SDK](how-to-train-sdk.md) or [CLI](how-to-train-cli.md) to v2.
+We recommend migrating the code for creating models. For more information, see [How to train models](how-to-train-model.md).
+
+For a comparison of SDK v1 and v2 code, see 
+
+* [Migrate model management from SDK v1 to SDK v2](migrate-to-v2-assets-model.md)
+* [Migrate AutoML from SDK v1 to SDK v2](migrate-to-v2-execution-automl.md)
+* [Migrate hyperparameter tuning from SDK v1 to SDK v2](migrate-to-v2-execution-hyperdrive.md)
+* [Migrate parallel run step from SDK v1 to SDK v2](migrate-to-v2-execution-parallel-run-step.md)
 
 ### Environment
 
 Environments created from v1 can be used in v2. In v2, environments have new features like creation from a local Docker context.
 
 We recommend migrating the code for creating environments to v2.
+
+## Managing secrets
+
+The management of Key Vault secrets differs significantly in V2 compared to V1. The V1 set_secret and get_secret SDK methods are not available in V2. Instead, direct access using Key Vault client libraries should be used.
+
+For details about Key Vault, see [Use authentication credential secrets in Azure Machine Learning training jobs](how-to-use-secrets-in-runs.md).
 
 ## Scenarios across the machine learning lifecycle
 
@@ -182,7 +206,7 @@ A MLOps workflow typically involves CI/CD through an external tool. It's recomme
 
 The solution accelerator for MLOps with v2 is being developed at https://github.com/Azure/mlops-v2 and can be used as reference or adopted for setup and automation of the machine learning lifecycle.
 
-#### A note on GitOps with v2
+### A note on GitOps with v2
 
 A key paradigm with v2 is serializing machine learning entities as YAML files for source control with `git`, enabling better GitOps approaches than were possible with v1. For instance, you could enforce policy by which only a service principal used in CI/CD pipelines can create/update/delete some or all entities, ensuring changes go through a governed process like pull requests with required reviewers. Since the files in source control are YAML, they're easy to diff and track changes over time. You and your team may consider shifting to this paradigm as you migrate to v2.
 
