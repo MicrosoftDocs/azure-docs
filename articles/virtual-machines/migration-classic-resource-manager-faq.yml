@@ -22,7 +22,7 @@ sections:
       - question: |
           What is Azure Service Manager and what does it mean by classic?
         answer: |
-          The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+          The word "classic" in IaaS VMs (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
       - question: |
           What is Azure Resource Manager?
@@ -42,12 +42,12 @@ sections:
       - question: |
           What is the definition of an existing customer on IaaS Virtual Machines (classic)?
         answer: |
-          Customer who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered as an existing customer. Only these customers get until March 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
+          Customers who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered existing customers. Only these customers get until March 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
 
       - question: |
           Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
         answer: |
-          As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, please contact support to add your subscription to the allow list.
+          As part of the retirement process, IaaS VMs (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, contact support to add your subscription to the allow list.
 
       - question: |
           Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
@@ -144,7 +144,7 @@ sections:
       - question: |
           How do I migrate my classic storage accounts to Resource Manager?
         answer: |
-          If you have a classic VM attached to your account, please migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
+          If you have a classic VM attached to your account, migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure Portal, with PowerShell or with Azure CLI.
           1. [Migrate using PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps#step-52-migrate-a-storage-account)
           2. [Migrate using Azure CLI](/azure/virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account)
           3. [Migrate using Azure Portal](/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts)
