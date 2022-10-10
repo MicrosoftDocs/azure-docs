@@ -350,6 +350,21 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/number-match.png" alt-text="Screenshot of how to enable number matching.":::
 
+## FAQ
+
+### Can I opt out of number matching?
+
+No.
+
+### What about my Apple Watch?
+
+Apple Watch will remain unsupported. We recommend you uninstall the Authenticator Apple Watch app because you will have to approve notifications on your phone. 
+
+
+### What happens if a user runs an older version of Microsoft Authenticator?
+
+If a user is running an older version of Microsoft Authenticator, authentication won't work. 
+
 ## Next steps
 
 [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)
