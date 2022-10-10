@@ -70,16 +70,30 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 
 # [CLI](#tab/CLI)
 
-```azurecli-interactive
-az resource list --resource-group exampleRG
-```
+```azurecli
+#Show the DNS resolver
+az dns-resolver show --name "sampleDnsResolver" --resource-group "sampleResourceGroup"
 
+#List the inbound endpoint
+az dns-resolver inbound-endpoint list --dns-resolver-name "sampleDnsResolver" --resource-group "sampleResourceGroup"
+
+#List the outbound endpoint
+az dns-resolver outbound-endpoint list --dns-resolver-name "sampleDnsResolver" --resource-group "sampleResourceGroup"
+
+```
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
-```
+```azurepowershell
+#Show the DNS resolver
+Get-AzDnsResolver -Name "sampleDNSResolver" -ResourceGroupName "sampleResourceGroup"
 
+#List the inbound endpoint list
+Get-AzDnsResolverInboundEndpoint -DnsResolverName "sampleDnsResolver" -ResourceGroupName "sampleResourceGroup"
+
+#List the outbound endpoint
+Get-AzDnsResolverOutboundEndpoint -DnsResolverName "sampleDnsResolver" -ResourceGroupName "sampleResourceGroup"
+
+```
 ---
 
 ## Clean up resources
