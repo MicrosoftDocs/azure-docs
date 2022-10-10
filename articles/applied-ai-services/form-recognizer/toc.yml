@@ -58,19 +58,16 @@ items:
     href:  create-sas-tokens.md
   - name: Custom models
     items:
-    - name: Build a custom model (v3.0)
+    - name: Build a custom model
       displayName: tables, labels, ocr, template, neural, input, train, training, sets, testing
-      href: how-to-guides/build-custom-model-v3.md
-    - name: Build and train a custom model (v2.1)
-      displayName: tables, labels, ocr, upload
-      href: build-training-data-set.md
-    - name: Deploy the sample-labeling tool (v2.1)
+      href: how-to-guides/build-a-custom-model.md
+    - name: Deploy the sample-labeling tool
       displayName: FOTT, migration, containers, docker
       href: deploy-label-tool.md
-    - name: Train a custom model with the sample-labeling tool (v2.1)
+    - name: Train a custom model with the sample-labeling tool
       displayName: FOTT, migration, containers, docker
       href: label-tool.md
-    - name: Use table tags to train your custom model (v2.1)
+    - name: Use table tags to train your custom model
       displayName: FOTT, migration, dynamic
       href: supervised-table-tags.md
     - name: Compose custom models

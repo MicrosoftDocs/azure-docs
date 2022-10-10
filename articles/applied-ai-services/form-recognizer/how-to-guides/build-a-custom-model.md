@@ -1,7 +1,7 @@
 ---
-title: "Train a custom model in the Form Recognizer Studio"
+title: "Build and train a custom model"
 titleSuffix: Azure Applied AI Services
-description: Learn how to build, label, and train a custom model in the Form Recognizer Studio.
+description: Learn how to build, label, and train a custom model.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -9,19 +9,29 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 10/10/2022
 ms.author: lajanuar
-monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Build your training dataset for a custom model
+# Build and train a custom model
 
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-3.0.0"
 Form Recognizer models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
 ## Custom model input requirements
 
 First, make sure your training data set follows the input requirements for Form Recognizer.
 
+::: moniker-end
+
+::: moniker range="form-recog-3.0.0"
 [!INCLUDE [input requirements](../includes/input-requirements.md)]
+::: moniker-end
+
+::: moniker range="form-recog-3.0.0"
 
 ## Training data tips
 
@@ -122,3 +132,79 @@ Congratulations you've trained a custom model in the Form Recognizer Studio! You
 
 > [!div class="nextstepaction"]
 > [Learn about accuracy and confidence with custom models](../concept-accuracy-confidence.md)
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+**Applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**. **Other versions:** [Form Recognizer v3.0](../how-to-guides/build-custom-model-v3.md?view=form-recog-3.0.0&preserve-view=true)
+
+
+When you use the Form Recognizer custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
+
+You need at least five filled-in forms of the same type.
+
+If you want to use manually labeled training data, you must start with at least five filled-in forms of the same type. You can still use unlabeled forms in addition to the required data set.
+
+## Custom model input requirements
+
+First, make sure your training data set follows the input requirements for Form Recognizer.
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [input requirements](../includes/input-requirements.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+## Training data tips
+
+Follow these tips to further optimize your data set for training.
+
+* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+* For filled-in forms, use examples that have all of their fields filled in.
+* Use forms with different values in each field.
+* If your form images are of lower quality, use a larger data set (10-15 images, for example).
+
+## Upload your training data
+
+When you've put together the set of form documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+
+If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents. You can use the [Sample Labeling tool](../label-tool.md) (or your own UI) to generate these files.
+
+### Organize your data in subfolders (optional)
+
+By default, the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API will only use documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
+
+```json
+{
+  "source":"<SAS URL>"
+}
+```
+
+If you add the following content to the request body, the API will train with documents located in subfolders. The `"prefix"` field is optional and will limit the training data set to files whose paths begin with the given string. So a value of `"Test"`, for example, will cause the API to look at only the files or folders that begin with the word "Test".
+
+```json
+{
+  "source": "<SAS URL>",
+  "sourceFilter": {
+    "prefix": "<prefix string>",
+    "includeSubFolders": true
+  },
+  "useLabelFile": false
+}
+```
+
+## Next steps
+
+Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
+
+* [Train a model and extract document data using the client library or REST API](../quickstarts/try-sdk-rest-api.md)
+* [Train with labels using the sample labeling tool](../label-tool.md)
+
+## See also
+
+* [What is Form Recognizer?](../overview.md)
+
+::: moniker-end
