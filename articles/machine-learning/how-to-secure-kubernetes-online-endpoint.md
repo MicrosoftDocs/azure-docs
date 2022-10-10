@@ -101,7 +101,7 @@ metadata:
 type: Opaque
 ```
 
-More information you can find [here](reference-kubernetes#sample-yaml-definition-of-kubernetes-secret-for-tlsssl.md).
+More information you can find [here](reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl).
 
 After that, you can specify the sslSecret to be the name of this Kubernetes secret as CLI command follow (assuming you are using AKS), 
 
@@ -199,4 +199,4 @@ To disable TLS for a model deployed to Kubernetes, update the AzureML extension 
 Learn how to:
 - [Consume a machine learning model deployed as an online endpoint](how-to-deploy-managed-online-endpoints.md#invoke-the-local-endpoint-to-score-data-by-using-your-model)
 - [How to secure Kubernetes inferencing environment](how-to-secure-kubernetes-inferencing-environment.md)
-- [How to use your workspace with a custom DNS server](how-to-custom-dns?tabs=azure-cli.md)
+- [How to use your workspace with a custom DNS server](how-to-custom-dns.md)
