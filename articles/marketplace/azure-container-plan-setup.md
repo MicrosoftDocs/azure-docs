@@ -13,6 +13,8 @@ ms.date: 03/15/2022
 
 The **Plan setup** page lets you configure which clouds the plan is available in. Your answers on this tab affect which fields are displayed on other tabs.
 
+Container offers for Kubernetes applications are only available in Azure Global. If you chose to sell a Kubernetes application in the offer setup page you may not see this tab.
+
 ## Azure regions
 
 ### Azure Global
