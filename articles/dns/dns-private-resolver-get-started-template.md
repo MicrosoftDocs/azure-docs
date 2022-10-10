@@ -105,3 +105,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
     :::image type="content" source="./media/dns-resolver-getstarted-template/resolver-vnet-link.png" alt-text="DNS private resolver VNET link":::
 
+## Next steps
+
+In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains
+- [Resolve Azure and on-premises domains](https://learn.microsoft.com/en-us/azure/dns/private-resolver-hybrid-dns)

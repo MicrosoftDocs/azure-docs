@@ -88,6 +88,24 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 
 ### Delete the DNS resolver
 
+# [CLI](#tab/CLI)
+````azurecli
+#Delete the inbound endpoint
+az dns-resolver inbound-endpoint delete --dns-resolver-name "sampleDnsResolver" --name "sampleInboundEndpoint" --resource-group "exampleRG"
+
+#Delete the virtual network link
+az dns-resolver vnet-link delete --ruleset-name "sampleDnsForwardingRuleset" --resource- group "exampleRG" --name "sampleVirtualNetworkLink"
+
+#Delete DNS forwarding ruleset
+az dns-resolver forwarding-ruleset delete --name "samplednsForwardingRulesetName" --resource-group "exampleRG"
+
+#Delete the outbound endpoint
+az dns-resolver outbound-endpoint delete --dns-resolver-name "sampleDnsResolver" --name "sampleOutboundEndpoint" --resource-group "exampleRG"
+
+#Delete the DNS resolver
+az dns-resolver delete --name "sampleDnsResolver" --resource-group "exampleRG"
+````
+
 # [PowerShell](#tab/PowerShell)
 ```azurepowershell
 #Delete the inbound endpoint
@@ -108,3 +126,6 @@ Remove-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup
 ---
 
 ## Next steps
+
+In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains
+- [Resolve Azure and on-premises domains](https://learn.microsoft.com/en-us/azure/dns/private-resolver-hybrid-dns)
