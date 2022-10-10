@@ -1,3 +1,17 @@
+---
+title: Configure secure online endpoint with TLS/SSL
+description: Learn about the AzureML extension, available configuration settings and different deployment scenarios, and verify and managed AzureML extension
+titleSuffix: Azure Machine Learning
+author: jiaochenlu
+ms.author: chenlujiao
+ms.reviewer: 
+ms.service: machine-learning
+ms.subservice: core
+ms.date: 10/10/2022
+ms.topic: how-to
+ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
+---
+
 # Configure secure online endpoint with TLS/SSL
 
 This article shows you how to secure a Kubernetes online endpoint that's created through Azure Machine Learning.
