@@ -52,7 +52,7 @@ Your application must conform to the following restrictions:
 
 The following table indicates the features supported for each language.
 
-| Feature                                                         | Java | Python | Node | .NET Core | Go |Web Servers|
+| Feature                                                         | Java | Python | Node | .NET Core | Go |[Static Files](how-to-enterprise-deploy-static-file.md)|
 |-----------------------------------------------------------------|------|--------|------|-----------|----|-----------|
 | App lifecycle management                                        | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Assign endpoint                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
