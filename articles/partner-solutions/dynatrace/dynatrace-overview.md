@@ -12,7 +12,7 @@ ms.date: 08/24/2022
 
 Dynatrace is a monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
 
-Dynatrace for Azure offering in the Azure Marketplace enables you to create and manage Dynatrace environments using the Azure portal with a seamlessly integrated experience. This enables you to use Dynatrace as a monitoring solution for your Azure workloads through a streamlined workflow, starting from procurement, all the way to configuration and management.
+The Dynatrace for Azure offering in the Azure Marketplace enables you to create and manage Dynatrace environments using the Azure portal with a seamlessly integrated experience. This enables you to use Dynatrace as a monitoring solution for your Azure workloads through a streamlined workflow, starting from procurement, all the way to configuration and management.
 
 You can create and manage the Dynatrace resources using the Azure portal through a resource provider named `Dynatrace.Observability`. Dynatrace owns and runs the software as a service (SaaS) application including the Dynatrace environments created through this experience.
 
