@@ -100,7 +100,7 @@ Follow these steps:
 
 ## Delete a backup item
 
-You can delete backup items/instances even if the soft delete settings are enabled. However, if the soft delete is enabled, the deleted items don't get permanently deleted immediately and stays in soft deleted state as per [configured retention period](#enable-soft-delete-with-always-on-state). Soft delete delays permanent deletion of backup data by retaining deleted data for the duration of *14*-*180* days.
+You can delete backup items/instances even if the soft delete settings are enabled. However, if the soft delete is enabled, the deleted items don't get permanently deleted immediately and stays in soft deleted state as per [configured retention period](#enable-soft-delete-with-always-on-state). Soft delete delays permanent deletion of backup data by retaining deleted data for *14*-*180* days.
 
 **Choose a vault**
 
@@ -160,8 +160,7 @@ Follow these steps:
 
 1. Go to the *backup item* that you want to retrieve from the *soft deleted* state before permanent deletion.
 
-   You can also use the **Backup center** to go to the item by applying the filter **Protection status == Soft deleted** in the **Backup instances view.
-   You can also use the **Backup center** to go to the item by applying the filter **Protection status == Soft deleted** in the **Backup instances**.
+   You can also use the **Backup center** to go to the item by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
 
 1. Select **Undelete** corresponding to the *soft deleted item*.
 

@@ -13,10 +13,10 @@ ms.author: v-amallick
 
 Soft delete for Azure Backup enables you to recover your backup data even after it's deleted. This is useful when:
 
-- You've accidentally deleted your backup data and you need it back.
+- You've accidentally deleted backup data and you need it back.
 - Backup data is maliciously deleted by ransomware or bad actors.
 
-While *basic soft delete* has already been available for Recovery Services vaults for a while, *enhanced soft delete* provides you additional data protection capabilities.
+*Basic soft delete* is available for Recovery Services vaults for a while; *enhanced soft delete* now provides additional data protection capabilities.
 
 In this article, you'll learn about:
 
@@ -31,7 +31,7 @@ In this article, you'll learn about:
 
 ## What's soft delete?
 
-Soft delete primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration (14-180 days) called soft delete retention period.
+Soft delete primarily delays permanent deletion of backup data and gives you an opportunity to recover data after deletion. This deleted data is retained for a specified duration (*14*-*180* days) called soft delete retention period.
 
 After deletion (while the data is in soft deleted state), if you need the deleted data, you can undelete. This returns the data to stop protection with retain data state. You can then use it to perform restore operations or you can resume backups for this instance. 
 
@@ -65,7 +65,7 @@ The following table lists the soft delete properties for vaults:
 
 The soft delete retention is the duration (in days) for which a deleted item is retained in the soft deleted state. Once the soft delete retention period elapses (from the date of deletion), the item is permanently deleted, and you can't undelete. You can choose the soft delete retention duration between 14 and 180 days. Longer durations  allow you to recover data from threats that may take time to identify (for example, Advanced Persistent Threats).
 
->[!Important]
+>[!Note]
 >Soft delete retention for *14* days involves no cost. However, [regular backup charges apply for additional retention days](#pricing).
 >
 >By default, soft delete retention is set to *14* days and you can change it any time. However, the *soft delete retention period* that is active at the time of the deletion governs retention of the item in soft deleted state.
@@ -81,20 +81,16 @@ If a backup item/container is in soft deleted state, you can register it to a va
 
 Soft deleted data involves no retention cost for the default duration of *14* days. For soft deleted data retention more than the default period, it incurs regular backup charges.
 
->[!Note]
->In the scenarios where soft delete retention *>14 days*, the default soft delete period (14 days) of continuous retention doesn't incur any cost, after which you're charged prorated based on regular backup changes. Once the retention period expires, backups get permanently deleted.
->
->**Example**
->- You have a vault with a soft delete retention of 60 days.
->- You deleted backups for one of the instances in the vault, and after 52 days of deletion you realized that it needed to be undeleted.  
->In this scenario:
->- You're charged as per standard rates (similar rates apply when the instance is in stopped protection with retain data state) for the first *46* days, that is, *50* days of data retained in soft deleted state minus 14 days of default soft delete retention.
->- You'll not be charged for the last *6* days of soft delete retention.
+For example, you've deleted backups for one of the instances in the vault that has soft delete retention of *60* days. If you want to recover the soft deleted data after *50* days of deletion, the pricing is:
+
+- Standard rates (similar rates apply when the instance is in *stop protection with retain data* state) are applicable for the first *36* days (*50* days of data retained in soft deleted state minus *14* days of default soft delete retention).
+
+- No charges for the last *6* days of soft delete retention.
 
 ## Supported scenarios
 
 - Enhanced soft delete is currently available in the following regions: West Central US, Australia East, North Europe.
-- It's supported for Recovery Services vaults and Backup vaults. Supports both new and existing vaults.
+- It's supported for Recovery Services vaults and Backup vaults. Also, it supports both new and existing vaults.
 - All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
 
 ## Next steps
