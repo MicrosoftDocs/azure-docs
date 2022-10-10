@@ -33,7 +33,7 @@ The preferred method to load the data into the database is by copy command. If t
 
 #### Drop indexes
 
-Before a initial data load it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
+Before an initial data load, it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
 
 #### Drop constraints
 
