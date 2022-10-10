@@ -31,31 +31,31 @@ productDirectory:
       imageSrc: ./media/index/elastic.svg
       links:
         - url: ./elastic/overview.md
-          text: Centralizes log, metric, and tracing analytics in one place.
+          text: Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.
     # Card 2
     - title: Datadog 
       imageSrc: ./media/index/datadog.svg
       links:
         - url: ./datadog/overview.md
-          text: A monitoring and analytics platform for large-scale applications
+          text: Monitoring and analytics platform for large scale applications.
     # Card 3
     - title: Logz.io
       imageSrc: ./media/index/logz.io.svg
       links:
         - url: ./logzio/overview.md
-          text: Centralizes log, metric, and tracing analytics in one place.
+          text: Observability platform that centralizes log, metric, and tracing analytics.
   # Card 4
     - title: Dynatrace
       imageSrc: ./media/index/datadog.svg
       links:
         - url: ./dynatrace/dynatrace-overview.md
-          text:  Provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
+          text:  Provides deep cloud observability, advanced AIOps, and continuous runtime application security.
   # Card 5
     - title: Confluent
       imageSrc: ./media/index/confluent.svg
       links:
         - url: /apache-kafka-confluent-cloud/overview.md
-          text: Provides a consolidated experience for using Confluent Cloud on Azure.
+          text: Deploy a full managed, cloud-native Apache Kafka service.
   # Card 6
 #    - title: Qumolo
 #      imageSrc: /qumuloa/overview.md
@@ -71,27 +71,27 @@ productDirectory:
 
 
 # conceptualContent section (optional)
-conceptualContent:
+# conceptualContent:
 # itemType: architecture | concept | deploy | download |
 #           get-started | how-to-guide | learn | overview |
 #           quickstart | reference | tutorial | video |
 #           whats-new
-  sections:
+#  sections:
 # ==========================Section ==================================================
-    - title: subsectiontitle1 # < 60 chars (optional)
-      summary: subsectionsummary1 # optional
-      items:
-        # Card 1
-        - title: Azure Native ISV Service features 
-          links:
-            - url: ./overview.md#resource-management
-              itemType: concept
-              text: Resource management
-            - url: ./overview.md#vnet-injection
-              itemType: concept
-              text: VNet injection 
-            - url: ./overview.md#integrations
-              itemType: concept
-              text: Integrations
+    # - title: subsectiontitle1 # < 60 chars (optional)
+    #   summary: subsectionsummary1 # optional
+    #   items:
+    #     # Card 1
+    #     - title: Azure Native ISV Service features 
+    #       links:
+    #         - url: ./overview.md#resource-management
+    #           itemType: concept
+    #           text: Resource management
+    #         - url: ./overview.md#vnet-injection
+    #           itemType: concept
+    #           text: VNet injection 
+    #         - url: ./overview.md#integrations
+    #           itemType: concept
+    #           text: Integrations
 
 
