@@ -126,7 +126,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     * <a name="non-browseable-share"></a> You can enable the **non-browsable-share feature.**
 
-        This feature prevents the Windows client from browsing the share.
+        This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
 
     > [!IMPORTANT]
     > Both the access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register either feature.

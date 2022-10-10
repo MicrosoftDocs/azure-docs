@@ -165,7 +165,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
-        This feature will hide directories and files created under a share from users who do not have access permissions to the files or folders under the share. Users will still be able to view the share.
+        This feature will hide directories and files created under a share from users who do not have access permissions to the files or folders under the share. Users will still be able to view the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
 
     > [!IMPORTANT]
     > The access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register the features. 
