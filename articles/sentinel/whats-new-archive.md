@@ -5,7 +5,6 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 08/31/2022
-ms.custom: ignite-fall-2021
 ---
 
 # Archive for What's new in Microsoft Sentinel
