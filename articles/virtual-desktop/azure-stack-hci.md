@@ -1,10 +1,11 @@
 ---
 title: Set up Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
 description: How to set up Azure Virtual Desktop for Azure Stack HCI (preview).
-author: Heidilohr
+author: dansisson
 ms.topic: how-to
-ms.date: 11/02/2021
-ms.author: helohr
+ms.date: 10/10/2022
+ms.author: v-dansisson
+ms.reviewer: daknappe
 manager: femila
 ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
