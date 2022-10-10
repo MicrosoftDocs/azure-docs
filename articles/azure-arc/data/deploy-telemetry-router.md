@@ -206,7 +206,7 @@ apiVersion: arcdata.microsoft.com/v1beta2
       - certificateName: cluster-ca-certificate
 ```
 
-We are exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two OtelCollector custom resources are created. You can see the index, service endpoint, and certificates it is using to do so.  This telemetry router is provide as an example of the deployment, so you can see how to export to your own monitoring solutions.
+We are exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two OtelCollector custom resources are created. You can see the index, service endpoint, and certificates it is using to do so.  This telemetry router is provided as an example of the deployment, so you can see how to export to your own monitoring solutions.
 
 You can run the following commands to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
 
