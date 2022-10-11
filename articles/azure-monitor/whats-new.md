@@ -25,7 +25,7 @@ This article lists significant changes to Azure Monitor documentation.
 |---|---|
 |[Convert ITSM actions that send events to ServiceNow to secure webhook actions](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/itsm-convert-servicenow-to-webhook)|As of September 2022, we are starting the 3-year process of deprecating support of using ITSM actions to send events to ServiceNow. Learn how to convert ITSM actions that send events to ServiceNow to secure webhook actions|
 |[Create a new alert rule](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule)|Added description of all available monitoring services to the create a new alert rule and alert processing rules pages. <br><br>Added support for regional processing for metric alert rules that monitor a custom metric with the scope defined as one of the supported regions. <br><br> Clarified that selecting the **Automatically resolve alerts** setting makes log alerts stateful.<|
-|[Types of Azure Monitor alerts]https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types|Azure Database for PostgreSQL - Flexible Servers  is supported for monitoring multiple resources.|
+|[Types of Azure Monitor alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types)|Azure Database for PostgreSQL - Flexible Servers  is supported for monitoring multiple resources.|
 |[Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log-api-switch)|The process of moving legacy log alert rules management from the legacy API to the current API is now supported by the government cloud.|
 
 ### Application insights
@@ -34,7 +34,7 @@ This article lists significant changes to Azure Monitor documentation.
 |---|---|
 |[Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)|New OpenTelemetry `@WithSpan` annotation guidance.|
 |[Capture Application Insights custom metrics with .NET and .NET Core](https://docs.microsoft.com/en-us/azure/azure-monitor/app/tutorial-asp-net-custom-metrics)|Tutorial steps and images have been updated.|
-|[Configuration options - Azure Monitor Application Insights for Java]https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)|Connection string guidance updated.|
+|[Configuration options - Azure Monitor Application Insights for Java](https://learn.microsoft.com/en-us/azure/azure-monitor/app/java-in-process-agent)|Connection string guidance updated.|
 |[Enable Application Insights for ASP.NET Core applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/tutorial-asp-net-core)|Tutorial steps and images have been updated.|
 |[Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable)|Our product feedback link at the bottom of each document has been fixed.|
 |[Filter and preprocess telemetry in the Application Insights SDK](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling)|Added sample initializer to control which client IP gets used as part of geo-location mapping.|
