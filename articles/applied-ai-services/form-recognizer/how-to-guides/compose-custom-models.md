@@ -367,13 +367,13 @@ When you train models using the [**Form Recognizer Sample Labeling tool**](https
 
 ### [**REST API**](#tab/rest)
 
-The [**REST API**](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#trainy-your-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
+The [**REST API**](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#train-your-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
 :::image type="content" source="../media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
 
 ### [**Client-library SDKs**](#tab/sdks)
 
- The [**client-library SDKs**](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model) return a model object that can be queried to return the trained model ID:
+ The [**client-library SDKs**](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#train-your-model) return a model object that can be queried to return the trained model ID:
 
 * C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
 
