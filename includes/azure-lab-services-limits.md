@@ -8,59 +8,31 @@ ms.date: 09/02/2022
 
 The following limits are for the number of Azure Lab Services resources. 
 
-#### Per Subscription
+#### Per resource type
 
-| Resource type | Limit |
-|------|-------|
-| Labs | 980 | 
+| |Resource type | Limit |
+|-----|------|-------|
+|Per subscription|Labs|980|
+|Per resource group|Labs|800|
+| |Lab plans|800|
+|Per lab|Schedules|250|
+| |	Virtual machines (VMs)|400| 
 
-#### Per resource group
+#### Per region - Lab plans and labs
 
-| Resource type | Limit |
-|------|-------|
-| Labs | 800 | 
-| Lab plans | 800 |
-
-#### Per region - Lab plans
-
-| Subscription type | Limit |
+| Subscription type | Lab plan limits |Lab limits|
 |------|------|-------|
-| Default | 2 |
-| Pay As You Go | 500 |
-| MPN | 500 |
-| Azure In Open | 500 |
-| Enterprise Agreement | 500 | 
-| MSDN | 500 |
-| Sponsored | 100 |
-| CSP | 500 |
-| Azure Pass | 100 |
-| Free Trial | 100 |
-| Azure for Students | 100|
-
-#### Per region - Labs
-
-| Subscription type | Limit |
-|------|------|-------|
-| Default | 2 |
-| Pay As You Go | 500 |
-| MPN | 500 |
-| Azure In Open | 500 |
-| Enterprise Agreement | 500 | 
-| MSDN | 500 |
-| Sponsored | 15 |
-| CSP | 500 |
-| Azure Pass | 25 |
-| Free Trial | 15 |
-| Azure for Students | 15|
-
-
-#### Per lab
-
-| Resource type | Limit |
-|------|-------|
-| Schedules | 250 | 
-| Virtual machines (VMs) | 400 |
-
+| Default | 2 | 2 |
+| Pay As You Go | 500 | 500 |
+| MPN | 500 | 500 |
+| Azure In Open | 500 | 500 |
+| Enterprise Agreement | 500 | 500 | 
+| MSDN | 500 | 500 |
+| Sponsored | 100 | 15 |
+| CSP | 500 | 500 |
+| Azure Pass | 100 | 25 |
+| Free Trial | 100 | 15 |
+| Azure for Students | 100| 15 |
 
 For more information about Azure Lab Services capacity limits, see [Capacity limits in Azure Lab Services](../articles/lab-services/capacity-limits.md).
 
