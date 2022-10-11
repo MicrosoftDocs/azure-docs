@@ -19,7 +19,7 @@ and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-
 ## Set up NC2 on Azure
 
 To set up NC2 on Azure, go to [Nutanix Cloud Clusters
-on Azure Deployment and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
+on Azure Deployment and User Guide](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure.
 
 ## Use NC2 on Azure
 

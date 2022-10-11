@@ -55,6 +55,10 @@ An additional discount may be available.
 
 Nutanix (for software-related issues) and Microsoft (for infrastructure-related issues) will provide end-user support.
 
+## Release notes
+
+[Nutanix Cloud Clusters on Azure Release Notes](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-On-Azure-Release-Notes:Nutanix-Cloud-Clusters-On-Azure-Release-Notes)
+
 ## Next steps
 
 Learn more:
