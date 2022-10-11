@@ -30,7 +30,7 @@ Before you look at AKS, it is important that you review the goals and general de
 
 
 ## Cloud efficiency
-Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing energy consumption. Optimizing the application's cost is the initial step in making workloads more sustainable.
+Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing natural resource consumption. Optimizing the application's cost is often the initial step in making workloads more sustainable, as it's an organic proxy to utilization and consumption.
 
 
 ## Key sustainability Design Areas
