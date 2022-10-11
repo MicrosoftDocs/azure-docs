@@ -79,11 +79,11 @@ We will use this data for our scenarios. Disclaimer and pointer to the pricing p
 | Reads per month | 1 |
 | Percentage of storage read | 1% |
 | Data prices (pay-as-you-go) | $0.00099 |
-| Cost of write operations (per 10,000) | $0.10 |
+| Cost of write transactions (per 10,000) | $0.10 |
 | Cost of a single write operation ($.10 / 10,000) | $0.00001 |
-| Cost of read operations (per 10,000) | $5.00 |
+| Cost of read transactions (per 10,000) | $5.00 |
 | Cost of a single read operation ($5.00 / 10,000) | $0.0005 |
-| Cost of high priority read operations (per 10,000) | $50.00 |
+| Cost of high priority read transactions (per 10,000) | $50.00 |
 | Cost of data retrieval (per GB) | $0.02 |
 | Cost of high priority data retrieval (per GB) | $0.10 |
 | Total file size (GB) | 102,400 |
@@ -97,17 +97,23 @@ In this scenario, archiving cost would be required for the first month as one ti
 
 Using the example data from the previous sections, this table demonstrates the spending for three months. 
 
-<style>
-    .highlight {
-        width: 70%;
-        text-align: center;
-    }
-    .highlight tr:nth-child(3) { background: beige; }
-    .highlight tr:nth-child(6) { background: beige; }
-    .highlight tr:nth-child(11) { background: beige; }
-</style>
+<table>
+  <tr>
+    <th>Factor</th>
+    <th>January</th>
+  </tr>
+  <tr bgcolor="beige">
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+</table>
 
-<div class="highlight">
 
 | Factor | January | February | March |
 |--------|---------|---------|----|
@@ -117,14 +123,13 @@ Using the example data from the previous sections, this table demonstrates the s
 | Total file size (GB) | 102,400 | 102,400 | 102,400 |
 | Data prices (pay-as-you-go) | $0.00099 | $0.00099 |$0.00099 |
 | Cost to store  | $101.38 | $101.38 | $101.38 | 
-| Data retrieval size (102,400 * 1%) | 1024 | 1024 | 1024 |
+| Data retrieval size (File size * % storage read) | 1024 | 1024 | 1024 |
 | Cost of data retrieval  | $.02 | $.02 | $.02 |
-| Number of read transactions (2,000,000 * 1%) | 20,000 | 20,000 | 20,000 |
+| Number of read transactions (File count * 1%) | 20,000 | 20,000 | 20,000 |
 | Cost of a single read operation | $0.0005 | $0.0005 | $0.0005 |
 | Cost to rehydrate | $30.48 | $30.48 | $30.48 |
 | **Total Cost**  | **$151.86** | **$131.86** | **$131.86** |
 
-</div>
 
 ### Continuously tiering cold hot blobs to archive 
 
@@ -135,16 +140,16 @@ In this scenario, archiving cost would be required every month for new aged data
 | Factor | January | February | March |
 |--------|---------|---------|----|
 | Write transactions | 200,000 | 200,000 | 200,000 |
-| Cost of a single write operation ($.10 / 10,000) | $0.00001 | $0.00001 | $0.00001 |
-| **Cost to write** (200,000 * 0.00001) | **$2.00** | **$2.00** | **$2.00**|
+| Cost of a single write operation | $0.00001 | $0.00001 | $0.00001 |
+| **Cost to write** | **$2.00** | **$2.00** | **$2.00**|
 | Total file size (GB) | 10,240 | 20,480 | 39,720 |
 | Data prices (pay-as-you-go) | $0.00099 | $0.00099 |$0.00099 |
-| **Cost to store** (10,240 * $0.00099) | **$10.14** | **$10.14** | **$10.14** | 
-| Data retrieval size (Total file size * 1%) | 102 | 205 | 307 |
-| Cost of data retrieval (per GB) | $.02 | $.02 | $.02 |
-| Number of read transactions (Total file count * 1%) | 2,000 | 4,000 | 6,000 |
-| Cost of a single read operation ($5.00 / 10,000) | $0.0005 | $0.0005 | $0.0005 |
-| **Cost to rehydrate** (Data retrieval size * $.02) + (Number of read transactions * $0.0005) | **$30.48** | **$30.48** | **$30.48** |
+| **Cost to store** (File size * data price) | **$10.14** | **$10.14** | **$10.14** | 
+| Data retrieval size (file size * % storage read) | 102 | 205 | 307 |
+| Cost of data retrieval (Per GB) | $.02 | $.02 | $.02 |
+| Number of read transactions (File count * % storage read) | 2,000 | 4,000 | 6,000 |
+| Cost of a single read operation | $0.0005 | $0.0005 | $0.0005 |
+| **Cost to rehydrate** | **$30.48** | **$30.48** | **$30.48** |
 | **Total Cost** (write + store + rehydrate) | **$151.86** | **$131.86** | **$131.86** |
 
 ## Archive cost comparison
