@@ -330,7 +330,7 @@ Before you proceed with authentication, register the application on Azure AD:
 1. Go to **Azure Active Directory**.
 1. On the left panel, under **Manage**, select **App registrations**. Then on the top menu bar, select **New registration**.
 1. For **Name**, enter a name for the application (for example, **sampleApp**). You can change the name later if necessary.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. In the **Redirect URI** section, select the **Web** platform from the dropdown list. 
 
    To the right, enter `http://localhost:3000/`.
