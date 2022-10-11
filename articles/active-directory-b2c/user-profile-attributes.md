@@ -49,7 +49,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |creationType    |String|If the user account was created as a local account for an Azure Active Directory B2C tenant, the value is LocalAccount or nameCoexistence. Read only.|No|No|Persisted, Output|
 |dateOfBirth     |Date|Date of birth.|No|No|Persisted, Output|
 |department      |String|The name for the department in which the user works. Max length 64.|Yes|No|Persisted, Output|
-|displayName     |String|The display name for the user. Max length 256. \< \> characters not allowed.|Yes|Yes|Persisted, Output|
+|displayName     |String|The display name for the user. Max length 256. \< \> characters aren't allowed. | Yes|Yes|Persisted, Output|
 |facsimileTelephoneNumber<sup>1</sup>|String|The telephone number of the user's business fax machine.|Yes|No|Persisted, Output|
 |givenName       |String|The given name (first name) of the user. Max length 64.|Yes|Yes|Persisted, Output|
 |jobTitle        |String|The user's job title. Max length 128.|Yes|Yes|Persisted, Output|
