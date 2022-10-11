@@ -107,7 +107,7 @@ The following examples of runbook scripts fetch the Resource Manager resources b
 > Enable appropriate RBAC permissions for the system identity of this Automation account. Otherwise, the runbook might fail.
 
   ```powershell
-  {
+  try {
       "Logging in to Azure..."
       Connect-AzAccount -Identity
   }
@@ -133,7 +133,7 @@ The following examples of runbook scripts fetch the Resource Manager resources b
 # [User-assigned managed identity](#tab/ua-managed-identity)
 
 ```powershell
-{ 
+try { 
 
     "Logging in to Azure..." 
 
