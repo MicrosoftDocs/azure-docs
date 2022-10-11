@@ -79,7 +79,7 @@ Sustainable guidance in the Well Architected Framework series is composed of arc
 The following checklist provides recommendations for designing sustainable workloads, hosted on AKS. 
 
 > [!IMPORTANT]
-> As your complete architecture would typically include several Azure services or even 3rd party integrations, your workload design considerations should refer to [Sustainability Design areas](#key-sustainability-design-areas), for a comprehensive approach.
+> As your complete architecture would typically include several Azure services or even 3rd party integrations, your workload design considerations should refer to [Sustainability Design areas](/azure/architecture/framework/sustainability/sustainability-application-design.md), for a comprehensive approach.
 
 <br/>
 
