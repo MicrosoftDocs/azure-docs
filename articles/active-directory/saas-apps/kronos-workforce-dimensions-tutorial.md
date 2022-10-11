@@ -126,11 +126,11 @@ To configure single sign-on on **Kronos Workforce Dimensions** side, you need to
 In this section, you create a user called Britta Simon in Kronos Workforce Dimensions. Work with [Kronos Workforce Dimensions support team](mailto:support@kronos.com) to add the users in the Kronos Workforce Dimensions platform. Users must be created and activated before you use single sign-on.
 
 > [!NOTE]
-> Original Microsoft documentation advises to contact UKG Support via email to create your AAD Users. While this option is available please consider the following self-service options. 
+> Original Microsoft documentation advises to contact UKG Support via email to create your Azure AD Users. While this option is available please consider the following self-service options. 
 
 ### Manual Process 
 
-There are two ways to manually create your AAD users in WFD.  You can either select an existing user, duplicate them and then update the necessary fields to make that user unique.  This process can be time consuming and requires knowledge of the WFD User Interface. The alternative is to create the user via the WFD API which is much quicker. This option requires knowledge of using API Tools such as Postman to send the request to the API instead. The following instructions will assist with importing a prebuilt example into the Postman API Tool. 
+There are two ways to manually create your Azure AD users in WFD.  You can either select an existing user, duplicate them and then update the necessary fields to make that user unique.  This process can be time consuming and requires knowledge of the WFD User Interface. The alternative is to create the user via the WFD API which is much quicker. This option requires knowledge of using API Tools such as Postman to send the request to the API instead. The following instructions will assist with importing a prebuilt example into the Postman API Tool. 
 
 #### Setup 
 
@@ -147,7 +147,7 @@ There are two ways to manually create your AAD users in WFD.  You can either sel
     > [!NOTE]
     > access_token and refresh_token should be empty as these will automatically populate as a result of the Obtain Access Token HTTP Request.   
 
-1. Open the **Create AAD User in WFD** HTTP Request and update highlighted properties within the JSON payload: 
+1. Open the **Create Azure AD User in WFD** HTTP Request and update highlighted properties within the JSON payload: 
 
     ```  
     { 
@@ -324,7 +324,7 @@ There are two ways to manually create your AAD users in WFD.  You can either sel
     ```
 
     > [!NOTE]
-    > The personInformation.emailAddress.address and the user.userAccount.userName must both match the targeted AAD User you are trying to create in WFD. 
+    > The personInformation.emailAddress.address and the user.userAccount.userName must both match the targeted Azure AD User you are trying to create in WFD. 
 
 1. In the upper-righthand corner, select the **Environments** drop-down-box and select **AAD_to_WFD_Env_Variables**. 
 
@@ -337,7 +337,7 @@ There are two ways to manually create your AAD users in WFD.  You can either sel
 
 1. Once an **access_token** is obtained, select the **AAD_to_WFD_Env_Variables** HTTP Request and click the **Send** button.  If the request is successful you will receive a 200 HTTP status back. 
 
-1. Login to WFD with the **Super User** account and confirm the new AAD User was created within the WFD instance. 
+1. Login to WFD with the **Super User** account and confirm the new Azure AD User was created within the WFD instance. 
 
 ### Automated Process 
 
@@ -386,8 +386,8 @@ The automated process consists of a flat-file in CSV format which allows the use
 
 1. Once completed, the script will return a list of any users that failed to create.
 
->![Note]
-Be sure to check the values provided in the AAD_To_WFD.csv file if it is returned as the result of typos or mismatched fields in the WFD instance.  The error could also be returned by the WFD API instance if all users in the batch already exist in the instance.
+> [!Note]
+> Be sure to check the values provided in the AAD_To_WFD.csv file if it is returned as the result of typos or mismatched fields in the WFD instance.  The error could also be returned by the WFD API instance if all users in the batch already exist in the instance.
 
 ## Test SSO 
 
