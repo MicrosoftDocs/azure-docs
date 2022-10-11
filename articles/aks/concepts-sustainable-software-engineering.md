@@ -21,6 +21,9 @@ This article provides practical recommendations for applying that same WAF susta
 
 ## Get started with WAF sustainability guidance
 
+Before you look at AKS, it is important that you review the goals and general design mythology behind building sustainable workloads.  Start rooted in the foundational knowledge presented there for your entire solution, since AKS is only one component in your final architecture.
+
+
 * [What is a sustainable workload](/azure/architecture/framework/sustainability/sustainability-get-started)
 * [Design Methodology for building sustainable workloads](/azure/architecture/framework/sustainability/sustainability-design-methodology)
 * [Design principles of a sustainable workload](/azure/architecture/framework/sustainability/sustainability-design-principles)
