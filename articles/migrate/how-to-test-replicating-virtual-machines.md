@@ -1,11 +1,11 @@
 ---
-title: Tests migrate replicating virtual machines
+title: Test migrate replicating virtual machines
 description: Learn best practices for testing replicating virtual machines
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: how-to
-ms.date: 3/23/2022
+ms.date: 10/10/2022
 ---
 
 
@@ -17,30 +17,31 @@ This article helps you understand how to test replicating virtual machines. Test
 
 ##  Prerequisites
 
-Before you get started, you need to perform the following steps:
+Before you get started, perform the following steps:
 
-- Create the Azure Migrate project.
-- Deploy the  appliance for your scenario and complete discovery of  virtual machines.
+- [Create](create-manage-projects.md) an Azure Migrate project.
+- Deploy the  appliance for your scenario and complete the discovery of virtual machines.
 - Configure replication for one or more virtual machines that are to be migrated.
-> [!IMPORTANT]
-> You'll need to have at least one replicating virtual machine in the project before you can perform test migration.
 
-To learn how to perform the above, review the following tutorials based on your scenarios 
-- [Migrating VMware virtual machines to Azure with the agentless migration method](./tutorial-migrate-vmware.md).
-- [Migrating Hyper-V VMs to Azure with Azure Migrate Server Migration](./tutorial-migrate-hyper-v.md)
-- [Migrating machines as physical server to Azure with Azure Migrate.](./tutorial-migrate-physical-virtual-machines.md)
+> [!IMPORTANT]
+> You'll need to have at least one replicating virtual machine in the project before you can test the migration.
+
+Review the following tutorials based on your environment:
+- [Migrating VMware VMs with agentless migration](./tutorial-migrate-vmware.md).
+- [Migrating Hyper-V VMs to Azure](./tutorial-migrate-hyper-v.md).
+- [Migrating machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md)
 
 
 ## Setting up your test environment
 
-The requirements for a test environment can vary according to your needs. Azure Migrate gives customers complete flexibility to create their own test environment. An option to select the VNet is given  during test migration. You can customize the setting of this VNet to create a test environment  according to your need. 
+The requirements for a test environment can vary according to your needs. Azure Migrate provides customers complete flexibility to create their own test environment. An option to select the VNet is provided  during test migration. You can customize the setting of this VNet to create a test environment according to your requirement. 
 
 Furthermore, you can create 1:1 mapping between subnets of the VNet and Network Interface Cards (NICs) on VM, which gives more flexibility in creating the test environment.
 
 > [!Note]
 > Currently, the subnet selection feature is available only for agentless VMware migration scenario.
 
-The following logic is used for subnet selection for other scenarios (Migration from Hyper-V environment and physical server migration) 
+The following logic is used for subnet selection for other scenarios (Migration from Hyper-V environment and physical server migration).
  
 - If a target subnet (other than default) was specified as an input while enabling replication. Azure Migrate prioritizes using a subnet with the same name in the Virtual Network selected for the test migration.
 
