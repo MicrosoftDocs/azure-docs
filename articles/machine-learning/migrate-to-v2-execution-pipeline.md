@@ -1,7 +1,7 @@
 ---
-title: Migrate pipelines from SDK v1 to SDK v2
+title: Upgrade pipelines to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate pipelines from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade pipelines from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate pipelines from SDK v1 to SDK v2
+# Upgrade pipelines to SDK v2
 
 In SDK v2, "pipelines" are consolidated into jobs.
 
@@ -246,5 +246,5 @@ For more information, see the documentation here:
 * [steps in SDK v1](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)
 * [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)](how-to-create-component-pipeline-python.md)
 * [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
-* [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py)
+* [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)
 * [`mldesigner`](https://pypi.org/project/mldesigner/)

@@ -238,16 +238,21 @@ While designing models to reflect the entities in your environment, it can be us
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-### Use modeling tools
+### Upload and delete models in bulk
 
-There are several sample projects available that you can use to simplify dealing with models and ontologies. They're located in this repository: [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
+Here are two sample projects that can simplify dealing with multiple models at once:
+* [Model uploader](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels): Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. If you have many models to upload, or if they have many interdependencies that would make ordering individual uploads complicated, you can use this model uploader sample to upload many models at once.
+* [Model deleter](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels): This sample can be used to delete all models in an Azure Digital Twins instance at once. It contains recursive logic to handle model dependencies through the deletion process. 
 
-Here are some of the tools included in the sample repository:
+### Visualize models
 
-| Link to tool | Description |
-| --- | --- |
-| [Model uploader](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) | Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this model uploader sample to upload many models at once. |
-| [Model visualizer](https://github.com/Azure/opendigitaltwins-tools/tree/master/AdtModelVisualizer) | Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the model visualizer sample. This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. |
+Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](http://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
+
+Here's an example of what a model graph might look like:
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Model Graph panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
+
+For more information about the model experience in Azure Digital Twins Explorer, see [Explore models and the Model Graph](how-to-use-azure-digital-twins-explorer.md#explore-models-and-the-model-graph).
 
 ## Next steps
 

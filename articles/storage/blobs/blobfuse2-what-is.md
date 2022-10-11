@@ -6,7 +6,7 @@ author: jammart
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 10/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -47,8 +47,9 @@ A full list of BlobFuse2 features is in the [BlobFuse2 README](https://github.co
 
 - Mount an Azure storage blob container or Data Lake Storage Gen2 file system on Linux
 - Use basic file system operations, such as mkdir, opendir, readdir, rmdir, open, read, create, write, close, unlink, truncate, stat, and rename
-- Local caching to improve subsequent access times
+- Local file caching to improve subsequent access times
 - Streaming to support reading and writing large files
+- Gain insights into mount activities and resource usage using BlobFuse2 Health Monitor
 - Parallel downloads and uploads to improve access time for large files
 - Multiple mounts to the same container for read-only workloads
 
@@ -59,6 +60,8 @@ Blobfuse2 has more feature support and improved performance in multiple user sce
 - Improved caching
 - More management support through new Azure CLI commands
 - Additional logging support
+- The addition of write-streaming for large files (read-streaming was previous supported)
+- Gain insights into mount activities and resource usage using BlobFuse2 Health Monitor
 - Compatibility and upgrade options for existing BlobFuse v1 users
 - Version checking and upgrade prompting
 - Support for configuration file encryption
@@ -87,7 +90,7 @@ In many ways, BlobFuse2-mounted storage can be used just like the native Linux f
 
 However, there are some key differences in the way BlobFuse2 behaves:
 
-- **Readdir count of hardlinks**:
+- **Readdir count of hard links**:
 
   For performance reasons, BlobFuse2 does not correctly report the hard links inside a directory. The number of hard links for empty directories is returned as 2. The number for non-empty directories is always returned as 3, regardless of the actual number of hard links.
 
@@ -115,14 +118,25 @@ However, there are some key differences in the way BlobFuse2 behaves:
 
   BlobFuse2 doesn't support extended-attributes (x-attrs) operations.
 
+- **Write-streaming**:
+
+  Concurrent streaming of read and write operations on large file data can produce unpredictable results. Simultaneously writing to the same blob from different threads is not supported.
+
 ### Data integrity
 
-When a file is written to, the data is first persisted into cache on a local disk. The data is written to blob storage only after the file handle is closed. If there's an issue attempting to persist the data to blob storage, you receive an error message.
+The file caching behavior plays an important role in the integrity of the data being read and written to a Blob Storage file system mount. Streaming mode is recommended for use with large files, which supports streaming for both read and write operations. BlobFuse2 caches blocks of streaming files in memory. For smaller files that do not consist of blocks, the entire file is stored in memory. File cache is the second mode and is recommended for workloads that do not contain large files. Where files are stored on disk in their entirety.
 
-BlobFuse2 supports both read and write operations. Continuous synchronization of data written to storage by using other APIs or other mounts of BlobFuse2 aren't guaranteed. For data integrity, it's recommended that multiple sources don't modify the same blob, especially at the same time. If one or more applications attempt to write to the same file simultaneously, the results can be unexpected. Depending on the timing of multiple write operations and the freshness of the cache for each, the result could be that the last writer wins and previous writes are lost, or generally that the updated file isn't in the desired state.
+BlobFuse2 supports both read and write operations. Continuous synchronization of data written to storage by using other APIs or other mounts of BlobFuse2 isn't guaranteed. For data integrity, it's recommended that multiple sources don't modify the same blob, especially at the same time. If one or more applications attempt to write to the same file simultaneously, the results could be unexpected. Depending on the timing of multiple write operations and the freshness of the cache for each, the result could be that the last writer wins and previous writes are lost, or generally that the updated file isn't in the desired state.
 
-> [!WARNING]
-> In cases where multiple file handles are open to the same file, simultaneous write operations could result in data loss.
+#### File caching on disk
+
+When a file is written to, the data is first persisted into cache on a local disk. The data is written to blob storage only after the file handle is closed. If there's an issue attempting to persist the data to blob storage, you will receive an error message.
+
+#### Streaming
+
+For streaming during both read and write operations, blocks of data are cached in memory as they are read or updated. Updates are flushed to Azure Storage when a file is closed or when the buffer is filled with dirty blocks.
+
+Reading the same blob from multiple simultaneous threads is supported. However, simultaneous write operations could result in unexpected file data outcomes, including data loss. Performing simultaneous read operations and a single write operation is supported, but the data being read from some threads might not be current.
 
 ### Permissions
 
@@ -150,4 +164,5 @@ This table shows how this feature is supported in your account and the impact on
 
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
 - [BlobFuse2 command reference (preview)](blobfuse2-commands.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
 - [How to troubleshoot BlobFuse2 issues (preview)](blobfuse2-troubleshooting.md)

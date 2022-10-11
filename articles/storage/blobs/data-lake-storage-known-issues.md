@@ -105,7 +105,7 @@ If parent directories for soft-deleted files or directories are renamed, the sof
 
 ## Events
 
-If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions.
+If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions. Using the dfs endpoint (abfss://URI) for non-hierarchical namespace enabled accounts will not generate events, but the blob endpoint (wasb:// URI) will generate events.
 
 > [!TIP]
 > Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).

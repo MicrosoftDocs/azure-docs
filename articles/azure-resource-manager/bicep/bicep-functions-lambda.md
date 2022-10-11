@@ -9,7 +9,7 @@ ms.date: 09/20/2022
 ---
 # Lambda functions for Bicep
 
-This article describes the lambda functions to use in Bicep. Lambda expressions (or lambda functions) are essentially blocks of code that can be passed as an argument. In Bicep, lambda expression is in this format:
+This article describes the lambda functions to use in Bicep. [Lambda expressions (or lambda functions)](https://learn.microsoft.com/dotnet/csharp/language-reference/operators/lambda-expressions) are essentially blocks of code that can be passed as an argument. They can take multiple parameters, but are resticted to a single line of code. In Bicep, lambda expression is in this format:
 
 ```bicep
 <lambda variable> => <expression>

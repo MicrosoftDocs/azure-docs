@@ -237,7 +237,12 @@ child_runs = mlflow.search_runs(
 )
 ```
 
-## Example notebooks
+## Compare jobs and models in AzureML Studio (preview)
+
+To compare and evaluate the quality of your jobs and models in AzureML Studio, use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can compare the parameters, metrics, and tags between the jobs and/or models you selected.
+
+:::image type="content" source="media/how-to-track-experiments-mlflow/compare.gif" alt-text="Screenshot of the preview panel showing how to compare jobs and models in AzureML studio.":::
+
 
 The [MLflow with Azure ML notebooks](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/notebooks/using-mlflow) demonstrate and expand upon concepts presented in this article.
 

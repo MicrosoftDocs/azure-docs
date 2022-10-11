@@ -16,6 +16,9 @@ ms.date: 08/20/2019
 ---
 
 # Use Microsoft Azure Traffic Manager to manage endpoint quota across keys
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Language Understanding (LUIS) offers the ability to increase the endpoint request quota beyond a single key's quota. This is done by creating more keys for LUIS and adding them to the LUIS application on the **Publish** page in the **Resources and Keys** section.
 
 The client-application has to manage the traffic across the keys. LUIS doesn't do that.

@@ -3,6 +3,8 @@
 
 - name: Azure Percept DK Overview
   items:
+    - name: Retirement of Azure Percept DK
+      href: retirement-of-azure-percept-dk.md   
     - name: Azure Percept overview
       href: overview-azure-percept.md   
     - name: Azure Percept Studio overview v1

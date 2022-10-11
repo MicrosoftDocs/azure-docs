@@ -26,7 +26,7 @@ This quickstart requires *nlohmann::json*, *libcurl*, and a PEM certificate.
 
 ## Run post-call transcription analysis
 
-Follow these steps to run post-call transcription analysis:
+Follow these steps to build and run the post-call transcription analysis quickstart code example with Visual Studio Community 2022 on Windows. 
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/cpp/windows/call-center"  title="Copy the samples"  target="_blank">scenarios/cpp/windows/call-center/</a> sample files from GitHub into a local directory. 
 1. Open the `call-center.sln` solution file in Visual Studio.  

@@ -2,7 +2,7 @@
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/29/2022
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -56,21 +56,28 @@ This command creates a parameter file in the same folder as the Bicep file. The 
 
 The `insert resource` command adds a resource declaration in the Bicep file by providing the resource ID of an existing resource. After you select **Insert Resource**, enter the resource ID in the command palette. It takes a few moments to insert the resource.
 
-You can find the resource ID from the Azure portal, or by using:
+You can find the resource ID by using one of these methods:
 
-# [CLI](#tab/CLI)
+- Use [Azure Resource extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
 
-```azurecli
-az resource list
-```
+    :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-resources-extension.png" alt-text="Screenshot of Visual Studio Code Azure Resources extension.":::
 
-# [PowerShell](#tab/PowerShell)
+- Use the [Azure portal](https://portal.azure.com).
+- Use Azure CLI or Azure PowerShell:
 
-```azurepowershell
-Get-AzResource
-```
+  # [CLI](#tab/CLI)
 
----
+  ```azurecli
+  az resource list
+  ```
+
+  # [PowerShell](#tab/PowerShell)
+
+  ```azurepowershell
+  Get-AzResource
+  ```
+
+  ---
 
 Similar to exporting templates, the process tries to create a usable resource. However, most of the inserted resources require some modification before they can be used to deploy Azure resources.
 

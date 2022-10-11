@@ -41,18 +41,6 @@ The API for MongoDB now offers a built-in role-based access control (RBAC) that 
 [Learn more](./how-to-setup-rbac.md)
 
 
-### Unique partial indexes in Azure Cosmos DB API for MongoDB 
-The unique partial indexes feature allows you more flexibility to specify exactly which fields in which documents you’d like to index, all while enforcing uniqueness of that field’s value. Resulting in the unique constraint being applied only to the documents that meet the specified filter expression. 
-
-[Learn more](./feature-support-42.md)
-
-
-### Azure Cosmos DB API for MongoDB unique index reindexing (Preview)
-The unique index feature for Azure Cosmos DB allows you to create unique indexes when your collection was empty and didn't contain documents. This feature provides you with more flexibility by giving you the ability to create unique indexes whenever you want to—meaning there’s no need to plan unique indexes ahead of time before inserting any data into the collection. 
-
-[Learn more](./mongodb-indexing.md) and enable the feature today by [submitting a support ticket request](https://azure.microsoft.com/support/create-ticket/)
-
-
 ### Azure Cosmos DB API for MongoDB supports version 4.2
 The Azure Cosmos DB API for MongoDB version 4.2 includes new aggregation functionality and improved security features such as client-side field encryption. These features help you accelerate development by applying the new functionality instead of developing it yourself. 
 
