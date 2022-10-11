@@ -139,7 +139,6 @@ Congratulations you've trained a custom model in the Form Recognizer Studio! You
 
 **Applies to:** ![Form Recognizer v2.1 checkmark](../media/yes-icon.png) **Form Recognizer v2.1**. **Other versions:** [Form Recognizer v3.0](../how-to-guides/build-custom-model-v3.md?view=form-recog-3.0.0&preserve-view=true)
 
-
 When you use the Form Recognizer custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
 
 You need at least five filled-in forms of the same type.
@@ -200,7 +199,7 @@ If you add the following content to the request body, the API will train with do
 
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
-* [Train a model and extract document data using the client library or REST API](../quickstarts/try-sdk-rest-api.md)
+* [Train a model and extract document data using the client library or REST API](../quickstarts/get-started-sdks-rest-api.md)
 * [Train with labels using the sample labeling tool](../label-tool.md)
 
 ## See also

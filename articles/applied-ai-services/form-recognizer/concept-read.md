@@ -189,16 +189,11 @@ Complete a Form Recognizer quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-sdk-rest-api.md
-?view=form-recog-3.0.0&preserve-view=true)
-> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md
-?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md
-?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md
-?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md
-?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 

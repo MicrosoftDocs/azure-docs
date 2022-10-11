@@ -86,7 +86,7 @@ mkdir -p src/main/java
 
 You'll create the following directory structure:
 
-:::image type="content" source="../../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
+:::image type="content" source="../../../media/quickstarts/java-directories.png" alt-text="Screenshot of the application's Java directory structure.":::
 
 Navigate to the Java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and `import` statements:
 

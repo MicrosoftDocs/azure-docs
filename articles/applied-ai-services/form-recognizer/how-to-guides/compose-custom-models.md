@@ -58,7 +58,7 @@ First, you'll need a set of custom models to compose. You can use the Form Recog
 
 ## Assemble your training dataset
 
-Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../build-training-data-set.md#custom-model-input-requirements) for Form Recognizer.
+Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
 
 >[!TIP]
 > Follow these tips to optimize your data set for training:
@@ -68,11 +68,11 @@ Building a custom model begins with establishing your training dataset. You'll n
 > * Use forms with different values in each field.
 > * If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
-See [Build a training data set](../build-training-data-set.md) for tips on how to collect your training documents.
+See [Build a training data set](../how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true) for tips on how to collect your training documents.
 
 ## Upload your training dataset
 
-When you've gathered a set of training documents, you'll need to [upload your training data](../build-training-data-set.md#upload-your-training-data) to an Azure blob storage container.
+When you've gathered a set of training documents, you'll need to [upload your training data](../how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data) to an Azure blob storage container.
 
 If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
 
@@ -285,7 +285,7 @@ Form Recognizer uses advanced machine-learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](../label-tool.md), [REST APIs](../quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](../quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](../label-tool.md), [REST APIs](../how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model), or [client-library SDKs](../how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model).
 
 ## Sample Labeling tool
 
@@ -323,16 +323,16 @@ The steps for building, training, and using custom and composed models are as fo
 
 ## Assemble your training dataset
 
-Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../build-training-data-set.md#custom-model-input-requirements) for Form Recognizer.
+Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
 
 ## Upload your training dataset
 
-You'll need to [upload your training data](../build-training-data-set.md#upload-your-training-data)
+You'll need to [upload your training data](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data)
 to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, *see* [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Train your custom model
 
-You [train your model](../quickstarts/try-sdk-rest-api.md#train-a-custom-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
+You [train your model](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
 
 When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
@@ -367,13 +367,13 @@ When you train models using the [**Form Recognizer Sample Labeling tool**](https
 
 ### [**REST API**](#tab/rest)
 
-The [**REST API**](../quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
+The [**REST API**](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
 :::image type="content" source="../media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
 
 ### [**Client-library SDKs**](#tab/sdks)
 
- The [**client-library SDKs**](../quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp#train-a-custom-model) return a model object that can be queried to return the trained model ID:
+ The [**client-library SDKs**](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model) return a model object that can be queried to return the trained model ID:
 
 * C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
 
@@ -460,11 +460,11 @@ Using the programming language of your choice to analyze a form or document with
 
 ---
 
-Test your newly trained models by [analyzing forms](../quickstarts/try-sdk-rest-api.md#analyze-forms-with-a-custom-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](../label-tool.md#improve-results).
+Test your newly trained models by [analyzing forms](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#analyze-forms-with-a-custom-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](../label-tool.md#improve-results).
 
 ## Manage your custom models
 
-You can [manage your custom models](../quickstarts/try-sdk-rest-api.md#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) from your account.
+You can [manage your custom models](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) from your account.
 
 Great! You've learned the steps to create custom and composed models and use them in your Form Recognizer projects and applications.
 

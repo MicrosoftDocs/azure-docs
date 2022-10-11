@@ -139,8 +139,11 @@ That's it, congratulations! In this quickstart, you used Form Recognizer models 
 
 ## Next steps
 
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
-> * The v3.0 Studio supports any model trained with v2.1 labeled data.
-> * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
-> * *See* our [**REST API**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [Python](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
+* For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
+
+* The v3.0 Studio supports any model trained with v2.1 labeled data.
+
+* You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
+* *See* our [**REST API**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) or [**C#**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**Java**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [**JavaScript**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), or [**Python**](get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) SDK quickstarts to get started with the v3.0 version.
+
 ::: moniker-end
