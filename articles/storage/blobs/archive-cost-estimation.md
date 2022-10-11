@@ -13,19 +13,13 @@ ms.topic: conceptual
 
 # Estimate the cost of archiving data
 
-The archive tier is an offline tier for storing data that is rarely accessed. The archive access tier has the lowest storage cost. However, this tier has higher data retrieval costs with a higher latency as compared to the hot and cool tiers.
+The archive tier is an offline tier for storing data that is rarely accessed. The archive access tier has the lowest storage cost. However, this tier has higher data retrieval costs with a higher latency as compared to the hot and cool tiers. 
 
-The cost to archive data is derived from these three components:
+This article explains how to calculate the cost of using archive storage and then presents a few example scenarios. 
 
-- Cost to write data to the archive tier
-- Cost to store data in the archive tier
-- Cost to rehydrate data from the archive tier
+## Sample prices
 
-This article explains how to calculate each component and then presents a few example scenarios. 
-
-## Example prices used in this article
-
-This article uses the following fictitious prices. While these prices may closely correlate to currently published prices, they are meant only as examples and should not be used to calculate your costs. 
+This article uses the following fictitious prices. 
 
 | Cost factor                                          | Archive  | Cool      |
 |------------------------------------------------------|----------|-----------|
@@ -38,11 +32,24 @@ This article uses the following fictitious prices. While these prices may closel
 | Cost of data retrieval (per GB)                      | $0.02    | $0.01     |
 | Cost of high priority data retrieval (per GB)        | $0.10    | N/A       |
 
-For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](pricing/details/storage/data-lake/). 
+> [!IMPORTANT]
+> These prices are meant only as examples, and should not be used to calculate your costs. 
+>
+> For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). 
+>
+> For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
-For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+## Calculate costs
 
-## Cost to write data to the archive tier
+The cost to archive data is derived from these three components:
+
+- Cost to write data to the archive tier
+- Cost to store data in the archive tier
+- Cost to rehydrate data from the archive tier
+
+The following sections show you how to calculate each component by using the sample prices listed earlier.
+
+#### Calculate the cost to write
 
 You can calculate the cost of writing to the archive tier by multiplying the number of write operations by the cost of each operation. 
 
@@ -52,13 +59,13 @@ Operations are billed per `10,000`. Therefore, if the cost per `10,000` operatio
 
 The total cost is the number of operations multiplied by the cost of each operation. For example (using these pricing assumptions), if you plan to archive `30,000` blobs in an account that does not have a hierarchical namespace, the cost would be `30,000` * `$0.00001` = `$0.30`
 
-## Cost to store data to the archive tier
+#### Calculate the cost to store
 
 You can calculate what it costs to store data in the archive tier by multiplying the size of the data in GB by the cost of archive storage.
 
 For example (assuming the sample pricing), if you plan to store `10 TB` archived blobs, the capacity cost is `$0.00099` * `10` * `1024` = `$10.14` per month. 
 
-## Cost to rehydrate data from the archive tier
+#### Calculate the cost to rehydrate
 
 While a blob is in the archive access tier, it's considered to be offline, and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the hot or hool tier. 
 
@@ -73,7 +80,11 @@ Next, calculate the number of blobs that you plan to retrieve by the cost of eac
 
 If you plan to rehydrate data, you should try to avoid an early deletion fee. To review your options, see [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
 
-### One-time on-prem data backup to Archive 
+## Archive scenarios
+
+Something goes here.
+
+#### One-time data backup
 
 It's one of common scenarios that you need to remove on-prem tapes or file servers and migrate backup data to cloud storage. If the access rate is expected low and you want to save spending, Archive storage is the best fitted option. 
 
@@ -179,7 +190,7 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
 </table>
 
 
-### Continuously tiering cold hot blobs to archive 
+#### Continuous tiering
 
 A data in cloud is typically hot in processing in first few months. You can measure your data temperature pattern by analysis with inventory. It would make sense to tier actual cold data to archive continuously for cost saving. 
 
@@ -276,7 +287,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
 </table>
 
 
-## Cost considerations between cool and archive 
+## Archive versus cool 
 
 Archive storage is the lowest cost tier. However, it might not be best fit for scenarios or workloads that require immediate read while Archive takes up to 15 hours to rehydrate before it’s available for read. Cool tier offers a balance with near real time read latency and lower price than Hot tier. Understanding your access requirements would help you choose between Cool and Archive. From cost perspective, you can easily compare with an estimation modeling as the following. When you adjust the forecast factor on read, you can tell clearly that the total spending is affected significantly. 
 
