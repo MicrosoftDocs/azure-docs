@@ -375,7 +375,7 @@ You can change the redirect URI anytime by going to the **Overview** page and se
     - `Enter_the_Application_Id_Here` is the **Application (client) ID** value for the application that you registered.
 
     - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For national clouds (for example, China), refer to [National clouds](./authentication-national-cloud.md).
-    - Set `Enter_the_Tenant_info_here`. If your application supports *accounts in this organizational directory*, replace this value with the **Directory (tenant) ID** or **Tenant name** value (for example, *contoso.microsoft.com*).
+    - Replace `Enter_the_Tenant_info_here` with the **Directory (tenant) ID** (a GUID) or **Tenant name** value (for example, *contoso.onmicrosoft.com*).
     - `Enter_the_Redirect_URI_Here` is the default URL that you set in the previous section: `http://localhost:3000/`.
 
 > [!TIP]
