@@ -11,55 +11,17 @@ ms.custom: references_regions
 ---
 # Provision access to Azure SQL Database for DevOps actions (preview)
 
-> [!IMPORTANT]
-> This feature is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This how-to guide shows how to provision access from Microsoft Purview to Azure SQL DB system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
+
+This how-to guide covers how to provision access from Microsoft Purview to Azure SQL Database system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-microsoft-purview-portal.md).
-- Provide the subscription ID and name of the Microsoft Purview account to the Microsoft program manager driving this private preview so that it can be enabled for you to test
-- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
-- Create a new Azure SQL Database or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL DB](/azure/azure-sql/database/single-database-create-quickstart.md).
+[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
+[!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
-**Enforcement of policies for this data source is currently available in the following regions for Microsoft Purview**
-No restrictions, all Microsoft Purview regions are supported
-
-**Enforcement of Microsoft Purview policies is available only in the following regions for Azure SQL Database**
-- East US
-- East US2
-- South Central US
-- West US3
-- Canada Central
-- Brazil South
-- West Europe
-- North Europe
-- UK South
-- Central India
-- Australia East
-
-### Azure SQL Database configuration
-Azure SQL Database needs an Azure Active Directory Admin to be configured to honor policies from Microsoft Purview. In Azure portal navigate to the Azure SQL Server that hosts the Azure SQL DB and then navigate to Azure Active Directory on the side menu. Set an Admin name and then select **Save**. See screenshot:
-![Screenshot shows how to assign Active Directory Admin to Azure SQL Server.](./media/how-to-policies-data-owner-sql/assign-active-directory-admin-azure-sql-db.png)
-
-Then navigate to Identity on the side menu. Under System assigned managed identity check status to *On* and then select **Save**. See screenshot:
-![Screenshot shows how to assign system managed identity to Azure SQL Server.](./media/how-to-policies-data-owner-sql/assign-identity-azure-sql-db.png)
-
-You'll also need to enable (and verify) external policy based authorization on the Azure SQL server. You can do this in PowerShell:
-
-```powershell
-Connect-AzAccount -UseDeviceAuthentication -TenantId xxxx-xxxx-xxxx-xxxx-xxxx -SubscriptionId xxxx-xxxx-xxxx-xxxx
-
-$server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
-
-# Initiate the call to the REST API to set externalPolicyBasedAuthorization to true
-Invoke-AzRestMethod -Method PUT -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview" -Payload '{"properties":{"externalPolicyBasedAuthorization":true}}'
-
-# Now, verify that the property "externalPolicyBasedAuthorization" has been set to true
-Invoke-AzRestMethod -Method GET -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview"
-```
-After issuing the GET, you should see in the response, under Content, "properties":{"externalPolicyBasedAuthorization":true}
+## Microsoft Purview Configuration
 
 ### Register the data sources in Microsoft Purview
 The Azure SQL Database data source needs to be registered first with Microsoft Purview, before access policies can be created. You can follow these guides:

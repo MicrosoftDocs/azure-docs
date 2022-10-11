@@ -30,10 +30,7 @@ Before authoring policies in the Microsoft Purview policy portal, you'll need to
 
 
 ## Create a new DevOps policy
-This section describes the steps to create a new DevOps policy in Microsoft Purview.
-
-Ensure you have the Microsoft Purview Policy Author permission as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
-
+To create a new DevOps policy, ensure first that you have the Microsoft Purview Policy author role at **root collection level**. Check the section on managing Microsoft Purview role assignments in this [guide](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -51,9 +48,7 @@ Ensure you have the Microsoft Purview Policy Author permission as described [her
 1. Select **Save** to save the policy. A policy has been created and automatically published. Enforcement will start at the data source within 5 minutes.
 
 ## List DevOps policies
-This section describes the steps to list DevOps policies in Microsoft Purview.
-
-Ensure you have the Microsoft Purview permissions as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
+To update a DevOps policy, ensure first that you have one of the following Microsoft Purview roles at **root collection level**: Policy author, Data source admin, Data curator or Data reader. Check the section on managing Microsoft Purview role assignments in this [guide](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -64,9 +59,7 @@ Ensure you have the Microsoft Purview permissions as described [here](./how-to-p
 
 
 ## Update a DevOps policy
-This section describes the steps to update a DevOps policy in Microsoft Purview.
-
-Ensure you have the Microsoft Purview Policy Author permission as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
+To update a DevOps policy, ensure first that you have the Microsoft Purview Policy author role at **root collection level**. Check the section on managing Microsoft Purview role assignments in this [guide](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
@@ -80,9 +73,7 @@ Ensure you have the Microsoft Purview Policy Author permission as described [her
 1. Continue same as with step 5 and 6 of the policy create.
 
 ## Delete a DevOps policy
-This section describes the steps to delete a DevOps policy in Microsoft Purview.
-
-Ensure you have the Microsoft Purview Policy Author permission as described [here](./how-to-policies-data-owner-authoring-generic.md#permissions-for-policy-authoring-and-publishing)
+To delete a DevOps policy, ensure first that you have the Microsoft Purview Policy author role at **root collection level**. Check the section on managing Microsoft Purview role assignments in this [guide](../how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
