@@ -1,6 +1,6 @@
 ---
 title: Enabling Data use management on your Microsoft Purview sources
-description: Step-by-step guide on how to enable data use access for your registered sources.
+description: Step-by-step guide on how to enable Data use management for your registered sources.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
