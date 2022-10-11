@@ -333,7 +333,7 @@ Before you proceed with authentication, register the application on Azure AD:
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. In the **Redirect URI** section, select the **Web** platform from the dropdown list. 
 
-   To the right, enter the value of your local host: `http://localhost:3000/`. If you want to use a custom TCP port number, use `http://localhost:<port>/`.
+   To the right, enter `http://localhost:3000/`.
 1. Select **Register**.
    
    The **Overview** page of the application opens. Note the **Application (client) ID** and **Directory (tenant) ID** values. You'll need both of them when you create the *authConfig.js* file in later steps.
