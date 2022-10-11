@@ -90,7 +90,7 @@ The new set of logs, described below, enables you to better monitor your indexin
 
 Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
-## Expanded supported languages in LID and MLID through the API
+### Expanded supported languages in LID and MLID through the API
 
 We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
 
