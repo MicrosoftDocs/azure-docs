@@ -25,7 +25,7 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 In Visual Studio, create a new project with the **Blank App (Universal Windows)** template to set up a single-page Universal Windows Platform (UWP) app.
 
-:::image type="content" source="../../media/windows/create-a-new-project.png" alt-text="Screenshot showing the New Project window within Visual Studio.":::
+:::image type="content" source="../../media/windows/create-a-new-project.png" alt-text="Screenshot showing the New UWP Project window within Visual Studio.":::
 
 #### Install the package
 
@@ -370,7 +370,7 @@ this.call.OnStateChanged -= Call_OnStateChangedAsync;
 await this.call.HangUpAsync(new HangUpOptions());
 ```
 
-## Run the code
+### Run the code
 
 You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
@@ -389,7 +389,7 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) and [Windows App SDK version 1.2 preview 2](https://learn.microsoft.com/windows/apps/windows-app-sdk/preview-channel#version-12-preview-2-120-preview2). 
-- Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](https://learn.microsoft.com/en-us/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
+- Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](https://learn.microsoft.com/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
@@ -405,7 +405,7 @@ To complete this tutorial, you’ll need the following prerequisites:
 
 In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 in Desktop)** template to set up a single-page WinUI 3 app.
 
-:::image type="content" source="../../media/windows/create-a-new-winui-project.png" alt-text="Screenshot showing the New Project window within Visual Studio.":::
+:::image type="content" source="../../media/windows/create-a-new-winui-project.png" alt-text="Screenshot showing the New WinUI Project window within Visual Studio.":::
 
 #### Install the package
 
@@ -739,7 +739,7 @@ this.call.OnStateChanged -= Call_OnStateChangedAsync;
 await this.call.HangUpAsync(new HangUpOptions());
 ```
 
-## Run the code
+### Run the code
 
 You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
