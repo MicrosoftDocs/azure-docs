@@ -13,27 +13,34 @@ ms.date: 10/11/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id=94238ff5-930e-48be-ad27-a2fff73e473f" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [00:00](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=00m0s) - Defender for Cloud integration with Microsoft Entra
+- [00:00](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=00m0s) - Intro
 
-- [00:55](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=00m55s) - What is Cloud Infrastructure Entitlement Management?
+- [01:37](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=01m37s) - Azure Cosmos DB main use case scenarios
 
-- [02:20](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=02m20s) - How does the integration with MDC work?
+- [02:30](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=02m30s) - Recommendations and alerts in Defender for Azure Cosmos DB
 
-- [03:58](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=03m58s) - Demonstration
+- [04:30](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=04m30s) - SQL Injection detection for Azure Cosmos DB
+
+- [06:15](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=06m15s) -  Key extraction detection for Azure Cosmos DB
+
+- [11:00](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=11m00s) -  Demonstration
+
+- [14:30](https://learn.microsoft.com/shows/mdc-in-the-field/integrate-entra#time=14m30s) -  Final considerations
+
 
 ## Recommended resources
 
-Learn more about [Entra Permission Management](other-threat-protections.md#entra-permission-management-formerly-cloudknox)
+Learn more about [Enable Microsoft Defender for Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections?tabs=azure-portal)
 
--  Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0ZoTml2Qm9kZ2pjRzNMUXFqVUwyNl80YVNtd3xBQ3Jtc0trVm9QM2Z0NlpOeC1KSUE2UEd1cVJ5aHQ0MTN6WjJEYmNlOG9rWC1KZ1ZqaTNmcHdOOHMtWXRLSGhUTVBhQlhhYzlUc2xmTHZtaUpkd1c4LUQzLWt1YmRTbkVQVE5EcTJIM0Foc042SGdQZU5acVRJbw&q=https%3A%2F%2Faka.ms%2FSubscribeMicrosoftSecurity)
+- Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0ZoTml2Qm9kZ2pjRzNMUXFqVUwyNl80YVNtd3xBQ3Jtc0trVm9QM2Z0NlpOeC1KSUE2UEd1cVJ5aHQ0MTN6WjJEYmNlOG9rWC1KZ1ZqaTNmcHdOOHMtWXRLSGhUTVBhQlhhYzlUc2xmTHZtaUpkd1c4LUQzLWt1YmRTbkVQVE5EcTJIM0Foc042SGdQZU5acVRJbw&q=https%3A%2F%2Faka.ms%2FSubscribeMicrosoftSecurity)
 
--  Follow us on social media: 
+- Follow us on social media:
   [LinkedIn](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFk5TXZuQld2NlpBRV9BQlJqMktYSm95WWhCZ3xBQ3Jtc0tsQU13MkNPWGNFZzVuem5zc05wcnp0VGxybHprVTkwS2todWw0b0VCWUl4a2ZKYVktNGM1TVFHTXpmajVLcjRKX0cwVFNJaDlzTld4MnhyenBuUGRCVmdoYzRZTjFmYXRTVlhpZGc4MHhoa3N6ZDhFMA&q=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-security%2F)
   [Twitter](https://twitter.com/msftsecurity)
 
--  Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+- Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 
--  For more about [Microsoft Security](https://msft.it/6002T9HQY)
+- For more about [Microsoft Security](https://msft.it/6002T9HQY)
 
 ## Next steps
 
