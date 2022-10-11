@@ -239,7 +239,7 @@ You can share the lease container across multiple [deployment units](#deployment
 
 The change feed processor can be hosted in any platform that supports long running processes or tasks:
 
-* A continuous running [Azure WebJob](/learn/modules/run-web-app-background-task-with-webjobs/).
+* A continuous running [Azure WebJob](/training/modules/run-web-app-background-task-with-webjobs/).
 * A process in an [Azure Virtual Machine](/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
 * A background job in [Azure Kubernetes Service](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * A serverless function in [Azure Functions](/azure/architecture/best-practices/background-jobs#azure-functions).

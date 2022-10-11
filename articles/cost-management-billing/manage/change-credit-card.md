@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 09/20/2022
 ms.author: banders
 ---
 
@@ -20,11 +20,12 @@ In the Azure portal, you can change your default payment method to a new credit 
 - For a Microsoft Online Service Program (pay-as-you-go) account, you must be an [Account Administrator](add-change-subscription-administrator.md#whoisaa). 
 - For a Microsoft Customer Agreement, you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
 
-If you want to a delete credit card, see [Delete an Azure billing payment method](delete-azure-payment-method.md).
+If you want to a delete credit card, see [Delete an Azure billing payment method](delete-azure-payment-method.md). 
 
 The supported payment methods for Microsoft Azure are credit cards, debit cards, and check wire transfer. To get approved to pay by check wire transfer, see [Pay for your Azure subscription by check or wire transfer](pay-by-invoice.md).
 
 >[!NOTE]
+> Azure doesn't support virtual or prepaid cards.
 > Credit cards are accepted and debit cards are accepted by most countries or regions.
 >   - Hong Kong and Brazil only support credit cards.
 >   - India supports debit and credit cards through Visa and Mastercard.

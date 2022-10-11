@@ -13,6 +13,9 @@ ms.author: cshoe
 
 When configuring custom authentication providers, you may want to store connection secrets in Azure Key Vault. This article demonstrates how to use a managed identity to grant Azure Static Web Apps access to Key Vault for custom authentication secrets.
 
+> [!NOTE]
+> Azure Serverless Functions do not support direct Key Vault integration. If you require Key Vault integration with your managed Function app, you will need to implement Key Vault access into your app's code.
+
 Security secrets require the following items to be in place.
 
 - Create a system-assigned identity in the Static Web Apps instance.

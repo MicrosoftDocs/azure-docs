@@ -1,9 +1,43 @@
 {
     "redirections": [ 
-        
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-environments.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-environments-v2",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-sdk.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-model",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-model",
+        "redirect_document_id": false
+    },
+   
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-with-rest.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-model",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-managed-identities.md",
+        "redirect_url": "/azure/machine-learning/how-to-identity-based-service-authentication",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-identity-based-data-access.md",
+        "redirect_url": "/azure/machine-learning/how-to-datastore"
+    },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-convert-ml-experiment-to-production.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-convert-ml-experiment-to-production",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-notebook.md",
+        "redirect_url": "/azure/machine-learning/v1/tutorial-train-deploy-notebook",
         "redirect_document_id": true
     },
     {
@@ -63,13 +97,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/resource-limits-quotas-capacity.md",
-        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
+        "redirect_url": "/azure/machine-learning/resource-limits-capacity",
         "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/machine-learning/resource-limits-capacity.md",
-        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
-        " redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-models-with-aml.md",
@@ -83,7 +112,7 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-model-cli.md",
-        "redirect_url": "/azure/machine-learning/how-to-train-cli",
+        "redirect_url": "/azure/machine-learning/how-to-train",
         "redirect_document_id": "false"
     },
     {
@@ -998,8 +1027,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/tutorial-train-deploy-model-cli.md",
-        "redirect_url": "/azure/machine-learning/how-to-train-cli",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-train",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/tutorial-pipeline-batch-scoring-classification.md",
@@ -3435,6 +3464,16 @@
         "source_path_from_root": "/articles/machine-learning/v1/how-to-differential-privacy.md",
         "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-machine-learning-interpretability-automl.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-machine-learning-interpretability-automl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-private-python-packages.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-use-private-python-packages",
+        "redirect_document_id": true
     }
 ]
 }

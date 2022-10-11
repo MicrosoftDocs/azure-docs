@@ -20,7 +20,7 @@ The method described in this article describes a scheduled export from a log que
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## Overview
-This procedure uses the [Azure Monitor Logs connector](/connectors/azuremonitorlogs.md) which lets you run a log query from a Logic App and use its output in other actions in the workflow. The [Azure Blob Storage connector](/connectors/azureblob.md) is used in this procedure to send the query output to Azure storage.
+This procedure uses the [Azure Monitor Logs connector](/connectors/azuremonitorlogs) which lets you run a log query from a Logic App and use its output in other actions in the workflow. The [Azure Blob Storage connector](/connectors/azureblob) is used in this procedure to send the query output to Azure storage.
 
 [![Logic app overview](media/logs-export-logic-app/logic-app-overview.png "Screenshot of Logic app flow.")](media/logs-export-logic-app/logic-app-overview.png#lightbox)
 

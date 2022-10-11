@@ -112,7 +112,7 @@ You can enable TLS either with Microsoft certificate or a custom certificate pur
     > [!IMPORTANT]
     > When you use a certificate from Microsoft, you don't need to purchase your own certificate or domain name.
 
-* **When you use a custom certificate that you purchased**, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example demonstrates how to use .pem files to create a configuration that uses a TLS/SSL certificate that you purchased:
+* **When you use a custom certificate that you purchased**, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The PEM file with pass phrase protection is not supported. The following example demonstrates how to use .pem files to create a configuration that uses a TLS/SSL certificate that you purchased:
  
     ```python
     from azureml.core.compute import AksCompute

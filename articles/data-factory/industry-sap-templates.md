@@ -20,7 +20,7 @@ See [pipeline templates](solution-templates-introduction.md) for an overview of 
 
 ## SAP templates summary
 
-The following table
+The following table shows the templates related to SAP connectors that can be found in the Azure Data Factory template gallery: 
 
 | SAP Data Store | Scenario | Description |
 | -- | -- | -- |

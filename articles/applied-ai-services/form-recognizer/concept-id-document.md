@@ -15,7 +15,7 @@ recommendations: false
 
 # Form Recognizer ID document model
 
-The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extracts key information from US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state ID, social security card, green card and more. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
+The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 
 ***Sample U.S. Driver's License processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)***
 

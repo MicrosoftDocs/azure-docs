@@ -13,6 +13,9 @@ ms.author: cshoe
 
 Learn to add [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app.  Azure Front Door is a scalable and secure entry point for fast delivery of your web applications.
 
+> [!NOTE]
+> Consider using [enterprise-grade edge](enterprise-edge.md) for faster page loads, enhanced security, and optimized reliability for global applications.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -47,13 +50,13 @@ When creating an Azure Front Door profile, you must select an origin from the sa
 
 1. Select **Create**.
 
-1. Select the **Azure Front Door Standard/Premium** option.
+1. Select the **Azure Front Door** option.
 
 1. Select the **Quick create** option.
 
-2. Select **Continue to create a front door**.
+1. Select **Continue to create a front door**.
 
-3. In the *Basics* tab, enter the following values:
+1. In the *Basics* tab, enter the following values:
 
     | Setting | Value |
     |---|---|
@@ -63,20 +66,20 @@ When creating an Azure Front Door profile, you must select an origin from the sa
     | Name | Enter **my-static-web-app-front-door**. |
     | Tier | Select **Standard**. |
     | Endpoint name | Enter a unique name for your Front Door host. |
-    | Origin type | Select **Custom**. |
-    | Origin host name | Enter the hostname of your static web app that you set aside from the beginning of this tutorial. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
-    | Origin type | Select **Custom**. |
-    | Origin host name | Enter the host name for your website. For example, `contoso.com`. |
+    | Origin type | Select **Static Web App**. |
+    | Origin host name | Select the host name of your static web app from the dropdown.  |
     | Caching | Check the **Enable caching** checkbox. |
+    | Query string caching behavior | Select **Use Query String** |
+    | Compression | Select **Enable compression** |
     | WAF policy | Select **Create new** or select an existing Web Application Firewall policy from the dropdown if you want to enable this feature. |
 
-4. Select **Review + create**.
+1. Select **Review + create**.
 
-5. Select **Create**.
+1. Select **Create**.
 
     The creation process may take a few minutes to complete.
 
-6. Select **Go to resource**.
+1. Select **Go to resource**.
 
 ## Disable cache for auth workflow
 
@@ -99,15 +102,15 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select **Request path**.
 
-1. Select **Begins With** in the *Operator* drop down.
+1. Select **Begins With** in the *Operator* drop-down.
 
 1. Select the **Edit** link above the *Value* textbox.
 
 1. Enter **/.auth** in the textbox.
 
-2. Select **Update**.
+1. Select **Update**.
 
-3. Select the **No transform** option from the *Case transform* dropdown.
+1. Select the **No transform** option from the *Case transform* dropdown.
 
 ### Add an action
 
@@ -125,7 +128,7 @@ Now that the rule is created, you apply the rule to a Front Door endpoint.
 
 1. Select the **Unassociated** link.
 
-1. Select the Endpoint name to which you want to apply the caching rule.
+1. Select the endpoint name to which you want to apply the caching rule.
 
 2. Select **Next**.
 
@@ -181,11 +184,17 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
     ```json
     {
-        "route": "/members",
-        "allowedRoles": ["authenticated, members"],
-        "headers": {
-            "Cache-Control": "no-store"
-        }
+        ...
+        "routes": [
+            {
+                "route": "/members",
+                "allowedRoles": ["authenticated", "members"],
+                "headers": {
+                    "Cache-Control": "no-store"
+                }
+            }
+        ]
+        ...
     }
     ```
 

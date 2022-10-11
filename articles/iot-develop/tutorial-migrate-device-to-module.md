@@ -15,7 +15,7 @@ services: iot-develop
 
 This tutorial shows you how to connect a generic IoT Plug and Play [module](../iot-hub/iot-hub-devguide-module-twins.md).
 
-A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device.md). Modules use model IDs and DTDL models in the same way.
+A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) V2 model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device.md). Modules use model IDs and DTDL models in the same way.
 
 To demonstrate how to implement an IoT Plug and Play module, this tutorial shows you how to:
 

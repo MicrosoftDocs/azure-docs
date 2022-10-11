@@ -14,9 +14,7 @@ recommendations: false
 
 # Form Recognizer W-2 model | v3.0
 
-The Form W-2, Wage and Tax Statement, is a [US Internal Revenue Service (IRS) tax form](https://www.irs.gov/forms-pubs/about-form-w-2). It's used to report employees' salary, wages, compensation, and taxes withheld. Employers send a W-2 form to each employee on or before January 31 each year and employees use the form to prepare their tax returns. W-2 is a key document used in employee's federal and state taxes filing, as well as other processes like mortgage loan and Social Security Administration (SSA).
-
-A W-2 is a multipart form divided into state and federal sections and consisting of more than 14 boxes that details an employee's income from the previous year. The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present. Both [single and multiple forms](https://en.wikipedia.org/wiki/Form_W-2#Filing_requirements) are also supported.
+The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported on [US Internal Revenue Service (IRS) tax forms](https://www.irs.gov/forms-pubs/about-form-w-2). A W-2 tax form is a multipart form divided into state and federal sections consisting of more than 14 boxes detailing an employee's income from the previous year. The W-2 tax form is a key document used in employees' federal and state tax filings, as well as other processes like mortgage loans and Social Security Administration (SSA) benefits. The Form Recognizer W-2 model supports both single and multiple standard and customized forms from 2018 to the present.
 
 ***Sample W-2 tax form processed using Form Recognizer Studio***
 

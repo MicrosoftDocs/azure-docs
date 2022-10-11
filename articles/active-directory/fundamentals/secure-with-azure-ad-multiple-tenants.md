@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Resource isolation with multiple tenants
 
-There are specific scenarios when delegating administration within a single tenant boundary won't meet your needs. In this section, we'll discuss requirements that may drive you to create a multi-tenant architecture. Multi-tenant organizations might span two or more Azure AD tenants. This can result in unique cross-tenant collaboration and management requirements. Multi-tenant architectures increase management overhead and complexity and should be used with caution. We recommend using a single tenant if your needs can be met with that architecture. For more detailed information, see [Multi-tenant user management]../fundamentals/multi-tenant-user-management-introduction.md).
+There are specific scenarios when delegating administration within a single tenant boundary won't meet your needs. In this section, we'll discuss requirements that may drive you to create a multi-tenant architecture. Multi-tenant organizations might span two or more Azure AD tenants. This can result in unique cross-tenant collaboration and management requirements. Multi-tenant architectures increase management overhead and complexity and should be used with caution. We recommend using a single tenant if your needs can be met with that architecture. For more detailed information, see [Multi-tenant user management](multi-tenant-user-management-introduction.md).
 
 A separate tenant creates a new boundary, and therefore decoupled management of Azure AD directory roles, directory objects, conditional access policies, Azure resource groups, Azure management groups, and other controls as described in previous sections.
 

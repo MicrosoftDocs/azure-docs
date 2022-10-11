@@ -41,13 +41,13 @@ Check the Azure CLI extensions you've installed:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
-Remove any existing installation of the of `ml` extension and also the CLI v1 `azure-cli-ml` extension:
+Remove any existing installation of the `ml` extension and also the CLI v1 `azure-cli-ml` extension:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 
 Now, install the `ml` extension:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_install":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_install":::
 
 Run the help command to verify your installation and see available subcommands:
 
@@ -77,18 +77,18 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 Optionally, setup common variables in your shell for usage in subsequent commands:
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="set_variables":::
+:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="set_variables":::
 
 > [!WARNING]
 > This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
 
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="az_group_create":::
 
 And create a machine learning workspace:
 
-:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
@@ -140,7 +140,7 @@ If your Azure Machine Learning workspace uses a private endpoint and virtual net
 
 ## Next steps
 
-- [Train models using CLI (v2)](how-to-train-cli.md)
+- [Train models using CLI (v2)](how-to-train-model.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
 - [Explore Azure Machine Learning with examples](samples-notebooks.md)

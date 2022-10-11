@@ -106,5 +106,5 @@ For any AzureML example, you only need to update the compute target name to your
 * Explore training job samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/jobs](https://github.com/Azure/azureml-examples/tree/main/cli/jobs)
 * Explore model deployment with online endpoint samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes)
 * Explore batch endpoint samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/batch)
-* Explore training job samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/main/sdk/jobs](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs)
-* Explore model deployment with online endpoint samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/kubernetes)
+* Explore training job samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs)
+* Explore model deployment with online endpoint samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/kubernetes)

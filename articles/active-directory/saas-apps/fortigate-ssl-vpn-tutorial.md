@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/08/2022
+ms.date: 09/19/2022
 ms.author: jeedes
 ---
 
@@ -201,8 +201,8 @@ To complete these steps, you'll need the values you recorded earlier:
    | SP entity ID (`entity-id`) |	Identifier (Entity ID) |
 | SP Single Sign-On URL (`single-sign-on-url`) |	Reply URL (Assertion Consumer Service URL) |
 | SP Single Logout URL (`single-logout-url`) | Logout URL |
-| IdP Entity ID (`idp-entity-id`) | Azure Login URL |
-| IdP Single Sign-On URL (`idp-single-sign-on-url`) | Azure AD Identifier |
+| IdP Entity ID (`idp-entity-id`) | Azure AD Identifier |
+| IdP Single Sign-On URL (`idp-single-sign-on-url`) | Azure Login URL |
 | IdP Single Logout URL (`idp-single-logout-url`) | Azure Logout URL |
 | IdP certificate (`idp-cert`) | Base64 SAML certificate name (REMOTE_Cert_N) |
 | Username attribute (`user-name`) | username |
@@ -221,8 +221,8 @@ To complete these steps, you'll need the values you recorded earlier:
     		set entity-id < Identifier (Entity ID)Entity ID>
     		set single-sign-on-url < Reply URL Reply URL>
     		set single-logout-url <Logout URL>
-    		set idp-entity-id <Azure Login URL>
-		set idp-single-sign-on-url <Azure AD Identifier>
+    		set idp-entity-id <Azure AD Identifier>
+		set idp-single-sign-on-url <Azure Login URL>
     		set idp-single-logout-url <Azure Logout URL>
     		set idp-cert <Base64 SAML Certificate Name>
     		set user-name username

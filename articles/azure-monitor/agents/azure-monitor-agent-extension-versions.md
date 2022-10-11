@@ -4,7 +4,7 @@ description: This article describes the version details for the Azure Monitor ag
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 8/22/2022
+ms.date: 9/15/2022
 ms.custom: references_region
 ms.reviewer: shseth
 
@@ -19,6 +19,7 @@ We strongly recommended to update to the latest version at all times, or opt in 
 ## Version details
 | Release Date | Release notes | Windows | Linux |  
 |:---|:---|:---|:---| 
+| August 2022 | <ul><li>Improved resiliency: Default lookback (retry) time updated to last 3 days (72 hours) up from 60 minutes, for agent to collect data post interruption. This is subject to default offline cache size of 10gigabytes</li><li>Fixes the preview custom text log feature that was incorrectly removing the *TimeGenerated* field from the raw data of each event. All events are now additionally stamped with agent (local) upload time</li><li>Fixed datetime format to UTC</li><li>Fix to use default location for firewall log collection, if not provided</li><li>Reliability and supportability improvements</li></ul> | 1.8.0.0 | Coming soon | 
 | July 2022 | Fix for mismatch event timestamps for Sentinel Windows Event Forwarding | 1.7.0.0 | None | 
 | June 2022 | Bugfixes with user assigned identity support, and reliability improvements | 1.6.0.0 | None | 
 | May 2022 | <ul><li>Fixed issue where agent stops functioning due to faulty XPath query. With this version, only query related Windows events will fail, other data types will continue to be collected</li><li>Collection of Windows network troubleshooting logs added to 'CollectAMAlogs.ps1' tool</li><li>Linux support for Debian 11 distro</li><li>Fixed issue to list mount paths instead of device names for Linux disk metrics</li></ul> | 1.5.0.0 | 1.21.0 |

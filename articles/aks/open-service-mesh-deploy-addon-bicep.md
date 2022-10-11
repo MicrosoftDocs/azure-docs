@@ -56,7 +56,7 @@ touch osm.aks.bicep && touch osm.aks.parameters.json
 Open the *osm.aks.bicep* file and copy the following example content to it. Then save the file.
 
 ```azurecli-interactive
-// https://docs.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
+// https://learn.microsoft.com/azure/aks/troubleshooting#what-naming-restrictions-are-enforced-for-aks-resources-and-parameters
 @minLength(3)
 @maxLength(63)
 @description('Provide a name for the AKS cluster. The only allowed characters are letters, numbers, dashes, and underscore. The first and last character must be a letter or a number.')

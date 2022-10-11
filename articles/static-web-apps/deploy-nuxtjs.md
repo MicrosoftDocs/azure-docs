@@ -1,28 +1,28 @@
 ---
-title: "Tutorial: Deploy static-rendered Nuxt.js websites on Azure Static Web Apps"
-description: "Generate and deploy Nuxt.js dynamic sites with Azure Static Web Apps."
+title: "Tutorial: Deploy Nuxt sites with universal rendering on Azure Static Web Apps"
+description: "Generate and deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps."
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 05/08/2020
+ms.date: 09/01/2022
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Deploy static-rendered Nuxt.js websites on Azure Static Web Apps
+# Deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps
 
-In this tutorial, you learn to deploy a [Nuxt.js](https://nuxtjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Nuxt.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Nuxt.js
+In this tutorial, you learn to deploy a [Nuxt 3](https://v3.nuxtjs.org/) application to [Azure Static Web Apps](overview.md). Nuxt 3 supports [universal (client-side and server-side) rendering](https://v3.nuxtjs.org/guide/concepts/rendering/#universal-rendering), including server and API routes. Without extra configuration, you can deploy Nuxt 3 apps with universal rendering to Azure Static Web Apps. When the app is built in the Static Web Apps GitHub Action or Azure Pipelines task, Nuxt 3 automatically converts it into static assets and an Azure Functions app that are compatible with Azure Static Web Apps.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. [Create an account for free](https://github.com/join).
-- [Node.js](https://nodejs.org) installed.
+- [Node.js](https://nodejs.org) 16 or later installed.
 
-## Set up a Nuxt.js app
+## Set up a Nuxt 3 app
 
-You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new project, in this tutorial you begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a dynamic Nuxt.js app as a static site.
+You can set up a new Nuxt project using `npx nuxi init nuxt-app`. Instead of using a new project, this tutorial uses an existing repository set up to demonstrate how to deploy a Nuxt 3 site with universal rendering on Azure Static Web Apps.
 
 1. Create a new repository under your GitHub account from a template repository.
 1. Go to [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
@@ -30,13 +30,13 @@ You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new p
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
     ```bash
-    git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nuxtjs-starter
+    git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nuxt-3-starter
     ```
 
 1. Go to the newly cloned Nuxt.js app:
 
    ```bash
-   cd nuxtjs-starter
+   cd nuxt-3-starter
    ```
 
 1. Install dependencies:
@@ -48,12 +48,12 @@ You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new p
 1. Start Nuxt.js app in development:
 
     ```bash
-    npm run dev
+    npm run dev -- -o
     ```
 
 Go to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Start Nuxt.js app":::
+:::image type="content" source="media/deploy-nuxtjs/nuxt-3-app.png" alt-text="Start Nuxt.js app":::
 
 When you select a framework/library, you should see a details page about the selected item:
 
@@ -102,7 +102,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
     | --- | --- |
     | _Subscription_ | Your Azure subscription name. |
     | _Resource group_ | **my-nuxtjs-group**  |
-    | _Name_ | **my-nuxtjs-app** |
+    | _Name_ | **my-nuxt3-app** |
     | _Plan type_ | **Free** |
     | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
     | _Source_ | **GitHub** |
@@ -119,9 +119,9 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 1. In the _Build Details_ section, select **Custom** from the _Build Presets_ drop-down and keep the default values.
 
-1. In the _App location_, enter **./** in the box.
-1. Leave the _Api location_ box empty.
-1. In the _Output location_ box, enter **dist**.
+1. In the _App location_, enter **/** in the box.
+1. In the _Api location_, enter **.output/server** in the box.
+1. In the _Output location_, enter **.output/public** in the box.
 
 ### Review and create
 
@@ -138,14 +138,12 @@ If the website does note immediately load, then the background GitHub Actions wo
 You can check the status of the Actions workflows by navigating to the Actions for your repository:
 
 ```url
-https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
+https://github.com/<YOUR_GITHUB_USERNAME>/nuxt-3-starter/actions
 ```
 
-### Sync changes
+### Synchronize changes
 
-When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
-
-Return to the terminal and run the following command `git pull origin main`.
+When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. Return to the terminal and run the following command to pull the commit containing the new file.
 
 ## Configure dynamic routes
 
@@ -186,9 +184,9 @@ If the page is a dynamic page, for example `_id.vue`, it won't have enough infor
    > [!NOTE]
    > `routes` is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
 
-2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
+Make changes to the app by updating the code and pushing it to GitHub. GitHub Actions automatically builds and deploys the app.
 
-   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
+For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://v3.nuxtjs.org/guide/deploy/providers/azure/).
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
