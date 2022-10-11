@@ -48,21 +48,20 @@ To manage these password reset authentication methods across the tenant, click *
 
 ## How policies work together
 
-Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. If settings conflict between policies, the allowed setting takes effect. For example, suppose a user isn't enabled for **SMS** in the Authentication methods policy, and isn't enabled for **Text message to phone** in Multifactor authentication settings. If user the is enabled for **Mobile phone** as an authentication method for self-service password reset (SSPR), they can register for SMS.  
+Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. A user who is enabled for an authentication method in _any_ policy can register that method. Let's walk through an example where a user wants to register Microsoft Authenticator. 
 
-## Policy checks during registration
+The registration process first checks Authentication methods policy. The user can register Microsoft Authenticator if they, or any group where they have membership, is enabled for it. 
 
-A user who is enabled for an authentication method in _any_ policy can register that method. Let's walk through an example where a user wants to register Microsoft Authenticator. 
+If not, the registration process checks **Multifactor Authentication**. Any user can register Microsoft Authenticator if one of these settings is enabled:
 
-The registration process first checks Authentication methods policy. If the user belongs to a group that is enabled Microsoft Authenticator, the user can register it. 
+- **Notification through mobile app** 
+- **Verification code from mobile app or hardware token**
 
-If not, the registration process checks **Multifactor Authentication**. If **Notification through mobile app** or **Verification code from mobile app or hardware token** are enabled, any user in the tenant can register Microsoft Authenticator. 
+If the user can't register Microsoft Authenticator based on either of those policies, the registration process checks which authentication methods are enabled for **Password reset**. Any user can register Microsoft Authenticator if any of these settings are enabled:
 
-If Microsoft Authenticator isn't enabled in either policy, the registration process checks which authentication methods are enabled for **Password reset**. Any user in the tenant can register Microsoft Authenticator if any of these settings are enabled:
-
-- Mobile app notification
-- Mobile app code
-- Mobile phone
+- **Mobile app notification**
+- **Mobile app code**
+- **Mobile phone**
 
 Whether they can use that method to sign-in depends on other factors in the policy. For example, 
 
