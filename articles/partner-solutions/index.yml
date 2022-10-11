@@ -61,7 +61,7 @@ productDirectory:
       imageSrc: ./media/index/nginx.svg
       links:
         - url: ./nginx/nginx-overview.md
-          text: Monitor the health and performance of your Azure environment.
+          text: Delivers secure and high performance applications using familiar and trusted load balancing solutions.
   # Card 7
 #    - title: Qumolo
 #      imageSrc: /qumuloa/overview.md
