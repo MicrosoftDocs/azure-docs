@@ -13,7 +13,7 @@ ms.custom: event-tier1-build-2022
 # Resource group and subscription access provisioning by data owner (Preview)
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Data owner policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Data owner policies](concept-policies-data-owner.md) allow you to manage access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
 
 In this guide we cover how to register an entire resource group or subscription and then create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
 
