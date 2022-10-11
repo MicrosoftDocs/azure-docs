@@ -79,14 +79,13 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 
    The **Create a virtual machine scale set** page opens. 
 1. On the **Basics** pane, under **Project details**, ensure that the correct subscription is selected, and then select **myVMSSResourceGroup** in the resource group list. 
-1. For **Name** box, type **myScaleSet**.
+1. For **Name**, type **myScaleSet**.
 1. For **Region**, select a region that's close to your area.
 1. Under **Orchestration**, for **Orchestration mode**, ensure that the **Uniform** option is selected. 
-1. Select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
-1. Enter your username, and then select the authentication type you prefer.
+1. For **Image**, select a marketplace image. In this example, we've chosen *Ubuntu Server 18.04 LTS*.
+3. Enter your username, and then select the authentication type you prefer.
    - A **Password** must be at least 12 characters long and contain three of the following: a lowercase character, an uppercase character, a number, and a special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-   - If you select a Linux OS disk image, you can instead choose **SSH public key**. Provide only your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
- 
+   - If you select a Linux OS disk image, you can instead choose **SSH public key**. Provide only your public key, such as *~/.ssh/id_rsa.pub*. You can use Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
  
 1. Select **Next**. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
@@ -118,7 +117,7 @@ Complete the steps in the "Create the first VM" section of [Tutorial: Monitor ne
 |---:|---|---|
 | 1 | Select a version of **Ubuntu Server**. | |
 | 3 | Name | Enter **myVm2**. |
-| 3 | Authentication type | Paste your SSH public key or select **Password**, and enter a password. |
+| 3 | Authentication type | Paste your SSH public key or select **Password**, and then enter a password. |
 | 3 | Resource group | Select **Use existing**, and then select **myResourceGroup**. |
 | 6 | Extensions | Select **Network Watcher Agent for Linux**. |
 
@@ -129,9 +128,9 @@ The VM takes a few minutes to deploy. Wait for it to finish deploying before you
 To create a monitor in Connection Monitor by using the Azure portal:
 
 1. On the Azure portal home page, go to **Network Watcher**.
-1. In the left pane, in the **Monitoring** section, select **Connection monitor**.
+1. On the left pane, in the **Monitoring** section, select **Connection monitor**.
 
-   You'll see all the connection monitors that were created in Connection Monitor. To see the connection monitors that were created in the classic Connection Monitor, select the **Connection monitor** tab.
+   You'll see a list of the connection monitors that were created in Connection Monitor. To see the connection monitors that were created in the classic Connection Monitor, select the **Connection monitor** tab.
 
    :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot that lists the connection monitors that were created in Connection Monitor.":::
  
@@ -142,21 +141,21 @@ To create a monitor in Connection Monitor by using the Azure portal:
    a. **Connection Monitor Name**: Enter a name for your connection monitor. Use the standard naming rules for Azure resources.  
    b. **Subscription**: Select a subscription for your connection monitor.  
    c. **Region**: Select a region for your connection monitor. You can select only the source VMs that are created in this region.  
-   d. **Workspace configuration**: Choose a custom workspace or the default workspace. Your workspace holds your monitoring data.  
-   e. To use the default workspace, select the checkbox.  
-   f. To choose a custom workspace, clear the checkbox. Then select the subscription and region for your custom workspace. 
+   d. **Workspace configuration**: Your workspace holds your monitoring data. Do either of the following:  
+      * To use the default workspace, select the checkbox.  
+      * To choose a custom workspace, clear the checkbox, and then select the subscription and region for your custom workspace. 
 
    :::image type="content" source="./media/connection-monitor-2-preview/create-cm-basics.png" alt-text="Screenshot that shows the 'Basics' pane in Connection Monitor.":::
  
 1. Select **Next: Test groups**.
 
-1. Add sources, destinations, and test configurations in your test groups. To learn about setting up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor). 
+1. Add sources, destinations, and test configurations in your test groups. To learn about setting up test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor). 
 
    :::image type="content" source="./media/connection-monitor-2-preview/create-tg.png" alt-text="Screenshot that shows the 'Test groups' pane in Connection Monitor.":::
 
 1. At the bottom of the pane, select **Next: Create Alerts**. To learn about creating alerts, see [Create alerts in Connection Monitor](#create-alerts-in-connection-monitor).
 
-   :::image type="content" source="./media/connection-monitor-2-preview/create-alert.png" alt-text="Screenshot that shows the 'Create alert' pane.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/create-alert.png" alt-text="Screenshot that shows the 'Create alerts' pane.":::
 
 1. At the bottom of the pane, select **Next: Review + create**.
 
@@ -175,8 +174,8 @@ Connection Monitor creates the connection monitor resource in the background.
 
 ## Create test groups in a connection monitor
 
- >!NOTE]
- > Connection Monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of Connection Monitor. 
+ > [!NOTE]
+ > Connection Monitor now supports the auto-enabling of monitoring extensions for Azure and non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of Connection Monitor. 
 
 Each test group in a connection monitor includes sources and destinations that get tested on network parameters. They're tested for the percentage of checks that fail and the RTT over test configurations.
 
@@ -208,7 +207,7 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
 
 1. To choose recently used endpoints, you can use the **Recent endpoint** pane. 
  
-   You need not choose the endpoints with monitoring agents enabled only. You can select Azure or Non-Azure endpoints without the agent enabled and proceed with the creation of Connection Monitor. During the creation process, the monitoring agents for the endpoints will be automatically enabled. 
+   You need not choose the endpoints with monitoring agents enabled only. You can select Azure or non-Azure endpoints without the agent enabled and proceed with the creation of Connection Monitor. During the creation process, the monitoring agents for the endpoints will be automatically enabled. 
 
    :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement.png" alt-text="Screenshot that shows the 'Add Sources' pane and the 'Non-Azure endpoints' pane in Connection Monitor with unified enablement.":::
  
@@ -261,11 +260,11 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
  
      :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Screenshot that shows where to set up a test configuration in Connection Monitor.":::
  
-1. **Test Groups**: You can add one or more Test Groups to a Connection Monitor. These test groups can consist of multiple Azure or Non-Azure endpoints.
+1. **Test Groups**: You can add one or more Test Groups to a Connection Monitor. These test groups can consist of multiple Azure or non-Azure endpoints.
 
-   For selected Azure VMs or Azure virtual machine scale sets and Non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the Network Performance Monitor solution for non-Azure endpoints will be auto-enabled after the creation of Connection Monitor begins.
+   For selected Azure VMs or Azure virtual machine scale sets and non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the Network Performance Monitor solution for non-Azure endpoints will be auto-enabled after the creation of Connection Monitor begins.
  
-   If the selected virtual machine scale set is set for manual upgrade, you'll have to upgrade the scale set after the Network Watcher extension installation. This lets you continue setting up the Connection Monitor with virtual machine scale sets as endpoints. If the virtual machine scale set is set to auto- upgrade, you don't need to worry about upgrading after the installation of the Network Watcher extension.
+   If the selected virtual machine scale set is set for manual upgrade, you'll have to upgrade the scale set after the Network Watcher extension installation. Doing so lets you continue setting up the Connection Monitor with virtual machine scale sets as endpoints. If the virtual machine scale set is set to auto-upgrade, you don't need to worry about upgrading after the installation of the Network Watcher extension.
 
    In the previously mentioned scenario, you can consent to an auto-upgrade of virtual machine scale sets with auto-enabling of the Network Watcher extension during the creation of Connection Monitor for virtual machine scale sets with manual upgrading. This approach eliminates the need to manually upgrade the virtual machine scale set after you install the Network Watcher extension. 
 
@@ -277,21 +276,21 @@ You can set up alerts on tests that are failing based on the thresholds set in t
 
 In the Azure portal, to create alerts for a connection monitor, specify values for these fields: 
 
-1. **Create alert**: You can select this checkbox to create a metric alert in Azure Monitor. When you select this checkbox, the other fields will be enabled for editing. Additional charges for the alert will be applicable, based on the [pricing for alerts](https://azure.microsoft.com/pricing/details/monitor/). 
+* **Create alert**: You can select this checkbox to create a metric alert in Azure Monitor. When you select this checkbox, the other fields will be enabled for editing. Additional charges for the alert will be applicable, based on the [pricing for alerts](https://azure.microsoft.com/pricing/details/monitor/). 
 
-1. **Scope** > **Resource** > **Hierarchy**: These values are automatically filled, based on the values specified on the **Basics** pane.
+* **Scope** > **Resource** > **Hierarchy**: These values are automatically filled, based on the values specified on the **Basics** pane.
 
-1. **Condition name**: The alert is created on the `Test Result(preview)` metric. When the result of the connection monitor test is a failing result, the alert rule will fire. 
+* **Condition name**: The alert is created on the `Test Result(preview)` metric. When the result of the connection monitor test is a failing result, the alert rule will fire. 
 
-1.  **Action group name**: You can enter your email directly or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](../azure-monitor/alerts/action-groups.md). After the alert is created, you can [manage your alerts](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
+* **Action group name**: You can enter your email directly or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](../azure-monitor/alerts/action-groups.md). After the alert is created, you can [manage your alerts](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
 
-1. **Alert rule name**: The name of the connection monitor.
+* **Alert rule name**: The name of the connection monitor.
 
-1. **Enable rule upon creation**: Select this checkbox to enable the alert rule based on the condition. Disable this checkbox if you want to create the rule without enabling it. 
+* **Enable rule upon creation**: Select this checkbox to enable the alert rule based on the condition. Disable this checkbox if you want to create the rule without enabling it. 
 
 :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement-create.png" alt-text="Screenshot that shows the 'Create alert' pane in Connection Monitor.":::
 
-After you've completed all the steps, the process will proceed with unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by the creation of Connection Monitor. 
+After you've completed all the steps, the process will proceed with a unified enabling of monitoring extensions for all endpoints without monitoring agents enabled, followed by the creation of the connection monitor. 
 
 After the creation process is successful, it takes about 5 minutes for the connection monitor to be displayed on the dashboard. 
 
@@ -312,7 +311,7 @@ Connection monitors have these scale limits:
 
 ## Clean up resources
 
-When the resources are no longer needed, delete the resource group and all the resources it contains:
+When you no longer need the resources, delete the resource group and all the resources it contains:
 
 1. In the **Search** box at the top of the Azure portal, enter **myResourceGroup** and then, in the search results list, select it.
 1. Select **Delete resource group**.
