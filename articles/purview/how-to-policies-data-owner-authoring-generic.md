@@ -14,7 +14,7 @@ ms.date: 10/10/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Data owner policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Data owner policies](concept-policies-data-owner.md) allow you to manage access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
 
 These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source. This tutorial describes how to create, update, and publish data owner policies in the Microsoft Purview governance portal.
 
