@@ -1,7 +1,7 @@
 ---
-title: Manage network slices - Azure portal
+title: Create and manage network slices - Azure portal
 titleSuffix: Azure Private 5G Core Preview
-description: With this how-to guide, learn how to manage network slices for Azure Private 5G Core Preview through the Azure portal.  
+description: With this how-to guide, learn how to create, modify and delete network slices for Azure Private 5G Core Preview through the Azure portal.  
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
@@ -10,7 +10,7 @@ ms.date: 09/30/2022
 ms.custom: template-how-to
 ---
 
-# Manage network slices - Azure portal
+# Create and manage network slices - Azure portal
 
 *Network slices* allow you to host multiple independent logical networks in the same Azure Private 5G Core deployment. Slices are assigned to SIM policies and static IP addresses, providing isolated end-to-end networks that can be customized for different bandwidth and latency requirements.
 

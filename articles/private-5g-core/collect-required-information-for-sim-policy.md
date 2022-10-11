@@ -46,7 +46,7 @@ Collect each of the values in the table below for the network scope.
 
 | Value | Azure portal field name | Included in example ARM template |
 |--|--|--|
-| The network slice to which the network scope settings will apply. </br></br>If any of the UEs connected to the data network support 4G technology, this slice must have a slice/service type (SST) value of 1 and empty slice differentiator (SD). | **Slice** | No. The default network slice will be used. |
+| The network slice to which the network scope settings will apply. </br></br>If any of the UEs connected to the data network support 4G technology, this slice must have a slice/service type (SST) value of 1 and an empty slice differentiator (SD). | **Slice** | No. The default network slice will be used. |
 |The Data Network Name (DNN) of the data network. The DNN must match the one you used when creating the private mobile network.     | **Data network** | Yes |
 |The names of the services permitted on the data network. You must have already configured your chosen services. For more information on services, see [Policy control](policy-control.md).    | **Service configuration**        | No. The SIM policy will only use the service you configure using the same template. |
 |The maximum bitrate for traffic traveling away from UEs across all non-GBR QoS flows or EPS bearers of a given PDU session or PDN connection. The bitrate must be given in the following form: `<Quantity>` `<Unit>` </br></br>`<Unit>` must be one of the following: </br></br>- *bps* </br>- *Kbps* </br>- *Mbps* </br>- *Gbps* </br>- *Tbps* </br></br>`<Quantity>` is the quantity of your chosen unit. </br></br>For example, `10 Gbps`.    | **Session aggregate maximum bit rate - Uplink**        | Yes |

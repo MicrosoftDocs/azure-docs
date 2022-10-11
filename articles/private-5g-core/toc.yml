@@ -48,8 +48,8 @@ items:
       href: collect-required-information-for-private-mobile-network.md
     - name: Deploy a private mobile network - Azure portal
       href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
-    - name: Manage network slices - Azure portal
-      href: manage-network-slices.md
+    - name: Create and manage network slices - Azure portal
+      href: create-manage-network-slices.md
     - name: Create a network slice - ARM template
       href: create-slice-arm-template.md
   - name: Sites
