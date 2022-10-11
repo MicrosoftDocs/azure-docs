@@ -22,6 +22,7 @@ In order to use Private Link in your Azure Virtual Desktop deployment, you'll ne
 
 - An Azure account with an active subscription.
 - An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and workspaces.
+- The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
 ## Set up Private Link in the Azure portal
 
@@ -64,13 +65,13 @@ To control public traffic:
 
 3. Next, configure the **Allow session hosts access from public network** setting.
 
-    - If you select the check box, Azure Virtual Desktop VMs will talk to the Azure Virtual Desktop service over public internet or private endpoints.
+    - If you select the check box, Azure Virtual Desktop session hosts will talk to the Azure Virtual Desktop service over public internet or private endpoints.
 
-    - If you don't select the check box, Azure Virtual Desktop VMs can only talk to the Azure Virtual Desktop service over private endpoint connections.
+    - If you don't select the check box, Azure Virtual Desktop session hosts can only talk to the Azure Virtual Desktop service over private endpoint connections.
 
-## Network connectivity <!--How/where do we configure network connectivity?-->
+## Network security groups
 
-You can [set up a network security group (NSG)](../virtual-network/tutorial-filter-network-traffic.md) to block the WindowsVirtualDesktop server tag. If you block this server tag, all service traffic will use private routes only.
+You can [set up a network security group (NSG)](../virtual-network/tutorial-filter-network-traffic.md) to block the **WindowsVirtualDesktop** server tag. If you block this server tag, all service traffic will use private routes only.
 
 When you set up your NSG, you must configure it to allow the URLs in the [required URL list](safe-url-list.md). Make sure to include the URLs for Azure Monitor.
 
@@ -78,21 +79,19 @@ When you set up your NSG, you must configure it to allow the URLs in the [requir
 
 To validate your Private Link for Azure Virtual Desktop and make sure it's working:
 
-1. Check to see if your session hosts are registered and functional on the VNet. You can check their health status with Azure Monitor.
+1. Check to see if your session hosts are registered and functional on the VNet. You can check their health status with [Azure Monitor](azure-monitor.md).
 
-2. Next, test your feed connections to make sure they perform as expected. If you've disabled public network access, make sure the workspace doesn't show up in feeds from public routes. Feeds from private routes should always work.
+2. Next, test your feed connections to make sure they perform as expected. Use the client and make sure you can add and refresh workspaces.
 
-3. Finally, run the following tests on your end-to-end connections to make sure they work:
+3. Finally, run the following end-to-end tests:
    
-   - For clients, if you've disabled the publicNetworkAccess or EnabledForSessionHostsOnly settings, make sure your clients can't connect from public routes. Connections from private routes should always work.
-   - For session hosts, if you've disabled the publicNetworkAccess or EnabledForSessionHostsOnly settings, make sure the session hosts can't connect from public routes. Connections from private routes should always work.
+   - Make sure your clients can't connect to Azure Virtual Desktop and your session hosts from public routes.
+   - Make sure the session hosts can't connect to Azure Virtual Desktop from public routes.
 
 ## Next steps
 
-- Learn about how Private Link for Azure Virtual Desktop works at [Private Link for Azure Virtual Desktop](private-link-overview.md).
+- Learn more about how Private Link for Azure Virtual Desktop at [Use Private Link with Azure Virtual Desktop](private-link-overview.md).
 - Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
-- Learn how to use Azure Firewall to inspect traffic going towards a private endpoint at [Use Azure Firewall to inspect traffic destined to a private endpoint](../private-link/inspect-traffic-with-azure-firewall.md).
-- Learn more about Azure Virtual Desktop architecture at [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop?context=/azure/virtual-desktop/context/context).
 - Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md)
 - See the [Required URL list](safe-url-list.md) for the list of URLs you'll need to unblock to ensure network access to the Azure Virtual Desktop service.
