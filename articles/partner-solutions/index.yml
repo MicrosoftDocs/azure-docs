@@ -57,17 +57,19 @@ productDirectory:
         - url: /apache-kafka-confluent-cloud/overview.md
           text: Deploy a full managed, cloud-native Apache Kafka service.
   # Card 6
-#    - title: Qumolo
-#      imageSrc: /qumuloa/overview.md
-#      links:
-#        - url: ./qumulo/overview.md
-#         text: 
-  # Card 7
     - title: NGINX
       imageSrc: ./media/index/nginx.svg
       links:
         - url: ./nginx/nginx-overview.md
           text: Monitor the health and performance of your Azure environment.
+  # Card 7
+#    - title: Qumolo
+#      imageSrc: /qumuloa/overview.md
+#      links:
+#        - url: ./qumulo/overview.md
+#         text: 
+  
+
 
 
 # conceptualContent section (optional)
