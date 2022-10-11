@@ -33,25 +33,29 @@ Before you look at AKS, it is important that you review the goals and general de
 Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing natural resource consumption. Optimizing the application's cost is often the initial step in making workloads more sustainable, as it's an organic proxy to utilization and consumption.
 
 
-## Key sustainability Design Areas
+## Sustainability Design Principles
+ **Carbon Efficiency**: Emit the least amount of carbon possible.
 
-Sustainable guidance in the Well Architected Framework series is composed of architectural considerations and recommendations oriented around these key design areas.
+A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
 
-Decisions made in one design area can impact or influence decisions across the entire design. The focus is ultimately on building a sustainable solution to minimize the footprint and impact on the environment.
+ **Energy Efficiency**: Use the least amount of energy possible.
 
-|Design area|Description|
-|---|---|
-|[Application design](/azure/architecture/framework/sustainability/sustainability-application-design.md)|Cloud application patterns that allow for designing sustainable workloads.|
-|[Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md)|Choices around hosting environment, dependencies, frameworks, and libraries.|
-|[Testing](/azure/architecture/framework/sustainability/sustainability-testing.md)|Strategies for CI/CD pipelines and automation, and how to deliver more sustainable software testing.|
-|[Operational procedures](/azure/architecture/framework/sustainability/sustainability-operational-procedures.md)|Processes related to sustainable operations.|
-|[Storage](/azure/architecture/framework/sustainability/sustainability-storage.md)|Design choices for making the data storage options more sustainable.|
-|[Network and connectivity](/azure/architecture/framework/sustainability/sustainability-networking.md)|Networking considerations that can help reduce traffic and amount of data transmitted to and from the application.|
-|[Security](/azure/architecture/framework/sustainability/sustainability-security.md)|Relevant recommendations to design more efficient security solutions on Azure.|
+ "  "One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency.
 
-We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
+ **Carbon Awareness**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
+
+ Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+
+ **Hardware Efficiency**: Use the least amount of embodied carbon possible. 
+
+   There are two main approaches to hardware efficiency:
+   - For end-user devices, it's extending the lifespan of the hardware.
+   - For cloud computing, it's increasing the utilization of the device.
+
 
 ## Sustainability design considerations for AKS workloads and clusters
+
+Sustainable guidance in the Well Architected Framework series is composed of architectural considerations and recommendations oriented around these key design areas.
 
  -  Sustainability considerations for your AKS workloads (or applications), **should cover the All Key Sustainability Design Areas**
 
@@ -61,13 +65,13 @@ We recommend that readers familiarize themselves with these design areas, review
   
 |Design area|Scope for AKS|
 |---|---|
-|Application design|**workloads**: Modernize workloads to allow independent optimization of their logical components|
-|Application platform|**AKS cluster is the Platform**: Design cluster for energy and hardware efficiency|
-|Testing|**cluster and workloads**: Optimize Testing procedures for Cluster & workload development lifecycle|
-|_Operational procedures_|Implement sustainability operations (not a technical consideration) |
-|Storage|**cluster and workloads**: Consider _Stateless Vs Stateful Application_ Design ; Plan for storage classes & Backup retention policies.|
-|Network and connectivity|**cluster and workloads**: Optimize network traffic for workloads and clusters|
-|Security| **cluster and workloads**: Implement Security controls and Optimize log collection for Monitoring & SIEM.|
+|[Application design](/azure/architecture/framework/sustainability/sustainability-application-design.md)|**workloads**: Modernize workloads to allow independent optimization of their logical components|
+|[Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md)|**AKS cluster is the Platform**: Design cluster for energy and hardware efficiency|
+|[Testing](/azure/architecture/framework/sustainability/sustainability-testing.md)|**cluster and workloads**: Optimize Testing procedures for Cluster & workload development lifecycle|
+|[_Operational procedures_](/azure/architecture/framework/sustainability/sustainability-operational-procedures.md)|Implement sustainability operations (not a technical consideration) |
+|[Storage](/azure/architecture/framework/sustainability/sustainability-storage.md)|**cluster and workloads**: Consider _Stateless Vs Stateful Application_ Design ; Plan for storage classes & Backup retention policies.|
+|[Network and connectivity](/azure/architecture/framework/sustainability/sustainability-networking.md)|**cluster and workloads**: Optimize network traffic for workloads and clusters|
+|[Security](/azure/architecture/framework/sustainability/sustainability-security.md)| **cluster and workloads**: Implement Security controls and Optimize log collection for Monitoring & SIEM.|
 
 
 ## Sustainability checklist for AKS workloads
