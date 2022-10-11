@@ -120,9 +120,9 @@ const config: PlaywrightTestConfig = {
 
 ## View test results
 
-In the [Playwright dashboard](https://17157345.playwright-int.io/), you can quickly filter the test results for a specific configuration by using the search interface. 
+In the [Playwright dashboard](https://17157345.playwright-int.io/), you can filter the test results forby using the search interface. The search functionality also takes the test project name into account and enables you to filter for specific configurations.
 
-The following screenshot shows how to filter for tests that were run on Windows:
+The following screenshot shows an example of how to use search to filter for tests that ran on Windows:
 
 :::image type="content" source="./media/how-to-cross-platform-tests/playwright-testing-dashboard-filtered-operating-system.png" alt-text="Screenshot that shows the Microsoft Playwright Testing dashboard with the test results filtered for the Windows operating system.":::
 
