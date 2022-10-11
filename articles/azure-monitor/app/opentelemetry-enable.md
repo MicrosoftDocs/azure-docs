@@ -264,9 +264,7 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
 from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
 
-exporter = AzureMonitorTraceExporter.from_connection_string(
-    "<Your Connection String>"
-)
+exporter = AzureMonitorTraceExporter(connection_string="<Your Connection String>")
 
 trace.set_tracer_provider(TracerProvider())
 tracer = trace.get_tracer(__name__)
@@ -413,7 +411,31 @@ Placeholder
 
 #### [Python](#tab/python)
 
-Placeholder
+In this example, we utilize the `ApplicationInsightsSampler` which offers compatibility with Application Insights SDKs.
+
+```python
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from azure.monitor.opentelemetry.exporter import (
+    ApplicationInsightsSampler,
+    AzureMonitorTraceExporter,
+)
+
+# Sampler expects a sample rate of between 0 and 1 inclusive
+# A rate of 0.75 means approximately 75% of your telemetry will be sent
+sampler = ApplicationInsightsSampler(0.75)
+trace.set_tracer_provider(TracerProvider(sampler=sampler))
+tracer = trace.get_tracer(__name__)
+exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
+span_processor = BatchSpanProcessor(exporter)
+trace.get_tracer_provider().add_span_processor(span_processor)
+
+for i in range(100):
+    # Approximately 25% of these spans should be sampled out
+    with tracer.start_as_current_span("hello"):
+        print("Hello, World!")
+```
 
 ---
 
