@@ -70,7 +70,26 @@ You should avoid Early deletion fee as possible. With CopyBlob operation, you wo
 
 Mention that there are separate rates for high priority reads and data retrieval. See the pricing page.
 
-## One-time on-prem data backup to Archive 
+## Scenarios
+
+We will use this data for our scenarios. Disclaimer and pointer to the pricing page for actual data.
+
+| Factor | Example metric |
+|---|---|
+| Reads per month | 1 |
+| Percentage of storage read | 1% |
+| Data prices (pay-as-you-go) | $0.00099 |
+| Cost of write operations (per 10,000) | $0.10 |
+| Cost of a single write operation ($.10 / 10,000) | $0.00001 |
+| Cost of read operations (per 10,000) | $5.00 |
+| Cost of a single read operation ($5.00 / 10,000) | $0.0005 |
+| Cost of high priority read operations (per 10,000) | $50.00 |
+| Cost of data retrieval (per GB) | $0.02 |
+| Cost of high priority data retrieval (per GB) | $0.10 |
+| Total file size (GB) | 102,400 |
+| Total file count | 2,000,000 |
+
+### One-time on-prem data backup to Archive 
 
 It's one of common scenarios that you need to remove on-prem tapes or file servers and migrate backup data to cloud storage. If the access rate is expected low and you want to save spending, Archive storage is the best fitted option. 
 
@@ -78,13 +97,34 @@ In this scenario, archiving cost would be required for the first month as one ti
 
 Using the example data from the previous sections, this table demonstrates the spending for three months. 
 
+<style>
+    .highlight {
+        width: 70%;
+        text-align: center;
+    }
+    .highlight tr:nth-child(3) { background: beige; }
+    .highlight tr:nth-child(6) { background: beige; }
+    .highlight tr:nth-child(11) { background: beige; }
+</style>
+
+<div class="highlight">
 
 | Factor | January | February | March |
 |--------|---------|---------|----|
-| Cost to write  | **$20.00** | $0.00 | $0.00
+| Write transactions | 2,000,000 | 0 | 0 |
+| Cost of a single write operation | $0.00001 | $0.00001 | $0.00001 |
+| Cost to write | $20.00 | $0.00 | $0.00| $20.00 |
+| Total file size (GB) | 102,400 | 102,400 | 102,400 |
+| Data prices (pay-as-you-go) | $0.00099 | $0.00099 |$0.00099 |
 | Cost to store  | $101.38 | $101.38 | $101.38 | 
-| Cost to rehydrate  | $30.48 | $30.48 | $30.48 |
-| Total Cost  | $151.86 | $131.86 | $131.86 |
+| Data retrieval size (102,400 * 1%) | 1024 | 1024 | 1024 |
+| Cost of data retrieval  | $.02 | $.02 | $.02 |
+| Number of read transactions (2,000,000 * 1%) | 20,000 | 20,000 | 20,000 |
+| Cost of a single read operation | $0.0005 | $0.0005 | $0.0005 |
+| Cost to rehydrate | $30.48 | $30.48 | $30.48 |
+| **Total Cost**  | **$151.86** | **$131.86** | **$131.86** |
+
+</div>
 
 ### Continuously tiering cold hot blobs to archive 
 
