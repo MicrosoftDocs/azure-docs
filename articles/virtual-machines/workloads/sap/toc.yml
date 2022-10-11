@@ -294,7 +294,7 @@
         href: module/automation-new-saplibrary.md
       - name: Removing the control plane using PowerShell
         href: module/automation-remove-sapautomationregion.md
-      - name: Removing a SAP deployment using PowerShell
+      - name: Removing an SAP deployment using PowerShell
         href: module/automation-remove-sapsystem.md
       - name: Set the Keyvault secrets using PowerShell
         href: module/automation-set-sapsecrets.md
@@ -430,7 +430,7 @@
     items:
     - name: Options and considerations
       href: hana-overview-high-availability-disaster-recovery.md
-    - name: Backup and restore
+    - name: Back up and restore
       href: hana-backup-restore.md
     - name: Principles and preparation
       href: hana-concept-preparation.md
@@ -456,7 +456,7 @@
       href: os-backup-hli-type-ii-skus.md
     - name: Azure Large Instances high availability for SAP on RHEL
       href: large-instance-high-availability-rhel.md
-    - name: Enable Kdump for HANA Large Instances
+    - name: Enable kernel dump for HANA Large Instances
       href: hana-large-instance-enable-kdump.md
     - name: OS Upgrade for HANA Large Instances
       href: os-upgrade-hana-large-instance.md
