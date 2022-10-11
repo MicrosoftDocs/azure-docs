@@ -42,7 +42,7 @@ Decisions made in one design area can impact or influence decisions across the e
 |[Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md)|Choices around hosting environment, dependencies, frameworks, and libraries.|
 |[Testing](/azure/architecture/framework/sustainability/sustainability-testing.md)|Strategies for CI/CD pipelines and automation, and how to deliver more sustainable software testing.|
 |[Operational procedures](/azure/architecture/framework/sustainability/sustainability-operational-procedures.md)|Processes related to sustainable operations.|
-|[Storage](sustainability-storage.md)|Design choices for making the data storage options more sustainable.|
+|[Storage](/azure/architecture/framework/sustainability/sustainability-storage.md)|Design choices for making the data storage options more sustainable.|
 |[Network and connectivity](/azure/architecture/framework/sustainability/sustainability-networking.md)|Networking considerations that can help reduce traffic and amount of data transmitted to and from the application.|
 |[Security](/azure/architecture/framework/sustainability/sustainability-security.md)|Relevant recommendations to design more efficient security solutions on Azure.|
 
@@ -103,7 +103,7 @@ The following checklist provides recommendations for designing sustainable workl
 
 :heavy_check_mark: Use [Vertical Pod Auto-scaler](/azure/aks/vertical-pod-autoscaler) to automatically set resource requests and limits on containers per workload based on past usage
 
-:heavy_check_mark: Use AKS [advanced scheduler features](azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
+:heavy_check_mark: Use AKS [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
 
 
 **Aim for Stateless Design** _to reduce the in-memory or on-disk data required by the workload to function_
@@ -217,13 +217,13 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
  
 **Utilize Node auto-scaling and bursting capabilities** _to match the scalability needs of workloads_
 
-:heavy_check_mark: Use [Cluster Auto-scaler](azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
+:heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
 
 :heavy_check_mark: Leverage [Scaling **User node pools** to 0](/azure/aks/scale-cluster#scale-user-node-pools-to-0)
 
 :heavy_check_mark: Use [Virtual Nodes](/azure/aks/virtual-nodes) to rapidly burst to Serverless Nodes (that scale to zero when there is no demand)
 
-:heavy_check_mark: Review the [B-series burstable virtual machine sizes](https://azure.microsoft.com/en-in/blog/introducing-burstable-vm-support-in-aks/).
+:heavy_check_mark: Review the [B-series burstable virtual machine sizes](https://azure.microsoft.com/blog/introducing-burstable-vm-support-in-aks/).
 
 
  **Use Energy Efficient Hardware** _to leverage cost-effective and power-efficient compute_
