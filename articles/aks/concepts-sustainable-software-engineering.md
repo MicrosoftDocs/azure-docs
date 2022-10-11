@@ -26,6 +26,10 @@ This article provides practical recommendations for applying WAF sustainability 
 * [Design principles of a sustainable workload](/azure/architecture/framework/sustainability/sustainability-design-principles)
 
 
+## Cloud efficiency
+Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing energy consumption. Optimizing the application's cost is the initial step in making workloads more sustainable.
+
+
 ## Key sustainability Design Areas
 
 Sustainable guidance in the Well Architected Framework series is composed of architectural considerations and recommendations oriented around these key design areas.
@@ -60,10 +64,6 @@ We recommend that readers familiarize themselves with these design areas, review
 |Storage|**cluster and workloads**: Consider _Stateless Vs Stateful Application_ Design ; Plan for storage classes & Backup retention policies.|
 |Network and connectivity|**cluster and workloads**: Optimize network traffic for workloads and clusters|
 |Security| **cluster and workloads**: Implement Security controls and Optimize log collection for Monitoring & SIEM.|
-
-
-## Cloud efficiency
-Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing energy consumption. Optimizing the application's cost is the initial step in making workloads more sustainable.
 
 
 ## For Product Teams: Sustainability Checklist for AKS workloads
