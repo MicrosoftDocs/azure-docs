@@ -5,39 +5,28 @@ author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 9/1/2022
 ms.author: memccror
 ---
 
 
 # Upgrade your machines to the latest Automanage version
 
-Automanage released a new version of the machine best practices offering in November 2021. The new API now supports creating custom profiles where you can pick and choose the services and settings you want to apply to your machines. Also, with this new version, the Automanage account is no longer required. This article describes the differences in the versions and how to upgrade. 
+Automanage machine best practices released the generally available API version. The API now supports creating custom profiles where you can pick and choose the services and settings you want to apply to your machines. This article describes the differences in the versions and how to upgrade. 
 
 ## How to upgrade your machines
 
-Below are the set of instructions on how to upgrade your machines to the latest API version of Automanage. 
-
-### Prerequisites
-
-If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
-
-> [!NOTE]
-> Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
-
-> [!IMPORTANT]
-> The following Azure RBAC permission is needed to enable Automanage for the first time on a subscription with the new Automanage version: **Owner** role, or **Contributor** along with **User Access Administrator** roles.
-
-### Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
-
-### Check to see which machines need to be upgraded
-
-All machines that need to be upgraded will have the status **Needs upgrade**. You will also see a banner on the Automanage overview page indicating that you need to upgrade you machines. 
+1. In the [Automanage portal](https://aka.ms/automanageportal), if your machines status is **Needs Upgrade** on the Automanage machines tab, please follow these [steps](automanage-upgrade.md#upgrade-your-machines-to-the-latest-automanage-version). You will also see a banner on the Automanage overview page indicating that you need to upgrade you machines. 
 
 :::image type="content" source="media\automanage-upgrade\overview-blade.png" alt-text="Needs upgrade status.":::
+
+2. Update any onboarding automation to reference the GA API version: 2022-05-04. For instance, if you have onboarding templates saved, you will need to update the template to reference the new GA API version as the preview versions will no longer be supported. Also, if you have deployed the [Automanage built-in policy](virtual-machines-policy-enable.md) that references the preview APIs, you will need to redeploy the built-in policy which now references the GA API version. 
+
+
+## Upgrade your machines to the latest Automanage version
+If your machine status is **Needs Upgrade** on the Automanage machines tab, you will need to do the following:
+1. [Disable Automanage on the machine](automanage-upgrade.md#disable-automanage-machines-that-need-to-be-upgraded)
+1. [Re-enable Automanage on the machine](automanage-upgrade.md#re-enable-automanage-on-your-machines)
 
 ### Disable Automanage machines that need to be upgraded
 
@@ -101,4 +90,3 @@ Get the most frequently asked questions answered in our FAQ.
 
 > [!div class="nextstepaction"]
 > [Frequently Asked Questions](faq.yml)
-

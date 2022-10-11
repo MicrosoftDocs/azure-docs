@@ -1,6 +1,6 @@
 ---
-title: About Azure Automanage
-description: Learn about Azure Automanage for virtual machines.
+title: About Azure Automanage Machine Best Practices
+description: Learn about Azure Automanage machine best practices.
 author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
@@ -12,7 +12,7 @@ ms.custom: overview
 
 # Azure Automanage machine best practices
 
-This article covers information about Azure Automanage for machine best practices, which have the following benefits:
+This article covers information about Azure Automanage machine best practices, which have the following benefits:
 
 - Intelligently onboards virtual machines to select best practices Azure services
 - Automatically configures each service per Azure best practices
