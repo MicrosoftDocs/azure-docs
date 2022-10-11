@@ -25,7 +25,7 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure) in the same subscription.
 
-- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](https://learn.microsoft.com/en-us/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
 - [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
@@ -52,7 +52,7 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 
 1. Select the **Deploy button** on the **Azure Virtual Desktop** tile - the **Custom deployment** page will open.
 
-    :::image type="content" source="media/azure-virtual-desktop-hci/custom-template.png" alt-text="Screenshot of Azure portal." lightbox="media/azure-virtual-desktop-hci/custom-template.png":::
+    :::image type="content" source="media/azure-virtual-desktop-hci/custom-template.png" alt-text="Screenshot of custom deployment template." lightbox="media/azure-virtual-desktop-hci/custom-template.png":::
 
 1. Select the correct subscription under **Project details**.
 
@@ -65,7 +65,7 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 1. In **Location**, enter the region where the resources will be deployed. *Example: East US*.
 
 1. In **Custom Location Id**, enter the resource ID of the deployment target for creating VMs, which is associated with an Azure Stack HCI cluster.  
-*Example: /subscriptions/<subscriptionID>/resourcegroups/Contoso-rg/providers/microsoft.extendedlocation/customlocations/Contoso-CL*.
+*Example: /subscriptions/My_subscriptionID/resourcegroups/Contoso-rg/providers/microsoft.extendedlocation/customlocations/Contoso-CL*.
 
 1. Enter a value for **Virtual Processor Count** (vCPU) and for **Memory GB** for your VM. Defaults are 4 vCPU and 8GB respectively. 
 
@@ -83,9 +83,9 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 
 1. Enter a prefix for the VMs for **Vm Name Prefix**. 
 
-1. Enter the **Image Id** of the image to be used. This can be a custom image or a Azure marketplace image.  *Example:  /subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/microsoft.azurestackhci/marketplacegalleryimages/Contoso-Win11image*. 
+1. Enter the **Image Id** of the image to be used. This can be a custom image or a Azure marketplace image.  *Example:  /subscriptions/My_subscriptionID/resourceGroups/Contoso-rg/providers/microsoft.azurestackhci/marketplacegalleryimages/Contoso-Win11image*. 
 
-1. Enter the **Virtual Network Id** of the virtual network. *Example: /subscriptions/<subscriptionID>/resourceGroups/Contoso-rg/providers/Microsoft.AzureStackHCI/virtualnetworks/Contoso-virtualnetwork*.
+1. Enter the **Virtual Network Id** of the virtual network. *Example: /subscriptions/My_subscriptionID/resourceGroups/Contoso-rg/providers/Microsoft.AzureStackHCI/virtualnetworks/Contoso-virtualnetwork*.
 
 1. Enter the **Token Expiration Time**. If left blank, the default will be the current UTC time. 
 
@@ -120,7 +120,7 @@ To create a profile container using a file share on Azure Stack HCI, do the foll
 
 3. Join the VM to an Active Directory domain.
 
-7. Follow the instructions in [Create a profile container for a host pool using a file share](https://learn.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile) to prepare your VM and configure your profile container.
+7. Follow the instructions in [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md) to prepare your VM and configure your profile container.
 
 ## Next steps
 
