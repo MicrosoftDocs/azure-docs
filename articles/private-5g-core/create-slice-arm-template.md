@@ -20,9 +20,8 @@ In this how-to guide, you'll learn how to create a slice in your private mobile 
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-<!-- TODO: check link
 [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json)
- -->
+
 ## Prerequisites
 
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
@@ -32,9 +31,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Review the template
 
 The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-new-slice).
-<!-- TODO: check link
+
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-new-slice/azuredeploy.json":::
--->
+
 The following Azure resource is defined in the template.
 
 - [**Microsoft.MobileNetwork/mobileNetworks/slices**](/azure/templates/microsoft.mobilenetwork/mobilenetworks/slices): a resource representing a network slice.
@@ -42,23 +41,23 @@ The following Azure resource is defined in the template.
 ## Deploy the template
 
 1. Select the following link to sign in to Azure and open a template.
-<!-- TODO: check link
-    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json)
- -->
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-slice%2Fazuredeploy.json)
+ 
+
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **Slice name:** enter the name of the network slice.
     - **Slice Service Type:** enter the slice/service type (SST) value. If the slice will be used by 4G UEs, enter a value of 1.
     - **Slice Differentiator:** enter the slice differentiator (SD) value. If the slice will be used by 4G UEs, leave this field blank.
 
-2. Select **Review + create**.
-3. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+3. Select **Review + create**.
+4. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-4. Once your configuration has been validated, you can select **Create** to create the slice. The Azure portal will display a confirmation screen when the slice has been created.
+5. Once your configuration has been validated, you can select **Create** to create the slice. The Azure portal will display a confirmation screen when the slice has been created.
 
 ## Review deployed resources
 
