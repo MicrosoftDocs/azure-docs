@@ -70,49 +70,49 @@ We recommend that readers familiarize themselves with these design areas, review
 |Security| **cluster and workloads**: Implement Security controls and Optimize log collection for Monitoring & SIEM.|
 
 
-## For Product Teams: Sustainability Checklist for AKS workloads
+## Sustainability checklist for AKS workloads
 
 The following checklist provides recommendations for designing sustainable workloads, hosted on AKS. 
 
 > [!IMPORTANT]
-> As your workload End2End architecture would typically include several Azure services (or 3rd party integration), your workload design considerations should refer to [Sustainability Design areas](#key-sustainability-design-areas), for a more comprehensive approach.
+> As your complete architecture would typically include several Azure services or even 3rd party integrations, your workload design considerations should refer to [Sustainability Design areas](#key-sustainability-design-areas), for a comprehensive approach.
 
-**Optimize code for efficient resource usage** _to optimize workloads at the software level_
+**Optimize code for efficient resource usage** _to optimize workloads at the software level_.
 
  :heavy_check_mark: Reduce CPU cycles and the number of resources you need for your application.
  
  :heavy_check_mark: Profile and monitor software performance.
 
 
-**Containerize workloads where applicable** _to reduce unnecessary resource allocation and to utilize the deployed resources better._
+**Containerize workloads where applicable** _to reduce unnecessary resource allocation and to utilize the deployed resources better_.
 
  :heavy_check_mark:  Use [Draft](/azure/aks/draft) to simplify containzerizing an application by generating its Dockerfiles and Kubernetes manifests.
 
 
-**Evaluate moving monoliths to a microservice architecture** _to allow independent scaling of their logical components_
+**Evaluate moving monoliths to a microservice architecture** _to allow independent scaling of their logical components_.
 
 :heavy_check_mark: Build Microservices Applications using [Dapr](https://dapr.io/) 
 
 :heavy_check_mark: Build [CNCF Projects on AKS](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)
 
 
-**Design for Event Driven scaling** _to scale workloads based on relevent business metrics (HTTP requests, queue length, Cloud Event, etc.)_
+**Design for Event Driven scaling** _to scale workloads based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.)_.
 
-:heavy_check_mark:Use [Keda](https://keda.sh/) to build event driven applications, that could scale to zero when there is no demand
-
-
-**Maximize Node resource utilization** _to maximize its underying hardware utilization_
-
-:heavy_check_mark: Define workloads [resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits)
-
-:heavy_check_mark: Use [Vertical Pod Auto-scaler](/azure/aks/vertical-pod-autoscaler) to automatically set resource requests and limits on containers per workload based on past usage
-
-:heavy_check_mark: Use AKS [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
+:heavy_check_mark: Use [Keda](https://keda.sh/) to build event driven applications, that could scale to zero when there is no demand.
 
 
-**Aim for Stateless Design** _to reduce the in-memory or on-disk data required by the workload to function_
+**Maximize node resource utilization** _to use more of its underlying hardware_.
 
-:heavy_check_mark: (When possible), Aim for [Stateless Design](/azure/aks/operator-best-practices-multi-region#remove-service-state-from-inside-containers)
+:heavy_check_mark: Define strict workloads [resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
+
+:heavy_check_mark: Use [Vertical Pod Auto-scaler](/azure/aks/vertical-pod-autoscaler) to automatically set resource requests and limits on containers per workload based on past usage.
+
+:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods) on nodes.
+
+
+**Aim for Stateless Design** _to reduce the in-memory or on-disk data required by the workload to function_.
+
+:heavy_check_mark: When possible, aim for [stateless design](/azure/aks/operator-best-practices-multi-region#remove-service-state-from-inside-containers).
 
 **Choose The appropriate storage type** _to adjust to your workloads' performance needs and access patterns_.
 
