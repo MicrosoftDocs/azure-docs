@@ -19,7 +19,7 @@ This best practices article focuses on how to deploy the `Minesweeper` with [Qua
 - Deploy the Quarkus App to Azure Kubernetes Service (AKS)
 - Secure Database credential to Kubernetes Secrets
 
-![Screenshot](./media/aks-demo-arch.png)
+![Screenshot](./media/aks-quarkus/aks-demo-arch.png)
 
 ## Technologies include:
 
@@ -70,11 +70,11 @@ Press [r] to resume testing, [o] Toggle test output, [:] for the terminal, [h] f
 Press `w` key on the terminal where Quarkus dev mode is running. Then, it will automatically open a web browser or tab window to show the **Microsweeper** application. 
 _Note_ that you can also access the application GUI at http://localhost:8080 directly
 
-![Screenshot](docs/microsweeper-local.png)
+![Screenshot](./media/aks-quarkus/microsweeper-local.png)
 
 Try playing the mine game! Then you will *scores* in the _Leaderboard_:
 
-![Screenshot](docs/leaderboard-local.png)
+![Screenshot](./media/aks-quarkus/leaderboard-local.png)
 
 Access the RESTful API (_/api/score_) to get all scores that store in the local PostgreSQL database. Run the following API testing client [HTTPie](https://httpie.io/) command-line tool: 
 
@@ -135,7 +135,7 @@ Note that be sure to key the following value in the setting:
 * Admin username - `quarkus`
 * Password - `r3dh4t1!`
 
-![Screenshot](docs/create-single-server.png)
+![Screenshot](./media/aks-quarkus/create-single-server.png)
 
 ### 2.2 Create a **score** database in PostgreSQL
 
@@ -163,7 +163,7 @@ az postgres db create \
 
 Go to `All resources` in Azure portal. Then, click on `Kubernetes service` resource (e.g. _MyAKSCluster_).
 
-![Screenshot](docs/aks-dashboard.png)
+![Screenshot](./media/aks-quarkus/aks-dashboard.png)
 
 The overview page shows up with all the detailed information about the Kubernetes service such as _Resource group_, _Kubernetes version_, _API server address_, and more.
 
@@ -360,7 +360,7 @@ microsweeper-quarkus-aks   LoadBalancer   10.0.62.249   20.237.19.191   80:30259
 
 Open a new web browser to typy the `EXTERNAL-IP` (e.g. _20.237.19.191_) in. Then, give it try to play the mine game a few time:
 
-![Screenshot](docs/microsweeper-aks.png)
+![Screenshot](./media/aks-quarkus/microsweeper-aks.png)
 
 Access the RESTful API (_/api/score_) to get all scores that store in the **Azure PostgreSQL database**. You need to replace with your own `ROUTE` url: 
 
@@ -415,7 +415,7 @@ content-length: 349
 
 Open Azure Cloud Shell in the Azure portal by selecting the icon on the upper-left side:
 
-![Screenshot](docs/azure-cli.png)
+![Screenshot](./media/aks-quarkus/azure-cli.png)
 
 Run the following command in the Azure Cloud Shell terminal. Replace values with `your server name` and admin user login name:
 
@@ -431,7 +431,7 @@ select * from score;
 
 The output should be the **same** as the above _Leaderboard_ GUI:
 
-![Screenshot](docs/azure-cli-psql.png)
+![Screenshot](./media/aks-quarkus/azure-cli-psql.png)
 
 **Great job!** You've successfully deployed the Quarkus app to AKS with connecting to Azure PostgreSQL server.
 
@@ -555,7 +555,7 @@ deployment.apps/microsweeper-quarkus-aks patched
 
 Let's go back to the Microsweeper GUI. Then, you will see the same scores in the Leaderboard as the above scores because the Azure PostgreSQL database is running on Azure cloud. Besides, the Quarkus application retrieves the database credential from *Kubernetes Secret* rather than the local file system:
 
-![Screenshot](docs/microsweeper-aks-secret.png)
+![Screenshot](./media/aks-quarkus/microsweeper-aks-secret.png)
 
 > **_NOTE:_** If you have a permission error to access the Kubernetes Secret by the Quarkus application with the following error:
 >
