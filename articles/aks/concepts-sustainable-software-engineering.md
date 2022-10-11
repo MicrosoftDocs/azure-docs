@@ -34,19 +34,19 @@ Making workloads more [sustainable and cloud efficient](/azure/architecture/fram
 
 
 ## Sustainability design principles
- **Carbon Efficiency**: Emit the least amount of carbon possible.
+ **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
 
 &nbsp;&nbsp;&nbsp; A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
 
- **Energy Efficiency**: Use the least amount of energy possible.
+ **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
 &nbsp;&nbsp;&nbsp; One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency.
 
- **Carbon Awareness**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
+ **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
  &nbsp;&nbsp;&nbsp; Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
 
- **Hardware Efficiency**: Use the least amount of embodied carbon possible. 
+ **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
 
 &nbsp;&nbsp;&nbsp; There are two main approaches to hardware efficiency:
  - For end-user devices, it's extending the lifespan of the hardware.
