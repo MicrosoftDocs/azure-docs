@@ -43,7 +43,7 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## October 2022
 
-### Manage access with the Video Indexer Restricted Viewer built-in role
+### A new built-in role: Video Indexer Restricted Viewer
 
 The limited access **Video Indexer Restricted Viewer** role is intended for the [Azure Video Indexer website](https://www.videoindexer.ai/) users. The role's permitted actions relate to the [Azure Video Indexer website](https://www.videoindexer.ai/) experience. 
 
