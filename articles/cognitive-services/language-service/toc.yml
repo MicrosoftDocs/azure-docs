@@ -106,6 +106,8 @@ items:
       href: custom-text-classification/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-text-classification/fail-over.md
+    - name: Deploy to multiple regions
+      href: concepts/custom-features/multi-region-deployment.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -113,6 +115,8 @@ items:
     - name: Accepted data formats
       href: custom-text-classification/concepts/data-formats.md
       displayName: Data representation
+    - name: Project versioning
+      href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
@@ -206,6 +210,10 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Accepted data formats
         href: custom-named-entity-recognition/concepts/data-formats.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
   - name: Reference
     items:
     - name: Glossary
@@ -276,6 +284,8 @@ items:
         href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
   - name: Tutorials
     items:
       - name: Use Bot Framework
@@ -657,6 +667,12 @@ items:
         href: orchestration-workflow/concepts/none-intent.md
       - name: Data formats
         href: orchestration-workflow/concepts/data-formats.md
+      - name: Deploy to multiple regions
+        href: concepts/custom-features/multi-region-deployment.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
+      - name: Project versioning
+        href: concepts/custom-features/project-versioning.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering

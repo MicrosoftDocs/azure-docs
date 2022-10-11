@@ -75,6 +75,34 @@ This can be used to swap your `production` and `staging` deployments when you wa
 
 ---
 
+## Assign deployment resources
+
+You can deploy your project to multiple regions by assigning different Language resources that exist in different regions. You can learn more about multi-region deployment [here](../concepts/multi-region-deployment.md).
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Assign resource](../includes/language-studio/assign-resources.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Assign resource](../includes/rest-api/assign-resources.md)]
+
+---
+
+## Unassign deployment resources
+
+When unassigning or removing a deployment resource from a project, you will also delete all the deployments that have been deployed to that resource's region.
+
+# [Language Studio](#tab/language-studio)
+
+[!INCLUDE [Unassign resource](../includes/language-studio/unassign-resources.md)]
+
+# [REST APIs](#tab/rest-api)
+
+[!INCLUDE [Unassign resource](../includes/rest-api/unassign-resources.md)]
+
+---
+
 ## Next steps
 
 * Use [prediction API to query your model](call-api.md)

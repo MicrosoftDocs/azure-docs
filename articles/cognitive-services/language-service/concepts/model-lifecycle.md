@@ -54,7 +54,7 @@ Use the table below to find which model versions are supported by each feature:
 | Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01*` | `2019-10-01`, `2020-04-01`                       |
 | Language Detection                                  | `2021-11-20*`               | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05`                       |
 | Entity Linking                                      | `2021-06-01*`               | `2019-10-01`, `2020-02-01`                       |
-| Named Entity Recognition (NER)                      | `2021-06-01*`               | `2019-10-01`, `2020-02-01`, `2020-04-01`, `2021-01-15`                       |
+| Named Entity Recognition (NER)                      | `2021-06-01*`, `2022-10-01-preview`               | `2019-10-01`, `2020-02-01`, `2020-04-01`, `2021-01-15`                       |
 | Personally Identifiable Information (PII) detection | `2020-07-01`, `2021-01-15*` | `2019-10-01`, `2020-02-01`, `2020-04-01`, `2020-07-01`                       |
 | PII detection for conversations (Preview)           | `2022-05-15-preview**`      |    |
 | Question answering                                  | `2021-10-01*`               |                        |
@@ -76,9 +76,9 @@ Use the table below to find which model versions are supported by each feature:
 
 As new training configs and new functionality become available; older and less accurate configs are retired, see the following timelines for configs expiration:
 
-New configs are being released every few months. So, training configs expiration of any publicly available config is **six months** after its release. If you have assigned a trained model to a deployment, this deployment expires after **twelve months** from the training config expiration.
+New configs are being released every few months. So, training configs expiration of any publicly available config is **six months** after its release. If you have assigned a trained model to a deployment, this deployment expires after **twelve months** from the training config expiration. In the event of models about to expire, simply re-train and re-deploy your models with the latest training configuration version.
 
-After training config version expires, API calls will return an error when called or used if called with an expired config version. By default, training requests will use the latest available training config version. To change the config version, use `trainingConfigVersion` when submitting a training job and assign the version you want.
+After training config version expires, API calls will return an error when called or used if called with an expired config version. By default, training requests will use the latest available training config version. To change the config version, use `trainingConfigVersion` when submitting a training job and assign the version you want. 
 
 > [!Tip]
 > It's recommended to use the latest supported config version
@@ -91,9 +91,10 @@ Use the table below to find which model versions are supported by each feature:
 
 | Feature                                     | Supported Training config versions         | Training config expiration         | Deployment expiration  |
 |---------------------------------------------|--------------------------------------------|------------------------------------|------------------------|
-| Custom text classification                  | `2022-05-01`                               | `10/28/2022`                       | `10/28/2023`           |
+| Custom text classification                  | `2022-05-01`                               | `04/10/2023`                       | `04/28/2024`           |
 | Conversational language understanding       | `2022-05-01`                               | `10/28/2022`                       | `10/28/2023`           |
-| Custom named entity recognition                                  | `2022-05-01`                               | `10/28/2022`                       | `10/28/2023`           |
+| Conversational language understanding       | `2022-09-01`                               | `04/10/2023`                       | `04/28/2024`           |
+| Custom named entity recognition             | `2022-05-01`                               | `04/10/2023`                       | `04/28/2024`           |
 | Orchestration workflow                      | `2022-05-01`                               | `10/28/2022`                       | `10/28/2023`           |
 
 
@@ -107,11 +108,10 @@ Use the table below to find which API versions are supported by each feature:
 
 | Feature                                             | Supported versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
-| Custom text classification                  | `2022-05-01`                            |      `2022-05-01`            |            |
-| Conversational language understanding       | `2022-05-01`                           |      `2022-05-01`            |             |
-| Custom named entity recognition             | `2022-05-01`                          |      `2022-05-01`            |              |
-| Orchestration workflow                      | `2022-05-01`                            |      `2022-05-01`            |           |
-
+| Custom text classification                  | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
+| Conversational language understanding       | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
+| Custom named entity recognition             | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
+| Orchestration workflow                      | `2022-05-01`, `2022-10-01-preview`                                        |      `2022-05-01`            |            |
 
 ## Next steps
 
