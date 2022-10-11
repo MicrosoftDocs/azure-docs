@@ -30,29 +30,29 @@ items:
   items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md 
-- name: How-to
+- name: How-to guides
   expanded: true
   items: 
-    - name: Use Device mappings
+    - name: Mappings
       expanded: false
       items:
       - name: Device mappings
         href: how-to-use-device-mappings.md
       - name: JsonPathContentTemplate mappings
         href: how-to-use-jsonpath-content-mappings.md
-      - name: Calculated Functions mappings
+      - name: Calculated Functions
         href: how-to-use-calculated-functions-mappings.md
       - name: CollectionContentTemplate mappings
         href: how-to-use-collection-content-mappings.md
+      - name: Custom Functions mappings
+        href: how-to-use-custom-functions.md
       - name: IotJsonPathContentTemplate mappings
         href: how-to-use-iot-jsonpath-content-mappings.md
       - name: IotCentralJsonContentTemplate mappings
         href: how-to-use-iot-central-json-content-mappings.md
-    - name: Use Custom Functions
-      href: how-to-use-custom-functions.md  
-    - name: Use FHIR destination mappings
-      href: how-to-use-fhir-mappings.md
-    - name: Use metrics and diagnostic settings
+      - name: Destination mappings
+        href: how-to-use-fhir-mappings.md
+    - name: Monitoring
       expanded: false
       items:
         - name: Monitoring tab metrics
@@ -68,7 +68,7 @@ items:
       items:
         - name: Errors and conditions
           href: iot-troubleshoot-error-messages-and-conditions.md
-        - name: Device and FHIR destination mappings
+        - name: Device and destination mappings
           href: iot-troubleshoot-mappings.md
 - name: Concepts
   expanded: false
