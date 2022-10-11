@@ -550,7 +550,7 @@ Now that you've set up the code, you need to test it:
    npm start
    ```
 
-1. In the browser, enter `http://localhost:3000` (or `http://localhost:<port>` if you chose a custom port). You should see the contents of the *index.html* file and a **Sign In** button on the upper right of the screen.
+1. In the browser, enter `http://localhost:3000`. You should see the contents of the *index.html* file and a **Sign In** button on the upper right of the screen.
 
 > [!IMPORTANT]
 > Be sure to enable pop-ups and redirects for your site in your browser settings.
