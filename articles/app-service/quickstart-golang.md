@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/13/2022
 ms.devlang: golang
 ms.author: msangapu
-author: msangapu-msft
+author: msangapu-msft; tulikac
 ---
 
 # Deploy a Go web app to Azure App Service
