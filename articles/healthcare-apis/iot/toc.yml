@@ -12,7 +12,7 @@ items:
   - name: Get started with MedTech service
     href: get-started-with-iot.md
   - name: Deploy the MedTech service
-    expanded: false
+    expanded: true
     items:
     - name: Deployment methods   
       expanded: true
@@ -40,7 +40,7 @@ items:
         href: how-to-use-device-mappings.md
       - name: JsonPathContentTemplate mappings
         href: how-to-use-jsonpath-content-mappings.md
-      - name: Calculated Functions
+      - name: Calculated Functions mappings
         href: how-to-use-calculated-functions-mappings.md
       - name: CollectionContentTemplate mappings
         href: how-to-use-collection-content-mappings.md
@@ -52,6 +52,8 @@ items:
         href: how-to-use-iot-central-json-content-mappings.md
       - name: Destination mappings
         href: how-to-use-fhir-mappings.md
+      - name: Create copies of mappings
+        href: how-to-create-mappings-copies.md
     - name: Monitoring
       expanded: false
       items:
@@ -61,8 +63,6 @@ items:
           href: how-to-configure-metrics.md
         - name: Enable diagnostic settings
           href: how-to-enable-diagnostic-settings.md
-    - name: Create copies of mappings
-      href: how-to-create-mappings-copies.md
     - name: Troubleshoot and problem solve
       expanded: false
       items:
