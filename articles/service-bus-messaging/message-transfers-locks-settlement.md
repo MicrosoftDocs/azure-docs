@@ -21,7 +21,7 @@ Using any of the supported Service Bus API clients, send operations into Service
 
 If the message is rejected by Service Bus, the rejection contains an error indicator and text with a **tracking-id** in it. The rejection also includes information about whether the operation can be retried with any expectation of success. In the client, this information is turned into an exception and raised to the caller of the send operation. If the message has been accepted, the operation silently completes.
 
-When you use the AMQP protocol, which is the exclusive protocol for the .NET Standard, Java, JavaScript, Python, and Go clients, and [an option for the .NET Framework client](service-bus-amqp-dotnet.md), message transfers and settlements are pipelined and asynchronous. We recommend that you use the asynchronous programming model API variants.
+When you use the AMQP protocol, the default protocol for .NET Standard, Java, JavaScript, Python, and Go clients, and [an option for the .NET Framework client](service-bus-amqp-dotnet.md), message transfers and settlements are pipelined and asynchronous. We recommend that you use the asynchronous programming model API variants.
 
 A sender can put several messages on the wire in rapid succession without having to wait for each message to be acknowledged, as would otherwise be the case with the SBMP protocol or with HTTP 1.1. Those asynchronous send operations complete as the respective messages are accepted and stored, on partitioned entities or when send operation to different entities overlap. The completions might also occur out of the original send order.
 

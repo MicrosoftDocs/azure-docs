@@ -9,7 +9,7 @@ ms.date: 06/03/2022
 ms.author: kesheth
 ---
 
-# How to export FHIR data in Azure API for FHIR
+# Export FHIR data in Azure API for FHIR
 
 The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
@@ -128,7 +128,7 @@ Azure API for FHIR is provisioned.
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure ACR firewall](../../healthcare-apis/fhir/convert-data.md#configure-acr-firewall).
+> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure the ACR firewall](../../healthcare-apis/fhir/convert-data.md#step-6-optional-configure-the-azure-container-registry-firewall-for-secure-access).
 
 ### Allowing specific IP addresses for the Azure storage account in the same region
 

@@ -33,7 +33,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 * Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub can't overlap with any of your existing virtual networks that you connect to. It also can't overlap with your address ranges that you connect to on-premises. If you're unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
-* The ExpressRoute circuit must be a Premium or Standard circuit in order to connect to the hub gateway.
+* The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -87,15 +87,16 @@ In this section, you create the peering connection between your hub and a VNet. 
     * **Connection name** - Name your connection.
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway (neither VPN, nor ExpressRoute).
+    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway (neither VPN nor ExpressRoute).
 
 ## <a name="connectcircuit"></a>Connect your circuit to the hub gateway
 
 Once the gateway is created, you can connect an [ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) to it.
 
-* ExpressRoute Standard or Premium circuits that are in ExpressRoute Global Reach-supported locations can connect to a Virtual WAN ExpressRoute gateway and enjoy all Virtual WAN transit capabilities (VPN-to-VPN, VPN, and ExpressRoute transit).
+* ExpressRoute Standard or Premium circuits that are in ExpressRoute Global Reach-supported locations can connect to a Virtual WAN ExpressRoute gateway and enjoy all Virtual WAN transit capabilities (VPN-to-VPN, VPN-to-ExpressRoute, and ExpressRoute-to-ExpressRoute transit).
 
 * ExpressRoute Standard and Premium circuits that are in non-Global Reach locations can connect to Azure resources, but won't be able to use Virtual WAN transit capabilities. ExpressRoute Local is also supported with Azure Virtual WAN virtual hubs.
+
 
 ### To connect the circuit to the hub gateway
 

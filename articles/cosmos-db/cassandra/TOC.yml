@@ -37,6 +37,8 @@
     - name: 4 - Migrate data
       displayName: import
       href: migrate-data.md
+    - name: Create Jupyter notebooks
+      href: ../sql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -248,6 +250,12 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
+    - name: Jupyter notebooks
+      items:
+        - name: Overview
+          href: ../notebooks-overview.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Develop applications

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: laurenhughes
   ms.author: lahugh
-  ms.date: 07/21/2020
+  ms.date: 10/03/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -26,6 +26,10 @@ landingContent:
             url: intro-kubernetes.md
       - linkListType: whats-new
         links:
+          - text: Vertical Pod Autoscaler (preview)
+            url: vertical-pod-autoscaler.md
+          - text: Workload identity (preview)
+            url: workload-identity-overview.md
           - text: Use CVM (Preview)
             url: use-cvm.md
           - text: AKS GitHub Actions
@@ -40,10 +44,6 @@ landingContent:
             url: cluster-configuration.md#default-os-disk-sizing
           - text: Calico for Windows Server containers (GA)
             url: use-network-policies.md#create-an-aks-cluster-for-calico-network-policies
-          - text: API Server VNet integration (preview)
-            url: api-server-vnet-integration.md
-          - text: GitHub Actions for AKS
-            url: integrations.md#github-actions
       - linkListType: concept
         links:
           - text: Kubernetes core concepts for AKS

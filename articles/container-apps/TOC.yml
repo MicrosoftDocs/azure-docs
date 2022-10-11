@@ -17,21 +17,24 @@
         items:
         - name: Azure portal
           href: quickstart-portal.md
-        - name: Azure CLI
+        - name: Command line
           href: get-started.md
-      - name: With a custom container image
+      - name: With an existing container image
         expanded: true
         items:
         - name: Azure portal
           href: get-started-existing-container-image-portal.md
-        - name: Azure CLI
+        - name: Command line
           href: get-started-existing-container-image.md
+      - name: With code on your local machine
+        expanded: true
+        items:
+        - name: Command line
+          href: quickstart-code-to-cloud.md
         - name: Visual Studio
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
-      - name: With code on your local machine
-        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
@@ -88,7 +91,7 @@
       href: monitor.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: Set up HTTPS ingress
+    - name: Set up HTTPS or TCP ingress
       href: ingress.md
     - name: Set up custom domains and certificates
       href: custom-domains-certificates.md

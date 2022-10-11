@@ -1,15 +1,17 @@
 ---
 title: Azure Percept DK and Vision device overview
 description: Learn more about the Azure Percept DK and Azure Percept Vision
-author: nkhuyent
+author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 10/04/2022
 ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Azure Percept DK and Vision device overview
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Percept DK is an edge AI development kit designed for developing vision and audio AI solutions with [Azure Percept Studio](./overview-azure-percept-studio.md). Azure Percept DK is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 

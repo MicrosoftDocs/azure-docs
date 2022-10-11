@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/15/2017
+ms.date: 08/01/2022
 ---
 
 # Create logic app workflows from prebuilt templates

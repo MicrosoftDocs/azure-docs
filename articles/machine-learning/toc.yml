@@ -57,9 +57,14 @@
       - name: "Pipelines"
         displayName: migration, v1, v2
         href: migrate-to-v2-execution-pipeline.md  
-    - name: "Upgrade endpoints"
-      displayName: migration, v1, v2
-      href: migrate-to-v2-deploy-endpoints.md  
+    - name: Upgrade endpoints
+      items:
+      - name: "Online endpoints"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-deploy-endpoints.md
+      - name: "Upgrade from ACI web services to managed online endpoints"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-managed-online-endpoints.md 
 - name: Quickstart
   expanded: true
   items: 
@@ -114,7 +119,7 @@
       displayName: example, examples, studio, pipelines, data sets, modules, components
       href: samples-designer.md
     - name: End-to-end MLOps examples
-      href: https://github.com/microsoft/MLOps
+      href: https://github.com/Azure/mlops-v2
 - name: Concepts
   items: 
     - name: What is v2?
@@ -277,13 +282,6 @@
           href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
-    - name: Data protection
-      items: 
-        - name: Failover & disaster recovery
-          displayName: high availability
-          href: how-to-high-availability-machine-learning.md
-        - name: Regenerate storage access keys
-          href: how-to-change-storage-access-key.md
     - name: Create & manage workspaces
       items:
         - name: Use Azure portal or Python SDK
@@ -299,8 +297,6 @@
           href: how-to-manage-rest.md
         - name: How to move a workspace
           href: how-to-move-workspace.md
-        - name: Link to Azure Synapse Analytics workspace
-          href: how-to-link-synapse-ml-workspaces.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
           href: how-to-private-endpoint-integration-synapse.md
         - name: Workspace Diagnostics
@@ -333,7 +329,7 @@
           displayName: compute target, instance types, AKS, Arc Kubernetes
           href: how-to-manage-kubernetes-instance-types.md
         - name: Manage AzureML inference router
-          displayNmae: AKS, Arc Kubernetes, inference, compute target
+          displayName: AKS, Arc Kubernetes, inference, compute target
           href: how-to-kubernetes-inference-routing-azureml-fe.md
         - name: Secure inferencing environment
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
@@ -375,19 +371,13 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
-        - name: Set up software environments
-          displayName: pip, Conda, anaconda
-          href: how-to-use-environments.md
-        - name: Set input & output directories
-          displayName: large data, write, experiment files, size limit
-          href: how-to-save-write-experiment-files.md
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
         - name: Connect to compute instance VS Code
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-set-up-vs-code-remote.md
-        - name: Manage environments with the CLI (v2)
+        - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
         - name: How to troubleshoot environments
@@ -438,12 +428,6 @@
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
             href: how-to-train-tensorflow.md
-          - name: Keras
-            href: how-to-train-keras.md
-          - name: PyTorch
-            href: how-to-train-pytorch.md
-          - name: Train with custom Docker image
-            href: how-to-train-with-custom-image.md
           - name: Use Key Vault when training
             displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
@@ -488,9 +472,6 @@
             - name: Use automated ML with Databricks
               displayName: automl
               href: how-to-configure-databricks-automl-environment.md
-            - name: Auto-train a forecast model
-              displayName: time series
-              href: how-to-auto-train-forecast.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -503,23 +484,13 @@
             - name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
-            - name: Data splits & cross-validation (Python)
-              displayName: automl, feature engineering, feature importance
-              href: how-to-configure-cross-validation-data-splits.md
-            - name: Featurization in automated ML (Python)
-              displayName: automl, feature engineering, feature importance, BERT
-              href: how-to-configure-auto-features.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
-            - name: Generate AutoML training code
-              href: how-to-generate-automl-training-code.md
             - name: Use ONNX model in .NET application
               href: how-to-use-automl-onnx-model-dotnet.md
             - name: Inference image models with ONNX model
               displayName: automl, image, image model, computer vision
               href: how-to-inference-onnx-automl-image-models.md
-            - name: Troubleshoot automated ML
-              href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
       items: 
         - name: Online endpoints (real-time)
@@ -628,9 +599,7 @@
               href: how-to-use-parallel-job-in-pipeline.md  
             - name: Designer (drag-n-drop)
               items: 
-                - name: Log metrics
-                  displayName: designer, logging
-                  href: how-to-track-designer-experiments.md
+
                 - name: Transform data
                   displayName: pipeline
                   href: how-to-designer-transform-data.md
@@ -675,9 +644,6 @@
   items: 
     - name: Troubleshoot secure workspace connectivity
       href: how-to-troubleshoot-secure-connection-workspace.md
-    - name: VS Code interactive debugging
-      displayName: vscode,remote,debug,pipelines,deployments,ssh
-      href: how-to-debug-visual-studio-code.md
     - name: Troubleshoot SerializationError
       href: how-to-troubleshoot-serialization-error.md
     - name: Troubleshoot descriptor error
@@ -793,6 +759,8 @@
     - name: CLI (v2) release notes
       displayName: what's, new, issues, bugs
       href: azure-machine-learning-release-notes-cli-v2.md
+    - name: Compute instance image release notes
+      href: azure-machine-learning-ci-image-release-notes.md
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
@@ -813,9 +781,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
-    - name: What happened to Workbench
-      displayName: desktop, ui, Workbench, upgrade, update, transfer
-      href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
       href: designer-accessibility.md
