@@ -18,27 +18,17 @@ Device twin tags can be used as a powerful tool to help you organize your device
 ```json
 {
     "deviceId": "mydevice1",
-    "etag": "AAAAAAAAAAw=",
-    "deviceEtag": "ODIxNTY5ODUz",
     "status": "enabled",
-    "statusUpdateTime": "0001-01-01T00:00:00Z",
     "connectionState": "Connected",
-    "lastActivityTime": "0001-01-01T00:00:00Z",
     "cloudToDeviceMessageCount": 0,
     "authenticationType": "sas",
-    "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-    },
-    "modelId": "",
-    "version": 13,
     "tags": {
         "deploymentLocation": {
             "building": "43",
             "floor": "1"
         },
 		"deviceType":"HDCamera"
-    },
+    },**
     "properties": {
      ...
     }
@@ -86,6 +76,12 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-add-nested-tag.png)
 3. Select the devices again and click **Assign Tags** to view the newly added tags
     ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-view-nested-tag.png)
+
+## Filtering devices with device twin tags
+Device twin tags is a great way to group devices by type, location etc, and you can manage your devices by filtering through device tags. 
+1. Click **+ Add filter**, and select **Device Tag** as the filter type
+2. Enter the desired tag name and value, click **Apply* to retrieve the list of devices that matches the criteria 
+   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-filter.png" alt-text="Filter devices with tags":::
    
 ## Update and delete device twin tags from multiple devices using Azure Portal
 1. Select the two or more devices, click **Assign Tags**.
