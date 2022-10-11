@@ -142,7 +142,7 @@ To request syllable-level results along with phonemes, set the granularity [conf
 
 ## Phoneme alphabet format
 
-The phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. The phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format is available for the `en-US` and `en-GB` locales, and the phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format is only available for the `en-US` locale. For other locales, you can only get the phoneme score. 
+For some locales, the phoneme name is provided together with the score, to help identify which phonemes were pronounced accurately or inaccurately. The phoneme name in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) format is available for the `en-GB` and `en-US` locales. The phoneme name in [IPA](https://en.wikipedia.org/wiki/IPA) format is only available for the `en-US` locale. For other locales, you can only get the phoneme score. 
 
 The following table compares example SAPI phonemes with the corresponding IPA phonemes.
 
