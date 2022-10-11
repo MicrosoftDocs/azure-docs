@@ -55,12 +55,12 @@ An Event Hubs namespace provides a unique scoping container, in which you create
       
         :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub1.png" alt-text="Screenshot of the Create Namespace page in the Azure portal.":::
    1. On the **Review + Create** page, review the settings, and select **Create**. Wait for the deployment to complete.       
-   1. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
+1. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
       
-        :::image type="content" source="./media/event-hubs-quickstart-portal/deployment-complete.png" alt-text="Screenshot of the Deployment complete page with the link to resource.":::
-   1. Confirm that you see the **Event Hubs Namespace** page similar to the following example:   
+      :::image type="content" source="./media/event-hubs-quickstart-portal/deployment-complete.png" alt-text="Screenshot of the Deployment complete page with the link to resource.":::
+1. Confirm that you see the **Event Hubs Namespace** page similar to the following example:   
 
-        :::image type="content" source="./media/event-hubs-quickstart-portal/namespace-home-page.png" alt-text="Screenshot of the home page for your Event Hubs namespace in the Azure portal.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/namespace-home-page.png" lightbox="./media/event-hubs-quickstart-portal/namespace-home-page.png" alt-text="Screenshot of the home page for your Event Hubs namespace in the Azure portal.":::
 
       > [!NOTE]
       > Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later. For more information, see [Use Event Hubs from Apache Kafka applications](event-hubs-for-kafka-ecosystem-overview.md).
@@ -69,10 +69,9 @@ An Event Hubs namespace provides a unique scoping container, in which you create
 
 To create an event hub within the namespace, do the following actions:
 
-1. On the Event Hubs Namespace page, select **Event Hubs** in the left menu.
-1. At the top of the window, select **+ Event hub**.
+1. On the **Overview** page, select **+ Event hub** on the command bar. 
    
-      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" lightbox="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
 1. Type a name for your event hub, then select **Review + create**.
    
       :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event bub page.":::
@@ -83,7 +82,7 @@ To create an event hub within the namespace, do the following actions:
 1. On the **Review + create** page, select **Create**. 
 1. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs.
 
-      :::image type="content" source="./media/event-hubs-quickstart-portal/event-hub-created.png" alt-text="Screenshot showing the list of event hubs.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/event-hub-created.png" lightbox="./media/event-hubs-quickstart-portal/event-hub-created.png" alt-text="Screenshot showing the list of event hubs.":::
     
 ## Next steps
 
