@@ -74,20 +74,20 @@ Mention that there are separate rates for high priority reads and data retrieval
 
 We will use this data for our scenarios. Disclaimer and pointer to the pricing page for actual data.
 
-| Cost factor | Value |
-|---|--|
-| Cost of write transactions (per 10,000)| $0.10 |
-| Cost of a single write operation ($.10 / 10,000)| $0.00001 |
-| Data prices (pay-as-you-go)| $0.00099 |
-| Cost of read transactions (per 10,000) | $5.00 |
-| Cost of a single read operation ($5.00 / 10,000) | $0.0005 |
-| Cost of high priority read transactions (per 10,000) | $50.00 |
-| Cost of data retrieval (per GB) | $0.02 |
-| Cost of high priority data retrieval (per GB) | $0.10 |\
-| Total file size (GB)| 102,400 |
-| Total file count | 2,000,000 |
-| Reads per month | 1 |
-| Percentage of storage read | 1% |
+| Cost factor                                          | Value     |
+|------------------------------------------------------|-----------|
+| Cost of write transactions (per 10,000)              | $0.10     |
+| Cost of a single write operation ($.10 / 10,000)     | $0.00001  |
+| Data prices (pay-as-you-go)                          | $0.00099  |
+| Cost of read transactions (per 10,000)               | $5.00     |
+| Cost of a single read operation ($5.00 / 10,000)     | $0.0005   |
+| Cost of high priority read transactions (per 10,000) | $50.00    |
+| Cost of data retrieval (per GB)                      | $0.02     |
+| Cost of high priority data retrieval (per GB)        | $0.10     |
+| Total file size (GB)                                 | 102,400   |
+| Total file count                                     | 2,000,000 |
+| Reads per month                                      | 1         |
+| Percentage of storage read                           | 1%        |
 
 ### One-time on-prem data backup to Archive 
 
