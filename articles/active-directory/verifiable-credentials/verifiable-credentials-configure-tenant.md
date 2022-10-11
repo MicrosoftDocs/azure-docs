@@ -104,7 +104,7 @@ To set up Verified ID, follow these steps:
 
 1. Select **Save and get started**.  
 
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshots that shows how to set up Verifiable Credentials.":::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png" alt-text="Screenshot that shows how to set up Verifiable Credentials.":::
 
 ## Register an application in Azure AD
 
