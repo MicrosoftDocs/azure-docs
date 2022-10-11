@@ -97,7 +97,7 @@ Use API Management policies to ensure that your API Management instance accepts 
 
 ### Restrict incoming IP addresses
 
-You can configure an inbound [ip-filter](/api-management-access-restriction-policies.md#CheckHTTPHeader) policy in API Management to allow only Front Door-related traffic, which includes:
+You can configure an inbound [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) policy in API Management to allow only Front Door-related traffic, which includes:
 
 * **Front Door's backend IP address space** - Allow IP addresses corresponding to the *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
 
