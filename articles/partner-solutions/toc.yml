@@ -1,9 +1,9 @@
 items:
 - name: Azure partner solutions documentation
   items:
-  - name: Overview of partner solutions
+  - name: Overview of Native ISV Services
     href: overview.md
-  - name: Partners
+  - name: Partners offerings
     href: partners.md
 - name: Partner solutions
   expanded: true

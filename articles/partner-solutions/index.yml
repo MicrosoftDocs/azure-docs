@@ -54,7 +54,7 @@ productDirectory:
     - title: Confluent
       imageSrc: ./media/index/confluent.svg
       links:
-        - url: /apache-kafka-confluent-cloud/overview.md
+        - url: ./apache-kafka-confluent-cloud/overview.md
           text: Deploy a full managed, cloud-native Apache Kafka service.
   # Card 6
     - title: NGINX
