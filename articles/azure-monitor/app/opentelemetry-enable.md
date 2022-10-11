@@ -1092,7 +1092,29 @@ To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerin
 
 #### [.NET](#tab/net)
 
-Placeholder
+By default, the AzureMonitorExporter will use one of the following locations for local storage (listed in order of precedence):
+
+- Windows
+  - %LOCALAPPDATA%\Microsoft\AzureMonitor
+  - %TEMP%\Microsoft\AzureMonitor
+- Non-Windows
+  - %TMPDIR%/Microsoft/AzureMonitor
+  - /var/tmp/Microsoft/AzureMonitor
+  - /tmp/Microsoft/AzureMonitor
+
+To override the default directory you should set `AzureMonitorExporterOptions.StorageDirectory`.
+
+For example:
+```csharp
+this.tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddAzureMonitorTraceExporter(o => {
+        o.ConnectionString = "<Your Connection String>";
+        o.StorageDirectory = "C:\\SomeDirectory";
+    })
+    .Build();
+```
+
+To disable this feature you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
 
 #### [Node.js](#tab/nodejs)
 
