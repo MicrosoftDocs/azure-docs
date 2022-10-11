@@ -41,7 +41,7 @@ To set up Azure Virtual Desktop for Azure Stack HCI:
 
 3. Follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information) to create a workspace for yourself.
 
-4. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported OS and join it to a domain.
+4. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported operating system (OS) and join it to a domain.
 
    >[!NOTE]
    >Install the Remote Desktop Session Host (RDSH) role if the VM is running a Windows Server OS.

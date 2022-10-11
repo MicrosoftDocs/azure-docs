@@ -59,7 +59,7 @@ We're aware of the following issues affecting the public preview version of Azur
 
 - The Azure Virtual Desktop tab in the Azure portal can't create new virtual machines directly on Azure Stack HCI infrastructure. Instead, admins must create on-premises virtual machines separately, then register them with an Azure Virtual Desktop host pool.
 
-- When connecting to a Windows 10 or 11 Enterprise multi-session virtual desktop, users may see activation issues, such as a desktop watermark saying "Activate Windows," even if they have an eligible license.
+- When connecting to a Windows 10 or Windows 11 Enterprise multi-session virtual desktop, users may see activation issues, such as a desktop watermark saying "Activate Windows," even if they have an eligible license.
 
 - Azure Virtual Desktop for Azure Stack HCI doesn't currently support host pools containing both cloud and on-premises session hosts. Each host pool in the deployment must have only one type of host pool.
 
