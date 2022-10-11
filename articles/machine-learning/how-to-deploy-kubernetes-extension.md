@@ -29,12 +29,14 @@ In this article, you can learn:
 ## Prerequisites
 
 * An AKS cluster is up and running in Azure.
+  * If you have not previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](/articles/aks/dapr.md#register-the-kubernetesconfiguration-service-provider).
 * Or an Arc Kubernetes cluster is up and running. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
   * If the cluster is an Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kuberenetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
 * The Kubernetes cluster must have minimum of 4 vCPU cores and 8-GB memory.
 * Cluster running behind an outbound proxy server or firewall needs extra [network configurations](./how-to-access-azureml-behind-firewall.md#kubernetes-compute)
 * Install or upgrade Azure CLI to version 2.24.0 or higher.
 * Install or upgrade Azure CLI extension `k8s-extension` to version 1.2.3 or higher.
+  
 
 ## Limitations
 

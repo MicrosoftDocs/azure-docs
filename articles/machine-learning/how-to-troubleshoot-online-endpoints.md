@@ -56,6 +56,7 @@ To use local deployment, add `--local` to the appropriate CLI command:
 ```azurecli
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
+For more, see [Deploy locally in Deploy and score a machine learning model(CLI)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 # [Python SDK](#tab/python)
 
@@ -65,7 +66,9 @@ To use local deployment, add  `local=True` parameter in the command:
 ml_client.begin_create_or_update(online_deployment, local=True)
 ```
 
-* `ml_client` and `online_deployment` are instances for `MLClient` class and `ManagedOnlineDeployment` class, respectively.
+* `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
+
+For more, see [Deploy locally in Deploy and score a machine learning model(SDK)](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
 
 ---
 
@@ -74,7 +77,7 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+
 
 ## Conda installation
  
@@ -429,16 +432,16 @@ Managed online endpoints have bandwidth limits for each endpoint. You find the l
 
 When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
-| Status code| Reason phrase |	Why this code might get returned |
+| Status code| Compute | Reason phrase |	Why this code might get returned |
 | --- | --- | --- |
-| 200 | OK | Your model executed successfully, within your latency bound. |
-| 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
-| 404 | Not found | Your URL isn't correct. |
-| 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
-| 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
+| 200 | | OK | Your model executed successfully, within your latency bound. |
+| 401 | | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
+| 404 | | Not found | Your URL isn't correct. |
+| 408 | | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
+| 424 | | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
+| 429 | | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
+| 429 | | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
+| 500 | | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
 ## Common network isolation issues
 

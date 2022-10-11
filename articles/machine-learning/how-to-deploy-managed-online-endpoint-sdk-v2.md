@@ -153,6 +153,8 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
         deployment=blue_deployment, local=True
     )
     ```
+> [!NOTE]
+> For Kubernetes online endpoint, please use `KubernetesOnlineEndpoint` and `KubernetesOnlineDeployment` class to create local endpoint and local deployment. 
 
 ## Verify the local deployment succeeded
 
