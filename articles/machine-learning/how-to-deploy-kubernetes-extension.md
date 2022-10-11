@@ -86,7 +86,7 @@ If you plan to deploy AzureML extension for real-time inference workload and wan
 
 ## AzureML extension deployment - CLI examples and Azure portal
 
-### [CLI](#tab/deploy-extension-with-cli)
+### [Azure CLI](#tab/deploy-extension-with-cli)
 To deploy AzureML extension with CLI, use `az k8s-extension create` command passing in values for the mandatory parameters.
 
 We list four typical extension deployment scenarios for reference. To deploy extension for your production usage, carefully read the complete list of [configuration settings](#review-azureml-extension-configuration-settings).

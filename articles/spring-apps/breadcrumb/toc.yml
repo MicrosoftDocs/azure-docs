@@ -10,7 +10,10 @@
     topicHref: /azure/spring-apps/index
   - name: Azure Spring Apps
     tocHref: /azure/developer/java/containers/
-    topicHref: /azure/spring-cloud/index
+    topicHref: /azure/spring-apps/index
+  - name: Azure Spring Apps
+    tocHref: /azure/developer/java/spring-framework/
+    topicHref: /azure/spring-apps/index
   - name: Azure Spring Apps
     tocHref: /cli/azure/
     topicHref: /azure/spring-apps/index

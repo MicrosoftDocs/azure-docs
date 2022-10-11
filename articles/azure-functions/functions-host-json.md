@@ -292,7 +292,7 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all functions. It follows the timespan string format. 
+Indicates the timeout duration for all function executions. It follows the timespan string format. 
 
 | Plan type | Default (min) | Maximum (min) |
 | -- | -- | -- |

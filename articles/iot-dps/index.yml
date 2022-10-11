@@ -53,7 +53,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create custom allocation policies
-            url: how-to-use-custom-allocation-policies.md
+            url: tutorial-custom-allocation-policies.md
 
   - title: Develop with SDKs
     linkLists:

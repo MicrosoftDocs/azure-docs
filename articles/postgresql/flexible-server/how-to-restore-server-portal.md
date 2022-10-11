@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Point-in-time restore of a Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[! INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups. You can perform either to a latest restore point or a custom restore point within your retention period.
 
@@ -62,9 +62,9 @@ Follow these steps to restore your flexible server using an existing backup.
 
 7.  A notification will be shown that the restore operation has been initiated.
 
-## Performing Geo-Restore (Preview)
+## Performing Geo-Restore
 
-If your source server is configured with geo-redundant backup, you can restore the servers in a paired region. Please note that, for the first time restore, please wait at least 1 hour after the source server is created.
+If your source server is configured with geo-redundant backup, you can restore the servers in a paired region. Note that, for the first time restore, please wait at least 1 hour after the source server is created.
 
 1.  In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to geo-restore the backup from.
 

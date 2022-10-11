@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/02/2022
+ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -78,7 +78,7 @@ Next, add a virtual network to the resource group that you created, and configur
 5. Select the **Outbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myoutboundendpoint).
 6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.1.1.0/28) and then select **Save**.
 7. Select the **Ruleset** tab, select **Add a ruleset**, and enter the following:
-    - Ruleset name: Enter a name for your ruleset (ex: myruleset).
+    - Ruleset name: Enter a name for your ruleset (ex: **myruleset**).
     - Endpoints: Select the outbound endpoint that you created (ex: myoutboundendpoint). 
 8. Under **Rules**, select **Add** and enter your conditional DNS forwarding rules. For example:
     - Rule name: Enter a rule name (ex: contosocom).
@@ -95,7 +95,7 @@ Next, add a virtual network to the resource group that you created, and configur
 
     ![create resolver - review](./media/dns-resolver-getstarted-portal/resolver-review.png)
 
-    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it is deployed.
+    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it's deployed.
 
     ![create resolver - status](./media/dns-resolver-getstarted-portal/resolver-status.png)
 

@@ -118,6 +118,8 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: Monitor and Alerts
+    href: monitoring-and-alerts-overview.md
   - name: Security
     items:
     - name: Multi-user authorization
@@ -498,8 +500,6 @@
       href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
-    - name: Overview
-      href: monitoring-and-alerts-overview.md
     - name: Using Backup center
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor alerts

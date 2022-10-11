@@ -193,18 +193,16 @@
           href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
         - name: Exchange events between applications using different protocols
           href: event-hubs-exchange-events-different-protocols.md
-        - name: Programming guides
+        - name: Programming language samples
           items:
-            - name: .NET (Azure.Messaging.EventHubs)
+            - name: .NET samples in GitHub
               href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md
-            - name: Java (azure-messaging-eventhubs)
+            - name: Java samples in GitHub (azure-messaging-eventhubs)
               href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
-            - name: Python (azure-eventhub)
+            - name: Python samples in GitHub (azure-eventhub)
               href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
-            - name: JavaScript (azure/event-hubs)
+            - name: JavaScript in GitHub (azure/event-hubs)
               href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
-            - name: .NET (Microsoft.Azure.EventHubs)
-              href: event-hubs-programming-guide.md
     - name: Process data
       items:
         - name: Capture Event Hubs data in Parquet format
@@ -364,8 +362,8 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-event-hubs
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-hubs
     - name: FAQ
       href: event-hubs-faq.yml
     - name: Azure Roadmap

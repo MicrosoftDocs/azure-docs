@@ -64,9 +64,9 @@ sections:
           Your Azure for Students subscription provides you with access to certain software developer tools. You must have a current, active Azure for Students subscription to access and download the software developer tools. Go to the  [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) to download the software developer tools by using your Azure for Students subscription.
           
       - question: |
-          What is Microsoft Learn?
+          What is Microsoft Learn training?
         answer: |
-          [Microsoft Learn](/learn/) is a free online learning platform that allows you to learn Azure technologies at your own pace. Learning Paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
+          [Microsoft Learn training](/training/) is a free online learning platform that allows you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, then move to advanced methods that address real-world challenges.
           
       - question: |
           Can Azure for Students be used for production or only for development?
@@ -122,10 +122,10 @@ sections:
           You can download this software in the [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
           
       - question: |
-          What is Microsoft Learn?
+          What is Microsoft Learn training?
         answer: |
-          [Microsoft Learn](/learn/) is a free online learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
-          
+          [Microsoft Learn training](/training/) is a free online learning platform that helps you learn Azure technologies at your own pace. Learning paths combine modules to allow you to start with the basics, and then move to advanced methods that address real-world challenges.
+
   - name: Azure Academic Grant
     questions:
       - question: |
@@ -200,7 +200,7 @@ sections:
         answer: |
           :::row:::
              :::column span="":::
-                Microsoft Access<br>
+                Access<br>
           Advanced Threat Analytics<br>
           Agents for Visual Studio<br>
           BizTalk Server<br>
@@ -208,7 +208,7 @@ sections:
           Host Integration Server<br>
           Machine Learning Server (formerly R Server)<br>
           Hyper-V Server<br>
-          Microsoft Project<br>
+          Project Professional<br>
           Remote Tools for Visual Studio<br>
           SharePoint Server<br>
           Skype for Business Server<br>
@@ -220,7 +220,7 @@ sections:
           SQL Server Web<br>
           System Center<br>
           Azure DevOps Server (formerly Visual Studio Team Foundation Server)<br>
-          Microsoft Visio<br>
+          Visio Professional<br>
           Visual Studio Code<br>
           Visual Studio Community<br>
           Visual Studio Enterprise<br>

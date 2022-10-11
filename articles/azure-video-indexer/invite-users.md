@@ -8,11 +8,11 @@ ms.custom: mode-other
 
 # Quickstart: Invite users to Azure Video Indexer
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 To collaborate with your colleagues, you can invite them to your Azure Video Indexer account. 
 
-> [!NOTE]
-> Only the account’s admin can add or remove users.</br>
-> When using paid accounts, you are only able to invite Azure AD users.
+Only the account’s admin can add or remove users. When using paid accounts, you are only able to invite Azure AD users.
 
 ## Invite new users
 
@@ -20,7 +20,7 @@ To collaborate with your colleagues, you can invite them to your Azure Video Ind
 1. If you are the admin, you see the **Share account** button in the top-right corner. Click on the button and you can invite users. 
 
     :::image type="content" source="./media/invite-users/share-account.png" alt-text="Share your account":::
-1. In the **Share this account with others** dialog, enter an email addresses of a person you want to invite to your Azure Video Indexer account:
+1. In the **Share this account with others** dialog, enter an email address of a person you want to invite to your Azure Video Indexer account:
 
     :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Invite users to this account":::  
 1. After you press **Invite**, the person will be added to the list of pending invites. <br/>You can choose from two options for each invitee who didn't yet join the account: **remove invitation** or **copy invitation URL**.

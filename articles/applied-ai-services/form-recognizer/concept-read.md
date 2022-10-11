@@ -26,21 +26,21 @@ Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) m
 
 | **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Read  | ✓  | ✓  | ✓  | ✓ (preview)  | ✓ (preview)  | ✓ (preview) | ✓ (preview) |
+| **prebuilt-read**  | GA</br> (2022-08-31)| GA</br> (2022-08-31)  | GA</br> (2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
 
 ### Data extraction
 
-| **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
+| **Model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
 | --- | --- | --- |
-prebuilt-read  | ✓  |✓  |
+**prebuilt-read**  | ✓  |✓  |
 
 ## Development options
 
 The following resources are supported by Form Recognizer v3.0:
 
-| Feature | Resources | Model ID |
+| Model | Resources | Model ID |
 |----------|------------|------------|
-|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**prebuilt-read**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/v3-0-sdk-rest-api.md)</li><li>[**C# SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Try Form Recognizer
 
@@ -88,11 +88,11 @@ The Read model extracts all identified blocks of text in the `paragraphs` collec
 
 ```json
 "paragraphs": [
-	{
-	    "spans": [],
-	    "boundingRegions": [],
-	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
-	}
+    {
+        "spans": [],
+        "boundingRegions": [],
+        "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+    }
 ]
 ```
 ### Language detection <sup>🆕</sup>
@@ -139,17 +139,17 @@ The page units in the model output are computed as shown:
 
 ```json
 "pages": [
-	{
-	    "pageNumber": 1,
-	    "angle": 0,
-	    "width": 915,
-	    "height": 1190,
-	    "unit": "pixel",
-	    "words": [],
-	    "lines": [],
-	    "spans": [],
-	    "kind": "document"
-	}
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": [],
+        "kind": "document"
+    }
 ]
 ```
 
@@ -189,11 +189,11 @@ Complete a Form Recognizer quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)
-> * [**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/v3-0-sdk-rest-api.md)
+> * [**C# SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 

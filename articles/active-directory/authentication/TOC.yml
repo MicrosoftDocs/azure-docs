@@ -164,9 +164,9 @@
       href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Run a registration campaign
     href: how-to-mfa-registration-campaign.md
-  - name: Use number matching (Preview)
+  - name: Use number matching 
     href: how-to-mfa-number-match.md
-  - name: Use additional context (Preview)
+  - name: Use additional context 
     href: how-to-mfa-additional-context.md
   - name: Use Microsoft managed settings 
     href: how-to-mfa-microsoft-managed.md

@@ -1,8 +1,8 @@
 ---
 title: Permissions and security for Azure Chaos Studio
 description: Understand how permissions work in Azure Chaos Studio and how you can secure resources from accidental fault injection.
-author: johnkemnetz
-ms.author: johnkem
+author: prasha-microsoft 
+ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021

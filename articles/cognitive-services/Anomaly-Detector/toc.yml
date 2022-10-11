@@ -109,7 +109,7 @@
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Learn modules
-      href: /learn/modules/identify-abnormal-time-series-data-anomaly-detector/
+      href: /training/modules/identify-abnormal-time-series-data-anomaly-detector/
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture (univariate)

@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Create a classic Azure Video Indexer account
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 This topic shows how to create a new classic account connected to Azure using the [Azure Video Indexer website](https://aka.ms/vi-portal-link). You can also create an Azure Video Indexer classic account through our [API](https://aka.ms/avam-dev-portal).
