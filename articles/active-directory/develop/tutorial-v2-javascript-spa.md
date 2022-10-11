@@ -464,7 +464,7 @@ In the *JavaScriptSPA* folder, create a new *.js* file named *authPopup.js*, whi
 
 ## Use tokens for validation
 
-The first time a user selects the **Sign In** button, the `signIn` function that you added to the *authPopup.js* file calls MSAL's `loginPopup` function to start the sign-in process. This method opens a pop-up window with the Microsoft identity platform endpoint to prompt for and validate the user's credentials. 
+The first time a user selects the **Sign In** button, the `signIn` function that you added to the *authPopup.js* file calls MSAL's `loginPopup` function to start the sign-in process. This function opens a pop-up window that prompts the user to enter their credentials. 
 
 After a successful sign-in, the user is redirected back to the original *index.html* page. The *msal.js* file receives and processes an *ID token*, and the information in the token is cached. The ID token contains basic information about the user, such as the user's display name. If you plan to use any data in the ID token for any purpose, make sure that your back-end server validates the token to guarantee that the token was issued to a valid user for your application.
 
