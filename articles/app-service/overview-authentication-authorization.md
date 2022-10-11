@@ -172,7 +172,7 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other pro
       }
     }
     ```
-    and ensure that `convention` is set to `Standard`.
+    and ensure that `convention` is set to `Standard` to respect the `X-Forwarded-Host` header used by Azure Front Door.
     
     **Import settings**
     
