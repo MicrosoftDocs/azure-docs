@@ -54,6 +54,10 @@ The following metrics help with observability into our [bursting](disk-bursting.
 - **OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk. Emitted on a 5 minute interval.
 - **Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s). Emitted on a 5 minute interval.
 - **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk. Emitted on a 5 minute interval.
+
+## VM Bursting metrics
+The following metrics provide insight on VM-level bursting:
+
 - **VM Uncached Used Burst IO Credits Percentage**: The accumulated percentage of the VM’s uncached IOPS burst used. Emitted on a 5 minute interval.
 - **VM Uncached Used Burst BPS Credits Percentage**: The accumulated percentage of the VM’s uncached throughput burst used. Emitted on a 5 minute interval.
 - **VM Cached Used Burst IO Credits Percentage**: The accumulated percentage of the VM’s cached IOPS burst used. Emitted on a 5 minute interval.
