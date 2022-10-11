@@ -6,7 +6,7 @@ ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 10/10/2022
+ms.date: 10/11/2022
 ms.author: cshoe
 ---
 
@@ -16,8 +16,7 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 ## Prerequisites
 
 - [GitHub](https://github.com) account
-- [Azure](https://portal.azure.com) account
-  If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+- [Azure](https://portal.azure.com) account. If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
 ## 1. Create a repository
 
@@ -99,7 +98,8 @@ Together, the following projects make up the parts required to create a Blazor W
 |Client    |The front-end Blazor WebAssembly project. A [fallback route](#fallback-route) is implemented to ensure client-side routing is functional.         |
 |Shared    | Holds common classes referenced by both the Api and Client projects, which allow data to flow from API endpoint to the front-end web app. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among both apps.        |
 
-:::image type="content" source="./media/deploy-blazor/blazor-app-complete.png" alt-text="Complete Blazor app":::
+**Blazor static web app**
+:::image type="content" source="./media/deploy-blazor/blazor-app-complete.png" alt-text="Complete Blazor app.":::
 
 ### Fallback route
 
@@ -135,4 +135,4 @@ If you're not going to use this application, you can delete the Azure Static Web
 - [Set up authentication and authorization](authentication-authorization.md)
 - [Configure app settings](application-settings.md)
 - [Enable monitoring](monitor.md)
-- [Azure CLI](/cli/azure/staticwebapp?view=azure-cli-latest)
+- [Azure CLI](https://github.com/Azure/static-web-apps-cli)
