@@ -6,7 +6,7 @@ ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 10/11/2022
-ms.author: singh.harjit
+ms.author: harjsin
 ---
 
 # SAR reference architecture
