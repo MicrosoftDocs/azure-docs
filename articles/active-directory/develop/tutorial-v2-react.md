@@ -128,18 +128,18 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
 
     ```javascript
     import "bootstrap/dist/css/bootstrap.min.css";
-    import { PublicClientApplication, EventType } from "@azure/msal-browser";
+    import { PublicClientApplication } from "@azure/msal-browser";
     import { MsalProvider } from "@azure/msal-react";
     import { msalConfig } from "./authConfig";
     ```
 
-1. Underneath the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
+2. Underneath the imports in *src/index.js* create a `PublicClientApplication` instance using the configuration from step 1.
 
     ```javascript
     const msalInstance = new PublicClientApplication(msalConfig);
     ``` 
 
-1. Find the `<App />` component in *src/index.js* and wrap it in the `MsalProvider` component. Your render function should look like this:
+3. Find the `<App />` component in *src/index.js* and wrap it in the `MsalProvider` component. Your render function should look like this:
 
     ```jsx
     root.render(
@@ -174,10 +174,7 @@ export const SignInButton = () => {
 
     const handleLogin = (loginType) => {
         if (loginType === "popup") {
-            instance.loginPopup({
-                 ...loginRequest,
-                redirectUri: "/redirect.html"
-            }).catch(e => {
+            instance.loginPopup(loginRequest).catch(e => {
                 console.log(e);
             });
         }
@@ -187,20 +184,6 @@ export const SignInButton = () => {
     );
 }
 ```
-
-When using popup and silent Methods, we recommend setting the redirectUri to a blank page or a page that does not implement MSAL. We will add a `./public/redirect.html` page:
-
-```html
-<!-- 
-    Blank page for redirect purposes. When using popup and silent APIs,
-    we recommend setting the redirectUri to a blank page or a page that does not implement MSAL.
-    For more information, please follow this link: 
-    https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#redirecturi-considerations 
--->
-<h1>MSAL Redirect</h1>
-```
-
-> :information_source: If you're using the popup methods, please don't forget to add `http://localhost:3000/redirect.html` as one of the **Redirect URIs** in your application registration.
 
 ### Sign in using redirects
 
