@@ -20,7 +20,7 @@ In this tutorial, learn to deploy a [Next.js](https://nextjs.org) generated stat
 - A GitHub account. [Create an account for free](https://github.com/join).
 - [Node.js](https://nodejs.org) installed.
 
-## Set up a Next.js app
+## 1. Set up a Next.js app
 
 Rather than using the Next.js CLI to create your app, you can use a starter repository. The starter repository contains an existing Next.js app that supports dynamic routes.
 
@@ -60,11 +60,9 @@ When you select a framework or library, you see a details page about the selecte
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Details page":::
 
-## Deploy your static website
+## 2. Create a static app
 
 The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
-
-### Create a static app
 
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Select **Create a Resource**.
@@ -100,7 +98,7 @@ The following steps show how to link your app to Azure Static Web Apps. Once in 
     | _Api location_ | Leave this box empty. |
     | _Output location_ | Enter **out** in the box. |
 
-### Review and create
+## 3. Review and create
 
 1. Select the **Review + Create** button to verify the details are all correct.
 
@@ -120,7 +118,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 Now any changes made to the `main` branch start a new build and deployment of your website.
 
-### Sync changes
+## 4. Sync changes
 
 When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
 
@@ -140,3 +138,10 @@ If you're not going to continue to use this app, you can delete the Azure Static
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
+
+## Related articles
+
+- [Set up authentication and authorization](authentication-authorization.md)
+- [Configure app settings](application-settings.md)
+- [Enable monitoring](monitor.md)
+- [Azure CLI](https://github.com/Azure/static-web-apps-cli)
