@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/23/2022
+ms.date: 10/11/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -76,7 +76,7 @@ Follow these steps to configure the network for your device.
 
     Once the device network is configured, the page updates as shown below.
 
-    ![Local web UI "Network settings" page 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/network-2a.png)<!--change-->
+    ![Local web UI "Network settings" page 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/network-2a.png)
 
 
      >[!NOTE]
