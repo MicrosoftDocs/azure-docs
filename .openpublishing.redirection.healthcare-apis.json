@@ -531,6 +531,16 @@
         "source_path_from_root": "/articles/healthcare-apis/iot/iot-troubleshoot-guide.md",
         "redirect_url": "/azure/healthcare-apis/iot/iot-troubleshoot-error-messages-and-conditions",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/iot/how-to-display-metrics.md",
+        "redirect_url": "/azure/healthcare-apis/iot/how-to-configure-metrics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/iot/iot-metrics-diagnostics-export.md",
+        "redirect_url": "/azure/healthcare-apis/iot/how-to-enable-diagnostic-settings",
+        "redirect_document_id": false
     }
   ]
 }
