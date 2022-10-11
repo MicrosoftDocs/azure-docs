@@ -510,7 +510,7 @@ The `acquireTokenSilent` method might fail in some cases, such as when a user's 
 
    `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API. For the global Microsoft Graph API endpoint, you can replace this with `https://graph.microsoft.com`. For national cloud deployments, refer to the [Microsoft Graph API documentation](/graph/deployments).
 
-1. Create a *.js* file named *graph.js*, which will make a REST call to the Microsoft Graph API. The SPA can then access web services in a simple and flexible way without any processing. Add the following code:
+1. Create a file named *graph.js*, which will make a REST call to the Microsoft Graph API. The SPA can then access web services in a simple and flexible way without any processing. Add the following code:
 
    ```javascript
    function callMSGraph(endpoint, token, callback) {
