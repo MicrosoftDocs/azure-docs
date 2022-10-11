@@ -21,13 +21,13 @@ With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virt
 
 In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
 
-- An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](/virtual-desktop/rbac.md). 
+- An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md). 
 
-- An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure) in the same subscription.
+- An [Azure Stack HCI cluster registered with Azure](https://learn.microsoft.com/azure-stack/hci/deploy/register-with-azure) in the same subscription.
 
-- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](/hci/manage/azure-arc-enabled-virtual-machines).
+- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](https://learn.microsoft.com/hci/manage/azure-arc-enabled-virtual-machines).
 
-- [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
+- [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad.md).
 
 - A stable connection to Azure from your on-premises network.
 
@@ -108,13 +108,13 @@ You can add new Azure Virtual Desktop session hosts to an existing host pool usi
 
 You can also check out the **Full Configuration** [(AddHciVirtualMachinesTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/AddHciVirtualMachinesTemplate.json)template for all the configurations available. 
 
-For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### Create a profile container
 
 To create a profile container using a file share on Azure Stack HCI, do the following:
 
-1. Deploy a file share on a single or clustered Windows Server VM deployment. The Windows Server VMs with file server role can also be colocated on the same cluster where the session host VMs are deployed.
+1. Deploy a file share on a single or clustered Windows Server VM deployment. The Windows Server VMs with file server role can also be co-located on the same cluster where the session host VMs are deployed.
 
 1. Connect to the VM with the credentials you provided when creating the VM.
 
