@@ -45,7 +45,7 @@ A DevOps policy on a data resource is enforced on the data resource itself and a
 ## A sample scenario to demonstrate the concept and the benefits
 Bob and Alice are DevOps users at their company. Given their role, they need to log in to dozens of Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, creates an Azure AD group and includes Alice and Bob. He then uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this Azure AD group access at resource group level, to Resource Group 1, which hosts the Azure SQL servers.
 
-![Diagram shows an example of DevOps policy on resource group](./media/concept-policies-devops/devops-policy-on-resource-group.png).
+![Diagram shows an example of DevOps policy on resource group.](./media/concept-policies-devops/devops-policy-on-resource-group.png).
 
 #### These are the benefits:
 - Mateo doesn't have to create local logins in each logical server
