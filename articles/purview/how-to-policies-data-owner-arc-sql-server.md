@@ -13,7 +13,7 @@ ms.custom: references_regions, event-tier1-build-2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Data owner policies](concept-policies-data-owner.md) allow you to manage access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
+[Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview.
 
 This how-to guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to SQL Server on Azure Arc-enabled servers. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. These 3 actions are only supported for policies at server level. *Modify* is not supported at this point. 
 

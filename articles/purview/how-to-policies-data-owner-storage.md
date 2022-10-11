@@ -14,7 +14,7 @@ ms.date: 10/10/2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Data owner policies](concept-policies-data-owner.md) allow you to manage access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
+[Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview.
 
 This guide covers how a data owner can delegate in Microsoft Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
 - Blob storage
