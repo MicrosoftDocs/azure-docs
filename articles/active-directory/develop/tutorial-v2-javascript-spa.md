@@ -337,7 +337,7 @@ Before you proceed with authentication, register the application on Azure AD:
 1. Select **Register**.
    
    The **Overview** page of the application opens. Note the **Application (client) ID** and **Directory (tenant) ID** values. You'll need both of them when you create the *authConfig.js* file in later steps.
-1. On the left panel, under **Manage**, select **Authentication**.
+1. Under **Manage**, select **Authentication**.
 1. In the **Implicit grant and hybrid flows** section, select **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app must sign in users and call an API.
 1. Select **Save**. You can go back to the **Overview** page by selecting it on the left panel.
 
