@@ -3,7 +3,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: lab-services
 ms.topic: include
-ms.date: 09/02/2022
+ms.date: 10/11/2022
 ---
 
 The following limits are for the number of Azure Lab Services resources. 
