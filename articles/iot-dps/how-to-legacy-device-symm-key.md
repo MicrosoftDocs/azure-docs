@@ -3,7 +3,7 @@ title: Tutorial - Provision devices using a symmetric key enrollment group in Az
 description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.date: 10/06/2022
+ms.date: 10/10/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -120,15 +120,15 @@ In this section, you'll prepare a development environment that's used to build t
     ```output
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 16 2019
-    -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.19042.
-    -- The C compiler identification is MSVC 19.29.30040.0
-    -- The CXX compiler identification is MSVC 19.29.30040.0
+    -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.22621.
+    -- The C compiler identification is MSVC 19.29.30146.0
+    -- The CXX compiler identification is MSVC 19.29.30146.0
 
     ...
 
     -- Configuring done
     -- Generating done
-    -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
+    -- Build files have been written to: C:/azure-iot-sdk-c/cmake
     ```
 
 ::: zone-end
@@ -375,15 +375,14 @@ To update and run the provisioning sample with your device information:
     The following output is an example of the device successfully connecting to the provisioning Service instance to be assigned to an IoT hub:
 
     ```output
-    Provisioning API Version: 1.2.8
+    Provisioning API Version: 1.9.1
 
     Registering Device
 
     Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
 
-    Registration Information received from service:
-    test-docs-hub.azure-devices.net, deviceId: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+    Registration Information received from service: contoso-hub-2.azure-devices.net, deviceId: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
     Press enter key to exit:
     ```
 
