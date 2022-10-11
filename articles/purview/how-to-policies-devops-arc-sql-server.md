@@ -6,21 +6,17 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/11/2022
 ms.custom: references_regions
 ---
 # Provision access to Arc-enabled SQL Server for DevOps actions (preview)
 
-> [!IMPORTANT]
-> This feature is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This how-to guide shows how to provision access via Microsoft Purview to Arc-enabled SQL Server system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-catalog-portal.md).
-- Provide the subscription ID and name of the Microsoft Purview account to the Microsoft program manager driving this private preview so that it can be enabled for you to test
-- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
+[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 - Get SQL server version 2022 RC 1 or later running on Windows and install it. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022).
 - Complete process to onboard that SQL server with Azure Arc [Follow this link](https://learn.microsoft.com/sql/sql-server/azure-arc/connect).
 - Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup [follow this link](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
@@ -29,8 +25,15 @@ This how-to guide shows how to provision access via Microsoft Purview to Arc-ena
 - East US
 - East US2
 - South Central US
+- West US3
 - Canada Central
+- Brazil South
+- North Europe
 - West Europe
+- France Central
+- UK South
+- Japan East
+- Australia East
 
 ## Security considerations for SQL Server
 - The Server admin can turn off the Microsoft Purview policy enforcement.
@@ -43,9 +46,9 @@ This how-to guide shows how to provision access via Microsoft Purview to Arc-ena
 ### Configuration for Arc-enabled SQL server
 This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
 
-1. Sign in to Azure portal with a [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers) that contains feature flags to list SQL Servers on Azure Arc
+1. Sign in to Azure portal this this [link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/sqlServers) which lists SQL Servers on Azure Arc.
 
-1. Navigate to a SQL Server you want to configure
+1. Select the SQL Server you want to configure
 
 1. Navigate to **Azure Active Directory** feature on the left pane
 
@@ -171,4 +174,3 @@ Check the blog and related docs
 * Video: [Reduce the effort with Microsoft Purview DevOps policies on resource groups](https://youtu.be/yMMXCeIFCZ8)
 * Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
 * Blog: [Deep dive on SQL Performance Monitor and SQL Security Auditor permissions](https://techcommunity.microsoft.com/t5/sql-server-blog/new-granular-permissions-for-sql-server-2022-and-azure-sql-to/ba-p/3607507)
-
