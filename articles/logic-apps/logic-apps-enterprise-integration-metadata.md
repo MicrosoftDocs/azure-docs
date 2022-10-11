@@ -1,6 +1,6 @@
 ---
 title: Manage artifact metadata in integration accounts
-description: Add or get artifact metadata from integration accounts in Azure Logic Apps.
+description: In Azure Logic Apps, retrieve metadata that you add to an integration account artifact. Use that metadata in a logic app workflow.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -40,11 +40,11 @@ This how-to guide shows how to add metadata to an integration account artifact. 
 
 1. Select the artifact where you want to add metadata, and then select **Edit**. 
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/edit-partner-metadata.png" alt-text="Screenshot of Azure portal, integration account, and 'Partners' page with Partners page with 'TradingPartner1' selected and 'Edit' button are selected.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/edit-partner-metadata.png" alt-text="Screenshot of Azure portal, integration account, and 'Partners' page with 'TradingPartner1' and 'Edit' button selected.":::
 
 1. On the **Edit** pane, enter the metadata details for that artifact, and then select **OK**. The following screenshot shows three metadata key-value pairs:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png" alt-text="Screenshot of the 'Edit' pane for 'TradingPartner1'. Under 'Metadata', three key-value pairs are highlighted and the 'OK' is selected.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png" alt-text="Screenshot of the 'Edit' pane for 'TradingPartner1'. Under 'Metadata', three key-value pairs are highlighted and 'OK' is selected.":::
 
 1. To view this metadata in the integration account's JavaScript Object Notation (JSON) definition, select **Edit as JSON**, which opens the JSON editor.
 
@@ -93,12 +93,12 @@ This how-to guide shows how to add metadata to an integration account artifact. 
    |----------|----------|-------|-------------|---------------|
    | **Method** | Yes | <*operation-to-run*> | The HTTP operation to run on the artifact. | Use the **GET** method for this HTTP action. |
    | **URI** | Yes | <*metadata-location*> | The endpoint where you want to send the outgoing request. | To reference the `routingUrl` metadata value from the artifact that you retrieved, follow these steps: <br><br>1. Click inside the **URI** box. <br><br>2. In the dynamic content list that opens, select **Expression**. <br><br>3. In the expression editor, enter an expression like the following example:<br><br>`outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']` <br><br>4. When you're done, select **OK**. |
-   | **Headers** | No | <*header-values*> | Any header outputs from the trigger that you want to pass to the HTTP action. | To pass in the `Content-Type` value from the trigger header, follow these steps for the first row under **Headers**: <br><br>1. In the first column, enter `Content-Type` as the header name. <br><br>2. In the second column, use the expression editor to enter the following expression as the header value: <br><br>`triggeroutputs()['headers']['Content-Type']` <br><br>To pass in the `Host` value from the trigger header, follow these steps for the scond row under **Headers**: <br><br>1. In the first column, enter `Host` as the header name. <br><br>2. In the second column, use the expression editor to enter the folloowing expression as the header value: <br><br>`triggeroutputs()['headers']['Host']` |
+   | **Headers** | No | <*header-values*> | Any header outputs from the trigger that you want to pass to the HTTP action. | To pass in the `Content-Type` value from the trigger header, follow these steps for the first row under **Headers**: <br><br>1. In the first column, enter `Content-Type` as the header name. <br><br>2. In the second column, use the expression editor to enter the following expression as the header value: <br><br>`triggeroutputs()['headers']['Content-Type']` <br><br>To pass in the `Host` value from the trigger header, follow these steps for the second row under **Headers**: <br><br>1. In the first column, enter `Host` as the header name. <br><br>2. In the second column, use the expression editor to enter the following expression as the header value: <br><br>`triggeroutputs()['headers']['Host']` |
    | **Body** | No | <*body-content*> | Any other content that you want to pass through the HTTP action's `body` property. | To pass the artifact's `properties` values to the HTTP action: <br><br>1. Click inside the **Body** box to open the dynamic content list. If no properties appear, select **See more**. <br><br>2. From the dynamic content list, under **Integration Account Artifact Lookup**, select **Properties**. |
 
    The following screenshot shows the example values:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-http-action-values.png" alt-text="Screenshot of the designer with the HTTP action, the 'Method', 'URI', 'Headers', and 'Body' property values highlighted, and dynamic content list opened with 'Properties' highlighted.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-http-action-values.png" alt-text="Screenshot of the designer with an HTTP action. Some property values are highlighted. The dynamic content list is open with 'Properties' highlighted.":::
 
 1. To check the information that you provided for the HTTP action, you can view your workflow's JSON definition. On the designer toolbar, select **Code view**.
 
