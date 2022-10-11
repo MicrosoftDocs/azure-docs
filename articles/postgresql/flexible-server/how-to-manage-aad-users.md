@@ -69,7 +69,7 @@ select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 
 **Parameters:**
 - *roleName* - Name of the role to be created. This **must match a name of Azure AD principal**:
-   - For **users** use User Principal Name from Profile. For guest users the full name would include escaped full name in their home domain and #EXT# tag.
+   - For **users** use User Principal Name from Profile. For guest users include the full name in their home domain with #EXT# tag.
    - For **groups** and **service principals** use display name. The name must be unique in the tenant.
 - *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via Portal or API.
 - *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
@@ -106,4 +106,4 @@ SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>'
 
 ## Next steps
 
-Connect to Azure Database for PostgreSQL Flexible Servers using Azure AD principal.
+* Review the overall concepts for [Azure Active Directory authentication with Azure Database for PostgreSQL - Flexible Server](concepts-azure-ad-authentication.md)
