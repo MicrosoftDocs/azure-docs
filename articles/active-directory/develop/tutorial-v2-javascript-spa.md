@@ -178,7 +178,7 @@ In the next steps you'll create a new folder for the JavaScript SPA, and set up 
        <title>Quickstart | MSAL.JS Vanilla JavaScript SPA</title>
 
        <!-- msal.js with a fallback to backup CDN -->
-         <script src="https://alcdn.msauth.net/browser/2.29.0/js/msal-browser.js"
+         <script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.js"
     integrity="sha384-L8LyrNcolaRZ4U+N06atid1fo+kBo8hdlduw0yx+gXuACcdZjjquuGZTA5uMmUdS"
     crossorigin="anonymous"></script> 
 
