@@ -58,7 +58,7 @@ First, you'll need a set of custom models to compose. You can use the Form Recog
 
 ## Assemble your training dataset
 
-Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
+Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must follow the [input requirements](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#custom-model-input-requirements) for Form Recognizer.
 
 >[!TIP]
 > Follow these tips to optimize your data set for training:
@@ -68,11 +68,11 @@ Building a custom model begins with establishing your training dataset. You'll n
 > * Use forms with different values in each field.
 > * If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
-See [Build a training data set](../how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true) for tips on how to collect your training documents.
+See [Build a training data set](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true) for tips on how to collect your training documents.
 
 ## Upload your training dataset
 
-When you've gathered a set of training documents, you'll need to [upload your training data](../how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data) to an Azure blob storage container.
+When you've gathered a set of training documents, you'll need to [upload your training data](../how-to-guides/build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#upload-your-training-data) to an Azure blob storage container.
 
 If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
 
@@ -332,7 +332,7 @@ to an Azure blob storage container. If you don't know how to create an Azure sto
 
 ## Train your custom model
 
-You [train your model](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
+You [train your model](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#train-your-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
 
 When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
@@ -367,7 +367,7 @@ When you train models using the [**Form Recognizer Sample Labeling tool**](https
 
 ### [**REST API**](#tab/rest)
 
-The [**REST API**](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#train-a-custom-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
+The [**REST API**](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#trainy-your-model) will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model:
 
 :::image type="content" source="../media/model-id.png" alt-text="Screenshot: the returned location header containing the model ID.":::
 
@@ -460,11 +460,11 @@ Using the programming language of your choice to analyze a form or document with
 
 ---
 
-Test your newly trained models by [analyzing forms](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#analyze-forms-with-a-custom-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](../label-tool.md#improve-results).
+Test your newly trained models by [analyzing forms](build-a-custom-model.md?view=form-recog-2.1.0&preserve-view=true#test-the-model) that weren't part of the training dataset. Depending on the reported accuracy, you may want to do further training to improve the model. You can continue further training to [improve results](../label-tool.md#improve-results).
 
 ## Manage your custom models
 
-You can [manage your custom models](../quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) from your account.
+You can [manage your custom models](../how-to-guides/use-sdk-rest-api.md?view=form-recog-2.1.0&preserve-view=true#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels) under your subscription, retrieving information about [a specific custom model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/DeleteModel) from your account.
 
 Great! You've learned the steps to create custom and composed models and use them in your Form Recognizer projects and applications.
 
