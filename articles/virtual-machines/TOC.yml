@@ -1335,6 +1335,8 @@
         href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Migrate to Managed Disks
       href: ./windows/migrate-to-managed-disks.md
+    - name: Unmanaged Disks retirement starting November 18, 2022
+      href: ./unmanaged-disks-deprecation.md
     - name: Unmanaged VM to Managed Disks
       items:
       - name: CLI

@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/29/2022
+ms.date: 10/04/2022
 ---
 
 # Configure an AKS cluster
@@ -190,36 +190,17 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
-## OIDC Issuer (Preview)
+## OIDC Issuer 
 
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
 
 > [!WARNING]
-> Enable/disable OIDC Issuer changes the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
+> Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.
 
-### Before you begin
+### Prerequisites
 
-You must have the following resource installed:
-
-* The Azure CLI
-* The `aks-preview` extension version 0.5.50 or higher
-* Kubernetes version 1.19.x or higher
-
-### Install the aks-preview Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-To install the aks-preview extension, run the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
+* The Azure CLI version 2.42.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* AKS version 1.22 and higher. If your cluster is running version 1.21 and the OIDC Issuer preview is enabled, we recommend you upgrade the cluster to the minimum required version supported.
 
 ### Create an AKS cluster with OIDC Issuer
 
@@ -245,9 +226,20 @@ To get the OIDC Issuer URL, run the following command. Replace the default value
 az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
 
+### Rotate the OIDC key
+
+To rotate the OIDC key, perform the following command. Replace the default values for the cluster name and the resource group name.
+
+```azurecli-interactive
+az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
+```
+
+> [!Important]
+> Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
+
 ## Next steps
 
-- Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.
+- Learn how to [upgrade the node images](node-image-upgrade.md) in your cluster.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.

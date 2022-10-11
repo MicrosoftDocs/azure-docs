@@ -105,9 +105,9 @@ Compute of type `AmlCompute` and `ComputeInstance` are fully available for use i
 
 We recommend migrating the code for creating compute to v2.
 
-### Endpoint and deployment (endpoint or web service in v1)
+### Endpoint and deployment (endpoint and web service in v1)
 
-You can continue using your existing v1 model deployments. For new model deployments, we recommend migrating to v2. In v2, we offer managed endpoints or Kubernetes endpoints. The following table guides our recommendation:
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend migrating to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md). The following table guides our recommendation:
 
 |Endpoint type in v2|Migrate from|Notes|
 |-|-|-|

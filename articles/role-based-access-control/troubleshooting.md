@@ -122,28 +122,53 @@ Set the `principalType` property to `ServicePrincipal` when creating the role as
 
 ### Symptom - ARM template role assignment returns BadRequest status
 
-When you try to deploy an ARM template that assigns a role to a service principal you get the error:
+When you try to deploy a Bicep file or ARM template that assigns a role to a service principal you get the error:
 
 `Tenant ID, application ID, principal ID, and scope are not allowed to be updated. (code: RoleAssignmentUpdateNotPermitted)`
+
+For example, if you create a role assignment for a managed identity, then you delete the managed identity and recreate it, the new managed identity has a different principal ID. If you try to deploy the role assignment again and use the same role assignment name, the deployment fails.
 
 **Cause**
 
 The role assignment `name` is not unique, and it is viewed as an update.
 
-**Solution**
-Provide an idempotent unique value for the role assignment `name`
+Role assignments are uniquely identified by their name, which is a globally unique identifier (GUID). You can't create two role assignments with the same name, even in different Azure subscriptions. You also can't change the properties of an existing role assignment.
 
-```
-{
-    "type": "Microsoft.Authorization/roleAssignments",
-    "apiVersion": "2018-09-01-preview",
-    "name": "[guid(concat(resourceGroup().id, variables('resourceName'))]",
-    "properties": {
-        "roleDefinitionId": "[variables('roleDefinitionId')]",
-        "principalId": "[variables('principalId')]"
-    }
+**Solution**
+
+Provide an idempotent unique value for the role assignment `name`. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. It's a good idea to use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+  name: guid(resourceGroup().id, principalId, roleDefinitionId)
+  properties: {
+    roleDefinitionId: roleDefinitionId
+    principalId: principalId
+    principalType: principalType
+  }
 }
 ```
+
+# [ARM template](#tab/armtemplate)
+
+```json
+{
+  "type": "Microsoft.Authorization/roleAssignments",
+  "apiVersion": "2020-10-01-preview",
+  "name": "[guid(resourceGroup().id, variables('principalId'), variables('roleDefinitionId'))]",
+  "properties": {
+    "roleDefinitionId": "[variables('roleDefinitionId')]",
+    "principalId": "[variables('principalId')]",
+    "principalType": "[variables('principalType')]"
+  }
+}
+```
+
+---
+
+For more information, see [Create Azure RBAC resources by using Bicep](../azure-resource-manager/bicep/scenarios-rbac.md).
 
 ### Symptom - Role assignments with identity not found
 
@@ -167,7 +192,7 @@ CanDelegate        : False
 
 Similarly, if you list this role assignment using Azure CLI, you might see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following output:
 
-```
+```json
 {
     "canDelegate": null,
     "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",

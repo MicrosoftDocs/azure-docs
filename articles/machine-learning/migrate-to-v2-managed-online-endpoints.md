@@ -1,5 +1,5 @@
 ---
-title: Upgrade steps for Container Instances web services to managed online endpoints
+title: Upgrade steps for Azure Container Instances web services to managed online endpoints
 titleSuffix: Azure Machine Learning
 description: Upgrade steps for Azure Container Instances web services to managed online endpoints in Azure Machine Learning
 services: machine-learning
@@ -17,7 +17,7 @@ ms.custom: upgrade
 
 [Managed online endpoints](concept-endpoints.md#what-are-online-endpoints) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services and then deploy to the new compute without affecting your existing services. If you regularly create and delete Azure Container Instances (ACI) services, we strongly recommend the deploying directly and not using the scripts. 
+You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services and then deploy to the new compute without affecting your existing services. If you regularly create and delete Azure Container Instances (ACI) web services, we strongly recommend the deploying directly and not using the scripts. 
 
 > [!IMPORTANT]
 > The scripts are preview and are provided without a service level agreement.
@@ -71,7 +71,7 @@ For private workspace and VNet scenarios, see [Use network isolation with manage
 Redeploy manually with your model files and environment definition.
 You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/managed).
 
-### With our [upgrade tool](https://aka.ms/moeonboard) (preview)
+### With our [upgrade tool](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/migration) (preview)
 This tool will automatically create new managed online endpoint based on your existing web services. Your original services won't be affected. You can safely route the traffic to the new endpoint and then delete the old one.
 
 Use the following steps to run the scripts:
@@ -82,7 +82,7 @@ Use the following steps to run the scripts:
 1. Use a bash shell to run the scripts. For example, a terminal session on Linux or the Windows Subsystem for Linux (WSL).
 2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
 3. Install [Azure CLI](/cli/azure/install-azure-cli).
-4. Clone the repository to your local env. For example, `git clone https://github.com/Azure/azureml-examples`.
+4. Clone [the repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/migration) to your local env. For example, `git clone https://github.com/Azure/azureml-examples`.
 5. Edit the following values in the `migrate-service.sh` file. Replace the values with ones that apply to your configuration.
 
     * `<SUBSCRIPTION_ID>` - The subscription ID of your Azure subscription that contains your workspace.
