@@ -71,9 +71,10 @@ Lastly, the Dapr extension is an extension of AKS, therefore you can expect the 
 
 [Learn more about migrating from Dapr OSS to the Dapr extension for AKS][dapr-migration].
 
-### How can I authenticate the Dapr extension for AKS using Managed Service Identities (MSI)?
+### How can I authenticate Dapr components with Azure AD using managed identities?
 
-Learn how [Dapr components leverage your AKS cluster's managed identity to authenticate with Azure AD][dapr-msi].
+- Learn how [Dapr components authenticate with Azure AD][dapr-msi].
+- Learn about [using managed identities with AKS][aks-msi].
 
 ### How can I switch to using the Dapr extension if I’ve already installed Dapr via a method, such as Helm?
 
@@ -91,9 +92,10 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-quickstart]: ./quickstart-dapr.md
 [dapr-migration]: ./dapr-migration.md
+[aks-msi]: ./use-managed-identity.md
 
 <!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/
 [dapr-blocks]: https://docs.dapr.io/concepts/building-blocks-concept/
 [dapr-secrets-block]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
-[dapr-msi]: https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure/#using-managed-service-identities
+[dapr-msi]: https://docs.dapr.io/developing-applications/integrations/azure/authenticating-azure
