@@ -39,12 +39,16 @@ To manage these MFA methods across the tenant, click **Security** > **Multifacto
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
-To manage these password reset authentication methods across the tenant, click **Password reset** > **Authentication methods**.
+To manage these password reset authentication methods across the tenant, click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice call or SMS to be sent to a mobile phone. The **Office phone** option allows only voice call.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
 
 >[!NOTE]
 >OATH tokens and security questions can be enabled only for all users in the tenant by using these policies. 
+
+## How policies work together
+
+Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. If settings conflict between policies, the allowed setting takes effect. For example, suppose 
 
 ## Policy checks during registration
 
