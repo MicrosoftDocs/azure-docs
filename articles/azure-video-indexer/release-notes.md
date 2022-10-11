@@ -43,6 +43,12 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## October 2022
 
+### Manage access with the Video Indexer Restricted Viewer built-in role
+
+The limited access **Video Indexer Restricted Viewer** role is intended for the [Azure Video Indexer website](https://www.videoindexer.ai/) users. The role's permitted actions relate to the [Azure Video Indexer website](https://www.videoindexer.ai/) experience. 
+
+For more information, see [Manage access with the Video Indexer Restricted Viewer role](restricted-viewer-role.md).
+
 ### Slate detection insights (preview)
 
 The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
