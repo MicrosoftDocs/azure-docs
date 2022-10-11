@@ -246,7 +246,7 @@ You can authorize access to data in your storage account using the following ste
 
     #### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-    You'll need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+    You'll need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio Code.
 
     On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
 
