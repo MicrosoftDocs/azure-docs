@@ -34,7 +34,7 @@ You can view your existing network slices in the Azure portal.
 
 1. In the **Resource** menu, select **Slices** to see a list of existing network slices.
 
-    :::image type="content" source="media/manage-network-slices/network-slices-list.png" alt-text="Screenshot of the Azure portal showing a list of network slices. The Slices resource menu option is highlighted." :::
+    :::image type="content" source="media/create-manage-network-slices/network-slices-list.png" alt-text="Screenshot of the Azure portal showing a list of network slices. The Slices resource menu option is highlighted." :::
 
 ## Create a network slice
 
@@ -44,7 +44,7 @@ To provision a new network slice:
 2. Select **Create**.
 3. Use the information you collected in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice) to fill in the fields under **Create Slice**.
 
-    :::image type="content" source="media/manage-network-slices/create-network-slice.png" alt-text="Screenshot of the Azure portal showing the Create slice screen." :::
+    :::image type="content" source="media/create-manage-network-slices/create-network-slice.png" alt-text="Screenshot of the Azure portal showing the Create slice screen." :::
 
 4. Select **Create**.
 5. Wait while the Azure portal deploys the new network slice. You'll see a confirmation screen when the deployment is complete.
@@ -59,11 +59,11 @@ To make changes to an existing network slice:
 1. Navigate to the list of network slices in your private mobile network, as described in [View existing network slices](#view-existing-network-slices).
 2. Select the checkbox next to the slice you're interested in and select **Modify the selected slice**.
 
-    :::image type="content" source="media/manage-network-slices/modify-network-slice-selection.png" alt-text="Screenshot of the Azure portal showing the Modify the selected slice option." :::
+    :::image type="content" source="media/create-manage-network-slices/modify-network-slice-selection.png" alt-text="Screenshot of the Azure portal showing the Modify the selected slice option." :::
 
 3. Use the information you collected in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice) to fill in the fields under **Modify Slice** with any new values.
 
-    :::image type="content" source="media/manage-network-slices/modify-network-slice.png" alt-text="Screenshot of the Azure portal showing the Modify slice screen." :::
+    :::image type="content" source="media/create-manage-network-slices/modify-network-slice.png" alt-text="Screenshot of the Azure portal showing the Modify slice screen." :::
 
 4. Select **Modify**.
 5. Wait while the Azure portal redeploys the network slice with the new configuration. You'll see a confirmation screen when the deployment is complete.
