@@ -25,7 +25,7 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure) in the same subscription.
 
-- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](/hci/manage/azure-arc-enabled-virtual-machines).
 
 - [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 

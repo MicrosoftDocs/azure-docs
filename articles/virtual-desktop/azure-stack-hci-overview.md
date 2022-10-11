@@ -69,7 +69,7 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 The following issues affect the preview version of Azure Virtual Desktop for Azure Stack HCI:
 
-- Templates may show failures in certain cases at the domain-join step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+- Templates may show failures in certain cases at the domain-join step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines.m).
 
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
