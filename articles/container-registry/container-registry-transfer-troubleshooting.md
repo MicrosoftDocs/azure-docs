@@ -1,8 +1,9 @@
 ---
 title: ACR Transfer Troubleshooting
 description: Troubleshoot ACR Transfer
-ms.topic: article
-ms.date: 09/24/2022
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom:
 ---
 

@@ -2,7 +2,9 @@
 title: Move Azure container registry to another region
 description: Manually move Azure container registry settings and data to another Azure region.
 ms.topic: article
-ms.date: 06/08/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Manually move a container registry to another region
