@@ -13,9 +13,9 @@ ms.custom: references_regions, event-tier1-build-2022
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Data owner policies](concept-policies-data-owner.md) allow you to manage access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
+[Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
 
-This how-to guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to Azure SQL DB. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. The first two actions are supported only at server level. *Modify* is not supported at this point. 
+This guide covers how a data owner can delegate authoring policies in Microsoft Purview to enable access to Azure SQL Database. The following actions are currently enabled: *SQL Performance Monitoring*, *SQL Security Auditing* and *Read*. The first two actions are supported only at server level. *Modify* is not supported at this point. 
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
