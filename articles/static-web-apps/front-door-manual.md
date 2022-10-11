@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Copy web app URL
 
-1. Navigate to the Azure portal.
+1. Go to the Azure portal.
 
 1. Open the static web app that you want to apply Azure Front Door.
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 When creating an Azure Front Door profile, you must select an origin from the same subscription as the selected the Front Door.
 
-1. Navigate to the Azure home screen.
+1. Go to the Azure home screen.
 
 1. Select **Create a resource**.
 
@@ -51,9 +51,9 @@ When creating an Azure Front Door profile, you must select an origin from the sa
 
 1. Select the **Quick create** option.
 
-1. Select the **Continue to create a front door** button.
+2. Select **Continue to create a front door**.
 
-1. In the *Basics* tab, enter the following values:
+3. In the *Basics* tab, enter the following values:
 
     | Setting | Value |
     |---|---|
@@ -70,13 +70,13 @@ When creating an Azure Front Door profile, you must select an origin from the sa
     | Caching | Check the **Enable caching** checkbox. |
     | WAF policy | Select **Create new** or select an existing Web Application Firewall policy from the dropdown if you want to enable this feature. |
 
-1. Select **Review + create**.
+4. Select **Review + create**.
 
-1. Select **Create**.
+5. Select **Create**.
 
     The creation process may take a few minutes to complete.
 
-1. Select **Go to resource**.
+6. Select **Go to resource**.
 
 ## Disable cache for auth workflow
 
@@ -105,9 +105,9 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Enter **/.auth** in the textbox.
 
-1. Select the **Update** button.
+2. Select **Update**.
 
-1. Select the **No transform** option from the *Case transform* dropdown.
+3. Select the **No transform** option from the *Case transform* dropdown.
 
 ### Add an action
 
@@ -117,7 +117,7 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select **Disabled** in the *Caching* dropdown.
 
-1. Select the **Save** button.
+2. Select **Save**.
 
 ### Associate rule to an endpoint
 
@@ -127,9 +127,9 @@ Now that the rule is created, you apply the rule to a Front Door endpoint.
 
 1. Select the Endpoint name to which you want to apply the caching rule.
 
-1. Select the **Next** button.
+2. Select **Next**.
 
-1. Select the **Associate** button.
+3. Select **Associate**.
 
 ## Copy Front Door ID
 
@@ -171,13 +171,13 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
     }
     ```
 
-    First, configure your app to only allow traffic from your Front Door instance. In every backend request, Front Door automatically adds an `X-Azure-FDID` header that contains your Front Door instance ID. By configuring your static web app to require this header, it will restrict traffic exclusively to your Front Door instance. In the `forwardingGateway` section in your configuration file, add the `requiredHeaders` section and define the `X-Azure-FDID` header. Replace `<YOUR-FRONT-DOOR-ID>` with the *Front Door ID* you set aside earlier.
+    First, configure your app to only allow traffic from your Front Door instance. In every backend request, Front Door automatically adds an `X-Azure-FDID` header that contains your Front Door instance ID. By configuring your static web app to require this header, it restricts traffic exclusively to your Front Door instance. In the `forwardingGateway` section in your configuration file, add the `requiredHeaders` section and define the `X-Azure-FDID` header. Replace `<YOUR-FRONT-DOOR-ID>` with the *Front Door ID* you set aside earlier.
 
     Next, add the Azure Front Door hostname (not the Azure Static Web Apps hostname) into the `allowedForwardedHosts` array. If you have custom domains configured in your Front Door instance, also include them in this list.
 
     In this example, replace `my-sitename.azurefd.net` with the Azure Front Door hostname for your site.
 
-1. For all secured routes in your app, disable Azure Front Door caching by adding `"Cache-Control": "no-store"` to the route header definition.
+2. For all secured routes in your app, disable Azure Front Door caching by adding `"Cache-Control": "no-store"` to the route header definition.
 
     ```json
     {

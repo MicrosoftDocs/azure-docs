@@ -39,8 +39,8 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 This article uses a GitHub repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
 
 1. Sign in to Azure DevOps.
-1. Select the **New repository** button.
-1. In the *Create new project* window, expand the **Advanced** button and make the following selections:
+2. Select **New repository**.
+3. In the *Create new project* window, expand **Advanced** menu and make the following selections:
 
     | Setting | Value |
     |--|--|
@@ -49,11 +49,11 @@ This article uses a GitHub repository to make it easy for you to get started. Th
     | Version control | Select **Git**.  |
     | Work item process | Select the option that best suits your development methods. |
 
-1. Select the **Create** button.
-1. Select the **Repos** menu item.
-1. Select the **Files** menu item.
-1. Under the *Import repository* card, select the **Import** button.
-1. Copy a repository URL for the framework of your choice, and paste it into the *Clone URL* box.
+4. Select **Create**.
+5. Select the **Repos** menu item.
+6. Select the **Files** menu item.
+7. Under the *Import repository* card, select **Import**.
+8. Copy a repository URL for the framework of your choice, and paste it into the *Clone URL* box.
 
     # [No Framework](#tab/vanilla-javascript)
     
@@ -77,7 +77,7 @@ This article uses a GitHub repository to make it easy for you to get started. Th
     
     ---
 
-1. Select the **Import** button and wait for the import process to complete.
+9. Select **Import** and wait for the import process to complete.
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ This article uses a GitHub repository to make it easy for you to get started. Th
 
 Now that the repository is created, you can create a static web app from the Azure portal.
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 1. Select **Create a Resource**.
 1. Search for **Static Web Apps**.
 1. Select **Static Web Apps**.
@@ -106,7 +106,7 @@ In the _Basics_ section, begin by configuring your new app and linking it to a G
 | Azure Functions and staging details | Select a region closest to you. |
 | Source | Select **GitHub**. |
 
-Select the **Sign-in with GitHub** button and authenticate with GitHub.
+Select **Sign-in with GitHub** and authenticate with GitHub.
 
 After you sign in with GitHub, enter the repository information.
 
@@ -204,7 +204,7 @@ Select **Go to resource**.
 
 There are two aspects to deploying a static app. The first creates the underlying Azure resources that make up your app. The second is a workflow that builds and publishes your application.
 
-Before you can navigate to your new static site, the deployment build must first finish running.
+Before you can go to your new static site, the deployment build must first finish running.
 
 The Static Web Apps *Overview* window displays a series of links that help you interact with your web app.
 
@@ -212,15 +212,15 @@ The Static Web Apps *Overview* window displays a series of links that help you i
 
 :::image type="content" source="./media/getting-started/overview-window.png" alt-text="The Azure Static Web Apps overview window.":::
 
-1. Clicking on the banner that says, _Click here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
+1. Selecting on the banner that says, _Select here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can go to your website via the generated URL.
 
-2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
+2. Once GitHub Actions workflow is complete, you can select the _URL_ link to open the website in new tab.
 
 ::: zone-end
 
 ::: zone pivot="azure-devops"
 
-Once the  workflow is complete, you can click on the _URL_ link to open the website in new tab.
+Once the  workflow is complete, you can select the _URL_ link to open the website in new tab.
 
 ::: zone-end
 
@@ -231,8 +231,8 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Open the [Azure portal](https://portal.azure.com).
 1. Search for **my-first-web-static-app** from the top search bar.
 1. Select the app name.
-1. Select the **Delete** button.
-1. Select **Yes** to confirm the delete action (this action may take a few moments to complete).
+2. Select **Delete**.
+3. Select **Yes** to confirm the delete action (this action may take a few moments to complete).
 
 ## Next steps
 
