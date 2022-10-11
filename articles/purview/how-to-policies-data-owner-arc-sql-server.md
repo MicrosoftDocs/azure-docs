@@ -46,10 +46,6 @@ This guide covers how a data owner can delegate authoring policies in Microsoft 
 - The recommended configuration is to create a separate App Registration per SQL server instance. This prevents SQL server2 from reading the policies meant for SQL server1, in case a rogue admin in SQL server2 tampers with the ARM path.
 
 ## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
-
-> [!Important]
-> You can assign the data source side permission (i.e., *IAM Owner*) **only** by entering Azure portal through this [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers). Alternatively, you can configure this permission at the parent resource group level so that it gets inherited by the "SQL Server - Azure Arc" data source.
 
 ### SQL Server on Azure Arc-enabled server configuration
 This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
