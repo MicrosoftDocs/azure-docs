@@ -27,12 +27,13 @@ This guide covers how a data owner can delegate authoring policies in Microsoft 
 - East US
 - East US 2
 - South Central US
-- West US 3
+- West US3
 - Canada Central
-- West Europe
+- Brazil South
 - North Europe
-- UK South
+- West Europe
 - France Central
+- UK South
 - UAE North
 - Central India
 - Korea Central
