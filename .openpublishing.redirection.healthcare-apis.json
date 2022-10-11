@@ -526,6 +526,11 @@
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-troubleshoot-guide.md",
         "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/iot/iot-troubleshoot-guide.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-troubleshoot-error-messages-and-conditions",
+        "redirect_document_id": false
     }
   ]
 }

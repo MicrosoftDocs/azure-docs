@@ -55,12 +55,26 @@ items:
       href: how-to-use-custom-functions.md  
     - name: Use FHIR destination mappings
       href: how-to-use-fhir-mappings.md
-    - name: Display metrics
-      href: how-to-display-metrics.md
-    - name: Enable metrics export
-      href: iot-metrics-diagnostics-export.md
+    - name: Use metrics and diagnostic settings
+      expanded: false
+      items:
+        - name: Monitoring tab metrics
+          href: how-to-use-monitoring-tab.md
+        - name: Configure metrics
+          href: how-to-configure-metrics.md
+        - name: Enable diagnostic settings
+          href: how-to-enable-diagnostic-settings.md
     - name: Create copies of mappings
       href: how-to-create-mappings-copies.md
+    - name: Troubleshoot and problem solve
+      expanded: false
+      items:
+        - name: Troubleshooting guide  
+          href: iot-troubleshoot-guide.md
+        - name: Device and FHIR destination mappings
+          href: iot-troubleshoot-mappings.md
+        - name: Errors and conditions
+          href: iot-troubleshoot-error-messages-and-conditions.md
 - name: Concepts
   expanded: true
   items:
@@ -78,14 +92,5 @@ items:
     - name: FAQs - MedTech service
       href: iot-connector-faqs.md
     - name: Open-source projects
-      href: iot-git-projects.md
-    - name: Troubleshooting
-      expanded: false
-      items:
-      - name: Troubleshooting guide  
-        href: iot-troubleshoot-guide.md
-      - name: Device and FHIR destination mappings
-        href: iot-troubleshoot-mappings.md
-      - name: Errors and conditions
-        href: iot-troubleshoot-error-messages-and-conditions.md
+      href: iot-git-projects.md     
            
