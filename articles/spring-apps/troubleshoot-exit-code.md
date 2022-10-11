@@ -40,6 +40,7 @@ The exit code indicates the reason the application terminated. The following lis
   - You don't have sufficient access to a third-party service.
 
     For example, you need to connect to Azure Key Vault to import certificates in your application, but your application doesn't have the necessary permissions to access it.
+  - If your application is static file or dynamic frontend application served by web server, refer to [static file common deployment error](/articles/spring-apps/how-to-enterprise-deploy-static-file.md#common-deployment-error).
 
 - **137** - The application exited because of an out-of-memory error. The application requested resources that the hosting platform failed to provide. Update your application's Java Virtual Machine (JVM) parameters to restrict resource usage or scale up application resources.
   
