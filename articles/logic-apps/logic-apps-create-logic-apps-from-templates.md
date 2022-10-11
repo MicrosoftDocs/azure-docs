@@ -12,24 +12,26 @@ ms.date: 08/01/2022
 
 [!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
-To get you started creating workflows more quickly, 
-Logic Apps provides templates, which are prebuilt 
-logic apps that follow commonly used patterns. 
-Use these templates as provided or edit them to fit your scenario.
+To get you started creating workflows quickly, Azure Logic Apps provides templates, which are prebuilt logic app workflows that follow commonly used patterns. 
+
+This how-to guide shows how to use these templates as provided or edit them to fit your scenario.
 
 Here are some template categories:
 
 | Template type | Description | 
 | ------------- | ----------- | 
-| Enterprise cloud templates | For integrating Azure Blob, Dynamics CRM, Salesforce, Box, and includes other connectors for your enterprise cloud needs. For example, you can use these templates to organize business leads or back up your corporate file data. | 
-| Personal productivity templates | Improve personal productivity by setting daily reminders, turning important work items into to-do lists, and automating lengthy tasks down to a single user approval step. | 
+| Enterprise cloud templates | For integrating Azure Blob Storage, Dynamics CRM, Salesforce, and Box. Also includes other connectors for your enterprise cloud needs. For example, you can use these templates to organize business leads or back up your corporate file data. | 
+| Personal productivity templates | For improving personal productivity by setting daily reminders, turning important work items into to-do lists, and automating lengthy tasks down to a single user approval step. | 
 | Consumer cloud templates | For integrating social media services such as Twitter, Slack, and email. Useful for strengthening social media marketing initiatives. These templates also include tasks such as cloud copying, which increases productivity by saving time on traditionally repetitive tasks. | 
 | Enterprise integration pack templates | For configuring VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming to XML, and handling X12, EDIFACT, and AS2 messages. | 
 | Protocol pattern templates | For implementing protocol patterns such as request-response over HTTP and integrations across FTP and SFTP. Use these templates as provided, or build on them for complex protocol patterns. | 
 ||| 
 
-If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin. For more information about building a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A basic understanding of how to build a logic app workflow. For more information, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create logic apps from templates
 
