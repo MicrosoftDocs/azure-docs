@@ -38,7 +38,7 @@ Metric category|Metric name|Metric description|
 
    :::image type="content" source="media\iot-metrics-display\workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\iot-metrics-display\workspace-displayed-with-connectors-button.png":::
 
-2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll select your own MedTech service.
+2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
 
    :::image type="content" source="media\iot-metrics-display\select-medtech-service.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\iot-metrics-display\select-medtech-service.png":::
 
@@ -70,7 +70,7 @@ Metric category|Metric name|Metric description|
    :::image type="content" source="media\iot-metrics-display\select-more-metrics.png" alt-text="Screenshot of select more metrics to add to your MedTech service." lightbox="media\iot-metrics-display\select-more-metrics.png":::
 
    > [!IMPORTANT]
-   > If you leave the MedTech service metrics page, the metrics settings for your MedTech service are lost and will have to be recreated. If you would like to save your MedTech service metrics for future viewing, you can pin them to an Azure dashboard as a tile. 
+   > If you leave the MedTech service metrics page, the metrics settings for your MedTech service are lost and will have to be recreated. If you would like to save your MedTech service metrics for future viewing, you can pin them to an Azure portal dashboard as a tile. 
    >
    > To learn how to to create an Azure portal dashboard and pin tiles, see [How to create an Azure portal dashboard and pin tiles](how-to-configure-metrics.md#how-to-create-an-azure-portal-dashboard-and-pin-tiles)
    

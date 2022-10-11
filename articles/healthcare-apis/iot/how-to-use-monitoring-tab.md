@@ -20,7 +20,7 @@ In this article, you'll learn how to use the [MedTech service](iot-connector-ove
 
    :::image type="content" source="media\iot-monitoring-tab\workspace-displayed-with-connectors-button.png" alt-text="Screenshot of select the MedTech service within the workspace." lightbox="media\iot-monitoring-tab\workspace-displayed-with-connectors-button.png":::
 
-2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll select your own MedTech service.
+2. Select the MedTech service that you would like to display metrics for. For this example, we'll select a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
 
    :::image type="content" source="media\iot-monitoring-tab\select-medtech-service.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\iot-monitoring-tab\select-medtech-service.png":::
 
@@ -32,7 +32,7 @@ In this article, you'll learn how to use the [MedTech service](iot-connector-ove
 
    :::image type="content" source="media\iot-monitoring-tab\display-metrics-tile.png" alt-text="Screenshot the MedTech service monitoring tab with drop-down menus." lightbox="media\iot-monitoring-tab\display-metrics-tile.png":::
 
-5. Clicking the pin icon will allow you to pin the tile to an Azure dashboard of your choosing.
+5. Clicking the pin icon will allow you to pin the tile to an Azure portal dashboard of your choosing.
 
    :::image type="content" source="media\iot-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\iot-monitoring-tab\pin-metrics-to-dashboard.png":::
 
