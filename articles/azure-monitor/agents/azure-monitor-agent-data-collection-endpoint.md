@@ -42,7 +42,7 @@ The Azure Monitor Agent extensions for Windows and Linux can communicate either 
 > [!IMPORTANT]
 > Proxy configuration isn't supported for [Azure Monitor Metrics (public preview)](../essentials/metrics-custom-overview.md) as a destination. If you're sending metrics to this destination, it will use the public internet without any proxy.
 
-1. Use this flowchart to determine the values of the *`Settings` and `ProtectedSettings` parameters first.
+1. Use this flowchart to determine the values of the `Settings` and `ProtectedSettings` parameters first.
 
     ![Diagram that shows a flowchart to determine the values of settings and protectedSettings parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
