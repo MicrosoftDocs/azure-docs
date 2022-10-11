@@ -145,7 +145,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     Once the deployment is complete, you can navigate directly to your website.
 
-7. To view the website in the browser, right-select the project in the Static Web Apps extension, and select **Browse Site**.
+7. To view the website in the browser, right-click the project in the Static Web Apps extension, and select **Browse Site**.
 
     :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Browse site":::
 
@@ -153,7 +153,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the extension.
 
-In the Visual Studio Code Explorer window, return to the _Resources_ section and under _Static Web Apps_, right-select **my-first-static-web-app** and select **Delete**.
+In the Visual Studio Code Explorer window, return to the _Resources_ section and under _Static Web Apps_, right-click **my-first-static-web-app** and select **Delete**.
 
 ## Next steps
 

@@ -61,15 +61,15 @@ In this tutorial, you learn to:
     | _Region_ | Select a region closest to you | |
     | _Deployment details_ | Select **GitHub** as the source | |
 
-2. Select **Sign-in with GitHub** and authenticate with GitHub.
+1. Select **Sign-in with GitHub** and authenticate with GitHub.
 
-3. Select the name of the _Organization_ where you created the repository.
+1. Select the name of the _Organization_ where you created the repository.
 
-4. Select **my-custom-roles-app** from the _Repository_ drop-down.
+1. Select **my-custom-roles-app** from the _Repository_ drop-down.
 
-5. Select **main** from the _Branch_ drop-down.
+1. Select **main** from the _Branch_ drop-down.
 
-6. In the _Build Details_ section, add configuration details for this app.
+1. In the _Build Details_ section, add configuration details for this app.
 
     | **Input** | **Value** | **Notes** |
     | ---------- | ---------- | ---------- |
@@ -78,11 +78,11 @@ In this tutorial, you learn to:
     | _API location_ | **api** | Folder in the repository containing the API |
     | _Output location_ | | This app has no build output |
 
-7. Select **Review + create**. Then select **Create** to create the static web app and initiate the first deployment.
+1. Select **Review + create**. Then select **Create** to create the static web app and initiate the first deployment.
 
-8. Select **Go to resource** to open your new static web app.
+1. Select **Go to resource** to open your new static web app.
 
-9. In the overview section, locate your application's **URL**. Copy this value into a text editor as you'll need this URL to set up Active Directory authentication and test the app.
+1. In the overview section, locate your application's **URL**. Copy this value into a text editor as you'll need this URL to set up Active Directory authentication and test the app.
 
 ## Create an Azure Active Directory application
 
