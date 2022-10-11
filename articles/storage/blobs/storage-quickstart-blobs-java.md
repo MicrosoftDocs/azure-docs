@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Azure Blob Storage library v12 - Java"
+title: "Quickstart: Azure Blob Storage library - Java"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
@@ -30,9 +30,9 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the project
 
-Create a Java application named *blob-quickstart-v12*.
+Create a Java application named *blob-quickstart*.
 
-1. In a console window (such as PowerShell, cmd, or bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command to create a "Hello world!" Java project.
+1. In a console window (such as PowerShell, cmd, or bash), use Maven to create a new console app with the name *blob-quickstart*. Type the following **mvn** command to create a "Hello world!" Java project.
 
     # [PowerShell](#tab/powershell)
 
@@ -40,7 +40,7 @@ Create a Java application named *blob-quickstart-v12*.
     mvn archetype:generate `
         --define interactiveMode=n `
         --define groupId=com.blobs.quickstart `
-        --define artifactId=blob-quickstart-v12 `
+        --define artifactId=blob-quickstart `
         --define archetypeArtifactId=maven-archetype-quickstart `
         --define archetypeVersion=1.4
     ```
@@ -51,7 +51,7 @@ Create a Java application named *blob-quickstart-v12*.
     mvn archetype:generate \
         --define interactiveMode=n \
         --define groupId=com.blobs.quickstart \
-        --define artifactId=blob-quickstart-v12 \
+        --define artifactId=blob-quickstart \
         --define archetypeArtifactId=maven-archetype-quickstart \
         --define archetypeVersion=1.4
     ```
@@ -78,15 +78,15 @@ Create a Java application named *blob-quickstart-v12*.
     [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.blobs.quickstart
-    [INFO] Parameter: artifactId, Value: blob-quickstart-v12
+    [INFO] Parameter: artifactId, Value: blob-quickstart
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
     [INFO] Parameter: package, Value: com.blobs.quickstart
     [INFO] Parameter: packageInPathFormat, Value: com/blobs/quickstart
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
     [INFO] Parameter: package, Value: com.blobs.quickstart
     [INFO] Parameter: groupId, Value: com.blobs.quickstart
-    [INFO] Parameter: artifactId, Value: blob-quickstart-v12
-    [INFO] Project created from Archetype in dir: C:\QuickStarts\blob-quickstart-v12
+    [INFO] Parameter: artifactId, Value: blob-quickstart
+    [INFO] Project created from Archetype in dir: C:\QuickStarts\blob-quickstart
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
@@ -95,13 +95,13 @@ Create a Java application named *blob-quickstart-v12*.
     [INFO] ------------------------------------------------------------------------
         ```
 
-1. Switch to the newly created *blob-quickstart-v12* folder.
+1. Switch to the newly created *blob-quickstart* folder.
 
    ```console
-   cd blob-quickstart-v12
+   cd blob-quickstart
    ```
 
-1. In side the *blob-quickstart-v12* directory, create another directory called *data*. This folder is where the blob data files will be created and stored.
+1. In side the *blob-quickstart* directory, create another directory called *data*. This folder is where the blob data files will be created and stored.
 
     ```console
     mkdir data
@@ -159,7 +159,7 @@ The code should resemble this framework:
 package com.blobs.quickstart;
 
 /**
- * Azure blob storage v12 SDK quickstart
+ * Azure Blob Storage quickstart
  */
 import com.azure.core.*;
 import com.azure.identity.*;
@@ -169,7 +169,7 @@ import java.io.*;
 
 public class App
 {
-    public static void main( String[] args ) throws IOException
+    public static void main(String[] args) throws IOException
     {
         // Quickstart code goes here
     }
@@ -178,7 +178,7 @@ public class App
 
 ## Object model
 
-Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 - The storage account
 - A container in the storage account
@@ -273,9 +273,9 @@ You can authorize access to data in your storage account using the following ste
     </dependency>
     ```
 
-3. Add this code to the `Main` method. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
+3. Add this code to the `Main` method. When the code runs on your local workstation, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 
-    :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateServiceClientDAC":::
+    :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateServiceClientDAC":::
 
 4. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
 
@@ -344,13 +344,13 @@ Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storag
 
 Add this code to the end of the `Main` method:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateContainer":::
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateContainer":::
 
 ### Upload blobs to a container
 
 Add this code to the end of the `Main` method:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_UploadBlobFromFile":::
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_UploadBlobFromFile":::
 
 The code snippet completes the following steps:
 
@@ -364,7 +364,7 @@ List the blobs in the container by calling the [listBlobs](/java/api/com.azure.s
 
 Add this code to the end of the `Main` method:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_ListBlobs":::
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_ListBlobs":::
 
 ### Download blobs
 
@@ -372,7 +372,7 @@ Download the previously created blob by calling the [downloadToFile](/java/api/c
 
 Add this code to the end of the `Main` method:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DownloadBlob":::
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DownloadBlob":::
 
 ### Delete a container
 
@@ -382,7 +382,7 @@ The app pauses for user input by calling `System.console().readLine()` before it
 
 Add this code to the end of the `Main` method:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DeleteContainer":::
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DeleteContainer":::
 
 ## Run the code
 
@@ -409,7 +409,7 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob Storage v12 - Java quickstart sample
+Azure Blob Storage - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
@@ -438,7 +438,7 @@ In this quickstart, you learned how to upload, download, and list blobs using Ja
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage SDK v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Azure Blob Storage SDK for Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 - To learn more, see the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
 - For tutorials, samples, quickstarts, and other documentation, visit [Azure for Java cloud developers](/azure/developer/java/).
