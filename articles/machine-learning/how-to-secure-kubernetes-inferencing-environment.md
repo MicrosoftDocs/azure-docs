@@ -15,7 +15,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Secure Azure Kubernetes Service inferencing environment
 
-If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to secure Azure Machine Learning workspace resources and compute environment using the same or peered VNet. In this article, you'll learn: 
+If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to secure Azure Machine Learning workspace resources and a compute environment using the same or peered VNet. In this article, you'll learn: 
   * What is a secure AKS inferencing environment
   * How to configure a secure AKS inferencing environment
 
@@ -51,7 +51,7 @@ After you have VNet information for AKS cluster and if you already have workspac
   
   * Use your AKS cluster VNet information to add new private endpoints for the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by your workspace. These private endpoints should exist in the same or peered VNet as AKS cluster. For more information, see the [secure workspace with private endpoint](./how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) article.
   * If you have other storage that is used by your AzureML workloads, add a new private endpoint for that storage. The private endpoint should be in the same or peered VNet as AKS cluster and have private DNS zone integration enabled.
-  * Add a new private endpoint to your workspace. This private endpoint should be in the same or peered VNet as AKS cluster and have private DNS zone integration enabled.
+  * Add a new private endpoint to your workspace. This private endpoint should be in the same or peered VNet as your AKS cluster and have private DNS zone integration enabled.
 
 If you have AKS cluster ready but don't have workspace created yet, you can use AKS cluster VNet when creating the workspace. Use the AKS cluster VNet information when following the [create secure workspace](./tutorial-create-secure-workspace.md) tutorial. Once the workspace has been created, add a new private endpoint to your workspace as the last step. For all the above steps, it's important to ensure that all private endpoints should exist in the same AKS cluster VNet and have private DNS zone integration enabled.
 

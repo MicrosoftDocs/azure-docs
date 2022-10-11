@@ -70,7 +70,7 @@ scale_setting:
 # other deployment properties continue
 ```
 
-Decisions to scale up/down is based off of ``utilization of the current container replicas``. 
+The decision to scale up or down is based off of ``utilization of the current container replicas``. 
 
 ```
 utilization_percentage = (The number of replicas that are busy processing a request + The number of requests queued in azureml-fe) / The total number of current replicas

@@ -62,7 +62,7 @@ Follow the steps below to mitigate the issue.
 * If the resource is also used by other components in your cluster and can't be modified. Refer to [deploy AzureML extension](./how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings) to see if there is a configuration setting to disable the conflict resource. 
 
 ## HealthCheck of extension
-When the installation failed and didn't hit above error message, you can use the built-in health check job to make a comprehensive check on the extension. Azureml extension contains a `HealthCheck` job to pre-check your cluster readiness when you try to install, update or delete the extension. The HealthCheck job will output a report, which is saved in a configmap named `arcml-healthcheck` in `azureml` namespace. The error codes and possible solutions for the report are listed in [Error Code of HealthCheck](#error-code-of-healthcheck). 
+When the installation failed and didn't hit any of the above error messages, you can use the built-in health check job to make a comprehensive check on the extension. Azureml extension contains a `HealthCheck` job to pre-check your cluster readiness when you try to install, update or delete the extension. The HealthCheck job will output a report, which is saved in a configmap named `arcml-healthcheck` in `azureml` namespace. The error codes and possible solutions for the report are listed in [Error Code of HealthCheck](#error-code-of-healthcheck). 
 
 Run this command to get the HealthCheck report,
 ```bash
@@ -84,7 +84,7 @@ This table shows how to troubleshoot the error codes returned by the HealthCheck
 
 |Error Code |Error Message | Description |
 |--|--|--|
-|E40001 | LOAD_BALANCER_NOT_SUPPORT | Load balancer isn't supported in your cluster. You need to configure load balancer in your cluster or consider to  set `inferenceRouterServiceType` to `nodePort` or `clusterIP`. |
+|E40001 | LOAD_BALANCER_NOT_SUPPORT | Load balancer isn't supported in your cluster. You need to configure the load balancer in your cluster or consider to  set `inferenceRouterServiceType` to `nodePort` or `clusterIP`. |
 |E40002 | INSUFFICIENT_NODE | You have enabled `inferenceRouterHA` that requires at least three nodes in your cluster. Disable the HA if you have fewer than three nodes. |
 |E40003 | INTERNAL_LOAD_BALANCER_NOT_SUPPORT | Currently, internal load balancer is only supported by AKS. Don't set  `internalLoadBalancerProvider` if you don't have an AKS cluster.|
 |E40007 | INVALID_SSL_SETTING | The SSL key or certificate isn't valid. The CNAME should be compatible with the certificate. |
@@ -100,9 +100,9 @@ AzureML extension uses some open source components, including Prometheus Operato
 ### Prometheus operator
 [Prometheus operator](https://github.com/prometheus-operator/prometheus-operator) is an open source framework to help build metric monitoring system in kubernetes. AzureML extension also utilizes Prometheus operator to help monitor resource utilization of jobs.
 
-If Prometheus operator has already been installed in cluster by other service, you can specify ```installPromOp=false``` to disable Prometheus operator in AzureML extension to avoid confliction between two Prometheus operators.
+If the Prometheus operator has already been installed in cluster by other service, you can specify ```installPromOp=false``` to disable the Prometheus operator in AzureML extension to avoid confliction between two Prometheus operators.
 In this case, all Prometheus instances will be managed by the existing prometheus operator. To make sure Prometheus works properly, the following things need to be paid attention to when you disable prometheus operator in Azureml extension.
-1. Check if prometheus in azureml namespace is managed by Prometheus operator. In some scenarios, prometheus operator is set to only monitor some specific namespaces. If so, make sure azureml namespace is in the allow list. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L165).
+1. Check if prometheus in azureml namespace is managed by the Prometheus operator. In some scenarios, prometheus operator is set to only monitor some specific namespaces. If so, make sure azureml namespace is in the allow list. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L165).
 2. Check if kubelet-service is enabled in prometheus operator. Kubelet-service contains all the endpoints of kubelet. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L149). And also need to make sure that kubelet-service has a label`k8s-app=kubelet`.
 3. Create ServiceMonitor for kubelet-service. Run the following command with variables replaced:
     ```bash
