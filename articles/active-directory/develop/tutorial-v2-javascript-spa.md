@@ -250,7 +250,7 @@ In the next steps, you'll create a new folder for the JavaScript SPA and set up 
    </html>
    ```
 
-2. Create a *.js* file named *ui.js*, which accesses and updates the Document Object Model (DOM) elements. Add the following code:
+2. Create a file named *ui.js*, and add this code to access and update the Document Object Model (DOM) elements:
 
    ```JavaScript
    // Select DOM elements to work with
