@@ -174,7 +174,7 @@ To register your resource, follow the **Prerequisites** and **Register** section
 After you've registered the data resource, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data resource. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
 Once your data source has the  **Data Use Management** option set to **Enabled**, it will look like this screenshot:
-![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
+![Screenshot shows how to register a data source for policy with the option Data use management set to enable.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
 ### Create a policy
 To create an access policy on an entire Azure subscription or resource group, follow these guide:
