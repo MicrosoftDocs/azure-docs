@@ -42,7 +42,7 @@ You use a deployment manifest to specify the modules to run on an IoT Edge devic
 
 1. In your IoT Central application, navigate to **Edge manifests**.
 
-1. Select **+ New**. Enter a name, such as *Environmental Sensor*, for your deployment manifest and then upload the *EnvironmentalSensorManifest.json* you downloaded previously.
+1. Select **+ New**. Enter a name such as *Environmental Sensor* for your deployment manifest, and then upload the *EnvironmentalSensorManifest.json* file you downloaded previously.
 
 1. Select **Next** and then **Create**.
 
@@ -198,7 +198,7 @@ If you want to remove the Azure IoT Edge for Linux on Windows installation from 
 
 1. Open **Settings** on Windows
 1. Select **Add or Remove Programs**
-1. Select **Azure IoT Edge LTS app**
+1. Select **Azure IoT Edge LTS** app
 1. Select **Uninstall**
 
 ## Next Steps
