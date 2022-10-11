@@ -97,7 +97,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [Python](#tab/python)
 
-- Python Application using version 3.6+
+- Python Application using version 3.7+
 
 ---
 
@@ -151,7 +151,7 @@ npm install @opentelemetry/instrumentation-http
 Install the latest [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) PyPI package:
 
 ```sh
-pip install azure-monitor-opentelemetry-exporter 
+pip install azure-monitor-opentelemetry-exporter --pre
 ```
 
 ---
@@ -1254,7 +1254,7 @@ Placeholder
 
 By default, the Azure Monitor exporters will use the following path:
 
-<tempfile.gettempdir()>/opentelemetry-python-<your-instrumentation-key>
+`<tempfile.gettempdir()>/opentelemetry-python-<your-instrumentation-key>`
 
 To override the default directory you should set `storage_path` to the directory you want.
 
