@@ -3,7 +3,7 @@ title: Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
 description: A brief overview of Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/11/2022
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
