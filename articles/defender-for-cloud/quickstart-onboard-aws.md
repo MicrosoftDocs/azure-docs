@@ -210,6 +210,29 @@ Follow the steps below to create your AWS cloud connector.
 
 ### Step 2. Set up authentication for Defender for Cloud in AWS
 
+The authentication between Microsoft Defender for Cloud and AWS is federated authentication. All the resources related to the authentication will be created as part of the CloudFormation template deployment.
+
+1. Identity provider (OpenID connect)
+1. IAM roles with a federated principal (connected to the identity providers)
+The diagram below describes the authentication flow.
+
+:::image type="content" source="media/quickstart-onboard-aws/authentication-design-flow.png" alt-text="diagram that shows authentication design flow." lightbox="media/quickstart-onboard-aws/authentication-design-flow.png":::
+
+1. Microsoft Defender for Cloud CSPM service acquires an AAD token.  
+    1. This token is signed by AAD using RS256 algorithm.
+    1. The token time to live is 1 hour.
+1. The AAD token will be exchanged with an AWS short-living credentials.
+CSPM service will assume the CSPM IAM role (Assume with web identity).
+1. Since the principal of the role (defined at the role trust relationships) is a federated identity then:
+    1. AWS identity provider validates the AAD token. The validation process is performed against AAD.  And it includes:
+        1. Audience validation
+        1. Signing of the token
+        1. Certificate thumbprint
+    1. Then Microsoft Defender for Cloud CSPM role is assumed only after the condition defined at the trust-relationship is validated.
+1. The condition defined at the role is for internal validation (within AWS) which allows only Microsoft Defender for Cloud CSPM application (audience) to get access to the specific role (and not any Microsoft token).
+1. After the AAD Token is validated, AWS STS exchanges the token with short-living AWS credentials
+1. CSPM service will use the short-living AWS credentials to scan the AWS Account.
+
 There are two ways to allow Defender for Cloud to authenticate to AWS:
 
 - **Create an IAM role for Defender for Cloud** (Recommended) - The most secure method
