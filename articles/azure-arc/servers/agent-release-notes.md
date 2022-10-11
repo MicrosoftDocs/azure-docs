@@ -29,7 +29,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Tag values are correctly preserved when connecting a server and specifying multiple tags (fixes known issue from version 1.22).
 - An issue preventing some users who tried authenticating with an identity from a different tenant than the tenant where the server is (will be) registered has been fixed.
 - The `azcamgent check` command no longer validates CNAME records to reduce warnings that did not impact agent functionality.
-- The agent will now try to obtain AAD tokens for up to 5 minutes when authenticating with an Azure Active Directory service principal.
+- The agent will now try to obtain an access token for up to 5 minutes when authenticating with an Azure Active Directory service principal.
 - Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
 - Improved logging during the installation process.
 - The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
