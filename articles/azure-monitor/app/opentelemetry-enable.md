@@ -786,20 +786,6 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
 
-    <!---
-    ### Get the trace ID or span ID
-    You might use X or Y to get the trace ID or span ID. Adding a trace ID or span ID to existing logging telemetry enables better correlation when you debug and diagnose issues.
-    
-    > [!NOTE]
-    > If you manually create spans for log-based metrics and alerting, you'll need to update them to use the metrics API (after it's released) to ensure accuracy.
-    
-    ```C#
-    Placeholder
-    ```
-    
-    For more information, see [GitHub Repo](link).
-    --->
-
 #### [Node.js](#tab/nodejs)
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
