@@ -9,7 +9,7 @@ ms.date: 08/30/2022
 ms.author: v-smcevoy
 ---
 
-# Manual Deployment and Post-deployment of MedTech service
+# Part 3: Manual Deployment and Post-deployment of MedTech service
 
 When you are satisfied with your configuration and it has been successfully validated, you can complete the deployment and post-deployment process.
 
