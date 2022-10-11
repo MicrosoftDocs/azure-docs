@@ -4,17 +4,9 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 10/05/2022
+ms.date: 10/10/2022
 ms.custom:
 ---
-
-#### Register Microsoft Purview as a resource provider in other subscriptions
-This step is necessary only if the data sources and the Microsoft Purview account are in different subscriptions. Register Microsoft Purview as a resource provider in each subscription where data sources reside by following this guide: [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). The Microsoft Purview resource provider is: Microsoft.Purview.
-
-To register using PowerShell run the below:
-```
-Register-AzResourceProvider -ProviderNamespace Microsoft.Purview
-```
 
 #### Configure permissions needed to enable *Data use management* on the data source
 This step is needed before a policy can be created in Microsoft Purview for that resource. To enable the *Data use management* toggle for a data source, resource group, or subscription, the **same user** must have **both** specific IAM privileges on the resource and specific Microsoft Purview privileges. 
