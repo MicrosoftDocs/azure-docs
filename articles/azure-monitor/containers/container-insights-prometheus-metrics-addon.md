@@ -12,7 +12,6 @@ This article describes how to configure Container insights to send Prometheus me
 
 ## Prerequisites
 
-- The cluster must be [onboarded to Container insights](container-insights-enable-aks.md).
 - The cluster must use [managed identity authentication](container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
@@ -25,6 +24,10 @@ Use any of the following methods to install the metrics addon on your cluster an
 ### [Azure portal](#tab/azure-portal)
 
 Managed Prometheus can be enabled in the Azure portal through either Container insights or an Azure Monitor workspace.
+
+## Prerequisites
+
+- The cluster must be [onboarded to Container insights](container-insights-enable-aks.md).
 
 #### Enable from Container insights
 
