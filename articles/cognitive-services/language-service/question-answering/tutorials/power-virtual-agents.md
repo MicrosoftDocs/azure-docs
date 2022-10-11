@@ -6,7 +6,7 @@ ms.subservice: language-service
 ms.topic: tutorial
 author: jboback
 ms.author: jboback
-ms.date: 10/9/2022
+ms.date: 10/11/2022
 ms.custom: language-service-question-answering
 ---
 
@@ -110,3 +110,81 @@ IMAGE
 Click on "New Step" and search for "Return value(s) to Power Virtual Agents" and type in a keyword, then choose the previous variable name in the answer. ????????
 
 IMAGE
+
+The list of completed steps should look like this.
+
+IMAGE
+
+Select **Save** to save the flow.
+
+## Create a solution and add the flow
+
+For the bot to find and connect to the flow, the flow must be included in a Power Automate solution.
+
+1. While still in the Power Automate portal, select Solutions from the left-side navigation.
+2. Select **+ New solution**.
+3. Enter a display name. The list of solutions includes every solution in your organization or school. Choose a naming convention that helps you filter to just your solutions. For example, you might prefix your email to your solution name: jondoe-power-virtual-agent-question-answering-fallback.
+4. Select your publisher from the list of choices.
+5. Accept the default values for the name and version.
+6. Select **Create** to finish the process.
+
+**Add your flow to the solution**
+
+1. In the list of solutions, select the solution you just created. It should be at the top of the list. If it isn't, search by your email name, which is part of the solution name.
+2. In the solution, select **+ Add existing**, and then select Flow from the list.
+3. Find your flow from the **Outside solutions** list, and then select Add to finish the process. If there are many flows, look at the **Modified** column to find the most recent flow.
+
+## Add your solution's flow to Power Virtual Agents
+
+1. Return to the browser tab with your bot in Power Virtual Agents. The authoring canvas should still be open.
+2. To insert a new step in the flow, above the **Message** action box, select the plus (+) icon. Then select **Call an action**.
+3. From the **Flow** pop-up window, select the new flow named **Generate answers using Question Answering Project...**. The new action appears in the flow.
+
+IMAGE
+
+4. To correctly set the input variable to the QnA Maker action, select **Select a variable**, then select **bot.UnrecognizedTriggerPhrase**.
+
+IMAGE
+
+5. To correctly set the output variable to the Question Answering action, in the **Message** action, select **UnrecognizedTriggerPhrase**, then select the icon to insert a variable, {x}, then select **FinalAnswer**.
+6. From the context toolbar, select **Save**, to save the authoring canvas details for the topic.
+
+Here's what the final bot canvas looks like:
+
+IMAGE
+
+## Test the bot
+
+As you design your bot in Power Virtual Agents, you can use the [Test bot pane](https://learn.microsoft.com/power-virtual-agents/authoring-test-bot) to see how the bot leads a customer through the bot conversation.
+
+1. In the test pane, toggle **Track between topics**. This allows you to watch the progression between topics, as well as within a single topic.
+2. Test the bot by entering the user text in the following order. The authoring canvas reports the successful steps with a green check mark.
+
+|**Question order**|**Test questions**                                                 |**Purpose**                                                                                                                           |
+|------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+|1                 |Hello                                                              |Begin conversation                                                                                                                          |
+|2                 |Store hours                                                        |Sample topic. This is configured for you without any additional work on your part.                                                                                                                            |
+|3                 |Yes                                                                |In reply to "Did that answer your question?"                                                                                                                                     |
+|4                 |Excellent                                                          |In reply to "Please rate your experience."                                                                                                                                     |
+|5                 |Yes                                                                |In reply to "Can I help with anything else?"                                                                                                                                     |
+|6                 |How can I improve the throughput performance for query predictions?|This question triggers the fallback action, which sends the text to your knowledge base to answer. Then the answer is shown. the green check marks for the individual actions indicate success for each action.|
+
+IMAGE
+
+## Publish your bot
+
+To make the bot available to all members of your organization, you need to publish it.
+
+Publish your bot by following the steps in [Publish your bot](https://learn.microsoft.com/power-virtual-agents/publication-fundamentals-publish-channels).
+
+## Share your bot
+
+To make your bot available to others, you first need to publish it to a channel. For this tutorial we'll use the demo website.
+
+Configure the demo website by following the steps in [Configure a chatbot for a live or demo website](https://learn.microsoft.com/power-virtual-agents/publication-connect-bot-to-web-channels).
+
+Then you can share your website URL with your school or organization members.
+
+## Clean up resources
+
+When you are done with the knowledge base, remove the QnA Maker resources in the Azure portal. ???????????
