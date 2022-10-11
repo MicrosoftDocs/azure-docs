@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 12/06/2021
+ms.date: 10/11/2022
 ms.author: lajanuar
 ms.topic: conceptual
 ms.custom: cogserv-non-critical-translator
@@ -36,13 +36,19 @@ You can train a model using only dictionary data. To do so, select only the dict
 
 ## Recommendations
 
+- Dictionaries aren't a substitute for training a model using training data. For better results, we recommended letting the system learn from your training data. However, when sentences or compound nouns must be translated verbatim, use a dictionary.
+
+- The phrase dictionary should be used sparingly. When a phrase within a sentence is replaced, the context of that sentence is lost or limited for translating the rest of the sentence. The result is that, while the phrase or word within the sentence will translate according to the provided dictionary, the overall translation quality of the sentence often suffers.
+
+- The phrase dictionary works well for compound nouns like product names ("_Microsoft SQL Server_"), proper names ("_City of Hamburg_"), or product features ("_pivot table_"). It doesn't work as well for verbs or adjectives because those words are typically highly contextual within the source or target language. The best practice is to avoid phrase dictionary entries for anything but compound nouns.
+
 - If you're using a phrase dictionary, capitalization and punctuation are important. Dictionary entries are case- and punctuation-sensitive. Custom Translator will only match words and phrases in the input sentence that use exactly the same capitalization and punctuation marks as specified in the source dictionary file. Also, translations will reflect the capitalization and punctuation provided in the target dictionary file.
 
     **Example**
 
     * If you're training an English-to-Spanish system that uses a phrase dictionary and you specify "_SQL server_" in the source file and "_Microsoft SQL Server_" in the target file. When you request the translation of a sentence that contains the phrase "_SQL server_", Custom Translator will match the dictionary entry and the translation will contain "_Microsoft SQL Server_."
-    * When you request translation of a sentence that includes the same phrase but **doesn't** match what is in your source file, such as "_sql server_", "_sql server_", "_sql Server_" or "_SQL Server_", it **won't** return a match from your dictionary.
-    * The translation follows the rules of the target language as specified in your phrase dictionary."
+    * When you request translation of a sentence that includes the same phrase but **doesn't** match what is in your source file, such as "_sql server_", "_sql Server_" or "_SQL Server_", it **won't** return a match from your dictionary.
+    * The translation follows the rules of the target language as specified in your phrase dictionary.
 
 - If you're using a sentence dictionary, end-of-sentence punctuation is ignored.
 
