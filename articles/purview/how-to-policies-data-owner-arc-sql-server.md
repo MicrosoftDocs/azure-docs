@@ -50,9 +50,9 @@ This guide covers how a data owner can delegate authoring policies in Microsoft 
 ### SQL Server on Azure Arc-enabled server configuration
 This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
 
-1. Sign in to Azure portal with a [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers) that contains feature flags to list SQL Servers on Azure Arc
+1. Sign in to Azure portal this this [link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/sqlServers) which lists SQL Servers on Azure Arc.
 
-1. Navigate to a SQL Server you want to configure
+1. Select the SQL Server you want to configure
 
 1. Navigate to **Azure Active Directory** feature on the left pane
 
