@@ -125,17 +125,17 @@ The following checklist provides recommendations for designing sustainable workl
 
 :heavy_check_mark: When possible, aim for [stateless design](/azure/aks/operator-best-practices-multi-region#remove-service-state-from-inside-containers).
 
-**Choose The appropriate storage type** _to adjust to your workloads' performance needs and access patterns_.
-
-:heavy_check_mark: Choose [the appropriate storage type](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type).
-
 <br/>
 
 **Optimize storage utilization** _to reduce unused capacity and optimize the energy consumed to run the storage service_.
 
+:heavy_check_mark: Choose [the appropriate storage type](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type).
+
 :heavy_check_mark: Use [Storage Classes to define application needs](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs).
 
 :heavy_check_mark: [Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes).
+
+<br/>
 
 **Set Retention Policies for storage and backups** _to avoid storing unnecessary data_.
 
@@ -293,6 +293,8 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
 
 :heavy_check_mark: Enable [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)
 
+<br/>
+
 **Scan for vulnerabilities** _to avoid unnecessary resource misusage_
 
 :heavy_check_mark: [Identify vulnerable container images](/azure/defender-for-cloud/defender-for-containers-cicd)
@@ -324,6 +326,8 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
 :heavy_check_mark: Use [Best Practices for Monitoring Cloud Applications](/azure/architecture/framework/devops/monitor-collection-data-storage)
 
 :heavy_check_mark: Use [Best Practices for Monitoring Microservices Application on AKS](/azure/architecture/microservices/logging-monitoring)
+
+<br/>
 
 **Consider Carbon Awareness for your workload orchestration**
 
