@@ -111,7 +111,7 @@ Create a Java application named *blob-quickstart-v12*.
 
 Open the `pom.xml` file in your text editor. 
 
-Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number. Using **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.6.0/sdk/boms/azure-sdk-bom/README.md).
+Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. Using **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM README](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
 
 ```xml
 <dependencyManagement>
@@ -246,7 +246,7 @@ You can authorize access to data in your storage account using the following ste
 
     #### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-    You'll need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+    You'll need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio Code.
 
     On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
 
