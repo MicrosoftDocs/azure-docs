@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 10/11/2022
 ms.custom: references_regions
 ---
 # Provision access to Azure SQL Database for DevOps actions (preview)
@@ -30,9 +30,8 @@ The Azure SQL Database data source needs to be registered first with Microsoft P
 
 After you've registered your resources, you'll need to enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given data source
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this screenshot. This will enable the access policies to be used with the given data source
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
-
 
 ## Create a new DevOps policy
 Follow this link for the steps to [create a new DevOps policy in Microsoft Purview](how-to-policies-devops-authoring-generic.md#create-a-new-devops-policy).
@@ -48,7 +47,6 @@ Follow this link for the steps to [delete a DevOps policies in Microsoft Purview
 
 >[!Important]
 > DevOps policies are auto-published and changes can take up to **5 minutes** to be enforced by the data source.
-
 
 ### Test the policy
 The Azure AD Accounts referenced in the access policies should now be able to connect to any database in the server to which the policies are published.
