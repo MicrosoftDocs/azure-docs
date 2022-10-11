@@ -46,7 +46,7 @@ This section describes the steps to configure the SQL Server on Azure Arc to use
 1. Navigate to **Azure Active Directory** feature on the left pane
 
 1. Verify that Azure Active Directory Authentication is configured. This means that all these have been entered: an admin login, a SQL Server service certificate, and a SQL Server app registration.
-![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](./media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
+![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
 
 1. Scroll down to set **External Policy Based Authorization** to enabled
 
