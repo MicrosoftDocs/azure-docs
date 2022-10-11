@@ -72,6 +72,8 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics
       href: configure-alerts-for-azure-vmware-solution.md
+    - name: Configure customer-managed key encryption at rest
+      href: configure-customer-managed-keys.md
     - name: Manage and protect VMs on Azure NetApp Files
       items: 
       - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
