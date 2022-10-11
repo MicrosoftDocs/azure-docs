@@ -2,10 +2,10 @@
 title: Chaos Studio fault and action library
 description: Understand the available actions you can use with Chaos Studio including any prerequisites and parameters.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: article
 ms.date: 06/16/2022
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
 ---

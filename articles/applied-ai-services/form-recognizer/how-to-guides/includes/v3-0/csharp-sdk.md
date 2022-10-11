@@ -39,7 +39,7 @@ ms.custom: devx-track-csharp
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* You'll need a document file at a URL. For this project, you can use the sample forms provided in the table below for each feature:
+* Finally, you'll need a document file at a URL location. For this project, you can use the sample forms provided in the table below for each feature:
 
     **Sample documents**
 
