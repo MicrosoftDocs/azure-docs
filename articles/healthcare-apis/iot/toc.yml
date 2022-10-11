@@ -28,12 +28,9 @@ items:
 - name: Tutorials
   expanded: true
   items:
-  - name: Ingest data from IoT devices
-    expanded: false
-    items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md 
-- name: How-to guides
+- name: How-to
   expanded: true
   items: 
     - name: Use Device mappings
@@ -69,14 +66,12 @@ items:
     - name: Troubleshoot and problem solve
       expanded: false
       items:
-        - name: Troubleshooting guide  
-          href: iot-troubleshoot-guide.md
-        - name: Device and FHIR destination mappings
-          href: iot-troubleshoot-mappings.md
         - name: Errors and conditions
           href: iot-troubleshoot-error-messages-and-conditions.md
+        - name: Device and FHIR destination mappings
+          href: iot-troubleshoot-mappings.md
 - name: Concepts
-  expanded: true
+  expanded: false
   items:
   - name: MedTech service data flow
     href: iot-data-flow.md
@@ -87,7 +82,7 @@ items:
   - name: MedTech service and Microsoft Teams notifications
     href: iot-connector-teams.md
 - name: Resources
-  expanded: true
+  expanded: false
   items:
     - name: FAQs - MedTech service
       href: iot-connector-faqs.md
