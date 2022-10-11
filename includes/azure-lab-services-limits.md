@@ -10,7 +10,7 @@ The following limits are for the number of Azure Lab Services resources.
 
 #### Per resource type
 
-| |Resource type | Limit |
+| Grouping |Resource type | Limit |
 |-----|------|-------|
 |Per subscription|Labs|980|
 |Per resource group|Labs|800|
