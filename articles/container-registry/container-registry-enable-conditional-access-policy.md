@@ -4,7 +4,7 @@ description: Learn how to configure conditional access to your registry by using
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.author: tejaswikolli
-ms.reviewer: cegraybl 
+ms.reviewer: johnsonshi 
 ---
 
 # Azure Container Registry (ACR) introduces the Conditional Access policy
