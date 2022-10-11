@@ -74,20 +74,20 @@ Mention that there are separate rates for high priority reads and data retrieval
 
 We will use this data for our scenarios. Disclaimer and pointer to the pricing page for actual data.
 
-| Factor | Example metric |
-|---|---|
-| Reads per month | 1 |
-| Percentage of storage read | 1% |
-| Data prices (pay-as-you-go) | $0.00099 |
-| Cost of write transactions (per 10,000) | $0.10 |
-| Cost of a single write operation ($.10 / 10,000) | $0.00001 |
+| Cost factor | Value |
+|---|--|
+| Cost of write transactions (per 10,000)| $0.10 |
+| Cost of a single write operation ($.10 / 10,000)| $0.00001 |
+| Data prices (pay-as-you-go)| $0.00099 |
 | Cost of read transactions (per 10,000) | $5.00 |
 | Cost of a single read operation ($5.00 / 10,000) | $0.0005 |
 | Cost of high priority read transactions (per 10,000) | $50.00 |
 | Cost of data retrieval (per GB) | $0.02 |
-| Cost of high priority data retrieval (per GB) | $0.10 |
-| Total file size (GB) | 102,400 |
+| Cost of high priority data retrieval (per GB) | $0.10 |\
+| Total file size (GB)| 102,400 |
 | Total file count | 2,000,000 |
+| Reads per month | 1 |
+| Percentage of storage read | 1% |
 
 ### One-time on-prem data backup to Archive 
 
@@ -97,38 +97,100 @@ In this scenario, archiving cost would be required for the first month as one ti
 
 Using the example data from the previous sections, this table demonstrates the spending for three months. 
 
+<br>
 <table>
-  <tr>
-    <th>Factor</th>
-    <th>January</th>
-  </tr>
-  <tr bgcolor="beige">
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
+    <tr>
+        <th>Factor</th>
+        <th>January</th>
+        <th>February</th>
+        <th>March</th>
+        <th>Projected annual</th>
+    </tr>
+    <tr>
+        <td>Write transactions</td>
+        <td>2,000,000</td>
+        <td>0</td>
+        <td>0</td>
+        <td>2,000,000</td>
+    </tr>
+    <tr>
+        <td>Cost of a single write operation</td>
+        <td>$0.00001</td>
+        <td>$0.00001</td>
+        <td>$0.00001</td>
+        <td>$0.00001</td>
+    </tr>
+    <tr bgcolor="beige">
+        <td>Cost to write</td>
+        <td>$20.00</td>
+        <td>$0.00</td>
+        <td>$0.00</td>
+        <td>$20.00</td>
+    </tr>
+    <tr>
+        <td>Total file size (GB)</td>
+        <td>102,400</td>
+        <td>102,400</td>
+        <td>102,400</td>
+        <td>1,228,800</td>
+    </tr>
+    <tr>
+        <td>Data prices (pay-as-you-go)</td>
+        <td>$0.00099</td>
+        <td>$0.00099</td>
+        <td>$0.00099</td>
+        <td>$0.00099</td>
+    </tr>
+    <tr bgcolor="beige">
+        <td>Cost to store</td>
+        <td>$101.38</td>
+        <td>$101.38</td>
+        <td>$101.38</td>
+        <td>$1,216.51</td>
+    </tr>
+    <tr>
+        <td>Data retrieval size (File size * % storage read)</td>
+        <td>1024</td>
+        <td>1024</td>
+        <td>1024</td>
+        <td>12,288</td>
+    </tr>
+    <tr>
+        <td>Cost of data retrieval</td>
+        <td>$.02</td>
+        <td>$.02</td>
+        <td>$.02</td>
+        <td>$.02</td>
+    </tr>
+    <tr>
+        <td>Number of read transactions (File count * 1%)</td>
+        <td>20,000</td>
+        <td>20,000</td>
+        <td>20,000</td>
+        <td>240,000</td>
+    </tr>
+    <tr>
+        <td>Cost of a single read operation</td>
+        <td>$0.0005</td>
+        <td>$0.0005</td>
+        <td>$0.0005</td>
+        <td>$0.0005</td>
+    </tr>
+    <tr bgcolor="beige">
+        <td>Cost to rehydrate</td>
+        <td>$30.48</td>
+        <td>$30.48</td>
+        <td>$30.48</td>
+        <td>$365.76</td>
+    </tr>
+    <tr>
+        <td><strong>Total Cost</strong></td>
+        <td><strong>$151.86</strong></td>
+        <td><strong>$131.86</strong></td>
+        <td><strong>$131.86</strong></td>
+        <td><strong>$1,602.27</strong></td>
+    </tr>
 </table>
-
-
-| Factor | January | February | March |
-|--------|---------|---------|----|
-| Write transactions | 2,000,000 | 0 | 0 |
-| Cost of a single write operation | $0.00001 | $0.00001 | $0.00001 |
-| Cost to write | $20.00 | $0.00 | $0.00| $20.00 |
-| Total file size (GB) | 102,400 | 102,400 | 102,400 |
-| Data prices (pay-as-you-go) | $0.00099 | $0.00099 |$0.00099 |
-| Cost to store  | $101.38 | $101.38 | $101.38 | 
-| Data retrieval size (File size * % storage read) | 1024 | 1024 | 1024 |
-| Cost of data retrieval  | $.02 | $.02 | $.02 |
-| Number of read transactions (File count * 1%) | 20,000 | 20,000 | 20,000 |
-| Cost of a single read operation | $0.0005 | $0.0005 | $0.0005 |
-| Cost to rehydrate | $30.48 | $30.48 | $30.48 |
-| **Total Cost**  | **$151.86** | **$131.86** | **$131.86** |
 
 
 ### Continuously tiering cold hot blobs to archive 
@@ -136,41 +198,94 @@ Using the example data from the previous sections, this table demonstrates the s
 A data in cloud is typically hot in processing in first few months. You can measure your data temperature pattern by analysis with inventory. It would make sense to tier actual cold data to archive continuously for cost saving. 
 
 In this scenario, archiving cost would be required every month for new aged data that are fitted to archive. You need to spend on archive capacity for accumulated data and needed rehydration as well. The following example demonstrates the spending in first 12 months. 
+<br><br>
+<table>
+    <tr>
+        <th>Factor</th>
+        <th>January</th>
+        <th>February</th>
+        <th>March</th>
+        <th>Projected annual</th>
+    </tr>
+    <tr>
+        <td>Write transactions</td>
+        <td>200,000</td>
+        <td>200,000</td>
+        <td>200,000</td>
+        <td>2,400,000</td>
+    </tr>
+    <tr>
+        <td>Cost of a single write operation</td>
+        <td>$0.00001</td>
+        <td>$0.00001</td>
+        <td>$0.00001</td>
+        <td>$0.00001</td>
+    </tr>
+    <tr bgcolor="beige">
+        <td>Cost to write</td>
+        <td>$2.00</td>
+        <td>$2.00</td>
+        <td>$2.00</td>
+        <td>$24.00</td>
+    </tr>
+    <tr>
+        <td>Total file size (GB)</td>
+        <td>10,240</td>
+        <td>20,480</td>
+        <td>39,720</td>
+        <td>798,720</td>
+    </tr>
+    <tr>
+        <td>Data prices (pay-as-you-go)</td>
+        <td>$0.00099</td>
+        <td>$0.00099</td>
+        <td>$0.00099</td>
+        <td>$0.00099</td>
+    </tr>
+    <tr bgcolor="beige">
+        <td>Cost to store</td>
+        <td>$10.14</td>
+        <td>$20.28</td>
+        <td>$30.41</td>
+        <td>$790.73</td>
+    </tr>
+    <tr>
+        <td>Cost of data retrieval</td>
+        <td>$.02</td>
+        <td>$.02</td>
+        <td>$.02</td>
+        <td>$.02</td>
+    </tr>
+    <tr>
+        <td>Number of read transactions (File count * % storage read)</td>
+        <td>2,000</td>
+        <td>4,000</td>
+        <td>6,000</td>
+        <td>156,000</td>
+    </tr>
+    <tr>
+        <td>Cost of a single read operation</td>
+        <td>$0.0005</td>
+        <td>$0.0005</td>
+        <td>$0.0005</td>
+        <td>$0.0005</td>
+    </tr>
+    <tr bgcolor="beige">
+        <td>Cost to rehydrate</td>
+        <td>$3.05</td>
+        <td>$6.10</td>
+        <td>$9.14</td>
+        <td>$237.74</td>
+    </tr>
+    <tr>
+        <td><strong>Total Cost</strong></td>
+        <td><strong>$15.19</strong></td>
+        <td><strong>$28.37</strong></td>
+        <td><strong>$41.56</strong></td>
+        <td><strong>$1,052.48</strong></td>
+    </tr>
+</table>
 
-| Factor | January | February | March |
-|--------|---------|---------|----|
-| Write transactions | 200,000 | 200,000 | 200,000 |
-| Cost of a single write operation | $0.00001 | $0.00001 | $0.00001 |
-| **Cost to write** | **$2.00** | **$2.00** | **$2.00**|
-| Total file size (GB) | 10,240 | 20,480 | 39,720 |
-| Data prices (pay-as-you-go) | $0.00099 | $0.00099 |$0.00099 |
-| **Cost to store** (File size * data price) | **$10.14** | **$10.14** | **$10.14** | 
-| Data retrieval size (file size * % storage read) | 102 | 205 | 307 |
-| Cost of data retrieval (Per GB) | $.02 | $.02 | $.02 |
-| Number of read transactions (File count * % storage read) | 2,000 | 4,000 | 6,000 |
-| Cost of a single read operation | $0.0005 | $0.0005 | $0.0005 |
-| **Cost to rehydrate** | **$30.48** | **$30.48** | **$30.48** |
-| **Total Cost** (write + store + rehydrate) | **$151.86** | **$131.86** | **$131.86** |
-
-## Archive cost comparison
-
-Put some inference here and qualify that you also have to pay for storage in other tiers.
-
-| Month | One-time archive up front | Continuous tiering |
-|---|---|---|
-| January | $151.86 | $15.19 |
-| February | $131.86 | $28.37 |
-| March | $131.86 | $41.56|
-| April | $131.86 | $54.74 |
-| May | $131.86 | $67.93 |
-| June | $131.86 | $81.11 |
-| July | $131.86 | $94.30 |
-| August | $131.86 | $107.48 |
-| September | $131.86 | $120.67 |
-| October | $131.86 | $133.86 |
-| November | $131.86 | $147.04|
-| December | $131.86 | $160.23 |
-| **Total** | **$1,602.27** | **$1,052.48** |
 
 ## Cost considerations between Cool and Archive 
 
