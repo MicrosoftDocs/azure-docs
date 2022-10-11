@@ -120,7 +120,7 @@ The following checklist provides recommendations for designing sustainable workl
 
 **Optimize storage utilization** _to reduce unused capacity and optimize the energy consumed to run the storage service_.
 
-:heavy_check_mark: Use [Storage Classes to define application needs](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs)
+:heavy_check_mark: Use [Storage Classes to define application needs](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs).
 
 :heavy_check_mark: [Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes).
 
