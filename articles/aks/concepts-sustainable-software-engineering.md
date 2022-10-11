@@ -17,7 +17,7 @@ Sustainable software engineering is a shift in priorities and focus. In many cas
 
 The [sustainability guidance in the Microsoft Azure Well-Architected Framework (WAF)](/azure/architecture/framework/sustainability/) aims to address the approach to building any sustainable workload on Azure.
 
-This article provides practical recommendations for applying WAF sustainability guidance for AKS.
+This article provides practical recommendations for applying that same WAF sustainability guidance, but specifically for AKS.
 
 ## Get started with WAF sustainability guidance
 
