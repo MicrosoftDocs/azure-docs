@@ -39,7 +39,7 @@ ms.custom:
 ### SQL Server on Azure Arc-enabled server configuration
 This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
 
-1. Sign in to Azure portal this this [link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/sqlServers) which lists SQL Servers on Azure Arc.
+1. Sign in to Azure portal through this [link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/sqlServers) which lists SQL Servers on Azure Arc.
 
 1. Select the SQL Server you want to configure
 
