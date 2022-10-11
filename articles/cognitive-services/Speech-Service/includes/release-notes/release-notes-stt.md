@@ -7,7 +7,7 @@ ms.author: eur
 ---
 ### 2022-Oct release
 
-#### New Speech-to-text-locales:
+#### New Speech-to-text-locale
 
 Added 1 new locale as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
