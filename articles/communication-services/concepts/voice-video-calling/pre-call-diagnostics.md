@@ -136,7 +136,7 @@ InCall diagnostics leverages [media quality stats](./media-quality-sdk.md) to ca
 
 ```
 
-At this step, there are multiple failure points to watch out for. The values provided by the API are based on the threshold values required by the service. Those raw thresholds can be found in our [media quality stats documentation](./media-quality-sdk.d#best-practices).
+At this step, there are multiple failure points to watch out for. The values provided by the API are based on the threshold values required by the service. Those raw thresholds can be found in our [media quality stats documentation](./media-quality-sdk.md#best-practices).
 
 - If connection fails, the user should be prompted to recheck their network connectivity. Connection failures can also be attributed to network conditions like DNS, Proxies or Firewalls. For more information on recommended network setting check out our [documentation](network-requirements.md).
 - If bandwidth is `Bad`, the user should be prompted to try out a different network or verify the bandwidth availability on their current one. Ensure no other high bandwidth activities might be taking place.
