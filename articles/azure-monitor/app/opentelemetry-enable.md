@@ -460,15 +460,15 @@ Dependencies
 
 Requests
 - [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) version:
-  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.24b0/)
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.34b0/)
 - [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) version:
-  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.24b0/)
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.34b0/)
 - [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
-  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.24b0/)
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
 
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
-  [0.24b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.24b0/)
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.34b0/)
 
 ---
 
@@ -521,7 +521,30 @@ public class Program
 
 #### [Python](#tab/python)
 
-- Placeholder
+The following code demonstrates how to enable OpenTelemetry in a Python by setting up OpenTelemetry MeterProvider. Metrics created and recorded using the sdk are tracked and telemetry is exported to application insights with the AzureMonitorMetricExporter.
+
+```python
+from opentelemetry import metrics
+from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
+
+exporter = AzureMonitorMetricExporter(connection_string="<Your Connection String>")
+reader = PeriodicExportingMetricReader(exporter)
+metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
+meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_demo")
+
+counter = meter.create_counter("my_fruit_counter")
+counter.add(1, {"name": "apple", "color": "red"})
+counter.add(2, {"name": "lemon", "color": "yellow"})
+counter.add(1, {"name": "lemon", "color": "yellow"})
+counter.add(2, {"name": "apple", "color": "green"})
+counter.add(5, {"name": "apple", "color": "red"})
+counter.add(4, {"name": "lemon", "color": "yellow"})
+
+input()
+```
 
 ---
 
@@ -946,7 +969,25 @@ Placeholder
 
 #### [Python](#tab/python)
 
-Placeholder
+```python
+from opentelemetry import metrics
+from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
+
+exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
+reader = PeriodicExportingMetricReader(exporter)
+metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
+meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_histogram_demo")
+
+histogram = meter.create_histogram("histogram")
+histogram.record(1.0, {"test_key": "test_value"})
+histogram.record(100.0, {"test_key2": "test_value"})
+histogram.record(30.0, {"test_key": "test_value2"})
+
+input()
+```
 
 ---
 
@@ -962,7 +1003,25 @@ Placeholder
 
 #### [Python](#tab/python)
 
-Placeholder
+```python
+from opentelemetry import metrics
+from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
+
+exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
+reader = PeriodicExportingMetricReader(exporter)
+metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
+meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_counter_demo")
+
+counter = meter.create_counter("counter")
+counter.add(1.0, {"test_key": "test_value"})
+counter.add(5.0, {"test_key2": "test_value"})
+counter.add(3.0, {"test_key": "test_value2"})
+
+input()
+```
 
 ---
 
@@ -978,7 +1037,37 @@ Placeholder
 
 #### [Python](#tab/python)
 
-Placeholder
+```python
+from typing import Iterable
+
+from opentelemetry import metrics
+from opentelemetry.metrics import CallbackOptions, Observation
+from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
+
+exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
+reader = PeriodicExportingMetricReader(exporter)
+metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
+meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_gauge_demo")
+
+def observable_gauge_generator(options: CallbackOptions) -> Iterable[Observation]:
+    yield Observation(9, {"test_key": "test_value"})
+
+def observable_gauge_sequence(options: CallbackOptions) -> Iterable[Observation]:
+    observations = []
+    for i in range(10):
+        observations.append(
+            Observation(9, {"test_key": i})
+        )
+    return observations
+
+gauge = meter.create_observable_gauge("gauge", [observable_gauge_generator])
+gauge2 = meter.create_observable_gauge("gauge2", [observable_gauge_sequence])
+
+input()
+```
 
 ---
 
@@ -999,7 +1088,28 @@ Placeholder
 
 #### [Python](#tab/python)
 
-Placeholder
+```python
+from opentelemetry import trace
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
+
+exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
+
+trace.set_tracer_provider(TracerProvider())
+tracer = trace.get_tracer("otel_azure_monitor_exception_demo")
+span_processor = BatchSpanProcessor(exporter)
+trace.get_tracer_provider().add_span_processor(span_processor)
+
+# Exception events
+try:
+    with tracer.start_as_current_span("hello") as span:
+        raise Exception("Custom exception message.")
+except Exception:
+    print("Exception raised")
+
+```
 
 ---
 
@@ -1071,9 +1181,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
     trace.set_tracer_provider(TracerProvider())
     tracer = trace.get_tracer(__name__) 
     
-    exporter = AzureMonitorTraceExporter.from_connection_string(
-        "<Your Connection String>"
-    )
+    exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
     otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317")
     span_processor = BatchSpanProcessor(otlp_exporter) 
     trace.get_tracer_provider().add_span_processor(span_processor)
@@ -1122,7 +1230,29 @@ Placeholder
 
 #### [Python](#tab/python)
 
-Placeholder
+By default, the Azure Monitor exporters will use the following path:
+
+<tempfile.gettempdir()>/opentelemetry-python-<your-instrumentation-key>
+
+To override the default directory you should set `storage_path` to the directory you want.
+
+For example:
+```python
+...
+exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", storage_path="C:\\SomeDirectory")
+...
+
+```
+
+To disable this feature you should set `enable_local_storage` to `False`. Defaults to `True`.
+
+For example:
+```python
+...
+exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", enable_local_storage=False)
+...
+
+```
 
 ---
 
