@@ -15,7 +15,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Secure Azure Kubernetes Service inferencing environment
 
-If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to secure Azure Machine Learning workspace resources and compute environment using the same or peered VNet. In this article, you'll learn: 
+If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to secure Azure Machine Learning workspace resources and a compute environment using the same or peered VNet. In this article, you'll learn: 
   * What is a secure AKS inferencing environment
   * How to configure a secure AKS inferencing environment
 
