@@ -91,11 +91,11 @@ The Postman collection for Wellbore DDMS contains requests you can use to intera
 
 1. The request  validates the actual API response code against the expected response code. Select the **Test Results** tab to see whether the request succeeded or failed.
 
-    Here's an example of a successful Postman call:
+    **Example of a successful Postman call:**
 
    :::image type="content" source="media/tutorial-wellbore-ddms/postman-test-success.png" alt-text="Screenshot that shows success for a Postman call." lightbox="media/tutorial-wellbore-ddms/postman-test-success.png":::
 
-   Here's an example of a failed Postman call:
+   **Example of a failed Postman call:**
 
    :::image type="content" source="media/tutorial-wellbore-ddms/postman-test-failure.png" alt-text="Screenshot that shows failure for a Postman call." lightbox="media/tutorial-wellbore-ddms/postman-test-failure.png":::
 
