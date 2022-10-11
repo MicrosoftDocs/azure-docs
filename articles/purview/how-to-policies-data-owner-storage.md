@@ -37,7 +37,7 @@ To register your resources, follow the **Prerequisites** and **Register** sectio
 
 After you've registered your resources, you'll need to enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
-Once your data source has the  **Data Use Management** toggle **Enabled**, it will look like this picture:
+Once your data source has the  **Data Use Management** toggle **Enabled**, it will look like this screenshot:
 
 :::image type="content" source="./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png" alt-text="Screenshot that shows how to register a data source for policy by toggling the enable tab in the resource editor.":::
 

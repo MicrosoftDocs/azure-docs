@@ -29,10 +29,9 @@ The Azure SQL Database data source needs to be registered first with Microsoft P
 [Register and scan Azure SQL Database](./register-scan-azure-sql-database.md)
 
 After you've registered your resources, you'll need to enable Data Use Management. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**:
-
 [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
-Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. This will enable the access policies to be used with the given SQL server and all its contained databases.
+Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this screenshot. This will enable the access policies to be used with the given Azure SQL server and all its contained databases.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
 

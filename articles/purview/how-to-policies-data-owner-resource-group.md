@@ -38,7 +38,7 @@ To register your subscription or resource group, follow the **Prerequisites** an
 
 After you've registered your resources, you'll need to enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
-In the end, your resource will have the  **Data Use Management** toggle **Enabled**, as shown in the picture:
+In the end, your resource will have the  **Data Use Management** toggle **Enabled**, as shown in the screenshot:
 
 ![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 
