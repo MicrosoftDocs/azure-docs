@@ -1,12 +1,12 @@
 ---
 title: Get started with the MedTech service in Azure Health Data Services
 description: This document describes how to get you started with the MedTech service in Azure Health Data Services.
-author: mcevoy-building7
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/30/2022
-ms.author: v-smcevoy
+ms.date: 10/10/2022
+ms.author: jasteppe
 ms.custom: mode-api
 ---
 
@@ -169,7 +169,7 @@ You can verify that the data was processed correctly by checking to see if there
 
 ### Metrics
 
-You can verify that the data is correctly persisted into the FHIR service by using the [MedTech service metrics](how-to-display-metrics.md) in the Azure portal.
+You can verify that the data is correctly persisted into the FHIR service by using the [MedTech service metrics](how-to-configure-metrics.md) in the Azure portal.
 
 ## Next steps
 
