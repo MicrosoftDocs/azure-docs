@@ -20,7 +20,7 @@ ms.custom: event-tier1-build-2022
 This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier. The static files are served by web servers like Nginx or Apache HTTP Server
 
 ## Overview
-Azure Spring Apps allows you to deploy static files using the popular NGINX or HTTPD web servers, with a variety of utilities for ease of use:
+Azure Spring Apps allows you to deploy static files using the popular NGINX or HTTPD web servers:
 - You can deploy static files directly and the specified web server is configured automatically to serve those static assets.
 - You can create your frontend application in the JavaScript framework of your choice, deploy your dynamic frontend application as static content.
 - You can create a server configuration file to customize the web server.
@@ -73,12 +73,13 @@ Refer to Paketo samples for serving static files with your own server configurat
 
 ## Configure web server via environment variables
 You can use environment variables to tweak the automatically-generated server configuration file. Supported environment variables:
+
 |Environment Variable|Description|
 |--------------------|-----------|
 |BP_WEB_SERVER|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server. <br> It's required when using automatically-generated server configuration file.|
-|BP_WEB_SERVER_ROOT|Defaults to public, setting this allows you to modify the location of the static files served by the web server with either an absolute path or a path relative to the app directory.|
-|BP_NODE_RUN_SCRIPTS|Define a script under the "scripts" property of your package.json that builds your production-ready static assets. Most frameworks bootstrap this automatically. For React, it's "build". Set the BP_NODE_RUN_SCRIPTS to specify which scripts to run. BP_WEB_SERVER_ROOT should be set to the build output directory. For React, this is ./build by default.|
-|BP_WEB_SERVER_ENABLE_PUSH_STATE|Enable push state routing for your application. This means that regardless of the route that is requested, index.html will always be served. This comes in handy if you are serving a Javascript frontend app where the route exists within the app but not on the static file structure.|
+|BP_WEB_SERVER_ROOT|Defaults to public, set the location of the static files with either an absolute file path or a file path relative to /workspace.|
+|BP_NODE_RUN_SCRIPTS|Define a script under the "scripts" property of your package.json that builds your production-ready static assets. For React, it's "build". Set the BP_NODE_RUN_SCRIPTS to specify which scripts to run. BP_WEB_SERVER_ROOT should be set to the build output directory. For React, it's "build" by default.|
+|BP_WEB_SERVER_ENABLE_PUSH_STATE|Enable push state routing for your application. Regardless of the route that is requested, index.html will always be served. It's useful for single-page web applications.|
 |BP_WEB_SERVER_FORCE_HTTPS|Enforce HTTPS for server connections by redirecting all requests to use the HTTPS protocol.|
 
 ```azurecli
@@ -93,19 +94,22 @@ Refer to [NGINX doc](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services
 
 ## Customized server configuration file restriction
 You can configure web server by providing a customized server configuration file. Your configuration file must conform to the following restrictions:
+
 |Configuration|Description|Nginx Configuration|Httpd Configuration|
 |-------------|-----------|-----|-----|
-|Listening port|Web server must listen on port 8080. The service checks the port on TCP for readiness and liveness. It's requried to use templated variable PORT in the configuration file and the appropriate port number is injected when the web server is launched|listen {{PORT}};|Listen "${PORT}"|
+|Listening port|Web server must listen on port 8080. The service checks the port on TCP for readiness and liveness. <br/> It's requried to use templated variable PORT in the configuration file. The appropriate port number is injected when the web server is launched|listen {{PORT}};|Listen "${PORT}"|
 |Log path|Config log path to the console| access_log /dev/stdout; error_log /dev/stderr;| ErrorLog "/dev/stderr"|
 |File path with write permission|Web server is granted write permssion to directory /tmp, configure all the path requires write permission under directory /tmp | For example: <br/> client_body_temp_path /tmp/client_body_temp;||
 |Maximum accepted body size of client request|Web server is behind the gateway, maximum accepted body size of client request is set to 500m in the gateway, the vaue for web server must be less than 500m | client_max_body_size should be less than 500m|LimitRequestBody should be less than 500m|
 
 ## Common build error
+
 |Error Message|Root Cause|Solution|
 |-------------|----------|--------|
 |ERROR: No buildpack groups passed detection. <br/> ERROR: Please check that you are running against the correct path. <br/> ERROR: failed to detect: no buildpacks participating|Web server type is not specified|set environment variable BP_WEB_SERVER to nginx or httpd|
 
 ## Common deployment error
+
 |Error Message|Root Cause|Solution|
 |-------------|----------|--------|
 |112404: Exit code 0: purposely stopped, please refer to https://aka.ms/exitcode|Web server failed to start|Validate your server configuration file to see if any configuration error, double check if your configuration file conforms to [Customized server configuration file restriction](#customized-server-configuration-file-restriction)|
