@@ -26,7 +26,7 @@ A single Azure Monitor workspace can collect data from multiple sources, but the
 - Azure tenants. If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant.
 - Azure regions. Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations.
 - Data ownership. You may choose to create separate workspaces to define data ownership, for example by subsidiaries or affiliated companies.
-- Workspace limits. See [Azure Monitor service limits](service-limits.md#prometheus-metrics) for current capacity limits related to Azure Monitor workspaces.
+- Workspace limits. See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for current capacity limits related to Azure Monitor workspaces.
 - Multiple environments. You may have Azure Monitor workspaces supporting different environments such as test, pre-production, and production.
 
 > [!NOTE]
