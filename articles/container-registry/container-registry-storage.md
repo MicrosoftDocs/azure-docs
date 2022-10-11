@@ -14,7 +14,7 @@ Every [Basic, Standard, and Premium](container-registry-skus.md) Azure container
 
 ## Encryption-at-rest
 
-All container images and other artifacts in your registry are encrypted at rest. Azure automatically encrypts an image before storing it, and decrypts it on-the-fly when you or your applications and services pull the image. Optionally apply an extra encryption layer with a [customer-managed key](container-registry-customer-managed-keys.md).
+All container images and other artifacts in your registry are encrypted at rest. Azure automatically encrypts an image before storing it, and decrypts it on-the-fly when you or your applications and services pull the image. Optionally apply an extra encryption layer with a [customer-managed key](tutorial-enable-customer-managed-keys.md).
 
 ## Regional storage
 

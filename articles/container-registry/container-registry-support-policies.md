@@ -16,7 +16,7 @@ This article provides details about Azure Container Registry (ACR) support polic
 
 >* [Connect to ACR using Azure private link](container-registry-private-link.md)
 >* [Push and pull Helm charts to ACR](container-registry-helm-repos.md)
->* [Encrypt using Customer managed keys](container-registry-customer-managed-keys.md)
+>* [Encrypt using Customer managed keys](tutorial-enable-customer-managed-keys.md)
 >* [Enable Content trust](container-registry-content-trust.md)
 >* [Scan Images using Azure Security Center](../defender-for-cloud/defender-for-container-registries-introduction.md)
 >* [ACR Tasks](./container-registry-tasks-overview.md)

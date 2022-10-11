@@ -52,7 +52,7 @@ This error means that the CLI was unable to determine the Helm version installed
 
 This error means that the registry can't access the user-assigned or sysem-assigned managed identity used to configure registry encryption with a customer-managed key. The managed identity might have been deleted.  
 
-*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](container-registry-customer-managed-keys.md#troubleshoot).
+*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](tutorial-troubleshoot-customer-managed-keys.md).
 
 ## CONNECTIVITY_DNS_ERROR
 

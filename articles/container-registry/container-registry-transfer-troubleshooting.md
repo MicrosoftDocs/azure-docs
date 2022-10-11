@@ -4,7 +4,7 @@ description: Troubleshoot ACR Transfer
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-ms.custom:
+ms.topic: article
 ---
 
 # ACR Transfer troubleshooting
