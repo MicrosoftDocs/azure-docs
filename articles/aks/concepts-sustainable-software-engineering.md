@@ -113,7 +113,7 @@ The following checklist provides recommendations for designing sustainable workl
 
 :heavy_check_mark: (When possible), Aim for [Stateless Design](/azure/aks/operator-best-practices-multi-region#remove-service-state-from-inside-containers)
 
-**Choose The Appropriate Storage type** _to adjust to workkalods performance needs and access patterns_
+**Choose The appropriate storage type** _to adjust to your workloads' performance needs and access patterns_.
 
 :heavy_check_mark: Choose [the appropriate storage type](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type).
 
