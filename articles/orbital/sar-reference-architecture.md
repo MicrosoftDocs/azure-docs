@@ -1,6 +1,6 @@
 ---
 title: SAR reference architecture - Azure Orbital Analytics
-description: 
+description: Learn about how SAR data is processed horizontally.
 author: meaghanlewis
 ms.service: orbital
 ms.topic: conceptual
