@@ -142,7 +142,7 @@ If you [enable application logging](troubleshoot-diagnostic-logs.md), you will s
 
 ### Considerations when using Azure Front Door
 
-When using Azure App Service with Easy Auth behind Azure Front Door or other proxy services, a few additional things have to be taken into consideration.
+When using Azure App Service with Easy Auth behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
 
 1) Disable Caching for the authentication workflow
 
