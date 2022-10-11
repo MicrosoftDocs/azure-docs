@@ -11,10 +11,6 @@ ms.author: eur
 
 Added 1 new locale as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
-| Locale  | Language                          |
-|---------|-----------------------------------|
-| `ml-IN`         | Malayalam (India) |
-
 
 ### 2022-July release
 
