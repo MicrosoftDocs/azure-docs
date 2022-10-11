@@ -75,7 +75,7 @@ Refer to Paketo samples for serving static files with your own server configurat
 You can use environment variables to tweak the automatically-generated server configuration file. Supported environment variables:
 |Environment Variable|Description|
 |--------------------|-----------|
-|BP_WEB_SERVER|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server.<br> It's required when using automatically-generated server configuration file.|
+|BP_WEB_SERVER|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server. <br> It's required when using automatically-generated server configuration file.|
 |BP_WEB_SERVER_ROOT|Defaults to public, setting this allows you to modify the location of the static files served by the web server with either an absolute path or a path relative to the app directory.|
 |BP_NODE_RUN_SCRIPTS|Define a script under the "scripts" property of your package.json that builds your production-ready static assets. Most frameworks bootstrap this automatically. For React, it's "build". Set the BP_NODE_RUN_SCRIPTS to specify which scripts to run. BP_WEB_SERVER_ROOT should be set to the build output directory. For React, this is ./build by default.|
 |BP_WEB_SERVER_ENABLE_PUSH_STATE|Enable push state routing for your application. This means that regardless of the route that is requested, index.html will always be served. This comes in handy if you are serving a Javascript frontend app where the route exists within the app but not on the static file structure.|
@@ -102,14 +102,14 @@ You can configure web server by providing a customized server configuration file
 
 ## Common build error
 |Error Message|Root Cause|Solution|
-|-------------|-----------|--------|
-|ERROR: No buildpack groups passed detection.<br> ERROR: Please check that you are running against the correct path.<br> ERROR: failed to detect: no buildpacks participating|Web server type is not specified|set environment variable BP_WEB_SERVER to nginx or httpd|
+|-------------|----------|--------|
+|ERROR: No buildpack groups passed detection. <br/> ERROR: Please check that you are running against the correct path. <br/> ERROR: failed to detect: no buildpacks participating|Web server type is not specified|set environment variable BP_WEB_SERVER to nginx or httpd|
 
 ## Common deployment error
-|Error Message|Description|Solution|
-|-------------|-----------|--------|
-|: invalid log ptah, failed to start: /var/client_body_temp" failed (13: Permission denied)<br/> 112404: Exit code 1: application error.|Web server doesn't have write permission to the specified path|configure the path under directory /tmp, for example: /tmp/client_body_temp |
-
+|Error Message|Root Cause|Solution|
+|-------------|----------|--------|
+|112404: Exit code 0: purposely stopped, please refer to https://aka.ms/exitcode|Web server failed to start|Validate your server configuration file to see if any configuration error, double check if your configuration file conforms to [Customized server configuration file restriction](#customized-server-configuration-file-restriction)|
+|mkdir() "/var/client_body_temp" failed (13: Permission denied)|Web server doesn't have write permission to the specified path|Configure the path under directory /tmp, for example: /tmp/client_body_temp|
 
 ## Next steps
 
