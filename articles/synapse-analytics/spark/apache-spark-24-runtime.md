@@ -27,18 +27,19 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.6|
 
 >[!Note]
-> Following are the recent library changes for Apache Spark 2.4 Python runtime: <br/>
+> Following are the recent library changes for Apache Spark 2.4 Python runtime:
+>
 > Modifications:
-
+>
 > - conda 4.3.21 --> 4.9.2
 > - libgcc-ng 9.3.0 --> 12.1.0
 > - libgfortran-ng 9.3.0 --> 7.5.0
 > - libgomp=9.3.0 --> 12.1.0
 > - nest-asyncio 1.5.5 --> 1.5.6
-
+>
 > New additions:
 > - cached_property=1.5.2
-> - backports-entry-points-selectable==1.1.1
+> - backports-entry-points-selectable=1.1.1
 
 ## Scala and Java libraries
 
