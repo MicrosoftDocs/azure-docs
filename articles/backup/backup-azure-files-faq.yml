@@ -68,6 +68,7 @@ sections:
           How's the total number of snapshots corresponding to a backup policy configuration calculated?
         answer: |
           The following table explains the snapshot count as per the backup policy configuration:
+          
           | Backup frequency | Retention period | Snapshot count |
           | ---------------- | ---------------- | -------------- |
           | **Daily**  | Add the retention values configured for daily, weekly, monthly, and yearly backups. For example, you configure a backup policy with the following values: <br><br> - Daily retention: 30 days <br> - Weekly retention: 40 weeks <br> - Monthly retention: 4 months <br> - Yearly retention: 6 years | This corresponds to 80 snapshots (30+40+4+6).
