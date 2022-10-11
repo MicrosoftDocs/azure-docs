@@ -20,14 +20,14 @@ ms.reviewer: cynthn
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure allows you to have the flexibility of running a mix of uninterruptible regular VMs and interruptible Spot VMs for virtual machine scale set deployments. You are able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following:
+Azure allows you to have the flexibility of running a mix of uninterruptible regular VMs and interruptible Spot VMs for Virtual Machine Scale Set deployments. You're able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following:
 
-- Reduce compute infrastructure costs by leveraging the deep discounts of Spot VMs
+- Reduce compute infrastructure costs by applying the deep discounts of Spot VMs
 - Maintain capacity availability through uninterruptible regular VMs in the scale set deployment
-- Provide reassurance that all your VMs will not be taken away simultaneously due to evictions before the infrastructure has time to react and recover the evicted capacity
+- Provide reassurance that all your VMs won't be taken away simultaneously due to evictions before the infrastructure has time to react and recover the evicted capacity
 - Simplify the scale-out and scale-in of compute workloads that require both Spot and regular VMs by letting Azure orchestrate the creation and deletion of VMs
 
-You can configure a custom percentage distribution across Spot and regular VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base regular uninterruptible VMs you would like to maintain in the virtual machine scale set during any scale operation.
+You can configure a custom percentage distribution across Spot and regular VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base regular uninterruptible VMs you would like to maintain in the Virtual Machine Scale Set during any scale operation.
 
 ## Template
 
@@ -48,7 +48,7 @@ You can refer to this [ARM template example](https://paste.microsoft.com/f84d2f8
 
 ## Azure portal 
 
-You can set your Spot Priority Mix in the Scaling tab of the virtual machine scale sets creation process in the Azure portal. The following steps will instruct you on how to access this feature during that process. 
+You can set your Spot Priority Mix in the Scaling tab of the Virtual Machine Scale Sets creation process in the Azure portal. The following steps will instruct you on how to access this feature during that process. 
 
 1. Log in to the [Azure portal](https://portal.azure.com) through the [public preview access link](https://aka.ms/SpotMix).
 1. In the search bar, search for and select **Virtual machine scale sets**.
@@ -60,7 +60,7 @@ You can set your Spot Priority Mix in the Scaling tab of the virtual machine sca
 
     :::image type="content" source="./media/spot-priority-mix/scale-with-vms-and-discounted-spot-vms.png" alt-text="Screenshot of the Scale with VMs and discounted Spot VMs section in the Scaling tab within Azure portal.":::
 
-1. Continue through the virtual machine scale set creation process. 
+1. Continue through the Virtual Machine Scale Set creation process. 
 
 ## Azure CLI
 
@@ -80,9 +80,9 @@ az vmss create -n myScaleSet \
 		--single-placement-group False \
 ```
 
-## Azure Powershell
+## Azure PowerShell
 
-You can set your Spot Priority Mix using Azure Powershell by setting the `Priority` flag to `Spot` and including the `BaseRegularPriorityCount` and `RegularPriorityPercentage` flags.  
+You can set your Spot Priority Mix using Azure PowerShell by setting the `Priority` flag to `Spot` and including the `BaseRegularPriorityCount` and `RegularPriorityPercentage` flags.  
 
 ```azurepowershell
 $vmssConfig = New-AzVmssConfig `
