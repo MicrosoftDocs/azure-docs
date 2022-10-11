@@ -42,15 +42,6 @@ Use the `PlaywrightService.connectOptions()` function to configure the target OS
 | *os*         | string | linux         | Operating system name. See the list of [supported operating systems](./resource-supported-operating-systems-browsers.md#supported-browsers). |
 | *os_version* | string | ubuntu-latest | Operating system version name. See the list of [supported operating systems](./resource-supported-operating-systems-browsers.md#supported-operating-systems). |
 
-The following code snippet gives an example of how to specify the target operating system:
-
-```typescript
-import { os, os_version, PlaywrightService } from "@microsoft/playwright-service";
-
-// Configuration for running tests on Windows 10
-config.use!.connectOptions = playwrightServiceConfig.connectOptions({os: os.WINDOWS, os_version: os_version.WINDOWS_10})
-```
-
 > [!NOTE]
 >  If you don't specify an OS, Microsoft Playwright Testing uses the latest Ubuntu version to run your tests.
 
@@ -68,6 +59,11 @@ The following code snippet gives an example of a Playwright test project that us
 // playwright.config.ts
 import { os, os_version, PlaywrightService } from "@microsoft/playwright-service";
 import { devices, PlaywrightTestConfig } from "@playwright/test";
+
+var playwrightServiceConfig = new PlaywrightService({
+  accessKey: process.env.ACCESS_KEY, 
+  dashboard: process.env.DASHBOARD
+});
 
 const config: PlaywrightTestConfig = {
     projects: [
@@ -93,6 +89,11 @@ For example, to run all tests across all browser configurations on Ubuntu versio
 // playwright.config.ts
 import { os, os_version, PlaywrightService } from "@microsoft/playwright-service";
 import { devices, PlaywrightTestConfig } from "@playwright/test";
+
+var playwrightServiceConfig = new PlaywrightService({
+  accessKey: process.env.ACCESS_KEY, 
+  dashboard: process.env.DASHBOARD
+});
 
 const config: PlaywrightTestConfig = {
     use: {
