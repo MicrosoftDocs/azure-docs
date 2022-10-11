@@ -7,7 +7,9 @@
   - name: Orchestration modes
     href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Scale Set FAQ
-    href: virtual-machine-scale-sets-faq.yml
+    href: virtual-machine-scale-sets-faq.md
+  - name: What's new
+    href: whats-new.md  
   expanded: true
 - name: Quickstarts
   items:
