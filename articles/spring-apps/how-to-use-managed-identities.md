@@ -26,7 +26,7 @@ Managed identities for Azure resources provide an automatically managed identity
 
 | System-assigned | User-assigned |
 | -               | -             |
-| GA              | Preview       |
+| GA              | GA            |
 
 ## Manage managed identity for an application
 

@@ -74,8 +74,8 @@
     href: /python/api/overview/azure/resources
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/paths/deploy-manage-resource-manager-templates/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

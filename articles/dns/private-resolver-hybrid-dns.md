@@ -111,4 +111,4 @@ The path for this query is: client's default DNS resolver (10.100.0.2) > on-prem
 * Learn about [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 * Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
-* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
+* [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

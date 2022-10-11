@@ -25,6 +25,22 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## October 2022
+
+### Out of the box anomaly detection on the SAP audit log (Preview)
+
+The SAP audit log records audit and security events on SAP systems, like failed sign-in attempts or other over 200 security related actions. Customers monitor the SAP audit log and generate alerts and incidents out of the box using Microsoft Sentinel built-in analytics rules.
+
+The Microsoft Sentinel for SAP solution now includes the [**SAP - Dynamic Anomaly Detection analytics** rule](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog), adding an out of the box capability to identify suspicious anomalies across the SAP audit log events. 
+
+Now, together with the existing ability to identify threats deterministically based on predefined patterns and thresholds, customers can easily identify suspicious anomalies in the SAP security log, out of the box, with no coding required.
+
+You can fine-tune the new capability by editing the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
+
+Learn more:
+- [Learn about the new feature (blog)](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog)
+- [Use the new rule for anomaly detection](sap/configure-audit-log-rules.md#anomaly-detection)
+
 ## September 2022
 
 - [Create automation rule conditions based on custom details (Preview)](#create-automation-rule-conditions-based-on-custom-details-preview)
@@ -120,7 +136,6 @@ When investigating an incident, you examine entities and their context as an imp
 Microsoft Sentinel allows you to flag the entity as malicious, right from within the investigation graph. You'll then be able to view this indicator both in Logs and in the Threat Intelligence blade in Sentinel.
 
 Learn how to [add an entity to your threat intelligence](add-entity-to-threat-intelligence.md).
-
 
 ## August 2022
 

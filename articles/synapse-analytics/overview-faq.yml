@@ -92,7 +92,7 @@ sections:
       - question: |
           What is Auto Compaction?
         answer: |
-          Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](/azure/databricks/delta/optimizations/auto-optimize).
+          Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](/azure/databricks/optimizations/auto-optimize).
 
   - name: Pipelines
     questions:

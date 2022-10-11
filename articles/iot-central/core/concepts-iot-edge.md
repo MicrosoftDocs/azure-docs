@@ -174,7 +174,7 @@ In the previous screenshot you can see:
 
 The deployment manifest doesn't include information about the telemetry the **SimulatedTemperatureSensor** module sends or the commands it responds to. Add these definitions to the device template manually before you publish it.
 
-To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application](/learn/modules/connect-iot-edge-device-to-iot-central/).
+To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application](/training/modules/connect-iot-edge-device-to-iot-central/).
 
 ### Update a deployment manifest
 

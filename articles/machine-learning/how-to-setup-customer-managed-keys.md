@@ -62,7 +62,7 @@ To create the key vault, see [Create a key vault](../key-vault/general/quick-cre
 > For more information, see the following articles:
 > * [Provide access to key vault keys, certificates, and secrets](../key-vault/general/rbac-guide.md)
 > * [Assign a key vault access policy](../key-vault/general/assign-access-policy.md)
-> * [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md)
+> * [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md)
 
 1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
 1. Select __+ Generate/import__ from the top of the page. Use the following values to create a key:
@@ -111,7 +111,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 | Creation method | Article |
 | ----- | ----- |
 | CLI | [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-| Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-key) |
+| Azure portal/</br>Python SDK | [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 | Azure Resource Manager</br>template | [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 | REST API | [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
 
@@ -131,6 +131,9 @@ For more information on customer-managed keys with Cosmos DB, see [Configure cus
 
 ### Azure Container Instance
 
+> [!IMPORTANT]
+> Deploying to Azure Container Instances is not available in SDK or CLI v2. Only through SDK & CL v1.
+
 When __deploying__ a trained model to an Azure Container instance (ACI), you can encrypt the deployed resource using a customer-managed key. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
 To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
@@ -145,7 +148,7 @@ For more information on creating and using a deployment configuration, see the f
 * [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
 * [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 
 ### Azure Kubernetes Service
 
@@ -160,6 +163,6 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 
 * [Customer-managed keys with Azure Machine Learning](concept-customer-managed-keys.md)
 * [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-key) |
+* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
 * [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
 * [Create, run, and delete Azure ML resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |

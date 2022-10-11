@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2022
+ms.date: 09/14/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -65,6 +65,7 @@ Microsoft partners with the following ISVs for role-based access control.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a grit IAM logo.](./media/partner-gallery/grit-logo.png) | [Grit IAM B2B2C](./partner-grit-iam.md) provides authentication, authorization, profile and role management, and delegated B2B SaaS application administration. It also enables role-based access control (RBAC) for end-users of Azure AD B2C.|
 | ![Screenshot of a n8identity logo](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md) is an Identity-as-a-Service governance platform that provides solution to address customer accounts migration and Customer Service Requests (CSR) administration running on Microsoft Azure. |
 | ![Screenshot of a Saviynt logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) cloud-native platform promotes better security, compliance, and governance through intelligent analytics and cross application integration for streamlining IT modernization. |
 | ![Screenshot of a WhoIAM Rampart logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM Rampart](./partner-whoiam-rampart.md) provides a fully integrated helpdesk and invitation-gated user registration experience. It allows support specialists to efficiently perform tasks like resetting passwords and multi-factor authentication without using Azure. It also enables apps and role-based access control (RBAC) for end-users of Azure AD B2C. |

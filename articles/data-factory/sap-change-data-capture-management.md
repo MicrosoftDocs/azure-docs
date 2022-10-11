@@ -1,20 +1,20 @@
 ---
-title: Manage your SAP CDC solution (preview)
+title: Manage your SAP CDC (preview) ETL process
 titleSuffix: Azure Data Factory
 description: Learn how to manage your SAP change data capture (CDC) solution (preview) in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# Manage your SAP CDC solution (preview)
+# Manage your SAP CDC (preview) ETL process
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-After you create a pipeline in Azure Data Factory as part of your SAP change data capture (CDC) solution (preview), it's important to manage the solution.
+After you create a pipeline in Azure Data Factory using the SAP CDC connector (preview), it's important to manage the solution.
 
 ## Run an SAP data replication pipeline on a recurring schedule
 
@@ -30,24 +30,6 @@ To run an SAP data replication pipeline on a recurring schedule with a specified
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-tumbling-window-trigger.png" alt-text="Screenshot of the Edit trigger window with values highlighted to configure the tumbling window trigger.":::
 
-## Recover a failed SAP data replication pipeline run
-
-If an SAP data replication pipeline run fails, a subsequent run that's scheduled via a tumbling window trigger is suspended while it waits on the dependency.
-
-:::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-trigger-status.png" alt-text="Screenshot of the trigger status window with an SAP tumbling window trigger in the failed state.":::
-
-To recover a failed SAP data replication pipeline run:
-
-1. Fix the issues that caused the pipeline run failure.
-
-1. Switch the **Extraction mode** property of the copy activity to **Recovery**.
-
-1. Manually run the SAP data replication pipeline.
-
-1. If the recovery run finishes successfully, change the **Extraction mode** property of the copy activity to **Delta**.
-
-1. Next to the failed run of the tumbling window trigger, select **Rerun**.
-
 ## Monitor data extractions on SAP systems
 
 To monitor data extractions on SAP systems:
@@ -56,11 +38,11 @@ To monitor data extractions on SAP systems:
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-logon-tool.png" alt-text="Screenshot of the SAP Logon Tool.":::
 
-1. In **Subscriber**, enter the value for the **Subscriber name** property of your SAP ODP (preview) linked service. In the **Request Selection** dropdown, select **All** to show all data extractions that use the linked service.
+1. In **Subscriber**, enter the value for the **Subscriber name** property of your SAP CDC (preview) linked service. In the **Request Selection** dropdown, select **All** to show all data extractions that use the linked service.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-monitor-delta-queues.png" alt-text="Screenshot of the SAP ODQMON tool with all data extractions for a specific subscriber.":::
 
-   You can see all registered subscriber processes in the operational delta queue (ODQ). Subscriber processes represent data extractions from Azure Data Factory copy activities that use your SAP ODP linked service. For each ODQ subscription, you can look at details to see all full and delta extractions. For each extraction, you can see individual data packages that were consumed.
+   You can see all registered subscriber processes in the operational delta queue (ODQ). Subscriber processes represent data extractions from Azure Data Factory copy activities that use your SAP CDC linked service. For each ODQ subscription, you can look at details to see all full and delta extractions. For each extraction, you can see individual data packages that were consumed.
 
 1. When Data Factory copy activities that extract SAP data are no longer needed, you should delete their ODQ subscriptions. When you delete ODQ subscriptions, SAP systems can stop tracking their subscription states and remove the unconsumed data packages from the ODQ. To delete an ODQ subscription, select the subscription and select the Delete icon.
 
@@ -68,7 +50,7 @@ To monitor data extractions on SAP systems:
 
 ## Troubleshoot delta changes
 
-The SAP CDC solution in Data Factory reads delta changes from the SAP ODP framework. The deltas are recorded in ODQ tables.
+The SAP CDC connector in Data Factory reads delta changes from the SAP ODP framework. The deltas are recorded in ODQ tables.
 
 In scenarios in which data movement works (copy activities finish without errors), but data isn't delivered correctly (no data at all, or maybe just a subset of the expected data), you should first investigate whether the number of records provided on the SAP side match the number of rows transferred by Data Factory. If they match, the issue isn't related to Data Factory, but probably comes from an incorrect or missing configuration on the SAP side.
 
@@ -94,7 +76,7 @@ Based on the timestamp in the first row, find the line that corresponds to the c
 
 ## Current limitations
 
-Here are current limitations of the SAP CDC solution in Data Factory:
+Here are current limitations of the SAP CDC connector in Data Factory:
 
 - You can't reset or delete ODQ subscriptions in Data Factory.
 - You can't use SAP hierarchies with the solution.

@@ -14,7 +14,7 @@ metadata:
   ms.date: 08/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-# Limits: https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
+# Limits: https://review.learn.microsoft.com/help/contribute/contribute-how-to-write-landing-page?branch=main#limits
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -84,7 +84,7 @@ landingContent:
           - text: Migrate to Form Recognizer v3.0
             url: v3-migration-guide.md
           - text: Use the read model
-            url: how-to-guides/use-prebuilt-read.md
+            url: how-to-guides/v3-0-sdk-rest-api.md
           - text: Create SAS tokens for storage containers
             url: create-sas-tokens.md
           - text: Build a custom model (v3.0)
@@ -164,6 +164,3 @@ landingContent:
              url: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
            - text: Data privacy, compliance, and security
              url: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
-
-
-

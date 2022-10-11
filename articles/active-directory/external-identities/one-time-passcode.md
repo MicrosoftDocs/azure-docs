@@ -11,7 +11,6 @@ ms.date: 09/16/2022
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019, contperf-fy21q4-portal"
 ms.collection: M365-identity-device-management
 ---

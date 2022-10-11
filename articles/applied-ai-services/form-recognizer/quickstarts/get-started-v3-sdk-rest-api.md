@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/22/2022
+ms.date: 10/03/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 recommendations: false
@@ -59,4 +59,4 @@ In this quickstart, you used a form Form Recognizer model to analyze various for
 > [**Try the Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!div class="nextstepaction"]
-> [**Explore the Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+> [**Explore our how-to documentation and take a deeper dive into Form Recognizer models**](../how-to-guides/v3-0-sdk-rest-api.md)

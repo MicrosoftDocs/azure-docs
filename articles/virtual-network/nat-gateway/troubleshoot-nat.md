@@ -33,7 +33,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-3. No [NSG rules](../network-security-groups-overview.md#outbound) or UDRs are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](/azure/virtual-network/nat-gateway/troubleshoot-nat-connectivity#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 

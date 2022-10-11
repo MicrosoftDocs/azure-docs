@@ -77,4 +77,4 @@ The [Container.GetItemLinqQueryable<>](/dotnet/api/microsoft.azure.cosmos.contai
 Now that you've queried multiple items, try one of our end-to-end tutorials with the SQL API.
 
 > [!div class="nextstepaction"]
-> [Build an app that queries and adds data to Azure Cosmos DB SQL API](/learn/modules/build-dotnet-app-cosmos-db-sql-api/)
+> [Build an app that queries and adds data to Azure Cosmos DB SQL API](/training/modules/build-dotnet-app-cosmos-db-sql-api/)

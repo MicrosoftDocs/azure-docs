@@ -4,9 +4,9 @@ description: Create and edit plans for an IoT Edge Module offer on Azure Marketp
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: aarathin
+author: AarathiN
 ms.author: aarathin
-ms.date: 07/08/2021
+ms.date: 9/23/2022
 ---
 
 # Create and edit plans for an IoT Edge Module offer

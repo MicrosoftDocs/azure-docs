@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 09/07/2022
+ms.date: 10/05/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 zone_pivot_groups: web-application-firewall-configuration
@@ -17,7 +17,7 @@ The Azure Web Application Firewall (WAF) rate limit rule for Azure Front Door co
 
 This article shows how to configure a WAF rate limit rule on Azure Front Door Standard and Premium tiers.
 
-::: zone pivot="portal,powershell"
+::: zone pivot="portal,powershell,cli"
 
 ## Scenario
 
@@ -265,6 +265,158 @@ $frontDoorSecurityPolicy = New-AzFrontDoorCdnSecurityPolicy `
   -ResourceGroupName $frontDoorProfile.ResourceGroupName `
   -Parameter $securityPolicyParameters
 ```
+
+::: zone-end
+
+::: zone pivot="cli"
+
+## Prerequisites
+
+Before you begin to set up a rate limit policy, set up your Azure CLI environment and create a Front Door profile.
+
+### Set up your Azure CLI environment
+
+The Azure CLI provides a set of commands that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources. 
+
+You can install the [Azure CLI](/cli/azure/install-azure-cli) on your local machine and use it in any shell session. Here you sign in with your Azure credentials and install the Azure CLI extension for Front Door Standard/Premium.
+
+#### Connect to Azure with an interactive dialog for sign-in
+
+Sign in to Azure by running the following command:
+
+```azurecli
+az login
+```
+
+#### Install the Front Door extension for the Azure CLI
+
+Install the `front-door` extension to work with the Front Door WAF from the Azure CLI:
+
+```azurecli
+az extension add --name front-door
+```
+
+You use the `az afd` commands to work with Front Door Standard/Premium resources, and you use the `az network front-door waf-policy` commands to work with WAF resources.
+
+### Create a resource group
+
+Use the [az group create](/cli/azure/group#az-group-create) command to create a new resource group for your Front Door profile and WAF policy. Update the resource group name and location for your own requirements:
+
+```azurecli
+resourceGroupName='FrontDoorRateLimit'
+
+az group create \
+  --name $resourceGroupName \
+  --location westus
+```
+
+## Create a Front Door profile
+
+Use the [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) command to create a new Front Door profile.
+
+In this example, you create a Front Door standard profile named *MyFrontDoorProfile*:
+
+```azurecli
+frontDoorProfileName='MyFrontDoorProfile'
+
+az afd profile create \
+  --profile-name $frontDoorProfileName \
+  --resource-group $resourceGroupName \
+  --sku Standard_AzureFrontDoor
+```
+
+### Create a Front Door endpoint
+
+Use the [az afd endpoint create](/cli/azure/afd/endpoint#az-afd-endpoint-create) command to add an endpoint to your Front Door profile.
+
+Front Door endpoints must have globally unique names, so update the value of the `frontDoorEndpointName` variable to something unique.
+
+```azurecli
+frontDoorEndpointName='<unique-front-door-endpoint-name>'
+
+az afd endpoint create \
+  --endpoint-name $frontDoorEndpointName \
+  --profile-name $frontDoorProfileName \
+  --resource-group $resourceGroupName \
+```
+
+## Create a WAF policy
+
+Use the [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) command to create a WAF policy:
+
+```azurecli
+wafPolicyName='MyWafPolicy'
+
+az network front-door waf-policy create \
+  --name $wafPolicyName \
+  --resource-group $resourceGroupName \
+  --sku Standard_AzureFrontDoor
+```
+
+## Prepare to add a custom rate limit rule
+
+Use the [az network front-door waf-policy rule create](/cli/azure/network/front-door/waf-policy/rule#az-network-front-door-waf-policy-rule-create) command to create a custom rate limit rule. The following example sets the limit to 1000 requests per minute.
+
+Rate limit rules must contain a match condition, which you create in the next step. So, in this command, you include the `--defer` argument, which tells the Azure CLI not to submit the rule to Azure just yet.
+
+```azurecli
+az network front-door waf-policy rule create \
+  --name rateLimitRule \
+  --policy-name $wafPolicyName \
+  --resource-group $resourceGroupName \
+  --rule-type RateLimitRule \
+  --rate-limit-duration 1 \
+  --rate-limit-threshold 1000 \
+  --action Block \
+  --priority 1 \
+  --defer
+```
+
+When any client IP address sends more than 1000 requests within one minute, the WAF blocks subsequent requests until the next minute starts.
+
+## Add a match condition
+
+Use the [az network front-door waf-policy rule match-condition add](/cli/azure/network/front-door/waf-policy/rule/match-condition#az-network-front-door-waf-policy-rule-match-condition-add) command to add a match condition to your custom rule. The match condition identifies requests that should have the rate limit applied.
+
+The following example matches requests where the *RequestUri* variable contains the string */promo*:
+
+```azurecli
+az network front-door waf-policy rule match-condition add \
+  --match-variable RequestUri \
+  --operator Contains \
+  --values '/promo' \
+  --name rateLimitRule \
+  --policy-name $wafPolicyName \
+  --resource-group $resourceGroupName
+```
+
+When you submit this command, the Azure CLI creates the rate limit rule and match condition together.
+
+## Configure a security policy to associate your Front Door profile with your WAF policy
+
+Use the [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) command to create a security policy for your Front Door profile. A security policy associates your WAF policy with domains that you want to be protected by the WAF rule.
+
+In this example, you associate the endpoint's default hostname with your WAF policy:
+
+```azurecli
+securityPolicyName='MySecurityPolicy'
+
+wafPolicyResourceId=$(az network front-door waf-policy show --name $wafPolicyName --resource-group $resourceGroupName --query id --output tsv)
+frontDoorEndpointResourceId=$(az afd endpoint show --endpoint-name $frontDoorEndpointName --profile-name $frontDoorProfileName --resource-group $resourceGroupName --query id --output tsv)
+
+az afd security-policy create \
+  --security-policy-name $securityPolicyName \
+  --profile-name $frontDoorProfileName \
+  --resource-group $resourceGroupName \
+  --domains $frontDoorEndpointResourceId \
+  --waf-policy $wafPolicyResourceId
+```
+
+The preceding code looks up the Azure resource identifiers for the WAF policy and Front Door endpoint so that it can associate them with your security policy.
+
+::: zone-end
+
+::: zone pivot="powershell,cli"
 
 > [!NOTE]
 > Whenever you make changes to your WAF policy, you don't need to recreate the Front Door security policy. WAF policy updates are automatically applied to the Front Door domains.

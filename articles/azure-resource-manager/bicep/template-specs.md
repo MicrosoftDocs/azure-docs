@@ -27,7 +27,7 @@ When designing your deployment, always consider the lifecycle of the resources a
 
 ### Training resources
 
-To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs).
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/training/modules/arm-template-specs).
 
 ## Required permissions
 
@@ -403,4 +403,4 @@ After creating a template spec, you can link to that template spec in a Bicep mo
 
 ## Next steps
 
-To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/learn/modules/arm-template-specs).
+To learn more about template specs, and for hands-on guidance, see [Publish libraries of reusable infrastructure code by using template specs](/training/modules/arm-template-specs).

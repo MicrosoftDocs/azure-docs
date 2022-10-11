@@ -42,7 +42,7 @@ Password writeback provides the following features:
 
 To get started with SSPR writeback, complete either one or both of the following tutorials:
 
-- [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-cloud-sync-sspr-writeback.md)
+- [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-sspr-writeback.md)
 - [Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)](tutorial-enable-cloud-sync-sspr-writeback.md)
 
 ## Azure AD Connect and cloud sync side-by-side deployment

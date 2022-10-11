@@ -234,7 +234,7 @@ It's best to use newer, non-deprecated versions.
             "conda-forge"
         ],
         "dependencies": [
-            "python=3.6.2"
+            "python=3.8"
         ],
     },
     "condaDependenciesFile": null,
@@ -245,8 +245,10 @@ It's best to use newer, non-deprecated versions.
 - See [PythonSection class](https://aka.ms/azureml/environment/environment-python-section)
 
 #### **"Python version missing"**
+*V1*
+
 - A Python version must be specified in the environment definition 
-- A Python version can be added by adding Python as a conda package, specifying the version:
+- A Python version can be added by adding Python as a conda package, specifying the version (this is specific to SDK V1):
 
 ```python
 from azureml.core.environment import CondaDependencies
