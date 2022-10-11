@@ -95,6 +95,8 @@
   items:
   - name: Availability zones
     href: availability-zones.md
+  - name: Cross-region disaster recovery
+    href: cross-region-recovery.md
   - name: Data encryption at rest
     href: encrypt-at-rest.md
   - name: Transport Layer Security (TLS)
