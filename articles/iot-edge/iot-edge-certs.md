@@ -24,15 +24,15 @@ IoT Edge uses different types of certificates for different purposes. This artic
 
 ## Summary
 
-These core scenarios are where IoT Edge uses certificates:
+These core scenarios are where IoT Edge uses certificates. Use the links to learn more about each scenario.
 
 | Actor | Purpose | Certificate |
 |---|---|---|
-| IoT Edge | Ensures it's communicating to the right IoT Hub | IoT Hub server certificate |
-| IoT Hub | Ensures the request came from a legitimate IoT Edge device | IoT Edge identity certificate |
-| Child device | Ensures it's communicating to the right IoT Edge gateway | IoT Edge module server certificate |
-| IoT Edge | Signs new module server certificates. For example, *edgeHub* | Edge CA certificate |
-| IoT Edge | Ensures the request came from a legitimate child device | IoT device identity certificate |
+| IoT Edge | [Ensures it's communicating to the right IoT Hub](#device-verifies-iot-hub-identity) | IoT Hub server certificate |
+| IoT Hub | [Ensures the request came from a legitimate IoT Edge device](#iot-hub-verifies-device-identity) | IoT Edge identity certificate |
+| Child device | [Ensures it's communicating to the right IoT Edge gateway](#device-verifies-gateway-identity) | IoT Edge module server certificate |
+| IoT Edge | [Signs new module server certificates](#why-does-iot-edge-create-certificates). For example, *edgeHub* | Edge CA certificate |
+| IoT Edge | [Ensures the request came from a legitimate child device](#gateway-verifies-device-identity) | IoT device identity certificate |
 
 ## Prerequisites
 
@@ -56,10 +56,10 @@ We'll explain the answers to each question and then expand the example in later 
 
 ## Device verifies IoT Hub identity
 
-How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it connects to the endpoint *ContosoIoTHub.azure-devices.net*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show identification (ID). Ideally, the ID is issued by an authority that *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to verify IoT Hub's server identity. A *TLS handshake* is illustrated in the following diagram. To keep the example simple, some details have been omitted. To learn more about the *TLS handshake* protocol, see [TLS handshake oon Wikipedia](https://wikipedia.org/wiki/Transport_Layer_Security#TLS_handshake).
+How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it connects to the endpoint *ContosoIoTHub.Azure-devices.NET*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show identification (ID). Ideally, the ID is issued by an authority that *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to verify IoT Hub's server identity. A *TLS handshake* is illustrated in the following diagram. To keep the example simple, some details have been omitted. To learn more about the *TLS handshake* protocol, see [TLS handshake oon Wikipedia](https://wikipedia.org/wiki/Transport_Layer_Security#TLS_handshake).
 
 > [!NOTE]
-> In this example, *ContosoIoTHub* represents the IoT Hub hostname *ContosoIotHub.azure-devices.net*.
+> In this example, *ContosoIoTHub* represents the IoT Hub hostname *ContosoIotHub.Azure-devices.NET*.
 
 :::image type="content" source="./media/iot-edge-certs/verify-hub-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Hub to IoT Edge device with certificate verification with the trusted root store on the IoT Edge device.":::
 
@@ -154,7 +154,7 @@ In summary, *ContosoIotHub* can trust *EdgeGateway* because:
 * *EdgeGateway's* ability to decrypt data signed with its public key using its private key verifies the cryptographic key pair
 
 > [!NOTE]
-> This example doesn't address Azure IoT Hub Device Provisioning Service (DPS), which has support for X.509 CA authentication with IoT Edge when provisioned with an enrollment group. Using DPS, you upload the CA certificate or an intermediate certificate, the certificate chain is verified, then the device is provisioned. To learn more, see [link](../iot-dps/concepts-x509-attestation).
+> This example doesn't address Azure IoT Hub Device Provisioning Service (DPS), which has support for X.509 CA authentication with IoT Edge when provisioned with an enrollment group. Using DPS, you upload the CA certificate or an intermediate certificate, the certificate chain is verified, then the device is provisioned. To learn more, see [link](../iot-dps/concepts-x509-attestation.md).
 >
 > DPS registers or updates the SHA256 thumbprint to IoT Hub. You can verify the thumbprint using the command `openssl x509 -in /var/lib/aziot/certd/certs/deviceid-long-random-string.cer -noout -fingerprint -sha256`. Once registered, Iot Edge uses thumbprint authentication with IoT Hub. If the device is reprovisioned and a new certificate is issued, DPS updates IoT Hub with the new thumbprint.
 >
@@ -267,7 +267,7 @@ To secure Edge CA in production:
 
 ### Private root CA complexity
 
-The [*edgeHub* module](iot-edge-runtime.mdiot-edge-hub) is an important component that makes up IoT Edge, and is the component that handles all incoming traffic. In this example, the cerficate it uses is issued by Edge CA, which is in turn issued by a private root CA. Because the root certificate isn't trusted by the OS, the only way *TempSensor* would trust it is if the root CA certificate is installed onto the device. This is also known as the *trust bundle* scenario, where you need to distribute the root to clients that need to trust the chain. The trust bundle scenario can be troublesome because you need access the device and install the certificate. Installing the certificate requires planning. It can be done with scripts, added during manufacturing, or pre-installed in the OS image.
+The [*edgeHub* module](iot-edge-runtime.md#iot-edge-hub) is an important component that makes up IoT Edge, and is the component that handles all incoming traffic. In this example, the certificate it uses is issued by Edge CA, which is in turn issued by a private root CA. Because the root certificate isn't trusted by the OS, the only way *TempSensor* would trust it is if the root CA certificate is installed onto the device. This is also known as the *trust bundle* scenario, where you need to distribute the root to clients that need to trust the chain. The trust bundle scenario can be troublesome because you need access the device and install the certificate. Installing the certificate requires planning. It can be done with scripts, added during manufacturing, or pre-installed in the OS image.
 
 > [!NOTE]
 > Some clients and SDKs don't use the OS trusted root store and you need to pass the root CA file directly.
@@ -323,7 +323,7 @@ In summary, *TempSensor* can trust *EdgeGateway* because:
 
 ### Certificates for other modules
 
-Other modules can get server certificates issued by *Edge CA*. For example, a *Grafana* module that has a web interface. It can also get a certificate from *Edge CA*. Modules are treated as leaf devices hosted in the container. However, being able to get a certificate from the IoT Edge module runtime is a special privilege. Modules call the *workload API* to receive the trust bundle. Azure IoT SDKs can do this for you using [`ModuleClient.CreateFromEnvironmentAsync()`](https://learn.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync). You can also manually call the API to get the trust bundle.
+Other modules can get server certificates issued by *Edge CA*. For example, a *Grafana* module that has a web interface. It can also get a certificate from *Edge CA*. Modules are treated as leaf devices hosted in the container. However, being able to get a certificate from the IoT Edge module runtime is a special privilege. Modules call the *workload API* to receive the trust bundle. Azure IoT SDKs can do this for you using [`ModuleClient.CreateFromEnvironmentAsync()`](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync). You can also manually call the API to get the trust bundle.
 
 ## Gateway verifies device identity
 
