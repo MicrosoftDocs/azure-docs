@@ -114,7 +114,7 @@ The Go sample code is running a Linux container in App Service using a built-in 
 
 ## 4 - Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, and all related resources:
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, and all related resources:
 
 ```azurecli-interactive
 az group delete --resource-group <resource-group-name>
