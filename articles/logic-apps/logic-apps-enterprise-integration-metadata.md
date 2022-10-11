@@ -77,7 +77,7 @@ This how-to guide shows how to add metadata to an integration account artifact. 
 
    1. For **Artifact Type**, select **Partner**.
 
-   1. For **Artifact Name**, click inside edit box. When the dynamic content list appears, select the **name** output from the trigger.
+   1. For **Artifact Name**, click inside the edit box. When the dynamic content list appears, select the **name** output from the trigger.
 
    :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot of the 'Integration Account Artifact Lookup' action with the 'Artifact Type' and 'Artifact Name' properties highlighted.":::
 
