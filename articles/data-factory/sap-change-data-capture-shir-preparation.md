@@ -58,11 +58,11 @@ On the computer running your self-hosted integration runtime, edit *C:\Windows\S
 
 ```ini
 # SAP ECC 
-52.149.66.239 sapids01 
+xxx.xxx.xxx.xxx sapecc01 
 # SAP BW 
-20.190.60.250 sapbwx01 
+yyy.yyy.yyy.yyy sapbw01 
 # SAP SLT 
-20.56.211.31 sapnwx01 
+zzz.zzz.zzz.zzz sapnw01 
 ```
 
 ## Next steps

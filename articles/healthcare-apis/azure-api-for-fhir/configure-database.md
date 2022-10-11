@@ -1,12 +1,12 @@
 ---
 title: Configure database settings in Azure API for FHIR
 description: This article describes how to configure Database settings in Azure API for FHIR
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 06/03/2022
-ms.author: ranku
+ms.author: kesheth
 ---
 # Configure database settings 
 
@@ -21,7 +21,7 @@ Throughput must be provisioned to ensure that sufficient system resources are av
 
 ## Update throughput
 
-To change this setting in the Azure portal, navigate to your Azure API for FHIR and open the Database blade. Next, change the Provisioned throughput to the desired value depending on your performance needs. You can change the value up to a maximum of 10,000 RU/s. If you need a higher value, contact Azure support.
+To change this setting in the Azure portal, navigate to your Azure API for FHIR and open the Database blade. Next, change the Provisioned throughput to the desired value depending on your performance needs. You can change the value up to a maximum of 100,000 RU/s. If you need a higher value, contact Azure support.
 
 If the database throughput is greater than 10,000 RU/s or if the data stored in the database is more than 50 GB, your client application must be capable of handling continuation tokens. A new partition is created in the database for every throughput increase of 10,000 RU/s or if the amount of data stored is more than 50 GB. Multiple partitions create a multi-page response in which pagination is implemented by using continuation tokens.
 

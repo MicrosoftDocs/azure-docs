@@ -47,7 +47,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     1. Open the *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook.
     1. To run each cell in the tutorial, select **Clone this notebook**
 
-This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](../how-to-configure-environment.md#local). 
+This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment-v1.md). 
 To get the required packages, 
 * [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.

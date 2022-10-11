@@ -110,6 +110,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [AcrPush](#acrpush) | Push artifacts to or pull artifacts from a container registry. | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | [AcrQuarantineReader](#acrquarantinereader) | Pull quarantined images from a container registry. | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | [AcrQuarantineWriter](#acrquarantinewriter) | Push quarantined images to or pull quarantined images from a container registry. | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
+> | [Azure Kubernetes Fleet Manager RBAC Admin](#azure-kubernetes-fleet-manager-rbac-admin) | This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
+> | [Azure Kubernetes Fleet Manager RBAC Cluster Admin](#azure-kubernetes-fleet-manager-rbac-cluster-admin) | Lets you manage all resources in the fleet manager cluster. | 18ab4d3d-a1bf-4477-8ad9-8359bc988f69 |
+> | [Azure Kubernetes Fleet Manager RBAC Reader](#azure-kubernetes-fleet-manager-rbac-reader) | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces. | 30b27cfc-9c84-438e-b0ce-70e35255df80 |
+> | [Azure Kubernetes Fleet Manager RBAC Writer](#azure-kubernetes-fleet-manager-rbac-writer) | Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces. | 5af6afb3-c06c-4fa4-8848-71a8aee05683 |
 > | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | [Azure Kubernetes Service Contributor Role](#azure-kubernetes-service-contributor-role) | Grants access to read and write Azure Kubernetes Service clusters | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
@@ -4764,6 +4768,370 @@ Push quarantined images to or pull quarantined images from a container registry.
     }
   ],
   "roleName": "AcrQuarantineWriter",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Admin
+
+This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/statefulsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/authorization.k8s.io/localsubjectaccessreviews/write | Writes localsubjectaccessreviews |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/cronjobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/jobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/configmaps/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/endpoints/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/rbac.authorization.k8s.io/rolebindings/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/rbac.authorization.k8s.io/roles/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/secrets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/services/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/434fb43a-c01c-447e-9f67-c3ad923cfaba",
+  "name": "434fb43a-c01c-447e-9f67-c3ad923cfaba",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/*",
+        "Microsoft.ContainerService/fleets/apps/deployments/*",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/*",
+        "Microsoft.ContainerService/fleets/authorization.k8s.io/localsubjectaccessreviews/write",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/*",
+        "Microsoft.ContainerService/fleets/batch/jobs/*",
+        "Microsoft.ContainerService/fleets/configmaps/*",
+        "Microsoft.ContainerService/fleets/endpoints/*",
+        "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/events/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/*",
+        "Microsoft.ContainerService/fleets/extensions/deployments/*",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/*",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/limitranges/read",
+        "Microsoft.ContainerService/fleets/namespaces/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/*",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/*",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/*",
+        "Microsoft.ContainerService/fleets/rbac.authorization.k8s.io/rolebindings/*",
+        "Microsoft.ContainerService/fleets/rbac.authorization.k8s.io/roles/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/secrets/*",
+        "Microsoft.ContainerService/fleets/serviceaccounts/*",
+        "Microsoft.ContainerService/fleets/services/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Cluster Admin
+
+Lets you manage all resources in the fleet manager cluster.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage all resources in the fleet manager cluster.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/18ab4d3d-a1bf-4477-8ad9-8359bc988f69",
+  "name": "18ab4d3d-a1bf-4477-8ad9-8359bc988f69",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Cluster Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Reader
+
+Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/statefulsets/read | Reads statefulsets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/cronjobs/read | Reads cronjobs |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/jobs/read | Reads jobs |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/configmaps/read | Reads configmaps |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/endpoints/read | Reads endpoints |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/read | Reads persistentvolumeclaims |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/serviceaccounts/read | Reads serviceaccounts |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/services/read | Reads services |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/30b27cfc-9c84-438e-b0ce-70e35255df80",
+  "name": "30b27cfc-9c84-438e-b0ce-70e35255df80",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/read",
+        "Microsoft.ContainerService/fleets/apps/deployments/read",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/read",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/read",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/read",
+        "Microsoft.ContainerService/fleets/batch/jobs/read",
+        "Microsoft.ContainerService/fleets/configmaps/read",
+        "Microsoft.ContainerService/fleets/endpoints/read",
+        "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/events/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/read",
+        "Microsoft.ContainerService/fleets/extensions/deployments/read",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/read",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/limitranges/read",
+        "Microsoft.ContainerService/fleets/namespaces/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/read",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/read",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/read",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/read",
+        "Microsoft.ContainerService/fleets/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/serviceaccounts/read",
+        "Microsoft.ContainerService/fleets/services/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Kubernetes Fleet Manager RBAC Writer
+
+Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/read | Get fleet |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/listCredentials/action | List fleet credentials |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/apps/statefulsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/cronjobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/batch/jobs/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/configmaps/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/endpoints/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/events/read | Reads events |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/daemonsets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/deployments/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/secrets/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
+> | [Microsoft.ContainerService](resource-provider-operations.md#microsoftcontainerservice)/fleets/services/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5af6afb3-c06c-4fa4-8848-71a8aee05683",
+  "name": "5af6afb3-c06c-4fa4-8848-71a8aee05683",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerService/fleets/read",
+        "Microsoft.ContainerService/fleets/listCredentials/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/*",
+        "Microsoft.ContainerService/fleets/apps/deployments/*",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/*",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/*",
+        "Microsoft.ContainerService/fleets/batch/jobs/*",
+        "Microsoft.ContainerService/fleets/configmaps/*",
+        "Microsoft.ContainerService/fleets/endpoints/*",
+        "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
+        "Microsoft.ContainerService/fleets/events/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/*",
+        "Microsoft.ContainerService/fleets/extensions/deployments/*",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/*",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/limitranges/read",
+        "Microsoft.ContainerService/fleets/namespaces/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/*",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/*",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/resourcequotas/read",
+        "Microsoft.ContainerService/fleets/secrets/*",
+        "Microsoft.ContainerService/fleets/serviceaccounts/*",
+        "Microsoft.ContainerService/fleets/services/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager RBAC Writer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
