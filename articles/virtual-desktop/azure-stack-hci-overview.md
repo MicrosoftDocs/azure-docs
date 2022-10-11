@@ -69,7 +69,7 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 The following issues affect the preview version of Azure Virtual Desktop for Azure Stack HCI:
 
-- Templates may show failures in certain cases at the domain-join step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines.m).
+- Templates may show failures in certain cases at the domain-join step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
@@ -88,7 +88,7 @@ The following issues affect the preview version of Azure Virtual Desktop for Azu
 
 - Azure Virtual Desktop for Azure Stack HCI is not available for use in Azure Government.  
 
-- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
+- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
 
 If there are any issues you encounter during the preview that aren't on this list, we encourage you to report them.
 
