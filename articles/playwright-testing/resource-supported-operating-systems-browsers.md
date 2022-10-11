@@ -1,5 +1,5 @@
 ---
-title: Supported browsers & OSes
+title: Supported browsers & operating systems
 titleSuffix: Microsoft Playwright Testing
 description: Supported operating system and browsers in Microsoft Playwright Testing.
 services: playwright-testing
