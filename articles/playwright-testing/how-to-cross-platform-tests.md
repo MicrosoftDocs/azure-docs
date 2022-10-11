@@ -1,7 +1,7 @@
 ---
 title: Run Playwright tests on multiple OSes 
 titleSuffix: Microsoft Playwright Testing
-description: Learn how to run Playwright tests across multiple operating systems and browsers with Microsoft Playwright Testing.
+description: Learn how to run Playwright tests across multiple operating systems with Microsoft Playwright Testing.
 services: playwright-testing
 ms.service: playwright-testing
 ms.topic: how-to
@@ -10,11 +10,11 @@ author: ntrogh
 ms.date: 10/10/2022
 ---
 
-# Run tests across multiple operating systems and browsers with Microsoft Playwright Testing Preview
+# Run tests across multiple operating systems with Microsoft Playwright Testing Preview
 
-In this article, you'll learn how to configure your Playwright tests to run cross platform with Microsoft Playwright Testing Preview. With Microsoft Playwright Testing, you can run your Playwright tests on hosted browsers across multiple operating systems, regardless of your local developer environment.
+In this article, you'll learn how to run cross-platform Playwright tests with Microsoft Playwright Testing Preview. Microsoft Playwright Testing abstracts the infrastructure for running Playwright tests against hosted browsers across multiple operating systems.
 
-You can specify the target operating system and browser configuration for your existing Playwright tests by updating the Playwright configuration file. Microsoft Playwright Testing enables you to configure a default OS for all your tests, or to define multiple OS-browsers test project configurations.
+To run your existing Playwright tests on a specific operating system and browser, update the Playwright configuration file. Microsoft Playwright Testing enables you to configure a default OS for all your tests, or to define multiple OS-browsers test project configurations.
 
 Learn more about the [operating systems and browsers that Microsoft Playwright Testing supports](./resource-supported-operating-systems-browsers.md).
 
@@ -28,22 +28,41 @@ Learn more about the [operating systems and browsers that Microsoft Playwright T
 
 ## Specify a target operating system
 
-You specify the target operating system for your Playwright tests in the `playwright.config.ts` (or `playwright.config.js`) file. If you don't specify an OS, Microsoft Playwright Testing by default uses the latest Ubuntu version to run your tests.
+You specify the target operating system for your Playwright tests in the `playwright.config.ts` (or `playwright.config.js`) configuration file.
 
-The `connectOptions` property contains the service-related configuration, such as the target OS. You can specify the `connectOptions` at the `PlaywrightTestConfig` level, or specify it for a [test project](https://playwright.dev/docs/test-advanced#projects).
+The `connectOptions` property contains service-related configuration settings, such as the target operating system. You can configure the `connectOptions` setting at two levels: 
 
-Use the `PlaywrightService.connectOptions()` function to configure the target OS. The function takes two input parameters:
+- At the [test project](https://playwright.dev/docs/test-advanced#projects) level, to define one or multiple browser-OS configurations.
+- At the `PlaywrightTestConfig` level, to configure a default operating system for all test projects.
+
+Use the `PlaywrightService.connectOptions()` function to configure the target OS. The function takes two input parameters and returns a `ConnectOptions` object:
 
 | Parameter | Type | Default | Description |
 |-----|-----|-----|-----|
 | *os*         | string | linux         | Operating system name. See the list of [supported operating systems](./resource-supported-operating-systems-browsers.md#supported-browsers). |
 | *os_version* | string | ubuntu-latest | Operating system version name. See the list of [supported operating systems](./resource-supported-operating-systems-browsers.md#supported-operating-systems). |
 
-### Specify the OS for a test project 
+The following code snippet gives an example of how to specify the target operating system:
 
-To specify the operating system for a specific Playwright test project, set the `connectOptions` property within the project configuration. Playwright will run your tests for each of the test projects you define. You can use the `project` [Playwright command-line parameter](https://playwright.dev/docs/test-cli) to run a specific test project.
+```typescript
+import { os, os_version, PlaywrightService } from "@microsoft/playwright-service";
 
-The following example defines a test project that uses the Chrome desktop browser on the latest Windows version:
+// Configuration for running tests on Windows 10
+config.use!.connectOptions = playwrightServiceConfig.connectOptions({os: os.WINDOWS, os_version: os_version.WINDOWS_10})
+```
+
+> [!NOTE]
+>  If you don't specify an OS, Microsoft Playwright Testing uses the latest Ubuntu version to run your tests.
+
+### Specify the OS for a test project
+
+To specify the operating system for a specific Playwright test project, set the `connectOptions` property within the project configuration. You can configure multiple test projects within your Playwright test suite. Each test project can use a specific browser-OS configuration.
+
+The test project configuration settings override the global operating system and version settings.
+
+Microsoft Playwright Testing will run your tests for each of the test project configurations. You can also use the `project` [Playwright command-line parameter](https://playwright.dev/docs/test-cli) to only run a specific test project.
+
+The following code snippet gives an example of a Playwright test project that uses the Chrome desktop browser on the latest Windows version:
 
 ```typescript
 // playwright.config.ts
@@ -66,7 +85,7 @@ const config: PlaywrightTestConfig = {
 
 ### Specify the default OS
 
-To specify the default operating system for all test projects in a Playwright test suite, you can set the `connectOptions` property at the test configuration level.
+To specify the default operating system for all test projects in a Playwright test suite, you can set the `connectOptions` property at the `PlaywrightTestConfig` test configuration level.
 
 For example, to run all tests across all browser configurations on Ubuntu version 18.04:
 
@@ -100,7 +119,7 @@ const config: PlaywrightTestConfig = {
 
 ## View test results
 
-In the [Playwright dashboard](https://dashboard.playwright-ppe.io/playwright-service), you can quickly filter the test results for a specific configuration by using the search interface. 
+In the [Playwright dashboard](https://17157345.playwright-int.io/), you can quickly filter the test results for a specific configuration by using the search interface. 
 
 The following screenshot shows how to filter for tests that were run on Windows:
 
