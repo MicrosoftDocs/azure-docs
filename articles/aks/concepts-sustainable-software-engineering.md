@@ -15,7 +15,7 @@ Sustainable software engineering is a shift in priorities and focus. In many cas
 * Applying sustainable software engineering principles can give you faster performance or lower latency, such as by lowering total network travel. 
 * Reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads. 
 
-The [sustainability guidance in the Microsoft Azure Well-Architected Framework (WAF)](/azure/architecture/framework/sustainability/) aims to address the challenges of building sustainable workloads on Azure.
+The [sustainability guidance in the Microsoft Azure Well-Architected Framework (WAF)](/azure/architecture/framework/sustainability/) aims to address the approach to building any sustainable workload on Azure.
 
 This article provides practical recommendations for applying WAF sustainability guidance for AKS.
 
