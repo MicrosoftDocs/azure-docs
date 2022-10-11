@@ -17,14 +17,14 @@ This article lists significant changes to Azure Monitor documentation.
 
 | Article | Description |
 |---|---|
-|[Azure Monitor Agent overview](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview)|Added Azure Monitor Agent support for ARM64-based virtual machines for a number of distributions. <br><br>Azure Monitor Agent and legacy agents do not support machines and appliances that run heavily customized or stripped-down versions of  operating system distributions. <br><br>Azure Monitor Agent versions 1.15.2 and higher now support syslog RFC formats, including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).|
+|[Azure Monitor Agent overview](https://docs.microsoft.com/azure/azure-monitor/agents/agents-overview)|Added Azure Monitor Agent support for ARM64-based virtual machines for a number of distributions. <br><br>Azure Monitor Agent and legacy agents don't support machines and appliances that run heavily customized or stripped-down versions of  operating system distributions. <br><br>Azure Monitor Agent versions 1.15.2 and higher now support syslog RFC formats, including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).|
 
 ### Alerts
 
 | Article | Description |
 |---|---|
-|[Convert ITSM actions that send events to ServiceNow to secure webhook actions](https://docs.microsoft.com/azure/azure-monitor/alerts/itsm-convert-servicenow-to-webhook)|As of September 2022, we are starting the 3-year process of deprecating support of using ITSM actions to send events to ServiceNow. Learn how to convert ITSM actions that send events to ServiceNow to secure webhook actions|
-|[Create a new alert rule](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule)|Added description of all available monitoring services to the create a new alert rule and alert processing rules pages. <br><br>Added support for regional processing for metric alert rules that monitor a custom metric with the scope defined as one of the supported regions. <br><br> Clarified that selecting the **Automatically resolve alerts** setting makes log alerts stateful.<|
+|[Convert ITSM actions that send events to ServiceNow to secure webhook actions](https://docs.microsoft.com/azure/azure-monitor/alerts/itsm-convert-servicenow-to-webhook)|As of September 2022, we're starting the 3-year process of deprecating support of using ITSM actions to send events to ServiceNow. Learn how to convert ITSM actions that send events to ServiceNow to secure webhook actions|
+|[Create a new alert rule](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule)|Added description of all available monitoring services to create a new alert rule and alert processing rules pages. <br><br>Added support for regional processing for metric alert rules that monitor a custom metric with the scope defined as one of the supported regions. <br><br> Clarified that selecting the **Automatically resolve alerts** setting makes log alerts stateful.<|
 |[Types of Azure Monitor alerts](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-types)|Azure Database for PostgreSQL - Flexible Servers  is supported for monitoring multiple resources.|
 |[Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log-api-switch)|The process of moving legacy log alert rules management from the legacy API to the current API is now supported by the government cloud.|
 
@@ -40,7 +40,7 @@ This article lists significant changes to Azure Monitor documentation.
 |[Filter and preprocess telemetry in the Application Insights SDK](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling)|Added sample initializer to control which client IP gets used as part of geo-location mapping.|
 |[Java Profiler for Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-profiler)|Our new Java Profiler was announced at Ignite. Read all about it!|
 |[Release notes for Azure Web App extension for Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/web-app-extension-release-notes)|Added release notes for 2.8.44 and 2.8.43.|
-|[Resource Manager template samples for creating Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/resource-manager-app-resource)|Fixed inaccurate tagging of workspace-based reources as still in Preview.|
+|[Resource Manager template samples for creating Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/resource-manager-app-resource)|Fixed inaccurate tagging of workspace-based resources as still in Preview.|
 |[Unified cross-component transaction diagnostics](https://docs.microsoft.com/azure/azure-monitor/app/transaction-diagnostics)|A complete FAQ section is added to help troubleshoot Azure portal errors, such as "error retrieving data".|
 |[Upgrading from Application Insights Java 2.x SDK](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-upgrade-from-2x)|Additional upgrade guidance added. Java 2.x has been deprecated.|
 |[Using Azure Monitor Application Insights with Spring Boot](https://docs.microsoft.com/azure/azure-monitor/app/java-spring-boot)|Configuration options have been updated.|
@@ -50,7 +50,7 @@ This article lists significant changes to Azure Monitor documentation.
 |---|---|
 |[Autoscale with multiple profiles](https://docs.microsoft.com/azure/azure-monitor/autoscale/autoscale-multiprofile)|New article: Using multiple profiles in autoscale with CLI PowerShell and templates.|
 |[Flapping in Autoscale](https://docs.microsoft.com/azure/azure-monitor/autoscale/autoscale-flapping)|New Article: Flapping in autoscale.|
-|[Understand Autoscale settings](https://docs.microsoft.com/azure/azure-monitor/autoscale/autoscale-understanding-settings)|Clarified how oftern autoscale runs.|
+|[Understand Autoscale settings](https://docs.microsoft.com/azure/azure-monitor/autoscale/autoscale-understanding-settings)|Clarified how often autoscale runs.|
 
 ### Change analysis
 | Article | Description |
