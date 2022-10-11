@@ -73,7 +73,7 @@ Lastly, the Dapr extension is an extension of AKS, therefore you can expect the 
 
 ### How can I authenticate the Dapr extension for AKS using Managed Service Identities (MSI)?
 
-Learn how [Dapr leverages a managed identity to authenticate with Azure AD][dapr-msi].
+Learn how [Dapr components leverage your AKS cluster's managed identity to authenticate with Azure AD][dapr-msi].
 
 ### How can I switch to using the Dapr extension if I’ve already installed Dapr via a method, such as Helm?
 
