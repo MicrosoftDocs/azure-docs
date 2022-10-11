@@ -36,7 +36,7 @@ You can train a model using only dictionary data. To do so, select only the dict
 
 ## Recommendations
 
-- If you're using a phrase dictionary, capitalization and punctuation are important. Dictionary entries are case- and punctuation- sensitive. Custom Translator will only match words and phrases in the input sentence that use exactly the same capitalization and punctuation marks as specified in the source dictionary file. Also, translations will reflect the capitalization and punctuation provided in the target dictionary file.
+- If you're using a phrase dictionary, capitalization and punctuation are important. Dictionary entries are case- and punctuation-sensitive. Custom Translator will only match words and phrases in the input sentence that use exactly the same capitalization and punctuation marks as specified in the source dictionary file. Also, translations will reflect the capitalization and punctuation provided in the target dictionary file.
 
     **Example**
 
