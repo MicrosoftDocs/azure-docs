@@ -83,9 +83,11 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   Microsoft.KubernetesConfiguration  RegistrationRequired  Registered
   ```
 
-### Supported regions
+### Version and region support
 
 GitOps is currently supported in [all regions that Azure Arc-enabled Kubernetes supports](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). GitOps is currently supported in a subset of the regions that AKS supports. The GitOps service is adding new supported regions on a regular cadence.
+
+The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
 ### Network requirements
 
@@ -101,7 +103,7 @@ The GitOps agents require outbound (egress) TCP to the repo source on either por
 ## Enable CLI extensions
 
 >[!NOTE]
->The `k8s-configuration` CLI extension manages either Flux v2 or Flux v1 configurations. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
+>The `k8s-configuration` CLI extension manages either Flux v2 or Flux v1 configurations. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible. 
 
 Install the latest `k8s-configuration` and `k8s-extension` CLI extension packages:
 
