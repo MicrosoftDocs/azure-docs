@@ -50,7 +50,7 @@ There are two main steps to the role assignment process. First you'll select the
 
 You have the option to assign roles as either _eligible_ or _active_. Eligible roles are assigned to a user but must be elevated just-in-time by the user through Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](../privileged-identity-management/index.yml).
 
-![Screenshot of the Users - All users list with Alain Charon highlighted.](media/active-directory-users-assign-role-azure-portal/role-assignment-types.png)
+![Screenshot of the assigned roles page with the assignment types highlighted.](media/active-directory-users-assign-role-azure-portal/role-assignment-types.png)
 
 1. From the Settings area of the **Add assignments** page, select an **Assignment type** option.
 

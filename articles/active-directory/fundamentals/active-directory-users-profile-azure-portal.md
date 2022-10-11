@@ -1,6 +1,6 @@
 ---
 title: Add or update user profile information - Azure AD
-description: Instructions about how to add information to a user's profile in Azure Active Directory, including a picture and job details.
+description: Instructions about how to manage a user's profile and settings in Azure Active Directory.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Add or update a user's profile information
+# Add or update a user's profile information and settings
 A user's profile information and settings can be managed on an individual basis as well as for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
 This article covers how to add user profile information, including a profile picture, job-specific information, and other settings using Azure Active Directory (Azure AD). For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). Other settings such as connecting LinkedIn accounts and restricting access to the Azure AD administration portal are covered. Settings may be managed in more than one area of Azure AD.

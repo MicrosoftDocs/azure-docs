@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Add or delete users using Azure Active Directory
 
-Add new users or delete existing users from your Azure Active Directory (Azure AD) organization. To add or delete users you must be a User administrator or Global administrator.
+Add new users or delete existing users from your Azure Active Directory (Azure AD) organization. To add or delete users you must be a User Administrator or Global Administrator.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -26,30 +26,23 @@ Add new users or delete existing users from your Azure Active Directory (Azure A
 
 You can create a new user using the Azure Active Directory portal.
 
->[!Note]
->The user name and email address properties can't contain accent characters.
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the tenant.
 
-To add a new user, follow these steps:
+1. Navigate to **Azure Active Directory** > **Users** > **New user**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
+    ![Screenshot of adding a new user from the All users page.](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
-1. Search for and select *Azure Active Directory* from any page.
-
-1. Select **Users**, and then select **New user**.
-
-    ![Add a user through Users - All users in Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
-
-1. On the **User** page, enter information for this user:
+1. On the **User** page, provide the new user's information:
 
    - **Name**. Required. The first and last name of the new user. For example, *Mary Parker*.
 
-   - **User name**. Required. The user name of the new user. For example, `mary@contoso.com`.
+   - **User name**. Required. The user name of the new user. For example, `mary@contoso.com`. The user name and email address cannot contain accent characters.
 
      The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*, or a custom domain name, such as *contoso.com*. For more information about how to create a custom domain name, see [Add your custom domain name using the Azure Active Directory portal](add-custom-domain.md).
 
-   - **Groups**. Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. For more information about adding users to groups, see [Create a basic group and add members using Azure Active Directory](active-directory-groups-create-azure-portal.md).
+   - **Groups**. Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. For more information about adding users to groups, see the [manage groups article](how-to-manage-groups.md).
 
-   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD. For more information about assigning roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
+   - **Directory role**: If you require Azure AD administrative permissions for the user, you can assign an Azure AD role. For more information about assigning roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
 
    - **Job info**: You can add more information about the user here, or do it later. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
 
