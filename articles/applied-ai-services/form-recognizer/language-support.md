@@ -20,7 +20,7 @@ This article covers the supported languages for text and field **extraction (by 
 
 ## Read, layout, and custom form (template) model
 
-The following lists include the currently GA languages in for the v2.1 version and the most recent v3.0 version. These languages are supported by Read, Layout, and Custom form (template) model features.
+The following lists include the currently GA languages in the most recent v3.0 version. These languages are supported by Read, Layout, and Custom form (template) model features.
 
 > [!NOTE]
 > **Language code optional**
