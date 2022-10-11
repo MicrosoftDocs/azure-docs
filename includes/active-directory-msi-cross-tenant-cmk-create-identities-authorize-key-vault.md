@@ -93,7 +93,7 @@ Create a user-assigned managed identity to be used as a federated identity crede
 $subscriptionId="aaaaaaaa-0000-aaaa-0000-aaaa0000aaaa"
 $tenantId="bbbbbbbb-0000-bbbb-0000-bbbb0000bbbb"
 $appName="XTCMKDemoApp"
-$uamiName="XTCMKDemoAppUA"
+$managedIdentity="XTCMKDemoAppUA"
 $rgName="XTCMKDemoAppRG"
 $location="westcentralus"
 
@@ -101,7 +101,10 @@ Set-AzContext -Subscription $subscriptionId
 
 New-AzResourceGroup -Location $location -ResourceGroupName $rgName
 
-$uamiObject = New-AzUserAssignedIdentity -Name $uamiName -ResourceGroupName $rgName -Location $location -SubscriptionId $subscriptionId
+$uamiObject = New-AzUserAssignedIdentity -Name $managedIdentity `
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -SubscriptionId $subscriptionId
 ```
 
 #### The service provider configures the user-assigned managed identity as a federated credential on the application
@@ -151,7 +154,7 @@ export subscriptionId="aaaaaaaa-0000-aaaa-0000-aaaa0000aaaa"
 export tenantId="bbbbbbbb-0000-bbbb-0000-bbbb0000bbbb"
 export appName="XTCMKDemoApp"
 
-export uamiName="XTCMKDemoAppUA"
+export managedIdentity="XTCMKDemoAppUA"
 export rgName="XTCMKDemoAppRG"
 export location="westcentralus"
 
@@ -162,7 +165,7 @@ export appId=$(az ad app show --id $appObjectId --query appId --output tsv)
 az group create --location $location --resource-group $rgName --subscription $subscriptionId
 echo "Created a new resource group with name = $rgName, location = $location in subscriptionid = $subscriptionId"
 
-export uamiObjectId=$(az identity create --name $uamiName --resource-group $rgName --location $location --subscription $subscriptionId --query principalId --out tsv)
+export uamiObjectId=$(az identity create --name $managedIdentity --resource-group $rgName --location $location --subscription $subscriptionId --query principalId --out tsv)
 ```
 
 #### The service provider configures the user-assigned managed identity as a federated credential on the application
@@ -286,7 +289,6 @@ New-AzResourceGroup -Location $location -ResourceGroupName $rgName
 
 # Create the service principal with the registered app's application ID (client ID)
 $serviceprincipalObject = New-AzADServicePrincipal -ApplicationId
-# $serviceprincipalObject = Get-AzADServicePrincipal -ApplicationId $addObject.Id
 ```
 
 #### The customer creates a key vault
@@ -294,7 +296,12 @@ $serviceprincipalObject = New-AzADServicePrincipal -ApplicationId
 To create the key vault, the customer's account must be assigned the **Key Vault Contributor** role or another role that permits creation of a key vault.
 
 ```azurepowershell
-New-AzKeyVault -Location $location -Name $vaultName -ResourceGroupName $rgName -SubscriptionId $subscriptionId -EnablePurgeProtection -EnableRbacAuthorization
+New-AzKeyVault -Location $location `
+    -Name $vaultName `
+    -ResourceGroupName $rgName `
+    -SubscriptionId $subscriptionId `
+    -EnablePurgeProtection `
+    -EnableRbacAuthorization
 ```
 
 #### The customer assigns Key Vault Crypto Officer role to a user account
@@ -303,7 +310,9 @@ This step ensures that you can create the key vault and encryption keys.
 
 ```azurepowershell
 $currentUserObjectId="object-id-of-the-user"
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $currentUserObjectId
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" `
+    -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName `
+    -ObjectId $currentUserObjectId
 ```
 
 #### The customer creates an encryption key
@@ -319,7 +328,9 @@ Add-AzKeyVaultKey -Name mastercmkkey -VaultName $vaultName -Destination software
 Assign the Azure RBAC role **Key Vault Crypto Service Encryption User** to the service provider's registered application so that it can access the key vault.
 
 ```azurepowershell
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Service Encryption User" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $serviceprincipalObject.Id
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Service Encryption User" `
+    -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName `
+    -ObjectId $serviceprincipalObject.Id
 ```
 
 Now you can configure customer-managed keys with the key vault URI and key.

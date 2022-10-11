@@ -142,7 +142,7 @@ Viewing and modifying site config settings for function apps isn't supported in 
 
 # [Azure CLI](#tab/azurecli)
 
-You can view and set the `LinuxFxVersion` by using the Azure CLI.  
+You can view and set the `LinuxFxVersion` by using the Azure CLI. To know the list of available `LinuxFxVersion`, use [az functionapp list-runtimes](/cli/azure/functionapp#az-functionapp-list-runtimes) command.
 
 To view the current runtime version, use with the [az functionapp config show](/cli/azure/functionapp/config) command.
 

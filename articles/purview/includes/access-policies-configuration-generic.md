@@ -11,9 +11,9 @@ ms.custom:
 ### Register Microsoft Purview as a resource provider in other subscriptions
 Execute this step only if the data sources and the Microsoft Purview account are in different subscriptions. Register Microsoft Purview as a resource provider in each subscription where data sources reside by following this guide: [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-The Microsoft Purview resource provider is:
+The Microsoft Purview resource provider is: Microsoft.Purview. To register using Powershell run the below:
 ```
-Microsoft.Purview
+Register-AzResourceProvider -ProviderNamespace Microsoft.Purview
 ```
 
 ### Configure permissions for policy management actions

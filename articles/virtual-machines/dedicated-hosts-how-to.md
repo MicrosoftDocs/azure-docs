@@ -28,6 +28,8 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 
 - Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md).
 
+- Currently ADH does not support ultra disks on following VM series LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 (though these VMs support ultra disks on multi tenant VMs).
+
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 
 ## Create a host group
@@ -42,7 +44,6 @@ You can also decide to use both availability zones and fault domains.
 
 Enabling ultra disks is a host group level setting and can't be changed after a host group is created.
 
-If you intend to use LSv2 or M series VMs, with ultra disks on dedicated hosts, set host group's **Fault domain count** to **1**.
 
 ### [Portal](#tab/portal)
 

@@ -31,7 +31,7 @@ Before you begin planning your Spark POC project:
 Before you start preparing for the POC project, we recommend you first read the [Apache Spark documentation](../../hdinsight/spark/apache-spark-overview.md).
 
 > [!TIP]
-> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/learn/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
+> If you're new to Spark pools, we recommend you work through the [Perform data engineering with Azure Synapse Apache Spark Pools](/training/paths/perform-data-engineering-with-azure-synapse-apache-spark-pools/) learning path.
 
 By now you should have determined that there are no immediate blockers and then you can start preparing for your POC. If you are new to Apache Spark Pools in Azure Synapse Analytics you can refer to [this documentation](../spark/apache-spark-overview.md) where you can get an overview of the Spark architecture and learn how it works in Azure Synapse.
 

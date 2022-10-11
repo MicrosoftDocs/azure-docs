@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/16/2022
+ms.date: 09/28/2022
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -28,13 +28,17 @@ For information about the prerequisites to add or edit role assignment condition
 
 ## Step 1: Determine the condition you need
 
-To determine the conditions you need, review the examples in [Example Azure role assignment conditions](../storage/blobs/storage-auth-abac-examples.md).
+To determine the conditions you need, review the examples in [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md).
 
-Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](../storage/blobs/storage-auth-abac-attributes.md). These include the following built-in roles:
+Currently, conditions can be added to built-in or custom role assignments that have [blob storage data actions](../storage/blobs/storage-auth-abac-attributes.md) or [queue storage data actions](../storage/queues/queues-auth-abac-attributes.md). These include the following built-in roles:
 
 - [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner)
 - [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader)
+- [Storage Queue Data Contributor](built-in-roles.md#storage-queue-data-contributor)
+- [Storage Queue Data Message Processor](built-in-roles.md#storage-queue-data-message-processor)
+- [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
+- [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
 ## Step 2: Choose how to add condition
 
@@ -163,6 +167,6 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
 - [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)
 - [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)

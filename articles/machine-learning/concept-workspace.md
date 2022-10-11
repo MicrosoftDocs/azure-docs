@@ -46,7 +46,7 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
-+ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
++ In any Python environment with the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
 + On the command line using the Azure Machine Learning [CLI extension](how-to-configure-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 

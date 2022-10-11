@@ -7,7 +7,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: csharp
-ms.date: 06/12/2022
+ms.date: 09/29/2022
 ms.custom: mode-other
 ---
 
@@ -396,9 +396,6 @@ We'll use Azure Storage as the checkpoint store. Use the following steps to crea
 				}
 }
 ```
-
-> [!IMPORTANT]
-> Atlas currently supports the following operation types: **ENTITY_CREATE_V2**, **ENTITY_PARTIAL_UPDATE_V2**, **ENTITY_FULL_UPDATE_V2**, **ENTITY_DELETE_V2**. Pushing messages to Purview is currently enabled by default. If your scenario involves reading from Purview contact us, as it needs to be allow-listed. You'll need to provide your subscription id and the name of Purview account.
 
 
 ## Next steps

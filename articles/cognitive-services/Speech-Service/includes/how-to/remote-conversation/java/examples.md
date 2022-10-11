@@ -124,7 +124,7 @@ You can obtain **remote-conversation** by editing your pom.xml file as follows.
 
 ### Sample transcription code
 
-After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Use **getTranscriptionOperation** method in **RemoteConversationTranscriptionClient** to get a [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) object. The PollerFlux object will have information about the remote operation status **RemoteConversationTranscriptionOperation** and the final result **RemoteConversationTranscriptionResult**. Once the operation has finished, get **RemoteConversationTranscriptionResult** by calling **getFinalResult** on a [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). In this code we simply print the result contents to system output.
+After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Use **GetTranscriptionOperation** method in **RemoteConversationTranscriptionClient** to get a [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) object. The PollerFlux object will have information about the remote operation status **RemoteConversationTranscriptionOperation** and the final result **RemoteConversationTranscriptionResult**. Once the operation has finished, get **RemoteConversationTranscriptionResult** by calling **getFinalResult** on a [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). In this code we simply print the result contents to system output.
 
 ```java
 // Create the speech config object
@@ -134,7 +134,7 @@ SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey",
 RemoteConversationTranscriptionClient client = new RemoteConversationTranscriptionClient(speechConfig);
 
 // Get the PollerFlux for the remote operation
-PollerFlux<RemoteConversationTranscriptionOperation, RemoteConversationTranscriptionResult> remoteTranscriptionOperation = client.getTranscriptionOperation(conversationId);
+PollerFlux<RemoteConversationTranscriptionOperation, RemoteConversationTranscriptionResult> remoteTranscriptionOperation = client.GetTranscriptionOperation(conversationId);
 
 // Subscribe to PollerFlux to get the remote operation status
 remoteTranscriptionOperation.subscribe(

@@ -1,15 +1,15 @@
 ---
-title: Provision access by data owner for Azure SQL DB (preview)
-description: Step-by-step guide on how data owners can configure access for Azure SQL DB through Microsoft Purview access policies.
+title: Provision access by data owner for Azure SQL Database (preview)
+description: Step-by-step guide on how data owners can configure access for Azure SQL Database through Microsoft Purview access policies.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 08/12/2022
+ms.date: 10/03/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
-# Provision access by data owner for Azure SQL DB (preview)
+# Provision access by data owner for Azure SQL Database (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -100,7 +100,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 
 | **Microsoft Purview policy action** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
-|                                     |                                      |
+|||
 | *Read* |Microsoft.Sql/sqlservers/Connect |
 ||Microsoft.Sql/sqlservers/databases/Connect |
 ||Microsoft.Sql/Sqlservers/Databases/Schemas/Tables/Rows|
@@ -108,10 +108,8 @@ This section contains a reference of how actions in Microsoft Purview data polic
 |||
 | *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
 ||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseMetadata/rows/select |
-||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseState/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
+||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
 |||               
 | *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
 ||Microsoft.Sql/sqlservers/databases/Connect |

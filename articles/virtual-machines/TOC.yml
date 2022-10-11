@@ -432,6 +432,8 @@
         desplayName: export, image version, disk, SIG, gallery
       - name: Purchase plan information
         href: marketplace-images.md
+      - name: Deprecated images FAQ
+        href: deprecated-images.yml
     - name: VM Applications
       items:
       - name: Overview
@@ -541,7 +543,7 @@
         displayName: Windows custom images, images, windows, upload, prepare, VHD, create, managed
         href: ./windows/create-vm-generalized-managed.md
       - name: Visual Studio
-        href: ./windows/using-visual-studio-vm.md
+        href: /visualstudio/install/using-visual-studio-vm
     - name: VM Image Builder
       items:
       - name: Overview
@@ -1333,6 +1335,8 @@
         href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Migrate to Managed Disks
       href: ./windows/migrate-to-managed-disks.md
+    - name: Unmanaged Disks retirement starting November 18, 2022
+      href: ./unmanaged-disks-deprecation.md
     - name: Unmanaged VM to Managed Disks
       items:
       - name: CLI
@@ -2063,8 +2067,8 @@
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator

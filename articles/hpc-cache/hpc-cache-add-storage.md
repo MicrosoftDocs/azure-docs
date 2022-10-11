@@ -1,12 +1,12 @@
 ---
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 09/29/2022
 ms.custom: subject-rbac-steps
-ms.author: rohogue
+ms.author: v-erinkelly
 ---
 
 # Add storage targets
@@ -33,18 +33,20 @@ The procedure to add a storage target is slightly different depending on the typ
 
 ## Size your cache correctly to support your storage targets
 
-The number of supported storage targets depends on the cache size, which is set when you create the cache. The cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
+When you create the cache, make sure you select the type and size that will support the number of storage targets you need.
+
+The number of supported storage targets depends on the cache type and the cache capacity. Cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 
 * Up to 10 storage targets - A standard cache with the smallest or medium cache storage value for your selected throughput can have a maximum of 10 storage targets.
 
-  For example, if you choose 2GB/second throughput and don't choose the highest cache storage size, your cache supports a maximum of 10 storage targets.
+  For example, if you choose 2 GB/second throughput and don't choose the largest cache storage size (12 TB), your cache supports a maximum of 10 storage targets.
 
 * Up to 20 storage targets -
 
-  * All high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
+  * All read-only high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
   * Standard caches can support up to 20 storage targets if you choose the highest available cache size for your selected throughput value. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
 
-Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more about throughput and cache size settings.
+Read [Choose cache type and capacity](hpc-cache-create.md#choose-cache-type-and-capacity) to learn more about throughput and cache size settings.
 
 ## Choose the correct storage target type
 

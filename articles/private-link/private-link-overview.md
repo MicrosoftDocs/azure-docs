@@ -74,4 +74,4 @@ For SLA, see [SLA for Azure Private Link](https://azure.microsoft.com/support/le
 
 - [Quickstart: Create a Private Endpoint using Azure portal](create-private-endpoint-portal.md)
 - [Quickstart: Create a Private Link service by using the Azure portal](create-private-link-service-portal.md)
-- [Learn module: Introduction to Azure Private Link](/learn/modules/introduction-azure-private-link/)
+- [Learn module: Introduction to Azure Private Link](/training/modules/introduction-azure-private-link/)

@@ -104,4 +104,4 @@ When you create or update a virtual network in your subscription, Network Watche
 
 * You now have an overview of Azure Network Watcher. To get started using Network Watcher, diagnose a common communication problem to and from a virtual machine using IP flow verify. To learn how, see the [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) quickstart.
 
-* [Learn module: Introduction to Azure Network Watcher](/learn/modules/intro-to-azure-network-watcher).
+* [Learn module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).

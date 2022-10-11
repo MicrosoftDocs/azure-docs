@@ -51,7 +51,7 @@ The scenario solution has the following components:
 
 - **Oracle PeopleSoft application**: Legacy application going to be protected by Azure AD and DAB.
 
-Understand the SP initiated flow by following the steps mentioned in [Datawiza and Azure AD authentication architecture](https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad#datawiza-with-azure-ad-authentication-architecture).
+Understand the SP initiated flow by following the steps mentioned in [Datawiza and Azure AD authentication architecture](https://learn.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad#datawiza-with-azure-ad-authentication-architecture).
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Ensure the following prerequisites are met.
 
 - An Azure AD tenant linked to the Azure subscription.
 
-  - See, [Quickstart: Create a new tenant in Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+  - See, [Quickstart: Create a new tenant in Azure Active Directory.](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - Docker and Docker Compose
 
@@ -69,11 +69,11 @@ Ensure the following prerequisites are met.
 
 - User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to an on-premises directory.
 
-  - See, [Azure AD Connect sync: Understand and customize synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis).
+  - See, [Azure AD Connect sync: Understand and customize synchronization](https://learn.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis).
 
 - An account with Azure AD and the Application administrator role
 
-  - See, [Azure AD built-in roles, all roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#all-roles).
+  - See, [Azure AD built-in roles, all roles](https://learn.microsoft.com/azure/active-directory/roles/permissions-reference#all-roles).
 
 - An Oracle PeopleSoft environment
 
@@ -103,7 +103,7 @@ To integrate Oracle PeopleSoft with Azure AD:
    |:-----------|:-------------|
    | Platform         | Web |
    | App Name         | Enter a unique application name|
-   | Public Domain    | For example: https://ps-external.example.com <br>For testing, you can use localhost DNS. If you aren't deploying DAB behind a load balancer, use the Public Domain port.                      |
+   | Public Domain    | For example: `https://ps-external.example.com` <br>For testing, you can use localhost DNS. If you aren't deploying DAB behind a load balancer, use the Public Domain port.                      |
    | Listen Port      | The port that DAB listens on. |
    | Upstream Servers | The Oracle PeopleSoft implementation URL and port to be protected.|  
 
@@ -177,7 +177,7 @@ For the Oracle PeopleSoft application to recognize the user correctly, there's a
 ## Enable Azure AD Multi-Factor Authentication
 
 To provide an extra level of security for sign-ins, enforce multi-factor authentication (MFA) for user sign-in. One way to achieve this is to [enable MFA on the Azure
-portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa).
+portal](https://learn.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa).
 
 1. Sign in to the Azure portal as a **Global Administrator**.
 
@@ -255,8 +255,8 @@ To confirm Oracle PeopleSoft application access occurs correctly, a prompt appea
 
 - [Watch the video - Enable SSO/MFA for Oracle PeopleSoft with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90).
 
-- [Configure Datawiza and Azure AD for secure hybrid access](https://docs.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad)
+- [Configure Datawiza and Azure AD for secure hybrid access](https://learn.microsoft.com/azure/active-directory/manage-apps/datawiza-with-azure-ad)
 
-- [Configure Datawiza with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
+- [Configure Datawiza with Azure AD B2C](https://learn.microsoft.com/azure/active-directory-b2c/partner-datawiza)
 
 - [Datawiza documentation](https://docs.datawiza.com/)

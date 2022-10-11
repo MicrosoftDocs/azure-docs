@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/26/2022
 ---
 
 # Update Machine Learning Studio (classic) models by using Update Resource activity
