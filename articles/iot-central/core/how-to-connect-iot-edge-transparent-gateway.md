@@ -3,7 +3,7 @@ title: Connect an IoT Edge transparent gateway to an Azure IoT Central applicati
 description: How to connect devices through an IoT Edge transparent gateway to an IoT Central application. The article shows how to use both the IoT Edge 1.1 and 1.2 runtimes.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/08/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
