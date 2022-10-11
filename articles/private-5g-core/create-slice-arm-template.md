@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Create a slice using an ARM template
 
-*Network slices* allow you to multiplex independent logical networks on the same Azure Private 5G Core deployment. Slices are assigned to SIM policies and static IP addresses, providing isolated end-to-end networks that can be customized for different bandwidth and latency requirements.
+*Network slices* allow you to host multiple independent logical networks in the same Azure Private 5G Core deployment. Slices are assigned to SIM policies and static IP addresses, providing isolated end-to-end networks that can be customized for different bandwidth and latency requirements.
 
 In this how-to guide, you'll learn how to create a slice in your private mobile network using an Azure Resource Manager template (ARM template). You can configure a slice/service type (SST) and slice differentiator (SD) for slices associated with SIMs that will be provisioned on a 5G site. If a SIM is provisioned on a 4G site, the slice associated with its SIM policy must contain an empty SD and a value of 1 for the SST.
 

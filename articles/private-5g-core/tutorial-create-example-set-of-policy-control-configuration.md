@@ -28,9 +28,9 @@ In this tutorial, you'll learn how to:
 * Read the information in [Policy control](policy-control.md) and familiarize yourself with Azure Private 5G Core policy control configuration.
 * Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 * Identify the name of the Mobile Network resource corresponding to your private mobile network.
-* Identify the name of the Slice resource corresponding to your network slice. If your network contains multiple slices, consider the following when selecting which one to use:
+* Identify the name of the Slice resource corresponding to your network slice.
   * If you want to assign a policy to a 5G SIM, you can choose any slice.
-  * If you want to assign a policy to a 4G SIM, you must choose the slice configured with slice/service type (SST) value of 1 and empty slice differentiator (SD).
+  * If you want to assign a policy to a 4G SIM, you must choose the slice configured with slice/service type (SST) value of 1 and an empty slice differentiator (SD).
 
 ## Create a service for protocol filtering
 
