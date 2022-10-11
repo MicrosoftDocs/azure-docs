@@ -84,7 +84,7 @@ This table shows how to troubleshoot the error codes returned by the HealthCheck
 
 |Error Code |Error Message | Description |
 |--|--|--|
-|E40001 | LOAD_BALANCER_NOT_SUPPORT | Load balancer isn't supported in your cluster. You need to configure load balancer in your cluster or consider to  set `inferenceRouterServiceType` to `nodePort` or `clusterIP`. |
+|E40001 | LOAD_BALANCER_NOT_SUPPORT | Load balancer isn't supported in your cluster. You need to configure the load balancer in your cluster or consider to  set `inferenceRouterServiceType` to `nodePort` or `clusterIP`. |
 |E40002 | INSUFFICIENT_NODE | You have enabled `inferenceRouterHA` that requires at least three nodes in your cluster. Disable the HA if you have fewer than three nodes. |
 |E40003 | INTERNAL_LOAD_BALANCER_NOT_SUPPORT | Currently, internal load balancer is only supported by AKS. Don't set  `internalLoadBalancerProvider` if you don't have an AKS cluster.|
 |E40007 | INVALID_SSL_SETTING | The SSL key or certificate isn't valid. The CNAME should be compatible with the certificate. |
