@@ -48,7 +48,7 @@ To manage these password reset authentication methods across the tenant, click *
 
 ## How policies work together
 
-Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. If settings conflict between policies, the allowed setting takes effect. For example, suppose 
+Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. If settings conflict between policies, the allowed setting takes effect. For example, suppose a user isn't enabled for **SMS** in the Authentication methods policy, and isn't enabled for **Text message to phone** in Multifactor authentication settings. If user the is enabled for **Mobile phone** as an authentication method for self-service password reset (SSPR), they can register for SMS.  
 
 ## Policy checks during registration
 
