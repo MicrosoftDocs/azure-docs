@@ -20,7 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Computer Vision 4.0 public preview
 
-Version 4.0 of Computer Vision has been released in public preview for certain regions, offering an updated version of the Analyze Image API. The new API includes people detection and OCR functionality (improved from the standard OCR offering in Version 3.2), available through the same Analyze Image call. It also features an improved smart cropping utility. If your resource belongs to one of the enabled regions (East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US), we recommend you use version 4.0 going forward.
+Version 4.0 of Computer Vision has been released in public preview, offering an updated version of the Analyze Image API. The new API includes people detection and OCR functionality (improved from the standard OCR offering in Version 3.2), available through the same Analyze Image call. It also features an improved smart cropping utility. We recommend you use version 4.0 going forward.
 
 ## September 2022
 
