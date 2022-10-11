@@ -33,24 +33,24 @@ Before you look at AKS, it is important that you review the goals and general de
 Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing natural resource consumption. Optimizing the application's cost is often the initial step in making workloads more sustainable, as it's an organic proxy to utilization and consumption.
 
 
-## Sustainability Design Principles
+## Sustainability design principles
  **Carbon Efficiency**: Emit the least amount of carbon possible.
 
-A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
+&nbsp;&nbsp;&nbsp; A carbon efficient cloud application is one that is optimized, and the starting point is the cost optimization.
 
  **Energy Efficiency**: Use the least amount of energy possible.
 
- "  "One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency.
+&nbsp;&nbsp;&nbsp; One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency.
 
  **Carbon Awareness**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
- Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+ &nbsp;&nbsp;&nbsp; Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
 
  **Hardware Efficiency**: Use the least amount of embodied carbon possible. 
 
-   There are two main approaches to hardware efficiency:
-   - For end-user devices, it's extending the lifespan of the hardware.
-   - For cloud computing, it's increasing the utilization of the device.
+&nbsp;&nbsp;&nbsp; There are two main approaches to hardware efficiency:
+ - For end-user devices, it's extending the lifespan of the hardware.
+ - For cloud computing, it's increasing the utilization of the device.
 
 
 ## Sustainability design considerations for AKS workloads and clusters
@@ -83,26 +83,26 @@ The following checklist provides recommendations for designing sustainable workl
 
 **Optimize code for efficient resource usage** _to optimize workloads at the software level_.
 
- :heavy_check_mark: Reduce CPU cycles and the number of resources you need for your application.
+ &nbsp;&nbsp;&nbsp; :heavy_check_mark: Reduce CPU cycles and the number of resources you need for your application.
  
- :heavy_check_mark: Profile and monitor software performance.
+&nbsp;&nbsp;&nbsp;  :heavy_check_mark: Profile and monitor software performance.
 
 
 **Containerize workloads where applicable** _to reduce unnecessary resource allocation and to utilize the deployed resources better_.
 
- :heavy_check_mark:  Use [Draft](/azure/aks/draft) to simplify containzerizing an application by generating its Dockerfiles and Kubernetes manifests.
+ &nbsp;&nbsp;&nbsp; :heavy_check_mark:  Use [Draft](/azure/aks/draft) to simplify containzerizing an application by generating its Dockerfiles and Kubernetes manifests.
 
 
 **Evaluate moving monoliths to a microservice architecture** _to allow independent scaling of their logical components_.
 
-:heavy_check_mark: Build Microservices Applications using [Dapr](https://dapr.io/) 
+&nbsp;&nbsp;&nbsp; :heavy_check_mark: Build Microservices Applications using [Dapr](https://dapr.io/) 
 
-:heavy_check_mark: Build [CNCF Projects on AKS](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)
+&nbsp;&nbsp;&nbsp; :heavy_check_mark: Build [CNCF Projects on AKS](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)
 
 
 **Design for Event Driven scaling** _to scale workloads based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.)_.
 
-:heavy_check_mark: Use [Keda](https://keda.sh/) to build event driven applications, that could scale to zero when there is no demand.
+&nbsp;&nbsp;&nbsp; :heavy_check_mark: Use [Keda](https://keda.sh/) to build event driven applications, that could scale to zero when there is no demand.
 
 
 **Maximize node resource utilization** _to use more of its underlying hardware_.
