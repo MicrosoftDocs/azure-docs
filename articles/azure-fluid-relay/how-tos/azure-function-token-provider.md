@@ -30,7 +30,7 @@ The complete solution has two pieces:
 
 ### Create an endpoint for your TokenProvider using Azure Functions
 
-Using [Azure Functions](../../azure-functions/functions-overview.md) is a fast way to create such an HTTPS endpoint. The example below implements that pattern in a class called **AzureFunctionTokenProvider**. It accepts the URL to your Azure Function, `userId` and`userName`. This specific implementation is also provided for you as an export from the `@fluidframework/azure-client` package.
+Using [Azure Functions](../../azure-functions/functions-overview.md) is a fast way to create such an HTTPS endpoint.
 
 This example demonstrates how to create your own **HTTPTrigger Azure Function** that fetches the token by passing in your tenant key.
 
@@ -98,7 +98,10 @@ TokenProviders can be implemented in many ways, but must implement two separate 
 
 To ensure that the tenant secret key is kept secure, it's stored in a secure backend location and is only accessible from within the Azure Function. To retrieve tokens, you need to make a `GET` or `POST` request to your deployed Azure Function, providing the `tenantID` and `documentId`, and `userID`/`userName`. The Azure Function is responsible for the mapping between the tenant ID and a tenant key secret to appropriately generate and sign the token.
 
-This example implementation below uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request from server code.
+The example implementation below handles making these requests to your Azure Function.
+It uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests.
+You can use other libraries or approaches to making an HTTP request from server code.
+This specific implementation is also provided for you as an export from the `@fluidframework/azure-client` package.
 
 ```typescript
 import { ITokenProvider, ITokenResponse } from "@fluidframework/routerlicious-driver";
