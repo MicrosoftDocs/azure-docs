@@ -22,6 +22,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) (preview)
     Access-based enumeration (ABE) displays only the files and folders that a user has permissions to access. If a user does not have Read (or equivalent) permissions for a folder, the Windows client hides the folder from the user’s view. This new capability provides an additional layer of security by only displaying files and folders a user has access to, and as a result hiding file and folder information a user has no access to. You can now enable ABE on Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [dual-protocol](create-volumes-dual-protocol.md#access-based-enumeration) (with NTFS security style) volumes. 
 
+* [Non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) (preview)
+
+    You can now configure Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#non-browsable-share) or [dual-protocol](create-volumes-dual-protocol.md#non-browsable-share) volumes as non-browsable. This new feature prevents the Windows client from browsing the share, and the share does not show up in the Windows File Explorer. This new capability provides an additional layer of security by not displaying shares that are configured as non-browsable. Users who have access to the share will maintain access. 
+
 ## August 2022
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
