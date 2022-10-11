@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 10/10/2022
 ---
 
 # Authoring and publishing data owner access policies (Preview)

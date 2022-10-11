@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.custom: references_regions, event-tier1-build-2022
-ms.date: 10/04/2022
+ms.date: 10/10/2022
 ---
 
 # Access provisioning by data owner to Azure Storage datasets (Preview)
