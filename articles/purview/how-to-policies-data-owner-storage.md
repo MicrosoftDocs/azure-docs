@@ -24,8 +24,7 @@ This guide covers how a data owner can delegate in Microsoft Purview management 
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+## Microsoft Purview configuration
 
 ### Register the data sources in Microsoft Purview for Data Use Management
 The Azure Storage resources need to be registered first with Microsoft Purview to later define access policies.

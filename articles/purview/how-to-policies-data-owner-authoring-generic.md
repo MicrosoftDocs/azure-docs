@@ -21,8 +21,7 @@ This guide describes how to create, update, and publish data owner policies in t
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
-## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+## Microsoft Purview configuration
 
 ### Data source configuration
 
@@ -30,7 +29,9 @@ Before authoring data policies in the Microsoft Purview governance portal, you'l
 
 1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](microsoft-purview-connector-overview.md) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
 1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](microsoft-purview-connector-overview.md) for your resources.
-1. [Enable the Data use management toggle on the data source](how-to-enable-data-use-management.md#enable-data-use-management). Additional permissions for this step are described in the linked document.
+1. Enable the Data use management option on the data source. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
+
+ 
 
 ## Create a new policy
 

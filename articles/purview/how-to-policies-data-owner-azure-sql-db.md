@@ -19,15 +19,14 @@ This guide covers how a data owner can delegate authoring policies in Microsoft 
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
-[!INCLUDE [Access policies Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
+[!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
-## Microsoft Purview Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+## Microsoft Purview configuration
 
 ### Register the data sources in Microsoft Purview
-The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
+The Azure SQL Database data source needs to be registered first with Microsoft Purview before creating access policies. You can follow these guides:
 
-[Register and scan Azure SQL DB](./register-scan-azure-sql-database.md)
+[Register and scan Azure SQL Database](./register-scan-azure-sql-database.md)
 
 After you've registered your resources, you'll need to enable Data Use Management. Data Use Management can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**:
 

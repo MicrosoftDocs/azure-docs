@@ -27,8 +27,7 @@ In this guide we cover how to register an entire resource group or subscription 
 
 (*) Only the *SQL Performance monitoring* and *Security auditing* actions are fully supported for SQL-type data sources. The *Read* action needs a workaround described later in this guide. The *Modify* action is not currently supported for SQL-type data sources.
 
-## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+## Microsoft Purview configuration
 
 ### Register the subscription or resource group for Data Use Management
 The subscription or resource group needs to be registered with Microsoft Purview to later define access policies.
