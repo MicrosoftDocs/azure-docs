@@ -56,7 +56,7 @@ Under this approach using Apache Spark, we're gluing the library that has algori
 
 ## Considerations
 
-### Pool Size Consideration
+### Pool size consideration
 
 The following section outlines in detail as to how to choose a pool size for the job.
 
@@ -68,7 +68,7 @@ The following section outlines in detail as to how to choose a pool size for the
   | XLarge |   32 |   256  | 20-200 |  2-100 |  90.97 to 909.70 |
   | XXLarge |  64 |  512  |  20-200 | 2-100 | 181.94 to 1819.39 |
 
-To process years' worth of data, which is around 610 GB of remote sensing data, following are the metrics that were captured. These metrics are specific to the processing algorithm that was used. It only showcases and exhibits how the process can be horizontally scaled for Batch processing and for Real time processing.
+To process 1 years' worth of data, which is around 610 GB of remote sensing data, following are the metrics that were captured. These metrics are specific to the processing algorithm that was used. It only showcases and exhibits how the process can be horizontally scaled for Batch processing and for Real time processing.
 
   
   |Size    |  Time(mins)|
@@ -79,7 +79,7 @@ To process years' worth of data, which is around 610 GB of remote sensing data, 
   |XLarge   | 50 |
   |XXLarge  | 40 |
 
-### Spark Configuration
+### Spark configuration
 
   |Property Name                    | Value |
   |---------------------------------|-------|
@@ -89,11 +89,11 @@ To process years' worth of data, which is around 610 GB of remote sensing data, 
 
 The above configuration was used in the BYOLB use case as there was lot of data that was moved from the executor and the driver nodes. The default configurations weren't enough to handle the use case where we were moving the results as part of DataFrame. We could have tried broadcasting the data but since these were processed as a part of DataFrame broadcasting the values wasn't chosen as we wanted to transform each row of the DataFrame.
 
-### Spark Version
+### Spark version
 
 We were using Apache Spark 3.1 with Scala 2.12 to develop our pipelines. This version is compatible with Java 11 which has the Garbage collector improvements over Java 8.
 
-### Data Abstraction
+### Data abstraction
 
 **DataFrames**
   - Best choice in most situations.
@@ -101,8 +101,7 @@ We were using Apache Spark 3.1 with Scala 2.12 to develop our pipelines. This ve
   - Whole-stage code generation.
   - Direct memory access.
   - Low garbage collection (GC) overhead.
-  - Not as developer-friendly as Datasets, as there 's no compile-time.
-  - checks or domain object programming.
+  - Not as developer-friendly as Datasets, as there 's no compile-time checks or domain object programming.
 
 **RDDs**
   - You don\'t need to use RDDs, unless you need to build a new custom RDD.
@@ -111,7 +110,7 @@ We were using Apache Spark 3.1 with Scala 2.12 to develop our pipelines. This ve
   - High GC overhead.
   - Must use Spark 1.x legacy APIs.
 
-## Potential Use Cases 
+## Potential use cases 
 
  - Digital Signal Processing
 
@@ -135,7 +134,7 @@ We were using Apache Spark 3.1 with Scala 2.12 to develop our pipelines. This ve
  - Harjit Singh | Senior Engineering Architect
  - Brian Loss   | Principal Engineering Architect
 
-Additional Contributors:
+Additional contributors:
 - Nikhil Manchanda | Principal Engineering Manager
 - Billie Rinaldi | Principal Engineering Manager
 - Joey Frazee | Principal Engineering Manager
