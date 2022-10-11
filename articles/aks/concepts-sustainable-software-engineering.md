@@ -124,7 +124,7 @@ The following checklist provides recommendations for designing sustainable workl
 
 :heavy_check_mark: [Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes).
 
-**Set Retention Policies for storage and backups** _to avoid storing unnecessary data_
+**Set Retention Policies for storage and backups** _to avoid storing unnecessary data_.
 
 :heavy_check_mark: Backup & restore [your persistent volumes](/azure/aks/operator-best-practices-storage#secure-and-back-up-your-data) 
 
