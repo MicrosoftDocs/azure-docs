@@ -228,6 +228,9 @@ items:
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Configure Grafana data source
+        displayName: Prometheus
+        href: essentials/prometheus-grafana.md
       - name: Troubleshoot collection
         displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md
