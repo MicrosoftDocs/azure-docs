@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/11/2022
 
 ms.author: justinha
 author: justinha
@@ -48,24 +48,37 @@ To manage these password reset authentication methods across the tenant, click *
 
 ## How policies work together
 
-Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. A user who is enabled for an authentication method in _any_ policy can register that method. Let's walk through an example where a user wants to register Microsoft Authenticator. 
+Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. By default, each policy respects the settings in the other policies. A user who is enabled for an authentication method in _any_ policy can register that method. 
 
-The registration process first checks Authentication methods policy. The user can register Microsoft Authenticator if they, or any group where they have membership, is enabled for it. 
+Let's walk through an example where a user wants to register Microsoft Authenticator. The registration process first checks Authentication methods policy. The user can register Microsoft Authenticator if they, or any group where they have membership, is enabled for it. 
 
-If not, the registration process checks **Multifactor Authentication**. Any user can register Microsoft Authenticator if one of these settings is enabled:
+If not, the registration process checks **Multifactor Authentication**. Any user can register Microsoft Authenticator if one of these settings is enabled for MFA:
 
 - **Notification through mobile app** 
 - **Verification code from mobile app or hardware token**
 
-If the user can't register Microsoft Authenticator based on either of those policies, the registration process checks which authentication methods are enabled for **Password reset**. Any user can register Microsoft Authenticator if any of these settings are enabled:
+If the user can't register Microsoft Authenticator based on either of those policies, the registration process checks which authentication methods are enabled for **Password reset**. Any user can register Microsoft Authenticator if any of these settings are enabled for self-service password reset (SSPR):
 
 - **Mobile app notification**
 - **Mobile app code**
 - **Mobile phone**
 
-Whether they can use that method to sign-in depends on other factors in the policy. For example, 
+## Migration between policies
 
-## Transition between policies
+The Authentication methods policy provides a migration path toward unified administration of all three policies. This migration gives organizations a way to centralize management of authentication methods in a single place.
+
+To view the migration options, open the Authentication methods policy and click **Manage migration**.
+
+
+
+The following table describes each option.
+
+| Option | Description |
+|:-------|:------------|
+| Pre-migration | The Authentication methods policy is used only for authentication.<br>Legacy policy settings are respected.      |
+| Migration in progress | The Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are respected.     |
+| Migration complete | Only the Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are ignored.  |
+
 
 
 ## Next steps
