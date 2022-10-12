@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign user roles with Azure Active Directory
 
-The ability to manage Azure resources is granted by assigning roles that provide the required permissions. Roles can be assigned to individual users or groups. To align with the [Zero Trust guiding principles](/azure/security/fundamentals/zero-trust), always assign the least privileged role needed.
+The ability to manage Azure resources is granted by assigning roles that provide the required permissions. Roles can be assigned to individual users or groups. To align with the [Zero Trust guiding principles](/azure/security/fundamentals/zero-trust), use Just-In-Time and Just-Enough-Access policies when assigning roles.
 
 Before assigning roles to users, please review the following Microsoft Learn articles:
 
@@ -48,11 +48,11 @@ There are two main steps to the role assignment process. First you'll select the
 
 ### Adjust the role settings
 
-You have the option to assign roles as either _eligible_ or _active_. Eligible roles are assigned to a user but must be elevated just-in-time by the user through Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](../privileged-identity-management/index.yml).
+You have the option to assign roles as either _eligible_ or _active_. Eligible roles are assigned to a user but must be elevated Just-In-Time by the user through Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 ![Screenshot of the assigned roles page with the assignment types highlighted.](media/active-directory-users-assign-role-azure-portal/role-assignment-types.png)
 
-1. From the Settings area of the **Add assignments** page, select an **Assignment type** option.
+1. From the Setting section of the **Add assignments** page, select an **Assignment type** option.
 
 1. Leave the **Permanently eligible** option selected if the role should always be available to elevate for the user.
 
@@ -80,13 +80,13 @@ You can change the settings of a role assignment, for example to change an activ
 
 ## Remove roles
 
-If you need to remove the role assignment from a user, you can also do that from the **Administrative roles** page for a selected user.
+You can remove role assignments from the **Administrative roles** page for a selected user.
 
 1. Go to **Azure Active Directory** > **Users**.
 
 1. Search for and select the user getting the role assignment removed.
 
-1. Go to the **Assigned roles** page and select the **Remove** link for the role that needs to be removed.
+1. Go to the **Assigned roles** page and select the **Remove** link for the role that needs to be removed. Confirm the change in the pop-up message.
 
 
 ## Next steps
@@ -97,5 +97,4 @@ If you need to remove the role assignment from a user, you can also do that from
 
 - [Add guest users from another directory](../external-identities/what-is-b2b.md)
 
-Other user management tasks you can check out
-are available in [Azure Active Directory user management documentation](../enterprise-users/index.yml).
+- [Explore other user management tasks](../enterprise-users/index.yml)

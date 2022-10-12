@@ -18,10 +18,10 @@ ms.collection: M365-identity-device-management
 # Add or update a user's profile information and settings
 A user's profile information and settings can be managed on an individual basis as well as for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
-This article covers how to add user profile information, including a profile picture, job-specific information, and other settings using Azure Active Directory (Azure AD). For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). Other settings such as connecting LinkedIn accounts and restricting access to the Azure AD administration portal are covered. Settings may be managed in more than one area of Azure AD.
+This article covers how to add user profile information, including a profile picture, job-specific information, and other settings such as connecting LinkedIn accounts and restricting access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). 
 
 ## Add or change profile information
-When new users are created, only some details are added to their user profile. If your organization needs more details, they can be added after the user was created. 
+When new users are created, only some details are added to their user profile. If your organization needs more details, they can be added after the user is created. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
@@ -29,23 +29,23 @@ When new users are created, only some details are added to their user profile. I
    
 1. There are two ways to edit user profile details. Either select **Edit properties** from the top of the page or select **Properties**.
 
-1. After making any changes, select the **Save** button. 
-
     ![Screenshot of the overview page for a selected user, with the edit options highlighted.](media/active-directory-users-profile-azure-portal/user-profile-overview.png)
 
-    If you selected the **Edit properties option**:
-    - The full list of properties appears in edit mode on the **All** category.
-    - To edit properties based on the category, select a category from the top of the page.
-    - Select the **Save** button to save any changes.
+1. After making any changes, select the **Save** button. 
+
+If you selected the **Edit properties option**:
+   - The full list of properties appears in edit mode on the **All** category.
+   - To edit properties based on the category, select a category from the top of the page.
+   - Select the **Save** button at the bottom of the page to save any changes.
     
-    ![Screenshot a selected user's details, with the detail categories and save button highlighted.](media/active-directory-users-profile-azure-portal/user-profile-properties-tabbed-view.png)
+   ![Screenshot a selected user's details, with the detail categories and save button highlighted.](media/active-directory-users-profile-azure-portal/user-profile-properties-tabbed-view.png)
     
-    If you selected the **Properties tab option**:
-    - The full list of properties appears for you to review.
-    - To edit a property, click the pencil icon next to the category heading.
-    - Select the **Save** button to save any changes.
+If you selected the **Properties tab option**:
+   - The full list of properties appears for you to review.
+   - To edit a property, click the pencil icon next to the category heading.
+   - Select the **Save** button at the bottom of the page to save any changes.
     
-    ![Screenshot the Properties tab, with the edit options highlighted.](media/active-directory-users-profile-azure-portal/user-profile-properties-single-page-view.png)
+   ![Screenshot the Properties tab, with the edit options highlighted.](media/active-directory-users-profile-azure-portal/user-profile-properties-single-page-view.png)
 
 ### Profile categories
 There are six categories of profile details you may be able to edit. 
@@ -71,12 +71,12 @@ On the user's overview page, select the camera icon in the lower-right corner of
 All your changes are saved for the user.
 
 >[!Note]
-> If you're having issues updating a user's profile picture, please ensure that your Office 365 Exchange Online Enterprise App is Enabled for users to sign-in.
+> If you're having issues updating a user's profile picture, please ensure that your Office 365 Exchange Online Enterprise App is Enabled for users to sign in.
 
 ## Manage settings for all users
 In the **User settings** area of Azure AD, you can adjust several settings that impact all users, such as restricting access to the Azure AD administration portal, how external collaboration is managed, and providing users the option to connect their LinkedIn account. Some settings are managed in a separate area of Azure AD and linked from this page.
 
-Go to **Azure AD** > **User settings**. 
+Go to **Azure AD** > **User settings**.
 
 ## Next steps
 - [Add or delete users](add-users-azure-active-directory.md)
