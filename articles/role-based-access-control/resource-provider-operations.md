@@ -6168,9 +6168,9 @@ Azure service: [Azure Data Lake Store](../storage/blobs/data-lake-storage-introd
 > | Microsoft.DataLakeStore/accounts/delete | Delete a DataLakeStore account. |
 > | Microsoft.DataLakeStore/accounts/enableKeyVault/action | Enable KeyVault for a DataLakeStore account. |
 > | Microsoft.DataLakeStore/accounts/Superuser/action | Grant Superuser on Data Lake Store when granted with Microsoft.Authorization/roleAssignments/write. |
-> | Microsoft.DataLakeStore/accounts/cosmosCertMappings/read | Get information about a Cosmos Cert Mapping. |
-> | Microsoft.DataLakeStore/accounts/cosmosCertMappings/write | Create or update a Cosmos Cert Mapping. |
-> | Microsoft.DataLakeStore/accounts/cosmosCertMappings/delete | Delete a Cosmos Cert Mapping. |
+> | Microsoft.DataLakeStore/accounts/cosmosCertMappings/read | Get information about an Azure Cosmos DB Cert Mapping. |
+> | Microsoft.DataLakeStore/accounts/cosmosCertMappings/write | Create or update an Azure Cosmos DB Cert Mapping. |
+> | Microsoft.DataLakeStore/accounts/cosmosCertMappings/delete | Delete an Azure Cosmos DB Cert Mapping. |
 > | Microsoft.DataLakeStore/accounts/eventGridFilters/read | Get an EventGrid Filter. |
 > | Microsoft.DataLakeStore/accounts/eventGridFilters/write | Create or update an EventGrid Filter. |
 > | Microsoft.DataLakeStore/accounts/eventGridFilters/delete | Delete an EventGrid Filter. |
