@@ -225,19 +225,19 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
 1. Temporarily disable automatic repairs in Azure Managed Instance for Apache Cassandra for the duration of the migration:
 
     ```azurecli-interactive
-        az managed-cassandra cluster update \
-          --resource-group $resourceGroupName \
-          --cluster-name $clusterName --repair-enabled false
+    az managed-cassandra cluster update \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName --repair-enabled false
     ```
 
 1. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new Azure Managed Instance for Apache Cassandra data center, replacing `<ip address>` with the IP address of the node, and `<sourcedc>` with the name of your source data center:
 
     ```azurecli-interactive
-        az managed-cassandra cluster invoke-command \
-          --resource-group $resourceGroupName \
-          --cluster-name $clusterName \
-          --host <ip address> \
-          --command-name nodetool --arguments rebuild="" "<sourcedc>"=""
+    az managed-cassandra cluster invoke-command \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName \
+      --host <ip address> \
+      --command-name nodetool --arguments rebuild="" "<sourcedc>"=""
     ```
 
     You should run this **only after all of the prior steps have been taken**. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. You can run rebuild on one or more nodes at the same time. Run on one node at a time to reduce the impact on the existing cluster. Run on multiple nodes when the cluster can handle the extra I/O and network pressure. For most installations you can only run one or two in parallel to not overload the cluster.  
@@ -245,7 +245,7 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
    > [!WARNING]
    > You must specify the source *data center* when running `nodetool rebuild`. If you provide the data center incorrectly on the first attempt, this will result in token ranges being copied, without data being copied for your non-system tables. Subsequent attempts will fail even if you provide the data center correctly. You can resolve this by deleting entries for each non-system keyspace in `system.available_ranges` via the `cqlsh` query tool in your target Cassandra MI data center:
    > ```shell
-   >     delete from system.available_ranges where keyspace_name = 'myKeyspace';
+   > delete from system.available_ranges where keyspace_name = 'myKeyspace';
    > ```
 
 1. Cut over your application code to point to the seed nodes in your new Azure Managed Instance for Apache Cassandra data center(s).
@@ -264,9 +264,9 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
 1. Re-enable automatic repairs:
 
     ```azurecli-interactive
-        az managed-cassandra cluster update \
-          --resource-group $resourceGroupName \
-          --cluster-name $clusterName --repair-enabled true
+    az managed-cassandra cluster update \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName --repair-enabled true
     ```
 
 ## Troubleshooting
