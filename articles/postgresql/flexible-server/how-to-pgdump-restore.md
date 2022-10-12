@@ -16,7 +16,7 @@ This article reviews options to speed up pg_dump and pg_restore. It also explain
 
 ## Best practices for pg_dump
 
-Few of the options that can be used to reduce the overall dump time using pg_dump are listed below.
+pg_dump is an utility that can extract a PostgreSQL database into a script file or archive file.Few of the command line options that can be used to reduce the overall dump time using pg_dump are listed below.
 
 #### Directory format(-Fd)
 
@@ -51,9 +51,9 @@ As a one of case perform manual vacuum analyze of the tables that are identified
 vacuum(analyze, verbose) <table_name> 
 ```
 
-#### Use Of PITR [Point In Time Recovery] server
+#### Use of PITR [Point In Time Recovery] server
 
-Pg dump can be carried out on an online or live server. It makes consistent backups even if the database is being used. It doesn't block other users from using the database. Consider the database size and other business or customer needs before the pg_dump process is started. Small databases might be a good candidate to carry out a pg dump on the production server. For large databases, you could create PITR (Point In Time Recovery) server from the production server and carry out the pg_dump process on the PITR server. Running pg_dump on a PITR would be a cold run process, but the trade-off for this would be one would not be concerned with additional CPU/IO utilization that comes with the pg_dump process running on the actual production server. You can run pg_dump on a PITR server without any impact on the production server and drop the PITR server once the pg_dump process is completed.
+Pg dump can be carried out on an online or live server. It makes consistent backups even if the database is being used. It doesn't block other users from using the database. Consider the database size and other business or customer needs before the pg_dump process is started. Small databases might be a good candidate to carry out a pg dump on the production server. For large databases, you could create PITR (Point In Time Recovery) server from the production server and carry out the pg_dump process on the PITR server. Running pg_dump on a PITR would be a cold run process, but the trade-off for this would be you would not be concerned with additional CPU/IO utilization that comes with the pg_dump process running on the actual production server. You can run pg_dump on a PITR server without any impact on the production server and drop the PITR server once the pg_dump process is completed.
 
 ##### Syntax
 
@@ -64,7 +64,7 @@ Use the following syntax to perform a pg_dump:
 
 ## Best practices for pg_restore
 
-Few of the options that can be used to reduce the overall restore time using pg_restore are listed below.
+pg_restore is an utility for restoring postgreSQL database from an archive created by pg_dump. Few of the command line options that can be used to reduce the overall restore time using pg_restore are listed below.
 
 #### Parallel restore
 
