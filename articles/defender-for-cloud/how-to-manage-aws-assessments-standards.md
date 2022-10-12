@@ -2,12 +2,12 @@
 title: Manage AWS assessments and standards
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 10/12/2022
 ---
 
 # Manage AWS assessments and standards
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available standards such as AWS CIS 1.2.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1, or you can also create your own custom standards, and assessments to meet specific internal requirements.
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available standards such as AWS CIS 1.2.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1, or create custom standards, and assessments to meet specific internal requirements.
 
 There are three types of resources that are needed to create and manage custom assessments:
 
@@ -32,7 +32,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Standards** > **Add** > **Standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add a AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/aws-add-standard.png" alt-text="Screenshot that shows you where to navigate to in order to add a AWS standard." lightbox="media/how-to-manage-assessments-standards/aws-add-standard-zoom.png":::
 
 1. Select a built-in standard from the drop-down menu.
 
@@ -80,9 +80,9 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Save**.
 
-## Assign a custom assessment to your AWS account
+## Create a new custom assessment to your AWS account
 
-**To assign a custom assessment to your AWS account**:
+**To create a new custom assessment to your AWS account**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -118,7 +118,7 @@ The last row of the query should return all the original columns (don’t use �
 
 When building a KQL query, you should use the following table structure:
 
-```bash
+```kusto
 - TimeStamp
                  2021-10-07T10:30:21.403732Z
         - SdksInfo
@@ -214,7 +214,7 @@ When building a KQL query, you should use the following table structure:
 
 **Stopped EC2 instances should be removed after a specified time period**
          
-```bash
+```kusto
 EC2_Instance
 | extend State = tolower(tostring(Record.State.Name.Value))
 | extend StoppedTime = todatetime(tostring(Record.StateTransitionReason))
@@ -224,7 +224,7 @@ EC2_Instance
 **EC2 subnets should not automatically assign public IP addresses**
          
 
-```bash
+```kusto
 EC2_Subnet
 | extend MapPublicIpOnLaunch = tolower(tostring(Record.MapPublicIpOnLaunch))
 | extend HealthStatus = iff(MapPublicIpOnLaunch == 'false' ,'HEALTHY', 'UNHEALTHY')
@@ -232,7 +232,7 @@ EC2_Subnet
 
 **EC2 instances should not use multiple ENIs**
          
-```bash
+```kusto
 EC2_Instance
 | extend NetworkInterfaces = parse_json(Record)['NetworkInterfaces']
 | extend NetworkInterfaceCount = array_length(parse_json(NetworkInterfaces))

@@ -2,7 +2,7 @@
 title: Manage GCP assessments and standards
 description: Learn how to create custom security assessments and standards for your GCP environment.
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 10/12/2022
 ---
 
 # Manage GCP assessments and standards
@@ -16,7 +16,7 @@ There are three types of resources that are needed to create and manage custom a
     - assessment logic in KQL
     - the standard it belongs to
 - Standard: defines a set of assessments
-- Standard assignment: defines the scope, which the standard will evaluate. For example, specific GCP project(s).
+- Standard assignment: defines the scope, which the standard will evaluate. For example, specific GCP projects.
 
 You can either use the built-in compliance standards or create your own custom standards and assessments.
 
@@ -32,7 +32,7 @@ You can either use the built-in compliance standards or create your own custom s
 
 1. Select **Standards** > **Add** > **Standard**.
 
-    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-standard.png" alt-text="Screenshot that shows you where to navigate to, to add a GCP standard." lightbox="media/how-to-manage-assessments-standards/gcp-standard.png":::
+    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-standard.png" alt-text="Screenshot that shows you where to navigate to, to add a GCP standard." lightbox="media/how-to-manage-assessments-standards/gcp-standard-zoom.png":::
 
 1. Select a built-in standard from the drop-down menu.
 
@@ -53,8 +53,6 @@ You can either use the built-in compliance standards or create your own custom s
 1. Select **Standards** > **Add** > **Standard**.
 
 1. Select **New standard**.
-
-    :::image type="content" source="media/how-to-manage-assessments-standards/gcp-standard.png" alt-text="Screenshot that shows you where to select a new GCP standard." lightbox="media/how-to-manage-assessments-standards/gcp-standard.png":::
 
 1. Enter a name, description and select which assessments you want to add.
 
@@ -82,9 +80,9 @@ You can either use the built-in compliance standards or create your own custom s
 
 1. Select **Save**.
 
-## Assign a custom assessment to your GCP project
+## Create a new custom assessment for your GCP project
 
-**To assign a custom assessment to your GCP project**:
+**To create a new custom assessment to your GCP project**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -106,7 +104,7 @@ You can either use the built-in compliance standards or create your own custom s
 
     **Ensure that Cloud Storage buckets have uniform bucket-level access enabled**
 
-    ```Bash
+    ```kusto
     let UnhealthyBuckets = Storage_Bucket 
       extend RetentionPolicy = Record.retentionPolicy 
       where isnull(RetentionPolicy) or isnull(RetentionPolicy.isLocked) or tobool(RetentionPolicy.isLocked)==false 
@@ -119,6 +117,8 @@ You can either use the built-in compliance standards or create your own custom s
 
     See the [how to build a query](#how-to-build-a-query) section for more examples.
 
+    1. Select **Save**.
+
 ## How to build a query
 
 The last row of the query should return all the original columns (don’t use ‘project’, ‘project-away). End the query with an iff statement that defines the healthy or unhealthy conditions: `| extend HealthStatus = iff([boolean-logic-here], 'UNHEALTHY','HEALTHY')`.
@@ -127,7 +127,7 @@ The last row of the query should return all the original columns (don’t use �
 
 **Ensure that Cloud Storage buckets have uniform bucket-level access enabled**
 
-```bash
+```kusto
 let UnhealthyBuckets = Storage_Bucket 
 | extend RetentionPolicy = Record.retentionPolicy 
 | where isnull(RetentionPolicy) or isnull(RetentionPolicy.isLocked) or tobool(RetentionPolicy.isLocked)==false 
@@ -140,7 +140,7 @@ let UnhealthyBuckets = Storage_Bucket
 
 **Ensure VM disks for critical VMs are encrypted**
 
-```bash
+```kusto
 Compute_Disk 
 | extend DiskEncryptionKey = Record.diskEncryptionKey 
 | extend IsVmNotEncrypted = isempty(tostring(DiskEncryptionKey.sha256)) 
@@ -149,7 +149,7 @@ Compute_Disk
 
 **Ensure Compute instances are launched with Shielded VM enabled**
 
-```bash
+```kusto
 Compute_Instance 
 | extend InstanceName = tostring(Record.id)  
 | extend ShieldedVmExist = tostring(Record.shieldedInstanceConfig.enableIntegrityMonitoring) =~ 'true' and tostring(Record.shieldedInstanceConfig.enableVtpm) =~ 'true' 
