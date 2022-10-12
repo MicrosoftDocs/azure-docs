@@ -3,7 +3,8 @@ title: 'Guidelines for configuring Azure NetApp Files on Virtual WAN'
 description: Describes guidelines to help you configure Azure NetApp files on Azure Virtual WAN.
 services: azure-netapp-files, virtual-wan
 author: rambk
-ms.service: azure-netapp-files, virtual-wan
+ms.service: azure-netapp-files
+ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/11/2022
 ms.author: rambala
@@ -35,7 +36,7 @@ Deploying ANF volume with Standard network features in a Virtual WAN spoke VNet 
 
 ## Routing ANF traffic from on-premises via Azure Firewall
 
-The following diagram shows routing traffic from on-premises to an ANF volume in a Virtual WAN spoke VNet via a Virtual WAN hub with a VPN gateway and a Azure firewall deployed inside the virtual hub.
+The following diagram shows routing traffic from on-premises to an ANF volume in a Virtual WAN spoke VNet via a Virtual WAN hub with a VPN gateway and an Azure firewall deployed inside the virtual hub.
 
 :::image type="content" source="./media/configure-anf-on-vwan/gw2fw.png" alt-text="routing on-premises traffic via secure virtual hub":::
 
@@ -45,7 +46,7 @@ To force the ANF bound traffic through Azure Firewall in the Virtual WAN hub, th
 
 :::image type="content" source="./media/configure-anf-on-vwan/effectiveroutes.png" alt-text="inclusion of specific routes in virtual hub effective routes":::
 
->[!NOTE]ANF mount leverages Azure Private Endpoint. Therefore, the specific IP address entry is required even if a CIDR to which the ANF volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
+> [!NOTE] ANF mount leverages Azure Private Endpoint. Therefore, the specific IP address entry is required even if a CIDR to which the ANF volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
 >
 
 ## Listing ANF volume IP under virtual hub effective routes
@@ -68,6 +69,6 @@ The following Azure portal clip shows the edit of the example route table.
 
 ## Next steps
 
-In this article, we discussed about deploying and accessing an ANF volume over Virtual WAN. To automatically backup your NetApp files, see [Understand Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md). For geo-redundant protection, see [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md).
+In this article, we discussed about deploying and accessing an ANF volume over Virtual WAN. To automatically back up your NetApp files, see [Understand Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md). For geo-redundant protection, see [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md).
 
 To learn about designing your Virtual WAN deployment to withstand disasters, see [Disaster recovery design](disaster-recovery-design.md). To migrate from a classical hub-and-spoke Azure networking model to Virtual WAN, see [Migrate to Azure Virtual WAN](migrate-from-hub-spoke-topology.md)
