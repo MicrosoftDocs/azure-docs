@@ -29,7 +29,7 @@ To complete the authentication flow we assume you already have:
 * The Linux VM need to have these packages installed:
     - sssd 
     - sssd-tools 
-    - sssd-ldap o
+    - sssd-ldap
     - openldap-clients
 
 > [!NOTE]
@@ -75,15 +75,15 @@ ldapsearch -H ldap://<ip-domain-controller>:389 -x \
 If the ldap query works fine you will obtain an output with some information like follow:
 
 ```console
-# extended LDIF
-#
-# LDAPv3
-# base <CN=Users,DC=cetesting,DC=it> with scope subtree
-# filter: (objectclass=*)
-# requesting: ALL
-#
+extended LDIF
 
-# Users, cetesting.it
+LDAPv3
+base <CN=Users,DC=cetesting,DC=it> with scope subtree
+filter: (objectclass=*)
+requesting: ALL
+
+
+Users, cetesting.it
 dn: CN=Users,DC=cetesting,DC=it
 objectClass: top
 objectClass: container
@@ -107,7 +107,7 @@ dSCorePropagationData: 20220930113600.0Z
 dSCorePropagationData: 20220930113600.0Z
 dSCorePropagationData: 16010101000000.0Z
 
-# krbtgt, Users, cetesting.it
+krbtgt, Users, cetesting.it
 dn: CN=krbtgt,CN=Users,DC=cetesting,DC=it
 objectClass: top
 objectClass: person
@@ -120,8 +120,7 @@ instanceType: 4
 whenCreated: 20220913115552.0Z
 whenChanged: 20220913121104.0Z
 uSNCreated: 12324
-memberOf: CN=Denied RODC Password Replication Group,CN=Users,DC=cetesting,DC=i
- t
+memberOf: CN=Denied RODC Password Replication Group,CN=Users,DC=cetesting,DC=it
 uSNChanged: 12860
 showInAdvancedViewOnly: TRUE
 name: krbtgt
@@ -151,7 +150,7 @@ dSCorePropagationData: 20220913121231.0Z
 dSCorePropagationData: 16010101000000.0Z
 msDS-SupportedEncryptionTypes: 0
 
-# Domain Computers, Users, cetesting.it
+Domain Computers, Users, cetesting.it
 dn: CN=Domain Computers,CN=Users,DC=cetesting,DC=it
 objectClass: top
 objectClass: group
