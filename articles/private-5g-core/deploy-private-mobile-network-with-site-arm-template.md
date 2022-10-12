@@ -78,14 +78,11 @@ The following Azure resources are defined in the template.
     |**Slice Name**     | Leave this field unchanged.        |
     |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added. Otherwise, leave this field blank.        |
     |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
-    | **Platform Type** | Ensure **AKS-HCI** is selected. |
     | **Azure Stack Edge Device** | Enter the name of the Azure Stack Edge resource in the site. <!-- Need to check field name and position --> |
-    |**Control Plane Access Interface Name**     | Select the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
+    |**Control Plane Access Interface Name**     | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
     |**Control Plane Access Ip Address**    | Enter the IP address for the control plane interface on the access network.        |
-    |**User Plane Access Interface Name**     | Select the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
-    | **User Plane Access Interface Ip Address** | Leave this field blank. |
-    |**User Plane Data Interface Name**  | Select the name of the user plane interface on the data network. This must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device. |
-    | **User Plane Data Interface Ip Address** | Leave this field blank. |
+    |**User Plane Access Interface Name**     | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device.        |
+    |**User Plane Data Interface Name**  | Enter the name of the user plane interface on the data network. This must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
     |**Data Network Name**  | Enter the name of the data network. |    
@@ -94,12 +91,12 @@ The following Azure resources are defined in the template.
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
 
-1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+2. Select **Review + create**.
+3. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
+4. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
 
 ## Review deployed resources
 
