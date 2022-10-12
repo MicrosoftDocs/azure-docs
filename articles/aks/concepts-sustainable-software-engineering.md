@@ -276,18 +276,6 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
 
 <br/>
 
-**Use cloud native network security controls** _to eliminate unnecessary network traffic_
-
-:heavy_check_mark: [Network security groups](/azure/virtual-network/network-security-groups-overview) 
-
-:heavy_check_mark: Use [Network Policies](/azure/aks/use-network-policies)
-
-:heavy_check_mark: Filter [Ingress traffic](/azure/application-gateway/ingress-controller-overview)
-
-:heavy_check_mark: Filter [egress traffic](/azure/aks/limit-egress-traffic)
-
-<br/>
-
 
 **Delete zombie workloads** _to reduce energy waste and optimize costs_
 
