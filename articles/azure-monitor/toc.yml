@@ -213,11 +213,35 @@ items:
       displayName: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+  - name: Azure Monitor workspace
+    href: essentials/azure-monitor-workspace-overview.md
   - name: Azure Monitor Metrics
     items:
     - name: Overview
       displayName: Metrics, Azure Monitor Metrics
       href: essentials/data-platform-metrics.md
+    - name: Prometheus metrics
+      items: 
+      - name: Overview
+        href: essentials/prometheus-metrics-overview.md
+      - name: Rule groups
+        href: essentials/prometheus-rule-groups.md
+      - name: Troubleshoot collection
+        href: essentials/prometheus-metrics-troubleshoot.md
+      - name: Customize collection
+        items:
+        - name: Default configuration
+          href: essentials/prometheus-metrics-scrape-default.md
+        - name: High scale
+          href: essentials/prometheus-metrics-scrape-scale.md
+        - name: Custom configuration
+          href: essentials/prometheus-metrics-scrape-configuration.md
+        - name: Create and validate custom scrape config
+          href: essentials/prometheus-metrics-scrape-validate.md
+        - name: Minimal ingestion profile
+          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
+        - name: Send to multiple metric workspaces
+          href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
@@ -472,7 +496,7 @@ items:
       items:
       - name: Using the VM extension
         href: agents/azure-monitor-agent-manage.md
-      - name: Using Windows client installer (preview)
+      - name: Using Windows client installer
         href: agents/azure-monitor-agent-windows-client.md
     - name: Configure
       items:
@@ -674,6 +698,8 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
+    - name: Prometheus metric alerts
+      href: alerts/prometheus-alerts.md
     - name: Notifications and actions
       items:
       - name: Alert processing rules
@@ -1236,10 +1262,8 @@ items:
       - name: Overview
         displayName: container insights
         href: containers/container-insights-onboard.md
-      - name: New AKS cluster
-        href: containers/container-insights-enable-new-cluster.md
-      - name: Existing AKS cluster
-        href: containers/container-insights-enable-existing-clusters.md
+      - name: AKS cluster
+        href: containers/container-insights-enable-aks.md
       - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Hybrid cluster
@@ -1250,16 +1274,20 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
+    - name: Prometheus metrics
+      items: 
+      - name: Overview
+        href: containers/container-insights-prometheus.md
+      - name: Send to Prometheus
+        href: containers/container-insights-prometheus-metrics-addon.md
+      - name: Send to Logs
+        href: containers/container-insights-prometheus-monitoring-addon.md
     - name: Configure
       items:
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Prometheus metric scraping
-        href: containers/container-insights-prometheus-integration.md
-      - name: Enable metrics
-        href: containers/container-insights-update-metrics.md
       - name: Enable ContainerLogv2 (preview)
         href: containers/container-insights-logging-v2.md
     - name: Monitor
@@ -1276,6 +1304,8 @@ items:
         href: containers/container-insights-persistent-volumes.md
       - name: Reports tab
         href: containers/container-insights-reports.md
+      - name: Custom metrics
+        href: containers/container-insights-custom-metrics.md
     - name: Log queries
       href: containers/container-insights-log-query.md
     - name: View live data
@@ -1288,10 +1318,10 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Create log alert rules
-        href: containers/container-insights-log-alerts.md
       - name: Create metric alert rules
         href: containers/container-insights-metric-alerts.md
+      - name: Create log alert rules
+        href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
     - name: Disable monitoring
@@ -1319,7 +1349,13 @@ items:
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
-      href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Overview
+        href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: Topology
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        href: ../network-watcher/network-insights-troubleshooting.md
     - name: Key Vault
       href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Storage

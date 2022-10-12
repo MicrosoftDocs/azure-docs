@@ -1,14 +1,15 @@
 ---
-title: Azure Data Explorer output from Azure Stream Analytics (Preview)
+title: Azure Data Explorer output from Azure Stream Analytics 
 description: This article describes using Azure Database Explorer as an output for Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/26/2022
 ---
 
-# Azure Data Explorer output from Azure Stream Analytics (Preview)
+# Azure Data Explorer output from Azure Stream Analytics
 
 You can use [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) as an output for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software, so you can collect, store, and analyze data. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities.
 

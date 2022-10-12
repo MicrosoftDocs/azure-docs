@@ -11,7 +11,7 @@ ms.date: 08/16/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: sahandle, chuqiaoshi
+ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
@@ -99,7 +99,7 @@ Premium detections are visible only to Azure AD Premium P2 customers. Customers 
 
 ### Risk levels
 
-Identity Protection categorizes risk into three tiers: low, medium, and high. When configuring [custom Identity protection policies](./concept-identity-protection-policies.md#custom-conditional-access-policy), you can also configure it to trigger upon **No risk** level. No Risk means there's no active indication that the user's identity has been compromised.
+Identity Protection categorizes risk into three tiers: low, medium, and high. When configuring [Identity protection policies](./concept-identity-protection-policies.md), you can also configure it to trigger upon **No risk** level. No Risk means there's no active indication that the user's identity has been compromised.
 
 Microsoft doesn't provide specific details about how risk is calculated. Each level of risk brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
 

@@ -502,7 +502,7 @@ The **Microsoft Threat Intelligence Matching Analytics** rule currently matches 
 - [DNS](./data-connectors-reference.md#windows-dns-server-preview)
 - [Syslog](connect-syslog.md)
 
-For more information, see [Detect threats using matching analytics (Public preview)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
+For more information, see [Detect threats using matching analytics (Public preview)](use-matching-analytics-to-detect-threats.md).
 
 ### Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)
 

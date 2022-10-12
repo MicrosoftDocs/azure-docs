@@ -5,7 +5,7 @@ description: This article gives you a high-level understanding of the resources 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.author: balapv
 author: balapv
@@ -279,4 +279,4 @@ An Azure Machine Learning [component](concept-component.md) is a self-contained 
 ## Next steps
 
 * [How to migrate from v1 to v2](how-to-migrate-from-v1.md)
-* [Train models with the v2 CLI and SDK (preview)](how-to-train-model.md)
+* [Train models with the v2 CLI and SDK](how-to-train-model.md)

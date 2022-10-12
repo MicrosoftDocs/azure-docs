@@ -16,9 +16,9 @@ recommendations: false
 
 # Use Form Recognizer SDKs or REST API | v3.0
 
- In this how-to guide, you'll learn how to add Form Recognizer to your applications and workflows using a programming language SDK of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+ In this guide, you'll learn how to add Form Recognizer to your applications and workflows using a programming language SDK of your choice or the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key text and structure elements from documents. We recommend that you use the free service as you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-In this project, you'll learn how-to use the following Form Recognizer models to analyze and extract data and values from forms and documents:
+Choose from the following Form Recognizer models to analyze and extract data and values from forms and documents:
 
 > [!div class="checklist"]
 >
@@ -30,11 +30,11 @@ In this project, you'll learn how-to use the following Form Recognizer models to
 >
 > * The [prebuilt-tax.us.w2](../concept-w2.md) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 >
-> * The [prebuilt-invoice](../concept-invoice.md) model extracts key fields and line items from sales invoices of various formats and quality including phone-captured images, scanned documents, and digital PDFs.
+> * The [prebuilt-invoice](../concept-invoice.md) model extracts key fields and line items from sales invoices in various formats and quality including phone-captured images, scanned documents, and digital PDFs.
 >
 > * The [prebuilt-receipt](../concept-receipt.md) model extracts key information from printed and handwritten sales receipts.
 >
-> * The [prebuilt-idDocument](../concept-id-document.md) model extracts key information from US Drivers Licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
+> * The [prebuilt-idDocument](../concept-id-document.md) model extracts key information from US drivers licenses, international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards.
 >
 > * The [prebuilt-businessCard](../concept-business-card.md) model extracts key information from business card images.
 

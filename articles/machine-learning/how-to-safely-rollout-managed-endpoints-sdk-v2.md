@@ -1,7 +1,7 @@
 ---
-title: Safe rollout for managed online endpoints using Python SDK v2 (preview).
+title: Safe rollout for managed online endpoints using Python SDK v2.
 titleSuffix: Azure Machine Learning
-description: Safe rollout for online endpoints using Python SDK v2 (preview).
+description: Safe rollout for online endpoints using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -10,17 +10,12 @@ ms.reviewer: larryfr
 author: dem108
 ms.date: 05/25/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, sdkv2, deployment
+ms.custom: how-to, devplatv2, sdkv2, deployment, ignite-2022
 ---
 
-# Safe rollout for managed online endpoints using Python SDK v2 (preview)
+# Safe rollout for managed online endpoints using Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you learn how to deploy a new version of the model without causing any disruption. With blue-green deployment or safe rollout, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [Azure Machine Learning endpoints](concept-endpoints.md).
 
