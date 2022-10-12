@@ -93,7 +93,7 @@ Looking at the query results, you can see that the function:
 
 ## Tweak anomaly detection settings to refine results
 
-It's good practice to review initial query results and make additional tweaks to the query, if necessary. Outliers in input data can affect the function's learning, and you might need to adjust the function's anomaly detection settings to get more accurate results.
+It's good practice to review initial query results and make tweaks to the query, if necessary. Outliers in input data can affect the function's learning, and you might need to adjust the function's anomaly detection settings to get more accurate results.
 
 Filter the results of the `series_decompose_anomalies()` query for anomalies in the `AzureDiagnostics` data type:
 
@@ -161,10 +161,10 @@ The query identifies each entry in the table as occurring on *AnomalyDate* (June
 
 Looking at the query results, you can see the following differences:
 
-- There are 24,892,147 instances of ingestion from the *CH1-GEARAMAAKS* resource on all other days in the query time range, and no ingestion of data from this resource on June 15. Data from the *CH1-GEARAMAAKS* resource accounts for for 73.36% of the total ingestion on other days in the query time range and 0% of the total ingestion on June 15.
+- There are 24,892,147 instances of ingestion from the *CH1-GEARAMAAKS* resource on all other days in the query time range, and no ingestion of data from this resource on June 15. Data from the *CH1-GEARAMAAKS* resource accounts for 73.36% of the total ingestion on other days in the query time range and 0% of the total ingestion on June 15.
 - There are 2,168,448 instances of ingestion from the *NSG-TESTSQLMI519* resource on all other days in the query time range, and 110,544 instances of ingestion from this resource on June 15. Data from the *NSG-TESTSQLMI519* resource accounts for 6.39% of the total ingestion on other days in the query time range and 25.61% of ingestion on June 15. 
  
-Notice that, on average, there are 108,422 instances of ingestion from the *NSG-TESTSQLMI519* resource during the 20 days that make up the *other days* period (divide 2,168,448 by 20). Therefore, the ingestion from the *NSG-TESTSQLMI519* resource on June 15 is not significantly different from the ingestion from this resource on other days. However, because of the dramatic drop of ingestion from the *CH1-GEARAMAAKS* resource on July 15, the ingestion from the *NSG-TESTSQLMI519* resource makes up a significantly greater percentage of the total ingestion on the anomaly date as compared to other days.
+Notice that, on average, there are 108,422 instances of ingestion from the *NSG-TESTSQLMI519* resource during the 20 days that make up the *other days* period (divide 2,168,448 by 20). Therefore, the ingestion from the *NSG-TESTSQLMI519* resource on June 15 isn't significantly different from the ingestion from this resource on other days. However, because there's no ingestion from *CH1-GEARAMAAKS* on July 15, the ingestion from *NSG-TESTSQLMI519* makes up a significantly greater percentage of the total ingestion on the anomaly date as compared to other days.
 
 The *PercentDiffAB* column shows the absolute percentage point difference between A and B (|PercentA - PercentB|), which is the main measure of the difference between the two sets. To return only differences of 20% or more between the two data sets, you can set `| evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate", "~", 0.20)` in the query above:
 
