@@ -68,7 +68,7 @@ The following section outlines in detail as to how to choose a pool size for the
   | XLarge |   32 |   256  | 20-200 |  2-100 |  90.97 to 909.70 |
   | XXLarge |  64 |  512  |  20-200 | 2-100 | 181.94 to 1819.39 |
 
-To process 1 years' worth of data, which is around 610 GB of remote sensing data, following are the metrics that were captured. These metrics are specific to the processing algorithm that was used. It only showcases and exhibits how the process can be horizontally scaled for Batch processing and for Real time processing.
+To process 1 year's worth of data, which is around 610 GB of remote sensing data, following are the metrics that were captured. These metrics are specific to the processing algorithm that was used. It only showcases and exhibits how the process can be horizontally scaled for Batch processing and for Real time processing.
 
   
   |Size    |  Time(mins)|
