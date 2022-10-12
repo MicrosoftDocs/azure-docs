@@ -166,6 +166,11 @@ The following properties are reserved and shouldn't be used in a custom record t
 - TimeGenerated
 - RawData
 
+
+## Filter data
+Create a workspace transformation DCR to filter or transform incoming data. You must first migrate the custom table to the new Logs ingestion API.
+
+
 ## Data limits
 The data posted to the Azure Monitor Data collection API is subject to certain constraints:
 
