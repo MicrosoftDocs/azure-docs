@@ -488,6 +488,8 @@
       href: flexible-server/concepts-limits.md
     - name: Extensions
       href: flexible-server/concepts-extensions.md
+    - name: Encryption with Customer Managed Keys
+      href: flexible-server/concepts-data-encryption.md
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)

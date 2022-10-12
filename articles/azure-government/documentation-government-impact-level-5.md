@@ -201,7 +201,7 @@ For Containers services availability in Azure Government, see [Products availabl
 
 ### [Container Registry](../container-registry/index.yml) 
 
-- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/container-registry-customer-managed-keys.md).
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/tutorial-enable-customer-managed-keys.md).
 
 ## Databases
 
