@@ -49,7 +49,6 @@
             "source_path": "articles/baremetal-infrastructure/workloads/nc2-public-preview/use-cases-and-supported-scenarios.md",
             "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/use-cases-and-supported-scenarios",
             "redirect_document_id": false
-        }, 
         {
             "source_path": "articles/baremetal-infrastructure/workloads/oracle/concepts-oracle-high-availability.md",
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
