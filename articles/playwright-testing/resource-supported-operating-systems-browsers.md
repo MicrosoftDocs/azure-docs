@@ -37,20 +37,19 @@ By default, Microsoft Playwright Testing runs tests on the latest Ubuntu version
 
 ## Supported browsers
 
-Microsoft Playwright Testing supports all browsers that are supported by Playwright across all [supported operating systems](#supported-operating-systems). Playwright supports the latest browser versions at any moment.
-Learn more about [supported browsers](https://playwright.dev/docs/browsers) in the Playwright documentation.
+Microsoft Playwright Testing supports all browsers that are supported by Playwright across all [supported operating systems](#supported-operating-systems). Playwright supports the latest browser versions at any moment. Learn more about [supported browsers](https://playwright.dev/docs/browsers) in the Playwright documentation.
 
-You can configure the target browser by specifying the `testOptions.browserName` field. You can further configure the browser options, or select a [preconfigured configuration](https://playwright.dev/docs/test-configuration#emulation).
+You can specify the target browser in the test project configuration in the Playwright configuration file. Select one of the preconfigured browser configurations or use the `testOptions.browserName` setting to configure a browser. Learn more about [Playwright test configuration](https://playwright.dev/docs/test-configuration).
 
 The following table lists the supported browser types:
 
-| Browser | browserName |
-|----|-----|
-| Chromium | `chromium` |
-| Firefox | `firefox` |
-| WebKit | `webkit` |
+| Browser  | `browserName` |
+|----------|---------------|
+| Chromium | `chromium`    |
+| Firefox  | `firefox`     |
+| WebKit   | `webkit`      |
 
-By default, Playwright uses the Chrome browser. Learn how to [configure existing Playwright tests to run with Microsoft Playwright Testing](./how-to-run-with-playwright-testing.md).
+By default, Playwright uses the Chromium browser.
 
 ## Next steps
 
