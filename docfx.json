@@ -348,7 +348,7 @@
         "articles/hdinsight/*.yml": "sreekzz",
         "articles/hdinsight/**/*.md": "sreekzz",
         "articles/jenkins/**/*.md": "TomArcherMsft",
-        "articles/lab-services/**/*.md": "j-martens",
+        "articles/lab-services/**/*.md": "ntrogh",
         "articles/lighthouse/**/*.md": "JnHs",
         "articles/logic-apps/*.md": "ecfan",
         "articles/marketplace/**/*.md": "mingshen-ms",
