@@ -495,7 +495,6 @@ Kadmin> addprinc <username>@<REALM.COM>
 
 For information about Lookup activity properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-
 ## Delete activity properties
 
 For information about Delete activity properties, see [Delete activity](delete-activity.md).
