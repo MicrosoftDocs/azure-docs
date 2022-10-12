@@ -33,7 +33,7 @@ In Microsoft Purview, you can register and scan various types of data sources, a
 
 ## Scans no longer run
 
-If your Microsoft Purview scan used to successfuly run, but are now failing, check these things:
+If your Microsoft Purview scan used to successfully run, but are now failing, check these things:
 1. Have credentials to your resource changed or been rotated? If so, you'll need to update your scan to have the correct credentials.
 1. Is an [Azure Policy](../governance/policy/overview.md) preventing **updates to Storage accounts**? If so follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts.
 1. Are you using a self-hosted integration runtime? Check that it's up to date with the latest software and that it's connected to your network.
