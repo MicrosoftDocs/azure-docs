@@ -74,6 +74,7 @@ The current IPv6 for Azure virtual network release has the following limitations
 - When adding IPv6 to existing IPv4 deployments, IPv6 ranges can not be added to a VNET with existing resource navigation links.  
 - Forward DNS for IPv6 is supported for Azure public DNS today but Reverse DNS is not yet supported.
 - While it is possible to create NSG rules for IPv4 and IPv6 within the same NSG, it is not currently possible to combine an IPv4 Subnet with an IPv6 subnet in the same rule when specifying IP prefixes.
+- ICMPv6 is not currently supported in Network Security Groups.
 
 ## Pricing
 
