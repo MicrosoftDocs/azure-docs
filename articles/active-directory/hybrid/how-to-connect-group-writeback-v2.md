@@ -18,8 +18,8 @@ ms.collection: M365-identity-device-management
  
 Group writeback allows you to write cloud groups back to your on-premises Active Directory instance by using Azure Active Directory (Azure AD) Connect sync. You can use this feature to manage groups in the cloud, while controlling access to on-premises applications and resources.  
 
->[NOTE]
->The Group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](https://learn.microsoft.com/azure/active-directory/hybrid/how-to-connect-group-writeback-v2#understand-limitations-of-public-preview) before you enable this functionality.
+> [!NOTE]
+> The group writeback functionality is currently in Public Preview as we are collecting customer feedback and telemetry. Please refer to [the limitations](https://learn.microsoft.com/azure/active-directory/hybrid/how-to-connect-group-writeback-v2#understand-limitations-of-public-preview) before you enable this functionality.
 
 
 There are two versions of group writeback. The original version is in general availability and is limited to writing back Microsoft 365 groups to your on-premises Active Directory instance as distribution groups. The new, expanded version of group writeback is in public preview and enables the following capabilities:  
