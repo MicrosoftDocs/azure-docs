@@ -36,7 +36,7 @@ Consider whether this preview is right for you. It *enables distributed tracing,
  - Propagating Operation Name to Dependency Telemetry
  - [Instrumentation libraries](#instrumentation-libraries) support on Azure Functions
 
-If you require a full-feature experience, use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
+If you require a full-feature experience, use the existing Application Insights [.NET](asp-net.md) or [.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
 ### [Node.js](#tab/nodejs)
 
@@ -165,7 +165,7 @@ This section provides guidance that shows how to enable OpenTelemetry.
 
 ##### [.NET](#tab/net)
 
-The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For ASP.NET Core, it's done typically in the `ConfigureServices` method of the application `Startup` class. For ASP.NET applications, it's done typically in `Global.asax.cs`.
+The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For .NET Core, it's done typically in the `ConfigureServices` method of the application `Startup` class. For .NET applications, it's done typically in `Global.asax.cs`.
 
 ```csharp
 using System.Diagnostics;
@@ -454,9 +454,9 @@ The following libraries are validated to work with the preview release.
 #### [.NET](#tab/net)
 
 Requests
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
+- [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
   [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
-- [ASP.NET
+- [.NET
   Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
 
@@ -500,7 +500,7 @@ Dependencies
 ### Metrics
 
 #### [.NET](#tab/net)
-The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry MeterProvider. This code must be in the application startup. For ASP.NET Core, it's done typically in the ConfigureServices method of the application Startup class. For ASP.NET applications, it's done typically in Global.asax.cs.
+The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry MeterProvider. This code must be in the application startup. For .NET Core, it's done typically in the ConfigureServices method of the application Startup class. For .NET applications, it's done typically in Global.asax.cs.
 
 ```csharp
 using System.Diagnostics.Metrics;
@@ -596,8 +596,8 @@ Any [attributes](#add-span-attributes) you add to spans are exported as custom p
 ##### [.NET](#tab/net)
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
-    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
-    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
+    - [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
+    - [.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
     - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 1. Use a custom processor:
@@ -792,8 +792,8 @@ You might use the following ways to filter out telemetry before it leaves your a
 #### [.NET](#tab/net)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
-    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
-    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
+    - [.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
+    - [.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
     - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
 
 1. Use a custom processor:
@@ -961,14 +961,16 @@ You may want to collect metrics beyond what is collected by [instrumentation lib
 The OpenTelemetry API offers six metric "instruments" to cover a variety of metric scenarios.
 The following table shows how OpenTelemetry's instruments map to Azure Monitor's [five aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types):
 
-| OpenTelemetry Instrument   | Azure Monitor Aggregation Type |
-|----------------------------|--------------------------------|
-| Counter                    | Sum                            |
-| Asynchronous Counter       | Sum                            |
-| Histogram                  | Average, Count, Max, Min, Sum  |
-| Asynchronous Gauge         | Average                        |
-| UpDownCounter              | Sum                            |
-| Asynchronous UpDownCounter | Sum                            |
+| OpenTelemetry Instrument        | Azure Monitor Aggregation Type |
+|---------------------------------|--------------------------------|
+| Counter                         | Sum                            |
+| Asynchronous Counter            | Sum                            |
+| Histogram                       | Average, Count, Max, Min, Sum  |
+| Asynchronous Gauge              | Average                        |
+| UpDownCounter[^1]               | Sum                            |
+| Asynchronous UpDownCounter [^1] | Sum                            |
+
+[^1]: UpDownCounter and Asynchronous UpDownCounter are not supported by [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
 > [!CAUTION]
 > Although you can select other aggregation types in the UX besides what's shown in the mapping, it is not meaningful to your observability scenarios.
