@@ -28,7 +28,7 @@ The device provisioning endpoint is the single endpoint all devices use for auto
 
 ## Linked IoT hubs
 
-DPS can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to a DPS instance gives the service read/write permissions to the IoT hub's device registry. With these permissions, DPS can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. The allocation weight setting on a linked IoT hub determines its likelihood of being assigned a device in some allocation policies. You may link hubs in other subscriptions to your DPS instance.
+DPS can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to a DPS instance gives the service read/write permissions to the IoT hub's device registry. With these permissions, DPS can register a device ID and set the initial configuration in the device twin. The allocation weight setting on a linked IoT hub determines its likelihood of being assigned a device with some allocation policies. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your DPS instance.
 
 ## Allocation policy
 

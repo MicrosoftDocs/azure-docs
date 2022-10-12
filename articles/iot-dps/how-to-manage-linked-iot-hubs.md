@@ -98,7 +98,7 @@ To update the settings for a linked IoT hub using Azure portal:
 
 ### Use Azure CLI to update a linked IoT hub
 
-With the Azure CLI, you can update the *Allocation weight*, *Apply allocation policy*, and *Connection string* settings. For more information about updating the connection string setting.
+With the Azure CLI, you can update the *Allocation weight*, *Apply allocation policy*, and *Connection string* settings.
 
 Use the [az iot dps linked-hub update](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-update) command to update the allocation weight or apply allocation policies settings. For example, the following command sets the allocation weight and apply allocation policy for a linked IoT hub:
 
