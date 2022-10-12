@@ -103,17 +103,20 @@ Use the [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) t
 
 To disable user consent, set the consent policies that govern user consent to empty:
 
+```http
 PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 {
    "defaultUserRolePermissions": {
       "permissionGrantPoliciesAssigned": []
    }
 }
+```
 
 ### Allow user consent subject to an app consent policy
 
 To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
 
+```http
 PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 {
@@ -121,6 +124,8 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
       "permissionGrantPoliciesAssigned": ["ManagePermissionGrantsForSelf.microsoft-user-default-legacy"]
    }
 }
+```
+
 Replace `{consent-policy-id}` with the ID of the policy you want to apply. You can choose a [custom app consent policy](manage-app-consent-policies.md#create-a-custom-app-consent-policy) that you've created, or you can choose from the following built-in policies:
 
 | ID | Description |
@@ -130,6 +135,7 @@ Replace `{consent-policy-id}` with the ID of the policy you want to apply. You c
 
 For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`, run the following commands:
 
+```http
 PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 {
@@ -139,6 +145,7 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
         ]
     }
 }
+```
 
 :::zone-end
 
@@ -148,19 +155,3 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 - [Manage app consent policies](manage-app-consent-policies.md)
 - [Configure the admin consent workflow](configure-admin-consent-workflow.md)
-
-
-
-
-
-## template without azure AD PowerShell
-- id: enterprise-apps-minus-aad-powershell
-  title: Manage Enterprise apps
-  prompt: Choose an option
-  pivots:
-  - id: portal
-    title: Azure portal
-  - id: ms-powershell
-    title: Microsoft Graph PowerShell
-  - id: ms-graph
-    title: Microsoft Graph API
