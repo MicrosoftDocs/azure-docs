@@ -156,6 +156,8 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other rev
 
     In some configurations is App Service using the App Service FQDN as the redirect URI instead of the Front Door FQDN. This will lead to an issue when the client is being redirected to App Service instead of Front Door. To change that, the `forwardProxy` setting needs to be set to `Standard` to make App Service respect the `X-Forwarded-Host` header set by Azure Front Door.
     
+    Other reverse proxies like Azure Application Gateway or 3rd-party products might use different headers and need a different forwardProxy setting.
+    
     This cannot be done via the Azure Portal today and needs to be done via `az rest`:
     
     **Export settings**
