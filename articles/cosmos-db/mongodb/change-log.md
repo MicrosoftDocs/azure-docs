@@ -39,7 +39,7 @@ The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local
 [Learn more](https://aka.ms/linux-emulator-mongo)
 
 
-### 16-MB limit per document in Cosmos DB for MongoDB (Preview)
+### 16-MB limit per document in Azure Cosmos DB for MongoDB (Preview)
 The 16-MB document limit in the Azure Cosmos DB for MongoDB provides developers the flexibility to store more data per document. This ease-of-use feature will speed up your development process in these cases. 
 
 [Learn more](./introduction.md)
