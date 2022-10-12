@@ -15,7 +15,7 @@ Azure Virtual Desktop (AVD) for Azure Stack HCI (preview) lets you deploy Azure 
 
 ## Overview
 
-If you already have an existing on-premises Virtual Desktop Infrastructure (VDI) deployment, Azure Virtual Desktop for Azure Stack HCI can improve your administrator and end-user experience. If you're already using Azure Virtual Desktop in the cloud, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
+If you already have an existing on-premises Virtual Desktop Infrastructure (VDI) deployment, Azure Virtual Desktop for Azure Stack HCI can improve your experience. If you're already using Azure Virtual Desktop in the cloud, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
 
 Azure Virtual Desktop for Azure Stack HCI is currently in public preview. As such, it doesn't currently support certain important Azure Virtual Desktop features. Because of these limitations, we don't recommend using this feature for production workloads yet.
 
