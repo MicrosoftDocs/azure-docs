@@ -22,7 +22,7 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api
 |--|--|--|
 | **Concurrent Request limit** | 1 | 15 (default value) |
 | Adjustable | No | Yes<sup>2</sup> |
-| **Max document size** | 500 MB | 500 MB |
+| **Max document size** | 4 MB | 500 MB |
 | Adjustable | No | No |
 | **Max number of pages (Analysis)** | 2 | 2000 |
 | Adjustable | No | No |

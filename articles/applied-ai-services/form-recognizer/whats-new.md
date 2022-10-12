@@ -19,6 +19,12 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## October 2022
+
+With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
+
+Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
+
 ## September 2022
 
 ### Region expansion for training custom neural models 
