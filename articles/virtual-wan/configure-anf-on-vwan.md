@@ -5,13 +5,13 @@ services: azure-netapp-files, virtual-wan
 author: rambk
 ms.service: azure-netapp-files, virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 10/11/2022
 ms.author: rambala
 ---
 
 # Guidelines for configuring Azure NetApp Files on Virtual WAN
 
-You can configure Azure NetApp Files (ANF) volume in one or more Virtual WAN spoke Virtual Network (VNet). This allows access to the file storage service globally across your Virtual WAN environment. Your Virtual WAN global deployments could include any combinations of different branches, Point-of-Presence (PoP), private users, offices, Azure virtual networks, and other multicloud deployments. You can use SD-WAN, site-to-site VPN, point-to-site VPN, and ExpressRoute to connect your different sites to a virtual hub. If you have multiple virtual hubs, all the hubs would be connected in full mesh in a standard Virtual WAN deployment. See [What is Azure Virtual WAN?](virtual-wan-about.md) to learn more about Virtual WAN. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
+You can configure Azure NetApp Files (ANF) volume with 'Standard' network features in one or more Virtual WAN spoke Virtual Network (VNet). This allows access to the file storage service globally across your Virtual WAN environment. Your Virtual WAN global deployments could include any combinations of different branches, Point-of-Presence (PoP), private users, offices, Azure virtual networks, and other multicloud deployments. You can use SD-WAN, site-to-site VPN, point-to-site VPN, and ExpressRoute to connect your different sites to a virtual hub. If you have multiple virtual hubs, all the hubs would be connected in full mesh in a standard Virtual WAN deployment. See [What is Azure Virtual WAN?](virtual-wan-about.md) to learn more about Virtual WAN. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
 The following diagram shows the concept of deploying ANF volume in one or more spokes of a Virtual WAN and accessing the volumes globally.
 
@@ -25,17 +25,17 @@ Before you proceed with configuring ANF, confirm:
 
 - You've configured at least one virtual hub within your Virtual WAN environment. For help with the virtual hub settings, see [About virtual hub settings](hub-settings.md).
 - You've at least one spoke VNet connected to the virtual hub for deploying ANF volumes. For help, see [Connect a virtual network to a Virtual WAN hub](howto-connect-vnet-hub.md). 
-- You've sufficient address space within the selected VNet (at the least a /28 space) for creating a subnet dedicated for ANF.
+- You've sufficient address space within the selected spoke VNet (at the least a /28 space) for creating a subnet dedicated for ANF.
 
 ## Deploying ANF volume
 
 Once you've selected a spoke VNet, you can create the delegated ANF subnet within the VNet as part of the ANF deployment process. If you've already created the subnet, see [Delegate a subnet to Azure NetApp Files](../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
-Deploying ANF volume in a Virtual WAN spoke VNet is same as deploying it in any VNet. For deployment steps, see [Configure network features for an Azure NetApp Files volume](../azure-netapp-files/configure-network-features.md).
+Deploying ANF volume with Standard network features in a Virtual WAN spoke VNet is same as deploying it in any VNet. For deployment steps, see [Configure network features for an Azure NetApp Files volume](../azure-netapp-files/configure-network-features.md).
 
 ## Routing ANF traffic from on-premises via Azure Firewall
 
-The following diagram shows routing traffic from on-premises to an ANF volume in a Virtual WAN spoke VNet via a virtual network gateway and the firewall in the virtual hub.
+The following diagram shows routing traffic from on-premises to an ANF volume in a Virtual WAN spoke VNet via a Virtual WAN hub with a VPN gateway and a Azure firewall deployed inside the virtual hub.
 
 :::image type="content" source="./media/configure-anf-on-vwan/gw2fw.png" alt-text="routing on-premises traffic via secure virtual hub":::
 
@@ -58,7 +58,7 @@ The following Azure portal clip shows an example NetApp account volume list. You
 
 ### Editing virtual hub effective routes
 
-You can effect changes to a virtual hub's effective routes via adding User Defined Routes (UDR) to the route table associated with the virtual hub. The following Azure portal clip shows how to select the associated route table of a virtual hub.
+You can effect changes to a virtual hub's effective routes by adding routes explicitly to the virtual hub's route table. The following Azure portal clip shows how to select the associated route table of a virtual hub.
 
 :::image type="content" source="./media/configure-anf-on-vwan/virtualhub-routetable.png" alt-text="virtual hub route table":::
 

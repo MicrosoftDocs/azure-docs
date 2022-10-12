@@ -299,6 +299,8 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+  - name: Guidelines for configuring ANF over Virtual WAN
+    href: ../virtual-wan/configure-anf-on-vwan.md
   - name: Develop
     items:
     - name: REST API
@@ -321,8 +323,6 @@
       href: troubleshoot-cross-region-replication.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
-- name: Guidelines for configuring ANF over Virtual WAN
-  href: ../virtual-wan/configure-anf-on-vwan.md
 - name: Reference
   items:
   - name: REST
