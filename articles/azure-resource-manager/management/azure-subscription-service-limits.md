@@ -523,7 +523,7 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 
-## Virtual machine scale sets limits
+## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
