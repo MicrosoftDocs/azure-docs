@@ -56,7 +56,7 @@ az webapp up --location westeurope --name <app_name> --html
 >
 > `az webapp up --location westeurope --name <app_name> --runtime "PHP:8.1" --os-type linux`
 > 
-> The PHP container includes a webserver that is suitable to host static HTML content.
+> The PHP container includes a web server that is suitable to host static HTML content.
 
 
 
