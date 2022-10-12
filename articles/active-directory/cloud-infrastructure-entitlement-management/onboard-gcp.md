@@ -4,7 +4,8 @@ description: How to onboard a Google Cloud Platform (GCP) project on Permissions
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022

@@ -5,8 +5,8 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022
-ms.date: 05/08/2022
+ms.custom: mvc, event-tier1-build-2022, ignite-2022
+ms.date: 10/12/2022
 ---
 
 # Filter and ingest to Azure Synapse SQL using the Stream Analytics no code editor
@@ -50,11 +50,11 @@ Use the following steps to develop a Stream Analytics job to filter and ingest r
     - The number of **Streaming Units (SUs)** the job runs with. SUs represents the amount of compute and memory allocated to the job. We recommended that you start with three and then adjust as needed. 
     - **Output data error handling** – It allows you to specify the behavior you want when a job’s output to your destination fails due to data errors. By default, your job retries until the write operation succeeds. You can also choose to drop such output events.  
         :::image type="content" source="./media/filter-ingest-synapse-sql/no-code-start-job.png" alt-text="Screenshot showing the Start Stream Analytics job options where you can change the output time, set the number of streaming units, and select the Output data error handling options." lightbox="./media/filter-ingest-synapse-sql/no-code-start-job.png" :::
-1. After you select **Start**, the job starts running within two minutes.  
+1. After you select **Start**, the job starts running within two minutes and the metrics will be open in tab section below.   
 
-You can see the job under the Process Data section on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
+    You can also see the job under the Process Data section on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
-:::image type="content" source="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" :::
+    :::image type="content" source="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" :::
 
 ## Next steps
 

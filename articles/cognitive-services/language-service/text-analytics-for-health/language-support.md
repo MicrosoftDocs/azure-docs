@@ -80,11 +80,11 @@ json
 ## Details of the supported model versions for each language:
 
 
-| Language code       | model version: |  Featured Tag | Specific Tag |
+| Language Code       | Model Version: |  Featured Tag | Specific Tag |
 |:--------------------|:-------------:|:-------------------:|:------------------:|
 | en                  |  2022-03-01   |      latest         |   3.0.59413252-onprem-amd64    | 
-| en,es,it,fr,de,pt   |  2022-08-15-preview  |      latin         |   3.0.59413252-latin-onprem-amd64   | 
-| he                  |  2022-08-15-preview   |      semitic         |   3.0.59413252-semitic-onprem-amd64   | 
+| en,es,it,fr,de,pt   |  2022-08-15-preview  |      latin         |   3.0.60903415-latin-onprem-amd64    | 
+| he                  |  2022-08-15-preview   |      semitic         |   3.0.60903415-semitic-onprem-amd64   | 
 
 
 

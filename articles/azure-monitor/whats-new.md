@@ -13,6 +13,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## September 2022
 
+
 ### Agents
 
 | Article | Description |
@@ -66,6 +67,16 @@ This article lists significant changes to Azure Monitor documentation.
 | Article | Description |
 |---|---|
 |[Migrate from Service Map to Azure Monitor VM insights](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-migrate-from-service-map)|Added a new article with guidance for migrating from the Service Map solution to Azure Monitor VM insights.|
+
+### Network Insights
+
+| Article | Description |
+|---|---|
+|[Network Insights](../network-watcher/network-insights-overview.md)| Onboarded the new topology experience to Network Insights in Azure Monitor.|
+
+
+## August  2022
+
 
 ### Visualizations
 | Article | Description |

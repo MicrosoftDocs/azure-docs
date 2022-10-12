@@ -17,7 +17,7 @@ ms.custom: devx-track-python, mldata, references_regions, sdkv2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-In this guide, learn how to identify and resolve known issues with data access with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
+In this guide, learn how to identify and resolve known issues with data access with the [Azure Machine Learning SDK](https://aka.ms/sdk-v2-install).
 
 ## Error Codes
 

@@ -7,6 +7,7 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 02/26/2022
 ---
@@ -37,7 +38,7 @@ Some common errors that occur during the creation phase are listed below.
   | --- | --- | --- |
   | Azure Storage - Blob (or) ADLS Gen 2 | `blob`| `2020-08-01` |
   | Azure Storage - Tables | `table`| `2020-08-01` |
-  | Azure Cosmos DB - SQL API | `Sql`| `2020-08-01` |
+  | Azure Cosmos DB for NoSQL | `Sql`| `2020-08-01` |
   | Azure SQL Database | `sqlServer`| `2020-08-01` |
   | Azure Database for MySQL (preview) | `mysqlServer`| `2020-08-01-Preview` |
   | Azure Key Vault | `vault` | `2020-08-01` |
@@ -68,8 +69,8 @@ Shared private link resources that have failed Azure Resource Manager deployment
 
 | Deployment failure reason | Description | Resolution |
 | --- | --- | --- |
-| Network resource provider not registered on target resource's subscription | A private endpoint (and associated DNS mappings) is created for the target resource (Storage Account, Cosmos DB, Azure SQL) via the `Microsoft.Network` resource provider (RP). If the subscription that hosts the target resource ("target subscription") isn't registered with `Microsoft.Network` RP, then the Azure Resource Manager deployment can fail. | You need to register this RP in their target subscription. You can [register the resource provider](../azure-resource-manager/management/resource-providers-and-types.md) using the Azure portal, PowerShell, or CLI.|
-| Invalid `groupId` for the target resource | When Cosmos DB accounts are created, you can specify the API type for the database account. While Cosmos DB offers several different API types, Azure Cognitive Search only supports "Sql" as the `groupId` for shared private link resources. When a shared private link of type "Sql" is created for a `privateLinkResourceId` pointing to a non-Sql database account, the Azure Resource Manager deployment will fail because of the `groupId` mismatch. The Azure resource ID of a Cosmos DB account isn't sufficient to determine the API type that is being used. Azure Cognitive Search tries to create the private endpoint, which is then denied by Cosmos DB. | You should ensure that the `privateLinkResourceId` of the specified Cosmos DB resource is for a database account of "Sql" API type |
+| Network resource provider not registered on target resource's subscription | A private endpoint (and associated DNS mappings) is created for the target resource (Storage Account, Azure Cosmos DB, Azure SQL) via the `Microsoft.Network` resource provider (RP). If the subscription that hosts the target resource ("target subscription") isn't registered with `Microsoft.Network` RP, then the Azure Resource Manager deployment can fail. | You need to register this RP in their target subscription. You can [register the resource provider](../azure-resource-manager/management/resource-providers-and-types.md) using the Azure portal, PowerShell, or CLI.|
+| Invalid `groupId` for the target resource | When Azure Cosmos DB accounts are created, you can specify the API type for the database account. While Azure Cosmos DB offers several different API types, Azure Cognitive Search only supports "Sql" as the `groupId` for shared private link resources. When a shared private link of type "Sql" is created for a `privateLinkResourceId` pointing to a non-Sql database account, the Azure Resource Manager deployment will fail because of the `groupId` mismatch. The Azure resource ID of an Azure Cosmos DB account isn't sufficient to determine the API type that is being used. Azure Cognitive Search tries to create the private endpoint, which is then denied by Azure Cosmos DB. | You should ensure that the `privateLinkResourceId` of the specified Azure Cosmos DB resource is for a database account of "Sql" API type |
 | Target resource not found | Existence of the target resource specified in `privateLinkResourceId` is checked only during the commencement of the Azure Resource Manager deployment. If the target resource is no longer available, then the deployment will fail. | You should ensure that the target resource is present in the specified subscription and resource group and isn't moved or deleted. |
 | Transient/other errors | The Azure Resource Manager deployment can fail if there is an infrastructure outage or because of other unexpected reasons. This should be rare and usually indicates a transient state. | Retry creating this resource at a later time. If the problem persists, reach out to Azure Support. |
 

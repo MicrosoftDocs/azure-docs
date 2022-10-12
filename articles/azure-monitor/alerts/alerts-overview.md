@@ -63,13 +63,17 @@ If you don't have alert rules defined for the selected resource, you can [enable
 ## Azure role-based access control (Azure RBAC) for alerts
 
 You can only access, create, or manage alerts for resources for which you have permissions.
-To create an alert rule, you need to have the following permissions:
+
+To create an alert rule, you need to have:
  - Read permission on the target resource of the alert rule
  - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides)
- - Read permission on any action group associated to the alert rule (if applicable)
+ - Read permission on any action group associated with the alert rule (if applicable)
+
 These built-in Azure roles, supported at all Azure Resource Manager scopes, have permissions to and access alerts information and create alert rules:
- - monitoring contributor
- - monitoring reader 
+ - **Monitoring contributor**: can create alerts and use resources within their scope 
+ - **Monitoring reader**: can view alerts and read resources within their scope
+
+If the target action group or rule location is in a different scope than the two built-in roles, you need to create a user with the appropriate permissions. 
 
 ## Alerts and State
 

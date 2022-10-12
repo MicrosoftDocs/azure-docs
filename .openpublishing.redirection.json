@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path":  "articles/backup/sap-hana-db-manage.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-restore.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id":  false  
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-about.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-about",
+            "redirect_document_id":  false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
@@ -11311,6 +11326,11 @@
         {
             "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
             "redirect_url": "/azure/ddos-protection/telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ddos-protection/ddos-protection-standard-features.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-features",
             "redirect_document_id": false
         },
         {

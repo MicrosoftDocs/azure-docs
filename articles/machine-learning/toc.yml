@@ -70,18 +70,13 @@
   items: 
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
+    - name: Run Jupyter notebooks
+      href: quickstart-run-notebooks.md
 - name: Tutorials
   expanded: true
   items: 
     - name: Azure ML in a day
-      expanded: true
-      items: 
-        - name: 1. Run a Python script
-          href: tutorial-1st-experiment-hello-world.md
-        - name: 2. Train your model
-          href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. Use your own data
-          href: tutorial-1st-experiment-bring-data.md
+      href: tutorial-azure-ml-in-a-day.md
     - name: Build models
       items: 
         - name: Create production ML pipelines (preview)
@@ -107,6 +102,12 @@
             - name: 2. Deploy the model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
+    - name: Visual Studio Code
+      items: 
+        - name: Train a TensorFlow image classification model
+          href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Build a training pipeline (Python SDK v2)
+      href: tutorial-pipeline-python-sdk.md
 - name: Samples
   items: 
     - name: Jupyter Notebooks
@@ -119,7 +120,7 @@
       displayName: example, examples, studio, pipelines, data sets, modules, components
       href: samples-designer.md
     - name: End-to-end MLOps examples
-      href: https://github.com/microsoft/MLOps
+      href: https://github.com/Azure/mlops-v2
 - name: Concepts
   items: 
     - name: What is v2?
@@ -168,6 +169,9 @@
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: concept-model-management-and-deployment.md
+        - name: Registries
+          displayName: collaborate share
+          href: concept-machine-learning-registries-mlops.md
         - name: ML pipelines
           href: concept-ml-pipelines.md
         - name: ML components
@@ -282,13 +286,6 @@
           href: how-to-prevent-data-loss-exfiltration.md
         - name: Configure network isolation with v2
           href: how-to-configure-network-isolation-with-v2.md
-    - name: Data protection
-      items: 
-        - name: Failover & disaster recovery
-          displayName: high availability
-          href: how-to-high-availability-machine-learning.md
-        - name: Regenerate storage access keys
-          href: how-to-change-storage-access-key.md
     - name: Create & manage workspaces
       items:
         - name: Use Azure portal or Python SDK
@@ -310,6 +307,8 @@
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage registries
+      href: how-to-manage-registries.md
     - name: Create & manage compute resources
       items:
         - name: Compute instance
@@ -354,6 +353,9 @@
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items: 
+    - name: Share components, environments, and models
+      displayName: collaborate share
+      href: how-to-share-models-pipelines-across-workspaces-with-registries.md
     - name: Search for assets
       displayName: find, filter
       href: how-to-search-assets.md
@@ -378,17 +380,13 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
-        - name: Set up software environments
-          displayName: pip, Conda, anaconda
-          href: how-to-use-environments.md
-
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
         - name: Connect to compute instance VS Code
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-set-up-vs-code-remote.md
-        - name: Manage environments with the CLI (v2)
+        - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
         - name: How to troubleshoot environments
@@ -439,12 +437,6 @@
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
             href: how-to-train-tensorflow.md
-          - name: Keras
-            href: how-to-train-keras.md
-          - name: PyTorch
-            href: how-to-train-pytorch.md
-          - name: Train with custom Docker image
-            href: how-to-train-with-custom-image.md
           - name: Use Key Vault when training
             displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
@@ -503,8 +495,6 @@
               href: how-to-auto-train-nlp-models.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
-            - name: Generate AutoML training code
-              href: how-to-generate-automl-training-code.md
             - name: Use ONNX model in .NET application
               href: how-to-use-automl-onnx-model-dotnet.md
             - name: Inference image models with ONNX model
@@ -618,9 +608,7 @@
               href: how-to-use-parallel-job-in-pipeline.md  
             - name: Designer (drag-n-drop)
               items: 
-                - name: Log metrics
-                  displayName: designer, logging
-                  href: how-to-track-designer-experiments.md
+
                 - name: Transform data
                   displayName: pipeline
                   href: how-to-designer-transform-data.md
@@ -677,7 +665,7 @@
   items: 
     - name: Python SDK v1
       href: /python/api/overview/azure/ml/intro
-    - name: Python SDK v2 (preview)
+    - name: Python SDK v2
       displayName: api, core, package, python, class
       href: https://aka.ms/sdk-v2-install
     - name: REST API
@@ -802,9 +790,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
-    - name: What happened to Workbench
-      displayName: desktop, ui, Workbench, upgrade, update, transfer
-      href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
       href: designer-accessibility.md

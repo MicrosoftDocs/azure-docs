@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 12/19/2018
+ms.date: 10/07/2022
 
 ms.author: mimart
 author: msmimart
@@ -36,9 +36,8 @@ After an app is configured for self-service, application owners can use their ow
  
    ![Screenshot showing the Manage app sub-menu for the Salesforce app](media/add-users-iw/access-panel-manage-app.png)
  
-3. At the top of the users list, select **+**.
-   
-   ![Screenshot showing the plus symbol for adding members to the app](media/add-users-iw/access-panel-manage-app-add-user.png)
+3. At the top of the users list, select **+** on the right-hand side.
+
    
 4. In the **Add members** search box, type the email address for the guest user. Optionally, include a welcome message.
    
