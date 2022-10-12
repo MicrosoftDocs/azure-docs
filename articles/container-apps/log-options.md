@@ -1,10 +1,9 @@
 ---
-title: Log storage and monitoring options in Azure Container Apps
+title: Log storage and monitoring opy=tions in Azure Container Apps
 description: Description of logging options in Azure Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: v-bcatherine
@@ -56,7 +55,7 @@ Destination details are saved as *diagnostic settings*.  You can create up to fi
 To create a new *diagnostic setting*:
 
 1. Select **Add diagnostic setting**.
-    :::image type="content" source="media/observability/diag-setting-new-diag-setting.png" alt-text="Screenshot Diagnostic setting Add new diagnostic setting.":::
+    :::image type="content" source="media/observability/diag-setting-new-diag-setting.png" alt-text="Screenshot Diagnostic setting Add new diagnostic setting":::
 1. Enter a name for your diagnostic setting.
     :::image type="content" source="media/observability/diag-setting-dialog.png" alt-text="Screenshot Diagnostics settings dialog.":::
 1. Select the log **Category groups** or **Categories** you want to send to this destination.  You can select one or more categories.  
