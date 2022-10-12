@@ -1,5 +1,5 @@
 --- 
-title: How to discover your quota usage 
+title: How to determine your quota usage 
 description: Learn how to determine where the cores for your subscription are used and if you have any spare capacity against your quota.  
 author: RoseHJM 
 ms.topic: how-to 
