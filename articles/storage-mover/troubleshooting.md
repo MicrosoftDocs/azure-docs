@@ -80,7 +80,7 @@ The first step to identifying the root cause of the error is to collect the supp
 
 Using the VM's host machine, enter the commands provided by the agent to fetch a copy of the support bundle. You may be prompted to trust the host and be presented with the ECDSA key during the initial connection to the VM. The commands are case-sensitive, and that the flag provided is an upper-case `P`.
 
-     :::image type="content" source="media/troubleshooting/bundle-download-sml.png" alt-text="Screen capture of the support bundle being downloaded to the host machine." lightbox="media/troubleshooting/bundle-download-lrg.png":::
+:::image type="content" source="media/troubleshooting/bundle-download-sml.png" alt-text="Screen capture of the support bundle being downloaded to the host machine." lightbox="media/troubleshooting/bundle-download-lrg.png":::
 
 ## Next steps
 
