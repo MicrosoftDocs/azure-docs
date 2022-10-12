@@ -38,7 +38,7 @@ A support bundle is a set of logs that can help determine the underlying cause o
 
 After the logs within the bundle are extracted, they can be used to located and diagnose issues that have occurred during the migration.
 
-Extracting the logs from the zstd compressed tar file will create the following file structure:
+Extracting the logs from the Zstd compressed tar file will create the following file structure:
 
 - misc
     - df.txt              — Filesystem usage
@@ -78,13 +78,13 @@ The first step to identifying the root cause of the error is to collect the supp
 
 ## Retrieve the agent support bundle
 
-1. Using the VM's host machine, enter the commands provided by the agent to fetch a copy of the support bundle. You may be prompted to trust the host and be presented with the ECDSA key during the initial connection to the VM. The commands are case-sensitive, and that the flag provided is an upper-case `P`.
+Using the VM's host machine, enter the commands provided by the agent to fetch a copy of the support bundle. You may be prompted to trust the host and be presented with the ECDSA key during the initial connection to the VM. The commands are case-sensitive, and that the flag provided is an upper-case `P`.
 
      :::image type="content" source="media/troubleshooting/bundle-download-sml.png" alt-text="Screen capture of the support bundle being downloaded to the host machine." lightbox="media/troubleshooting/bundle-download-lrg.png":::
 
 ## Next steps
 
-Create a project to collate the different source shares that need to be migrated together.
+You may find information in the following articles helpful:
 
-> [!div class="nextstepaction"]
-> [Create and manage a project](project-manage.md)
+- [Release notes](release-notes)
+- [Resource hierarchy](resource-hierarchy)
