@@ -174,6 +174,7 @@ Updates in September include:
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
 - [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
 - [Extra recommendations added to identity](#extra-recommendations-added-to-identity)
+- [Removed security alerts for machines reporting to cross-tenant Log Analytics workspaces](#removed-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
@@ -238,6 +239,16 @@ The new release contains the following capabilities:
     |External accounts with write permissions should be removed from your subscription|04e7147b-0deb-9796-2e5c-0336343ceb3d|
 
 The recommendations although in preview, will appear next to the recommendations that are currently in GA.
+
+### Removed security alerts for machines reporting to cross-tenant Log Analytics workspaces
+
+In the past, Defender for Cloud let you choose the workspace that your Log Analytics agents report to. When a machine belonged to one tenant (“Tenant A”) but its Log Analytics agent reported to a workspace in a different tenant (“Tenant B”), security alerts about the machine were reported to the first tenant (“Tenant A”).
+
+With this change, alerts on machines connected to Log Analytics workspace in a different tenant no longer appear in Defender for Cloud.
+
+If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the machine.
+
+Learn more about [security alerts](alerts-overview.md).
 
 ## August 2022
 
