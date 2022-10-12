@@ -11,14 +11,16 @@ items:
   - name: Tutorials
     expanded: true
     items:
-    - name: Plan provisioning for a SCIM endpoint 
-      href: use-scim-to-provision-users-and-groups.md
-    - name: Develop a sample SCIM endpoint
-      href: use-scim-to-build-users-and-groups-endpoints.md
-    - name: Customize attribute mappings
-      href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: ../saas-apps/tutorial-list.md
+    - name: SCIM provisioning tutorials
+      items:
+      - name: Plan provisioning for a SCIM endpoint 
+        href: use-scim-to-provision-users-and-groups.md
+      - name: Develop a sample SCIM endpoint
+        href: use-scim-to-build-users-and-groups-endpoints.md
+      - name: Validate a SCIM endpoint
+        href: scim-validator-tutorial.md
     - name: On-prem app provisioning tutorials
       items:
       - name: Provisioning to On-premises SCIM-enabled apps
@@ -27,6 +29,8 @@ items:
         href: on-premises-sql-connector-configure.md
       - name: Provisioning to LDAP based apps
         href: on-premises-ldap-connector-configure.md
+    - name: Customize attribute mappings
+      href: customize-application-attributes.md
   - name: Concepts
     expanded: true
     items: 

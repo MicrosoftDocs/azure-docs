@@ -406,7 +406,7 @@ The *host.json* file must also be updated to include an HTTP `routePrefix` value
 }
 ```
 
-Update the Python code file *init.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
+Update the Python code file *__init__.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
 
 # [ASGI](#tab/asgi)
 
@@ -944,6 +944,7 @@ Here's a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
 * [Can't import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
+* [Troubleshoot Errors with Protobuf](recover-python-functions.md#troubleshoot-errors-with-protocol-buffers)
 
 All known issues and feature requests are tracked through the [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 

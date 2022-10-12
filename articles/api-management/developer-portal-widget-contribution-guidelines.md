@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn about recommended guidelines to follow when you contribute a widget to the API Management developer portal repository.
 author: dlepow
 ms.author: danlep
-ms.date: 03/25/2021
+ms.date: 08/18/2022
 ms.service: api-management
 ms.topic: how-to
 ---
@@ -19,9 +19,9 @@ If you'd like to contribute a widget to the API Management developer portal [Git
 
 1. Open a pull request to include your widget in the official repository.
 
-Your widget will inherit the repository's license. It will be available for [opt-in installation](developer-portal-use-community-widgets.md) in the self-hosted version of the portal. The developer portal team may decide to also include it in the managed version of the portal.
+Your widget will inherit the repository's license. It will be available for [opt-in installation](developer-portal-use-community-widgets.md) in either the managed developer portal or a [self-hosted version](developer-portal-self-host.md) of the portal. The developer portal team may decide to also include it in the managed version of the portal.
 
-Refer to the [widget implementation](developer-portal-implement-widgets.md) tutorial for an example of how to develop your own widget.
+For an example of how to develop your own widget and upload it to your developer portal, see [Create and upload custom widget](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget).
 
 ## Contribution guidelines
 
@@ -56,6 +56,6 @@ This guidance is intended to ensure the safety and privacy of our customers and 
 
 - For more information about contributions, see the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal/).
 
-- See [Implement widgets](developer-portal-implement-widgets.md) to learn how to develop your own widget, step by step.
+- See [Extend the developer portal with custom features](developer-portal-extend-custom-functionality.md) to learn about options to add custom functionality to the developer portal.
 
 - See [Use community widgets](developer-portal-use-community-widgets.md) to learn how to use widgets contributed by the community.

@@ -33,11 +33,14 @@ deployment, see
 [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
 Monitor.
 
+> [!WARNING]
+> There has been a temporary reduction in lookback retention to 7 days.
+
 > [!NOTE]
 > Resource configuration changes is for Azure Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's
 > [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
-> [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md). To view examples of how to query Guest Configuration resources in Resource Graph, view [Azure Resource Graph queries by category - Azure Policy Guest Configuration](../samples/samples-by-category.md#azure-policy-guest-configuration).
+> [Machine Configuration for VMs](../../machine-configuration/overview.md). To view examples of how to query guest configuration resources in Resource Graph, view [Azure Resource Graph queries by category - Azure Policy Machine Configuration](../samples/samples-by-category.md#azure-policy-guest-configuration).
 
 > [!IMPORTANT]
 > Resource configuration changes only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Subscriptions and Resource groups. Changes are queryable for fourteen days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query result to any of the Azure data stores (e.g., Log Analytics) for your desired retention.
@@ -118,7 +121,7 @@ or `-Subscription` parameters.
   # Run Azure Resource Graph query
   az graph query -q 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
@@ -126,7 +129,7 @@ or `-Subscription` parameters.
   # Run Azure Resource Graph query
   Search-AzGraph -Query 'resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
   ```
-   
+
 # [Portal](#tab/azure-portal)
   Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer
   following these steps to run your first Resource Graph query:
@@ -135,16 +138,16 @@ or `-Subscription` parameters.
 
   1. In the **Query 1** portion of the window, enter the query
      ```kusto
-     resourcechanges 
-     | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+     resourcechanges
+     | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
      | limit 5
-     ``` 
+     ```
      and select **Run query**.
 
   1. Review the query response in the **Results** tab. Select the **Messages** tab to see details
    about the query, including the count of results and duration of the query. Errors, if any, are
    displayed under this tab.
-   
+
 ---
 
    > [!NOTE]
@@ -152,34 +155,34 @@ or `-Subscription` parameters.
    > multiple times is likely to yield a different set of resources per request.
 
 
-2. Update the query to specify a more user-friendly column name for the **timestamp** property: 
+2. Update the query to specify a more user-friendly column name for the **timestamp** property:
 
 # [Azure CLI](#tab/azure-cli)
    ```azurecli
-   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp 
+   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp
    az graph query -q 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
    ```
-   
+
 # [PowerShell](#tab/azure-powershell)
    ```azurepowershell-interactive
-   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp 
+   # Run Azure Resource Graph query with 'extend' to define a user-friendly name for properties.changeAttributes.timestamp
    Search-AzGraph -Query 'resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5'
    ```
-   
+
 # [Portal](#tab/azure-portal)
    ```kusto
-   resourcechanges 
-   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
-   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+   resourcechanges
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp)
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
    | limit 5
-   ``` 
+   ```
    Then, select **Run query**.
 
 ---
 
 
 3. To get the most recent changes, update the query to `order by` the user-defined **changeTime** property:
- 
+
 # [Azure CLI](#tab/azure-cli)
    ```azurecli
    # Run Azure Resource Graph query with 'order by'
@@ -194,14 +197,14 @@ or `-Subscription` parameters.
 
 # [Portal](#tab/azure-portal)
    ```kusto
-   resourcechanges 
-   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
-   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
-   | order by changeTime desc 
+   resourcechanges
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp)
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes
+   | order by changeTime desc
    | limit 5
-   ``` 
+   ```
    Then, select **Run query**.
-   
+
 ---
 
    > [!NOTE]
@@ -274,36 +277,36 @@ resourcechanges
 | project changeTime, changeType, id, resourceGroup, type, properties
 ```
 
-### Changes in virtual machine size  
+### Changes in virtual machine size 
 ```kusto
 resourcechanges
-|extend vmSize = properties.changes["properties.hardwareProfile.vmSize"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)  
-| where isnotempty(vmSize)  
-| order by changeTime desc  
-| project changeTime, targetResourceId, changeType, properties.changes, previousSize = vmSize.previousValue, newSize = vmSize.newValue 
+|extend vmSize = properties.changes["properties.hardwareProfile.vmSize"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType) 
+| where isnotempty(vmSize) 
+| order by changeTime desc 
+| project changeTime, targetResourceId, changeType, properties.changes, previousSize = vmSize.previousValue, newSize = vmSize.newValue
 ```
 
 ### Count of changes by change type and subscription name
 ```kusto
-resourcechanges   
-|extend changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceType=tostring(properties.targetResourceType)   
-| summarize count() by changeType, subscriptionId  
-| join (resourcecontainers | where type=='microsoft.resources/subscriptions' | project SubscriptionName=name, subscriptionId) on subscriptionId  
-| project-away subscriptionId, subscriptionId1 
+resourcechanges  
+|extend changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceType=tostring(properties.targetResourceType)  
+| summarize count() by changeType, subscriptionId 
+| join (resourcecontainers | where type=='microsoft.resources/subscriptions' | project SubscriptionName=name, subscriptionId) on subscriptionId 
+| project-away subscriptionId, subscriptionId1
 | order by count_ desc  
-``` 
+```
 
 
-### Query the latest resource configuration for resources created with a certain tag  
+### Query the latest resource configuration for resources created with a certain tag
 ```kusto
-resourcechanges  
-|extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp)  
-| where createTime > ago(7d) and changeType == "Create"  
-| project  targetResourceId, changeType, createTime  
-| join ( resources | extend targetResourceId=id) on targetResourceId  
-| where tags[“Environment”] =~ “prod”  
-| order by createTime desc  
-| project createTime, id, resourceGroup, type 
+resourcechanges 
+|extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), createTime = todatetime(properties.changeAttributes.timestamp) 
+| where createTime > ago(7d) and changeType == "Create" 
+| project  targetResourceId, changeType, createTime 
+| join ( resources | extend targetResourceId=id) on targetResourceId 
+| where tags[“Environment”] =~ “prod” 
+| order by createTime desc 
+| project createTime, id, resourceGroup, type
 ```
 
 ## Next steps

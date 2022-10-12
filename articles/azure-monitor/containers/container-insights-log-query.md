@@ -1,34 +1,39 @@
 ---
-title: How to query logs from Container insights
-description: Container insights collects metrics and log data and this article describes the records and includes sample queries.
+title: Query logs from Container insights
+description: Container insights collects metrics and log data, and this article describes the records and includes sample queries.
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.reviewer: aul
-
+ms.custom: ignite-2022
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
-# How to query logs from Container insights
+# Query logs from Container insights
 
-Container insights collects performance metrics, inventory data, and health state information from container hosts and containers. The data is collected every three minutes and forwarded to the Log Analytics workspace in Azure Monitor where it's available for [log queries](../logs/log-query-overview.md) using [Log Analytics](../logs/log-analytics-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting. Azure Monitor Logs can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally.
+Container insights collects performance metrics, inventory data, and health state information from container hosts and containers. The data is collected every three minutes and forwarded to the Log Analytics workspace in Azure Monitor where it's available for [log queries](../logs/log-query-overview.md) using [Log Analytics](../logs/log-analytics-overview.md) in Azure Monitor.
 
-See [Using queries in Azure Monitor Log Analytics](../logs/queries.md) for information on using these queries and [Log Analytics tutorial](../logs/log-analytics-tutorial.md) for a complete tutorial on using Log Analytics to run queries and work with their results.
+You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting. Azure Monitor Logs can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally.
+
+For information on using these queries, see [Using queries in Azure Monitor Log Analytics](../logs/queries.md). For a complete tutorial on using Log Analytics to run queries and work with their results, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md).
 
 ## Open Log Analytics
-There are multiple options for starting Log Analytics, each starting with a different [scope](../logs/scope.md). For access to all data in the workspace, select **Logs** from the **Monitor** menu. To limit the data to a single Kubernetes cluster, select **Logs** from that cluster's menu. 
 
-:::image type="content" source="media/container-insights-log-query/start-log-analytics.png" alt-text="Start Log Analytics" lightbox="media/container-insights-log-query/start-log-analytics.png":::
+There are multiple options for starting Log Analytics. Each option starts with a different [scope](../logs/scope.md). For access to all data in the workspace, on the **Monitoring** menu, select **Logs**. To limit the data to a single Kubernetes cluster, select **Logs** from that cluster's menu.
+
+:::image type="content" source="media/container-insights-log-query/start-log-analytics.png" alt-text="Screenshot that shows starting Log Analytics." lightbox="media/container-insights-log-query/start-log-analytics.png":::
 
 ## Existing log queries
-You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Click **Queries** at the top of the Log Analytics screen and view queries with a **Resource type** of **Kubernetes Services**. 
 
-:::image type="content" source="media/container-insights-log-query/log-analytics-queries.png" alt-text="Log Analytics queries for Kubernetes" lightbox="media/container-insights-log-query/log-analytics-queries.png":::
+You don't necessarily need to understand how to write a log query to use Log Analytics. You can select from multiple prebuilt queries. You can either run the queries without modification or use them as a start to a custom query. Select **Queries** at the top of the Log Analytics screen, and view queries with a **Resource type** of **Kubernetes Services**.
+
+:::image type="content" source="media/container-insights-log-query/log-analytics-queries.png" alt-text="Screenshot that shows Log Analytics queries for Kubernetes." lightbox="media/container-insights-log-query/log-analytics-queries.png":::
 
 ## Container tables
-See [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) for a list of tables and their detailed descriptions used by Container insights. All of these tables are available for log queries.
 
+For a list of tables and their detailed descriptions used by Container insights, see the [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services). All these tables are available for log queries.
 
 ## Example log queries
-It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample queries:
+
+It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample queries.
 
 ### List all of a container's lifecycle information
 
@@ -63,7 +68,7 @@ Perf
 | summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName
 ```
 
-### Requests Per Minute with Custom Metrics
+### Requests per minute with custom metrics
 
 ```kusto
 InsightsMetrics
@@ -73,6 +78,7 @@ InsightsMetrics
 | project RequestsPerMinute = Val - prev(Val), TimeGenerated
 | render barchart 
 ```
+
 ### Pods by name and namespace
 
 ```kusto
@@ -96,8 +102,8 @@ on ContainerID
 ```
 
 ### Pod scale-out (HPA)
-Returns the number of scaled out replicas in each deployment. Calculates the scale-out percentage with the maximum number of replicas configured in HPA.
 
+This query returns the number of scaled-out replicas in each deployment. It calculates the scale-out percentage with the maximum number of replicas configured in HPA.
 
 ```kusto
 let _minthreshold = 70; // minimum threshold goes here if you want to setup as an alert
@@ -123,8 +129,9 @@ KubePodInventory
     on deployment_hpa
 ```
 
-### Nodepool scale-outs 
-Returns the number of active nodes in each node pool. Calculates the number of available active nodes and the max node configuration in the auto-scaler settings to determine the scale-out percentage. See commented lines in query to use it for a **number of results** alert rule.
+### Nodepool scale-outs
+
+This query returns the number of active nodes in each node pool. It calculates the number of available active nodes and the max node configuration in the autoscaler settings to determine the scale-out percentage. See commented lines in the query to use it for a **number of results** alert rule.
 
 ```kusto
 let nodepoolMaxnodeCount = 10; // the maximum number of nodes in your auto scale setting goes here.
@@ -136,7 +143,7 @@ KubeNodeInventory
 | extend nodepoolType = todynamic(Labels) //Parse the labels to get the list of node pool types
 | extend nodepoolName = todynamic(nodepoolType[0].agentpool) // parse the label to get the nodepool name or set the specific nodepool name (like nodepoolName = 'agentpool)'
 | summarize nodeCount = count(Computer) by ClusterName, tostring(nodepoolName), TimeGenerated
-//(Uncomment the below two lines to set this as an log search alert)
+//(Uncomment the below two lines to set this as a log search alert)
 //| extend scaledpercent = iff(((nodeCount * 100 / nodepoolMaxnodeCount) >= _minthreshold and (nodeCount * 100 / nodepoolMaxnodeCount) < _maxthreshold), "warn", "normal")
 //| where scaledpercent == 'warn'
 | summarize arg_max(TimeGenerated, *) by nodeCount, ClusterName, tostring(nodepoolName)
@@ -148,7 +155,8 @@ KubeNodeInventory
 ```
 
 ### System containers (replicaset) availability
-Returns the system containers (replicasets) and report the unavailable percentage. See commented lines in query to use it for a **number of results** alert rule.
+
+This query returns the system containers (replicasets) and reports the unavailable percentage. See commented lines in the query to use it for a **number of results** alert rule.
 
 ```kusto
 let startDateTime = 5m; // the minimum time interval goes here
@@ -190,7 +198,8 @@ KubePodInventory
 ```
 
 ### System containers (daemonsets) availability
-Returns the system containers (daemonsets) and report the unavailable percentage. See commented lines in query to use it for a **number of results** alert rule.
+
+This query returns the system containers (daemonsets) and reports the unavailable percentage. See commented lines in the query to use it for a **number of results** alert rule.
 
 ```kusto
 let startDateTime = 5m; // the minimum time interval goes here
@@ -232,7 +241,8 @@ KubePodInventory
 ```
 
 ## Resource logs
-Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table You can distinguish different logs with the **Category** column. See [AKS reference resource logs](../../aks/monitor-aks-reference.md) for a description of each category. The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. See [Configure monitoring](../../aks/monitor-aks.md#configure-monitoring) for details.
+
+Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](../../aks/monitor-aks-reference.md). The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. For more information, see [Configure monitoring](../../aks/monitor-aks.md#configure-monitoring).
 
 ### API server logs
 
@@ -249,7 +259,7 @@ AzureDiagnostics
 | summarize count() by Category
 ```
 
-## Query Prometheus metrics data
+## Prometheus metrics
 
 The following example is a Prometheus metrics query showing disk reads per second per disk per node.
 
@@ -272,7 +282,7 @@ InsightsMetrics
 
 ```
 
-To view Prometheus metrics scraped by Azure Monitor filtered by Namespace, specify "prometheus". Here's a sample query to view Prometheus metrics from the `default` kubernetes namespace.
+To view Prometheus metrics scraped by Azure Monitor and filtered by namespace, specify *"prometheus"*. Here's a sample query to view Prometheus metrics from the `default` Kubernetes namespace.
 
 ```
 InsightsMetrics 
@@ -289,7 +299,38 @@ InsightsMetrics
 | where Name contains "some_prometheus_metric"
 ```
 
-### Query config or scraping errors
+To identify the ingestion volume of each metrics size in GB per day to understand if it's high, the following query is provided.
+
+```
+InsightsMetrics
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
+| order by VolumeInGB desc
+| render barchart
+```
+
+The output will show results similar to the following example.
+
+![Screenshot that shows the log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-03.png)
+
+To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
+
+```
+InsightsMetrics
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
+| order by EstimatedGBPer30dayMonth desc
+| render barchart
+```
+
+The output will show results similar to the following example.
+
+![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-02.png)
+
+
+## Configuration or scraping errors
 
 To investigate any configuration or scraping errors, the following example query returns informational events from the `KubeMonAgentEvents` table.
 
@@ -299,8 +340,8 @@ KubeMonAgentEvents | where Level != "Info"
 
 The output shows results similar to the following example:
 
-![Log query results of informational events from agent](./media/container-insights-log-query/log-query-example-kubeagent-events.png)
+:::image type="content" source="./media/container-insights-log-query/log-query-example-kubeagent-events.png" alt-text="Screenshot that shows log query results of informational events from an agent." lightbox="media/container-insights-log-query/log-query-example-kubeagent-events.png":::
 
 ## Next steps
 
-Container insights does not include a predefined set of alerts. Review the [Create performance alerts with Container insights](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).

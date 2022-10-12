@@ -4,7 +4,7 @@ description: Provides an overview of Azure AD Privileged Identity Management (PI
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -95,7 +95,7 @@ The following screenshot shows an email message sent by PIM. The email informs P
 
 ### Assign
 
-The assignment process starts by assign roles to members. To grant access to a resource, the administrator assigns roles to users, groups, service principals, or managed identities. The assignment includes the following data:
+The assignment process starts by assigning roles to members. To grant access to a resource, the administrator assigns roles to users, groups, service principals, or managed identities. The assignment includes the following data:
 
 - The members or owners to assign the role.
 - The scope of the assignment. The scope limits the assigned role to a particular set of resources.

@@ -158,6 +158,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **months** | January, February, March, April, May, June, July, August, September, October, November, December |
 | **ver_fail_server** | We are having trouble verifying your email address. Please enter a valid email address and try again. |
 | **error_requiredFieldMissing** | A required field is missing. Please fill out all required fields and try again. |
+| **heading** | User Details |
 | **initial_intro** | Please provide the following details. |
 | **ver_but_resend** | Send new code |
 | **button_continue** | Create |
@@ -234,6 +235,7 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="error_passwordEntryMismatch">The password entry fields do not match. Please enter the same password in both fields and try again.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="error_requiredFieldMissing">A required field is missing. Please fill out all required fields and try again.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="helplink_text">What is this?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">User Details</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="initial_intro">Please provide the following details.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="preloader_alt">Please wait</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
@@ -377,7 +379,7 @@ The following are the IDs for a [Verification display control](display-control-v
 
 | ID | Default value |
 | --- | ------------- |
-|intro_msg <sup>*</sup>| Verification is necessary. Please click Send button.|
+|intro_msg<sup>1</sup>| Verification is necessary. Please click Send button.|
 |success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
 |success_verify_code_msg | E-mail address verified. You can now continue.|
@@ -386,13 +388,16 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_verify_code | Verify code|
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
+| UserMessageIfVerificationControlClaimsNotVerified<sup>2</sup>| The claims for verification control have not been verified. |
 
-Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+<sup>1</sup> The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
 
 ```css
 .verificationInfoText div{display: block!important}
 ```
 
+<sup>2</sup> This error message is displayed to the user if they enter a verification code, but instead of completing the verification by selecting on the **Verify** button, they select the **Continue** button.
+  
 ### Verification display control example
 
 ```xml
@@ -408,6 +413,7 @@ Note: The `intro_msg` element is hidden, and not shown on the self-asserted page
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsNotVerified">The claims for verification control have not been verified.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

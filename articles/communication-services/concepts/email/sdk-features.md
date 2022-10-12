@@ -35,8 +35,8 @@ The following list presents the set of features that are currently available in 
 
 | Feature | Capability                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Sendmail | Send  Email messages </br> *Attachments are supported*                               | ✔️   | ❌    | ✔️    | ❌      |
-| Get Status       | Receive Delivery Reports for messages sent                                            | ✔️   | ❌    | ✔️    | ❌      |
+| Sendmail | Send  Email messages </br> *Attachments are supported*                               | ✔️   | ✔️    | ✔️    | ✔️      |
+| Get Status       | Receive Delivery Reports for messages sent                                            | ✔️   | ✔️    | ✔️    | ✔️      |
 
 
 ## API Throttling and Timeouts

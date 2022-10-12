@@ -301,7 +301,7 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 
 
 <!--Link references-->
-[azure.blob.storage]: https://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage]: /azure/storage/
 [azure.blob.storage.use]: ../storage/blobs/storage-quickstart-blobs-dotnet.md
 
 [azure.event.hubs]: https://azure.microsoft.com/services/event-hubs/

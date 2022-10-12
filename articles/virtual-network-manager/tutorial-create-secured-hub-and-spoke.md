@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create a secured hub and spoke network'
 description: In this tutorial, you'll learn how to create a hub and spoke network with Azure Virtual Network Manager. Then you'll secure all your virtual networks with a security policy.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 09/21/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -103,7 +103,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     
 1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete.
 
-## Create a network group
+## Create a dynamic network group
 
 1. Go to your Azure Virtual Network Manager instance. This tutorial assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
@@ -113,7 +113,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. On the *Basics* tab, enter the following information:
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of the create a network group basics tab.":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-basics.png" alt-text="Screenshot of the Basics tab on Create a network group page.":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -126,24 +126,26 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-page.png" alt-text="Screenshot of the network groups page.":::
 
-1. On the **Get started** tab, select **Add** under *Define dynamic membership*.
+1. On the **Overview** page, select **Create Azure Policy** under *Create policy to dynamically add members*.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/define-dynamic-membership.png" alt-text="Screenshot of the define dynamic membership button.":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/define-dynamic-membership.png" alt-text="Screenshot of the defined dynamic membership button.":::
 
-1. On the **Define dynamic membership** page, select or enter the following information:
+1. On the **Create Azure Policy** page, select or enter the following information:
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-conditional.png" alt-text="Screenshot of create a network group conditional statements tab.":::
 
     | Setting | Value |
     | ------- | ----- |
+    | Policy name | Enter **VNetAZPolicy** in the text box. |
+    | Scope | Select **Select Scopes** and choose your current subscription. |
+    | Criteria |  |
     | Parameter | Select **Name** from the drop-down.|
     | Operator | Select **Contains** from the drop-down.| 
-    | Condition | Enter **VNet-** to add the three previously created virtual networks into this network group. |
+    | Condition | Enter **-EastUS** to dynamically add the two East US virtual networks into this network group. |
 
-1. Select **Preview resources** to verify the virtual networks selected by the conditional statement, and select **Close**. Then select **Save** to deploy the group membership.
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/evaluate-vnet.png" alt-text="Screenshot of effective virtual networks page.":::
-
+1. Select **Save** to deploy the group membership.
+1. Under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic-thumb.png" alt-text="Screenshot of dynamic group membership under Group Membership." lightbox="media/tutorial-create-secured-hub-and-spoke/group-members-dynamic.png":::
 ## Create a hub and spoke connectivity configuration
 
 1. Select **Configuration** under *Settings*, then select **+ Add a configuration**. Select **Connectivity** from the drop-down menu.
@@ -160,15 +162,15 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Description | Provide a description about what this connectivity configuration will do. |
 
 
-1. Select **Next: Topology >**. Select **Hub and Spoke** under the **Topology** setting. This will reveal additional settings.
+1. Select **Next: Topology >**. Select **Hub and Spoke** under the **Topology** setting. This will reveal other settings.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/hub-configuration.png" alt-text="Screenshot of selecting a hub for the connectivity configuration.":::
 
-1.  Select **Select a hub** under **Hub** setting. Then, select **VNet-A-WestUS** to serve as your network hub and click **Select**.
+1.  Select **Select a hub** under **Hub** setting. Then, select **VNet-A-WestUS** to serve as your network hub and select **Select**.
 
     :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/select-hub.png" alt-text="Screenshot of Select a hub configuration.":::
     
-1.  Under **Spoke network groups**, select **+ add**. Then, select **myNetworkGroupB** for the network group and click **Select**.
+1.  Under **Spoke network groups**, select **+ add**. Then, select **myNetworkGroupB** for the network group and select **Select**.
 
     :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/select-network-group.png" alt-text="Screenshot of Add network groups page.":::
 
@@ -180,7 +182,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | ------- | ----- |
     | Direct Connectivity | Select the checkbox for **Enable connectivity within network group**. This setting will allow spoke virtual networks in the network group in the same region to communicate with each other directly. |
     | Hub as gateway | Select the checkbox for **Use hub as a gateway**. |    
-    | Global Mesh | Leave this option **unchecked**. Since both spokes are in the same region this setting is not required. |
+    | Global Mesh | Leave **Enable mesh connectivity across regions** option **unchecked**. This setting isn't required as both spokes are in the same region  |
 
 1. Select **Next: Review + create >** and then create the connectivity configuration.
 
@@ -203,7 +205,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ## Create security configuration
 
-1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration..
+1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
 
 1. Enter the name **mySecurityConfig** for the configuration, then select **Next: Rule collections**.
 
@@ -241,7 +243,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-security.png" alt-text="Screenshot of deploying a security configuration.":::
 
-1. Select **Next** and then **Deploy**.You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+1. Select **Next** and then **Deploy**. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
 
 ## Verify deployment of configurations
 
@@ -271,7 +273,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-network-settings.png" alt-text="Screenshot of test VM's network settings.":::
 
-1. Then select **Effective routes** under *Support + troubleshooting* to see the routes for the virtual network peerings. The `10.3.0.0/16` route with the next hop of `VNetGlobalPeering` is the route to the hub virtual network. The `10.5.0.0/16` route with the next hop of `ConnectedGroup` is route to the other spoke virtual network. All spokes virtual network will be in a *ConnectedGroup* when **Transitivity** is enabled.
+1. Then select **Effective routes** under *Help* to see the routes for the virtual network peerings. The `10.3.0.0/16` route with the next hop of `VNetGlobalPeering` is the route to the hub virtual network. The `10.5.0.0/16` route with the next hop of `ConnectedGroup` is route to the other spoke virtual network. All spokes virtual network will be in a *ConnectedGroup* when **Transitivity** is enabled.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/effective-routes.png" alt-text="Screenshot of effective routes from test VM network interface." lightbox="./media/tutorial-create-secured-hub-and-spoke/effective-routes-expanded.png" :::
 

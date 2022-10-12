@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 08/01/2022
 ms.author: eur
 ms.custom: references_regions
 ---
@@ -20,11 +20,6 @@ In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned abo
 > [!NOTE]
 > See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects. This article focuses on the creation of a professional Custom Neural Voice using the Pro project.
 
-## Prerequisites
-
-* [Create a custom voice project](how-to-custom-voice.md)
-* [Prepare training data](how-to-custom-voice-prepare-data.md)
-
 ## Set up voice talent
 
 A *voice talent* is an individual or target speaker whose voices are recorded and used to create neural voice models. Before you create a voice, define your voice persona and select a right voice talent. For details on recording voice samples, see [the tutorial](record-custom-voice-samples.md).
@@ -34,9 +29,6 @@ To train a neural voice, you must create a voice talent profile with an audio fi
 Upload this audio file to the Speech Studio as shown in the following screenshot. You create a voice talent profile, which is used to verify against your training data when you create a voice model. For more information, see [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Screenshot that shows the upload voice talent statement.":::
- 
-> [!NOTE]
-> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
 The following steps assume that you've prepared the voice talent verbal consent files. Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select a Custom Neural Voice project, and then follow these steps to create a voice talent profile.
 
@@ -44,15 +36,9 @@ The following steps assume that you've prepared the voice talent verbal consent 
 
 1. Select **Add voice talent**.
 
-1. Next, to define voice characteristics, select **Target scenario**. Then describe your **Voice characteristics**.
+1. Next, to define voice characteristics, select **Target scenario**. Then describe your **Voice characteristics**. The scenarios you provide must be consistent with what you've applied for in the application form.
 
-   >[!NOTE]
-   >The scenarios you provide must be consistent with what you've applied for in the application form.
-
-1. Then, go to **Upload voice talent statement**, and follow the instruction to upload the voice talent statement you've prepared beforehand.
-
-   >[!NOTE]
-   >Make sure the verbal statement is recorded in the same settings as your training data, including the recording environment and speaking style.
+1. Go to **Upload voice talent statement**, and follow the instruction to upload the voice talent statement you've prepared beforehand. Make sure the verbal statement is recorded in the same settings as your training data, including the recording environment and speaking style.
 
 1. Go to **Review and create**, review the settings, and select **Submit**.
 
@@ -72,13 +58,12 @@ You can do the following to create and review your training data:
 
 > [!NOTE]
 >- Duplicate audio names are removed from the training. Make sure the data you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicates, they're rejected.
->- If you've created data files in the previous version of Speech Studio, you must specify a training set for your data in advance to use them. If you haven't, an exclamation mark is appended to the data name, and the data can't be used.
 
 All data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Speech service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md), and confirm that your data is correctly formatted.
 
 > [!NOTE]
 > - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
-> - The maximum number of data files allowed to be imported per subscription is 500 .zip files for standard subscription (S0) users.
+> - The maximum number of data files allowed to be imported per subscription is 500 .zip files for standard subscription (S0) users. Please see out [Speech service quotas and limits](speech-services-quotas-and-limits.md#custom-neural-voice) for more details.
 
 Data files are automatically validated when you select **Submit**. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. If there are any errors, fix them and submit again. 
 
@@ -132,6 +117,7 @@ Unresolved errors listed in the next table affect the quality of training, but d
 | Script | Non-normalized text|This script contains symbols. Normalize the symbols to match the audio. For example, normalize *50%* to *fifty percent*.|
 | Script | Not enough question utterances| At least 10 percent of the total utterances should be question sentences. This helps the voice model properly express a questioning tone.|
 | Script | Not enough exclamation utterances| At least 10 percent of the total utterances should be exclamation sentences. This helps the voice model properly express an excited tone.|
+| Script | No valid end punctuation| Add one of the following at the end of the line: full stop (half-width '.' or full-width '。'), exclamation point (half-width '!' or full-width '！' ), or question mark ( half-width '?' or full-width '？').|
 | Audio| Low sampling rate for neural voice | It's recommended that the sampling rate of your .wav files should be 24 KHz or higher for creating neural voices. If it's lower, it will be automatically raised to 24 KHz.|
 | Volume |Overall volume too low|Volume shouldn't be lower than -18 dB (10 percent of max volume). Control the volume average level within proper range during the sample recording or data preparation.|
 | Volume | Volume overflow| Overflowing volume is detected at {}s. Adjust the recording equipment to avoid the volume overflow at its peak value.|
@@ -183,7 +169,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
     If you want to create a voice in the same language of your training data, select **Neural** method. For the **Neural** method, you can select different versions of the training recipe for your model. The versions vary according to the features supported and model training time. Normally new versions are enhanced ones with bugs fixed and new features supported. The latest version is selected by default.
 
-    You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md#custom-neural-voice).
+    You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts).
 
     The same unit price applies to both **Neural** and **Neural - cross lingual**. Check [the pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for training.
 
@@ -191,7 +177,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
    >[!NOTE]
    >- To create a custom neural voice, select at least 300 utterances.
-   >- To train a neural voice, you must specify a voice talent profile. This profile must provide the audio consent file of the voice talent, acknowledging to use his or her speech data to train a custom neural voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access](https://aka.ms/customneural).
+   >- To train a neural voice, you must specify a voice talent profile. This profile must provide the audio consent file of the voice talent, acknowledging to use their speech data to train a custom neural voice model.
 
 1. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script, including up to 100 utterances. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
 
@@ -213,8 +199,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
 1. Review the settings, then select **Submit** to start training the model.
 
-   > [!NOTE]
-   > Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files.
+   Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files.
 
    The **Train model** table displays a new entry that corresponds to this newly created model. 
 
@@ -304,7 +289,7 @@ After you've updated the engine version for your voice model, you need to [redep
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 > [!NOTE]
-> Custom Neural Voice training is only available in some regions. But you can easily copy a neural voice model from these regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
+> Custom Neural Voice training is currently only available in some regions. But you can easily copy a neural voice model from those regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
 
 ## Next steps
 
@@ -312,4 +297,3 @@ For more information, [learn more about the capabilities and limits of this feat
 - [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
 - [Long Audio API](long-audio-api.md)
-

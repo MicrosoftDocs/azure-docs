@@ -48,7 +48,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Log-Type |Specify the record type of the data that's being submitted. It can contain only letters, numbers, and the underscore (_) character, and it can't exceed 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 7234 format. |
 | x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](manage-access.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
-| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. Note: the Time Generated value cannot be older than 3 days before received time or the row will be dropped.|
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. The Time Generated value cannot be older than 2 days before received time or the time that the message is ingested will be used.|
 | | |
 
 ## Authorization
@@ -364,6 +364,7 @@ namespace OIAPIExample
 				client.DefaultRequestHeaders.Add("x-ms-date", date);
 				client.DefaultRequestHeaders.Add("time-generated-field", TimeStampField);
 
+				// If charset=utf-8 is part of the content-type header, the API call may return forbidden.
 				System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
 				httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 				Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);

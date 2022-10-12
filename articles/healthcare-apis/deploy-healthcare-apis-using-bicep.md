@@ -1,7 +1,7 @@
 ---
 title: How to create Azure Health Data Services, workspaces, FHIR and DICOM service, and MedTech service using Azure Bicep
 description: This document describes how to deploy Azure Health Data Services using Azure Bicep.
-author: ginalee-dotcom
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart

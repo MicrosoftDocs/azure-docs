@@ -4,7 +4,7 @@ description: Prerequisites to use PowerShell or Graph Explorer for Azure Active 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
@@ -19,6 +19,17 @@ ms.collection: M365-identity-device-management
 # Prerequisites to use PowerShell or Graph Explorer for Azure AD roles
 
 If you want to manage Azure Active Directory (Azure AD) roles using PowerShell or Graph Explorer, you must have the required prerequisites. This article describes the PowerShell and Graph Explorer prerequisites for different Azure AD role features.
+
+## Microsoft Graph PowerShell
+
+To use PowerShell commands to do the following:
+
+- Add users, groups, or devices to an administrative unit
+- Create a new group in an administrative unit
+
+You must have the Microsoft Graph PowerShell SDK installed:
+
+- [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
 ## AzureAD module
 

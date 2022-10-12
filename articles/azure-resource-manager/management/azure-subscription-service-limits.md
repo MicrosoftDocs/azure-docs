@@ -105,6 +105,10 @@ To learn more about limits on a more granular level, such as document size, quer
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
+## Azure Container Apps limits
+
+For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
 ## Azure Cosmos DB limits
 
 For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
@@ -402,17 +406,21 @@ This section lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
 
+### Repositories limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-repositories.md)]
+
 ### Threat intelligence limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
 
-### Watchlist limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
-
 ### User and Entity Behavior Analytics (UEBA) limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
+
+### Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
 
 ## Service Bus limits
 

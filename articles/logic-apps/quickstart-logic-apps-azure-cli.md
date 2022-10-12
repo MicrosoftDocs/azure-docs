@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2, mode-api
-ms.date: 05/03/2022
+ms.date: 08/20/2022
 ---
 
 # Quickstart: Create and manage workflows with Azure CLI in Azure Logic Apps
@@ -242,7 +242,7 @@ az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 
 The following error indicates that the Azure Logic Apps CLI extension isn't installed. Follow the steps in the [prerequisites to install the Logic Apps extension](#prerequisites) on your computer.
 
 ```output
-az: 'logic' is not in the 'az' command group. See 'az --help'. If the command is from an extension, please make sure the corresponding extension is installed. To learn more about extensions, please visit https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview
+az: 'logic' is not in the 'az' command group. See 'az --help'. If the command is from an extension, please make sure the corresponding extension is installed. To learn more about extensions, please visit https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview
 ```
 
 The following error might indicate that the file path for uploading your workflow definition is incorrect.

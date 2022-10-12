@@ -1,29 +1,29 @@
 ---
-title: Provision devices using symmetric keys - Azure IoT Hub Device Provisioning Service
-description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
+title: Tutorial - Provision devices using a symmetric key enrollment group in Azure IoT Hub Device Provisioning Service
+description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.date: 04/23/2021
-ms.topic: conceptual
+ms.date: 08/19/2022
+ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
 ---
 
-# How to provision devices using symmetric key enrollment groups
+# Tutorial: Provision devices using symmetric key enrollment groups
 
-This article demonstrates how to securely provision multiple simulated symmetric key devices to a single IoT Hub using an enrollment group.
+This tutorial shows how to securely provision multiple simulated symmetric key devices to a single IoT Hub using an enrollment group.
 
 Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
 
-If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This article assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
+If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This tutorial assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
 
-This article also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
+This tutorial also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
 
-This article is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
+This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
 
 > [!NOTE]
-> The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
+> The sample used in this tutorial is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/device/samples/How%20To/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-sdk-csharp](https://github.com/Azure/azure-iot-sdk-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this tutorial to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ A unique registration ID will be defined for each device based on information th
 
 An enrollment group that uses [symmetric key attestation](concepts-symmetric-key-attestation.md) will be created with the Device Provisioning Service. The enrollment group will include a group master key. That master key will be used to hash each unique registration ID to produce a unique device key for each device. The device will use that derived device key with its unique registration ID to attest with the Device Provisioning Service and be assigned to an IoT hub.
 
-The device code demonstrated in this article will follow the same pattern as the [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md). The code will simulate a device using a sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The simulated device will attest with an enrollment group instead of an individual enrollment as demonstrated in the quickstart.
+The device code demonstrated in this tutorial will follow the same pattern as the [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md). The code will simulate a device using a sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The simulated device will attest with an enrollment group instead of an individual enrollment as demonstrated in the quickstart.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

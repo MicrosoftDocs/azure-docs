@@ -4,11 +4,13 @@ description: Learn how to use Azure Automation for triggering StorSimple Data Ma
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/16/2018
+ms.date: 08/22/2022
 ms.author: alkohli
 ---
 
 # Use Azure Automation to trigger a job
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 This article explains how you can use the data transformation feature within the StorSimple Data Manager service to transform StorSimple device data. You can launch a data transformation job in two ways: 
 

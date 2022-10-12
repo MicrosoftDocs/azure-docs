@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/12/2022
+ms.date: 08/03/2022
 ---
 
 # Conditional split transformation in mapping data flow

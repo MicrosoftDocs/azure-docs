@@ -4,7 +4,7 @@ description: Create and manage security groups or Microsoft 365 groups in Azure 
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users

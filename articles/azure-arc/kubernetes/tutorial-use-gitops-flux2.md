@@ -4,9 +4,9 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Flux v2, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 06/08/2022
+ms.date: 10/12/2022
 ms.topic: tutorial
-ms.custom: template-tutorial, devx-track-azurecli
+ms.custom: template-tutorial, devx-track-azurecli, ignite-2022
 ---
 
 # Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters
@@ -19,10 +19,10 @@ GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clu
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
 > [!IMPORTANT]
-> Add-on Azure management services, like Kubernetes Configuration, are charged when enabled. Costs related to use of Flux v2 will start to be billed on July 1, 2022. For more information, see [Azure Arc pricing](https://azure.microsoft.com/pricing/details/azure-arc/).
-
->[!IMPORTANT]
 > The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
+
+> [!TIP]
+> When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Prerequisites
 
@@ -51,6 +51,10 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   ```
 
 ### Common to both cluster types
+
+* Read and write permissions on these resource types:
+    * `Microsoft.KubernetesConfiguration/extensions`
+    * `Microsoft.KubernetesConfiguration/fluxConfigurations`
 
 * Azure CLI version 2.15 or later. [Install the Azure CLI](/cli/azure/install-azure-cli) or use the following commands to update to the latest version:
 
@@ -150,7 +154,16 @@ In the following example:
 If the `microsoft.flux` extension isn't already installed in the cluster, it'll be installed. When the flux configuration is installed, the initial compliance state may be "Pending" or "Non-compliant" because reconciliation is still on-going.  After a minute you can query the configuration again and see the final compliance state.
 
 ```console
-az k8s-configuration flux create -g flux-demo-rg -c flux-demo-arc -n cluster-config --namespace cluster-config -t connectedClusters --scope cluster -u https://github.com/Azure/gitops-flux2-kustomize-helm-mt --branch main  --kustomization name=infra path=./infrastructure prune=true --kustomization name=apps path=./apps/staging prune=true dependsOn=["infra"]
+az k8s-configuration flux create -g flux-demo-rg \
+-c flux-demo-arc \
+-n cluster-config \
+--namespace cluster-config \
+-t connectedClusters \
+--scope cluster \
+-u https://github.com/Azure/gitops-flux2-kustomize-helm-mt \
+--branch main  \
+--kustomization name=infra path=./infrastructure prune=true \
+--kustomization name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
 
 'Microsoft.Flux' extension not found on the cluster, installing it now. This may take a few minutes...
 'Microsoft.Flux' extension was successfully installed on the cluster
@@ -1163,6 +1176,6 @@ General information about migration from Flux v1 to Flux v2 is available in the 
 
 ## Next steps
 
-Advance to the next tutorial to learn how to implement CI/CD with GitOps.
+Advance to the next tutorial to learn how to apply configuration at scale with Azure Policy.
 > [!div class="nextstepaction"]
-> [Implement CI/CD with GitOps](./tutorial-gitops-flux2-ci-cd.md)
+> [Use Azure Policy to enforce GitOps at scale](./use-azure-policy-flux-2.md).

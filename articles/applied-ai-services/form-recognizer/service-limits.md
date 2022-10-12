@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: lajanuar
 ---
 
@@ -16,15 +16,15 @@ ms.author: lajanuar
 
 This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [Form Recognizer REST API](quickstarts/try-v3-rest-api.md), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
+For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer REST API](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
 | **Concurrent Request limit** | 1 | 15 (default value) |
 | Adjustable | No | Yes<sup>2</sup> |
-| **Max document size** | 500 MB | 500 MB |
+| **Max document size** | 4 MB | 500 MB |
 | Adjustable | No | No |
-| **Max number of pages (Analysis)** | 2 | No limit |
+| **Max number of pages (Analysis)** | 2 | 2000 |
 | Adjustable | No | No |
 | **Max size of labels file** | 10 MB | 10 MB |
 | Adjustable | No | No |
@@ -35,7 +35,7 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-# [Form Recognizer v3.0 (Preview)](#tab/v30)
+# [Form Recognizer v3.0 ](#tab/v30)
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -54,7 +54,7 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 
 <sup>3</sup> Open a support request to increase the monthly training limit.
 
-# [Form Recognizer v2.1 (GA)](#tab/v21)
+# [Form Recognizer v2.1 ](#tab/v21)
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -139,4 +139,4 @@ Generally, it's highly recommended to test the workload and the workload pattern
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about error codes and troubleshooting](preview-error-guide.md)
+> [Learn about error codes and troubleshooting](v3-error-guide.md)

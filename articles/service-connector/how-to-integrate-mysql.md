@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Database for MySQL with Service Connector
 description: Integrate Azure Database for MySQL into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 06/13/2022
+ms.date: 09/26/2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Integrate Azure Database for MySQL with Service Connector
@@ -17,21 +17,24 @@ This page shows the supported authentication types and client types of Azure Dat
 
 - Azure App Service
 - Azure Container Apps
-- Azure Spring Cloud
+- Azure Spring Apps
 
 ## Supported authentication types and client types
 
-| Client type                     | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|---------------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| .NET (MySqlConnector)           |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java (JDBC)                     |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC)       |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Node.js (mysql)                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python (mysql-connector-python) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python-Django                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Go (go-sql-driver for mysql)    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| PHP (mysqli)                    |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Ruby (mysql2)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+Supported authentication and clients for App Service, Container Apps, and Azure Spring Apps:
+
+| Client type                     | System-assigned managed identity     | User-assigned managed identity | Secret / connection string           | Service principal |
+|---------------------------------|--------------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET (MySqlConnector)           |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Go (go-sql-driver for mysql)    |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (JDBC)                     | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC)       | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js (mysql)                 |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Python (mysql-connector-python) |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Python-Django                   |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| PHP (mysqli)                    |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Ruby (mysql2)                   |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| None                            |                                      |                                | ![yes icon](./media/green-check.png) |                   |
 
 ## Default environment variable names or application properties
 
@@ -49,12 +52,26 @@ Use the connection details below to connect compute services to Azure Database f
 |-----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>&password=<Uri.EscapeDataString(<MySQL-DB-password>)` |
 
+### Java (JDBC) system-assigned managed identity
+
+| Default environment variable name | Description                  | Example value                                                                                                          |
+|-----------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| AZURE_MYSQL_CONNECTIONSTRING      | JDBC MySQL connection string | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required&user=<MySQL-DB-username>` |
+
 ### Java - Spring Boot (JDBC) secret / connection string
 
 | Application properties      | Description                   | Example value                                                                                 |
 |-----------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
 | spring.datatsource.url      | Spring Boot JDBC database URL | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
 | spring.datatsource.username | Database username             | `<MySQL-DB-username>@<MySQL-DB-name>`                                                         |
+| spring.datatsource.password | Database password             | `MySQL-DB-password`                                                                           |
+
+### Java - Spring Boot (JDBC) system-assigned managed identity
+
+| Application properties      | Description                   | Example value                                                                                 |
+|-----------------------------|-------------------------------|-----------------------------------------------------------------------------------------------|
+| spring.datatsource.url      | Spring Boot JDBC database URL | `jdbc:mysql://<MySQL-DB-name>.mysql.database.azure.com:3306/<MySQL-DB-name>?sslmode=required` |
+| spring.datatsource.username | Database username             | `Connection-Name`                                                                             |
 | spring.datatsource.password | Database password             | `MySQL-DB-password`                                                                           |
 
 ### Node.js (mysql) secret / connection string

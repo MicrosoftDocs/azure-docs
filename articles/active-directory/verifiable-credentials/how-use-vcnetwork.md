@@ -3,7 +3,7 @@ title: How to use the Microsoft Entra Verified ID Network
 description: In this article, you learn how to use the Microsoft Entra Verified ID Network to verify credentials
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -16,10 +16,6 @@ ms.author: barclayn
 # Verifying credentials using the Microsoft Entra Verified ID Network
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

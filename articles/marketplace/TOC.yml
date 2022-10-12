@@ -20,7 +20,7 @@
     - name: Manage tenants
       href: manage-tenants.md    
     - name: Find or create a company work account
-      href: company-work-accounts.md
+      href: /partner-center/azure-active-directory-tenants-and-partner-center?context=/azure/marketplace/context/context
     - name: Notifying Microsoft
       href: submit-legal-notice.md
   - name: Manage users
@@ -185,8 +185,10 @@
       items:
       - name: Plan the offer
         href: marketplace-containers.md
-      - name: Prepare technical assets
+      - name: Prepare technical assets for a container image
         href: azure-container-technical-assets.md
+      - name: Prepare technical assets for a Kubernetes application
+        href: azure-container-technical-assets-kubernetes.md
     - name: Create the offer
       items:
       - name: Create the offer
@@ -205,10 +207,14 @@
           href: azure-container-plan-setup.md
         - name: Plan listing
           href: azure-container-plan-listing.md
-        - name: Plan availability
+        - name: Plan pricing and availability
           href: azure-container-plan-availability.md
-        - name: Plan technical configuration
+        - name: Plan technical configuration for container images
           href: azure-container-plan-technical-configuration.md
+        - name: Plan technical configuration for Kubernetes applications
+          href: azure-container-plan-technical-configuration-kubernetes.md
+        - name: Container certification troubleshooting
+          href: azure-container-certification-faq.yml
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer
@@ -453,6 +459,50 @@
       href: create-new-saas-offer-marketing.md 
     - name: Go live
       href: test-publish-saas-offer.md
+  - name: Office store apps
+    items: 
+    - name: Why publish an Office store app? 
+      href: why-publish.md
+    - name: Submit to AppSource via Partner Center
+      href: submit-to-appsource-via-partner-center.md
+    - name: Create and manage a Partner Center account
+      items:
+        - name: Open an account
+          href: open-a-developer-account.md
+        - name: Manage account settings and profile
+          href: manage-account-settings-and-profile.md
+    - name: Prepare to publish
+      href: checklist.md
+    - name: Store step-by-step submission guide
+      href: add-in-submission-guide.md
+    - name: App submission FAQ
+      href: appsource-submission-faq.yml
+    - name: Reserve app name
+      href: reserve-solution-name.md
+    - name: Manage your submitted app
+      items:
+        - name: Manage app name
+          href: manage-solution-names.md
+        - name: Create or update client IDs and secrets
+          href: create-or-update-client-ids-and-secrets.md
+        - name: Find Store product GUID
+          href: find-office-guid.md  
+    - name: Create and market your app
+      items: 
+        - name: Create effective Store listings
+          href: create-effective-office-store-listings.md
+        - name: Craft effective Store images
+          href: craft-effective-appsource-store-images.md
+        - name: Optimize add-in placement and ranking
+          href: optimize-for-store-discovery.md
+        - name: Prepare localized solutions
+          href: prepare-localized-solutions.md
+        - name: Promote your solution
+          href: promote-your-office-store-solution.md
+        - name: Monetize your add-in as an SaaS offer
+          href: monetize-addins-through-microsoft-commercial-marketplace.md
+        - name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
+          href: submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md
   - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offer
@@ -509,6 +559,16 @@
     href: ratings-reviews.md
   - name: Customer retention dashboard
     href: customer-retention-dashboard.md
+  - name: Analyze your Office store app
+    items:
+    - name: Analyze performance
+      href: view-acquisitions-report.md
+    - name: Analyze usage
+      href: view-usage-report.md
+    - name: Teams apps usage report
+      href: teams-apps-usage.md
+    - name: Ratings and reviews
+      href: ratings-reviews.md
   - name: Programmatic access to analytics
     items:
     - name: Get started

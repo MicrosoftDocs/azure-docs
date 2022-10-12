@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel Threat Monitoring for SAP container configuration file reference | Microsoft Docs
+title: Microsoft Sentinel Solution for SAP container configuration file reference
 description: Description of settings available in systemconfig.ini file
 author: MSFTandrelom
 ms.author: andrelom
@@ -7,11 +7,6 @@ ms.topic: reference
 ms.date: 03/03/2022
 ---
 # Systemconfig.ini file reference
-
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
-> [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The *systemconfig.ini* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
@@ -184,9 +179,13 @@ extractuseremail = <True/False>
 apiretry = <True/False>
 auditlogforcexal = <True/False>
 auditlogforcelegacyfiles = <True/False>
+azure_resource_id = <Azure _ResourceId>
+# Used to force a specific resource group for the SAP tables in Log Analytics, useful for applying RBAC on SAP data
+# example - /subscriptions/1234568-qwer-qwer-qwer-123456789/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.compute/virtualmachines/VIRTUAL_MACHINE_NAME
+# for more information - https://learn.microsoft.com/azure/azure-monitor/logs/log-standard-columns#_resourceid.
 
 timechunk = <value>
-# Default timechunk value is 60 (minutes). For certain tables, data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
+# Default timechunk value is 60 (minutes). For certain tables, the data connector retrieves data from the ABAP server using timechunks (collecting all events that occurred within a certain timestamp). On busy systems this may result in large datasets, so to reduce memory and CPU utilization footprint, consider configuring to a smaller value.
 ```
 
 ### ABAP Table Selector section
@@ -215,29 +214,31 @@ PAHI_FULL = <True/False>
 AGR_AGRS_FULL = <True/False>
 USRSTAMP_FULL = <True/False>
 USRSTAMP_INCREMENTAL = <True/False>
+SNCSYSACL_FULL = <True/False> (Preview)
+USRACL_FULL = <True/False> (Preview)
 ```
 ## Next steps
 
-Learn more about the Microsoft Sentinel Threat Monitoring for SAP solutions:
+Learn more about the Microsoft Sentinel Solution for SAP:
 
-- [Deploy Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying Threat Monitoring for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Threat Monitoring for SAP data connector with SNC](configure-snc.md)
+- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Threat Monitoring for SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel Solution for SAP solution deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel Threat Monitoring for SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Threat Monitoring for SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 

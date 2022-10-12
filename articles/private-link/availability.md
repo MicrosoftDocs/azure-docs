@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 3/15/2021
-ms.custom: template-concept,references_regions
+ms.custom: template-concept, references_regions, ignite-2022
 ---
 
 # Azure Private Link availability
@@ -26,7 +26,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
-| Azure Cognitive Services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/cognitive-services/cognitive-services-virtual-networks#use-private-endpoints)  |
+| Azure Cognitive Services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](../cognitive-services/cognitive-services-virtual-networks.md#use-private-endpoints)  |
 
 ### Analytics
 
@@ -59,7 +59,7 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |  Azure SQL Database         | All public regions <br/> All Government regions<br/>All China regions      |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn how to create a private endpoint for Azure SQL](./tutorial-private-endpoint-sql-portal.md)      |
-|Azure Cosmos DB|  All public regions<br/> All Government regions</br> All China regions | |GA <br/> [Learn how to create a private endpoint for Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
+|Azure Cosmos DB|  All public regions<br/> All Government regions</br> All China regions | |GA <br/> [Learn how to create a private endpoint for Azure Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
 |  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions<br/>All China regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
 |  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
@@ -78,7 +78,7 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
-|  Azure Digital Twins         | All public regions supported by Azure Digital Twins     |  | Preview <br/> [Learn how to create a private endpoint for Azure Digital Twins.](/azure/api-management/private-endpoint)  |
+|  Azure Digital Twins         | All public regions supported by Azure Digital Twins     |  | Preview <br/> [Learn how to create a private endpoint for Azure Digital Twins.](../api-management/private-endpoint.md)  |
 
 ### Management and Governance
 
@@ -87,7 +87,7 @@ The following tables list the Private Link services and the regions where they'r
 | Azure Automation  | All public regions<br/> All Government regions |  | GA </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)|
 |Azure Backup | All public regions<br/> All Government regions   |  | GA <br/> [Learn how to create a private endpoint for Azure Backup.](../backup/private-endpoints.md)   |
 | Microsoft Purview | Southeast Asia, Australia East, Brazil South, North Europe, West Europe, Canada Central, East US, East US 2, EAST US 2 EUAP, South Central US, West Central US, West US 2, Central India, UK South   | [Select for known limitations](../purview/catalog-private-link-troubleshoot.md#known-limitations) | GA <br/> [Learn how to create a private endpoint for Microsoft Purview.](../purview/catalog-private-link.md)   |
-| Azure Migrate | All public regions<br/> All Government regions |  | GA </br> [Discover and assess servers for migration using Private Link.](/azure/migrate/discover-and-assess-using-private-endpoints) |
+| Azure Migrate | All public regions<br/> All Government regions |  | GA </br> [Discover and assess servers for migration using Private Link.](../migrate/discover-and-assess-using-private-endpoints.md) |
 
 ### Security
 

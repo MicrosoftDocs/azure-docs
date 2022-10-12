@@ -4,7 +4,7 @@ description: How manage the settings for groups using Azure Active Directory cmd
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -320,6 +320,10 @@ This step removes settings at directory level, which apply to all Office groups 
 
 ## Cmdlet syntax reference
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2).
+  
+## Manage group settings using Microsoft Graph
+
+To configure and manage group settings using Microsoft Graph, see the [groupSetting resource type](/graph/api/resources/groupsetting?view=graph-rest-1.0&preserve-view=true) and its associated methods.
 
 ## Additional reading
 

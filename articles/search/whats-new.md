@@ -7,16 +7,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/17/2022
+ms.date: 08/03/2022
 ms.custom: references_regions 
 ---
 
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up to date with service updates. 
+Learn about the latest updates to Azure Cognitive Search. The following links supplement this article:
 
-* [**Preview features**](search-api-preview.md) is a list of current features that haven't been approved for production workloads.
-* [**Previous versions**](/previous-versions/azure/search/) is an archive of earlier feature announcements.
+* [**Previous versions**](/previous-versions/azure/search/) is an archive of feature announcements from 2019 and 2020.
+* [**Preview features**](search-api-preview.md) are announced here in "What's New", mixed in with announcements about general availability or feature retirement. If you need to quickly determine the status of a particular feature, visit the preview features page to see if it's listed.
 
 ## June 2022
 
@@ -51,7 +51,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with serv
 | May | [Azure MySQL indexer (preview)](search-howto-index-mysql.md) | Public preview, REST api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), and Azure portal. |
 | May | [More queryLanguages for spell check and semantic results](/rest/api/searchservice/preview-api/search-documents#queryLanguage) | See [Announcement (techcommunity blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multilingual-support-for-semantic-search-on-azure/ba-p/2385110). Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview, [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2), or [Search explorer](search-explorer.md) in Azure portal. |
 | May| [More regions for double encryption](search-security-manage-encryption-keys.md#double-encryption) | Generally available in all regions, subject to [service creation dates](search-security-manage-encryption-keys.md#double-encryption). |
-| April | [Gremlin API support (preview)](search-howto-index-cosmosdb-gremlin.md) | Public preview ([by request](https://aka.ms/azure-cognitive-search/indexer-preview)), using api-version=2020-06-30-Preview. |
+| April | [Azure Cosmos DB for Apache Gremlin support (preview)](search-howto-index-cosmosdb-gremlin.md) | Public preview ([by request](https://aka.ms/azure-cognitive-search/indexer-preview)), using api-version=2020-06-30-Preview. |
 | March | [Semantic search (preview)](semantic-search-overview.md) | Search results relevance scoring based on semantic models. Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview or [Search explorer](search-explorer.md) in Azure portal. Region and tier restrictions apply. |
 | March | [Spell check query terms (preview)](speller-how-to-add.md) | The `speller` option works with any query type (simple, full, or semantic). Public preview, REST only, api-version=2020-06-30-Preview|
 | March | [SharePoint indexer (preview)](search-howto-index-sharepoint-online.md) | Public preview, REST only, api-version=2020-06-30-Preview |

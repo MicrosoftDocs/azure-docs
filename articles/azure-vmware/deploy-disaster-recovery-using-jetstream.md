@@ -9,7 +9,6 @@ ms.custom: references_regions
 
 # Deploy disaster recovery using JetStream DR software
 
-
 [JetStream DR](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is a cloud-native disaster recovery solution designed to minimize downtime of virtual machines (VMs) if there was a disaster. Instances of JetStream DR are deployed at both the protected and recovery sites. 
 
 JetStream is built on the foundation of Continuous Data Protection (CDP), using [VMware vSphere API for I/O filtering (VAIO) framework](https://core.vmware.com/resource/vmware-vsphere-apis-io-filtering-vaio), which enables minimal or close to no data loss. JetStream DR provides the level of protection wanted for business and mission-critical applications. It also enables cost-effective DR by using minimal resources at the DR site and using cost-effective cloud storage, such as [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/).
@@ -274,7 +273,7 @@ Once JetStream DR MSA and JetStream VIB are installed on the Azure VMware Soluti
 1. [Select the VMs](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/select-vms-for-protection/) you want to protect and then [start VM protection](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/start-vm-protection/).
 
  
-For remaining configuration steps for JetStream DR, such as creating a failover runbook, invoking failover to the DR site, and invoking failback to the primary site, see the [JetStream Admin Guide documentation](https://docs.delphix.com/docs51/delphix-jet-stream/jet-stream-admin-guide).  
+For remaining configuration steps for JetStream DR, such as creating a failover runbook, invoking failover to the DR site, and invoking failback to the primary site, see the [JetStream Admin Guide documentation](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)).  
  
 ## Disable JetStream DR on an Azure VMware Solution cluster  
  

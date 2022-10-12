@@ -73,9 +73,32 @@ Support | Details
 **Port access** | For Windows server, need access on port 5985 (HTTP) and for Linux servers, need access on port 22(TCP).
 **Discovery** | Software inventory is performed by directly connecting to the servers using the server credentials added on the appliance. <br/><br/> The appliance gathers the information about the software inventory from Windows servers using PowerShell remoting and from Linux servers using SSH connection. <br/><br/> Software inventory is agentless. No agent is installed on the servers.
 
+## SQL Server instance and database discovery requirements
+
+[Software inventory](how-to-discover-applications.md) identifies SQL Server instances. Using this information, the appliance attempts to connect to respective SQL Server instances through the Windows authentication or SQL Server authentication credentials that are provided in the appliance configuration manager. Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+After the appliance is connected, it gathers configuration and performance data for SQL Server instances and databases. SQL Server configuration data is updated once every 24 hours. Performance data is captured every 30 seconds.
+
+Support | Details
+--- | ---
+**Supported servers** | supported only for servers running SQL Server in your VMware, Microsoft Hyper-V, and Physical/ Baremetal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. You can discover up to 300 SQL Server instances or 6,000 SQL databases, whichever is less.
+**Windows servers** | Windows Server 2008 and later are supported.
+**Linux servers** | Currently not supported.
+**Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager.
+**SQL Server access** | Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
+**SQL Server versions** | SQL Server 2008 and later are supported.
+**SQL Server editions** | Enterprise, Standard, Developer, and Express editions are supported.
+**Supported SQL configuration** | Currently, only discovery for standalone SQL Server instances and corresponding databases is supported.<br /><br /> Identification of Failover Cluster and Always On availability groups is not supported.
+**Supported SQL services** | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) is not supported.
+
+> [!NOTE]
+> By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
+>
+> However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure.The following table summarizes the requirements for setting up agentless dependency analysis:
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers which can be easily visualized with a map view in Azure Migrate project and can be used to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis:
 
 Support | Details
 --- | ---

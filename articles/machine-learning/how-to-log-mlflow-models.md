@@ -52,7 +52,7 @@ accuracy = accuracy_score(y_test, y_pred)
 ```
 
 > [!TIP]
-> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demostrates how to log a model with preprocessing using pipelines.
+> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/notebooks/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demostrates how to log a model with preprocessing using pipelines.
 
 ## Logging models with a custom signature, environment or samples
 
@@ -185,7 +185,7 @@ mlflow.pyfunc.log_model("classifier",
 
 # [Using artifacts](#tab/artifacts)
 
-Wrapping your model may be simple, but sometimes your model needs multiple pieces to be loaded or it can't just be serialized simply as a Pickle file. In those cases, the `PythonModel` supports indicating an arbitrary list of **artifacts**. Each artifact will be packaged along with your model.
+Wrapping your model may be simple, but sometimes your model is composed by multiple pieces that need to be loaded or it can't just be serialized as a Pickle file. In those cases, the `PythonModel` supports indicating an arbitrary list of **artifacts**. Each artifact will be packaged along with your model.
 
 Use this method when:
 > [!div class="checklist"]
@@ -275,13 +275,13 @@ mlflow.pyfunc.log_model("classifier",
 
 # [Using a model loader](#tab/loader)
 
-Sometimes your model logic is complex and there are several source code files being used to make your model work. This would be the case when you have a Python library for your model for instance. In this scenario, you want to package the library all along with your model so it can move as a single piece. 
+Sometimes your model logic is complex and there are several source files that your model loads on inference time. This would be the case when you have a Python library for your model for instance. In this scenario, you want to package the library all along with your model so it can move as a single piece. 
 
 Use this method when:
 > [!div class="checklist"]
 > * Your model can't be serialized in Pickle format or there is a better format available for that.
-> * Your model can be stored in a folder where all the requiered artifacts are placed.
-> * Your model's logic is complex and it requires multiple source files. Potentially, there is a library that supports your model.
+> * Your model artifacts can be stored in a folder where all the requiered artifacts are placed.
+> * Your model source code is complex and it requires multiple Python files. Potentially, there is a library that supports your model.
 > * You want to customize the way the model is loaded and how the `predict` function works.
 
 MLflow supports this kind of models too by allowing you to specify any arbitrary source code to package along with the model as long as it has a *loader module*. Loader modules can be specified in the `log_model()` instruction using the argument `loader_module` which indicates the Python namespace where the loader is implemented. The argument `code_path` is also required, where you indicate the source files where the `loader_module` is defined. You are required to implement in this namespace a function called `_load_pyfunc(data_path: str)` that received the path of the artifacts and returns an object with a method predict (at least).
@@ -292,7 +292,7 @@ model.save_model(model_path)
 
 mlflow.pyfunc.log_model("classifier", 
                         data_path=model_path,
-                        code_path=['loader_module.py'],
+                        code_path=['src'],
                         loader_module='loader_module'
                         signature=signature)
 ```
@@ -301,10 +301,11 @@ mlflow.pyfunc.log_model("classifier",
 > * The model was saved using the save method of the framework used (it's not saved as a pickle).
 > * A new parameter, `data_path`, was added pointing to the folder where the model's artifacts are located. This can be a folder or a file. Whatever is on that folder or file, it will be packaged with the model.
 > * A new parameter, `code_path`, was added pointing to the location where the source code is placed. This can be a path or a single file. Whatever is on that folder or file, it will be packaged with the model.
+> * `loader_module` is the Python module where the function `_load_pyfunc` is defined.
 
-The corresponding `loader_module.py` implementation would be:
+The folder `src` contains a file called `loader_module.py` (which is the loader module):
 
-__loader_module.py__
+__src/loader_module.py__
 
 ```python
 class MyModel():

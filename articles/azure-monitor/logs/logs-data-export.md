@@ -54,9 +54,9 @@ For more information, including the data export billing timeline, see [Azure Mon
 
 Data export destination must be available before creating export rules in your workspace. Destinations don't have to be in the same subscription as your workspace. When using Azure Lighthouse, it is also possible send data to destinations in another Azure Active Directory tenant.
 
-### Storage Account
+You need to have 'write' permissions to both workspace and destination to configure data export rule on any table in workspace. The shared access policy for the Event Hubs namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the export rule, you must have the ListKey permission on that Event Hubs authorization rule.
 
-You need to have 'write' permissions to both workspace and destination to configure data export rule. 
+### Storage Account
 
 Don't use an existing Storage Account that has other, non-monitoring data to better control access to the data, and prevent reaching storage ingress rate limit, failures, and latency. 
 
@@ -73,8 +73,6 @@ The format of blobs in Storage Account is in [JSON lines](../essentials/resource
 [![Storage sample data](media/logs-data-export/storage-data.png "Screenshot of data format in blob.")](media/logs-data-export/storage-data-expand.png#lightbox)
 
 ### Event Hubs
-
-You need to have 'write' permissions to both workspace and destination to configure data export rule. The shared access policy for the Event Hubs namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the export rule, you must have the ListKey permission on that Event Hubs authorization rule.
 
 Don't use an existing Event Hubs that has, non-monitoring data to prevent reaching Event Hubs namespace ingress rate limit, failures, and latency.
 

@@ -128,9 +128,9 @@ You can't modify existing fields to make them filterable. Instead, you need to a
 
 Text filters match string fields against literal strings that you provide in the filter: `$filter=Category eq 'Resort and Spa'`
 
-Unlike full-text search, there is no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'` does not match, but `$filter=f eq 'sunny day'` will. 
+Unlike full-text search, there is no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'sunny'` does not match, but `$filter=f eq 'sunny day'` will. 
 
-Text strings are case-sensitive. There is no lower-casing of upper-cased words: `$filter=f eq 'Sunny day'` will not find "sunny day".
+Text strings are case-sensitive which means text filters are case sensitive by default. For example, `$filter=f eq 'Sunny day'` will not find "sunny day". However, you can use a [normalizer](search-normalizers.md) to make it so filtering isn't case sensitive.
 
 ### Approaches for filtering on text
 

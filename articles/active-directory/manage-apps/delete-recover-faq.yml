@@ -27,7 +27,7 @@ sections:
         answer: |
             > A non-admin user can create no more than 250 Azure AD resources that include applications and service principals. Both active resources and deleted resources that are available to restore count toward this quota. Even if you delete more applications that you don't need, they'll still add count to the quota. To free up the quota, you need to [permanently delete](restore-application.md#permanently-delete-an-enterprise-application) objects in the deleted items container.
             >
-            > For more information about the service limits, see [Azure resource management](/azure/azure-resource-manager/management/azure-subscription-service-limits?msclkid=6cb6cc54c68711ec93eb9539fce3cc28#active-directory-limits).
+            > For more information about the service limits, see [Azure resource management](../../azure-resource-manager/management/azure-subscription-service-limits.md?msclkid=6cb6cc54c68711ec93eb9539fce3cc28#active-directory-limits).
             >
             >
       - question: |
@@ -35,7 +35,7 @@ sections:
         answer: |
             > Soft-deleted application and service principal objects go into the deleted items container and remain available to restore for up to 30 days. After 30 days, they're permanently deleted, and this frees up the quota.
             >
-            > To learn how to view deleted application objects through the Azure portal, see [View restorable applications](/develop/howto-restore-app.md#to-view-your-restorable-applications).
+            > To learn how to view deleted application objects through the Azure portal, see [View restorable applications](../develop/howto-restore-app.md#to-view-your-restorable-applications).
             >
             > Deleted service principals can't be viewed through the Azure portal. To learn how to view your restorable service principals using PowerShell or Microsoft Graph API, see [View restorable service principals](restore-application.md#view-restorable-enterprise-applications).
             >

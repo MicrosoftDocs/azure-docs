@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 09/07/2022
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
-ms.reviewer: ludwignick, marsma
+ms.reviewer: ludwignick, sreyanthmora, marsma
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
 

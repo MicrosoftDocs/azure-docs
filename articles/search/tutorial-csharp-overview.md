@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 08/30/2022
 ms.custom: devx-track-csharp
 ms.devlang: csharp
 ---
@@ -22,9 +22,9 @@ The application is available:
 
 ## What does the sample do? 
 
-This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the Search Index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the Search Index, of the book. 
+This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the search index's suggest feature to complete the text. Once the query finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the search index, of the book. 
 
-:::image type="content" source="./media/tutorial-javascript-overview/cognitive-search-enabled-book-website.png" alt-text="This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the Search Index's suggest feature to complete the text. Once the search finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the Search Index, of the book.":::
+:::image type="content" source="./media/tutorial-javascript-overview/cognitive-search-enabled-book-website.png" alt-text="This sample website provides access to a catalog of 10,000 books. A user can search the catalog by entering text in the search bar. While the user enters text, the website uses the search index's suggest feature to complete the text. Once the search finishes, the list of books is displayed with a portion of the details. A user can select a book to see all the details, stored in the search index, of the book.":::
 
 The search experience includes: 
 
@@ -46,7 +46,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/m
 
 Install the following for your local development environment. 
 
-- [.NET 3](https://dotnet.microsoft.com/download/dotnet/5.0)  
+- [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0)  
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
@@ -76,9 +76,9 @@ Forking the sample repository is critical to be able to deploy the Static Web Ap
 ## Create a resource group for your Azure resources
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
-1. In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.
+1. In Resources, select Add (**+**), and then select **Create Resource Group**.
 
-    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.":::
+    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In Resources, select Add (**+**), and then select **Create Resource Group**.":::
 1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
 1. Select a location close to you.
 1. When you create the Cognitive Search and Static Web App resources, later in the tutorial, use this resource group. 

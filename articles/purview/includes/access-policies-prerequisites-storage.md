@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 03/14/2022
+ms.date: 08/25/2022
 ms.custom: 
 ---
 
@@ -35,15 +35,18 @@ If the output is *Registering*, wait at least 10 minutes, and then retry the com
 After you’ve enabled the access policy above, create new Azure Storage account(s) in one of the regions listed below. You can [follow this guide to create one](../../storage/common/storage-account-create.md).
 
 Currently, Microsoft Purview access policies can only be enforced in the following Azure Storage regions:
--   France Central
--   Canada Central
 -   East US
 -   East US2
 -   South Central US
 -   West US
 -   West US2
+-   Canada Central
 -   North Europe
 -   West Europe
+-   France Central
 -   UK South
+-   East Asia
 -   Southeast Asia
+-   Japan East
+-   Japan West
 -   Australia East

@@ -74,7 +74,7 @@ The following diagram depicts connectivity using public endpoints.
 
 - [Private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint)
     - Access is more secure than the service endpoint.
-    - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premise)
+    - Access to NFS share via private link is available from within and outside the storage account's Azure region (cross-region, on-premises)
     - Virtual network peering with virtual networks hosted in the private endpoint give NFS share access to the clients in peered virtual networks.
     - Private endpoints can be used with ExpressRoute, point-to-site, and site-to-site VPNs.
 

@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a Linux VM s
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory
@@ -103,6 +103,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, use CURL to make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
  
+ 
     The CURL request for the access token is below.  
     
     ```bash

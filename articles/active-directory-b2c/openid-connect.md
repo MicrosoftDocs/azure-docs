@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 08/12/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -43,7 +43,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Fjwt.ms%2F
 &response_mode=fragment
-&scope=&scope=openid%20offline_access%20{application-id-uri}/{scope-name}
+&scope=openid%20offline_access%20{application-id-uri}/{scope-name}
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 ```

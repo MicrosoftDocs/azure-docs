@@ -9,7 +9,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/02/2022
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
  
 <a name="HOLTop"></a>
@@ -28,6 +28,10 @@ Use the OCR client library to read printed and handwritten text from a remote im
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=OCR&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 
 ## Read printed and handwritten text
 
@@ -111,6 +115,9 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
    ---
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=OCR&Page=quickstart&Section=Read-printed-and-handwritten-text" target="_target">I ran into an issue</a>
+
 ## Output
 
 ```console
@@ -137,6 +144,8 @@ nt Daily Values are based on Vitamin A 50%
 calorie diet.
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Vision&Product=OCR&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 
