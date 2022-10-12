@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a GoLang web app'
-description: Deploy your first Go Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
+description: Deploy your first Go Hello World to Azure App Service in minutes.
 ms.topic: quickstart
 ms.date: 10/13/2022
 ms.devlang: golang
@@ -25,11 +25,11 @@ To complete this quickstart, you need:
 
 First, create a folder for your project.
 
-Go to the terminal window, change into the folder you just created and run `go mod init <ModuleName>`. The ModuleName could just be the folder name at this point.
+Go to the terminal window, change into the folder you created and run `go mod init <ModuleName>`. The ModuleName could just be the folder name at this point.
 
 The `go mod init` command creates a go.mod file to track your code's dependencies. So far, the file includes only the name of your module and the Go version your code supports. But as you add dependencies, the go.mod file will list the versions your code depends on.
 
-Create a file called main.go. We will be doing most of our coding here.
+Create a file called main.go. We'll be doing most of our coding here.
 
 ```golang
 package main
@@ -46,9 +46,9 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-This program use the `net.http` package to handle all requests to the web root with the HelloServer function. The call to `http.ListenAndServe` tells the server to listen on the TCP network address :8080
+This program uses the `net.http` package to handle all requests to the web root with the HelloServer function. The call to `http.ListenAndServe` tells the server to listen on the TCP network address `:8080`.
 
-If you want to do a sanity check, you can run this by opening up a terminal, navigating to your project’s directory and then calling `go run main.go`. Now open a browser window and type the URL `http://localhost:8080/world`. You should see the message `Hello, world!`.
+Using a terminal, go to your project’s directory and run `go run main.go`. Now open a browser window and type the URL `http://localhost:8080/world`. You should see the message `Hello, world!`.
 
 ## 2 - Create a web app in Azure
 
@@ -58,7 +58,7 @@ Azure CLI commands can be run on a computer with the [Azure CLI installed](/cli/
 
 Azure CLI has a command `az webapp up` that will create the necessary resources and deploy your application in a single step.
 
-If necessary, login to Azure using [az login](/cli/azure/authenticate-azure-cli).
+If necessary, log in to Azure using [az login](/cli/azure/authenticate-azure-cli).
 
 ```azurecli
 az login
