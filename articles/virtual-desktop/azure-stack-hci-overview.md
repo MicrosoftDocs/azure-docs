@@ -75,8 +75,8 @@ The following issues affect the preview version of Azure Virtual Desktop for Azu
     
     - [Azure Monitor for Azure Virtual Desktop](azure-monitor.md)
     - [Session host scaling with Azure Automation](set-up-scaling-script.md)
-    - [Autoscale (preview)](autoscale-scaling-plan.md)
-    - [Start VM on connect](start-virtual-machine-connect.md)
+    - [Autoscale plan](autoscale-scaling-plan.md)
+    - [Start VM On Connect](start-virtual-machine-connect.md)
     - [Multimedia redirection (preview)](multimedia-redirection.md)
     - [Per-user access pricing](./remote-app-streaming/licensing.md)
 
@@ -88,7 +88,7 @@ The following issues affect the preview version of Azure Virtual Desktop for Azu
 
 - Azure Virtual Desktop for Azure Stack HCI is not available for use in Azure Government.  
 
-- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
+- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs.md) are broad, so you should only use them for initial performance estimates.
 
 If there are any issues you encounter during the preview that aren't on this list, we encourage you to report them.
 
