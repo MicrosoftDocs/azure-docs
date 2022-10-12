@@ -150,7 +150,7 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other rev
 
 2) Use the Front Door endpoint for redirects
 
-    App Service is usually not accessible directly when exposed via Azure Front Door. This can be prevented for example by exposing App Service via Private Link in Azure Front Door Premium. To prevent the authentication workflow to redirect traffic back to App Service directly, it is important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
+    App Service is usually not accessible directly when exposed via Azure Front Door. This can be prevented, for example, by exposing App Service via Private Link in Azure Front Door Premium. To prevent the authentication workflow to redirect traffic back to App Service directly, it is important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
 
 3) Ensure that App Service is using the right redirect URI
 
