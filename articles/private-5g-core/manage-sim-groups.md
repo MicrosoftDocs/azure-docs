@@ -68,13 +68,13 @@ To create a new SIM group:
         :::image type="content" source="media/manage-sim-groups/create-sim-group-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
 
 1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation. 
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     :::image type="content" source="media/manage-sim-groups/create-sim-group-review-create-tab.png" alt-text="Screenshot of the Azure portal showing validated configuration for a SIM group.":::
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to create the SIM group. The Azure portal will display the following confirmation screen when the SIM group has been created. 
+1. Once your configuration has been validated, you can select **Create** to create the SIM group. The Azure portal will display the following confirmation screen when the SIM group has been created.
 
     :::image type="content" source="media/manage-sim-groups/sim-group-deployment-complete.png" alt-text="Screenshot of the Azure portal. It shows confirmation of the successful creation of a SIM group.":::
 
@@ -84,9 +84,27 @@ To create a new SIM group:
 
 1. At this point, your SIMs will not have any assigned SIM policies and so will not be brought into service. If you want to begin using the SIMs, [assign a SIM policy to them](manage-existing-sims.md#assign-sim-policies). If you've configured static IP address allocation for your packet core instance(s), you may also want to [assign static IP addresses](manage-existing-sims.md#assign-static-ip-addresses) to the SIMs you've provisioned.
 
+## Modify a SIM group
+
+If you have configured CMK encryption for your SIM group, you can modify the key URI and user-assigned identity through the Azure portal.
+
+1. Navigate to the list of SIM groups in your private mobile network, as described in [View existing SIM groups](#view-existing-sim-groups).
+1. Select the SIM group you want to modify.
+1. Select the **Encryption** blade.
+
+    :::image type="content" source="media/manage-sim-groups/modify-sim-group-encryption.png" alt-text="Screenshot of the Azure portal showing the Select user assigned managed identity selection window for a SIM group."  lightbox="media/modify-sim-group-encryption.png" :::
+
+1. If you want to change the key URI, enter the new value in the **Key URI** field using the values you collected in [Collect SIM and SIM group values](collect-required-information-for-private-mobile-network.md#collect-sim-and-sim-group-values).
+1. If you want to change the user-assigned identity, click the current **User-assigned identity** hyperlink. This expands a new window to select the new identity. Select the identity created in [Collect SIM and SIM group values](collect-required-information-for-private-mobile-network.md#collect-sim-and-sim-group-values) and select **Add**.
+
+    :::image type="content" source="media/manage-sim-groups/modify-sim-group-identity-select.png" alt-text="Screenshot of the Azure portal showing the Select user assigned managed identity selection window for a SIM group."  lightbox="media/modify-sim-group-identity-select.png" :::
+
+1. Select **Next**.
+1. Review your changes. If they are correct, select **Create**.
+
 ## Delete a SIM group
 
-You can delete SIM groups through the Azure portal. 
+You can delete SIM groups through the Azure portal.
 
 1. Navigate to the list of SIM groups in your private mobile network, as described in [View existing SIM groups](#view-existing-sim-groups).
 1. Make sure any SIMs in the SIM group are no longer needed. When you delete the SIM group, all SIMs that it contains will be deleted.
