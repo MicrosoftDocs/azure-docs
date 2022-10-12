@@ -9,12 +9,6 @@
       href: overview-what-is-azure-machine-learning.md
     - name: Glossary
       href: azure-machine-learning-glossary.md
-    - name: What is Azure Machine Learning studio?
-      displayName: AML, studio, designer
-      href: overview-what-is-machine-learning-studio.md
-    - name: How it works
-      displayName: concepts, definitions, glossary
-      href: concept-azure-machine-learning-v2.md
 - name: Upgrade to v2
   items:
     - name: Upgrade overview
@@ -79,10 +73,8 @@
       href: tutorial-azure-ml-in-a-day.md
     - name: Build models
       items: 
-        - name: Create production ML pipelines (preview)
+        - name: Create production ML pipelines
           href: tutorial-pipeline-python-sdk.md
-        - name: Train a TensorFlow image classification model
-          href: tutorial-train-deploy-image-classification-model-vscode.md
         - name: Automated ML
           items:
             - name: Object detection with AutoML (SDK)
@@ -106,8 +98,6 @@
       items: 
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Build a training pipeline (Python SDK v2)
-      href: tutorial-pipeline-python-sdk.md
 - name: Samples
   items: 
     - name: Jupyter Notebooks

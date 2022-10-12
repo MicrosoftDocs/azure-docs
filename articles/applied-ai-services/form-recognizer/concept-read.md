@@ -7,10 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 
 # Form Recognizer Read OCR model
@@ -40,7 +40,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 | Model | Resources | Model ID |
 |----------|------------|------------|
-|**prebuilt-read**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/v3-0-sdk-rest-api.md)</li><li>[**C# SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Try Form Recognizer
 
@@ -189,11 +189,11 @@ Complete a Form Recognizer quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/v3-0-sdk-rest-api.md)
-> * [**C# SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 

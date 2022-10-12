@@ -130,6 +130,8 @@
               href: operator-best-practices-cluster-isolation.md
             - name: Basic scheduler features
               href: operator-best-practices-scheduler.md
+            - name: Run AKS clusters at scale
+              href: operator-best-practices-run-at-scale.md
             - name: Advanced scheduler features
               href: operator-best-practices-advanced-scheduler.md
             - name: Networking
@@ -525,7 +527,7 @@
         - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
           href: keda-integrations.md
         - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
-          href: keda-troubleshoot.md
+          href: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
     - name: Use Web Application Routing (preview)
       href: web-app-routing.md
     - name: Use cluster extensions

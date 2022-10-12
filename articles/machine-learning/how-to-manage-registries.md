@@ -20,9 +20,9 @@ Azure Machine Learning entities can be grouped into two broad categories:
 * Assets such as __models__, __environments__, __components__, and __datasets__ are durable entities that are _workspace agnostic_. For example, a model can be registered with any workspace and deployed to any endpoint. 
 * Resources such as __compute__, __job__, and __endpoints__ are _transient entities that are workspace specific_. For example, an online endpoint has a scoring URI that is unique to a specific instance in a specific workspace. Similarly, a job runs for a known duration and generates logs and metrics each time it's run. 
 
-Assets lend themselves to being stored a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
+Assets lend themselves to being stored in a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
 
-AzureML registries (preview) enable you to create and use those assets in different workspaces. Since the target workspaces in which you can use assets hosted in a registry can be in different Azure regions, registries support multi region replication for low latency access to assets when they to be used. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
+AzureML registries (preview) enable you to create and use those assets in different workspaces. Registries support multi-region replication for low latency access to assets, so you can use assets in workspaces located in different Azure regions. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 

@@ -16,7 +16,7 @@ ms.author: lajanuar
 
 This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer REST API](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
+For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
