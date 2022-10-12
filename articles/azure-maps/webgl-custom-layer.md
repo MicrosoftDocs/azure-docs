@@ -171,11 +171,8 @@ one of the style options while creating the map.
 You need to add the following script files.  
 
 ```html
-
 <script src="https://cdn.babylonjs.com/babylon.js"></script> 
-
 <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script> 
-
 ```
 
 This sample renders a satellite tower on the map.
