@@ -28903,6 +28903,11 @@
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-desktop/azure-stack-hci-faq.yml",
+            "redirect_url": "/azure/articles/virtual-desktop/azure-stack-hci",
+            "redirect_document_id": false
         }
     ]
 }
