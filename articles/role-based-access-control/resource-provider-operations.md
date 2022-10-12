@@ -1990,7 +1990,7 @@ Azure service: [Azure Data Share](../data-share/index.yml)
 
 ### Microsoft.ElasticSan
 
-Azure service: MicrosoftElasticSan
+Azure service: [Azure Elastic SAN](../storage/elastic-san/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
