@@ -18,6 +18,21 @@ ms.collection: M365-identity-device-management
 ---
 # Default enablement for authentication methods in Azure Active Directory
 
+We have seen increasing attack vectors: link to alex's blog. We will be enabling features for customers to better protect them. 
+
+## Types of default enablement
+
+There are two ways in which a setting can be enabled by default: 
+
+- Scheduled default enablement is a specific date after which all Azure AD tenants have the setting enabled by default. Microsoft announces the schedule to enable a setting by default far in advance to give customers time to prepare for the change. Customers can't opt out when a setting is scheduled to be enabled by default. 
+- Microsoft managed allows Azure AD to enable or disable the setting depending upon current security threats. Customers control whether to allow Microsoft to manage the setting. They can change a setting from Microsoft managed to either explicitly enabled or disabled at any time. 
+
+## Scheduled default enablement
+
+Customers should leverage the rollout controls that exist via API and UX to enable the feature.
+
+## Microsoft managed settings
+
 In addition to configuring Authentication methods policy settings to be either **Enabled** or **Disabled**, IT admins can configure some settings to be **Microsoft managed**. A setting that is configured as **Microsoft managed** allows Azure AD to enable or disable the setting. 
 
 The option to let Azure AD manage the setting is a convenient way for an organization to allow Microsoft to enable or disable a feature by default. Organizations can more easily improve their security posture by trusting Microsoft to manage when a feature should be enabled by default. By configuring a setting as **Microsoft managed** (named *default* in Graph APIs), IT admins can trust Microsoft to enable a security feature they haven't explicitly disabled. 
@@ -28,7 +43,7 @@ Soon, the **Microsoft managed** configuration for number matching will change to
 
 For customers who want to rely upon Microsoft to improve their security posture, setting security features to **Microsoft managed** is an easy way stay ahead of security threats. They can trust Microsoft to determine the best way to configure security settings based on the current threat landscape.  
 
-## Settings that can be Microsoft managed
+### Settings that can be Microsoft managed
 
 The following table lists each setting that can be set to Microsoft managed and whether that setting is enabled or disabled by default. 
 
@@ -37,6 +52,11 @@ The following table lists each setting that can be set to Microsoft managed and 
 | [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Disabled      |
 | [Number matching](how-to-mfa-number-match.md)                                                   | Disabled      |
 | [Additional context in Microsoft Authenticator notifications](how-to-mfa-additional-context.md) | Disabled      |
+
+
+## Transition to scheduled default enablement
+
+As threat vectors change, Azure AD may change settings from **Microsoft managed** to scheduled default enablement. 
 
 ## Next steps
 
