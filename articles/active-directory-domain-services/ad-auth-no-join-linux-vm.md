@@ -32,13 +32,10 @@ To complete the authentication flow we assume you already have:
     - sssd-ldap
     - openldap-clients
 
-> [!NOTE]
-> The test environment in this docs is based on Windows Server 2016 Domain and Forest level on Windows Server 2019 OS.
-
 ## AD Configuration
 
 > [!NOTE]
-> For testing purpose we use LDAP over 389 port. In production environment ensure to use a Certificate for the Bind.
+> For testing purpose we use LDAP over 389 port. In production environment ensure to use a Certificate for the Bind. The test environment for this docs is based on Windows Server 2016 Domain and Forest level on Windows Server 2019 OS.
 
 In order to read Users in you Active Directory Domain Services create a ReadOnlyUser in AD. For create a new user follow the steps below:
 
@@ -58,7 +55,7 @@ Review the information that you provided, and if everything is correct, click Fi
 
 ## Linux VM Configuration
 
-On your Linux VM install the following packages:
+On your Linux VM install the following packages: *sssd sssd-tools sssd-ldap openldap-client*:
 
 ```console
 yum install -y sssd sssd-tools sssd-ldap openldap-client
@@ -74,7 +71,7 @@ ldapsearch -H ldap://<ip-domain-controller>:389 -x \
 
 If the ldap query works fine you will obtain an output with some information like follow:
 
-```console
+---
 extended LDIF
 
 LDAPv3
@@ -223,6 +220,7 @@ enumerate = True
 fallback_homedir = /home/%u
 default_shell = /bin/bash
 ```
+
 Save the file with *ESC + wq!* command.
 
 ## Change permission for sssd.conf and create the obfuscated password
