@@ -69,8 +69,6 @@
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
-    - name: Migrate from EA reporting to Azure Resource Manager APIs
-      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -399,8 +397,6 @@
       href: manage/mca-check-azure-credits-balance.md
     - name: Track your Microsoft Azure Consumption Commitment
       href: manage/track-consumption-commitment.md
-    - name: Migrate from EA reporting to Azure Resource Manager APIs
-      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Purchase and administer reservations
     items:
     - name: Determine what to purchase

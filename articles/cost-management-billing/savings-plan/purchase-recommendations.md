@@ -27,7 +27,7 @@ The following steps define how recommendations are calculated:
 
 The savings plan purchase experience shows up to 10 commitment amounts. All recommendations are based on the last 30 days of usage. For each amount, we include the percentage (off of your current pay-as-you-go costs) that the amount could save you. The percentage of your total compute usage that would be covered with the commitment amount is also included.
 
-By default, the recommendations are for the entire billing scope (billing account or billing profile). You can view subscription and resource group-level recommendations by restricting benefit application to one of those levels. We don't currently support management group-level recommendations.
+By default, the recommendations are for the entire billing scope (billing account or billing profile for MCA and enrollment for EA). You can view subscription and resource group-level recommendations by restricting benefit application to one of those levels. We don't currently support management group-level recommendations.
 
 The first recommendation value is the one that is projected to result in the highest percent savings. The other values allow you to see how increasing or decreasing your commitment could affect both your savings and compute coverage. When the commitment amount is increased, your savings could be reduced because you could end up with reduced utilization. In other words, you'd pay for an hourly commitment that isn't fully used. If you lower the commitment, your savings could also be reduced. Although you'll have increased utilization, there will likely be periods when your savings plan won't fully cover your use. Usage beyond your hourly commitment will be charged at the more expensive pay-as-you-go rates.
 

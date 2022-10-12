@@ -636,7 +636,7 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
       - name: Event Hub
         items:
-          - name: Event Hub data connection
+          - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
@@ -650,7 +650,7 @@ items:
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
       - name: Event Grid
         items:
-          - name: Event Hub data connection
+          - name: Event Grid data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md
@@ -760,8 +760,6 @@ items:
         href: ./spark/apache-spark-data-visualization.md
       - name: Connect to Spark with IntelliJ plug-in
         href: ./spark/intellij-tool-synapse.md
-      - name: Connect to Spark pools with VSCode
-        href: ./spark/vscode-tool-synapse.md
     - name: Explore languages
       items:
       - name: .NET for Apache Spark
@@ -1429,6 +1427,8 @@ items:
           href: ../data-factory/connector-troubleshoot-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: REST
           href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
+          href: ../data-factory/connector-troubleshoot-sap.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics          
         - name: SharePoint Online list
           href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Snowflake
@@ -1564,6 +1564,8 @@ items:
         href: ./guidance/proof-of-concept-playbook-dedicated-sql-pool.md
       - name: Data lake exploration with serverless SQL pool
         href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
+      - name: Big data analytics with Data Explorer pool
+        href: ./guidance/proof-of-concept-playbook-data-explorer-pool.md
       - name: Big data analytics with Apache Spark pool
         href: ./guidance/proof-of-concept-playbook-spark-pool.md
     - name: Synapse implementation success methodology
