@@ -59,6 +59,10 @@
           href: how-to-integrate-airflow-logs-with-azure-monitor.md
         - name: Elastic logs integration with Azure Monitor
           href: how-to-integrate-elastic-logs-with-azure-monitor.md
+    - name: Security
+      items:
+        - name: Set up Private Links
+          href: how-to-set-up-private-links.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
