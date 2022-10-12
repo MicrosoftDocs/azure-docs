@@ -33,7 +33,7 @@ If you like to learn about how to create and manage Azure subscription users and
 1. Select **Save** and wait for provisioning operation to completed.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/how-to-manage-aad-users/add-aad-principal-via-portal.png" alt-text="Screenshot of managing Azure AD administrators via portal":::
+> :::image type="content" source="./media/how-to-manage-azure-ad-users/add-aad-principal-via-portal.png" alt-text="Screenshot of managing Azure AD administrators via portal":::
 
 > [!NOTE]  
 > Support for Azure AD Administrators management via Azure SDK, az cli and Azure Powershell is coming soon,
