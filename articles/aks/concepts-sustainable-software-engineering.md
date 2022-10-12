@@ -40,17 +40,17 @@ Making workloads more [sustainable and cloud efficient](/azure/architecture/fram
 
  **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
-&nbsp;&nbsp;&nbsp; Run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency and hardware efficiency.
-
- **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
-
- &nbsp;&nbsp;&nbsp; Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
+&nbsp;&nbsp;&nbsp; One way to to increase energy efficiency, is to run the workload on as few servers as possible, with the servers running at the highest utilization rate : thereby increasing also hardware efficiency.
 
  **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
 
 &nbsp;&nbsp;&nbsp; There are two main approaches to hardware efficiency:
  - For end-user devices, it's extending the lifespan of the hardware.
  - For cloud computing, it's increasing the utilization of the device.
+
+ **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
+
+ &nbsp;&nbsp;&nbsp; Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
 
 
 ## Sustainability design considerations for AKS workloads and clusters
@@ -106,7 +106,7 @@ _Monolithic applications usually scale as a unit, leaving little room to scale o
 
 _Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utilization; build event driven workloads that scale based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.), and could scale back to 0 when there is no demand_.
 
-&nbsp;&nbsp;&nbsp; :heavy_check_mark: Use [Keda](https://keda.sh/) to build event driven applications, that could scale to zero when there is no demand.
+&nbsp;&nbsp;&nbsp; :heavy_check_mark: Use [Keda](https://keda.sh/) to help you build event driven applications, that could scale to zero when there is no demand.
 
 <br/>
 
