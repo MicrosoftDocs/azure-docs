@@ -108,4 +108,4 @@ Now you'll associate applications with the user flow to enable sign-up for those
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md)
 - [Add custom approval workflow to your user flow](self-service-sign-up-add-approvals.md)
-- [Learn more about initiating an OAuth 2.0 authorization code flow](../develop/v2-oauth2-auth-code-flow#request-an-authorization-code)
+- [Learn more about initiating an OAuth 2.0 authorization code flow](../develop/v2-oauth2-auth-code-flow.md#request-an-authorization-code)
