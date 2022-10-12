@@ -11,7 +11,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 08/30/2022
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 #Customer intent: As a professional data scientist, I find and run example Jupyter Notebooks for Azure Machine Learning.
 ---
 
@@ -20,7 +20,7 @@ ms.custom: seodec18
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
 > * [v1](<v1/samples-notebooks-v1.md>)
-> * [v2 (preview)](samples-notebooks.md)
+> * [v2](samples-notebooks.md)
 
 The [AzureML-Examples](https://github.com/Azure/azureml-examples) repository includes the latest (v2) Azure Machine Learning Python CLI and SDK samples. For information on the various example types, see the [readme](https://github.com/Azure/azureml-examples#azure-machine-learning-examples).
 
@@ -66,4 +66,4 @@ Try these tutorials:
 
 - [Train and deploy an image classification model with MNIST](tutorial-train-deploy-notebook.md)
 
-- [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
+- [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md)
