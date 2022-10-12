@@ -66,8 +66,11 @@ Capabilities are features that can be added or removed to your API for MongoDB a
     > [!TIP]
     > If you're using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities:
     >
-    > ```azurepowershell
-    > az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities @("EnableMongo","DisableRateLimitingResponses")
+    > ```azurecli
+    > az cosmosdb update \
+    >     --resource-group <azure_resource_group> \
+    >     --name <azure_cosmos_db_account_name> \
+    >     --capabilities @("EnableMongo","DisableRateLimitingResponses")
     > ```
     >
 
@@ -99,14 +102,20 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 1. Remove the capability from your database account. The list of capabilities should include the list of previously enabled capabilities you want to keep, since only the explicitly named capabilities will be set on your account. For example, if you want to remove the capability `DisableRateLimitingResponses`, you would use the **az cosmosdb update** command:
 
     ```azurecli-interactive
-    az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongo
+    az cosmosdb update \
+        --resource-group <azure_resource_group> \
+        --name <azure_cosmos_db_account_name> \
+        --capabilities EnableMongo
     ```
 
     > [!TIP]
     > If you're using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities:
     >
-    > ```azurepowershell
-    > az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities @("EnableMongo")
+    > ```azurecli
+    > az cosmosdb update \
+    >     --resource-group <azure_resource_group> \
+    >     --name <azure_cosmos_db_account_name> \
+    >     --capabilities @("EnableMongo")
     > ```
 
 ## Next steps
