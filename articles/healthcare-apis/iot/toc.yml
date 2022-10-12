@@ -36,28 +36,28 @@ items:
   - name: Mappings
     expanded: false
     items:
-      - name: Device
-        expanded: false
-        items:
-        - name: Device mappings
-          href: how-to-use-device-mappings.md
-        - name: JsonPathContentTemplate mappings
-          href: how-to-use-jsonpath-content-mappings.md
-        - name: Calculated Functions mappings
-          href: how-to-use-calculated-functions-mappings.md
-        - name: CollectionContentTemplate mappings
-          href: how-to-use-collection-content-mappings.md
-        - name: Custom Functions mappings
-          href: how-to-use-custom-functions.md
-        - name: IotJsonPathContentTemplate mappings
-          href: how-to-use-iot-jsonpath-content-mappings.md
-        - name: IotCentralJsonContentTemplate mappings
-          href: how-to-use-iot-central-json-content-mappings.md
-      - name: Destination
-        expanded: false
-        items:
-        - name: FHIR destination mappings
-          href: how-to-use-fhir-mappings.md
+    - name: Device
+      expanded: false
+      items:
+      - name: Device mappings
+        href: how-to-use-device-mappings.md
+      - name: JsonPathContentTemplate mappings
+        href: how-to-use-jsonpath-content-mappings.md
+      - name: Calculated Functions mappings
+        href: how-to-use-calculated-functions-mappings.md
+      - name: CollectionContentTemplate mappings
+        href: how-to-use-collection-content-mappings.md
+      - name: Custom Functions mappings
+        href: how-to-use-custom-functions.md
+      - name: IotJsonPathContentTemplate mappings
+        href: how-to-use-iot-jsonpath-content-mappings.md
+      - name: IotCentralJsonContentTemplate mappings
+        href: how-to-use-iot-central-json-content-mappings.md
+    - name: Destination
+      expanded: false
+      items:
+      - name: FHIR destination mappings
+        href: how-to-use-fhir-mappings.md
       - name: Create copies of mappings
         href: how-to-create-mappings-copies.md
   - name: Monitoring
