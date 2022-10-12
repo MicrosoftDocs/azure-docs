@@ -1566,7 +1566,7 @@
       - name: NAVEX One
         href: navex-one-tutorial.md
       - name: NAVEX IRM (Lockpath/Keylight)
-        href: keylight-tutorial.md
+        href: navex-irm-keylight-lockpath-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
