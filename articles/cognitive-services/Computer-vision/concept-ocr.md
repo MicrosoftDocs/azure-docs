@@ -23,7 +23,7 @@ Version 4.0 of Image Analysis offers the ability to extract text from images. Co
 
 The following JSON response illustrates what the Analyze API returns when reading text in the given image.
 
-![Photo of a sticky note with writing on it.](./Images/handwritten-note.jpg).
+![Photo of a sticky note with writing on it.](./Images/handwritten-note.jpg)
 
 ```json
 {
