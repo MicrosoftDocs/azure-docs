@@ -131,7 +131,7 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
         --assign-identity $IDENTITY_ID
     ```
 
-## Disable outbound NAT for Windows
+## Disable OutboundNAT for Windows
 
 Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. Some of these issues include:
 
@@ -139,7 +139,45 @@ Windows OutboundNAT can cause certain connection and communication issues with y
 * **Node port reuse**: Windows OutboundNAT uses port to translate your pod IP to your Windows node host IP. This can cause an unstable connection to the external service due a port exhaustion issue.
 * **Invalid traffic routing to internal service endpoints**: When you create a load balancer service with `externalTrafficPolicy` set to *Local*, kube-proxy on Windows doesn't create the proper rules in the IPTables to route traffic to the internal service endpoints.
 
-Windows enables OutboundNAT by default. You can manually disable OutboundNAT when creating new Windows agent pools by using `--disable-windows-outbound-nat`.
+Windows enables OutboundNAT by default. You can now manually disable OutboundNAT when creating new Windows agent pools.
+
+### Prerequisites
+
+You need to use `aks-preview` and register the feature flag.
+
+1. Install or update `aks-preview`.
+
+```azurecli
+# Install aks-preview
+
+az extension add --name aks-preview
+
+# Update aks-preview
+
+az extension update --name aks-preview
+```
+
+2. Register the feature flag.
+
+```azurecli
+az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
+```
+
+3. Check the registration status.
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
+```
+
+4. Refresh the registration of the `Microsoft.ContainerService` resource provider.
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Manually disable OutboundNAT for Windows
+
+You can manually disable OutboundNAT for Windows when creating new Windows agent pools using `--disable-windows-outbound-nat`.
 
 ```azurecli
 az aks nodepool add \
