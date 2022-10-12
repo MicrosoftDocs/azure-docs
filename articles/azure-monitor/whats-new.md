@@ -11,6 +11,15 @@ ms.reviewer: bwren
 
 This article lists significant changes to Azure Monitor documentation.
 
+## September 2022
+
+### Network Insights
+
+| Article | Description |
+|---|---|
+|[Network Insights](../network-watcher/network-insights-overview.md)| Onboarded the new topology experience to Network Insights in Azure Monitor.|
+
+
 ## August  2022
 
 
