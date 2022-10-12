@@ -114,7 +114,7 @@ _to scale workloads based on relevant business metrics (HTTP requests, queue len
 
 **Maximize node resource utilization** _to use more of its underlying hardware_.
 
-_One approach to lowering your carbon footprint is to reduce your idle time. Reducing your idle time involves increasing the utilization of your compute resources. _
+_One approach to lowering your carbon footprint is to reduce your idle time. Reducing your idle time involves increasing the utilization of your compute resources._
 
 :heavy_check_mark: Define strict workloads [resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
 
@@ -220,6 +220,8 @@ The following checklist provides recommendations for designing energy and hardwa
 
 **Choose the right Region**
 
+_Running on outdated software can result in running a suboptimal workload with unnecessary performance issues. New software tends to be more efficient in general._
+
 :heavy_check_mark: Evaluate deploying to Regions powered by renewable and low-carbon energy sources
 
 :heavy_check_mark: Evaluate deploying to data centers close to the consumer
@@ -229,6 +231,8 @@ The following checklist provides recommendations for designing energy and hardwa
 <br/>
 
 **Enable Cluster and node auto-updates** 
+
+_It's not uncommon with oversized compute workloads where much of the capacity is never utilized, ultimately leading to a waste of energy._
 
 _to use the latest functionality and security updates to help increase efficiency_
 
@@ -241,7 +245,7 @@ _to use the latest functionality and security updates to help increase efficienc
 
 **Maximize Node resource utilization** 
 
-_to maximize its underying hardware utilization_
+_One approach to lowering your carbon footprint is to reduce your idle time. Reducing your idle time involves increasing the utilization of your compute resources._
 
 :heavy_check_mark: Separate applications into different node pools allowing independent sizing & scalling.
 
@@ -257,7 +261,7 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
  
 **Utilize Node auto-scaling and bursting capabilities** 
 
-_to match the scalability needs of workloads_
+_It's not uncommon with oversized compute workloads where much of the capacity is never utilized, ultimately leading to a waste of energy._
 
 :heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
 
@@ -271,7 +275,7 @@ _to match the scalability needs of workloads_
 
  **Use Energy Efficient Hardware** 
 
-_to leverage cost-effective and power-efficient compute_
+_The Arm-based VMs represent a cost-effective and power-efficient option that doesn't compromise on the required performance._
 
  :heavy_check_mark: Evaluate if [nodes with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads
 
@@ -279,7 +283,7 @@ _to leverage cost-effective and power-efficient compute_
 
 **Use SPOT Nodes where possible** 
 
-_to leverage unused (and otherwise wasted) capacity—at significantly reduced prices_
+_Think about the unused capacity in Azure data centers. Utilizing the otherwise wasted capacity—at significantly reduced prices—the workload contributes to a more sustainable platform design._
 
 :heavy_check_mark: Use [SPOT Node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
 
@@ -305,7 +309,7 @@ _to reduce energy waste and optimize costs_
 
 **turnoff nodepools outside regular business hours** 
 
-_to reduce energy waste and optimize costs_
+_Operating idle workloads will waste energy and contributes to an added carbon emission._
 
 :heavy_check_mark: Use [cluster stop / start](/azure/aks/start-stop-cluster) and [node pool stop / start](/azure/aks/start-stop-nodepools), for shutting them down outside regular business hours.
 
@@ -313,7 +317,7 @@ _to reduce energy waste and optimize costs_
 
 **Optimize the collection of logs of clusters** 
 
-_to reduce stored and transmitted logs_
+_Consider the complexity and cost of storing all logs from all possible sources. For instance, applications, servers, diagnostics and platform activity._
  
 :heavy_check_mark: Read more about the [Cost optimization and Log Analytics](/azure/architecture/framework/services/monitoring/log-analytics/cost-optimization).
 
