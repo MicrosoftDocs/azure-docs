@@ -10,13 +10,13 @@ ms.date: 08/16/2022
 
 # Migrate client code to TLS 1.2 in Batch
 
-To support security best practices and remain in compliance with industry standards, Azure Batch will retire Transport Layer Security (TLS) 1.0 and TLS 1.1 in Azure Batch on *March 31, 2023*. Learn how to migrate to TLS 1.2 in the client code you manage by using Batch.
+To support security best practices and remain in compliance with industry standards, Azure Batch will retire Transport Layer Security (TLS) 1.0 and TLS 1.1 in Azure Batch on *March 31, 2023*. Learn how to migrate to TLS 1.2 in your Batch service client code.
 
 ## End of support for TLS 1.0 and TLS 1.1 in Batch
 
 TLS versions 1.0 and TLS 1.1 are known to be susceptible to BEAST and POODLE attacks and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. TLS 1.0 and TLS 1.1 don't support the modern encryption methods and cipher suites that the Payment Card Industry (PCI) compliance standards recommends. Microsoft is participating in an industry-wide push toward the exclusive use of TLS version 1.2 or later.
 
-Most customers have already migrated to TLS 1.2. Customers who continue to use TLS 1.0 or TLS 1.1 can be identified via existing BatchOperation data. If you're using TLS 1.0 or TLS 1.1, to avoid disruption to your Batch workflows, update existing workflows to use TLS 1.2.
+If you have already migrated to use TLS 1.2 in your Batch client application, then this retirement does not apply to you. Only APIs requests which go directly to the Batch service via the data plane API (i.e., not management plane) are impacted. API requests at the management plane layer are routed through ARM and are subject to ARM TLS minimum version requirements, although we recommend for security best practices to migrate to TLS 1.2 across all client calls, if applicable.
 
 ## Alternative: Use TLS 1.2
 
@@ -36,15 +36,15 @@ For more information, see [TLS best practices for the .NET Framework](/dotnet/fr
 
 - Why do I need to upgrade to TLS 1.2?
 
-   TLS 1.0 and TLS 1.1 have security issues that are fixed in TLS 1.2. TLS 1.2 has been available since 2008. TLS 1.2 is the current default version in most development frameworks.
+   TLS 1.0 and TLS 1.1 are considered insecure and have security issues that are addressed in TLS 1.2. TLS 1.2 has been available since 2008. TLS 1.2 is widely adopted as the minimum version for securing communication channels using TLS.
 
 - What happens if I don’t upgrade?
 
-   After the feature retirement from Azure Batch, your client application won't work until you upgrade the code to use TLS 1.2.
+   After the feature retirement from Azure Batch, your client application will not be able to communicate with Batch data plane API services unless you upgrade to TLS 1.2.
 
 - Will upgrading to TLS 1.2 affect the performance of my application?
 
-   Upgrading to TLS 1.2 won't affect your application's performance.
+   Upgrading to TLS 1.2 shouldn't affect your application's performance.
 
 - How do I know if I’m using TLS 1.0 or TLS 1.1?
 
