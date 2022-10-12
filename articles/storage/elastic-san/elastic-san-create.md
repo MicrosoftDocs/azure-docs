@@ -16,7 +16,6 @@ This article explains how to deploy and configure an elastic storage area networ
 
 ## Prerequisites
 
-- Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
 - If you're using Azure PowerShell, use `Install-Module -Name Az.Elastic-SAN -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion .10-preview` to install the preview module.
 - If you're using Azure CLI, install the latest version. For installation instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
     - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
@@ -27,7 +26,15 @@ This article explains how to deploy and configure an elastic storage area networ
 
 ## Register for the preview
 
-Register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
+Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
+
+If your request for access to the preview is approved, register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
+
+# [Portal](#tab/azure-portal)
+
+Use either the Azure PowerShell module or the Azure CLI to register your subscription for the preview.
+
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
@@ -40,6 +47,21 @@ It may take a few minutes for registration to complete. To confirm that you've r
 Get-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
 Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace "Microsoft.ElasticSan"
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az provider register --namespace Microsoft.ElasticSan
+az feature register --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
+```
+
+It may take a few minutes for registration to complete. To confirm you've registered, use the following command:
+
+```azurecli
+az provider show --namespace Microsoft.ElasticSan
+az feature show --name ElasticSanPreviewAccess --namespace Microsoft.ElasticSan
+```
+---
 
 ## Create the SAN
 
@@ -81,12 +103,12 @@ The following command creates an Elastic SAN that uses locally-redundant storage
 
 ```azurecli
 ## Variables
-sanName="yourSANNameHere"
-resourceGroupName="yourResourceGroupNameHere"
-sanLocation="desiredRegion"
-volumeGroupName="desiredVolumeGroupName"
+$sanName="yourSANNameHere"
+$resourceGroupName="yourResourceGroupNameHere"
+$sanLocation="desiredRegion"
+$volumeGroupName="desiredVolumeGroupName"
 
-az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation –base-size-tib 100 –extended-capacity-size-tib 20 –sku “{name:Premium_LRS,tier:Premium}” 
+az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation --base-size-tib 100 --extended-capacity-size-tib 20 --sku “{name:Premium_LRS,tier:Premium}”
 ```
 ---
 
@@ -152,7 +174,7 @@ New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -Volu
 Replace `$volumeName` with the name you'd like the volume to use, then run the following script:
 
 ```azurecli
-az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v volumeGroupName -n $volumeName –size-gib 2000
+az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v volumeGroupName -n $volumeName --size-gib 2000
 ```
 ---
 
