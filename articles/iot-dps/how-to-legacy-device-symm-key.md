@@ -268,6 +268,8 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
+Example result:
+
 ```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
@@ -287,6 +289,8 @@ REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
 echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
 ```
+
+Example result:
 
 ```bash
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
