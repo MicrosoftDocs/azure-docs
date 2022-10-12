@@ -51,7 +51,7 @@ lsb_release -a
 
 If no binaries are available for your distribution, you can [build the binaries from source code](https://github.com/MicrosoftDocs/azure-docs-pr/pull/203174#option-2-build-from-source).
 
-#### Install the BlobFuse2 binaries fstream
+#### Install the BlobFuse2 binaries
 
 To install BlobFuse2 binaries:
 

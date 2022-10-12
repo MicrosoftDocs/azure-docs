@@ -81,7 +81,7 @@ console.log(result.video);
 #### Notes
 - The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
 - The 'audioDevicesUpdated' event fires when audio devices are plugged
-- When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet, and so initially its device list is empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection is not supported on Android Chrome, iOS Safari, nor macOS Safari.
 
 ## Place a call with video camera
@@ -144,7 +144,7 @@ If the specified video device is being used by another process, or if it is disa
 - A call to the `localVideoStream.switchSource()` method will cause `cameraStartFailed` to be set to true.
 Our Call Diagnostics guide provides additional information on how to diagnose call related issues.
 
-To check or verify if the local video is on or off, you can use isLocalVideoStarted API which returns true or false:
+To check or verify if the local video is on or off, you can use isLocalVideoStarted API, which returns true or false:
 ```js
 // Check if local video is on or off
 call.isLocalVideoStarted;
@@ -204,7 +204,7 @@ const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 
 To render `RemoteVideoStream`, you have to subscribe to it's `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
 
-Whenever availability of a remote stream changes you can choose to destroy the whole `VideoStreamRenderer`, a specific `VideoStreamRendererView`
+Whenever availability of a remote stream changes, you can choose to destroy the whole `VideoStreamRenderer`, a specific `VideoStreamRendererView`
 or keep them, but this will result in displaying blank video frame.
 
 ```js
@@ -218,8 +218,8 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     remoteVideoContainer.className = 'remote-video-container';
 
     /**
-     * isReceiving API is currently an @alpha feature. Do not use in production.
-     * To use this api please use 'alpha' release of Azure Communication Services Calling Web SDK.
+     * isReceiving API is currently an @beta feature.
+     * To use this api please use 'beta' version of Azure Communication Services Calling Web SDK.
      */
     let loadingSpinner = document.createElement('div');
     // See the css example below for styling the loading spinner.
@@ -333,14 +333,16 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
 - `isReceiving`:
-    - ***This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 1.5.4-beta.1+ release of Azure Communication Services Calling Web SDK.***
+
+    > [!NOTE]
+    > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 1.5.4-beta.1+ release of Azure Communication Services Calling Web SDK
     - Will inform the application if remote video stream data is being received or not. Such scenarios are:
-        - I am viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag go to false and I see his video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true and I see his video playing normally.
-        - I am viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, his video start to look pretty laggy, bad quality, probbaly because of network issues, so i see the RemoteVideoStream.isReceiving flag go to false.
-        - I am viewing the video of a Remote participant who is On MacOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I'll see a black/frozen video since they paused their camera and I'll see the RemoteVideoStream.isReceiving flag go to false. Once they resume playing the camera, then I'll see the RemoteVideoStream.isReceiving flag go to true.
-        - I am viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I'll see his video frozen/black frame, and ill see RemoteVideoStream.isReceiving flag go to false. The remote participant can get network back and reconnect and his audio/video should start flowing normally and I'll see the RemoteVideoStream.isReceiving flag to true.
-        - I am viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see him in the call and his video will be frozen, and so I'll see the RemoteVideoStream.isReceiving flag go to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
-        - I am viewing the video of a remote participant who is on mobile browser and they locks device. I'll see the RemoteVideoStream.isReceiving flag go to false and. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
+        - I am viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag goes to false and I see his video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true, and I see his video playing normally.
+        - I am viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, his video start to look pretty laggy, bad quality, probbaly because of network issues, so I see the RemoteVideoStream.isReceiving flag goes to false.
+        - I am viewing the video of a Remote participant who is On MacOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I'll see a black/frozen video since they paused their camera and I'll see the RemoteVideoStream.isReceiving flag goes to false. Once they resume playing the camera, then I'll see the RemoteVideoStream.isReceiving flag goes to true.
+        - I am viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I'll see his video frozen/black frame, and ill see RemoteVideoStream.isReceiving flag goes to false. The remote participant can get network back and reconnect and his audio/video should start flowing normally and I'll see the RemoteVideoStream.isReceiving flag to true.
+        - I am viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see him in the call and his video will be frozen, and so I'll see the RemoteVideoStream.isReceiving flag goes to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
+        - I am viewing the video of a remote participant who is on mobile browser and they locks device. I'll see the RemoteVideoStream.isReceiving flag goes to false and. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
     - This feature improves the user experience for rendering remote video streams.
     - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
 ```js

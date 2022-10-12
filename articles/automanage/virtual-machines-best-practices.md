@@ -1,6 +1,6 @@
 ---
-title: Azure Automanage for Virtual Machines Best Practices
-description: Learn about the Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for you.
+title: Azure Automanage Machine Best Practices
+description: Learn about the Azure Automanage machine best practices for services that are automatically onboarded and configured for you.
 author: mmccrory
 ms.service: automanage
 ms.workload: infrastructure
@@ -11,7 +11,7 @@ ms.author: memccror
 
 # Azure Automanage for virtual machines best practices
 
-These Azure services are automatically onboarded for you when you use Automanage for virtual machines. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
+These Azure services are automatically onboarded for you when you use Automanage. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 For all of these services, we will auto-onboard, auto-configure, monitor for drift, and mediate if drift is detected. To learn more about this process, see [Azure Automanage for virtual machines](overview-about.md).
 

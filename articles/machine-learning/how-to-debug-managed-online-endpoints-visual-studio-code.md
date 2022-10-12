@@ -9,21 +9,14 @@ author: ssalgadodev
 ms.author:  ssalgado
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli , cliv2
+ms.custom: devplatv2, devx-track-azurecli, cliv2, ignite-2022
 ms.devlang: azurecli
 #Customer intent: As a machine learning engineer, I want to test and debug online endpoints locally using Visual Studio Code before deploying them Azure.
 ---
 
 # Debug online endpoints locally in Visual Studio Code (preview)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 Learn how to use the Visual Studio Code (VS Code) debugger to test and debug online endpoints locally before deploying them to Azure.
 
@@ -96,12 +89,12 @@ This guide assumes you have the following items installed locally on your PC.
 
 For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
 
-The examples in this article can be found in the [Debug online endpoints locally in Visual Studio Code](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb) notebook within the[azureml-examples](https://github.com/azure/azureml-examples) repository. To run the code locally, clone the repo and then change directories to the notebook's parent directory `sdk/endpoints/online/managed`. 
+The examples in this article can be found in the [Debug online endpoints locally in Visual Studio Code](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb) notebook within the[azureml-examples](https://github.com/azure/azureml-examples) repository. To run the code locally, clone the repo and then change directories to the notebook's parent directory `sdk/endpoints/online/managed`. 
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples
-cd sdk/endpoints/online/managed
+cd sdk/python/endpoints/online/managed
 ```
 
 Import the required modules: 
