@@ -7,41 +7,47 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 recommendations: false
-ms.date: 10/10/2022
+ms.date: 10/11/2022
 ---
 
-# Where is Azure Database for PostgreSQL - Hyperscale (Citus)?
-
-Hyperscale (Citus) is now [Azure Cosmos DB for
-PostgreSQL](../../cosmos-db/postgresql/introduction.md). The new service is
-backward compatible with Hyperscale (Citus), and adds new features.
+# Azure Database for PostgreSQL - Hyperscale (Citus) is now Azure Cosmos DB for PostgreSQL
 
 Existing Hyperscale (Citus) server groups will automatically become Azure
-Cosmos DB for PostgreSQL clusters, with zero downtime.
+Cosmos DB for PostgreSQL clusters under the new name, with zero downtime.
+All features and pricing, including reserved compute pricing and
+regional availability, will be preserved under the new name.
+
+Once the name change is complete, all Hyperscale (Citus) information such as
+product overview, pricing information, documentation, and more will be moved
+under the Azure Cosmos DB sections in the Azure portal.
 
 > [!NOTE]
 >
-> The change will happen October 29th, 2022. During this process, the cluster
-> may temporarily disappear in the Azure portal for both Hyperscale (Citus) and
+> The name change in the Azure portal for existing Hyperscale (Citus) customers
+> will happen at the end of October. During this process, the cluster may
+> temporarily disappear in the Azure portal in both Hyperscale (Citus) and
 > Cosmos DB. There will be no service downtime for users of the database, only
 > a possible interruption in the portal administrative interface.
 
-## What remains the same?
+## Find your cluster in the renamed service
 
-* **Existing features.** All Hyperscale (Citus) features continue to be supported.
-* **Pricing model.** Azure Cosmos DB for PostgreSQL has the same pricing as Hyperscale (Citus).
-* **System architecture.** Some terminology has changed (for instance "server
-  group" is now called "cluster"),  but the technical architecture remains the
-  same.
-* **Database connection strings.** Connection strings don't change; application code connects the same way.
+View the list of Azure Cosmos DB for PostgreSQL clusters in your subscription.
 
-## What changes?
+# [Direct link](#tab/direct)
 
-* **New features.**
-  * Cross-region read replicas.
-  * Data loading from Azure blob storage.
-  * Online tenant isolation.
-  * Online table distribution.
+Go to the [list of Azure Cosmos DB for PostgreSQL clusters](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.DocumentDb%2FdatabaseAccounts) in the Azure portal.
+
+# [Portal search](#tab/portal-search)
+
+In the [Azure portal](https://portal.azure.com), search for `cosmosdb` and
+select **Azure Cosmos DB** from the results.
+
+:::image type="content" source="media/moved/portal-search.png" alt-text="Screenshot showing search for cosmosdb.":::
+
+---
+
+Your cluster will appear in this list. Once it's listed in Cosmos DB, it will
+no longer appear as an Azure Database for PostgreSQL server group.
 
 ## Next steps
 
