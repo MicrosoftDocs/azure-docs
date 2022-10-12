@@ -1015,7 +1015,7 @@
         topicHref: /azure/storage/file-sync/file-sync-introduction
       - name: Elastic SAN
         tocHref: /azure/storage/elastic-san/
-        topicHref /azure/storage/elastic-san/elastic-san-introduction
+        topicHref: /azure/storage/elastic-san/elastic-san-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
