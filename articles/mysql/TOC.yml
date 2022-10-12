@@ -187,6 +187,8 @@
           href: flexible-server/how-to-restart-stop-start-server-cli.md
       - name: Move Servers between regions
         href: flexible-server/how-to-move-regions.md
+      - name: Major version upgrade
+        href: flexible-server/how-to-upgrade.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)
@@ -526,7 +528,6 @@
         items:
         - name: Azure Pipelines
           href: single-server/azure-pipelines-mysql-deploy.md
-
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal

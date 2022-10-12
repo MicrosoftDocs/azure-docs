@@ -107,7 +107,7 @@ For more information on attributes, see [Attribute mapping in Azure AD Connect c
 ## How to create a custom synch rule in Azure AD Connect for EmployeeHireDate
 The following example will walk you through setting up a custom synchronization rule that synchronizes the Active Directory attribute to the employeeHireDate attribute in Azure AD.
 
-   1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+   1. Open a PowerShell window as administrator and run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
    2. Go to Start\Azure AD Connect\ and open the Synchronization Rules Editor
    3. Ensure the direction at the top is set to **Inbound**.
    4. Select **Add Rule.**
@@ -143,6 +143,7 @@ The following example will walk you through setting up a custom synchronization 
      ![Screenshot of create outbound synchronization rule transformations.](media/how-to-lifecycle-workflow-sync-attributes/create-outbound-rule-transformations.png)
    16.  Select **Add**.
    17. Close the Synchronization Rules Editor
+   18. Enable the scheduler again by running `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 
 
