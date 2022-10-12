@@ -542,7 +542,7 @@
         },
         {
             "source_path": "tutorial-managed-identities-mysql.md",
-            "redirect_url": "/azure/spring-apps/tutorial-managed-identities-mysql",
+            "redirect_url": "/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app",
             "redirect_document_id": false
         },
         {

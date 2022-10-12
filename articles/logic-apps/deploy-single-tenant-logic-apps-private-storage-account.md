@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.custom: engagement-fy23
+ms.date: 09/08/2022
 
 # As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
 ---

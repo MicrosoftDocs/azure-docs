@@ -61,7 +61,7 @@ Unlike the tracking IDs that Partner Center creates on your behalf for Azure app
 [guid]::NewGuid()
 ```
 
-You should create a unique GUID for each product and distribution channel. You can use a single GUID for a product's multiple distribution channels if you don't want reporting to be split. Reporting occurs by Microsoft Partner Network ID and GUID.
+You should create a unique GUID for each product and distribution channel. You can use a single GUID for a product's multiple distribution channels if you don't want reporting to be split. Reporting occurs by PartnerID and GUID.
 
 ### Register GUIDs
 

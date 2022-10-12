@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 09/01/2022
 ---
 
 # Create or join parallel branches for workflow actions in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 By default, your actions in logic app workflows run sequentially. 
 To perform independent actions at the same time, 

@@ -71,7 +71,7 @@ landingContent:
           url: tutorial-configure-networking.md
         - text: 4 - Access a private cloud
           url: tutorial-access-private-cloud.md
-        - text: 5 - Create an NSX-T network segment
+        - text: 5 - Create an NSX-T Data Center network segment
           url: tutorial-nsx-t-network-segment.md
         - text: 6 - Peer on-premises to private cloud
           url: tutorial-expressroute-global-reach-private-cloud.md
@@ -164,6 +164,8 @@ landingContent:
             url: deploy-traffic-manager-balance-workloads.md
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
+          - text: Configure customer-managed key encryption at rest
+            url: configure-customer-managed-keys.md
           - text: Attach disk pools to Azure VMware Solution hosts
             url: attach-disk-pools-to-azure-vmware-solution-hosts.md
           - text: Attach Azure NetApp Files datastores to Azure VMware Solution hosts

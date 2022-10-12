@@ -105,6 +105,8 @@
     items:
     - name: Endpoints and rulesets
       href: private-resolver-endpoints-rulesets.md
+    - name: Resiliency in Azure DNS Private Resolver
+      href: private-resolver-reliability.md
 - name: How-to guides
   items:
   - name: Public DNS
@@ -163,6 +165,10 @@
     items:
     - name: Troubleshooting guide
       href: dns-troubleshoot.md
+  - name: Private Resolver
+    items:
+    - name: Resolve Azure and on-premises domains
+      href: private-resolver-hybrid-dns.md
 - name: Reference
   items:
   - name: Public DNS
