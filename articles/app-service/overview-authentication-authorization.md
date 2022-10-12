@@ -158,7 +158,7 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other rev
     
     Other reverse proxies like Azure Application Gateway or 3rd-party products might use different headers and need a different forwardProxy setting.
     
-    This configuration cannot be done via the Azure Portal today and needs to be done via `az rest`:
+    This configuration cannot be done via the Azure portal today and needs to be done via `az rest`:
     
     **Export settings**
     
