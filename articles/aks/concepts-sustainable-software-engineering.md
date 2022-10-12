@@ -98,15 +98,13 @@ _Applications deployed using inefficient code may result in an inherent impact o
 
 _Monolithic applications usually scale as a unit, leaving little room to scale only the individual components that may need it._
 
-&nbsp;&nbsp;&nbsp; :heavy_check_mark: Build Microservices Applications using [Dapr](https://dapr.io/) 
-
-&nbsp;&nbsp;&nbsp; :heavy_check_mark: Build [CNCF Projects on AKS](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks)
+&nbsp;&nbsp;&nbsp; :heavy_check_mark: To help you Build Microservices Applications, use [Dapr](https://dapr.io/) or other projects from [cloud native foundation](/azure/architecture/example-scenario/apps/build-cncf-incubated-graduated-projects-aks) 
 
 <br/>
 
 **Design for Event Driven scaling** 
 
-_Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utilization; Build Event Driven workloads that scale based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.), and could scale back to 0 when there is no demand_.
+_Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utilization; build event driven workloads that scale based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.), and could scale back to 0 when there is no demand_.
 
 &nbsp;&nbsp;&nbsp; :heavy_check_mark: Use [Keda](https://keda.sh/) to build event driven applications, that could scale to zero when there is no demand.
 
@@ -116,11 +114,11 @@ _Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utiliza
 
 _One approach to lowering your carbon footprint is to reduce your idle time. Reducing your idle time involves increasing the utilization of your compute resources._
 
-:heavy_check_mark: Define strict workloads [resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits).
+:heavy_check_mark: Define workloads [resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) to inform the Kubernetes scheduler which compute resources to assign to a pod.
 
 :heavy_check_mark: Use [Vertical Pod Auto-scaler](/azure/aks/vertical-pod-autoscaler) to automatically set resource requests and limits on containers per workload based on past usage.
 
-:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods) on nodes.
+:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to further optimize scheduling your applications (pods) on nodes.
 
 <br/>
 
