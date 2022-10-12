@@ -36,6 +36,8 @@ New-AzResourceGroup -Name MyResourceGroup -Location eastus
 #Creates the IP address and enables DDoS IP Protection
 New-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup -Sku Standard -Location "East US" -AllocationMethod Static -DdosProtectionMode Enabled   
 ```
+> [!NOTE]
+> DDoS IP Protection is enabled only on Public IP Standard SKU.
 
 ### Enable DDoS IP Protection for an existing public IP address
 

@@ -19,13 +19,13 @@ ms.author: pafarley
 Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. 
 
 > [!IMPORTANT]
-> you need Image Analysis version 4.0 to use this feature. Version 4.0 is currently available to resources in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+> We built this model by enhancing our object detection model for person detection scenarios. People detection does not involve distinguishing one face from another face, predicting or classifying facial attributes, or creating a facial template (a unique set of numbers generated from an image that represents the distinctive features of a face).
 
 ## People detection example
 
 The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.
 
-![Photo of a woman in a kitchen.](./Images/windows-kitchen.jpg).
+![Photo of a woman in a kitchen.](./Images/windows-kitchen.jpg)
 
 ```json
 {

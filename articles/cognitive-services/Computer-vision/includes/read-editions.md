@@ -19,7 +19,7 @@ ms.author: pafarley
 >
 > | Input | Examples | Suggested API | Benefits |
 > |----------|--------------|-------------------------|-------------------------|
-> | General in-the-wild images with single image at a time |  labels, street signs, and posters | [Image&nbsp;Analysis Read (preview)](/azure/cognitive-services/computer-vision/how-to/concept-ocr) | Optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR powered experiences in your workflows.
+> | General in-the-wild images with single image at a time |  labels, street signs, and posters | [Image&nbsp;Analysis Read&nbsp;(preview)](/azure/cognitive-services/computer-vision/concept-ocr) | Optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR powered experiences in your workflows.
 > | Scanned document images, digital and scanned documents including embedded images| books, reports, and forms | [Form&nbsp;Recognizer Read](/azure/applied-ai-services/form-recognizer/concept-read) | Optimized for text-heavy scanned and digital document scenarios with asynchronous API to allow processing large documents in your workflows.
 >
 > **Computer Vision 3.2 GA Read**
