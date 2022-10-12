@@ -10,17 +10,17 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Manage Azure Active Directory (Azure AD) roles in Azure Database for PostgreSQL - Flexible Server
+# Manage Azure Active Directory roles in Azure Database for PostgreSQL - Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-This article describes how you can create Azure AD enabled database roles within an Azure Database for PostgreSQL server.
+This article describes how you can create an Azure Active Directory (Azure AD) enabled database roles within an Azure Database for PostgreSQL server.
 
 > [!NOTE]  
 > This guide assumes you already enabled Azure Active Directory authentication on your PostgreSQL Flexible server.
 > See [How to Configure Azure AD Authentication](./how-to-configure-sign-in-azure-ad-authentication.md)
 
-> [!NOTE]  
+> [!NOTE]
 > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 If you like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
@@ -36,7 +36,7 @@ If you like to learn about how to create and manage Azure subscription users and
 > :::image type="content" source="./media/how-to-manage-azure-ad-users/add-aad-principal-via-portal.png" alt-text="Screenshot of managing Azure AD administrators via portal.":::
 
 > [!NOTE]  
-> Support for Azure AD Administrators management via Azure SDK, az cli and Azure Powershell is coming soon,
+> Support for Azure AD Administrators management via Azure SDK, az cli and Azure PowerShell is coming soon.
 
 ## Manage Azure AD roles using SQL
 
