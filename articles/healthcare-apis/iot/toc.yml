@@ -34,7 +34,7 @@ items:
   expanded: true
   items: 
   - name: Mappings
-    expanded: false
+    expanded: true
     items:
     - name: Device
       expanded: false
@@ -58,10 +58,10 @@ items:
       items:
       - name: FHIR destination mappings
         href: how-to-use-fhir-mappings.md
-      - name: Create copies of mappings
-        href: how-to-create-mappings-copies.md
+  - name: Create copies of mappings
+    href: how-to-create-mappings-copies.md
   - name: Monitoring
-    expanded: false
+    expanded: true
     items:
     - name: Monitoring tab metrics
       href: how-to-use-monitoring-tab.md
@@ -70,7 +70,7 @@ items:
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
   - name: Troubleshoot and problem solve
-    expanded: false
+    expanded: true
     items:
     - name: Errors and conditions
       href: iot-troubleshoot-error-messages-and-conditions.md
