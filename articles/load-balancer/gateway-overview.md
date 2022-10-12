@@ -76,7 +76,7 @@ For pricing see [Load Balancer pricing](https://azure.microsoft.com/pricing/deta
 * Gateway Load Balancer doesn't work with the Global Load Balancer tier.
 * Cross-tenant chaining is not supported through the Azure portal.
 * Gateway Load Balancer does not currently support IPv6
-* Gateway Load Balancer does not currently support zone-redundant frontends due to a known issue. All frontends configured as zone-redundant will be allocated no-zone or non-zonal IPs. Frontends configured in Portal will automatically be created as no-zone.
+* Currently, Gateway Load Balancer frontends configured in Portal will automatically be created as no-zone. To create a zone-redundant frontend, use an alternative client such as ARM/CLI/PS.
 
 ## Next steps
 
