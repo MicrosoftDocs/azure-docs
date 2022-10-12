@@ -4,7 +4,7 @@ description: Learn about using the Dynatrace Cloud-Native Observability Platform
 ms.topic: conceptual
 author: flang-msft
 ms.author: franlanglois
-ms.date: 08/24/2022
+ms.date: 10/12/2022
 
 ---
 

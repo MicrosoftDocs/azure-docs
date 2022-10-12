@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.topic: conceptual
 ms.author: franlanglois
-ms.date: 08/24/2022
+ms.date: 10/12/2022
 
 ---
 
@@ -62,8 +62,8 @@ You can filter the list of resources by resource type, resource group name, regi
 
 The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. If the resource isn't sending logs, this field indicates why logs aren't being sent. The reasons could be:
 
-- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
-- _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
+- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure-monitor/essentials/resource-logs-categories.md).
+- _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure-monitor/essentials/diagnostic-settings.md).
 - _Error_ - The resource is configured to send logs to Dynatrace, but is blocked by an error.
 - _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.
 - _Agent not configured_ - Virtual machines without the Dynatrace OneAgent installed don't emit logs to Dynatrace.
@@ -85,7 +85,7 @@ For each virtual machine, the following info is displayed:
 | **Monitoring mode** | Whether the Dynatrace OneAgent is monitoring hosts in [full-stack monitoring mode or infrastructure monitoring mode](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring) |
 
 > [!NOTE]
-> If a virtual machine shows that an OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To do changes, please go to the other Dynatrace resource in the Azure subscription.
+> If a virtual machine shows that an OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To make any changes, please go to the other Dynatrace resource in the Azure subscription.
 
 ## Monitor App Services using Dynatrace OneAgent
 
@@ -125,7 +125,7 @@ Select **Overview** in Resource menu. Then, select **Delete**. Confirm that you 
 
 If only one Dynatrace resource is mapped to a Dynatrace environment, logs are no longer sent to Dynatrace. All billing through Azure Marketplace stops for Dynatrace.
 
-If more than one Dynatrace resource is mapped to the Dynatrace environment using the link Azure subscription option, deleting the Dynatrace resource only stops sending logs for Azure resources associated to that Dynatrace resource. However, since this one Dynatrace environment may be still linked to other Dynatrace resources, billing continues through the Azure Marketplace.
+If more than one Dynatrace resource is mapped to the Dynatrace environment using the link Azure subscription option, deleting the Dynatrace resource only stops sending logs for Azure resources associated to that Dynatrace resource. However, since this one Dynatrace environment might still be linked to other Dynatrace resources, billing continues through the Azure Marketplace.
 
 ## Next steps
 
