@@ -88,7 +88,7 @@ The following issues affect the preview version of Azure Virtual Desktop for Azu
 
 - Azure Virtual Desktop for Azure Stack HCI is not available for use in Azure Government.  
 
-- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
+- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](ttps://learn.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
 
 ## Next steps
 

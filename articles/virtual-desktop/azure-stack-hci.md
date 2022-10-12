@@ -25,9 +25,9 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - An [Azure Stack HCI cluster registered with Azure](https://learn.microsoft.com/azure-stack/hci/deploy/register-with-azure) in the same subscription.
 
-- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](https://learn.microsoft.com/hci/manage/azure-arc-enabled-virtual-machines).
+- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
-- [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad.md).
+- [An on-premises Active Directory (AD) synced with Azure Active Directory](ttps://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad.md).
 
 - A stable connection to Azure from your on-premises network.
 
@@ -108,7 +108,7 @@ You can add new Azure Virtual Desktop session hosts to an existing host pool usi
 
 You can also check out the **Full Configuration** [(AddHciVirtualMachinesTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/AddHciVirtualMachinesTemplate.json)template for all the configurations available. 
 
-For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](ttps://learn.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### Create a profile container
 
