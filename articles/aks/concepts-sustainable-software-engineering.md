@@ -91,11 +91,6 @@ The following checklist provides recommendations for designing sustainable workl
 
 <br/>
 
-**Containerize workloads where applicable** _to reduce unnecessary resource allocation and to utilize the deployed resources better_.
-
- &nbsp;&nbsp;&nbsp; :heavy_check_mark:  Use [Draft](/azure/aks/draft) to simplify containzerizing an application by generating its Dockerfiles and Kubernetes manifests.
-
-<br/>
 
 **Evaluate moving monoliths to a microservice architecture** _to allow independent scaling of their logical components_.
 
@@ -167,11 +162,7 @@ The following checklist provides recommendations for designing sustainable workl
 
 <br/>
 
-**Tag resources** _to enable recording of emissions impact_
 
-:heavy_check_mark: [Use Tags](/azure/aks/use-tags).
-
-<br/>
 
  **Assess for Resilience and Performance** _to increase ability to react to failures, allowing for a more optimized fault handling._
 
@@ -222,15 +213,6 @@ The following checklist provides recommendations for designing energy and hardwa
  
 <br/>
 
-**Use suppored addons** _to benefit from trusted updates and regular security patches_
-
-:heavy_check_mark: Use Keda as an [AKS addon](/azure/aks/keda-about)
-
-:heavy_check_mark: Use Darp as an [AKS addon](/azure/aks/dapr)
-
-:heavy_check_mark: Use [Gitops on AKS to automate cluster & application lifecycle](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks), including testing & compliance.
-
-<br/>
 
 **Maximize Node resource utilization** _to maximize its underying hardware utilization_
 
@@ -292,10 +274,6 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
 **Integrate Endpoint Security** _to identify and remediate attacks, which could impact unnecessary resource misusage_
 
 :heavy_check_mark: Enable [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)
-
-<br/>
-
-**Scan for vulnerabilities** _to avoid unnecessary resource misusage_
 
 :heavy_check_mark: [Identify vulnerable container images](/azure/defender-for-cloud/defender-for-containers-cicd)
 
