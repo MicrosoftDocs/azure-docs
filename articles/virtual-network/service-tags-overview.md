@@ -46,7 +46,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **ApiManagement** | Management traffic for Azure API Management-dedicated deployments. <br/><br/>**Note**: This tag represents the Azure API Management service endpoint for control plane per region. The tag enables customers to perform management operations on the APIs, Operations, Policies, NamedValues configured on the API Management service.  | Inbound | Yes | Yes |
 | **ApplicationInsightsAvailability** | Application Insights Availability. | Inbound | No | No |
 | **AppConfiguration** | App Configuration. | Outbound | No | No |
-| **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and Function apps.<br/><br/>**Note**: This tag does not include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
+| **AppService**    | Azure App Service. This tag is recommended for outbound security rules to web apps and Function apps.<br/><br/>**Note**: This tag doesn't include IP addresses assigned when using IP-based SSL (App-assigned address). | Outbound | Yes | Yes |
 | **AppServiceManagement** | Management traffic for deployments dedicated to App Service Environment. | Both | No | Yes |
 | **AutonomousDevelopmentPlatform** | Autonomous Development Platform | Both | Yes | Yes |
 | **AzureActiveDirectory** | Azure Active Directory. | Outbound | No | Yes |
@@ -84,7 +84,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations). We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Be cautious when you use this tag. We recommend that you read [Azure platform considerations](./network-security-groups-overview.md#azure-platform-considerations).  We also recommend that you perform testing before you use this tag. | Outbound | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Outbound | No | No |
-| **AzureSentinel** | Microsoft Sentinel | Inbound | Yes | Yes |
+| **AzureSentinel** | Microsoft Sentinel. | Inbound | Yes | Yes |
 | **AzureSignalR** | Azure SignalR. | Outbound | No | No |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | No |
 | **AzureSphere** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes | 
