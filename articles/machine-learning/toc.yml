@@ -9,12 +9,6 @@
       href: overview-what-is-azure-machine-learning.md
     - name: Glossary
       href: azure-machine-learning-glossary.md
-    - name: What is Azure Machine Learning studio?
-      displayName: AML, studio, designer
-      href: overview-what-is-machine-learning-studio.md
-    - name: How it works
-      displayName: concepts, definitions, glossary
-      href: concept-azure-machine-learning-v2.md
 - name: Upgrade to v2
   items:
     - name: Upgrade overview
@@ -70,24 +64,17 @@
   items:
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
+    - name: Run Jupyter notebooks
+      href: quickstart-run-notebooks.md
 - name: Tutorials
   expanded: true
   items:
     - name: Azure ML in a day
-      expanded: true
-      items:
-        - name: 1. Run a Python script
-          href: tutorial-1st-experiment-hello-world.md
-        - name: 2. Train your model
-          href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. Use your own data
-          href: tutorial-1st-experiment-bring-data.md
+      href: tutorial-azure-ml-in-a-day.md
     - name: Build models
-      items:
-        - name: Create production ML pipelines (preview)
+      items: 
+        - name: Create production ML pipelines
           href: tutorial-pipeline-python-sdk.md
-        - name: Train a TensorFlow image classification model
-          href: tutorial-train-deploy-image-classification-model-vscode.md
         - name: Automated ML
           items:
             - name: Object detection with AutoML (SDK)
@@ -107,6 +94,10 @@
             - name: 2. Deploy the model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
+    - name: Visual Studio Code
+      items: 
+        - name: Train a TensorFlow image classification model
+          href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
@@ -168,6 +159,9 @@
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: concept-model-management-and-deployment.md
+        - name: Registries
+          displayName: collaborate share
+          href: concept-machine-learning-registries-mlops.md
         - name: ML pipelines
           href: concept-ml-pipelines.md
         - name: ML components
@@ -303,6 +297,8 @@
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
+    - name: Create & manage registries
+      href: how-to-manage-registries.md
     - name: Create & manage compute resources
       items:
         - name: Compute instance
@@ -346,7 +342,10 @@
       displayName: policy
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
-  items:
+  items: 
+    - name: Share components, environments, and models
+      displayName: collaborate share
+      href: how-to-share-models-pipelines-across-workspaces-with-registries.md
     - name: Search for assets
       displayName: find, filter
       href: how-to-search-assets.md
@@ -653,7 +652,7 @@
   items:
     - name: Python SDK v1
       href: /python/api/overview/azure/ml/intro
-    - name: Python SDK v2 (preview)
+    - name: Python SDK v2
       displayName: api, core, package, python, class
       href: https://aka.ms/sdk-v2-install
     - name: REST API

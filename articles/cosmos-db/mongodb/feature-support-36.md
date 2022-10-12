@@ -2,7 +2,8 @@
 title: Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax
 description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) supported features and syntax.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 04/04/2022
 author: gahl-levy
@@ -10,14 +11,14 @@ ms.author: gahllevy
 ---
 
 # Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Azure Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 > [!NOTE]
-> Version 3.6 of the Cosmos DB API for MongoDB has no current plans for end-of-life (EOL). The minimum notice for a future EOL is three years.
+> Version 3.6 of the Azure Cosmos DB for MongoDB has no current plans for end-of-life (EOL). The minimum notice for a future EOL is three years.
 
 ## Protocol Support
 
@@ -512,7 +513,7 @@ $polygon | No |
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
 ## Indexing
-The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
+The API for MongoDB [supports a variety of indexes](indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
 
 ## GridFS
 
@@ -520,7 +521,7 @@ Azure Cosmos DB supports GridFS through any GridFS-compatible MongoDB driver.
 
 ## Replication
 
-Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Cosmos DB does not support manual replication commands.
+Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Azure Cosmos DB does not support manual replication commands.
 
 ## Retryable Writes
 
