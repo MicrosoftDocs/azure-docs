@@ -136,7 +136,7 @@ sections:
           The Cost Management + Billing team hasn't announced a deprecation timeline for the APIs. The APIs are no longer in active development. We recommend that you plan any needed work to migrate away from them.
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
-          See [Migrate from EA reporting to Azure Resource Manager APIs](costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md).
+          See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).
       - question: Why do I get Usage Details API timeouts?
         answer: |
           The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usagedetails/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).

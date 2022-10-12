@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: ML pipelines with Python SDK v2 (preview)"
+title: "Tutorial: ML pipelines with Python SDK v2"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure ML Python SDK V2 (preview). 
+description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure ML Python SDK v2. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,24 +10,19 @@ author: msdpalam
 ms.author: meeral
 ms.reviewer: sgilley
 ms.date: 08/29/2022
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 
-# Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook
+# Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
 > 
 
-In this tutorial, you'll use Azure Machine Learning (Azure ML) to create a production ready machine learning (ML) project, using AzureML Python SDK v2 (preview).
+In this tutorial, you'll use Azure Machine Learning (Azure ML) to create a production ready machine learning (ML) project, using AzureML Python SDK v2.
 
 You'll learn how to use the AzureML Python SDK v2 to:
 
@@ -63,7 +58,7 @@ First you'll install the v2 SDK on your compute instance:
 
 1. Select "Terminal", to open the terminal session on the compute instance.
 
-1. In the terminal window, install Python SDK v2 (preview) with this command:
+1. In the terminal window, install Python SDK v2 with this command:
 
     ```
     pip install --pre azure-ai-ml

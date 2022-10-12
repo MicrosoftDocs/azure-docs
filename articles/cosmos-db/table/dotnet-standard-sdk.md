@@ -1,18 +1,17 @@
 ---
-title: Azure Cosmos DB Table API .NET Standard SDK & Resources
-description: Learn all about the Azure Cosmos DB Table API and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
-author: rothja
-ms.author: jroth
+title: Azure Cosmos DB for Table .NET Standard SDK & Resources
+description: Learn all about the Azure Cosmos DB for Table and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 11/03/2021
-ms.custom: devx-track-dotnet
-
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 > [!div class="op_single_selector"]
 > 
 > * [.NET](dotnet-sdk.md)
@@ -24,17 +23,17 @@ ms.custom: devx-track-dotnet
 |   | Links  |
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Azure.Data.Tables/)|
-|**Sample**|[Cosmos DB Table API .NET Sample](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
-|**Quickstart**|[Quickstart](create-table-dotnet.md)|
+|**Sample**|[Azure Cosmos DB for Table .NET Sample](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Quickstart**|[Quickstart](quickstart-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Report Issue**|[Report Issue](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## Release notes for 2.0.0 series
-2.0.0 series takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Cosmos DB endpoint.
+2.0.0 series takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Azure Cosmos DB endpoint.
 
 ### <a name="2.0.0-preview"></a>2.0.0-preview
-* initial preview of 2.0.0 Table SDK that takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Cosmos DB endpoint. The public API remains the same.
+* initial preview of 2.0.0 Table SDK that takes the dependency on [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), with performance improvements and namespace consolidation to Azure Cosmos DB endpoint. The public API remains the same.
 
 ## Release notes for 1.0.0 series
 1.0.0 series takes the dependency on [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
@@ -51,7 +50,7 @@ ms.custom: devx-track-dotnet
 * Performance improvement by setting Table SDK default trace level to SourceLevels.Off, which can be opted in via app.config
 
 ### <a name="1.0.5"></a>1.0.5
-* Introduce new config under TableClientConfiguration to use Rest Executor to communicate with Cosmos DB Table API
+* Introduce new config under TableClientConfiguration to use Rest Executor to communicate with Azure Cosmos DB for Table
 
 ### <a name="1.0.5-preview"></a>1.0.5-preview
 * Bug fixes
@@ -72,9 +71,9 @@ ms.custom: devx-track-dotnet
 
 ### <a name="0.11.0-preview"></a>0.11.0-preview
 
-* Changes were made to how CloudTableClient can be configured. It now takes a TableClientConfiguration object during construction. TableClientConfiguration provides different properties to configure the client behavior depending on whether the target endpoint is Cosmos DB Table API or Azure Storage Table API.
-* Added support to TableQuery to return results in sorted order on a custom column. This feature is only supported on Cosmos DB Table endpoints.
-* Added support to expose RequestCharges on various result types. This feature is only supported on Cosmos DB Table endpoints.
+* Changes were made to how CloudTableClient can be configured. It now takes a TableClientConfiguration object during construction. TableClientConfiguration provides different properties to configure the client behavior depending on whether the target endpoint is Azure Cosmos DB for Table or Azure Storage API for Table.
+* Added support to TableQuery to return results in sorted order on a custom column. This feature is only supported on Azure Cosmos DB Table endpoints.
+* Added support to expose RequestCharges on various result types. This feature is only supported on Azure Cosmos DB Table endpoints.
 
 ### <a name="0.10.1-preview"></a>0.10.1-preview
 * Add support for SAS token, operations of TablePermissions, ServiceProperties, and ServiceStats against Azure Storage Table endpoints. 
@@ -87,7 +86,7 @@ ms.custom: devx-track-dotnet
    > Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
 
 ### <a name="0.9.1-preview"></a>0.9.1-preview
-* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](dotnet-sdk.md). 
+* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Azure Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Azure Cosmos DB Table SDK For .NET Framework](dotnet-sdk.md). 
    > [!NOTE]
    >  Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
 
@@ -122,4 +121,4 @@ This cross-platform .NET Standard library [Microsoft.Azure.Cosmos.Table](https:/
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](introduction.md).
+To learn more about the Azure Cosmos DB for Table, see [Introduction to Azure Cosmos DB for Table](introduction.md).

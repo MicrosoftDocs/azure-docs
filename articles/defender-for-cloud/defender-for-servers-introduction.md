@@ -5,6 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.date: 06/22/2022
 ms.topic: conceptual
+ms.custom: ignite-2022
 ---
 # Overview of Microsoft Defender for Servers
 
@@ -52,6 +53,9 @@ The following table summarizes what's included in each plan.
  [Learn more](fileless-attack-detection.md).
 | Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
+
+> [!NOTE]
+> If you only enable Defender for Cloud at the workspace level, Defender for Cloud won't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources.
 
 Want to learn more? Watch an overview of enhanced workload protection features in Defender for Servers in our [Defender for Cloud in the Field](episode-twelve.md) series.
 
