@@ -52,11 +52,11 @@ Use API Management for user authentication and authorization:
 
     * [Client certificate](api-management-authentication-policies.md#ClientCertificate) policy - Using client certificates is more secure than basic credentials or subscription key, but it doesn't allow the flexibility provided by token-based authorization protocols such as OAuth 2.0. 
 
-* **Authorization** - API Management supports a [validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. Configure the policy to check relevant token claims, audience, and expiration time. Learn more about protecting an API using [OAuth 2.0 authorization and Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
+* **Authorization** - API Management supports a [validate JWT](validate-jwt-policy.md) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. Configure the policy to check relevant token claims, audience, and expiration time. Learn more about protecting an API using [OAuth 2.0 authorization and Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
 
 More recommendations:
 
-* Use [access restriction policies](api-management-access-restriction-policies.md) in API Management to increase security. For example, [call rate limiting](api-management-access-restriction-policies.md#LimitCallRate) slows down bad actors using brute force attacks to compromise credentials. 
+* Use [access restriction policies](api-management-access-restriction-policies.md) in API Management to increase security. For example, [call rate limiting](rate-limit-policy.md) slows down bad actors using brute force attacks to compromise credentials. 
 
 * APIs should use TLS/SSL (transport security) to protect the credentials or tokens. Credentials and tokens should be sent in request headers and not as query parameters. 
 
@@ -101,7 +101,7 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
 ### Recommendations 
 
-* Use [rate limit](api-management-access-restriction-policies.md#LimitCallRate) (short-term) and [quota limit](api-management-access-restriction-policies.md#SetUsageQuota) (long-term) policies to control the allowed number of API calls or bandwidth per consumer. 
+* Use [rate limit](rate-limit-policy.md) (short-term) and [quota limit](quota-policy.md) (long-term) policies to control the allowed number of API calls or bandwidth per consumer. 
 
 * Define strict request object definitions and their properties in the OpenAPI definition. For example, define the max value for paging integers, maxLength and regular expression (regex) for strings. Enforce those schemas with the [validate content](validation-policies.md#validate-content) and [validate parameters](validation-policies.md#validate-parameters) policies in API Management. 
 
@@ -109,7 +109,7 @@ More information about this threat: [API4:2019 Lack of resources and rate limiti
 
 * Optimize performance with [built-in caching](api-management-howto-cache.md), thus reducing the consumption of CPU, memory, and networking resources for certain operations. 
 
-* Enforce authentication for API calls (see [Broken user authentication](#broken-user-authentication)). Revoke access for abusive users. For example, deactivate the subscription key, block the IP address with the [restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) policy, or reject requests for a certain user claim from a [JWT token](api-management-access-restriction-policies.md#ValidateJWT). 
+* Enforce authentication for API calls (see [Broken user authentication](#broken-user-authentication)). Revoke access for abusive users. For example, deactivate the subscription key, block the IP address with the [restrict caller IPs](ip-filter-policy.md) policy, or reject requests for a certain user claim from a [JWT token](validate-jwt-policy.md). 
 
 * Apply a [CORS](api-management-cross-domain-policies.md#CORS) policy to control the websites that are allowed to load the resources served through the API. To avoid overly permissive configurations, don’t use wildcard values (`*`) in the CORS policy. 
 
@@ -133,7 +133,7 @@ More information about this threat: [API5:2019 Broken function level authorizati
  
 * By default, protect all API endpoints in API Management with [subscription keys](api-management-subscriptions.md). 
 
-* Define a [validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy and enforce required token claims. If certain operations require stricter claims enforcement, define extra `validate-jwt` policies for those operations only. 
+* Define a [validate JWT](validate-jwt-policy.md) policy and enforce required token claims. If certain operations require stricter claims enforcement, define extra `validate-jwt` policies for those operations only. 
 
 * Use an Azure virtual network or Private Link to hide API endpoints from the internet. Learn more about [virtual network options](virtual-network-concepts.md) with API Management.
 
@@ -179,15 +179,15 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * Always inherit parent policies through the `<base>` tag.	 
 
-    * When using OAuth 2.0, configure and test the [validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to check the existence and validity of the JWT token before it reaches the backend. Automatically check the token expiration time, token signature, and issuer. Enforce claims, audiences, token expiration, and token signature through policy settings. 
+    * When using OAuth 2.0, configure and test the [validate JWT](validate-jwt-policy.md) policy to check the existence and validity of the JWT token before it reaches the backend. Automatically check the token expiration time, token signature, and issuer. Enforce claims, audiences, token expiration, and token signature through policy settings. 
 
     * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
 
     * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
-    * If API Management is outside a network boundary, client IP validation is still possible using the [restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) policy. Ensure that it uses an allowlist, not a blocklist. 
+    * If API Management is outside a network boundary, client IP validation is still possible using the [restrict caller IPs](ip-filter-policy.md) policy. Ensure that it uses an allowlist, not a blocklist. 
 
-    * If client certificates are used between caller and API Management, use the [validate client certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy. Ensure that the `validate-revocation`, `validate-trust`, `validate-not-before`, and `validate-not-after` attributes are all set to `true`. 
+    * If client certificates are used between caller and API Management, use the [validate client certificate](validate-client-certificate-policy.md) policy. Ensure that the `validate-revocation`, `validate-trust`, `validate-not-before`, and `validate-not-after` attributes are all set to `true`. 
 
         * Client certificates (mutual TLS) can also be applied between API Management and the backend. The backend should:
 
@@ -240,7 +240,7 @@ More information about this threat: [API8:2019 Injection](https://github.com/OWA
 * [Modern Web Application Firewall (WAF) policies](https://github.com/SpiderLabs/ModSecurity) cover many common injection vulnerabilities. While API Management doesn’t have a built-in WAF component, deploying a WAF upstream (in front) of the API Management instance is strongly recommended. For example, use [Azure Application Gateway](/azure/architecture/reference-architectures/apis/protect-apis) or [Azure Front Door](../frontdoor/front-door-overview.md). 
 
     > [!IMPORTANT]
-    > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](api-management-access-restriction-policies.md#RestrictCallerIPs), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or mTLS). 
+    > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](ip-filter-policy.md), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or mTLS). 
 
 * Use schema and parameter [validation](validation-policies.md) policies, where applicable, to further constrain and validate the request before it reaches the backend API service. 
 

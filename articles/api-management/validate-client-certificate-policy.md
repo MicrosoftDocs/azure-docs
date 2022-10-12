@@ -67,8 +67,6 @@ For more information about custom CA certificates and certificate authorities, s
 
 ## identity attributes
 
-## Attributes
-
 | Name                            | Description      | Required |  Default    |
 | ------------------------------- | -----------------| -------- | ----------- |
 | thumbprint | Certificate thumbprint. | No | N/A |

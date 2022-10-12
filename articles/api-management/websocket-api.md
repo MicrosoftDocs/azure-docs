@@ -16,7 +16,7 @@ With API Management’s WebSocket API solution, you can now manage, protect, obs
 * A simple gesture in the Azure portal, and 
 * The Management API and Azure Resource Manager. 
 
-You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](./api-management-access-restriction-policies.md#ValidateJWT). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
+You can secure WebSocket APIs by applying existing access control policies, like [JWT validation](validate-jwt-policy.md). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
 
 In this article, you will:
 > [!div class="checklist"]
