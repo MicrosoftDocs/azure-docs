@@ -96,6 +96,14 @@ items:
     href: /samples/browse/?products=azure&terms=analyze-image
   - name: Responsible use of AI
     items:
+    - name: Transparency note
+      href: /legal/cognitive-services/computer-vision/imageanalysis-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/computer-vision/imageanalysis-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Integration and responsible use 
+      href: /legal/cognitive-services/computer-vision/imageanalysis-guidance-for-integration?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Data, privacy, and security 
+      href: /legal/cognitive-services/computer-vision/imageanalysis-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
     - name: Limited Access features
       href: /legal/cognitive-services/computer-vision/limited-access?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides

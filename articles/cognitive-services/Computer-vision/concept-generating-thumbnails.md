@@ -49,6 +49,9 @@ The following table illustrates thumbnails defined by smart-cropping for the exa
 
 The Computer Vision smart-cropping utility takes a given aspect ratio (or several) and returns the bounding box coordinates (in pixels) of the region(s) identified. Your app can then crop and return the image using those coordinates.
 
+> [!IMPORTANT]
+> This feature uses face detection to help determine important regions in the image. The detection does not involve distinguishing one face from another face, predicting or classifying facial attributes, or creating a facial template (a unique set of numbers generated from an image that represents the distinctive features of a face).
+
 ---
 
 ## Use the API
