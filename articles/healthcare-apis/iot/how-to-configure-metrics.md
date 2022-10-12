@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 10/12/2022
 ms.author: jasteppe
 ---
 
@@ -79,11 +79,11 @@ Metric category|Metric name|Metric description|
 
 ## How to create an Azure portal dashboard and pin tiles
 
-To learn how to create an Azure portal dashboard and and pin tiles, see [Create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards)
+To learn how to create an Azure portal dashboard and pin tiles, see [Create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards)
 
 ## Next steps
 
-To learn how to configure the MedTech service diagnostic settings to export logs and metrics to another location (for example: an Azure storage account) for audit, backup, or troubleshooting, see
+To learn how to enable the MedTech service diagnostic settings to export logs and metrics to another location (for example: an Azure storage account) for audit, backup, or troubleshooting, see
 
 > [!div class="nextstepaction"]
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)

@@ -19,7 +19,7 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
  
    :::image type="content" source="media/iot-diagnostic-settings/select-medtech-service-in-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-diagnostic-settings/select-medtech-service-in-workspace.png":::
 
-2. Select the MedTech service that you want to configure for metrics exporting. For this example, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
+2. Select the MedTech service that you want to enable a diagnostic setting for. For this example, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
    
    :::image type="content" source="media/iot-diagnostic-settings/select-medtech-service.png" alt-text="Screenshot of select the MedTech service for exporting metrics." lightbox="media/iot-diagnostic-settings/select-medtech-service.png":::
 
