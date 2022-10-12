@@ -47,10 +47,6 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 
 * Microsoft Azure Consumption Contract (MACC) credits
 
-> [!NOTE]
-> During BareMetal Infrastructure for Nutanix Cloud Clusters on Azure, RI is not supported.
-An additional discount may be available.
-
 ## Support
 
 Nutanix (for software-related issues) and Microsoft (for infrastructure-related issues) will provide end-user support.
