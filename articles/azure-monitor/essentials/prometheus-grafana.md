@@ -74,7 +74,7 @@ Azure Managed Grafana supports Azure authentication by default.
 ## Self-managed Grafana
 The following sections describe how to configure Azure Monitor managed service for Prometheus (preview) as a data source for self-managed Grafana on an Azure virtual machine.
 ### Configure system identify
-Azure virtual machines support both system assigned and yser assigned identity. The following steps configure system assigned identity.
+Azure virtual machines support both system assigned and user assigned identity. The following steps configure system assigned identity.
 
 **Configure from Azure virtual machine**<br>
 Use the following steps to allow access all Azure Monitor workspaces in a resource group or subscription:
@@ -105,7 +105,7 @@ Use the following steps to allow access to only a specific Azure Monitor workspa
 
 ### Create Prometheus data source
 
-Versions 9.x and greater of Grafana support Azure Authentication, but it's not enabled by default. To enable this feature, you need to update your Grafana configuration. To deteremine where your Grafana.ini file is and how to edit your Grafana config, please review this document from Grafana Labs. Once you know where your configuration file lives on your VM, make the following update:
+Versions 9.x and greater of Grafana support Azure Authentication, but it's not enabled by default. To enable this feature, you need to update your Grafana configuration. To determine where your Grafana.ini file is and how to edit your Grafana config, please review this document from Grafana Labs. Once you know where your configuration file lives on your VM, make the following update:
 
 
 1. Locate and open the *Grafana.ini* file on your virtual machine.
