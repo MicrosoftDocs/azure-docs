@@ -6,18 +6,13 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 10/07/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-
-> [!IMPORTANT]
->
-> This quickstart  targets Azure Form Recognizer REST API version **2.1** using cURL to execute REST API calls.
 
 | [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
 
@@ -38,11 +33,11 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
   > [!TIP]
-  > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+  > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
-  :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+  :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
 ### Select a code sample to copy and paste into your application:
 
@@ -51,7 +46,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../../cognitive-services/security-features.md) article for more information.
 
 ## **Try it**: Layout model
 
@@ -110,7 +105,7 @@ See the following invoice image and its corresponding JSON output.
 * The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
-:::image type="content" source="../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
+:::image type="content" source="../../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
 
 #### Response body
 
@@ -126,10 +121,10 @@ You can view the [full sample output on GitHub](https://github.com/Azure-Samples
 
 You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
 
-* [**Invoice**](../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
-* [**Receipt**](../../concept-receipt.md): extracts text and key information from receipts.
-* [**ID document**](../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
-* [**Business-card**](../../concept-business-card.md): extracts text and key information from business cards.
+* [**Invoice**](../../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
+* [**Receipt**](../../../concept-receipt.md): extracts text and key information from receipts.
+* [**ID document**](../../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
+* [**Business-card**](../../../concept-business-card.md): extracts text and key information from business cards.
 
 Before you run the command, make these changes:
 
@@ -186,10 +181,3 @@ See the [Sample invoice](https://github.com/Azure-Samples/cognitive-services-RES
 #### Response body
 
 See the [full sample output on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json).
-
-## Next steps
-
-Congratulations! In this quickstart, you used the Form Recognizer REST API to analyze various forms in different ways. Next, explore the reference documentation to learn moe about Form Recognizer v3.0 API.
-
-> [!div class="nextstepaction"]
-> [REST API v2.1 reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
