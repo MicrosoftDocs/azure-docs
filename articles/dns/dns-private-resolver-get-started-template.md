@@ -108,4 +108,4 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 ## Next steps
 
 In this quickstart, you created a virtual network and DNS private resolver. Now configure name resolution for Azure and on-premises domains
-- [Resolve Azure and on-premises domains](https://learn.microsoft.com/en-us/azure/dns/private-resolver-hybrid-dns)
+- [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md)
