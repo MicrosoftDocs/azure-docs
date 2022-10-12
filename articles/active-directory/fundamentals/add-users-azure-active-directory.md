@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Add or delete users using Azure Active Directory
 
-Add new users or delete existing users from your Azure Active Directory (Azure AD) tenant. To add or delete users you must be a User Administrator or Global Administrator. 
+Add new users or delete existing users from your Azure Active Directory (Azure AD) tenant. To add or delete users, you must be a User Administrator or Global Administrator. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -36,7 +36,7 @@ You can create a new user for your organization or invite an external user from 
 
 1. On the **New User** page, provide the new user's information:
 
-   - **Identity:** Add a user name and display name for the user. **User name** and **Name** are required and cannot contain accent characters. You can also add a first and last name. 
+   - **Identity:** Add a user name and display name for the user. **User name** and **Name** are required and can't contain accent characters. You can also add a first and last name. 
 
      The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*, or a custom domain name, such as *contoso.com*. For more information about how to create a custom domain name, see [Add your custom domain name using the Azure Active Directory portal](add-custom-domain.md).   
 
@@ -54,9 +54,9 @@ The user is created and added to your Azure AD organization.
 
 ## Add a new guest user
 
-You can also invite new guest user to collaborate with your organization by selecting **Invite user** from the **New user** page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../external-identities/add-users-administrator.md).
+You can also invite new guest user to collaborate with your organization by selecting **Invite user** from the **New user** page. If your organization's external collaboration settings are configured to allow guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../external-identities/add-users-administrator.md).
 
-The process for inviting a guest is the same as [adding a new user](add-users-azure-active-directory.md#add-a-new-user), with two exceptions. The email address will not follow the same domain rules as users from your organization. You can also include a personal message. 
+The process for inviting a guest is the same as [adding a new user](add-users-azure-active-directory.md#add-a-new-user), with two exceptions. The email address won't follow the same domain rules as users from your organization. You can also include a personal message. 
 
 ## Add other users
 

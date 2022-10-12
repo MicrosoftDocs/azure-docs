@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add or update a user's profile information and settings
-A user's profile information and settings can be managed on an individual basis as well as for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
+A user's profile information and settings can be managed on an individual basis and for all users in your directory. When you look at these settings together, you can see how permissions, restrictions, and other connections work together.
 
-This article covers how to add user profile information, including a profile picture, job-specific information, and other settings such as connecting LinkedIn accounts and restricting access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). 
+This article covers how to add user profile information, such as a profile picture and job-specific information. You can also choose to allow users to connect their LinkedIn accounts or restrict access to the Azure AD administration portal. Some settings may be managed in more than one area of Azure AD. For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). 
 
 ## Add or change profile information
 When new users are created, only some details are added to their user profile. If your organization needs more details, they can be added after the user is created. 
@@ -42,7 +42,7 @@ If you selected the **Edit properties option**:
     
 If you selected the **Properties tab option**:
    - The full list of properties appears for you to review.
-   - To edit a property, click the pencil icon next to the category heading.
+   - To edit a property, select the pencil icon next to the category heading.
    - Select the **Save** button at the bottom of the page to save any changes.
     
    ![Screenshot the Properties tab, with the edit options highlighted.](media/active-directory-users-profile-azure-portal/user-profile-properties-single-page-view.png)
@@ -50,7 +50,7 @@ If you selected the **Properties tab option**:
 ### Profile categories
 There are six categories of profile details you may be able to edit. 
 
-- **Identity:** Add or update an additional identity value for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. If you have two users with the same name, such as ‘Chris Green,’ you could use the Identity string to set their names to 'Chris B. Green' 'Chris R. Green.'
+- **Identity:** Add or update other identity values for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. If you have two users with the same name, such as ‘Chris Green,’ you could use the Identity string to set their names to 'Chris B. Green' 'Chris R. Green.'
 
 - **Job information:** Add any job-related information, such as the user's job title, department, or manager.
 
@@ -60,13 +60,13 @@ There are six categories of profile details you may be able to edit.
 
 - **Settings:** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
 
-- **On-premises:** If the account was set up in Windows Server Active Directory, additional details may be available.
+- **On-premises:** If the account was set up in Windows Server Active Directory, other details may be available.
 
     >[!Note]
     >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 
 ### Add or edit the profile picture
-On the user's overview page, select the camera icon in the lower-right corner of the user's thumbnail. If no image has been added, the users's initials appear here. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page. 
+On the user's overview page, select the camera icon in the lower-right corner of the user's thumbnail. If no image has been added, the user's initials appear here. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page. 
 
 All your changes are saved for the user.
 
@@ -74,7 +74,7 @@ All your changes are saved for the user.
 > If you're having issues updating a user's profile picture, please ensure that your Office 365 Exchange Online Enterprise App is Enabled for users to sign in.
 
 ## Manage settings for all users
-In the **User settings** area of Azure AD, you can adjust several settings that impact all users, such as restricting access to the Azure AD administration portal, how external collaboration is managed, and providing users the option to connect their LinkedIn account. Some settings are managed in a separate area of Azure AD and linked from this page.
+In the **User settings** area of Azure AD, you can adjust several settings that affect all users, such as restricting access to the Azure AD administration portal, how external collaboration is managed, and providing users the option to connect their LinkedIn account. Some settings are managed in a separate area of Azure AD and linked from this page.
 
 Go to **Azure AD** > **User settings**.
 

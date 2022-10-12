@@ -20,10 +20,10 @@ ms.collection: M365-identity-device-management
 
 The ability to manage Azure resources is granted by assigning roles that provide the required permissions. Roles can be assigned to individual users or groups. To align with the [Zero Trust guiding principles](/azure/security/fundamentals/zero-trust), use Just-In-Time and Just-Enough-Access policies when assigning roles.
 
-Before assigning roles to users, please review the following Microsoft Learn articles:
+Before assigning roles to users, review the following Microsoft Learn articles:
 
 - [Learn about Azure AD roles](../roles/concept-understand-roles.md)
-- [Learn about role based access control (RBAC)](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Learn about role based access control](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [Explore the Azure built-in roles](../roles/permissions-reference.md)
 
 ## Assign roles
@@ -36,7 +36,7 @@ There are two main steps to the role assignment process. First you'll select the
 
 1. Go to **Azure Active Directory** > **Users**.
 
-1. Search for and select the user getting the role assignment. In this example we'll update the roles for _Alain Charon_.
+1. Search for and select the user getting the role assignment.
 
       ![Screenshot of the Users - All users list with Alain Charon highlighted.](media/active-directory-users-assign-role-azure-portal/select-existing-user.png)
 
@@ -48,7 +48,7 @@ There are two main steps to the role assignment process. First you'll select the
 
 ### Adjust the role settings
 
-You have the option to assign roles as either _eligible_ or _active_. Eligible roles are assigned to a user but must be elevated Just-In-Time by the user through Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](../privileged-identity-management/index.yml).
+You can assign roles as either _eligible_ or _active_. Eligible roles are assigned to a user but must be elevated Just-In-Time by the user through Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 ![Screenshot of the assigned roles page with the assignment types highlighted.](media/active-directory-users-assign-role-azure-portal/role-assignment-types.png)
 
