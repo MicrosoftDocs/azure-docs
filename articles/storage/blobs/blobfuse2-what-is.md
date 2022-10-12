@@ -41,7 +41,7 @@ The BlobFuse2 project is [licensed under MIT](https://github.com/Azure/azure-sto
 
 A full list of BlobFuse2 features is in the [BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/blob/main/README.md#features). These are some of the key tasks you can do by using BlobFuse2:
 
-- Mount an Azure Storage Blob container or Azure Data Lake Storage Gen2 file system on Linux
+- Mount an Azure Blob Storage container or Azure Data Lake Storage Gen2 file system on Linux
 - Use basic file system operations like `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`
 - Use local file caching to improve subsequent access times
 - Gain insights into mount activities and resource usage by using BlobFuse2 Health Monitor
@@ -95,7 +95,7 @@ BlobFuse2 is different from the Linux file system in some key ways:
 
 - **Non-atomic renames**:
 
-  Atomic rename operations aren't supported by the Azure Storage Blob Service. Single-file renames are actually two operations: a copy, and then a deletion of the original. Directory renames recursively enumerate all files in the directory and renames each file.
+  Azure Blob Storage doesn't support atomic rename operations. Single-file renames are actually two operations: a copy, and then a deletion of the original. Directory renames recursively enumerate all files in the directory and renames each file.
 
 - **Special files**:
 
