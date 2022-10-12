@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 recommendations: false
-ms.date: 10/11/2022
+ms.date: 10/12/2022
 ---
 
 # Azure Database for PostgreSQL - Hyperscale (Citus) is now Azure Cosmos DB for PostgreSQL
