@@ -83,9 +83,11 @@ The following checklist provides recommendations for designing sustainable workl
 
 <br/>
 
-**Optimize code for efficient resource usage** _to optimize workloads at the software level_.
+**Optimize code for efficient resource usage** 
 
- &nbsp;&nbsp;&nbsp; :heavy_check_mark: Reduce CPU cycles and the number of resources you need for your application.
+_Applications deployed using inefficient code may result in an inherent impact on sustainability_.
+
+&nbsp;&nbsp;&nbsp; :heavy_check_mark: Reduce CPU cycles and the number of resources you need for your application.
  
 &nbsp;&nbsp;&nbsp;  :heavy_check_mark: Profile and monitor software performance.
 
