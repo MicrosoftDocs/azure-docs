@@ -51,16 +51,6 @@ You submit documents to the API as strings of text. Analysis is performed upon r
 
 When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-You can use the `sentenceCount` parameter to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
-
-You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned - either `Offset` or `Rank`, with `Offset` being the default. 
-
-
-|parameter value  |Description  |
-|---------|---------|
-|Rank    | Order sentences according to their relevance to the input document, as decided by the service.        |
-|Offset    | Keeps the original order in which the sentences appear in the input document.        |
-
 ### Getting document summarization results
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
@@ -85,9 +75,18 @@ Using the above example, the API might return the following summarized sentences
 
 You can use document extractive summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
 
+You can use the `sentenceCount` parameter to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
+
+You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned - either `Offset` or `Rank`, with `Offset` being the default. 
+
+|parameter value  |Description  |
+|---------|---------|
+|Rank    | Order sentences according to their relevance to the input document, as decided by the service.        |
+|Offset    | Keeps the original order in which the sentences appear in the input document.        |
+
 ### Try document abstractive summarization
 
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
 
 The following example will get you started with document abstractive summarization:
 
