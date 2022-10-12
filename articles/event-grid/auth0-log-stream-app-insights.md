@@ -2,7 +2,7 @@
 title: Send Auth0 events Azure Monitor's Application Insights
 description: This article shows how to send Auth0 events received by Azure Event Grid to Azure Monitor's Application Insights.
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 10/12/2022
 ---
 
 # Send Auth0 events to Azure Monitor's Application Insights
@@ -87,7 +87,10 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
 1. Select the link to your Azure function at the bottom of the page. 
 1. On the **Azure Function** page, select **Application Insights** under **Settings** on the left menu. 
 1. Select **Application Insights** link and then select **View Application Insights data**. 
-1. Once your Auth0 logs are generated, your data should now be visible in Application Insights
+1. Once your Auth0 logs are generated, your data should now be visible in Application Insights 
+
+    > [!NOTE]
+    > You can use steps in the article to handle events from other event sources too. For a generic example of sending Event Grid events to an Azure Blob Storage or Azure Monitor's Application Insights, see [this example on GitHub](https://github.com/awkwardindustries/azure-monitor-handler).
 
 ## Next steps
 
