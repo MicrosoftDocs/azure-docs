@@ -137,12 +137,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
-  custom definitions as a _public preview_. See
-  [Create policy definition from constraint template](../how-to/extension-for-vscode.md#create-policy-definition-from-constraint-template) to create a
-  custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
-  GateKeeper v3
-  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use
   of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
@@ -152,7 +147,7 @@ The following Resource Provider modes are fully supported:
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
-- `Microsoft.Kubernetes.Data` for Azure Policy components that target [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md) resources such as pods, namespaces, and ingresses.
+- `Microsoft.Kubernetes.Data` for Azure Policy components that target [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md) resources such as pods, containers, and ingresses.
 
 > [!NOTE]
 >Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.

@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Synapse Analytics, 
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 09/02/2022
+ms.date: 09/20/2022
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
@@ -291,6 +291,18 @@ This article provides suggestions to troubleshoot common problems with the Azure
 - **Cause**: Currently, ingesting data using the COPY command into an Azure Storage account that is using the new DNS partitioning feature results in an error. DNS partition feature enables customers to create up to 5000 storage accounts per subscription.  
 - **Resolutions**: Provision a storage account in a subscription that does not use the new [Azure Storage DNS partition feature](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466) (currently in Public Preview).
 
+## Error code: SqlDeniedPublicAccess
+
+- **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', Reason: Connection was denied since Deny Public Network Access is set to Yes. To connect to this server, 1. If you persist public network access disabled, please use Managed Vritual Network IR and create private endpoint. https://docs.microsoft.com/en-us/azure/data-factory/managed-virtual-network-private-endpoint; 2. Otherwise you can enable public network access, set "Public network access" option to "Selected networks" on Auzre SQL Networking setting.`
+
+- **Causes**: Azure SQL Database is set to deny public network access. This requires to use managed virtual network and create private endpoint to access.
+
+- **Recommendation**:
+
+    1. If you insist on disabling public network access, use managed virtual network integration runtime and create private endpoint. For more information, see [Azure Data Factory managed virtual network](managed-virtual-network-private-endpoint.md).
+    
+    2. Otherwise, enable public network access by setting **Public network access** option to **Selected networks** on Azure SQL Database **Networking** setting page.
+    
 ## Next steps
 
 For more troubleshooting help, try these resources:

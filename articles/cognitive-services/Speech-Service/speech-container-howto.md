@@ -276,7 +276,7 @@ Diarization is enabled by default. To get diarization in your response, use `dia
 
 Starting in v2.6.0 of the speech-to-text container, you should use Language service 3.0 API endpoint instead of the preview one. For example:
 
-* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+* `https://eastus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
 
 > [!NOTE]
@@ -284,7 +284,7 @@ Starting in v2.6.0 of the speech-to-text container, you should use Language serv
 
 Starting in v2.2.0 of the speech-to-text container, you can call the [sentiment analysis v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) on the output. To call sentiment analysis, you'll need a Language service API resource endpoint. For example:
 
-* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
+* `https://eastus.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
 If you're accessing a Language service endpoint in the cloud, you'll need a key. If you're running Language service features locally, you might not need to provide this.

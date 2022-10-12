@@ -528,6 +528,8 @@
       displayName: bulk import
     - name: Partner integration
       items:
+      - name: Grit IAM B2B2C
+        href: partner-grit-iam.md
       - name: N8identity
         href: partner-n8identity.md
       - name: Saviynt 

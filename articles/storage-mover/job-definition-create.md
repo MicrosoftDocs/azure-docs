@@ -1,11 +1,11 @@
 ---
-title: How to define and start a migration job
-description: To migrate a share, create a job definition in a project and start it.
+title: How to define a migration job
+description: To migrate a share, create a job definition in a project.
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/26/2022
 ---
 
 <!-- 
@@ -120,23 +120,24 @@ Use the `New-AzStorageMoverJobDefinition` cmdlet to create new job definition re
 
 ```powershell
       
-## Set variables
+##  Set variables
 $subscriptionID     = "Your subscription ID"
 $resourceGroupName  = "Your resource group name"
 $storageMoverName   = "Your storage mover name"
 
-## Log into Azure with your Azure credentials
+##  Log into Azure with your Azure credentials
 Connect-AzAccount -SubscriptionId $subscriptionID
 
-## Define the source endpoint: an NFS share in this example
-## There is a separate cmdlet for creating each type of endpoint.
-## (Each storage location type has different properties.)
-## Run "Get-Command -Module Az.StorageMover" to see a full list.
+##  Define the source endpoint: an NFS share in this example
+##  There is a separate cmdlet for creating each type of endpoint.
+##  (Each storage location type has different properties.)
+##  Run "Get-Command -Module Az.StorageMover" to see a full list.
 $sourceEpName        = "Your source endpoint name could be the name of the share"
 $sourceEpDescription = "Optional, up to 1024 characters"
-$sourceEpHost        = "The IP address or DNS name of the device (NAS / SERVER) that hosts your source share"
+$sourceEpHost        = "The IP address or DNS name of the source share NAS or server"
 $sourceEpExport      = "The name of your source share"
-## Note that Host and Export will be concatenated to Host:/Export to form the full path to the source NFS share
+##  Note that Host and Export will be concatenated to Host:/Export to form the full path 
+##  to the source NFS share
 
 New-AzStorageMoverNfsEndpoint `
     -ResourceGroupName $resourceGroupName `
@@ -146,13 +147,16 @@ New-AzStorageMoverNfsEndpoint `
     -Export $sourceEpExport `
     -Description $sourceEpDescription # Description optional
 
-## Define the target endpoint: an Azure blob container in this example
-$targetEpName          = "Your target endpoint name could be the name of the target blob container"
+##  Define the target endpoint: an Azure blob container in this example
+$targetEpName          = "Target endpoint or blob container name"
 $targetEpDescription   = "Optional, up to 1024 characters"
 $targetEpContainer     = "The name of the target container in Azure"
-$targetEpSaResourceId  = /subscriptions/<GUID>/resourceGroups/<name>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-## Note: the target storage account can be in a different subscription and region than the storage mover resource.
-## Only the storage account resource ID contains a fully qualified reference.
+$targetEpSaResourceId  = /subscriptions/<GUID>/resourceGroups/<name>/providers/`
+                         Microsoft.Storage/storageAccounts/<storageAccountName>
+##  Note: the target storage account can be in a different subscription and region than
+##  the storage mover resource.
+##
+##  Only the storage account resource ID contains a fully qualified reference.
 
 New-AzStorageMoverAzStorageContainerEndpoint `
     -ResourceGroupName $resourceGroupName `
@@ -163,11 +167,11 @@ New-AzStorageMoverAzStorageContainerEndpoint `
     -Description $targetEpDescription # Description optional
 
 ## Create a job definition resource
-$projectName   = "Your project name"
-$jobDefName   = "Your job definition name"
+$projectName        = "Your project name"
+$jobDefName         = "Your job definition name"
 $JobDefDescription  = "Optional, up to 1024 characters"
-$jobDefCopyMode = "Additive"
-$agentName = "The name of one of your agents previously registered to the same storage mover resource"
+$jobDefCopyMode     = "Additive"
+$agentName          = "The name of an agent previously registered to the same storage mover resource"
 
 
 New-AzStorageMoverJobDefinition `
@@ -180,13 +184,6 @@ New-AzStorageMoverJobDefinition `
     -TargetName $targetEpName `
     -AgentName $agentName `
     -Description $sourceEpDescription # Description optional
-
-## When you are ready to start migrating, you can run the job definition
-Start-AzStorageMoverJobDefinition `
-    -JobDefinitionName $jobDefName `
-    -ProjectName $projectName `
-    -ResourceGroupName $resourceGroupName `
-    -StorageMoverName $storageMoverName
 
 ```
 

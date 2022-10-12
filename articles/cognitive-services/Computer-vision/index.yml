@@ -47,7 +47,7 @@ conceptualContent:
           text: Use the Read OCR container
           url: computer-vision-how-to-install-containers.md
         - itemType: learn
-          text: Microsoft Learn
+          text: Microsoft Learn training
           url: /training/modules/read-text-images-documents-with-computer-vision-service/
         - itemType: reference
           text: OCR API reference
@@ -76,7 +76,7 @@ conceptualContent:
           text: Generate metadata for images
           url: Tutorials/storage-lab-tutorial.md
         - itemType: learn
-          text: Microsoft Learn
+          text: Microsoft Learn training
           url: /training/modules/analyze-images-computer-vision/
         - itemType: reference
           text: Image Analysis API reference
@@ -105,7 +105,7 @@ conceptualContent:
           text: Add users to a Face service
           url: Tutorials/build-enrollment-app.md
         - itemType: learn
-          text: Microsoft Learn
+          text: Microsoft Learn training
           url: /training/modules/detect-analyze-faces/
         - itemType: reference
           text: Face API reference

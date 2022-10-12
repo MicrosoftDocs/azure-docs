@@ -6,7 +6,7 @@ author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 

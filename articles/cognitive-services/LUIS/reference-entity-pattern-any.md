@@ -13,6 +13,9 @@ ms.date: 09/29/2019
 ---
 # Pattern.any entity
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
 Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent-pattern.md) template examples, not the intent user examples.

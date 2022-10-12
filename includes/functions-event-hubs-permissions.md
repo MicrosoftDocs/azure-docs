@@ -6,7 +6,7 @@ ms.date: 10/08/2021
 ms.author: mahender
 ---
 
-You will need to create a role assignment that provides access to your event hub at runtime. The scope of the role assignment must be for an Event Hubs namespace, not the event hub itself. Management roles like [Owner](../articles/role-based-access-control/built-in-roles.md#owner) are not sufficient. The following table shows built-in roles that are recommended when using the Event Hubs extension in normal operation. Your application may require additional permissions based on the code you write.
+You will need to create a role assignment that provides access to your event hub at runtime. The scope of the role assignment can be for an Event Hubs namespace, or the event hub itself. Management roles like [Owner](../articles/role-based-access-control/built-in-roles.md#owner) are not sufficient. The following table shows built-in roles that are recommended when using the Event Hubs extension in normal operation. Your application may require additional permissions based on the code you write.
 
 | Binding type   | Example built-in roles                                          |
 |----------------|-----------------------------------------------------------------|
