@@ -75,8 +75,7 @@ In most cases, Azure Lab Services will register your subscription when you perfo
 
 ## Next steps 
 
-Learn more about [Capacity limits in Azure Lab Services](./capacity-limits.md). 
-
-Learn how to [Request a capacity increase](./ how-to-request-capacity-increase.md). 
+- Learn more about [Capacity limits in Azure Lab Services](./capacity-limits.md). 
+- Learn how to [Request a core limit increase](./how-to-request-capacity-increase.md). 
 
  
