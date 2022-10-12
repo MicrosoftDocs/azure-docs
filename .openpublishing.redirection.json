@@ -11,6 +11,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path":  "articles/backup/sap-hana-db-manage.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-restore.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id":  false  
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-about.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-about",
+            "redirect_document_id":  false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
@@ -33,6 +48,11 @@
         {
             "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
             "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/container-registry/container-registry-customer-managed-keys.md",
+            "redirect_url":  "/azure/container-registry/tutorial-customer-managed-keys",
             "redirect_document_id":  false
         },
         {
@@ -11321,6 +11341,11 @@
         {
             "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
             "redirect_url": "/azure/ddos-protection/telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ddos-protection/ddos-protection-standard-features.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-features",
             "redirect_document_id": false
         },
         {
@@ -28912,6 +28937,11 @@
         {
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/keda-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context",
             "redirect_document_id": false
         }
     ]

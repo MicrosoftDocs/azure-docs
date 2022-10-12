@@ -232,6 +232,9 @@
                   href: backends.md
                 - name: Automate API deployments
                   href: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+                - name: Test and monitor APIs in Postman
+                  href: export-api-postman.md
+                  displayName: collection
           - name: Cache
             items:
                 - name: Add caching to improve performance
