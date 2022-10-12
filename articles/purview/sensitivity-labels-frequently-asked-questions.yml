@@ -42,7 +42,7 @@ sections:
           Extending the labels to the data map doesn't affect your existing setup for Microsoft Purview Information Protection or modify your assets in any way, including files and databases.  
           
           * When you extend sensitivity labels to the Microsoft Purview Data Map, your Microsoft Purview Information Protection setup will continue to work in the same way as before.
-          * Extending the sensitivity labels to the data map allows Microsoft Purview to apply those labels to your Azure and multi-cloud assets in the Microsoft Purview Data Map. The data map is a metadata store and can be deleted by you at any time, and you can browse it using the Microsoft Purview data catalog. 
+          * Extending the sensitivity labels to the data map allows Microsoft Purview to apply those labels to your Azure and multicloud assets in the Microsoft Purview Data Map. The data map is a metadata store and can be deleted by you at any time, and you can browse it using the Microsoft Purview Data Catalog. 
           * Sensitivity labels are applied only to the asset metadata in the Microsoft Purview Data Map and aren't applied to the actual files and database columns. These sensitivity labels don't modify your files and databases in any way.</br></br>
 
       - question: How can I determine if consent has been granted to extend labeling to the Microsoft Purview Data Map?
@@ -94,7 +94,7 @@ sections:
           | **Scan Process** | Scanning an asset in the Microsoft Purview Data Map looks for both system-defined and user-defined (custom) classifications in your data. If found, classifications are added in the Microsoft Purview map for the scanned asset. | If you have sensitivity labels extended to the Microsoft Purview Data Map and autolabeling rules defined, scanning an asset in the Microsoft Purview Data Map applies the labels to assets in the catalog based on the classifications found in the scan. |
           | **Authoring environment** | Custom classifications and classification rules can be created in the Microsoft Purview Governance Portal. You can also create custom classifications in Microsoft Purview Information Protection. However, we don't yet support importing them to the Microsoft Purview Data Map. | Manage sensitivity labels using the [Microsoft Purview compliance portal](/microsoft-365/compliance/create-sensitivity-labels). |
           | **Assignment Limits** | Assets can have no classifications, or one or more classifications assigned. | Each asset can have only one sensitivity label. |
-          | **Asset application workflow** | You can use the Microsoft Purview data catalog to manually add or modify classifications that are assigned to an asset. | In the Microsoft Purview Data Map, sensitivity labels are automatically assigned to assets based on classifications found. Applying labels manually in the Microsoft Purview Data Map isn't currently supported. | 
+          | **Asset application workflow** | You can use the Microsoft Purview Data Catalog to manually add or modify classifications that are assigned to an asset. | In the Microsoft Purview Data Map, sensitivity labels are automatically assigned to assets based on classifications found. Applying labels manually in the Microsoft Purview Data Map isn't currently supported. | 
           | **More Information** | [Learn more about classifications](create-a-custom-classification-and-classification-rule.md). | [Learn more about sensitivity labels](/microsoft-365/compliance/create-sensitivity-labels).|
           ||||
           
