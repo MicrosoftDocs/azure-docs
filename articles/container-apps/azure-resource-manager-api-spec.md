@@ -212,9 +212,6 @@ The following example ARM template deploys a container app.
     },
     "registry_password": {
       "type": "SecureString"
-    },
-    "storage_share_name": {
-      "type": "String"
     }
   },
   "variables": {},

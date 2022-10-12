@@ -38,6 +38,7 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
+$resourceGroupName = "yourResourceGroup"
 $vnetName = "yourVirtualNetwork"
 $subnetName = "yourSubnet"
 
