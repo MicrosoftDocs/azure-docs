@@ -2,7 +2,7 @@
 title: Examples of an Azure TPM Attestation policy
 description: Examples of Azure Attestation policy.
 services: attestation
-author: prsrive
+author: prsriva
 ms.service: attestation
 ms.topic: overview
 ms.date: 10/12/2022
@@ -128,7 +128,6 @@ issuancerules
     // The sequence number is used to ensure that the SMM event appears before the last DRTM state auth event.
     [type=="drtmMleValid", value==true, issuer=="AttestationPolicy"] &&
     c:[type=="validDrtmStateAuthEvent", issuer=="AttestationPolicy"] => add(type="validDrtmStateAuthEventSeq", value=JmesPath(c.value, "EventSeq"));
-
 
     // Create query for SMM event
     // The query is constructed to find the SMM level from the SMM level event that appears exactly once before the valid DRTM state auth event in the event log
