@@ -394,7 +394,7 @@ In an [upgrade scenario](upgrade-version.md), documents written prior to the upg
 
 Enabling 16 MB can be done in the features tab in the Azure portal or programmatically by [adding the `EnableMongo16MBDocumentSupport` capability](how-to-configure-capabilities.md). 
 
-We recommend enabling Server Side Retry to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
+We recommend enabling Server Side Retry and avoiding wildcard indexes to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
 
 | Command | Supported |
 |---------|---------|

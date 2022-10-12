@@ -4,7 +4,7 @@ description: Notifies our customers of any minor/medium updates that were pushed
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
-ms.date: 06/22/2022
+ms.date: 10/04/2022
 author: seesharprun
 ms.author: sidandrews
 ---
@@ -12,7 +12,17 @@ ms.author: sidandrews
 # Change log for Azure Cosmos DB for MongoDB
 The Change log for the API for MongoDB is meant to inform you about our feature updates. This document covers more granular updates and complements [Azure Updates](https://azure.microsoft.com/updates/).
 
-## Azure Cosmos DB's API for MongoDB updates
+## Azure Cosmos DB for MongoDB updates
+
+### Role-based access control (RBAC) (GA)
+Azure Cosmos DB for MongoDB now offers a built-in role-based access control (RBAC) that allows you to authorize your data requests with a fine-grained, role-based permission model. Using this role-based access control (RBAC) allows you access with more options for control, security, and auditability of your database account data.
+
+[Learn more](./how-to-setup-rbac.md)
+
+### 16-MB limit per document in Cosmos DB for MongoDB (GA)
+The 16MB document limit in Azure Cosmos DB for MongoDB provides developers the flexibility to store more data per document. This ease-of-use feature will speed up your development process and provide you with more flexibility in certain new application and migration cases. 
+ 
+[Learn more](./feature-support-42.md)
 
 ### Azure Data Studio MongoDB extension for Azure Cosmos DB (Preview)
 You can now use the free and lightweight tool feature to manage and query your MongoDB resources using mongo shell. Azure Data Studio MongoDB extension for Azure Cosmos DB allows you to manage multiple accounts all in one view by 
@@ -29,14 +39,14 @@ The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local
 [Learn more](https://aka.ms/linux-emulator-mongo)
 
 
-### 16-MB limit per document in API for MongoDB (Preview)
+### 16-MB limit per document in Azure Cosmos DB for MongoDB (Preview)
 The 16-MB document limit in the Azure Cosmos DB for MongoDB provides developers the flexibility to store more data per document. This ease-of-use feature will speed up your development process in these cases. 
 
 [Learn more](./introduction.md)
 
 
 ### Azure Cosmos DB for MongoDB data plane Role-Based Access Control (RBAC) (Preview)
-The API for MongoDB now offers a built-in role-based access control (RBAC) that allows you to authorize your data requests with a fine-grained, role-based permission model. Using this role-based access control (RBAC) allows you access with more options for control, security, and auditability of your database account data.
+Azure Cosmos DB for MongoDB now offers a built-in role-based access control (RBAC) that allows you to authorize your data requests with a fine-grained, role-based permission model. Using this role-based access control (RBAC) allows you access with more options for control, security, and auditability of your database account data.
 
 [Learn more](./how-to-setup-rbac.md)
 
