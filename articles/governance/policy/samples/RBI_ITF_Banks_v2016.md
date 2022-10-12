@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Reserve Bank of India IT Framework for Banks v2016
 description: Details of the Reserve Bank of India IT Framework for Banks v2016 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/10/2022
+ms.date: 10/12/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -37,7 +37,7 @@ initiative definition.
 
 ### Authentication Framework For Customers-9.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -48,7 +48,7 @@ initiative definition.
 
 ### Authentication Framework For Customers-9.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -64,7 +64,7 @@ initiative definition.
 
 ### Network Inventory-4.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -77,7 +77,7 @@ initiative definition.
 
 ### Network Device Configuration Management-4.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -101,7 +101,7 @@ initiative definition.
 
 ### Anomaly Detection-4.7
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -122,7 +122,7 @@ initiative definition.
 
 ### Security Operation Centre-4.9
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -145,7 +145,7 @@ initiative definition.
 
 ### Perimeter Protection And Detection-4.10
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -166,7 +166,7 @@ initiative definition.
 
 ### Software Inventory-2.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -175,7 +175,7 @@ initiative definition.
 
 ### Authorised Software Installation-2.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -184,7 +184,7 @@ initiative definition.
 
 ### Security Update Management-2.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -207,7 +207,7 @@ initiative definition.
 
 ### Patch/Vulnerability & Change Management-7.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -231,7 +231,7 @@ initiative definition.
 
 ### Patch/Vulnerability & Change Management-7.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -255,7 +255,7 @@ initiative definition.
 
 ### Patch/Vulnerability & Change Management-7.6
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -288,7 +288,7 @@ initiative definition.
 
 ### Patch/Vulnerability & Change Management-7.7
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -322,7 +322,7 @@ initiative definition.
 
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -334,7 +334,7 @@ initiative definition.
 
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -345,7 +345,7 @@ initiative definition.
 
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -356,9 +356,11 @@ initiative definition.
 |[Resource logs in Key Vault should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 |[Resource logs in Virtual Machine Scale Sets should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |It is recommended to enable Logs so that activity trail can be recreated when investigations are required in the event of an incident or a compromise. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json) |
 
+## Patch/Vulnerability & Change Management
+
 ### Patch/Vulnerability & Change Management-7.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -382,7 +384,7 @@ initiative definition.
 
 ### Patch/Vulnerability & Change Management-7.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -406,7 +408,7 @@ initiative definition.
 
 ### Patch/Vulnerability & Change Management-7.6
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -439,7 +441,7 @@ initiative definition.
 
 ### Patch/Vulnerability & Change Management-7.7
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -473,7 +475,7 @@ initiative definition.
 
 ### Secure Configuration-5.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -489,7 +491,7 @@ initiative definition.
 
 ### Secure Configuration-5.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -500,7 +502,7 @@ initiative definition.
 
 ### Secure Mail And Messaging Systems-10.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -524,7 +526,7 @@ initiative definition.
 
 ### Secure Mail And Messaging Systems-10.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -550,7 +552,7 @@ initiative definition.
 
 ### User Access Control / Management-8.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -571,7 +573,7 @@ initiative definition.
 
 ### User Access Control / Management-8.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -585,7 +587,7 @@ initiative definition.
 
 ### User Access Control / Management-8.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -597,7 +599,7 @@ initiative definition.
 
 ### User Access Control / Management-8.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -607,7 +609,7 @@ initiative definition.
 
 ### User Access Control / Management-8.5
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -626,7 +628,7 @@ initiative definition.
 
 ### User Access Control / Management-8.8
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -637,7 +639,7 @@ initiative definition.
 
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -647,7 +649,7 @@ initiative definition.
 
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -658,7 +660,7 @@ initiative definition.
 
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -673,7 +675,7 @@ initiative definition.
 
 ### Risk Based Transaction Monitoring-20.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -685,9 +687,11 @@ initiative definition.
 |[Vulnerability assessment should be enabled on SQL Managed Instance](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Audit each SQL Managed Instance which doesn't have recurring vulnerability assessment scans enabled. Vulnerability assessment can discover, track, and help you remediate potential database vulnerabilities. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[Vulnerability assessment should be enabled on your SQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Audit Azure SQL servers which do not have recurring vulnerability assessment scans enabled. Vulnerability assessment can discover, track, and help you remediate potential database vulnerabilities. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
 
+## Vulnerability Assessment And Penetration Test And Red Team Exercises
+
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -697,7 +701,7 @@ initiative definition.
 
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -708,7 +712,7 @@ initiative definition.
 
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -719,9 +723,11 @@ initiative definition.
 |[Vulnerabilities in security configuration on your machines should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Servers which do not satisfy the configured baseline will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Vulnerabilities in security configuration on your virtual machine scale sets should be remediated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
 
+## Maintenance, Monitoring, And Analysis Of Audit Logs
+
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -733,7 +739,7 @@ initiative definition.
 
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -744,7 +750,7 @@ initiative definition.
 
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -759,7 +765,7 @@ initiative definition.
 
 ### Metrics-21.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -781,15 +787,17 @@ initiative definition.
 
 ### Metrics-21.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Hotpatch should be enabled for Windows Server Azure Edition VMs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6d02d2f7-e38b-4bdc-96f3-adc0a8726abc) |Minimize reboots and install updates quickly with hotpatch. Learn more at [https://docs.microsoft.com/azure/automanage/automanage-hotpatch](../../../automanage/automanage-hotpatch.md) |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automanage/HotpatchShouldBeEnabledforWindowsServerAzureEditionVMs.json) |
 
+## Authentication Framework For Customers
+
 ### Authentication Framework For Customers-9.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -800,7 +808,7 @@ initiative definition.
 
 ### Authentication Framework For Customers-9.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -816,7 +824,7 @@ initiative definition.
 
 ### Audit Log Settings-17.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -840,7 +848,7 @@ initiative definition.
 
 ### Anti-Phishing-14.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -881,15 +889,15 @@ initiative definition.
 
 ### Advanced Real-Timethreat Defenceand Management-13.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[\[Preview\]: Guest Attestation extension should be installed on supported Linux virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F672fe5a1-2fcd-42d7-b85d-902b6e28c6ff) |Install Guest Attestation extension on supported Linux virtual machines to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled Linux virtual machines. |AuditIfNotExists, Disabled |[5.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallLinuxGAExtOnVm_Audit.json) |
-|[\[Preview\]: Guest Attestation extension should be installed on supported Linux virtual machines scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa21f8c92-9e22-4f09-b759-50500d1d2dda) |Install Guest Attestation extension on supported Linux virtual machines scale sets to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled Linux virtual machine scale sets. |AuditIfNotExists, Disabled |[4.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallLinuxGAExtOnVmss_Audit.json) |
-|[\[Preview\]: Guest Attestation extension should be installed on supported Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb4d9c2-f88f-4069-bee0-dba239a57b09) |Install Guest Attestation extension on supported virtual machines to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled virtual machines. |AuditIfNotExists, Disabled |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallWindowsGAExtOnVm_Audit.json) |
-|[\[Preview\]: Guest Attestation extension should be installed on supported Windows virtual machines scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff655e522-adff-494d-95c2-52d4f6d56a42) |Install Guest Attestation extension on supported virtual machines scale sets to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment only applies to trusted launch enabled virtual machine scale sets. |AuditIfNotExists, Disabled |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallWindowsGAExtOnVmss_Audit.json) |
-|[\[Preview\]: Secure Boot should be enabled on supported Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F97566dd7-78ae-4997-8b36-1c7bfe0d8121) |Enable Secure Boot on supported Windows virtual machines to mitigate against malicious and unauthorized changes to the boot chain. Once enabled, only trusted bootloaders, kernel and kernel drivers will be allowed to run. This assessment only applies to trusted launch enabled Windows virtual machines. |Audit, Disabled |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableWindowsSB_Audit.json) |
+|[\[Preview\]: Guest Attestation extension should be installed on supported Linux virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F672fe5a1-2fcd-42d7-b85d-902b6e28c6ff) |Install Guest Attestation extension on supported Linux virtual machines to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment applies to Trusted Launch and Confidential Linux virtual machines. |AuditIfNotExists, Disabled |[6.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallLinuxGAExtOnVm_Audit.json) |
+|[\[Preview\]: Guest Attestation extension should be installed on supported Linux virtual machines scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa21f8c92-9e22-4f09-b759-50500d1d2dda) |Install Guest Attestation extension on supported Linux virtual machines scale sets to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation.  This assessment applies to Trusted Launch and Confidential Linux virtual machine scale sets. |AuditIfNotExists, Disabled |[5.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallLinuxGAExtOnVmss_Audit.json) |
+|[\[Preview\]: Guest Attestation extension should be installed on supported Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1cb4d9c2-f88f-4069-bee0-dba239a57b09) |Install Guest Attestation extension on supported virtual machines to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment applies to Trusted Launch and Confidential Windows virtual machines. |AuditIfNotExists, Disabled |[4.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallWindowsGAExtOnVm_Audit.json) |
+|[\[Preview\]: Guest Attestation extension should be installed on supported Windows virtual machines scale sets](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff655e522-adff-494d-95c2-52d4f6d56a42) |Install Guest Attestation extension on supported virtual machines scale sets to allow Azure Security Center to proactively attest and monitor the boot integrity. Once installed, boot integrity will be attested via Remote Attestation. This assessment applies to Trusted Launch and Confidential Windows virtual machine scale sets. |AuditIfNotExists, Disabled |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_InstallWindowsGAExtOnVmss_Audit.json) |
+|[\[Preview\]: Secure Boot should be enabled on supported Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F97566dd7-78ae-4997-8b36-1c7bfe0d8121) |Enable Secure Boot on supported Windows virtual machines to mitigate against malicious and unauthorized changes to the boot chain. Once enabled, only trusted bootloaders, kernel and kernel drivers will be allowed to run. This assessment applies to Trusted Launch and Confidential Windows virtual machines. |Audit, Disabled |[4.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableWindowsSB_Audit.json) |
 |[\[Preview\]: vTPM should be enabled on supported virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c30f9cd-b84c-49cc-aa2c-9288447cc3b3) |Enable virtual TPM device on supported virtual machines to facilitate Measured Boot and other OS security features that require a TPM. Once enabled, vTPM can be used to attest boot integrity. This assessment only applies to trusted launch enabled virtual machines. |Audit, Disabled |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableVTPM_Audit.json) |
 |[Adaptive application controls for defining safe applications should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Enable application controls to define the list of known-safe applications running on your machines, and alert you when other applications run. This helps harden your machines against malware. To simplify the process of configuring and maintaining your rules, Security Center uses machine learning to analyze the applications running on each machine and suggest the list of known-safe applications. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 |[Allowlist rules in your adaptive application control policy should be updated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F123a3936-f020-408a-ba0c-47873faf1534) |Monitor for changes in behavior on groups of machines configured for auditing by Azure Security Center's adaptive application controls. Security Center uses machine learning to analyze the running processes on your machines and suggest a list of known-safe applications. These are presented as recommended apps to allow in adaptive application control policies. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControlsUpdate_Audit.json) |
@@ -915,7 +923,7 @@ initiative definition.
 
 ### Advanced Real-Timethreat Defenceand Management-13.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -944,7 +952,7 @@ initiative definition.
 
 ### Advanced Real-Timethreat Defenceand Management-13.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -966,7 +974,7 @@ initiative definition.
 
 ### Advanced Real-Timethreat Defenceand Management-13.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1019,7 +1027,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1029,7 +1037,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1039,7 +1047,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1059,7 +1067,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.6
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1069,7 +1077,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.7
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1080,9 +1088,11 @@ initiative definition.
 |[Web Application Firewall (WAF) should enable all firewall rules for Application Gateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F632d3993-e2c0-44ea-a7db-2eca131f356d) |Enabling all Web Application Firewall (WAF) rules strengthens your application security and protects your web applications against common vulnerabilities. To learn more about Web Application Firewall (WAF) with Application Gateway, visit [https://aka.ms/waf-ag](https://aka.ms/waf-ag) |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ACAT_WAF_AppGatewayAllRulesEnabled_Audit.json) |
 |[Web Application Firewall (WAF) should use the specified mode for Application Gateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12430be1-6cc8-4527-a9a8-e3d38f250096) |Mandates the use of 'Detection' or 'Prevention' mode to be active on all Web Application Firewall policies for Application Gateway. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayMode_Audit.json) |
 
+## Maintenance, Monitoring, And Analysis Of Audit Logs
+
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1094,7 +1104,7 @@ initiative definition.
 
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1105,7 +1115,7 @@ initiative definition.
 
 ### Maintenance, Monitoring, And Analysis Of Audit Logs-16.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1116,9 +1126,11 @@ initiative definition.
 |[Resource logs in Key Vault should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised |AuditIfNotExists, Disabled |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 |[Resource logs in Virtual Machine Scale Sets should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |It is recommended to enable Logs so that activity trail can be recreated when investigations are required in the event of an incident or a compromise. |AuditIfNotExists, Disabled |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json) |
 
+## Application Security Life Cycle (Aslc)
+
 ### Application Security Life Cycle (Aslc)-6.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1128,7 +1140,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1138,7 +1150,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1158,7 +1170,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.6
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1168,7 +1180,7 @@ initiative definition.
 
 ### Application Security Life Cycle (Aslc)-6.7
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1183,7 +1195,7 @@ initiative definition.
 
 ### Data Leak Prevention Strategy-15.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1198,7 +1210,7 @@ initiative definition.
 
 ### Data Leak Prevention Strategy-15.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1212,7 +1224,7 @@ initiative definition.
 
 ### Data Leak Prevention Strategy-15.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1226,7 +1238,7 @@ initiative definition.
 
 ### Forensics-22.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1236,7 +1248,7 @@ initiative definition.
 
 ### Responding To Cyber-Incidents:-19.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1246,7 +1258,7 @@ initiative definition.
 
 ### Recovery From Cyber - Incidents-19.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1255,7 +1267,7 @@ initiative definition.
 
 ### Recovery From Cyber - Incidents-19.5
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1267,7 +1279,7 @@ initiative definition.
 
 ### Recovery From Cyber - Incidents-19.6
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1278,7 +1290,7 @@ initiative definition.
 
 ### Recovery From Cyber - Incidents-19.6b
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1289,7 +1301,7 @@ initiative definition.
 
 ### Recovery From Cyber - Incidents-19.6c
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1299,15 +1311,17 @@ initiative definition.
 
 ### Recovery From Cyber - Incidents-19.6e
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Defender for servers should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |Azure Defender for servers provides real-time threat protection for server workloads and generates hardening recommendations as well as alerts about suspicious activities. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
 
+## Metrics
+
 ### Metrics-21.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1329,15 +1343,17 @@ initiative definition.
 
 ### Metrics-21.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Hotpatch should be enabled for Windows Server Azure Edition VMs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6d02d2f7-e38b-4bdc-96f3-adc0a8726abc) |Minimize reboots and install updates quickly with hotpatch. Learn more at [https://docs.microsoft.com/azure/automanage/automanage-hotpatch](../../../automanage/automanage-hotpatch.md) |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automanage/HotpatchShouldBeEnabledforWindowsServerAzureEditionVMs.json) |
 
+## Data Leak Prevention Strategy
+
 ### Data Leak Prevention Strategy-15.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1352,7 +1368,7 @@ initiative definition.
 
 ### Data Leak Prevention Strategy-15.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1366,7 +1382,7 @@ initiative definition.
 
 ### Data Leak Prevention Strategy-15.3
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1376,9 +1392,11 @@ initiative definition.
 |[Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 |[Windows Defender Exploit Guard should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |Windows Defender Exploit Guard uses the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements (Windows only). |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AINE.json) |
 
+## Vulnerability Assessment And Penetration Test And Red Team Exercises
+
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.1
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1388,7 +1406,7 @@ initiative definition.
 
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.2
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -1399,7 +1417,7 @@ initiative definition.
 
 ### Vulnerability Assessment And Penetration Test And Red Team Exercises-18.4
 
-**ID**:
+**ID**: 
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
