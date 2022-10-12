@@ -22,14 +22,9 @@ Azure Load Balancer has three SKUs.
 ## <a name="skus"></a> SKU comparison
 Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
 
-To compare and understand the differences between Basic and Standard SKU, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs), see [Gateway Load Balancer overview](gateway-overview.md)
+To compare and understand the differences between Basic and Standard SKU, see the following table. 
 
->[!NOTE]
-> Microsoft recommends Standard load balancer. See [Upgrade from Basic to Standard Load Balancer](upgrade-basic-standard.md) for a guided instruction on upgrading SKUs along with an upgrade script.
-> 
-> Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load balancer and the public IP address SKU must match when you use them with public IP addresses. Load balancer and public IP SKUs aren't mutable.
-
-| | Standard Load Balancer | Basic Load Balancer |
+| | Standard Load Balancer | Basic Load Balancer | Gateway Load Balancer
 | --- | --- | --- |
 | **Scenario** |  Equipped for load-balancing network layer traffic when high performance and ultra-low latency is needed. Routes traffic within and across regions, and to availability zones for high resiliency. | Equipped for small-scale applications that don't need high availability or redundancy. Not compatible with availability zones. |
 | **Backend type** | IP based, NIC based | NIC based |
@@ -53,17 +48,15 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **[Private Link Support](../private-link/private-link-overview.md)** | Standard ILB is supported via Private Link | Not supported | 
 | **[Global tier (Preview)](./cross-region-overview.md)** | Standard LB supports the Global tier for Public LBs enabling cross-region load balancing | Not supported | 
 
-For more information, see [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). For Standard Load Balancer details, see [overview](./load-balancer-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
+For more information, see [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). For Standard Load Balancer details, see [overview](./load-balancer-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs), see [Gateway Load Balancer overview](gateway-overview.md)
 
 ## Limitations
-
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - [Move operations](../azure-resource-manager/management/move-resource-group-and-subscription.md):
   - Resource group move operations (within same subscription) **are supported** for Standard Load Balancer and Standard Public IP. 
   - [Subscription group move operations](../azure-resource-manager/management/move-support-resources.md) are **not** supported for Standard Load Balancers.
 
 ## Next steps
-
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
