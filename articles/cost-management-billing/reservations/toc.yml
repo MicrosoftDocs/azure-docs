@@ -25,7 +25,7 @@
       href: ../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure VMware Solution
       href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: understand-cosmosdb-reservation-charges.md
     - name: Database for MariaDB
       href: understand-reservation-charges-mariadb.md
@@ -96,7 +96,7 @@
       href: ../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure VMware Solution
       href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md

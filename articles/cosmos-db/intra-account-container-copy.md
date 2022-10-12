@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 08/1/2022
 ms.author: shwetn
 ms.reviewer: sidandrews
-ms.custom: references_regions 
+ms.custom: references_regions, ignite-2022
 ---
 
 # Intra-account container copy jobs in Azure Cosmos DB (Preview)
-[!INCLUDE[appliesto-sql-cassandra-api](includes/appliesto-sql-cassandra-api.md)]
+[!INCLUDE[NoSQL, Cassandra](includes/appliesto-nosql-cassandra.md)]
 
 You can perform offline container copy within an Azure Cosmos DB account using container copy jobs.
 
@@ -28,11 +28,11 @@ Intra-account container copy jobs can be [created and managed using CLI commands
 
 ## Get started
 
-To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview will be effective for all Cassandra and SQL API accounts in the subscription.
+To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview will be effective for all Cassandra and API for NoSQL accounts in the subscription.
 
 ## Overview of steps needed to do container copy
 
-1. Create the target Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
+1. Create the target Azure Cosmos DB container with the desired settings (partition key, throughput granularity, RUs, unique key, etc.).
 2. Stop the operations on the source container by pausing the application instances or any clients connecting to it.
 3. [Create the container copy job](how-to-container-copy.md).
 4. [Monitor the progress of the container copy job](how-to-container-copy.md#monitor-the-progress-of-a-container-copy-job) and wait until it's completed.
