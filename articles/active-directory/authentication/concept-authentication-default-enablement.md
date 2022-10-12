@@ -1,12 +1,12 @@
 ---
-title: Use Microsoft managed settings for the Authentication methods policy - Azure Active Directory
-description: Learn how to use Microsoft managed settings for Microsoft Authenticator
+title: Default enablement for authentication methods in Azure Active Directory
+description: Learn about authentication features that may be enabled by default in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/12/2022
 
 ms.author: justinha
 author: mjsantani
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to understand how letting Microsoft manage settings can improve our security posture.
 ---
-# How to use Microsoft managed settings - Authentication methods policy
+# Default enablement for authentication methods in Azure Active Directory
 
 In addition to configuring Authentication methods policy settings to be either **Enabled** or **Disabled**, IT admins can configure some settings to be **Microsoft managed**. A setting that is configured as **Microsoft managed** allows Azure AD to enable or disable the setting. 
 
