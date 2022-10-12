@@ -1,11 +1,11 @@
 ---
-title: How to view the Azure Spring Apps Enterprise Tier offering from Azure Marketplace
-description: How to view the Azure Spring Apps Enterprise Tier offering from Azure Marketplace.
+title: View Azure Spring Apps Enterprise Tier offering from Azure Marketplace
+description: Learn how to view the Azure Spring Apps Enterprise Tier offering from Azure Marketplace.
 author: karlerickson
 ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 10/12/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
