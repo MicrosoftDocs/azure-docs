@@ -2,7 +2,9 @@
 title: Registry service tiers and features
 description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 08/12/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Azure Container Registry service tiers

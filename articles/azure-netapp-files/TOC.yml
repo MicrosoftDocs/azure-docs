@@ -219,6 +219,8 @@
         href: configure-unix-permissions-change-ownership-mode.md
       - name: Configure network features for a volume
         href: configure-network-features.md
+      - name: Guidelines for configuring ANF over Virtual WAN
+        href: configure-anf-on-vwan.md
     - name: Mount volumes
       items:
       - name: Mount an NFS volume for Windows or Linux VMs
@@ -299,8 +301,6 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
-  - name: Guidelines for configuring ANF over Virtual WAN
-    href: ../virtual-wan/configure-anf-on-vwan.md
   - name: Develop
     items:
     - name: REST API
