@@ -12,14 +12,16 @@ ms.date: 10/10/2022
 
 # Supported operating systems and browsers in Microsoft Playwright Testing Preview
 
-In this article, learn which operating systems and browsers Microsoft Playwright Testing Preview supports for running Playwright tests. Microsoft Playwright Testing enables you to run tests against browsers on multiple operating systems by extending the configuration in [Playwright test projects](https://playwright.dev/docs/test-advanced#projects).
+In this article, learn which operating systems and browsers Microsoft Playwright Testing Preview supports. Microsoft Playwright Testing enables you to run tests against browsers on multiple operating systems by extending the `playwright.config.ts` (or `playwright.config.js`) Playwright configuration file.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Supported operating systems
 
-Microsoft Playwright Testing supports running tests on Windows or Ubuntu. The following table lists the supported operating system versions:
+Microsoft Playwright Testing supports running tests on Windows or Ubuntu. Specify the `os` and `os_version` parameters in the `PlaywrightService.connectOptions()` function to configure the target operating system in the Playwright configuration file.
+
+The following table lists the supported operating system versions.
 
 | Operating system | Version | `os` | `os_version` |
 |----|-----|----|-----|
@@ -35,10 +37,10 @@ By default, Microsoft Playwright Testing runs tests on the latest Ubuntu version
 
 ## Supported browsers
 
-Microsoft Playwright Testing supports all browsers that are supported by Playwright across all [supported operating systems](#supported-operating-systems). Playwright supports the latest browsers at any moment.
+Microsoft Playwright Testing supports all browsers that are supported by Playwright across all [supported operating systems](#supported-operating-systems). Playwright supports the latest browser versions at any moment.
 Learn more about [supported browsers](https://playwright.dev/docs/browsers) in the Playwright documentation.
 
-You can configure the browser for a test by specifying the `testOptions.browserName` field. You can further configure the browser configuration, or select a [preconfigured configuration](https://playwright.dev/docs/test-configuration#emulation).
+You can configure the target browser by specifying the `testOptions.browserName` field. You can further configure the browser options, or select a [preconfigured configuration](https://playwright.dev/docs/test-configuration#emulation).
 
 The following table lists the supported browser types:
 
