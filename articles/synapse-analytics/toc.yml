@@ -1429,6 +1429,8 @@ items:
           href: ../data-factory/connector-troubleshoot-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: REST
           href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
+          href: ../data-factory/connector-troubleshoot-sap.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics          
         - name: SharePoint Online list
           href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Snowflake
