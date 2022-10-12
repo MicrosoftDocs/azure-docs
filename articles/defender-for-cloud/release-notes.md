@@ -62,11 +62,15 @@ Agentless vulnerability scanning is available in both Defender Defender Cloud Se
 
 ### Defender for DevOps (Preview)
 
-Defender for Cloud now includes Defender for DevOps in preview.
+Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, Google, and on-premises resources. 
 
-You can now configure pull request annotations for secret scan findings in Azure DevOps.
+Now, the new Defender for DevOps service integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration we are empowering security teams to protect their resources from code to cloud.
 
-The Azure DevOps extension and GitHub action leverage the Microsoft Security DevOps tools to scan the following: 
+Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high level overview of the discovered security issues that exist within them in a unified DevOps Security page.
+
+Security Teams can configure pull request annotations to help Developers address secret scanning findings in Azure DevOps directly on their pull requests.
+
+You can configure the Microsoft Security DevOps tools on Azure DevOps pipelines and GitHub workflows to enable the following security scans: 
 
 | Name | Language | License |
 |--|--|--|
@@ -78,7 +82,7 @@ The Azure DevOps extension and GitHub action leverage the Microsoft Security Dev
 | [Terrascan](https://github.com/tenable/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
 | [Trivy](https://github.com/aquasecurity/trivy) | container images, file systems, git repositories | [Apache License 2.0](https://github.com/tenable/terrascan/blob/master/LICENSE) |
 
-The following new recommendations are now available for DevOps Security:
+The following new recommendations are now available for DevOps Security assessments:
 
 | Recommendation | Description | Severity | 
 |--|--|--|
@@ -174,6 +178,7 @@ Updates in September include:
 - [Defender for Servers supports File Integrity Monitoring with Azure Monitor Agent](#defender-for-servers-supports-file-integrity-monitoring-with-azure-monitor-agent)
 - [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation)
 - [Extra recommendations added to identity](#extra-recommendations-added-to-identity)
+- [Removed security alerts for machines reporting to cross-tenant Log Analytics workspaces](#removed-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces)
 
 ### Suppress alerts based on Container and Kubernetes entities
 
@@ -238,6 +243,16 @@ The new release contains the following capabilities:
     |External accounts with write permissions should be removed from your subscription|04e7147b-0deb-9796-2e5c-0336343ceb3d|
 
 The recommendations although in preview, will appear next to the recommendations that are currently in GA.
+
+### Removed security alerts for machines reporting to cross-tenant Log Analytics workspaces
+
+In the past, Defender for Cloud let you choose the workspace that your Log Analytics agents report to. When a machine belonged to one tenant (“Tenant A”) but its Log Analytics agent reported to a workspace in a different tenant (“Tenant B”), security alerts about the machine were reported to the first tenant (“Tenant A”).
+
+With this change, alerts on machines connected to Log Analytics workspace in a different tenant no longer appear in Defender for Cloud.
+
+If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the machine.
+
+Learn more about [security alerts](alerts-overview.md).
 
 ## August 2022
 
