@@ -1363,6 +1363,8 @@ items:
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md 
   - name: Logs ingestion API
     items:
     - name: Overview
