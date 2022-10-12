@@ -17,6 +17,8 @@
     href: quickstart-powershell.md
   - name: Portal
     href: quickstart-portal.md
+  - name: Portal
+    href: quickstart-portal-tpm.md
   - name: CLI
     href: quickstart-azure-cli.md
 - name: Tutorials

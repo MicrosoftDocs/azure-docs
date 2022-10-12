@@ -16,8 +16,34 @@ Attestation can be integrated into vairous applications and servies, catering to
 
 Attesting a platform has its own challenges with its varied components of boot and setup, one needs to rely on a  hardware root-of-trust anchor that can be used to verify the very first steps of the boot process and extend that trust upward into every layer on your system. A hardware TPM provides such an anchor for a true remote attestation solution. Azure Attestation provides a highly scalable measured boot and runtime integrity measurement attestation solution with a revocation framework to give you full control over platform attestation and remediation.
 
+## Attestation Steps
+
+Attestation Setup has 2 main components: 
+One pertaining to the service setup and one pertaining to the client setup. More information about the workflow is described in [Azure attestation workflow](workflow.md).
+
+### Service endpoint setup:
+This is the first step for any attestaiton to be performed. Setting up an endpoint can be performed either via code or using the Azure Portal. The key piece to attestation is the policy. Sample policies can be found in the [Policy Samples](policy-examples.md) Section.
+
+Here is how you can setup an attestation endpoint using Powershell
+<ul>
+<li> Ensure powershell and azure prerequisites are met.</li>
+</ul>
+
+Here is how you can setup an attestation endpoint using Azure Portal
+
+
+### Client Setup:
+A client to communicate with the attestation service endpoint needs to ensure it is appropriately following the protocol as described in the procotol documentation, or for ease of intergation a sample client is available is here to try. 
+<ul>
+<li> Ensure the identity to be used for authentication has Attestation Reader Role.</li>
+</ul>
+
+
+### Executing the Attestation Workflow:
+
+
 ## How to use attestation for Boot integrity
-To provide authenticity of the root-of-trust guarantees, the UEFI and other bootloaders and operating system components are running as expected is achieved by leveraging the cryptographic identity provided    the TPMs and measured boot feature of the various components.
+To provide authenticity of the root-of-trust guarantees, the UEFI and other bootloaders and operating system components are running as expected is achieved by leveraging the cryptographic identity provided the TPMs and measured boot feature of the various components.
 
 A sample to set up the client can be found here:
 
