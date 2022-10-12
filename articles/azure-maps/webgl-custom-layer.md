@@ -210,6 +210,7 @@ class DeckGLLayer extends atlas.layer.WebGLLayer {
 } 
 ```
 
+
 This sample renders an arc-layer from the [deck.gl][deckgl] library.
 
 ![A screenshot showing an arc-layer from the Deck G L library.](./media/how-to-webgl-custom-layer/arc-layer.png)
