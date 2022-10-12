@@ -113,7 +113,7 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
 1. Install the Device Update agent .deb packages:
 
    ```bash
-   sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
+   sudo apt-get install deviceupdate-agent 
    ```
 
 1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the following command:
