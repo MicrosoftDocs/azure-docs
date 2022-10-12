@@ -22,7 +22,6 @@ Azure Cosmos DB for MongoDB now offers a built-in role-based access control (RBA
 ### 16-MB limit per document in Cosmos DB for MongoDB (GA)
 The 16MB document limit in Azure Cosmos DB for MongoDB provides developers the flexibility to store more data per document. This ease-of-use feature will speed up your development process and provide you with more flexibility in certain new application and migration cases. 
 
-[Learn more](./feature-support-42)
 
 ### Azure Data Studio MongoDB extension for Azure Cosmos DB (Preview)
 You can now use the free and lightweight tool feature to manage and query your MongoDB resources using mongo shell. Azure Data Studio MongoDB extension for Azure Cosmos DB allows you to manage multiple accounts all in one view by 
