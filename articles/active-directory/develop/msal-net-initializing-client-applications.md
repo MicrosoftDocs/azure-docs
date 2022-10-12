@@ -2,7 +2,7 @@
 title: Initialize MSAL.NET client applications
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: Dickson-Mwendia
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/18/2019
-ms.author: dmwendia
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
@@ -88,7 +88,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## Builder modifiers
 
-In the code snippets using application builders, a number of `.With` methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`).
+In the code snippets using application builders, a number of `.With` methods can be applied as modifiers (for example, `.WithCertificate` and `.WithRedirectUri`). 
 
 ### Modifiers common to public and confidential client applications
 

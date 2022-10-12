@@ -2,7 +2,7 @@
 title: Azure AD B2C and MSAL.NET
 description: Considerations when using Azure AD B2C with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: Dickson-Mwendia
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2020
-ms.author: dmwendia
+ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
 # Customer intent: As an application developer, I want to learn about specific considerations when using Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
@@ -77,7 +77,7 @@ catch (MsalUiRequiredException ex)
                         .WithAccount(account)
                         .WithParentActivityOrWindow(ParentActivityOrWindow)
                         .ExecuteAsync();
-}
+}  
 ```
 
 In the preceding code snippet:
@@ -116,7 +116,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 
 For more information on the ROPC flow, see [Sign in with resource owner password credentials grant](v2-oauth-ropc.md).
 
-The ROPC flow is **not recommended** because asking a user for their password in your application is not secure. For more information about this problem, see [What's the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
+The ROPC flow is **not recommended** because asking a user for their password in your application is not secure. For more information about this problem, see [What’s the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
 By using username/password in an ROPC flow, you sacrifice several things:
 
