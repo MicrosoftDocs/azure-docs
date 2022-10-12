@@ -23,9 +23,9 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** September 2022
+**Estimated date for change:** October 2022
 
-Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In June, we'll be making the changes outlined below.
+Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In October, we'll be making the changes outlined below.
 
 #### New recommendations in preview
 
@@ -67,4 +67,4 @@ If you want to continue receiving the alerts in Defender for Cloud, connect the 
 
 ## Next steps
 
-For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md)
+For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).

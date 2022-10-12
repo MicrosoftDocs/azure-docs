@@ -1,22 +1,23 @@
 ---
-title: Azure DDoS Protection Standard business continuity | Microsoft Docs
-description: Learn what to do in the event of an Azure service disruption impacting Azure DDoS Protection Standard.
+title: Azure DDoS Protection business continuity | Microsoft Docs
+description: Learn what to do in the event of an Azure service disruption impacting Azure DDoS Protection.
 services: ddos-protection
 documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 04/16/2021
+ms.date: 10/12/2022
 ms.author: abell
 ms.topic: article
 ---
-# Azure DDoS Protection Standard – business continuity
+# Azure DDoS Protection – business continuity
 
-Business continuity and disaster recovery in Azure DDoS Protection Standard enables your business to continue operating in the face of a disruption. This article discusses availability (intra-region) and disaster recovery.
+Business continuity and disaster recovery in Azure DDoS Protection enables your business to continue operating in the face of a disruption. This article discusses availability (intra-region) and disaster recovery.
 
 ## Overview
-Azure DDoS Protection Standard protects public IP addresses in virtual networks. Protection is simple to enable on any new or existing virtual network and does not require any application or resource changes.
+Azure DDoS Protection protects public IP addresses in virtual networks. Protection is simple to enable on any new or existing virtual network and does not require any application or resource changes.
 
 A Virtual Network (VNet) is a logical representation of your network in the cloud. VNets serve as a trust boundary to host your resources such as Azure Application Gateway, Azure Firewall and Azure Virtual Machines. It is created within the scope of a region. You can *create* VNets with same address space in two different regions (For example, US East and US West), but because they have the same address space, you can't connect them together. 
 
