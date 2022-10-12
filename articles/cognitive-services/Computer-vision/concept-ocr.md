@@ -17,7 +17,7 @@ ms.author: pafarley
 
 Version 4.0 of Image Analysis offers the ability to extract text from images. Contextual information like line number and position is also returned. Text reading is also available through the [OCR service](overview-ocr.md), but the latest model version is available through Image Analysis. This version is optimized for image inputs as opposed to documents.
 
-[!INCLUDE [read-editions](../includes/read-editions.md)]
+[!INCLUDE [read-editions](./includes/read-editions.md)]
 
 ## Reading text example
 
