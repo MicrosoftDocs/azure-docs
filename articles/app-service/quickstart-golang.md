@@ -104,6 +104,8 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 }
 </pre>
 
+[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
+
 ## 3 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see a default app page, wait a minute and refresh the browser.
