@@ -4,9 +4,9 @@ description: Learn about Azure Cache for Redis to enable cache-aside, content ca
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 03/15/2022
-
 ---
 
 # About Azure Cache for Redis

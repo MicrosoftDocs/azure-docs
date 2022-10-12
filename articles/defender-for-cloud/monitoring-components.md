@@ -4,6 +4,7 @@ description: Learn about the extensions that collect data from your workloads to
 author: bmansheim
 ms.author: benmansheim
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/12/2022
 ---
 

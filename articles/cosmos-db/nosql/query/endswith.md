@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 # ENDSWITH (Azure Cosmos DB)
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

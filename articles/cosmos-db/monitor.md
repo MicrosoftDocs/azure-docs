@@ -7,7 +7,7 @@ services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/03/2020
-ms.custom: subject-monitoring 
+ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Monitor Azure Cosmos DB

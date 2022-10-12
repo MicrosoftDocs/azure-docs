@@ -4,7 +4,7 @@ description: Describes how to partition Service Bus queues and topics by using m
 ms.topic: article
 ms.date: 10/12/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Partitioned queues and topics

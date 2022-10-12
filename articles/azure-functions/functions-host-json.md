@@ -2,6 +2,7 @@
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 04/28/2020
 ---
 

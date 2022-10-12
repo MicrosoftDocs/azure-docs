@@ -3,7 +3,7 @@ title: Understand the basic and extended security features of Microsoft Defender
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
 ms.date: 07/21/2022
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Microsoft Defender for Cloud's basic and enhanced security features

@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/14/2022
 ms.reviewer: azfuncdf
 ms.devlang: java
-ms.custom: mode-api
+ms.custom: mode-api, ignite-2022
 ---
 
 # Create your first durable function in Java (Preview)

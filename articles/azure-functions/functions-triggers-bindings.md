@@ -4,7 +4,7 @@ description: Learn to use triggers and bindings to connect your Azure Function t
 
 ms.topic: conceptual
 ms.date: 05/25/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, ignite-2022
 ---
 
 # Azure Functions triggers and bindings concepts

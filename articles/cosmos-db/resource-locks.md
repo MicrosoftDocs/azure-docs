@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/31/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ms.devlang: azurecli
 ---
 

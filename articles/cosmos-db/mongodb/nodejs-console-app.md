@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 # Build an app using Node.js and Azure Cosmos DB's API for MongoDB 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

@@ -7,7 +7,7 @@ ms.author: makromer
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom: synapse, ignite-2022
 ms.topic: conceptual
 ms.date: 07/26/2022
 ---
@@ -50,4 +50,3 @@ The "Full CDC" and "Incremental CDC" features are available in both ADF and Syna
 ## Next steps
 
 - [Learn how to use the checkpoint key in the data flow activity](control-flow-execute-data-flow-activity.md).
-

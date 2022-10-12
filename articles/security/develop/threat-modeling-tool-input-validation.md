@@ -15,8 +15,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Security Frame: Input Validation | Mitigations 

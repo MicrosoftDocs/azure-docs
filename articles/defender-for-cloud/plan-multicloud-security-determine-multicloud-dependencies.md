@@ -2,6 +2,7 @@
 title: Defender for Cloud Planning multicloud security determine multicloud dependencies CSPM CWPP guidance cloud workload protection
 description: Learn about determining multicloud dependencies when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
 

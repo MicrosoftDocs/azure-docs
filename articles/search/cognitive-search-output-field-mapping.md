@@ -6,6 +6,7 @@ description: Export the enriched content created by a skillset by mapping its ou
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/14/2022
 ---

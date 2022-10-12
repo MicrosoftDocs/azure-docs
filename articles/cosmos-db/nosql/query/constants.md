@@ -4,11 +4,11 @@ description: Learn about how the SQL query constants in Azure Cosmos DB are used
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 
 # Azure Cosmos DB SQL query constants  

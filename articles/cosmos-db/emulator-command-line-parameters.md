@@ -7,7 +7,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperf-fy21q1
+ms.custom: contperf-fy21q1, ignite-2022
 ---
 
 # Command-line and PowerShell reference for Azure Cosmos DB Emulator

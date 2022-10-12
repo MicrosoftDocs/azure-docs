@@ -8,8 +8,7 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: reference
 ms.date: 11/03/2021
-ms.custom: devx-track-dotnet
-
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
 [!INCLUDE[Table](../includes/appliesto-table.md)]

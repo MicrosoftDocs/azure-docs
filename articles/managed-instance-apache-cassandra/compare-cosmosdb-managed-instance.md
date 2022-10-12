@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 12/10/2021
-ms.custom: ignite-fall-2021, mode-api
+ms.custom: ignite-fall-2021, mode-api, ignite-2022
 ---
 
 # Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra 

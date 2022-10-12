@@ -5,6 +5,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.devlang: csharp
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.reviewer: thweiss

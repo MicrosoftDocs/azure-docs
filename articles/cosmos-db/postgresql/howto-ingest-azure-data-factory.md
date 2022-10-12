@@ -5,6 +5,7 @@ ms.author: suvishod
 author: suvishodcitus
 ms.service: cosmos-db
 ms.subservice: postgresql
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/21/2022
 ---

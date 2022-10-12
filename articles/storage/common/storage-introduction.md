@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 09/29/2022
 ms.author: tamram
 ms.subservice: common
+ms.custom: ignite-2022
 ---
 
 # Introduction to Azure Storage

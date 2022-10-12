@@ -7,7 +7,7 @@ ms.date: 01/28/2020
 ms.author: esarroyo
 author: StefArroyo 
 ms.reviewer: mjbrown
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB Emulator build task in Azure DevOps
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]

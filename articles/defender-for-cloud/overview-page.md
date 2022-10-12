@@ -3,6 +3,7 @@ title: Microsoft Defender for Cloud's main dashboard or 'overview' page
 description: Learn about the features of the Defender for Cloud overview page
 ms.date: 09/20/2022
 ms.topic: overview
+ms.custom: ignite-2022
 ---
 
 # Microsoft Defender for Cloud's overview page

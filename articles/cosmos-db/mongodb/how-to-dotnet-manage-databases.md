@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/22/2022
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 
 # Manage a MongoDB database using .NET

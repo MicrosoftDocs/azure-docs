@@ -6,7 +6,7 @@ ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 09/28/2022
-ms.custom: template-concept
+ms.custom: template-concept, ignite-2022
 ---
 
 # Agentless scanning for machines (Preview)

@@ -6,6 +6,7 @@ author: TheovanKraay
 ms.author: thvankra
 ms.reviewer: mjbrown
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 09/24/2018
 #Customer intent: As a developer, I want to build a Java application to query data stored in a API for Cassandra account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multiple write regions, and other capabilities offered by Azure Cosmos DB.
@@ -111,5 +112,3 @@ In this tutorial, you've learned how to query data from a API for Cassandra acco
 
 > [!div class="nextstepaction"]
 > [Migrate data to API for Cassandra account](migrate-data.md)
-
-

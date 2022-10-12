@@ -4,6 +4,7 @@ description: This article shows how to create an ASA job writing to a delta tabl
 author: an-emma
 ms.author: raan
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: tutorial 
 ms.date: 10/12/2022
 ---

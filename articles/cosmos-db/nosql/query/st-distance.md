@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: girobins
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 # ST_DISTANCE (Azure Cosmos DB)
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

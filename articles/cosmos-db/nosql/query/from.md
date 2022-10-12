@@ -4,11 +4,11 @@ description: Learn about the SQL syntax, and example for FROM clause for Azure C
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # FROM clause in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

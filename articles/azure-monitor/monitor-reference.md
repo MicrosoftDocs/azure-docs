@@ -2,6 +2,7 @@
 title: What is monitored by Azure Monitor
 description: Reference of all services and other resources monitored by Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 author: rboucher
 ms.author: robb
 ms.date: 04/05/2022

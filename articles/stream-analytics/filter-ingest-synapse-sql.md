@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022
+ms.custom: mvc, event-tier1-build-2022, ignite-2022
 ms.date: 10/12/2022
 ---
 

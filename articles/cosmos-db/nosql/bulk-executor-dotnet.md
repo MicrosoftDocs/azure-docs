@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 05/02/2020
 ms.reviewer: mjbrown
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB

@@ -2,6 +2,7 @@
 title: Minimal Prometheus ingestion profile in Azure Monitor (preview)
 description: Describes how the setting for minimal ingestion profile for Prometheus metrics in Azure Monitor is configured and how you can modify it to collect additional data.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---

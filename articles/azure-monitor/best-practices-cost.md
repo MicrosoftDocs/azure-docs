@@ -2,11 +2,11 @@
 title: 'Azure Monitor best practices: Cost management'
 description: Guidance and recommendations for reducing your cost for Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.date: 03/31/2022
 ms.reviewer: bwren
-
 ---
 
 # Azure Monitor best practices: Cost management

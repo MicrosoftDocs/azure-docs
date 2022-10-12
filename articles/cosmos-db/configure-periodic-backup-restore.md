@@ -3,11 +3,11 @@ title: Configure Azure Cosmos DB account with periodic backup
 description: This article describes how to configure Azure Cosmos DB accounts with periodic backup with backup interval. and retention. Also how to contacts support to restore your data.
 author: kanshiG
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/09/2021
 ms.author: govindk
 ms.reviewer: mjbrown
-
 ---
 
 # Configure Azure Cosmos DB account with periodic backup

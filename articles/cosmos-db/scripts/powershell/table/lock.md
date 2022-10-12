@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: table
 ms.topic: sample
 ms.date: 06/12/2020 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # Create a resource lock for Azure Cosmos DB Table API table using Azure PowerShell

@@ -4,11 +4,11 @@ description: Learn about SQL subqueries and their common use cases and different
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/30/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # SQL subquery examples for Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

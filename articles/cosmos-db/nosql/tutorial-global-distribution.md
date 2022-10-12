@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 04/03/2022
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-2022
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the API for NoSQL
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

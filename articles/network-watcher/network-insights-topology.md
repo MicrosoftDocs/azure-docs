@@ -6,8 +6,7 @@ ms.service: network-watcher
 author: Sagav28
 ms.author: saggupta
 ms.date: 09/09/2022
-ms.custom: subject-monitoring
-
+ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Topology (Preview)

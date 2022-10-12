@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ms.date: 06/21/2022
 ---
 

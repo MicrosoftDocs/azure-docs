@@ -8,8 +8,7 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.custom: devx-track-js
-
+ms.custom: devx-track-js, ignite-2022
 ---
 
 # Get started with Azure Cosmos DB for MongoDB and JavaScript

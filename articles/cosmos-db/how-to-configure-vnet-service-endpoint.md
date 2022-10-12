@@ -6,8 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/25/2022
 ms.author: sidandrews 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
 
 # Configure access to Azure Cosmos DB from virtual networks (VNet)

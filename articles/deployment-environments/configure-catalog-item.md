@@ -6,7 +6,7 @@ author: anandmeg
 ms.service: deployment-environments
 ms.topic: how-to
 ms.date: 10/12/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, ignite-2022
 ms.author: meghaanand
 ---
 # Configure a Catalog Item in GitHub repo or Azure DevOps repo

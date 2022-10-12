@@ -8,7 +8,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: mvc, ignite-2022
 ms.topic: reference
 ms.date: 03/03/2020
 ---

@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/22/2022
-ms.custom: contperf-fy21q1
+ms.custom: contperf-fy21q1, ignite-2022
 ---
 # What is Azure Cognitive Search?
 

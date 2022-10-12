@@ -5,6 +5,7 @@ description: Learn to run Jupyter notebooks in studio, and find sample notebooks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: ignite-2022
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley

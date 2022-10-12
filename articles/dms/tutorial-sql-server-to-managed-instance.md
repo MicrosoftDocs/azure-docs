@@ -9,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019,fasttrack-edit"
+ms.custom: seo-lt-2019, fasttrack-edit, ignite-2022
 ms.topic: tutorial
 ms.date: 08/16/2021
 ---

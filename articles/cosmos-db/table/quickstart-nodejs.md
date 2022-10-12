@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 05/28/2020
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-api, ignite-2022
 ---
 
 # Quickstart: Build a API for Table app with Node.js and Azure Cosmos DB

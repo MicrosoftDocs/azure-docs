@@ -7,7 +7,7 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # Create an Azure Cosmos DB account with IP Firewall

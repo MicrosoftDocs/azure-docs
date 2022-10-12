@@ -2,6 +2,7 @@
 title: Send Prometheus metrics to Azure Monitor Logs with Container insights
 description: Configure the Container insights agent to scrape Prometheus metrics from your Kubernetes cluster and send to Log Analytics workspace in Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/15/2022
 ms.reviewer: aul
 ---

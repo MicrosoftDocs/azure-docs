@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 07/27/2022
 ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
+ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, ignite-2022
 ---
 
 # Sentiment Analysis and Opinion Mining language support 

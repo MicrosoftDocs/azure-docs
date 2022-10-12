@@ -6,6 +6,7 @@ ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: table
 ms.devlang: php
+ms.custom: ignite-2022
 ms.topic: sample
 ms.date: 07/23/2020
 ---

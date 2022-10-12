@@ -5,6 +5,7 @@ description: Learn how to set up a linked service and source dataset to use with
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: ulrichchrist

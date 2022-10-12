@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 03/01/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022
 ---
 
 # Quickstart: Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL

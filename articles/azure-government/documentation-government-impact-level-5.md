@@ -3,7 +3,7 @@ title: Azure Government isolation guidelines for Impact Level 5
 description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
 ms.service: azure-government
 ms.topic: article
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 author: stevevi
 ms.author: stevevi
 recommendations: false

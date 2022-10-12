@@ -4,10 +4,11 @@ description: Configure Azure and on-premises DNS to resolve private DNS zones an
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/08/2022
 ms.author: greglin
-# Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
+#Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
 ---
 
 # Resolve Azure and on-premises domains
@@ -111,4 +112,3 @@ The path for this query is: client's default DNS resolver (10.100.0.2) > on-prem
 * Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
 * [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).
-

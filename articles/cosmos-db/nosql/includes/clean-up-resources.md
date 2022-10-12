@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 09/22/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 When you no longer need the Azure Cosmos DB SQL API account, you can delete the corresponding resource group.

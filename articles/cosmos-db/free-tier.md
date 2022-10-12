@@ -4,6 +4,7 @@ description: Use Azure Cosmos DB free tier to get started, develop, test your ap
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/08/2022
 ---

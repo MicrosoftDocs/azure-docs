@@ -9,7 +9,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.devlang: scala
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, ignite-2022
 ---
 
 # Access Azure Cosmos DB for Apache Cassandra from Spark on YARN with HDInsight

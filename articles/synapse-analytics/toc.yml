@@ -636,7 +636,7 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
       - name: Event Hub
         items:
-          - name: Event Hub data connection
+          - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
@@ -1564,6 +1564,8 @@ items:
         href: ./guidance/proof-of-concept-playbook-dedicated-sql-pool.md
       - name: Data lake exploration with serverless SQL pool
         href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
+      - name: Big data analytics with Data Explorer pool
+        href: ./guidance/proof-of-concept-playbook-data-explorer-pool.md
       - name: Big data analytics with Apache Spark pool
         href: ./guidance/proof-of-concept-playbook-spark-pool.md
     - name: Synapse implementation success methodology

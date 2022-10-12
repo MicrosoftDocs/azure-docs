@@ -10,7 +10,7 @@ ms.author: sehan
 ms.reviewer: larryfr
 ms.date: 05/10/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022
+ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Key and token-based authentication for online endpoints

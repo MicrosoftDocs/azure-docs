@@ -8,8 +8,7 @@ ms.author: srranga
 author: sr-msft
 
 ms.date: 09/14/2022
-
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, ignite-2022
 ---
 
 # Azure Database for PostgreSQL versioning policy

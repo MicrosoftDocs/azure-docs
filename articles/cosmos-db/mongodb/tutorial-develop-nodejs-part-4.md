@@ -8,9 +8,8 @@ ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: gahllevy
-ms.custom: seodec18, devx-track-js, devx-track-azurecli
+ms.custom: seodec18, devx-track-js, devx-track-azurecli, ignite-2022
 ms.reviewer: mjbrown
-
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Create an Azure Cosmos DB account
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

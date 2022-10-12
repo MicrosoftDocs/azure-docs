@@ -7,8 +7,7 @@ author: Sagav28
 ms.author: saggupta
 ms.date: 11/25/2020
 ms.reviewer: shijain
-ms.custom: subject-monitoring
-
+ms.custom: subject-monitoring, ignite-2022
 ---
 
 # Azure Monitor Network Insights

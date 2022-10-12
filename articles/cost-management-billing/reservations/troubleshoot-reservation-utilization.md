@@ -4,6 +4,7 @@ description: This article helps you understand and troubleshoot Azure reservatio
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting

@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/13/2022
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, ignite-2022
 ---
 
 # What is Spatial Analysis?

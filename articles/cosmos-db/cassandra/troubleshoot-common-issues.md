@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 03/02/2021
 ms.author: thvankra
 ms.devlang: java
+ms.custom: ignite-2022
 ---
 
 # Troubleshoot common issues in the Azure Cosmos DB for Apache Cassandra

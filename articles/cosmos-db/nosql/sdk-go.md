@@ -8,9 +8,7 @@ ms.devlang: csharp
 ms.topic: reference
 ms.date: 03/22/2022
 ms.author: maquaran
-ms.custom: devx-track-go
-
-
+ms.custom: devx-track-go, ignite-2022
 ---
 # Azure Cosmos DB Go SDK for API for NoSQL: Download and release notes
 

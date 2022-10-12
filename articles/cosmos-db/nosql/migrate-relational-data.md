@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
 ms.devlang: python, scala
+ms.custom: ignite-2022
 ---
 
 # Migrate one-to-few relational data into Azure Cosmos DB for NoSQL account

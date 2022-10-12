@@ -6,9 +6,9 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
-
 ---
 
 # Migrate hundreds of terabytes of data into Azure Cosmos DB 

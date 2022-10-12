@@ -6,6 +6,7 @@ services: service-bus
 author: EldertGrootenboer
 
 ms.service: service-bus-messaging
+ms.custom: ignite-2022
 ms.topic: article
 ms.date: 09/26/2022
 ms.author: egrootenboer

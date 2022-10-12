@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.reviewer: mjbrown
 ms.date: 05/02/2020
-ms.custom: cosmos-db-video
+ms.custom: cosmos-db-video, ignite-2022
 ---
 
 # Serverless database computing using Azure Cosmos DB and Azure Functions

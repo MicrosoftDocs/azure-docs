@@ -8,7 +8,7 @@ ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Use Azure Cosmos DB resource tokens with the Gremlin SDK

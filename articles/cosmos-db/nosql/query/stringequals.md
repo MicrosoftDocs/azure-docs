@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.custom: query-reference
+ms.custom: query-reference, ignite-2022
 ---
 # STRINGEQUALS (Azure Cosmos DB)
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

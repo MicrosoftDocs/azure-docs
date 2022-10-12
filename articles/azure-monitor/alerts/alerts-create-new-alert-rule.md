@@ -4,6 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/23/2022
 ms.reviewer: harelbr
 ---

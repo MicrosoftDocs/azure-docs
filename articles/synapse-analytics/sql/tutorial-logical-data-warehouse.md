@@ -5,6 +5,7 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
+ms.custom: ignite-2022
 ms.date: 08/20/2021
 ms.author: jovanpop
 ms.reviewer: sngun 

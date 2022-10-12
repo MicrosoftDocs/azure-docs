@@ -2,9 +2,9 @@
 title: Custom metrics collected by Container insights
 description: Describes the custom metrics collected for a Kubernetes cluster by Container insights in Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022 
 ms.reviewer: viviandiec
-
 ---
 
 # Metrics collected by Container insights

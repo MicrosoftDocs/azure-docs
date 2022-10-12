@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 # Smart-cropped thumbnails

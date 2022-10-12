@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.custom: applied-ai-non-critical-metrics-advisor
+ms.custom: applied-ai-non-critical-metrics-advisor, ignite-2022
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin

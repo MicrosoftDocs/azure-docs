@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 07/05/2022
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 # Adult content detection
@@ -44,4 +44,3 @@ You can detect adult content with the [Analyze Image](https://aka.ms/vision-4-0-
 ---
 
 - [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
-

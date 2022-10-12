@@ -7,6 +7,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: article
 ms.workload: infrastructure-services
+ms.custom: ignite-2022
 ms.date: 02/25/2022
 ms.author: allensu
 ---

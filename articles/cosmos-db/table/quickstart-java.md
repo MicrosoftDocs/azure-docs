@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/28/2020
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api, ignite-2022
 ---
 
 # Quickstart: Build a API for Table app with Java SDK and Azure Cosmos DB

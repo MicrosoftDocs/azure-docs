@@ -10,9 +10,7 @@ metadata:
   ms.date: 10/12/2022
   ms.service: ddos-protection
   ms.topic: landing-page
-  ms.custom: azure-ddos-protection
-
-
+  ms.custom: azure-ddos-protection, ignite-2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstarts | reference | tutorial | whats-new
 
 landingContent:

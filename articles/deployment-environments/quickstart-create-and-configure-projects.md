@@ -4,6 +4,7 @@ description: This quickstart shows you how to create and configure an Azure Depl
 author: anandmeg
 ms.author: meghaanand
 ms.service: deployment-environments
+ms.custom: ignite-2022
 ms.topic: quickstart
 ms.date: 10/12/2022
 ---

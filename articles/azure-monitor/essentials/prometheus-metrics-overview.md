@@ -3,6 +3,7 @@ title: Overview of Azure Monitor Managed Service for Prometheus (preview)
 description: Overview of Azure Monitor managed service for Prometheus, which provides a Prometheus-compatible interface for storing and retrieving metric data.
 author: bwren 
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022
 ---
 

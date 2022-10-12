@@ -6,7 +6,7 @@ services: azure-arc, aks
 ms.service: azure-arc
 ms.date: 10/12/2022
 ms.topic: tutorial
-ms.custom: template-tutorial, devx-track-azurecli
+ms.custom: template-tutorial, devx-track-azurecli, ignite-2022
 ---
 
 # Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters

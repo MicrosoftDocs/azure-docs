@@ -9,9 +9,7 @@ ms.topic: reference
 ms.date: 04/18/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-dotnet
-
-
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 # Azure Cosmos DB .NET Core SDK v2 for API for NoSQL: Release notes and resources (Legacy)
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -57,4 +55,3 @@ Below is a list of any known issues affecting the [recommended minimum version](
 ## See Also
 
 To learn more about Azure Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
-

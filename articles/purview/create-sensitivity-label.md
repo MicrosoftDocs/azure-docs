@@ -5,6 +5,7 @@ author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-map
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/22/2022
 ---

@@ -4,6 +4,7 @@ description: This article describes the autoscale feature for Azure API for FHIR
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/02/2022
 ms.author: kesheth

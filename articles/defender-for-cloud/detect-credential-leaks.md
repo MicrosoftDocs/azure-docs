@@ -3,6 +3,7 @@ title: Detect exposed secrets in code
 titleSuffix: Defender for Cloud
 description: Prevent passwords and other secrets that may be stored in your code from being accessed by outside individuals by using Defender for Cloud's secret scanning for Defender for DevOps.
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 09/11/2022
 ---
 

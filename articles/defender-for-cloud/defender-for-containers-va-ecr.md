@@ -5,6 +5,7 @@ author: bmansheim
 ms.author: benmansheim
 ms.date: 09/11/2022
 ms.topic: how-to
+ms.custom: ignite-2022
 ---
 
 # Use Defender for Containers to scan your Amazon AWS Elastic Container Registry images for vulnerabilities (Preview)
@@ -153,4 +154,3 @@ Learn more about:
 
 - [Advanced protection plans of Microsoft Defender for Cloud](enhanced-security-features-overview.md)
 - [Multicloud protections](multicloud.yml) for your AWS account
-

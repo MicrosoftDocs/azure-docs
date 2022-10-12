@@ -8,7 +8,7 @@ ms.date: 10/15/2020
 author: manishmsfte
 ms.author: mansha
 ms.devlang: csharp
-ms.custom: devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-azurecli, devx-track-csharp, ignite-2022
 ---
 
 # Provision database, container or autoscale throughput on Azure Cosmos DB for Gremlin resources

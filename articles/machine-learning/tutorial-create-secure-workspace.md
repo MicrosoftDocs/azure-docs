@@ -10,7 +10,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 09/06/2022
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022
+ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
 ---
 # How to create a secure workspace
 
