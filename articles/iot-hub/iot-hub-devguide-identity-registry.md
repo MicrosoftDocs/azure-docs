@@ -1,5 +1,5 @@
 ---
-title: Understand the Azure IoT Hub identity registry | Microsoft Docs
+title: Understand the Azure IoT Hub identity registry
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
 author: kgremban
 ms.author: kgremban
@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/29/2021
-ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', ignite-2022]
 ---
 
 # Understand the identity registry in your IoT hub
@@ -72,7 +72,7 @@ Device identities can also be exported and imported from an IoT Hub via the Serv
 
 ## Device provisioning
 
-The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as table storage, blob storage, or Cosmos DB to store any additional device data.
+The device data that a given IoT solution stores depends on the specific requirements of that solution. But, as a minimum, a solution must store device identities and authentication keys. Azure IoT Hub includes an identity registry that can store values for each device such as IDs, authentication keys, and status codes. A solution can use other Azure services such as Table storage, Blob storage, or Azure Cosmos DB to store any additional device data.
 
 *Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub identity registry. As part of the provisioning process, you might need to initialize device-specific data in other solution stores. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
 
