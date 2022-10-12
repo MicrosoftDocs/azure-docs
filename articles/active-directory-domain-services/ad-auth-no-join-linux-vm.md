@@ -15,7 +15,7 @@ ms.author: tommasosacco
 ---
 # AD Autentication without Domain Join Linux VM | Microsoft Docs
 
-Currently Linux distribution can work as member of Active Directory domains which gives them access to the AD authentication system. To take advantage of AD authentication in some cases we can avoid the AD join. To let users sign in on Azure Linux VM with Active Directory account you have different choises, one possibility is to Join in Active Directory the VM, another possibility is to base the authentication flow throught LDAP to your Active Directory without Join the VM on AD.
+Currently Linux distribution can work as member of Active Directory domains which gives them access to the AD authentication system. To take advantage of AD authentication in some cases we can avoid the AD join. To let users sign in on Azure Linux VM with Active Directory account you have different choices, one possibility is to Join in Active Directory the VM, another possibility is to base the authentication flow through LDAP to your Active Directory without Join the VM on AD.
 This article shows you how to authenticate with AD credential on your Linux system (CentosOS) based on LDAP.
 
 ## Prerequisites
@@ -24,13 +24,13 @@ To complete the authentication flow we assume you already have:
 
 * An Active Directory Domain Services already configured.
 * An Linux VM (for the test we use CentosOS based machine).
-* An network infrastructure that allows comunication between Active Directory and the Linux VM
+* An network infrastructure that allows communication between Active Directory and the Linux VM
 * An dedicated User Account for read AD objects.
-* The Linux VM need to have tese packages installed:
+* The Linux VM need to have these packages installed:
     - sssd 
     - sssd-tools 
     - sssd-ldap o
-    - oenldap-clients
+    - openldap-clients
 
 > [!NOTE]
 > The test environment in this docs is based on Windows Server 2016 Domain and Forest level on Windows Server 2019 OS.
