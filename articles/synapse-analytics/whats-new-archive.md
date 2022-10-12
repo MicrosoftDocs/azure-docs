@@ -100,7 +100,7 @@ The following updates are new to Azure Synapse Analytics this month.
 
   KQL is the query language used to query Synapse Data Explorer big data. KQL has a fast-growing user community, with hundreds of thousands of developers, data engineers, data analysts, and students.
 
-  Check out the newest [KQL Learn Model](/learn/modules/gain-insights-data-kusto-query-language/) and see for yourself how easy it is to become a KQL master.
+  Check out the newest [KQL Learn module](/training/modules/gain-insights-data-kusto-query-language/) and see for yourself how easy it is to become a KQL master.
 
   To learn more about KQL, read [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 

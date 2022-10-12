@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using settings that you specify - Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 08/17/2022
+ms.date: 09/21/2022
 ms.author: cherylmc
 
 ---

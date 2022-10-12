@@ -2,18 +2,18 @@
 title: Understanding pricing - Azure Application Gateway
 description: This article describes the billing process for Azure Application Gateway and Web Application Firewall for both v1 to v2 SKUs
 services: application-gateway
-author: azhar2005
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/01/2020
-ms.author: azhussai
+ms.date: 10/03/2022
+ms.author: greglin
 ---
 
 # Understanding Pricing for Azure Application Gateway and Web Application Firewall
 
->[!NOTE]
->Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
+> [!NOTE]
+> Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Azure Application Gateway is a layer 7 load-balancing solution, which enables scalable, highly available, and secure web application delivery on Azure.
 
@@ -36,7 +36,7 @@ A single Capacity Unit consists of the following parameters:
 * 2.22-Mbps throughput
 * 1 Compute Unit
 
-If any one of these parameters are exceeded, then another n capacity unit(s) are necessary, even if the other two parameters don’t exceed this single capacity unit’s limits.
+If any of these parameters are exceeded, then another N capacity units are necessary, even if the other two parameters don’t exceed this single capacity unit’s limits.
 The parameter with the highest utilization among the three above will be internally used for calculating capacity units, which is in turn billed.
 
 ##### Compute Unit
@@ -376,7 +376,7 @@ You can view the amount of consumption for different parameters (compute unit, t
 
 * Estimated Billed Capacity units
 
-    Estimated Billed Capacity units indicates the number of capacity units using which the billing is estimated. This is calculated as the greater value between Current capacity units (capacity units required to load balance the traffic) and Fixed billable capacity units (minimum capacity units kept provisioned).
+    The **Estimated Billed Capacity units** metric indicates the number of capacity units estimated for billing. This metric is calculated as the greater value between **Current capacity units** (capacity units required to load balance the traffic) and **Fixed billable capacity units** (minimum capacity units kept provisioned).
 
 More metrics such as throughput, current connections and compute units are also available to understand bottlenecks and estimate the number of capacity units required. Detailed information is available at [Application Gateway Metrics](application-gateway-metrics.md)
 

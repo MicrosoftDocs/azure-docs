@@ -10,6 +10,7 @@ metadata:
   ms.service: network-watcher
   ms.topic: faq
   ms.tgt_pltfrm: na
+  ms.custom: ignite-2022
   ms.workload:  infrastructure-services
   ms.date: 01/07/2021
   ms.author: damendo
@@ -108,7 +109,7 @@ sections:
       - question: |
           Is the Network Watcher service zone resilient? 
         answer: |
-          Yes. The the Network Watcher service is zone-resilient by default. 
+          Yes. The Network Watcher service is zone-resilient by default.
 
       - question: |
           How do I configure the Network Watcher service to be zone-resilient? 

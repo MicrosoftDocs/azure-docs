@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 11/01/2021
+ms.date: 08/18/2022
 ---
 
 # Plan to manage costs for Azure Data Factory
@@ -29,7 +29,7 @@ Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/
 One of the commonly asked questions for the pricing calculator is what values should be used as inputs.  During the proof-of-concept phase, you can conduct trial runs using sample datasets to understand the consumption for various ADF meters.  Then based on the consumption for the sample dataset, you can project out the consumption for the full dataset and operationalization schedule.
 
 > [!NOTE]
-> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
+> The prices used in this example below are hypothetical and are not intended to imply actual pricing.
 
 For example, let’s say you need to move 1 TB of data daily from AWS S3 to Azure Data Lake Gen2.  You can perform POC of moving 100 GB of data to measure the data ingestion throughput and understand the corresponding billing consumption.
 
@@ -145,7 +145,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 ## Export cost data
 
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Next steps
 

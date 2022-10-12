@@ -14,6 +14,8 @@ ms.date: 09/12/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy definitions for Azure Database for MySQL. For additional Azure Policy built-ins for other services, see [Azure Policy built-in definitions](../../governance/policy/samples/built-in-policies.md).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use the link in the **Version** column to view the source on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).

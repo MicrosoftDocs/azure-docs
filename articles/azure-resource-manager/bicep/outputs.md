@@ -2,12 +2,12 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 09/28/2022
 ---
 
 # Outputs in Bicep
 
-This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources.
+This article describes how to define output values in a Bicep file. You use outputs when you need to return values from the deployed resources. You are limited to 64 outputs in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define output values
 

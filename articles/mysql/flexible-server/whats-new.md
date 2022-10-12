@@ -22,7 +22,31 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## October 2022
+
+- **AMD compute SKUs for General Purpose and Business Critical tiers in in Azure Database for MySQL - Flexible Server**
+
+  You can now choose between Intel and AMD hardware for Azure Database for MySQL flexible servers based on the General Purpose (Dadsv5-series) and Business Critical (Eadsv5-series) tiers. AMD SKU offers competitive price-performance options to all Azure Database for MySQL - Flexible server users. To ensure transparency when working in the portal, you can select the compute hardware vendor for both primary and secondary server. After you determine the best compute processor for your workload, deploy flexible servers in an increased number of availability regions and zones. [Learn more](./concepts-service-tiers-storage.md)
+
+- **Autoscale IOPS in Azure Database for MySQL - Flexible Server**
+
+  You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs. With this feature you pay only for the IO you use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Auto scale IO eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL customers. [Learn more](./concepts-service-tiers-storage.md)
+
 ## September 2022
+
+- **Read replica for HA enabled Azure Database for MySQL - Flexible Server (General Availability)**
+
+  The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate the source server to up to 10 replicas. This functionality is now extended to support HA enabled servers within same region.[Learn more](concepts-read-replicas.md)
+
+- **Azure Active Directory authentication for Azure Database for MySQL – Flexible Server (Public Preview)**
+
+  You can now authenticate to Azure Database for MySQL - Flexible server using Microsoft Azure Active Directory (Azure AD) using identities. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management. [Learn More](concepts-azure-ad-authentication.md)
+
+- **Known issues**
+
+  - The server parameter aad_auth_only stays set to ON when the authentication type is changed to Azure Active Directory authentication only. We recommend disabling it manually when you opt for MySQL authentication only in the future.
+
+  - The newly restored server will also have the server parameter aad_auth_only set to ON if it was ON on the source server during failover. If you wish to use MySQL authentication on the restored server, you must manually disable this server parameter. Otherwise, an Azure AD Admin must be configured.  
 
 - **Customer managed keys data encryption – Azure Database for MySQL – Flexible Server (Preview)**
 
@@ -31,6 +55,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 - **Change Timezone of your Azure Database for MySQL - Flexible Server in a single step**
 
    Previously to change time_zone of your Azure Database for MySQL - Flexible Server required two steps to take effect. Now you no longer need to call the procedure mysql.az_load_timezone() to populate the mysql.time_zone_name table. Flexible Server timezone can be changed directly by just changing the server parameter time_zone from [portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter). 
+
+- **Known issues**
+
+  - The server parameter aad_auth_only stays set to ON when the authentication type is changed to Azure Active Directory authentication only. We recommend disabling it manually when you opt for MySQL authentication only in the future.
+
+  - The newly restored server will also have the server parameter aad_auth_only set to ON if it was ON on the source server during failover. If you wish to use MySQL authentication on the restored server, you must manually disable this server parameter. Otherwise, an Azure AD Admin must be configured.  
+
 ## August 2022
 
 - **Server logs for Azure Database for MySQL - Flexible Server**
