@@ -8,6 +8,7 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/10/2022
 ms.custom: ignite-2022
+---
 
 # Supported data sources and file types
 
