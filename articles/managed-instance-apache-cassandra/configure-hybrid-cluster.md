@@ -225,13 +225,19 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
 1. Temporarily disable automatic repairs in Azure Managed Instance for Apache Cassandra for the duration of the migration:
 
     ```azurecli-interactive
-        az managed-cassandra cluster update --resource-group $resourceGroupName --cluster-name $clusterName --repair-enabled false
+        az managed-cassandra cluster update \
+          --resource-group $resourceGroupName \
+          --cluster-name $clusterName --repair-enabled false
     ```
 
-1. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new Azure Managed Instance for Apache Cassandra data center, replacing the word `sourcedc` below with the name of your source data center:
+1. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new Azure Managed Instance for Apache Cassandra data center, replacing `<ip address>` with the IP address of the node, and `<sourcedc>` with the name of your source data center:
 
     ```azurecli-interactive
-        az managed-cassandra cluster invoke-command --resource-group thvankra-cassandra-dynatrace-demo --cluster-name HybridCassandraDBCluster --host 10.0.5.5 --command-name nodetool --arguments rebuild= sourcedc=
+        az managed-cassandra cluster invoke-command \
+          --resource-group $resourceGroupName \
+          --cluster-name $clusterName \
+          --host <ip address> \
+          --command-name nodetool --arguments rebuild="" "<sourcedc>"=""
     ```
 
     You should run this **only after all of the prior steps have been taken**. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. You can run rebuild on one or more nodes at the same time. Run on one node at a time to reduce the impact on the existing cluster. Run on multiple nodes when the cluster can handle the extra I/O and network pressure. For most installations you can only run one or two in parallel to not overload the cluster.  
@@ -258,7 +264,9 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
 1. Re-enable automatic repairs:
 
     ```azurecli-interactive
-        az managed-cassandra cluster update --resource-group $resourceGroupName --cluster-name $clusterName --repair-enabled true
+        az managed-cassandra cluster update \
+          --resource-group $resourceGroupName \
+          --cluster-name $clusterName --repair-enabled true
     ```
 
 ## Troubleshooting
