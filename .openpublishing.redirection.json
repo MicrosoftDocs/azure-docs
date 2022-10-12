@@ -28928,6 +28928,11 @@
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/keda-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context",
+            "redirect_document_id": false
         }
     ]
 }
