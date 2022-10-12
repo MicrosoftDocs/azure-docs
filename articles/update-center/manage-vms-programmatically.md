@@ -29,7 +29,7 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Network/Microsoft.Compute/virtualMachines/virtualMachineName/assessPatches?api-version=2020-12-01
+az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/assessPatches?api-version=2020-12-01
 ```
 
 # [Azure PowerShell](#tab/powershell)
