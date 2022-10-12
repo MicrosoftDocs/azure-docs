@@ -1,20 +1,24 @@
 ---
-title: Connect to SFTP using SSH from workflows
-description: Connect to your SFTP file server over SSH from workflows in Azure Logic Apps.
+title: Connect to an SFTP server from workflows
+description: Connect to your SFTP file server from workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/19/2022
+ms.date: 10/15/2022
 tags: connectors
 ---
 
-# Connect to an SFTP file server using SSH from workflows in Azure Logic Apps
+# Connect to an SFTP file server from workflows in Azure Logic Apps
 
-To automate tasks that create and manage files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can create automated integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream.
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Here are some example tasks you can automate:
+This how-to guide shows how to access your [SSH File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server from a workflow in Azure Logic Apps. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream and uses the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol.
+
+In Consumption logic app workflows, you can use the **SFTP-SSH** *managed* connector, while in Standard logic app workflows, you can use the **SFTP** built-in connector or the **SFTP-SSH** managed connector. You can use these connector operations to create automated workflows that run when triggered by events in your SFTP server or in other systems and run actions to manage files on your SFTP server. Both the managed and built-in connectors use the SSH protocol.
+
+For example, your workflow can start with an SFTP trigger that monitors and responds to events on your SFTP server. The trigger makes the outputs available to subsequent actions in your workflow. Your workflow can run SFTP actions that get, create, and manage files through your SFTP server account. The following list includes more example tasks:
 
 * Monitor when files are added or changed.
 * Get, create, copy, rename, update, list, and delete files.
@@ -22,24 +26,25 @@ Here are some example tasks you can automate:
 * Get file content and metadata.
 * Extract archives to folders.
 
-In your workflow, you can use a trigger that monitors events on your SFTP server and makes output available to other actions. You can then use actions to perform various tasks on your SFTP server. You can also include other actions that use the output from SFTP-SSH actions. For example, if you regularly retrieve files from your SFTP server, you can send email alerts about those files and their content using the Office 365 Outlook connector or Outlook.com connector. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+## Connector technical reference
 
-For differences between the SFTP-SSH connector and the SFTP connector, review the [Compare SFTP-SSH versus SFTP](#comparison) section later in this topic.
+The SFTP connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+
+| Logic app type (plan) | Environment | Connector version |
+|------------------------|-------------|-------------------|
+| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [SFTP built-in connector](/azure/logic-apps/connectors/built-in/reference/sftp/) <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
 
-* The SFTP-SSH connector currently doesn't support these SFTP servers:
+* Before you use the SFTP-SSH managed connector, review the known issues and limitations in the [SFTP-SSH managed connector reference](/connectors/sftpwithssh/).
 
-  * IBM DataPower
-  * MessageWay
-  * OpenText Secure MFT
-  * OpenText GXS
-  * Globalscape
-  * SFTP for Azure Blob Storage
-  * FileMage Gateway
-  * VShell Secure File Transfer Server
+* Before you use the SFTP built-in connector, review the known issues and limitations in the [SFTP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sftp/).
 
-* The following SFTP-SSH actions support [chunking](../logic-apps/logic-apps-handle-large-messages.md):
+## Chunking
+
+* For the managed SFTP-SSH connector, the following actions support [chunking](../logic-apps/logic-apps-handle-large-messages.md):
 
   | Action | Chunking support | Override chunk size support |
   |--------|------------------|-----------------------------|
@@ -55,11 +60,11 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   | **List files in folder** | Not applicable | Not applicable |
   | **Rename file** | Not applicable | Not applicable |
   | **Update file** | No | Not applicable |
-  ||||
 
-  SFTP-SSH actions that support chunking can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. The default chunk size is 15 MB. However, this size can dynamically change, starting from 5 MB and gradually increasing to the 50-MB maximum. Dynamic sizing is based on factors such as network latency, server response time, and so on.
+  SFTP-SSH actions that support chunking can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. The default chunk size is 15 MB. However, this size can dynamically change, starting from 5 MB and gradually increasing to the 50 MB maximum. Dynamic sizing is based on factors such as network latency, server response time, and so on.
 
   > [!NOTE]
+  >
   > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
   > this connector's ISE-labeled version requires chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
@@ -73,169 +78,17 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
   1. Follow the trigger with the SFTP-SSH **Get file content** action. This action reads the complete file and implicitly uses message chunking.
 
-* The SFTP-SSH managed or Azure-hosted connector can create a limited number of connections to the SFTP server, based on the connection capacity in the Azure region where your logic app resource exists. If this limit poses a problem in a Consumption logic app workflow, consider creating a Standard logic app workflow and use the SFTP-SSH built-in connector instead.
-
-<a name="comparison"></a>
-
-## Compare SFTP-SSH versus SFTP
-
-The following list describes key SFTP-SSH capabilities that differ from the SFTP connector:
-
-* Uses the [SSH.NET library](https://github.com/sshnet/SSH.NET), which is an open-source Secure Shell (SSH) library that supports .NET.
-
-* Provides the **Create folder** action, which creates a folder at the specified path on the SFTP server.
-
-* Provides the **Rename file** action, which renames a file on the SFTP server.
-
-* Caches the connection to SFTP server *for up to 1 hour*. This capability improves performance and reduces how often the connector tries connecting to the server. To set the duration for this caching behavior, edit the [**ClientAliveInterval** property](https://man.openbsd.org/sshd_config#ClientAliveInterval) in the SSH configuration on your SFTP server.
-
-## How SFTP-SSH triggers work
-
-<a name="polling-behavior"></a>
-
-### Polling behavior
-
-SFTP-SSH triggers poll the SFTP file system and look for any file that changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
-
-| SFTP client | Action |
-|-------------|--------|
-| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
-| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** |
-|||
-
-When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
-
-<a name="trigger-recurrence-shift-drift"></a>
-
-## Trigger recurrence shift and drift (daylight saving time)
-
-Recurring connection-based triggers where you need to create a connection first, such as the managed SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
-
-To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected time or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
-
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your SFTP server address and account credentials, so your workflow can access your SFTP account. You also need access to an SSH private key and the SSH private key password. To upload large files using chunking, you need both read and write access for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
+* Connection and authentication information to access your SFTP server, such as the server address, account credentials, access to an SSH private key, and the SSH private key password. For more information, see [SFTP-SSH managed connector reference - Authentication and permissions](/connectors/sftpwithssh/#authentication-and-permissions).
 
-  The SFTP-SSH connector supports both private key authentication and password authentication. However, the SFTP-SSH connector supports *only* the following private key formats, key exchange algorithms, encryption algorithms, and fingerprints:
+* The logic app workflow where you want to access your SFTP account. To start with an SFTP-SSH trigger, you have to start with a blank workflow. To use an SFTP-SSH action, start your workflow with another trigger, such as the **Recurrence** trigger.
 
-  * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
-  * **Key exchange algorithms**: Review [Key Exchange Method - SSH.NET](https://github.com/sshnet/SSH.NET#key-exchange-method).
-  * **Encryption algorithms**: Review [Encryption Method - SSH.NET](https://github.com/sshnet/SSH.NET#encryption-method).
-  * **Fingerprint**: MD5
+## Add SFTP-SSH trigger
 
-  After you add an SFTP-SSH trigger or action to your workflow, you have to provide connection information for your SFTP server. When you provide your SSH private key for this connection, ***don't manually enter or edit the key***, which might cause the connection to fail. Instead, make sure that you ***copy the key*** from your SSH private key file, and ***paste*** that key into the connection details. For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
-
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-
-* The logic app workflow where you want to access your SFTP account. To start with an SFTP-SSH trigger, [create a blank logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an SFTP-SSH action, start your workflow with another trigger, for example, the **Recurrence** trigger.
-
-## Considerations
-
-The following section describes considerations to review when you use this connector's triggers and actions.
-
-<a name="different-folders-trigger-processing-file-storage"></a>
-
-### Use different SFTP folders for file upload and processing
-
-On your SFTP server, use separate folders for storing uploaded files and for the trigger to monitor those files for processing. Otherwise, the trigger won't fire and behaves unpredictably, for example, skipping a random number of files that the trigger processes. However, this requirement means that you need a way to move files between those folders. 
-
-If this trigger problem happens, remove the files from the folder that the trigger monitors, and use a different folder to store the uploaded files.
-
-<a name="create-file"></a>
-
-### Create file
-
-To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get a `404` error message, `'A reference was made to a file or folder which does not exist'`. To skip reading the file's metadata after file creation, follow the steps to [add and set the **Get all file metadata** property to **No**](#file-does-not-exist).
-
-> [!IMPORTANT]
-> If you use chunking with SFTP-SSH operations that create files on your SFTP server, 
-> these operations create temporary `.partial` and `.lock` files. These files help 
-> the operations use chunking. Don't remove or change these files. Otherwise, 
-> the file operations fail. When the operations finish, they delete the temporary files.
-
-<a name="convert-to-openssh"></a>
-
-## Convert PuTTY-based key to OpenSSH
-
-The PuTTY format and OpenSSH format use different file name extensions. The PuTTY format uses the .ppk, or PuTTY Private Key, file name extension. The OpenSSH format uses the .pem, or Privacy Enhanced Mail, file name extension. If your private key is in PuTTY format, and you have to use OpenSSH format, first convert the key to the OpenSSH format by following these steps:
-
-### Unix-based OS
-
-1. If you don't have the PuTTY tools installed on your system, do that now, for example:
-
-   `sudo apt-get install -y putty`
-
-1. Run this command, which creates a file that you can use with the SFTP-SSH connector:
-
-   `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
-
-   For example:
-
-   `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
-
-### Windows OS
-
-1. If you haven't done so already, [download the latest PuTTY Generator (puttygen.exe) tool](https://www.puttygen.com), and then open the tool.
-
-1. In the PuTTY Key Generator tool (puttygen.exe), under **Actions**, select **Load**.
-
-   ![Screenshot showing the PuTTY Key Generator tool and the "Actions" section with "Load" selected.](./media/connectors-sftp-ssh/puttygen-load.png)
-
-1. Browse to your private key file in PuTTY format, and select **Open**.
-
-1. From the **Conversions** menu, select **Export OpenSSH key**.
-
-   ![Screenshot showing the PuTTY Generator tool with the "Conversions" menu open and "Export OpenSSH key" selected.](./media/connectors-sftp-ssh/export-openssh-key.png)
-
-1. Save the private key file with the **.pem** file name extension.
-
-## Find the MD5 fingerprint
-
-The SFTP-SSH connector rejects a connection if both the SFTP server's fingerprint and expected fingerprint don't match. To get the MD5 fingerprint, which is a sequence with 16 pairs of hex digits delimited by colons, try the following options.
-
-### You have the key
-
-The MD5 key is a 47-character string delimited by colons. To get the MD5 fingerprint when you have the key, you can use tools such as `ssh-keygen`, for example:
-
-```bash
-ssh-keygen -l -f id_rsa.pub -E md5
-```
-
-### You don't have the key
-
-To get an MD5 fingerprint when you don't have a key, you can use the latest [Server and Protocol Information Dialog tool by WinSCP](https://winscp.net/eng/docs/ui_fsinfo), or you can use the PuTTY Configuration tool instead:
-
-1. In the PuTTY Configuration tool (putty.exe), in the **Category** window, open **Connection** > **SSH** > **Host keys**.
-
-1. Under **Host key algorithm preference**, in the **Algorithm selection policy** list, check that **RSA** appears at the top.
-
-1. If **RSA** doesn't appear at the top, select **RSA**, and then select **Up** until **RSA** moves to the top.
-
-   ![Screenshot showing the PuTTY Configuration tool, "Connection" category expanded to show "Host keys" selected. On right pane, "RSA" and "Up" button appear selected.](media/connectors-sftp-ssh/putty-select-rsa-key.png)
-
-1. Connect to your SFTP server with PuTTY. After the connection is created, when the PUTTY security alert appears, select **More info**.
-
-   ![Screenshot showing the PuTTY terminal and security alert with "More info" selected.](media/connectors-sftp-ssh/putty-security-alert-more-info.png)
-
-   > [!TIP]
-   >
-   > If the security alert doesn't appear, try clearing the **SshHostKeys** entry. Open the Windows registry editor, 
-   > and browse to the following entry:
-   >
-   > **Computer\HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\SshHostKeys**
-
-1. After the **PuTTY: information about the server's host key** box appears, find the **MD5 fingerprint** property, and copy the *47-character string value*, for example.
-
-   ![Screenshot showing the more information box with the "MD5 fingerprint" property and the string with the last 47 characters selected for copying.](media/connectors-sftp-ssh/copy-md5-fingerprint-key.png)
-
-<a name="connect"></a>
-
-## Connect to SFTP with SSH
-
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+### [Consumption](#tab/consumption)
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
 
