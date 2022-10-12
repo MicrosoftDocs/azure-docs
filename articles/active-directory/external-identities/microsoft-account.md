@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an Azure AD administrator user, I want to set up invitation flow or a self-service sign-up user flow for guest users, so they can sign into my Azure AD apps with their Microsoft account (MSA).
 ---
 
-# Microsoft account (MSA) identity provider for External Identities
+# Add Microsoft account (MSA) as an identity provider for External Identities
 
 Your B2B guest users can use their own personal Microsoft accounts for B2B collaboration without further configuration. Guest users can redeem your B2B collaboration invitations or complete your sign-up user flows using their personal Microsoft account.
 
@@ -25,7 +25,7 @@ Microsoft accounts are set up by a user to get access to consumer-oriented Micro
 
 ## Guest sign-in using Microsoft accounts
 
-Microsoft account is available by default in the list of External Identities > All identity providers. No further configuration is needed to allow guest users to sign in with their Microsoft account using either the invitation flow, or a self-service sign-up user flow.
+Microsoft account is available by default in the list of **External Identities** > **All identity providers**. No further configuration is needed to allow guest users to sign in with their Microsoft account using either the invitation flow, or a self-service sign-up user flow.
 
 :::image type="content" source="media/microsoft-account/microsoft-account-identity-provider.png" alt-text="Screenshot of Microsoft account in the identity providers list.":::
 
