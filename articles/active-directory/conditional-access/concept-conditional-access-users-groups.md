@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 10/03/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,6 +21,9 @@ A Conditional Access policy must include a user assignment as one of the signals
 
 > [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
+> [!NOTE]
+> Some Conditional Access features are currently in public preview and might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Include users
 
 This list of users typically includes all of the users an organization is targeting in a Conditional Access policy. 
@@ -32,8 +35,15 @@ The following options are available to include when creating a Conditional Acces
 - All users
    - All users that exist in the directory including B2B guests.
 - Select users and groups
-   - All guest and external users
-      - This selection includes any [B2B guests and external users](../external-identities/external-identities-overview.md) including any user with the `user type` attribute set to `guest`. This selection also applies to any external user signed-in from a different organization like a Cloud Solution Provider (CSP). 
+   - Guest or external users (preview)
+      - This selection provides several choices that can be used to target Conditional Access policies to specific guest or external user types and specific tenants containing those types of users. There are [several different types of guest or external users that can be selected](../external-identities/authentication-conditional-access.md#conditional-access-for-external-users), and multiple selections can be made:
+         - B2B collaboration guest users
+         - B2B collaboration member users
+         - B2B direct connect users
+         - Local guest users, for example any user belonging to the home tenant with the user type attribute set to guest
+         - Service provider users, for example a Cloud Solution Provider (CSP)
+         - Other external users, or users not represented by the other user type selections
+      - One or more tenants can be specified for the selected user type(s), or you can specify all tenants. 
    - Directory roles
       - Allows administrators to select specific [built-in Azure AD directory roles](../roles/permissions-reference.md) used to determine policy assignment. For example, organizations may create a more restrictive policy on users assigned the Global Administrator role. Other role types aren't supported, including administrative unit-scoped roles and custom roles.
    - Users and groups
@@ -57,8 +67,15 @@ When organizations both include and exclude a user or group the user or group is
 
 The following options are available to exclude when creating a Conditional Access policy.
 
-- All guest and external users
-   - This selection includes any B2B guests and external users including any user with the `user type` attribute set to `guest`. This selection also applies to any external user signed-in from a different organization like a Cloud Solution Provider (CSP). 
+- Guest or external users
+    - This selection provides several choices that can be used to target Conditional Access policies to specific guest or external user types and specific tenants containing those types of users. There are [several different types of guest or external users that can be selected](../external-identities/authentication-conditional-access.md#conditional-access-for-external-users), and multiple selections can be made:
+       - B2B collaboration guest users
+       - B2B collaboration member users
+       - B2B direct connect users
+       - Local guest users, for example any user belonging to the home tenant with the user type attribute set to guest
+       - Service provider users, for example a Cloud Solution Provider (CSP)
+       - Other external users, or users not represented by the other user type selections
+    - One or more tenants can be specified for the selected user type(s), or you can specify all tenants.
 - Directory roles
    - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the Global Administrator role.
 - Users and groups
@@ -78,10 +95,9 @@ If you do find yourself locked out, see [What to do if you're locked out of the 
 
 ### External partner access
 
-Conditional Access policies that target external users may interfere with service provider access, for example granular delegated admin privileges [Introduction to granular delegated admin privileges (GDAP)](/partner-center/gdap-introduction).
+Conditional Access policies that target external users may interfere with service provider access, for example granular delegated admin privileges [Introduction to granular delegated admin privileges (GDAP)](/partner-center/gdap-introduction). For policies that are intended to target service provider tenants, use the **Service provider user** external user type available in the **Guest or external users** selection options.
 
 ## Next steps
 
 - [Conditional Access: Cloud apps or actions](concept-conditional-access-cloud-apps.md)
-
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)

@@ -5,7 +5,7 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Set up Microsoft Sentinel customer-managed key
@@ -66,7 +66,7 @@ To provision CMK, follow these steps: 
 
 2.  Enable CMK on your Log Analytics workspace.
 
-3.  Register to the Cosmos DB Resource Provider.
+3.  Register to the Azure Cosmos DB Resource Provider.
 
 4.  Add an access policy to your Azure Key Vault instance.
 
@@ -89,15 +89,15 @@ To provision CMK, follow these steps: 
 
 Follow the instructions in [Azure Monitor customer-managed key configuration](../azure-monitor/logs/customer-managed-keys.md) in order to create a CMK workspace that will be used as the Microsoft Sentinel workspace in the following steps.
 
-### STEP 3: Register to the Cosmos DB Resource Provider
+### STEP 3: Register to the Azure Cosmos DB Resource Provider
 
-Microsoft Sentinel works with Cosmos DB as an additional storage resource. Make sure to register to the Cosmos DB Resource Provider.
+Microsoft Sentinel works with Azure Cosmos DB as an additional storage resource. Make sure to register to the Azure Cosmos DB Resource Provider.
 
-Follow the Cosmos DB instruction to [Register the Azure Cosmos DB Resource Provider](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) resource provider for your Azure subscription.
+Follow the instructions to [Register the Azure Cosmos DB Resource Provider](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) for your Azure subscription.
 
 ### STEP 4: Add an access policy to your Azure Key Vault instance
 
-Make sure to add access from Cosmos DB to your Azure Key Vault instance. Follow the Cosmos DB instruction to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with Azure Cosmos DB principal.
+Make sure to add access from Azure Cosmos DB to your Azure Key Vault instance. Follow the Azure Cosmos DB instructions to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with an Azure Cosmos DB principal.
 
 ### STEP 5: Onboard the workspace to Microsoft Sentinel via the onboarding API
 
@@ -105,13 +105,13 @@ Onboard the workspace to Microsoft Sentinel via the [Onboarding API](https://git
 
 ## Key Encryption Key revocation or deletion
 
-In the event that a user revokes the key encryption key (the CMK), either by deleting it or removing access for the dedicated cluster and Cosmos DB Resource Provider, Microsoft Sentinel will honor the change and behave as if the data is no longer available, within one hour. At this point, any operation that uses persistent storage resources such as data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain inaccessible. Inaccessible data is governed by the data-retention policy and will be purged in accordance with that policy.
+In the event that a user revokes the key encryption key (the CMK), either by deleting it or removing access for the dedicated cluster and Azure Cosmos DB Resource Provider, Microsoft Sentinel will honor the change and behave as if the data is no longer available, within one hour. At this point, any operation that uses persistent storage resources such as data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain inaccessible. Inaccessible data is governed by the data-retention policy and will be purged in accordance with that policy.
 
 The only operation possible after the encryption key is revoked or deleted is account deletion.
 
 If access is restored after revocation, Microsoft Sentinel will restore access to the data within an hour.
 
-Access to the data can be revoked by disabling the customer-managed key in the key vault, or deleting the access policy to the key, for both the dedicated Log Analytics cluster and Cosmos DB. Revoking access by removing the key from the dedicated Log Analytics cluster, or by removing the identity associated with the dedicated Log Analytics cluster is not supported.
+Access to the data can be revoked by disabling the customer-managed key in the key vault, or deleting the access policy to the key, for both the dedicated Log Analytics cluster and Azure Cosmos DB. Revoking access by removing the key from the dedicated Log Analytics cluster, or by removing the identity associated with the dedicated Log Analytics cluster is not supported.
 
 To understand more about how this works in Azure Monitor, see [Azure Monitor CMK revocation](../azure-monitor/logs/customer-managed-keys.md#key-revocation).
 
