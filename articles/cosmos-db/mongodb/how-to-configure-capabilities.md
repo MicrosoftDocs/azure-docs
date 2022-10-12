@@ -44,7 +44,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 
     You should see a capability section similar to this output:
 
-    ```output
+    ```json
     "capabilities": [
       {
         "name": "EnableMongo"
@@ -83,7 +83,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 
     You should see a capability section similar to this output:
 
-    ```output
+    ```json
     "capabilities": [
       {
         "name": "EnableMongo"
