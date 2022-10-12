@@ -12,7 +12,7 @@ ms.author: sidandrews
 # Change log for Azure Cosmos DB for MongoDB
 The Change log for the API for MongoDB is meant to inform you about our feature updates. This document covers more granular updates and complements [Azure Updates](https://azure.microsoft.com/updates/).
 
-## Azure Cosmos DB's API for MongoDB updates
+## Azure Cosmos DB for MongoDB updates
 
 ### Role-based access control (RBAC) (GA)
 Azure Cosmos DB for MongoDB now offers a built-in role-based access control (RBAC) that allows you to authorize your data requests with a fine-grained, role-based permission model. Using this role-based access control (RBAC) allows you access with more options for control, security, and auditability of your database account data.
