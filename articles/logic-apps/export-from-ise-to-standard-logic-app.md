@@ -65,7 +65,7 @@ This article provides information about the export process and shows how to expo
 
 - An existing ISE with the logic app workflows that you want to export.
 
-- Azure subscription-level access to the ISE, not just resource group-level access.
+- Azure contributor subscription-level access to the ISE, not just resource group-level access.
 
 - To include and deploy managed connections in your workflows, you'll need an existing Azure resource group for deploying these connections. This option is recommended only for non-production environments.
 

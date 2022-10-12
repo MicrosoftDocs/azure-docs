@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 08/15/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # MLflow and Azure Machine Learning
@@ -33,7 +33,7 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022
 Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiments via the Azure Machine Learning Python SDK, the Azure Machine Learning CLI, or Azure Machine Learning studio. We recommend using MLflow for tracking experiments. To get started, see [Log metrics, parameters, and files with MLflow](how-to-log-view-metrics.md).
 
 > [!NOTE]
-> Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 (preview). We recommend that you use MLflow for logging.
+> Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2. We recommend that you use MLflow for logging.
 
 With MLflow Tracking, you can connect Azure Machine Learning as the back end of your MLflow experiments. The workspace provides a centralized, secure, and scalable location to store training metrics and models.
 

@@ -31,6 +31,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/keylight-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navex-irm-keylight-lockpath-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/whats-new-microsoft-365-government.md",
       "redirect_url": "/azure/active-directory/fundamentals/whats-new",
       "redirect_document_id": true
@@ -10894,6 +10899,11 @@
 {
       "source_path_from_root": "/articles/active-directory/fundamentals/support-help-options.md",
       "redirect_url": "/azure/active-directory/fundamentals/how-to-get-support",
+      "redirect_document_id": false
+    },
+{
+      "source_path_from_root": "/articles/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-playbook.md",
+      "redirect_url": "/azure/active-directory/cloud-infrastructure-entitlement-management/permissions-management-trial-user-guide",
       "redirect_document_id": false
     }
   ]

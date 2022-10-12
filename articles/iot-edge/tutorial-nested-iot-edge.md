@@ -76,7 +76,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 
    IoT Edge version 1.4 is preinstalled with this ARM template, saving the need to manually install the assets on the virtual machines. If you are installing IoT Edge on your own devices, see [Install Azure IoT Edge for Linux](how-to-provision-single-device-linux-symmetric.md) or [Update IoT Edge](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).
 
-   A successful creation of a virtual machine using this ARM template will output your virtual machine's `SSH` handle and fully-qualified domain name (`FQDN`). You will use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. A sample output is pictured below.
+   A successful creation of a virtual machine using this ARM template will output your virtual machine's `SSH` handle and fully qualified domain name (`FQDN`). You will use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. A sample output is pictured below.
 
    >[!TIP]
    >You can also find the IP address and FQDN on the Azure portal. For the IP address, navigate to your list of virtual machines and note the **Public IP address field**. For the FQDN, go to each virtual machine's overview page and look for the **DNS name** field.
@@ -297,7 +297,7 @@ You can view the status of your modules using the command:
 
    This command will output all the edgeAgent reported properties. Here are some helpful ones for monitoring the status of the device: *runtime status*, *runtime start time*, *runtime last exit time*, *runtime restart count*.
 
-You can also see the status of your modules on the [Azure portal](https://portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
+You can also see the status of your modules on the [Azure portal](https://portal.azure.com/). Navigate to the **Devices** section of your IoT Hub to see your devices and modules.
 
 Once you are satisfied with your module deployments, you are ready to proceed.
 

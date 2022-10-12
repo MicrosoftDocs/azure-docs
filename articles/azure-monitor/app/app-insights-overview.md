@@ -60,7 +60,7 @@ To use the SDK, you install a small instrumentation package in your app and then
 
 ### [.NET](#tab/net)
 
-Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md#monitor-executions-in-azure-functions), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
+Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
 [Azure Monitor Application Insights Agent](status-monitor-v2-overview.md) is available for workloads running in on-premises virtual machines.
 
@@ -72,9 +72,9 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also av
 
 ### [Java](#tab/java)
 
-Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
+Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md#distributed-tracing-for-java-applications-public-preview).
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
 
 ### [Node.js](#tab/nodejs)
 
