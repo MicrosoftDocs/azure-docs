@@ -3,7 +3,7 @@ title: Tutorial - Provision devices using a symmetric key enrollment group in Az
 description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.date: 10/10/2022
+ms.date: 10/14/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -234,11 +234,11 @@ To generate device keys, use the enrollment group master key to compute an [HMAC
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az-iot-dps-compute-device-key) command for generating derived device keys. This command can be used from a Windows-based or Linux systems, in PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [az iot dps enrollment-group compute-device-key](/cli/azure/iot/dps/enrollment-group?view=azure-cli-latest#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used from both Windows-based and Linux systems.
 
-Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
+Replace the value of the `--key` parameter with the **Primary Key** from your enrollment group.
 
-Replace the value of `--registration-id` argument with your registration ID.
+Replace the value of the `--registration-id` parameter with your registration ID.
 
 ```azurecli
 az iot dps enrollment-group compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
@@ -253,7 +253,7 @@ Example result:
 
 If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
-Replace the value of **KEY** with the **Primary Key** you noted earlier.
+Replace the value of **KEY** with the **Primary Key** from your enrollment group.
 
 Replace the value of **REG_ID** with your registration ID.
 
@@ -274,10 +274,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 # [Linux](#tab/linux)
 
-If you're using a Linux workstation, you can use openssl to generate your 
-derived device key as shown in the following example.
+If you're using a Linux workstation, you can use openssl to generate your derived device key as shown in the following example.
 
-Replace the value of **KEY** with the **Primary Key** you noted earlier.
+Replace the value of **KEY** with the **Primary Key** from your enrollment group.
 
 Replace the value of **REG_ID** with your registration ID.
 
