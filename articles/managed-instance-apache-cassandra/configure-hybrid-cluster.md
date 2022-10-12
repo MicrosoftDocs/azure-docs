@@ -230,7 +230,7 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
       --cluster-name $clusterName --repair-enabled false
     ```
 
-1. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new Azure Managed Instance for Apache Cassandra data center, replacing `<ip address>` with the IP address of the node, and `<sourcedc>` with the name of your source data center:
+1. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new Azure Managed Instance for Apache Cassandra data center, replacing `<ip address>` with the IP address of the node, and `<sourcedc>` with the name of your existing data center (the one you are migrating from):
 
     ```azurecli-interactive
     az managed-cassandra cluster invoke-command \
