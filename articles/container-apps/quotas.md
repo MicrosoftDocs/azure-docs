@@ -14,14 +14,15 @@ ms.author: cshoe
 
 The following quotas are on a per subscription basis for Azure Container Apps.
 
-| Feature | Quantity | Scope | Remarks |
-|--|--|--|--|
-| Environments | 5 | For a subscription per region | |
-| Container Apps | 20 | Environment | |
-| Revisions | 100 | Container app | |
-| Replicas | 30 | Revision | |
-| Cores | 2 | Replica | Maximum number of cores that can be requested by a revision replica. |
-| Cores | 20 | Environment | Calculated by the total cores an environment can accommodate. For instance, the sum of cores requested by each active replica of all revisions in an environment. |
+| Feature | Quantity | Scope | Limit can be extended | Remarks |
+|--|--|--|--|--|
+| Environments | 5 | For a subscription per region | Yes | |
+| Container Apps | 20 | Environment | Yes |
+| Revisions | 100 | Container app | No |
+| Replicas | 30 | Revision | No |
+| Cores | 2 | Replica | No | Maximum number of cores that can be requested by a revision replica. |
+| Memory | 4 GiB | Replica | No | Maximum amount of memory that can be requested by a revision replica. |
+| Cores | 20 | Environment | Yes| Calculated by the total cores an environment can accommodate. For instance, the sum of cores requested by each active replica of all revisions in an environment. |
 
 ## Considerations
 

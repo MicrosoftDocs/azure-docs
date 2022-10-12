@@ -40,7 +40,7 @@ The following policy applies to the selected users, who attempt to register usin
 
    1. Under **Exclude**.
       1. Select **All guest and external users**.
-      1. Select **Directory roles** and choose **Global administrator**
+      1. Select **Directory roles** and choose **Global Administrator**
       
          > [!NOTE]
          > Temporary Access Pass does not work for guest users.

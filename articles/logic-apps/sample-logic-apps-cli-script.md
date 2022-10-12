@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: mvc, devx-track-azurecli
-ms.date: 07/30/2020
+ms.date: 08/23/2022
 ---
 
 # Azure CLI script sample - create a logic app

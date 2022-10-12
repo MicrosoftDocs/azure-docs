@@ -82,7 +82,7 @@ You can also deploy packet core instances in 4G mode to support Private Long-Ter
 The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components.
 
 :::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Diagram of the packet core architecture displaying each of the supported network functions and their interfaces.":::
-   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M, and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes M M E Proxy and M M E network functions. The M M E Proxy communicates with the M M E over the S 11 interface. An E Node B provided by a Microsoft partner communicates with the M M E over the S 1 M M E interface. 
+   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the AMF, the SMF, the UPF, the UDR, the PCF, the UDM, and the AUSF. The AMF communicates with 5G user equipment over the N1 interface. A g NodeB provided by a Microsoft partner communicates with the AMF over the N2 interface and the UPF over the N3 interface. The UPF communicates with the data network over the N6 interface. When operating in 4G mode, the packet core includes MME Proxy and MME network functions. The MME Proxy communicates with the MME over the S11 interface. An e NodeB provided by a Microsoft partner communicates with the MME over the S1-MME interface. 
 :::image-end:::
 
 Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
@@ -98,7 +98,6 @@ Each packet core instance is connected to the local RAN network to provide cover
 - Authentication Server Function (AUSF)
 - Unified Data Management (UDM)
 - Unified Data Repository (UDR)
-- Network Repository Function (NRF)
 
 ### Supported 4G network functions
 

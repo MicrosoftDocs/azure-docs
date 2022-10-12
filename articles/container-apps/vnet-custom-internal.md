@@ -1,6 +1,6 @@
 ---
-title: Provide an internal virtual network to an Azure Container Apps environment
-description: Learn how to provide an internal VNET to an Azure Container Apps environment.
+title: Integrate a virtual network with an internal Azure Container Apps environment
+description: Learn how to integrate a VNET to an internal Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -75,7 +75,7 @@ $VnetName = 'my-custom-vnet'
 Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container app instance.
 
 > [!NOTE]
-> You can use an existing virtual network, but two empty subnets are required to use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -117,6 +117,9 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 ```
 
 ---
+
+> [!NOTE]
+> Network subnet address prefix requires a CIDR range of `/23`.
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 
@@ -337,10 +340,10 @@ You must either provide values for all three of these properties, or none of the
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
 
+::: zone pivot="azure-cli"
+
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
-
-::: zone pivot="azure-cli"
 
 # [Bash](#tab/bash)
 
@@ -360,9 +363,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 ## Additional resources
 
-- For more information about configuring your private endpoints, see [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md).
-
-- To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
+- To use VNET-scope ingress, you must set up [DNS](./networking.md#dns).
 
 ## Next steps
 

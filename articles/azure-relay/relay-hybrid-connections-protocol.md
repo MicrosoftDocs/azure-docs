@@ -2,6 +2,7 @@
 title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: This article describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles. 
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 06/21/2022
 ---
 
@@ -501,7 +502,7 @@ The JSON content for `request` is as follows:
  be used.
 * **body** – boolean. Indicates whether one or more binary body frames follows.
 
-``` JSON
+```json
 {
     "request" : {
         "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?...",

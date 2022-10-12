@@ -26,7 +26,7 @@ To learn more, visit [How to filter Advisor recommendations using tags](advisor-
 
 ## January 2022
 
-[**Shutdown/Resize your virtual machines**](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) recommendation was enhanced to increase the quality, robustness, and applicability.
+[**Shutdown/Resize your virtual machines**](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances) recommendation was enhanced to increase the quality, robustness, and applicability.
 
 Improvements include:  
 
@@ -38,4 +38,4 @@ Improvements include:
 
 ![vm-right-sizing-recommendation](media/advisor-overview/advisor-vm-right-sizing.png)
 
-Read the [How-to guide](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) to learn more.
+Read the [How-to guide](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances) to learn more.

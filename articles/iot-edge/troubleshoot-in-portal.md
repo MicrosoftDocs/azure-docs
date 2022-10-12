@@ -26,7 +26,7 @@ You can access the troubleshooting page in the portal through either the IoT Edg
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
-1. In the left pane, select **IoT Edge** from the menu.
+1. In the left pane,select **Devices** under the **Device management** menu.
 
 1. Select the IoT Edge device that you want to monitor from the list of devices.
 

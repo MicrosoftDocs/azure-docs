@@ -10,7 +10,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 09/06/2022
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022
+ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
 ---
 # How to create a secure workspace
 
@@ -34,7 +34,7 @@ In this tutorial, you accomplish the following tasks:
 
 ## Prerequisites
 
-* Familiarity with Azure Virtual Networks and IP networking. If you are not familiar, try the [Fundamentals of computer networking](/learn/modules/network-fundamentals/) module.
+* Familiarity with Azure Virtual Networks and IP networking. If you are not familiar, try the [Fundamentals of computer networking](/training/modules/network-fundamentals/) module.
 * While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI extension for Machine Learning v2.
 
 ## Limitations
@@ -340,7 +340,7 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide values for the following fields:
 
     * __Virtual machine name__: A unique name for the VM.
-    * __Username__: The username you will use to login to the VM.
+    * __Username__: The username you will use to log in to the VM.
     * __Password__: The password for the username.
     * __Security type__: Standard.
     * __Image__: Data Science Virtual Machine - Windows Server 2019 - Gen1.
@@ -436,7 +436,7 @@ For more information on creating a compute cluster and compute cluster, includin
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images (used for training and deployment). Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
 
 1. Navigate to [https://shell.azure.com/](https://shell.azure.com/) to open the Azure Cloud Shell.
-1. From the Cloud Shell, use the following command to install the 1.0 CLI for Azure Machine Learning:
+1. From the Cloud Shell, use the following command to install the 2.0 CLI for Azure Machine Learning:
  
     ```azurecli-interactive
     az extension add -n ml
@@ -461,7 +461,7 @@ When Azure Container Registry is behind the virtual network, Azure Machine Learn
 >
 > As an alternative to Azure Container Instances, try Azure Machine Learning managed online endpoints. For more information, see [Enable network isolation for managed online endpoints (preview)](how-to-secure-online-endpoint.md).
 
-At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs on the compute cluster. For a tutorial on using the compute instance and compute cluster, see [run a Python script](tutorial-1st-experiment-hello-world.md).
+At this point, you can use studio to interactively work with notebooks on the compute instance and run training jobs on the compute cluster. For a tutorial on using the compute instance and compute cluster, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
 
 ## Stop compute instance and jump box
 
@@ -499,4 +499,4 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
-Now that you have created a secure workspace and can access studio, learn how to [run a Python script](tutorial-1st-experiment-hello-world.md) using Azure Machine Learning.
+Now that you have created a secure workspace and can access studio, learn how to [run a Python script](tutorial-azure-ml-in-a-day.md) using Azure Machine Learning.

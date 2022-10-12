@@ -156,7 +156,7 @@ Make note of ID displayed in output and use in the following command to add the 
 ```azurecli-interactive
 
 az network traffic-manager endpoint create \
-    --name <app1name_westeurope> \
+    --name <app2name_westeurope> \
     --resource-group myResourceGroup \
     --profile-name <profile_name> \
     --type azureEndpoints \

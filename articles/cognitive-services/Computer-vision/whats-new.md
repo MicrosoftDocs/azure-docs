@@ -16,6 +16,21 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## October 2022
+
+### Computer Vision 4.0 public preview
+
+Version 4.0 of Computer Vision has been released in public preview for certain regions, offering an updated version of the Analyze Image API. The new API includes people detection and OCR functionality (improved from the standard OCR offering in Version 3.2), available through the same Analyze Image call. It also features an improved smart cropping utility. If your resource belongs to one of the enabled regions (East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US), we recommend you use version 4.0 going forward.
+
+## September 2022
+
+### Computer Vision 3.0/3.1 Read previews deprecation
+
+The preview versions of the Computer Vision 3.0 and 3.1 Read API are scheduled to be retired on January 31, 2023. Customers are encouraged to refer to the [How-To](./how-to/call-read-api.md) and [QuickStarts](./quickstarts-sdk/client-library.md?tabs=visual-studio&pivots=programming-language-csharp) to get started with the generally available (GA) version of the Read API instead. The latest GA versions provide the following benefits:
+* 2022 latest generally available OCR model
+* Significant expansion of OCR language coverage including support for handwritten text
+* Significantly improved OCR quality 
+
 ## June 2022
 
 ### Vision Studio launch
@@ -61,7 +76,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 suppo
 * Improved processing of digital PDF documents.
 * Input file size limit increased 10x to 500 MB.
 * Performance and latency improvements.
-* Available as [cloud service](overview-ocr.md#read-api) and [Docker container](computer-vision-how-to-install-containers.md).
+* Available as [cloud service](overview-ocr.md) and [Docker container](computer-vision-how-to-install-containers.md).
 
 See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
 

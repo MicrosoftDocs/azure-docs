@@ -1,12 +1,12 @@
 ---
 title: Migrate to Azure AD MFA and Azure AD user authentication - Azure Active Directory
-description: Step-by-step guidance to move from Azure MFA Server on-premises to Azure AD MFA and Azure AD user authentication
+description: Step-by-step guidance to move from MFA Server on-premises to Azure AD MFA and Azure AD user authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 09/09/2022
 
 ms.author: gasinh
 author: gargi-sinha
@@ -30,7 +30,7 @@ There are several options for migrating from MFA Server to Azure Active Director
 To select the appropriate MFA migration option for your organization, see the considerations in [Migrate from MFA Server to Azure Active Directory MFA](how-to-migrate-mfa-server-to-azure-mfa.md). 
 
 The following diagram shows the process for migrating to Azure AD MFA and cloud authentication while keeping some of your applications on AD FS. 
-This process enables the iterative migration of users from MFA Server to Azure MFA based on group membership.
+This process enables the iterative migration of users from MFA Server to Azure AD MFA based on group membership.
 
 Each step is explained in the subsequent sections of this article.
 
@@ -132,7 +132,7 @@ This command will move the logic from your current Access Control Policy into Ad
 
 #### Set up the group, and find the SID
 
-You will need to have a specific group in which you place users for whom you want to invoke Azure AD MFA. You will need to find the security identifier (SID) for that group.
+You'll need to have a specific group in which you place users for whom you want to invoke Azure AD MFA. You'll need to find the security identifier (SID) for that group.
 To find the group SID, run the following command and replace `GroupName` with your group name:
 
 ```powershell
@@ -141,7 +141,7 @@ Get-ADGroup GroupName
 
 ![PowerShell command to get the group SID.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
-#### Setting the claims rules to call Azure MFA
+#### Setting the claims rules to call Azure AD MFA
 
 The following PowerShell cmdlets invoke Azure AD MFA for users in the group when they aren’t on the corporate network. 
 You must replace `"YourGroupSid"` with the SID found by running the preceding cmdlet.
@@ -229,20 +229,13 @@ Now you're ready to enable [Staged Rollout](../hybrid/how-to-connect-staged-roll
 * [Enable the Staged Rollout of cloud authentication](../hybrid/how-to-connect-staged-rollout.md#enable-a-staged-rollout-of-a-specific-feature-on-your-tenant) for your selected authentication method. 
 * Add the group(s) you created for Staged Rollout. Remember that you'll add users to groups iteratively, and that they can't be dynamic groups or nested groups. 
 
-## Register users for Azure MFA
+## Register users for Azure AD MFA
 
-There are two ways to register users for Azure MFA: 
-
-* Register for combined security (MFA and self-service-password reset) 
-* Migrate phone numbers from MFA Server
-
-Microsoft Authenticator can be used as a passwordless sign-in method and a second factor for MFA with either method.
+This section covers how users can register for combined security (MFA and self-service-password reset) and how to migrate their MFA settings. Microsoft Authenticator can be used as in passwordless mode. It can also be used as a second factor for MFA with either registration method.
 
 ### Register for combined security registration (recommended)
 
 We recommend having your users register for combined security information, which is a single place to register their authentication methods and devices for both MFA and SSPR. 
-
-Authentication data can be migrated from MFA Server to Azure AD. This process doesn't require any end-user interaction during or after the migration, but it can result in stale data being migrated.
 
 Microsoft provides communication templates that you can provide to your users to guide them through the combined registration process. 
 These include templates for email, posters, table tents, and various other assets. Users register their information at `https://aka.ms/mysecurityinfo`, which takes them to the combined security registration screen. 
@@ -256,54 +249,16 @@ We recommend that you [secure the security registration process with Conditional
 You can use the [MFA Server Migration utility](how-to-mfa-server-migration-utility.md) to synchronize registered MFA settings for users from MFA Server to Azure AD. 
 You can synchronize phone numbers, hardware tokens, and device registrations such as Microsoft Authenticator app settings. 
 
-### Migrate phone numbers from MFA Server
-
-If you only want to migrate registered MFA phone numbers, you can export the users along with their phone numbers from MFA Server and import the phone numbers into Azure AD. 
-
-#### Export user phone numbers from MFA Server 
-
-1. Open the Multi-Factor Authentication Server admin console on the MFA Server. 
-1. Select **File** > **Export Users**.
-1. Save the .csv file. The default name is Multi-Factor Authentication Users.csv.
-
-#### Interpret and format the .csv file
-
-The .csv file contains many fields not necessary for migration and will need to be edited and formatted prior to importing the phone numbers into Azure AD. 
-
-In the .csv file, columns of interest include Username, Primary Phone, Primary Country Code, Backup Country Code, Backup Phone, Backup Extension. You must interpret this data and format it, as necessary.
-
-#### Tips to avoid errors during import
-
-* The .csv file will need to be modified prior to using the Authentication Methods API to import the phone numbers into Azure AD. 
-* We recommend simplifying the .csv to three columns: UPN, PhoneType, and PhoneNumber. 
-
-  ![Screenshot of a csv example.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/csv-example.png)
-
-* Make sure the exported MFA Server Username matches the Azure AD UserPrincipalName. If it doesn't, update the username in the .csv file to match what is in Azure AD, otherwise the user won't be found.
-
-Users may have already registered phone numbers in Azure AD. 
-When importing the phone numbers using the Authentication Methods API, you must decide whether to overwrite the existing phone number, or to add the imported number as an alternate phone number.
-
-The following PowerShell cmdlets takes the .csv file you supply and add the exported phone numbers as a phone number for each UPN using the Authentication Methods API. You must replace "myPhones" with the name of your .csv file.
-
-
-```powershell
-$csv = import-csv myPhones.csv
-$csv|% { New-MgUserAuthenticationPhoneMethod -UserId $_.UPN -phoneType $_.PhoneType -phoneNumber $_.PhoneNumber} 
-```
-
-For more information about managing authentication methods, see [Manage authentication methods for Azure AD Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
-
 ### Add users to the appropriate groups 
 
 * If you created new conditional access policies, add the appropriate users to those groups. 
 * If you created on-premises security groups for claims rules, add the appropriate users to those groups. 
-* Only after you add users to the appropriate conditional access rules, add users to the group that you created for Staged Rollout. Once done, they'll begin to use the Azure authentication method that you selected (PHS or PTA) and Azure AD MFA when they are required to perform MFA.
+* Only after you add users to the appropriate conditional access rules, add users to the group that you created for Staged Rollout. Once done, they'll begin to use the Azure authentication method that you selected (PHS or PTA) and Azure AD MFA when they're required to perform MFA.
 
 > [!IMPORTANT] 
 > Nested and dynamic groups aren't supported for Staged Rollout. Do not use these types of groups. 
 
-We don't recommend that you reuse groups that are used for security. Therefore, if you're using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
+We don't recommend that you reuse groups that are used for security. If you're using a security group to secure a group of high-value apps with a Conditional Access policy, only use the group for that purpose.
 
 ## Monitoring
 
@@ -319,14 +274,14 @@ This workbook can be used to monitor the following activities:
 * Users and groups removed from Staged Rollout.
 * Sign-in failures for users in Staged Rollout, and the reasons for failures.
 
-### Monitoring Azure MFA registration
-Azure MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AuthMethodsActivity/menuId/AuthMethodsActivity). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
+### Monitoring Azure AD MFA registration
+Azure AD MFA registration can be monitored using the [Authentication methods usage & insights report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AuthMethodsActivity/menuId/AuthMethodsActivity). This report can be found in Azure AD. Select **Monitoring**, then select **Usage & insights**. 
 
 ![Screenshot of how to find the Usage and Insights report.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/usage-report.png)
 
 In Usage & insights, select **Authentication methods**. 
 
-Detailed Azure MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users registered for Azure multi-factor authentication** hyperlink.
+Detailed Azure AD MFA registration information can be found on the Registration tab. You can drill down to view a list of registered users by selecting the **Users registered for Azure multi-factor authentication** hyperlink.
 
 ![Screenshot of the Registration tab.](media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/registration-tab.png)
 
@@ -339,7 +294,7 @@ Monitor applications you moved to Azure AD with the App sign-in health workbook 
 
 ## Clean up tasks
 
-After you move all users to Azure AD cloud authentication and Azure MFA, you are ready to decommission your MFA Server. 
+After you move all users to Azure AD cloud authentication and Azure AD MFA, you're ready to decommission your MFA Server. 
 We recommend reviewing MFA Server logs to ensure no users or applications are using it before you remove the server.
 
 ### Convert your domains to managed authentication
@@ -365,7 +320,7 @@ Value=="YourGroupSid"]) => issue(Type =
 
 ### Disable MFA Server as an authentication provider in AD FS
 
-This change ensures only Azure MFA is used as an authentication provider.
+This change ensures only Azure AD MFA is used as an authentication provider.
 
 1. Open the **AD FS management console**.
 1. Under **Services**, right-click on **Authentication Methods**, and select **Edit Multi-factor Authentication Methods**. 
@@ -397,6 +352,6 @@ For more information about migrating applications to Azure, see [Resources for m
 
 ## Next steps
 
-- [Migrate from Microsoft MFA Server to Azure MFA (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
+- [Migrate from Microsoft MFA Server to Azure AD MFA (Overview)](how-to-migrate-mfa-server-to-azure-mfa.md)
 - [Migrate applications from Windows Active Directory to Azure Active Directory](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
 - [Plan your cloud authentication strategy](../fundamentals/active-directory-deployment-plans.md)

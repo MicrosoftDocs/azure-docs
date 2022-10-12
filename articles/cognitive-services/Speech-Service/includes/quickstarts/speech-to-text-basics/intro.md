@@ -9,4 +9,4 @@ ms.author: eur
 In this quickstart, you run an application to recognize and transcribe human speech (often called speech-to-text). 
 
 > [!TIP]
-> To try the Speech service without writing any code, create a project in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool). 
+> You can try speech-to-text in [Speech Studio](https://aka.ms/speechstudio/speechtotexttool) without signing up or writing any code.

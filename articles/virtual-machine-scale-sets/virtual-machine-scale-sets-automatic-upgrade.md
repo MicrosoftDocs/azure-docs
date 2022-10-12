@@ -75,7 +75,8 @@ The following platform SKUs are currently supported (and more are added periodic
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Canonical               | UbuntuServer  | 18.04-LTS          |                
+| Canonical               | UbuntuServer  | 18.04-LTS          |  
+| Canonical               | UbuntuServer  | 18.04-LTS-Gen2          |  
 | Canonical               | 0001-com-ubuntu-server-focal  | 20.04-LTS          |                   
 | Canonical               | 0001-com-ubuntu-server-focal  | 20.04-LTS-Gen2     | 
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-1      |                 
@@ -84,6 +85,7 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftCblMariner     | Cbl-Mariner   | cbl-mariner-2-Gen2                  
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gensecond    |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-gs        |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
@@ -98,6 +100,7 @@ The following platform SKUs are currently supported (and more are added periodic
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-containers-gs |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-smalldisk-g2 |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-azure-edition |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core |
 | MicrosoftWindowsServer  | WindowsServer | 2022-Datacenter-core-smalldisk |

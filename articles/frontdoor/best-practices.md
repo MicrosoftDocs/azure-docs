@@ -20,7 +20,7 @@ This article summarizes best practices for using Azure Front Door.
 
 ### Avoid combining Traffic Manager and Front Door
 
-For most solutions, you should use *either* Front Door *or* [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview).
+For most solutions, you should use *either* Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
 Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
@@ -62,7 +62,7 @@ For more information, see [Select the certificate for Azure Front Door to deploy
 
 ### Use the same domain name on Front Door and your origin
 
-Front Door can rewrite the `Host` header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. The feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the `Host` header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like [session affinity](/azure/app-service/configure-common#configure-general-settings) and [authentication and authorization](/azure/app-service/overview-authentication-authorization) might not work correctly.
+Front Door can rewrite the `Host` header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. The feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the `Host` header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like [session affinity](../app-service/configure-common.md#configure-general-settings) and [authentication and authorization](../app-service/overview-authentication-authorization.md) might not work correctly.
 
 Before you rewrite the `Host` header of your requests, carefully consider whether your application is going to work correctly.
 

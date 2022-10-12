@@ -23,14 +23,14 @@
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
-  - name: Create a new resource with commitment tier pricing 
-    href: commitment-tier.md  
 - name: How-To
   items:
   - name: Plan and manage costs 
     href: plan-manage-costs.md
   - name: Increase rate limit
     href: autoscale.md
+  - name: Use commitment tier pricing 
+    href: commitment-tier.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
   - name: Manage resources
@@ -39,7 +39,9 @@
     items:
     - name: Containers
       items:
-      - name: Cognitive Services containers
+      - name: Cognitive Services containers documentation
+        href: containers/index.yml
+      - name: Cognitive Services containers overview
         href: cognitive-services-container-support.md
       - name: Container image tags and releases notes
         href: ./containers/container-image-tags.md
@@ -67,8 +69,6 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Azure Kubernetes Service (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
-      - name: Cognitive Services containers documentation
-        href: containers/index.yml
   - name: Security
     items:
     - name: Security features
