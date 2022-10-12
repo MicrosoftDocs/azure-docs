@@ -72,7 +72,7 @@ ldapsearch -H ldap://<ip-domain-controller>:389 -x \
 
 If the ldap query works fine you will obtain an output with some information like follow:
 
-```bash
+```console
 extended LDIF
 
 LDAPv3
@@ -103,76 +103,6 @@ dSCorePropagationData: 20220930113600.0Z
 dSCorePropagationData: 20220930113600.0Z
 dSCorePropagationData: 20220930113600.0Z
 dSCorePropagationData: 16010101000000.0Z
-
-krbtgt, Users, cetesting.it
-dn: CN=krbtgt,CN=Users,DC=cetesting,DC=it
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-objectClass: user
-cn: krbtgt
-description: Key Distribution Center Service Account
-distinguishedName: CN=krbtgt,CN=Users,DC=cetesting,DC=it
-instanceType: 4
-whenCreated: 20220913115552.0Z
-whenChanged: 20220913121104.0Z
-uSNCreated: 12324
-memberOf: CN=Denied RODC Password Replication Group,CN=Users,DC=cetesting,DC=it
-uSNChanged: 12860
-showInAdvancedViewOnly: TRUE
-name: krbtgt
-objectGUID:: ZCSU+HfRDk2UTGnRDhgOPQ==
-userAccountControl: 514
-badPwdCount: 0
-codePage: 0
-countryCode: 0
-badPasswordTime: 0
-lastLogoff: 0
-lastLogon: 0
-pwdLastSet: 133075437529179206
-primaryGroupID: 513
-objectSid:: AQUAAAAAAAUVAAAA9bdSIefnm5HC06qP9gEAAA==
-adminCount: 1
-accountExpires: 9223372036854775807
-logonCount: 0
-sAMAccountName: krbtgt
-sAMAccountType: 805306368
-servicePrincipalName: kadmin/changepw
-objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=cetesting,DC=it
-isCriticalSystemObject: TRUE
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 16010101000000.0Z
-msDS-SupportedEncryptionTypes: 0
-
-Domain Computers, Users, cetesting.it
-dn: CN=Domain Computers,CN=Users,DC=cetesting,DC=it
-objectClass: top
-objectClass: group
-cn: Domain Computers
-description: All workstations and servers joined to the domain
-distinguishedName: CN=Domain Computers,CN=Users,DC=cetesting,DC=it
-instanceType: 4
-whenCreated: 20220913115552.0Z
-whenChanged: 20220913115552.0Z
-uSNCreated: 12330
-uSNChanged: 12332
-name: Domain Computers
-objectGUID:: 78PdfHVuHkGevqipD5I4Mg==
-objectSid:: AQUAAAAAAAUVAAAA9bdSIefnm5HC06qPAwIAAA==
-sAMAccountName: Domain Computers
-sAMAccountType: 268435456
-groupType: -2147483646
-objectCategory: CN=Group,CN=Schema,CN=Configuration,DC=cetesting,DC=it
-isCriticalSystemObject: TRUE
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 20220913121231.0Z
-dSCorePropagationData: 16010714223649.0Z
-...
 ```
 
 > [!NOTE]
