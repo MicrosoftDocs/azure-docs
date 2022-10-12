@@ -6,10 +6,10 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 layout: LandingPage
 ms.date: 06/21/2022
-
 ---
 
 # Data sources gallery
@@ -46,11 +46,11 @@ Extract blob metadata and content, serialized into JSON documents, and imported 
 
 ---
 
-### Azure Cosmos DB (SQL API)
+### Azure Cosmos DB for NoSQL
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to Cosmos DB through the SQL API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+Connect to Azure Cosmos DB through the SQL API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
 [More details](search-howto-index-cosmosdb.md)
 
@@ -141,11 +141,11 @@ New data sources are issued as preview features. [Sign up](https://aka.ms/azure-
 
 ---
 
-### Cosmos DB (Gremlin API)
+### Azure Cosmos DB for Apache Gremlin
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to Cosmos DB through the Gremlin API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+Connect to Azure Cosmos DB for Apache Gremlin to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
 [More details](search-howto-index-cosmosdb-gremlin.md)
 
@@ -156,11 +156,11 @@ Connect to Cosmos DB through the Gremlin API to extract items from a container, 
 
 ---
 
-### Cosmos DB (Mongo API)
+### Azure Cosmos DB for MongoDB
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to Cosmos DB through the Mongo API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+Connect to Azure Cosmos DB for MongoDB to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
 [More details](search-howto-index-cosmosdb.md)
 
@@ -631,7 +631,7 @@ The Confluence Connector is an enterprise grade indexing connector that enables 
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Atlassian Confluence and intelligently searching it with Azure Cognitive Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from on-premise Confluence instances in near real time. The connector fully supports Atlassian Confluence’s built-in user and group management, as well as Confluence installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Atlassian Confluence and intelligently searching it with Azure Cognitive Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from on-premises Confluence instances in near real time. The connector fully supports Atlassian Confluence’s built-in user and group management, as well as Confluence installations based on Active Directory and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-confluence-connector)
 
@@ -880,7 +880,7 @@ The File Share Connector makes it possible to surface content from File Shares (
 
 by [Accenture](https://www.accenture.com)
 
-The File system connector will crawl content from a file system location, allowing incremental crawling, metadata extraction, filtering of documents by path, supporting Windows/Linux/MacOS file systems.
+The File System connector will crawl content from a file system location, allowing incremental crawling, metadata extraction, filtering of documents by path, supporting Windows/Linux/macOS file systems.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/File+System+Connector)
 
@@ -1216,7 +1216,7 @@ The Jira Connector enables users to perform searches against all Jira objects, e
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Atlassian Jira and intelligently searching it with Azure Cognitive Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links, and profiles from on-premise Jira instances in near real time. The connector fully supports Atlassian Jira’s built-in user and group management, as well as Jira installations based on Active Directory and other directory services.
+Secure enterprise search connector for reliably indexing content from Atlassian Jira and intelligently searching it with Azure Cognitive Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links, and profiles from on-premises Jira instances in near real time. The connector fully supports Atlassian Jira’s built-in user and group management, as well as Jira installations based on Active Directory and other directory services.
 
 [More details](https://www.raytion.com/connectors/raytion-jira-connector)
 
@@ -1279,7 +1279,7 @@ The Jive Connector was developed for Jive, establishing a secure connection to t
 
 by [Raytion](https://www.raytion.com/contact)
 
-Secure enterprise search connector for reliably indexing content from Jive and intelligently searching it with Azure Cognitive Search. It robustly indexes discussions, polls, files, blogs, spaces, groups, projects, tasks, videos, messages, ideas, profiles, and status updates from on-premise and cloud-hosted Jive instances in near real time. The connector fully supports Jive’s built-in user and group management and supports Jive’s native authentication models, OAuth and Basic authentication.
+Secure enterprise search connector for reliably indexing content from Jive and intelligently searching it with Azure Cognitive Search. It robustly indexes discussions, polls, files, blogs, spaces, groups, projects, tasks, videos, messages, ideas, profiles, and status updates from on-premises and cloud-hosted Jive instances in near real time. The connector fully supports Jive’s built-in user and group management and supports Jive’s native authentication models, OAuth and Basic authentication.
 
 [More details](https://www.raytion.com/connectors/raytion-jive-connector)
 
@@ -1466,7 +1466,7 @@ The HP TRIM Connector was developed for HP Records Manager, establishing a secur
 
 by [BA Insight](https://www.bainsight.com/)
 
-Our Microsoft Dynamics 365 CRM connector supports both on-premise CRM installations and Dynamics CRM Online.
+Our Microsoft Dynamics 365 CRM connector supports both on-premises CRM installations and Dynamics CRM Online.
 
 [More details](https://www.bainsight.com/connectors/microsoft-dynamics-crm-connector-sharepoint-azure-elasticsearch/)
 

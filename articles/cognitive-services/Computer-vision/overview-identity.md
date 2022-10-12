@@ -40,8 +40,8 @@ This documentation contains the following types of articles:
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-For a more structured approach, follow a Microsoft Learn module for Face.
-* [Detect and analyze faces with the Face service](/learn/modules/detect-analyze-faces/)
+For a more structured approach, follow a Learn module for Face.
+* [Detect and analyze faces with the Face service](/training/modules/detect-analyze-faces/)
 
 ## Example use cases
 

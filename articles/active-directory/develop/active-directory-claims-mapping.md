@@ -5,7 +5,7 @@ author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, ignite-2022
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/16/2021
@@ -32,7 +32,7 @@ In this article, we walk through a few common scenarios that can help you unders
 
 In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
-When creating a claims-mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
+When creating a claims-mapping policy, you can also emit a claim from a directory extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory extension attributes](active-directory-schema-extensions.md).
 
 > [!NOTE]
 > The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, while the claims mapping and token creation runtime in Azure is generally available. Updates to the preview PowerShell module could require you to update or change your configuration scripts. 
@@ -218,7 +218,7 @@ To run this script you need:
     - password for the private key (pfx file)
 
 > [!IMPORTANT]
-> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
+> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
 
 ```powershell
 
@@ -402,7 +402,7 @@ else
 ```
 
 #### Validate token signing key
-Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
+Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-configuration-document). Below is the format of the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -423,4 +423,4 @@ If you're not using a verified domain, Azure AD will return an `AADSTS501461` er
 
 - Read the [claims-mapping policy type](reference-claims-mapping-policy-type.md) reference article to learn more.
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
+- To learn more about extension attributes, see [Using directory extension attributes in claims](active-directory-schema-extensions.md).

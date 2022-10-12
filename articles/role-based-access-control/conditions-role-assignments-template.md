@@ -3,7 +3,7 @@ title: Add Azure role assignment conditions using Azure Resource Manager templat
 description: Learn how to add attribute-based access control (ABAC) conditions in Azure role assignments using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
@@ -92,6 +92,6 @@ az deployment group create --resource-group example-group --template-file rbac-t
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
 - [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
 - [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md)

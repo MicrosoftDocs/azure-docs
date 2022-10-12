@@ -21,7 +21,7 @@ Batch will apply one of these disk encryption technologies on compute nodes, bas
 
 - [Managed disk encryption at rest with platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys)
 - [Encryption at host using a platform-managed Key](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
+- [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md)
 
 You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node.
 

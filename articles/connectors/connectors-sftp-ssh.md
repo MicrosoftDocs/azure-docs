@@ -1,16 +1,16 @@
 ---
-title: Connect to SFTP server with SSH
-description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps.
+title: Connect to SFTP using SSH from workflows
+description: Connect to your SFTP file server over SSH from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 08/19/2022
 tags: connectors
 ---
 
-# Create and manage SFTP files using SSH and Azure Logic Apps
+# Connect to an SFTP file server using SSH from workflows in Azure Logic Apps
 
 To automate tasks that create and manage files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can create automated integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream.
 
@@ -26,7 +26,7 @@ In your workflow, you can use a trigger that monitors events on your SFTP server
 
 For differences between the SFTP-SSH connector and the SFTP connector, review the [Compare SFTP-SSH versus SFTP](#comparison) section later in this topic.
 
-## Limits
+## Limitations
 
 * The SFTP-SSH connector currently doesn't support these SFTP servers:
 
@@ -37,6 +37,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   * Globalscape
   * SFTP for Azure Blob Storage
   * FileMage Gateway
+  * VShell Secure File Transfer Server
 
 * The following SFTP-SSH actions support [chunking](../logic-apps/logic-apps-handle-large-messages.md):
 
@@ -71,6 +72,8 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   1. Use an SFTP-SSH trigger that returns only file properties. These triggers have names that include the description, **(properties only)**.
 
   1. Follow the trigger with the SFTP-SSH **Get file content** action. This action reads the complete file and implicitly uses message chunking.
+
+* The SFTP-SSH managed or Azure-hosted connector can create a limited number of connections to the SFTP server, based on the connection capacity in the Azure region where your logic app resource exists. If this limit poses a problem in a Consumption logic app workflow, consider creating a Standard logic app workflow and use the SFTP-SSH built-in connector instead.
 
 <a name="comparison"></a>
 
@@ -315,7 +318,7 @@ This error can happen when your logic app can't successfully establish a connect
 
 * If this error happens intermittently, change the **Retry policy** setting on the SFTP-SSH action to a retry count higher than the default four retries.
 
-* Check whether SFTP server puts a limit on the number of connections from each IP address. If a limit exists, you might have to limit the number of concurrent logic app instances.
+* Check whether your SFTP server puts a limit on the number of connections from each IP address. Any such limit hinders communication between the connector and the SFTP server. Make sure to remove this limit.
 
 * To reduce connection establishment cost, in the SSH configuration for your SFTP server, increase the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to around one hour.
 

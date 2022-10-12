@@ -88,7 +88,7 @@ az containerapp github-action add \
 ```azurecli
 az containerapp github-action add `
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" `
-  --content-path "./dockerfile" `
+  --context-path "./dockerfile" `
   --branch <BRANCH_NAME> `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `

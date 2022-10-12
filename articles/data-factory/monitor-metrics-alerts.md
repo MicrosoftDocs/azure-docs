@@ -87,6 +87,9 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
 1. Define the action group.
 
+   > [!NOTE]
+   > The action group must be created within the same resource group as the data factory instance in order to be available for use from the data factory.
+
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Screenshot that shows creating a rule, with New action group highlighted.":::
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image10.png" alt-text="Screenshot that shows creating a new action group.":::

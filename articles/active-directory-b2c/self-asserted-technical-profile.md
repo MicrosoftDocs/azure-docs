@@ -174,7 +174,7 @@ The following example demonstrates the use of a self-asserted technical profile 
 
 ### Output claims sign-up or sign-in page
 
-In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element the specifies a `unifiedssp` or `unifiedssd` page type:
+In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element that specifies a `unifiedssp` or `unifiedssd` page type:
 
 - Only the username and password claims are rendered.
 - The first two output claims must be the username and the password (in this order). 

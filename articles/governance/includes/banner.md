@@ -8,4 +8,4 @@ ms.topic: include
 
 > [!NOTE]
 >
-> Azure Policy Guest Configuration is now called called **Azure Automanage Machine Configuration**. [Learn more about the recent renaming of Microsoft configuration management services.](https://techcommunity.microsoft.com/t5/azure-governance-and-management/coming-soon-guest-configuration-renames-to-machine-configuration/ba-p/3474116)
+> Azure Policy Guest Configuration is now called **Azure Automanage Machine Configuration**. [Learn more about the recent renaming of Microsoft configuration management services.](https://techcommunity.microsoft.com/t5/azure-governance-and-management/coming-soon-guest-configuration-renames-to-machine-configuration/ba-p/3474116)

@@ -4,7 +4,7 @@ description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 ms.topic: reference
 ms.date: 03/04/2022
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -72,7 +72,7 @@ namespace CosmosDBSamplesV2
 
 # [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
 
-Apps using Cosmos DB [extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties, which are shown below. This example refers to a simple `ToDoItem` type.
+Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties, which are shown below. This example refers to a simple `ToDoItem` type.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -119,7 +119,7 @@ The following code defines a `MyDocument` type:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
 
-This document type is the type of the [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) used as the Cosmos DB trigger binding parameter in the following example:
+This document type is the type of the [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) used as the Azure Cosmos DB trigger binding parameter in the following example:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
 
@@ -130,7 +130,7 @@ Example pending.
 
 # [Functions 2.x+](#tab/functionsv2/csharp-script)
 
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Cosmos DB records are added or modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are added or modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -166,7 +166,7 @@ Here's the C# script code:
 
 # [Extension 4.x+ (preview)](#tab/extensionv4/csharp-script)
 
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Cosmos DB records are added or modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are added or modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -228,12 +228,12 @@ This function is invoked when there are inserts or updates in the specified data
 
 ---
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Azure Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Cosmos DB records are added or modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are added or modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -250,7 +250,7 @@ Here's the JavaScript code:
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-The following example shows how to run a function as data changes in Cosmos DB.
+The following example shows how to run a function as data changes in Azure Cosmos DB.
 
 [!INCLUDE [functions-cosmosdb-trigger-attributes](../../includes/functions-cosmosdb-trigger-attributes.md)]
 
@@ -265,7 +265,7 @@ Write-Host "First document Id modified : $($Documents[0].id)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -321,7 +321,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 # [Functions 2.x+](#tab/functionsv2)
 
-From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on parameters that read data from Cosmos DB. The annotation supports the following properties:
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on parameters that read data from Azure Cosmos DB. The annotation supports the following properties:
 
 + [name](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.name)
 + [connectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdbtrigger.connectionstringsetting)
@@ -377,12 +377,15 @@ The trigger requires a second collection that it uses to store _leases_ over the
 
 ::: zone pivot="programming-language-csharp"  
 >[!IMPORTANT]
-> If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#configuration).
+> If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions is triggered. For information about the prefix, see the [Attributes section](#attributes).
 ::: zone-end
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"  
-  
+::: zone pivot="programming-language-java"  
 >[!IMPORTANT]
-> If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `leaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#configuration).
+> If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `leaseCollectionPrefix` for each function. Otherwise, only one of the functions is triggered. For information about the prefix, see the [Annotations section](#annotations).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+>[!IMPORTANT]
+> If multiple functions are configured to use an Azure Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `leaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#configuration).
 ::: zone-end
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.

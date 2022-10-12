@@ -22,7 +22,7 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
-- The on-premises management console, has a new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
+- The on-premises management console, has new [integration APIs](references-work-with-defender-for-iot-apis.md#version-3).
 
 - Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
 
@@ -99,7 +99,7 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 
 ### Unicode support for certificate passphrases
 
-Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md).
 
 ## April 2021
 

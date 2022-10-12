@@ -2,7 +2,7 @@
 title: Monitor Python applications with Azure Monitor | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Azure Monitor
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 8/19/2022
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
@@ -24,8 +24,6 @@ You may have noted that OpenCensus is converging into [OpenTelemetry](https://op
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/release/python-370/), although other versions will likely work with minor changes. The Opencensus Python SDK only supports Python v2.7 and v3.4+.
-- Create an Application Insights [resource](./create-new-resource.md). You'll be assigned your own instrumentation key (ikey) for your resource.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -41,10 +39,7 @@ Install the OpenCensus Azure Monitor exporters:
 python -m pip install opencensus-ext-azure
 ```
 
-> [!NOTE]
-> The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
-
-The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They're trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](../data-platform.md). Use the following instructions to send these telemetry types via the three exporters.
+The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor. They are `trace`, `metrics`, and `logs`. For more information on these telemetry types, see [the data platform overview](../data-platform.md). Use the following instructions to send these telemetry types via the three exporters.
 
 ## Telemetry type mappings
 
@@ -118,7 +113,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
         main()
     ```
 
-1. The exporter sends log data to Azure Monitor. You can find the data under `traces`. 
+1. The exporter sends log data to Azure Monitor. You can find the data under `traces`.
 
     > [!NOTE]
     > In this context, `traces` isn't the same as `tracing`. Here, `traces` refers to the type of telemetry that you'll see in Azure Monitor when you utilize `AzureLogHandler`. But `tracing` refers to a concept in OpenCensus and relates to [distributed tracing](./distributed-tracing.md).
@@ -560,7 +555,11 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 * [Customization](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
 * [Azure Monitor Exporters on GitHub](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 * [OpenCensus Integrations](https://github.com/census-instrumentation/opencensus-python#extensions)
-* [Azure Monitor Sample Applications](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
+* [Azure Monitor Sample Applications](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor)
+
+## Troubleshooting
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 

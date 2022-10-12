@@ -37,7 +37,7 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 
 * An Azure subscription - try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](../how-to-configure-environment.md).
+* An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn more, see [How to configure a development environment](how-to-configure-environment-v1.md).
 
 * A trained machine learning model. To learn more, see the [Train image classification model](../tutorial-train-deploy-notebook.md) tutorial.
 
@@ -66,11 +66,11 @@ Use the following steps to update an existing web service:
 ### Log custom traces in your service
 
 > [!IMPORTANT]
-> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](../how-to-enable-data-collection.md).
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](how-to-enable-data-collection.md).
 >
 > For more complex situations, like model tracking within an AKS deployment, we recommend using a third-party library like [OpenCensus](https://opencensus.io).
 
-To log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](/azure/machine-learning/how-to-deploy-managed-online-endpoints) document. Then, use the following steps:
+To log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then, use the following steps:
 
 1. Update the scoring file by adding print statements to send data to Application Insights during inference. For more complex information, such as the request data and the response, use a JSON structure. 
 
@@ -125,7 +125,7 @@ To log custom traces, follow the standard deployment process for AKS or ACI in t
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. Build an image and deploy it on AKS or ACI. For more information, see [How to deploy and where](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+3. Build an image and deploy it on AKS or ACI. For more information, see [How to deploy and where](how-to-deploy-and-where.md).
 
 
 ### Disable tracking in Python

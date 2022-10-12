@@ -1,17 +1,17 @@
 ---
-title: Troubleshooting Dynatrace for Azure (preview) - Azure partner solutions
+title: Troubleshooting Dynatrace for Azure - Azure partner solutions
 description: This article provides information about troubleshooting Dynatrace for Azure 
 ms.topic: conceptual
 ms.collection: na
 author: flang-msft
 ms.author: franlanglois
-ms.date: 06/07/2022
+ms.date: 08/24/2022
 
 ---
 
 # Troubleshoot Dynatrace for Azure
 
-This article describes how to contact support when working with a Dynatrace for Azure (preview) resource. Before contacting support, see [Fix common errors](#fix-common-errors).
+This article describes how to contact support when working with a Dynatrace for Azure resource. Before contacting support, see [Fix common errors](#fix-common-errors).
 
 ## Contact support
 

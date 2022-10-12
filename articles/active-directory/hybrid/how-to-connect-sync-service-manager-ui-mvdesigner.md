@@ -4,7 +4,7 @@ description: Understand the Metaverse Designer tab in the Synchronization Servic
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: abaa9eb2-f105-42d1-b00a-2a63129a8ffb

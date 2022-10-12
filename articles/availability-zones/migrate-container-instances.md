@@ -2,7 +2,7 @@
 title: Migrate Azure Container Instances to availability zone support 
 description: Learn how to migrate Azure Container Instances to availability zone support.
 author: anaharris-ms
-ms.service: azure
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/22/2022
 ms.author: anaharris

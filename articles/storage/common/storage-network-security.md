@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 10/04/2022
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -51,7 +51,7 @@ By default, storage accounts accept connections from clients on any network. You
 
 > [!WARNING]
 > Changing this setting can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks or set up access through a [private endpoint](storage-private-endpoints.md) before you change this setting.
-     
+
 ### [Portal](#tab/azure-portal)
 
 1. Go to the storage account you want to secure.
@@ -120,6 +120,9 @@ By default, storage accounts accept connections from clients on any network. You
 
 ---
 
+> [!CAUTION]
+> By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. For this reason, if you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](#grant-access-from-azure-resource-instances) and [exceptions](#manage-exceptions) you had previously configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services may still have access to the storage account after setting **Public network access** to **Disabled**.
+
 ## Grant access from a virtual network
 
 You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
@@ -150,12 +153,17 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Enabling access to virtual networks in other regions (preview)
 
-To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
-
+> 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+To enable access from a virtual network that is located in another region over service endpoints, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+
+> [!NOTE]
+> For updating the existing service endpoints to access a storage account in another region, perform an [update subnet](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update&preserve-view=true) operation on the subnet after registering the subscription with the `AllowGlobalTagsForStorage` feature. Similarly, to go back to the old configuration, perform an [update subnet](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update&preserve-view=true) operation after deregistering the subscription with the `AllowGlobalTagsForStorage` feature. 
+
 
 #### [Portal](#tab/azure-portal)
 

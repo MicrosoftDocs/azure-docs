@@ -40,10 +40,10 @@ The Azure OpenAI service provides two methods for authentication. you can use  e
 The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure, with a -preview suffix for a preview service. For example:
 
 ```
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2021-11-01-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview
 ```
 
-We currently have the following versions available: ```2022-03-01-preview``` and ```2021-11-01-preview```
+We currently have the following versions available: ```2022-06-01-preview```
 
 ## Completions
 With the Completions operation, the model will generate one or more predicted completions based on a provided prompt. The service can also return the probabilities of alternative tokens at each position.
@@ -427,7 +427,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/fine-tunes?api-version
 | validation_file| string | no | null | The ID of an uploaded file that contains validation data. <br> If you provide this file, the data is used to generate validation metrics periodically during fine-tuning. These metrics can be viewed in the fine-tuning results file. Your train and validation data should be mutually exclusive. <br><br> Your dataset must be formatted as a JSONL file, where each validation example is a JSON object with the keys "prompt" and "completion". Additionally, you must upload your file with the purpose fine-tune. |
 | batch_size | integer | no | null | The batch size to use for training. The batch size is the number of training examples used to train a single forward and backward pass. <br><br> By default, the batch size will be dynamically configured to be ~0.2% of the number of examples in the training set, capped at 256 - in general, we've found that larger batch sizes tend to work better for larger datasets.
 | learning_rate_multiplier | number (double) | no | null | The learning rate multiplier to use for training. The fine-tuning learning rate is the original learning rate used for pre-training multiplied by this value.<br><br> We recommend experimenting with values in the range 0.02 to 0.2 to see what produces the best results. |
-| n_epochs |  integer | no | 4 for `ada`, `babbage`, `curie`. 1 for `DaVinci` | The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. |
+| n_epochs |  integer | no | 4 for `ada`, `babbage`, `curie`. 1 for `davinci` | The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset. |
 | prompt_loss_weight | number (double) | no | 0.1 | The weight to use for loss on the prompt tokens. This controls how much the model tries to learn to generate the prompt (as compared to the completion, which always has a weight of 1.0), and can add a stabilizing effect to training when completions are short. <br><br> |
 | compute_classification_metrics | boolean | no | false | If set, we calculate classification-specific metrics such as accuracy and F-1 score using the validation set at the end of every epoch. |
 | classification_n_classes | integer | no | null | The number of classes in a classification task. This parameter is required for multiclass classification |
@@ -514,7 +514,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/fine-tunes/{fine_tune_i
 
 **Supported versions**
 
-- `2022-03-01-preview`
+- `2022-06-01-preview`
 
 #### Example request
 

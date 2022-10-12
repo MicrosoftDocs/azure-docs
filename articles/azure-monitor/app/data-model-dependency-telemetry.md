@@ -53,7 +53,7 @@ Indication of successful or unsuccessful call.
 ## Next steps
 
 - Set up dependency tracking for [.NET](./asp-net-dependencies.md).
-- Set up dependency tracking for [Java](java-2x-agent.md).
+- Set up dependency tracking for [Java](./java-in-process-agent.md).
 - [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - See [data model](data-model.md) for Application Insights types and data model.
 - Check out [platforms](./platforms.md) supported by Application Insights.

@@ -66,7 +66,6 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
   - TS 29.504: 5G System; Unified Data Repository Services; Stage 3.
   - TS 29.505: 5G System; Usage of the Unified Data Repository services for Subscription Data; Stage 3.
 - AUSF - TS 29.509: 5G System; Authentication Server Services; Stage 3.
-- NRF - TS 29.510: 5G System; Network function repository services; Stage 3.
 - AMF - TS 29.518: 5G System; Access and Mobility Management Services; Stage 3.
 
 ### Security

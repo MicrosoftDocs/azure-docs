@@ -12,7 +12,7 @@ ms.author: banders
 
 # How Azure Databricks pre-purchase discount is applied
 
-You can use pre-purchased Azure Databricks commit units (DBCU) at any time during the purchase term. Any Azure Databricks usage is deducts from the pre-purchased DBCUs automatically.
+You can use pre-purchased Azure Databricks commit units (DBCU) at any time during the purchase term. Any Azure Databricks usage is deducted from the pre-purchased DBCUs automatically.
 
 Unlike VMs, pre-purchased units don't expire on an hourly basis. You can use them at any time during the term of the purchase. To get the pre-purchase discounts, you don't need to redeploy or assign a pre-purchased plan to your Azure Databricks workspaces for the usage.
 

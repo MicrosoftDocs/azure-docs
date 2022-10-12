@@ -383,9 +383,9 @@ The application targets .NET Core, so you can run it on either Windows or Linux.
 
 ### Downloading the sample
 
-1. Use the IoT C# samples from this page: [Azure IoT Samples for C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Download the zip file and unzip it on your computer. 
+1. Use the IoT C# samples here: [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip). Download the zip file and unzip it on your computer. 
 
-1. The pertinent code is in ./iot-hub/Samples/service/ImportExportDevicesSample. You don't need to view or edit the code in order to run the application.
+1. The pertinent code is in ./iothub/service/samples/how to guides/ImportExportDevicesSample. You don't need to view or edit the code in order to run the application.
 
 1. To run the application, specify three connection strings and five options. You pass this data in as command-line arguments or use environment variables, or use a combination of the two. We're going to pass the options in as command line arguments, and the connection strings as environment variables. 
 
@@ -488,10 +488,10 @@ Now you have the environment variables in a file with the SET commands, and you 
 
 ### Running the sample application using Visual Studio
 
-1. If you want to run the application in Visual Studio, change your current directory to the folder where the IoTHubServiceSamples.sln file resides. Then run this command in the command prompt window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables, so those variables are known.
+1. If you want to run the application in Visual Studio, change your current directory to the folder where the azureiot.sln file resides. Then run this command in the command prompt window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables, so those variables are known.
 
    ``` console       
-   IoTHubServiceSamples.sln
+   azureiot.sln
    ```
     
 1. Right-click on the project *ImportExportDevicesSample* and select **Set as startup project**.    

@@ -161,6 +161,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path": "event-hubs-programming-guide.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples",
+    "redirect_document_id": false
+  },
+  {
     "source_path": "event-hubs-pulling-public-data.md",
     "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
     "redirect_document_id": false

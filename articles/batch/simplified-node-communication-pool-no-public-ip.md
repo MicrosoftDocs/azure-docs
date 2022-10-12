@@ -121,6 +121,25 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 }
 ```
 
+## Create a pool without public IP addresses using ARM template
+
+You can use this [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/batch-pool-no-public-ip/) to create a pool without public IP addresses using Azure Resource Manager (ARM) template.
+
+Following resources will be deployed by the template:
+
+- Azure Batch account with IP firewall configured to block public network access to Batch node management endpoint
+- Virtual network with network security group to block internet outbound access
+- Private endpoint to access Batch node management endpoint of the account
+- DNS integration for the private endpoint using private DNS zone linked to the virtual network
+- Batch pool deployed in the virtual network and without public IP addresses
+
+If you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.batch%2Fbatch-pool-no-public-ip%2Fazuredeploy.json)
+
+> [!NOTE]
+> If the private endpoint deployment failed due to invalid groupId "nodeManagement", please check if the region is in the supported list, and you've already opted in with [Simplified compute node communication](simplified-compute-node-communication.md). Choose the right region and opt in your Batch account, then retry the deployment.
+
 ## Outbound access to the internet
 
 In a pool without public IP addresses, your virtual machines won't be able to access the public internet unless you configure your network setup appropriately, such as by using [virtual network NAT](../virtual-network/nat-gateway/nat-overview.md). Note that NAT only allows outbound access to the internet from the virtual machines in the virtual network. Batch-created compute nodes won't be publicly accessible, since they don't have public IP addresses associated.

@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 09/07/2022
 ms.author: banders
 ---
 
@@ -68,6 +69,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 
 - [App Service](prepay-app-service.md)
 - [App Service - JBoss EA Integrated Support](prepay-jboss-eap-integrated-support-app-service.md)
+- [Azure Backup](../../backup/backup-azure-reserved-pricing-optimize-cost.md)
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Azure Data Factory](../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
@@ -76,7 +78,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Blob storage](../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Azure Files](../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Azure VMware Solution](../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)

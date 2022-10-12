@@ -4,7 +4,7 @@ description: Demonstrates how to setup a hybrid identity environment using passw
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
