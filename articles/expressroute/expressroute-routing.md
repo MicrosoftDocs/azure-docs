@@ -8,9 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: duau
-ms.custom: references_regions
-
-
+ms.custom: references_regions, ignite-2022
 ---
 # ExpressRoute routing requirements
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements:

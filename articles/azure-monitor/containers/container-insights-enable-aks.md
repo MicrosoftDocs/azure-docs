@@ -3,7 +3,7 @@ title: Monitor an Azure Kubernetes Service (AKS) cluster deployed
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
 ms.topic: conceptual
 ms.date: 09/28/2022
-ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ms.reviewer: aul
 ---
 

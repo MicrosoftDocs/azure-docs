@@ -3,11 +3,11 @@ title: Update backup storage redundancy for Azure Cosmos DB periodic backup acco
 description: Learn how to update the backup storage redundancy using Azure CLI, and PowerShell. You can also configure an Azure policy on your accounts to enforce the required storage redundancy.
 author: kanshiG
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/03/2021
 ms.author: govindk
 ms.reviewer: mjbrown
-
 ---
 
 # Update backup storage redundancy for Azure Cosmos DB periodic backup accounts

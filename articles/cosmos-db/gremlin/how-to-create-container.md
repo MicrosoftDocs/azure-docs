@@ -8,7 +8,7 @@ ms.date: 10/16/2020
 author: manishmsfte
 ms.author: mansha
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022
 ---
 
 # Create a container in Azure Cosmos DB for Gremlin

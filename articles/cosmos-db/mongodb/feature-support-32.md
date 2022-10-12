@@ -3,6 +3,7 @@ title: Azure Cosmos DB's API for MongoDB (3.2 version) supported features and sy
 description: Learn about Azure Cosmos DB's API for MongoDB (3.2 version) supported features and syntax.
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 10/16/2019
 author: gahl-levy

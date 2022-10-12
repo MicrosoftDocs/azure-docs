@@ -3,11 +3,11 @@ title: Post-migration optimization steps with Azure Cosmos DB's API for MongoDB
 description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for MongoDB.
 ms.service: cosmos-db
 ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-
 ---
 
 # Post-migration optimization steps when using Azure Cosmos DB's API for MongoDB

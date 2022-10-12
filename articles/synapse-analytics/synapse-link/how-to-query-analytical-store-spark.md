@@ -8,7 +8,7 @@ ms.subservice: synapse-link
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.reviewer: sngun
-ms.custom: cosmos-db, mode-other
+ms.custom: cosmos-db, mode-other, ignite-2022
 ---
 
 # Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link

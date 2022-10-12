@@ -7,8 +7,7 @@ ms.service: ddos-protection
 ms.topic: quickstart 
 ms.date: 10/12/2022
 ms.workload: infrastructure-services
-ms.custom: template-quickstart 
-# Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address using PowerShell.
+ms.custom: template-quickstart, ignite-2022
 ---
 
 # Quickstart: Create and configure Azure DDoS IP Protection using Azure PowerShell

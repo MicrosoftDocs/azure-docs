@@ -8,6 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 06/13/2022
 ms.author: pafarley

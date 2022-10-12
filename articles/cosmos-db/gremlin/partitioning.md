@@ -8,7 +8,7 @@ ms.subservice: apache-gremlin
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.devlang: java
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 # Using a partitioned graph in Azure Cosmos DB
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]

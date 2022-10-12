@@ -3,6 +3,7 @@ title: Configure deployment environments user access
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure access for developers by using the Deployment Environments Users built-in role.
 ms.service: deployment-environments
+ms.custom: ignite-2022
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 10/12/2022

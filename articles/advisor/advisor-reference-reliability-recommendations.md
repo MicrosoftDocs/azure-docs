@@ -2,6 +2,7 @@
 title: Reliability recommendations
 description: Full list of available reliability recommendations in Advisor.
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/04/2022
 ---
 

@@ -4,6 +4,7 @@ description: This article describes security feature availability in Azure and A
 author: TerryLanfear
 ms.author: terrylan
 ms.service: security
+ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 12/30/2021
 ---

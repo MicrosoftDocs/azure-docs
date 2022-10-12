@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 06/27/2022
 ms.author: aahi
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner, ignite-fall-2021, ignite-2022
 ---
 
 # Named Entity Recognition (NER) language support 

@@ -5,6 +5,7 @@ description: Identify and manage common pitfalls of ML models with Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: blackmist

@@ -9,6 +9,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
 ms.devlang: scala
+ms.custom: ignite-2022
 ---
 
 # DDL operations in Azure Cosmos DB for Apache Cassandra from Spark

@@ -4,11 +4,11 @@ description: Querying spatial data with Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # Querying geospatial data with Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 09/12/2022
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 Use the Image Analysis REST API to analyze an image for tags and read text in the image (version 4.0 only).

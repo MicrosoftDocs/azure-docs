@@ -5,6 +5,7 @@ author: ankitscribbles
 ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/07/2022
 ---

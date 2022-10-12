@@ -6,7 +6,7 @@ author: jonels-msft
 recommendations: false
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, ignite-2022
 ms.topic: quickstart
 ms.date: 09/29/2022
 #Customer intent: As a developer, I want to provision a Azure Cosmos DB for PostgreSQL cluster so that I can run queries quickly on large datasets.

@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 11/11/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-2022
 ---
 
 # Azure Cosmos DB Async Java SDK for API for NoSQL (legacy): Release notes and resources

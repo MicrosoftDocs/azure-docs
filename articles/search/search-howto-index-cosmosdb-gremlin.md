@@ -8,6 +8,7 @@ ms.author: magottei
 manager: nitinme
 
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 09/08/2022
 ---

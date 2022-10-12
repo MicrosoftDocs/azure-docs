@@ -5,6 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.date: 08/24/2022
 ms.topic: how-to
 ms.reviewer: mjbrown

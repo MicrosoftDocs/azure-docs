@@ -9,7 +9,7 @@ manager: "arthiaga"
 ms.reviewer: "arthiaga"
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-2022
 ms.topic: tutorial
 ms.date: 04/11/2021
 ---

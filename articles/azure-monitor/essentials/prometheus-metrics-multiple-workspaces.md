@@ -2,6 +2,7 @@
 title: Send Prometheus metrics to multiple Azure Monitor workspaces (preview)
 description: Describes data collection rules required to send Prometheus metrics from a cluster in Azure Monitor to multiple Azure Monitor workspaces.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---

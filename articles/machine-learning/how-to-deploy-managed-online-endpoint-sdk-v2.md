@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 author: dem108
 ms.date: 05/25/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, sdkv2, deployment
+ms.custom: how-to, devplatv2, sdkv2, deployment, ignite-2022
 ---
 
 # Deploy and score a machine learning model with managed online endpoint using Python SDK v2 

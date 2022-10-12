@@ -3,6 +3,7 @@ title: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Se
 description: Learn how to prioritize remediation of cloud misconfigurations and vulnerabilities based on risk. 
 titleSuffix: Defender for Cloud attack path.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/21/2022
 ---
 

@@ -7,8 +7,7 @@ ms.subservice: nosql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: sidandrews
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-2022
 ---
 
 # Define unique keys for an Azure Cosmos DB container

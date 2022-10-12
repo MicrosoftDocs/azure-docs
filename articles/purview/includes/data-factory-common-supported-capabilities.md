@@ -3,6 +3,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 11/01/2021
 ---

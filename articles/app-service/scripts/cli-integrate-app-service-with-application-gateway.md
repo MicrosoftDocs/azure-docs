@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/15/2022
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, ignite-2022
 ---
 
 # Integrate App Service with Application Gateway using CLI

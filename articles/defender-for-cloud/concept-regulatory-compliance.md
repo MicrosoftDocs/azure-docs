@@ -3,6 +3,7 @@ title: Regulatory compliance Microsoft Cloud Security Benchmark
 description: Learn about the Microsoft Cloud Security Benchmark and the benefits it can bring to your compliance standards across your multicloud environments.
 titleSuffix: Microsoft Cloud Security Benchmark
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/21/2022
 ---
 

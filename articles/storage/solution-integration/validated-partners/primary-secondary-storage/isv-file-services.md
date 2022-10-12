@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 03/22/2022
 ms.service: storage
 ms.subservice: common
+ms.custom: ignite-2022
 ---
 
 # Running ISV file services in Azure

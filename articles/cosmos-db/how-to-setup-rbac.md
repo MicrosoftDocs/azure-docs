@@ -3,6 +3,7 @@ title: Configure role-based access control for your Azure Cosmos DB account with
 description: Learn how to configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 author: seesharprun
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 02/16/2022
 ms.author: sidandrews

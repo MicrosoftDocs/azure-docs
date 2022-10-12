@@ -5,6 +5,7 @@ ms.date: 10/03/2022
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
+ms.custom: ignite-2022
 ms.topic: conceptual
 ---
 
@@ -51,4 +52,3 @@ The roadmap for Azure Kubernetes Fleet Manager resource is available [here](http
 ## Next steps
 
 * Create an [Azure Kuberntes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md)
-

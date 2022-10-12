@@ -4,6 +4,7 @@ description: Learn how to live migrate data from an Apache Cassandra database to
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 11/25/2021
 ms.author: thvankra

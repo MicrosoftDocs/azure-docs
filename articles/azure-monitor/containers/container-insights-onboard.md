@@ -3,6 +3,7 @@
 title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/29/2022
 ms.reviewer: viviandiec
 ---

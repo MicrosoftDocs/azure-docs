@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 08/20/2022
 ms.author: jricketts
 ms.reviewer: ajburnle
-ms.custom: "it-pro, seodec18"
+ms.custom: it-pro, seodec18, ignite-2022
 ms.collection: M365-identity-device-management
 ---
 

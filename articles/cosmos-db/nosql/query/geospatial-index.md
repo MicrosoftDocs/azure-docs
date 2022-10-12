@@ -4,11 +4,11 @@ description: Index spatial data with Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # Index geospatial data with Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

@@ -3,6 +3,7 @@ title: 'Quickstart: Connect your Azure DevOps repositories to Microsoft Defender
 description: Learn how to connect your Azure DevOps repositories to Defender for Cloud.
 ms.date: 09/20/2022
 ms.topic: quickstart
+ms.custom: ignite-2022
 ---
 
 # Quickstart: Connect your Azure DevOps repositories to Microsoft Defender for Cloud

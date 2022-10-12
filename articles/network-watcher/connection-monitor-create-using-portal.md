@@ -7,6 +7,7 @@ author: vinynigam
 ms.service: network-watcher
 ms.topic: how-to
 ms.workload:  infrastructure-services
+ms.custom: ignite-2022
 ms.date: 11/23/2020
 ms.author: vinigam
 #Customer intent: I need to create a connection monitor to monitor communication between one VM and another.

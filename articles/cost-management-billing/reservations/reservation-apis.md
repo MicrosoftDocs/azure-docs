@@ -4,6 +4,7 @@ description: Learn about the Azure APIs that you can use to programmatically get
 author: bandersmsft
 ms.reviewer: primittal
 tags: billing
+ms.custom: ignite-2022
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual

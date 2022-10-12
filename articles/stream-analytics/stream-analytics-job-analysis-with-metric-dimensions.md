@@ -5,7 +5,7 @@ author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: 
+ms.custom: ignite-2022
 ms.date: 10/12/2022
 ---
 # Analyze Stream Analytics job performance by using metrics and dimensions

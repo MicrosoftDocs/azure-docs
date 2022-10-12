@@ -10,7 +10,7 @@ author: s-polly
 ms.author: scottpolly
 ms.date: 09/23/2022
 ms.reviewer: blackmist
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, ignite-2022
 ---
 
 # Upgrade to v2

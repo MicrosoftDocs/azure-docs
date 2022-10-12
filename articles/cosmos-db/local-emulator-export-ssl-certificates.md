@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: esarroyo
 author: StefArroyo 
-ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
+ms.custom: devx-track-python, devx-track-java, contperf-fy21q1, ignite-2022
 ---
 
 # Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps

@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 08/26/2021
 ms.author: dech
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 # Node.js examples to manage data in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

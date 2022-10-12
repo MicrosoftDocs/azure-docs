@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/01/2022
 ms.author: sidandrews
 ms.reviewer: justipat
-ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps
+ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps, ignite-2022
 ---
 
 # Use system-assigned managed identities to access Azure Cosmos DB data

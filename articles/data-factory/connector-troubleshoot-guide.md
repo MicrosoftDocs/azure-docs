@@ -8,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 06/29/2022
 ms.author: jianleishen
-ms.custom: synapse
+ms.custom: synapse, ignite-2022
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors

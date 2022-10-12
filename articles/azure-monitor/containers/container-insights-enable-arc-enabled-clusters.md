@@ -2,6 +2,7 @@
 title: Monitor Azure Arc-enabled Kubernetes clusters
 ms.date: 05/24/2022
 ms.topic: article
+ms.custom: ignite-2022
 author: shashankbarsin
 ms.author: shasb
 description: Collect metrics and logs of Azure Arc-enabled Kubernetes clusters using Azure Monitor.

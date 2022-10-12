@@ -8,8 +8,7 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 08/26/2021
 ms.author: rosouz
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, ignite-2022
 ---
 # Azure Cosmos DB Python examples
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]

@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/14/2022
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, ignite-2022
 ---
 # Connect to Azure Cosmos DB for NoSQL in Microsoft Purview
 

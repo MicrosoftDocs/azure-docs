@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp, ignite-2022
 ---
 
 # Provision standard (manual) throughput on an Azure Cosmos DB container - API for NoSQL

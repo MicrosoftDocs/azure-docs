@@ -3,6 +3,7 @@ title: Rule groups in Azure Monitor Managed Service for Prometheus (preview)
 description: Description of rule groups in Azure Monitor managed service for Prometheus which alerting and data computation.
 author: bwren 
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/28/2022
 ---
 
@@ -163,4 +164,3 @@ The `rules` section will have the following properties for alerting rules.
 - [Learn more about the Azure alerts](../alerts/alerts-types.md).
 - [Prometheus documentation for recording rules](https://aka.ms/azureprometheus-promio-recrules).
 - [Prometheus documentation for alerting rules](https://aka.ms/azureprometheus-promio-alertrules).
-

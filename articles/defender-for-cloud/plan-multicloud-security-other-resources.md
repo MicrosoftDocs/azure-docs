@@ -2,6 +2,7 @@
 title: Other Resources
 description: Other resources to explore when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: reference
+ms.custom: ignite-2022
 ms.date: 09/21/2022
 ---
 

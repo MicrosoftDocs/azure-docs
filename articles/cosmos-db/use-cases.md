@@ -7,7 +7,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.custom: cosmos-db-video
+ms.custom: cosmos-db-video, ignite-2022
 ---
 
 # Common Azure Cosmos DB use cases

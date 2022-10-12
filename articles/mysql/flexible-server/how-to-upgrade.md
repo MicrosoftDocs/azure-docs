@@ -3,6 +3,7 @@ title: Azure Database for MySQL - flexible server - major version upgrade
 description: Learn how to upgrade major version for an Azure Database for MySQL - Flexible server.
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: ignite-2022
 ms.topic: how-to
 author: code-sidd
 ms.author: sisawant

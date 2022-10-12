@@ -2,6 +2,7 @@
 title: User scenarios for Azure Deployment Environments
 description: Learn about scenarios enabled by Azure Deployment Environments.
 ms.service: deployment-environments
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.author: meghaanand
 author: anandmeg

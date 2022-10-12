@@ -8,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 07/29/2022
 ms.author: jianleishen
-ms.custom: has-adal-ref, synapse
+ms.custom: has-adal-ref, synapse, ignite-2022
 ---
 
 # Troubleshoot the Azure Cosmos DB connector in Azure Data Factory and Azure Synapse

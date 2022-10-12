@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 06/29/2022
 author: manishmsfte
 ms.author: mansha
-ms.custom: mode-api, kr2b-contr-experiment
+ms.custom: mode-api, kr2b-contr-experiment, ignite-2022
 ---
 # Quickstart: Create an Azure Cosmos DB graph database with PHP and the Azure portal
 
@@ -326,4 +326,3 @@ In this quickstart, you learned how to create an Azure Cosmos DB for Gremlin (Gr
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query.md)
-

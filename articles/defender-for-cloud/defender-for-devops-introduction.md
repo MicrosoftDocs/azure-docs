@@ -3,6 +3,7 @@ title: Microsoft Defender for DevOps - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for
 ms.date: 09/20/2022
 ms.topic: overview
+ms.custom: ignite-2022
 ---
 
 # Overview of Defender for DevOps

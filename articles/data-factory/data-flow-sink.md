@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, ignite-2022
 ms.date: 09/01/2022
 ---
 

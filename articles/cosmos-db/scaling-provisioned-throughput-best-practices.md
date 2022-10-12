@@ -4,6 +4,7 @@ description: Learn best practices for scaling provisioned throughput for manual 
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting

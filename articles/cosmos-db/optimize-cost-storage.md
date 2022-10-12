@@ -7,8 +7,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Optimize storage cost in Azure Cosmos DB

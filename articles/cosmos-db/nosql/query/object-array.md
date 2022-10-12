@@ -4,11 +4,11 @@ description: Learn the SQL syntax to create arrays and objects in Azure Cosmos D
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # Working with arrays and objects in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

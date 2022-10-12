@@ -2,10 +2,10 @@
 title: Harden your Windows and Linux OS with Azure security baseline and Microsoft Defender for Cloud
 description: Learn how Microsoft Defender for Cloud uses the guest configuration to compare your OS hardening with the guidance from Microsoft Cloud Security Benchmark
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.author: benmansheim
 author: bmansheim
 ms.date: 11/09/2021
-
 ---
 # Apply Azure security baselines to machines
 

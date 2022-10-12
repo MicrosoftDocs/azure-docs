@@ -12,7 +12,7 @@ ms.service: network-watcher
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
 ---
@@ -29,13 +29,11 @@ For information about analyzing traffic from a network security group, see [Netw
 
 ### <a name = "connection-monitor"></a>Monitor communication between a virtual machine and an endpoint
 
-Endpoints can be another virtual machine (VM), a fully qualified domain name (FQDN), a uniform resource identifier (URI), or IPv4 address. The *Connection Monitor* capability monitors communication at a regular interval and informs you of reachability, latency, and network topology changes between the VM and the endpoint. For example, you might have a web server VM that communicates with a database server VM. Someone in your organization may, unknown to you, apply a custom route or network security rule to the web server or database server VM or subnet.
+Endpoints can be another virtual machine (VM), a fully qualified domain name (FQDN), a uniform resource identifier (URI), or IPv4 address. The *connection monitor* capability monitors communication at a regular interval and informs you of reachability, latency, and network topology changes between the VM and the endpoint. For example, you might have a web server VM that communicates with a database server VM. Someone in your organization may, unknown to you, apply a custom route or network security rule to the web server or database server VM or subnet.
 
 If an endpoint becomes unreachable, connection troubleshoot informs you of the reason. Potential reasons are a DNS name resolution problem, the CPU, memory, or firewall within the operating system of a VM, or the hop type of a custom route, or security rule for the VM or subnet of the outbound connection. Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=/azure/network-watcher/toc.json#security-rules) and [route hop types](../virtual-network/virtual-networks-udr-overview.md?toc=/azure/network-watcher/toc.json) in Azure.
 
 Connection monitor also provides the minimum, average, and maximum latency observed over time. After learning the latency for a connection, you may find that you're able to decrease the latency by moving your Azure resources to different Azure regions. Learn more about determining [relative latencies between Azure regions and internet service providers](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) and how to monitor communication between a VM and an endpoint with [connection monitor](connection-monitor.md). If you'd rather test a connection at a point in time, rather than monitor the connection over time, like you do with connection monitor, use the [connection troubleshoot](#connection-troubleshoot) capability.
-
-Connection Monitor now supports the Azure Monitor Agent extension, thus eliminating the dependency on the legacy Log Analytics agent. With Azure Monitor Agent, a single agent consolidates all the features necessary to address all connectivity logs and metrics data collection needs across Azure and On-premises machines as compared to running various monitoring agents. 
 
 Network performance monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. Network performance monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. Learn more about [network performance monitor](../azure-monitor/insights/network-performance-monitor.md?toc=/azure/network-watcher/toc.json).
 
@@ -106,4 +104,4 @@ When you create or update a virtual network in your subscription, Network Watche
 
 * You now have an overview of Azure Network Watcher. To get started using Network Watcher, diagnose a common communication problem to and from a virtual machine using IP flow verify. To learn how, see the [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) quickstart.
 
-* [Learn module: Introduction to Azure Network Watcher](/learn/modules/intro-to-azure-network-watcher).
+* [Learn module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).

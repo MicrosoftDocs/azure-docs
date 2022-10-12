@@ -8,7 +8,7 @@ ms.subservice: mongodb
 ms.topic: quickstart
 ms.date: 04/26/2022
 ms.devlang: python
-ms.custom: mode-api
+ms.custom: mode-api, ignite-2022
 ---
 
 # Quickstart: Get started using Azure Cosmos DB for MongoDB and Python

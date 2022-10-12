@@ -4,6 +4,7 @@ description: This guide is for IT professionals, security analysts, and cloud ad
 author: bmansheim
 ms.author: benmansheim
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 07/17/2022
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide

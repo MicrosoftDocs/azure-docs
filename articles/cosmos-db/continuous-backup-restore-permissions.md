@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/28/2022
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, ignite-2022
 ---
 
 # Manage permissions to restore an Azure Cosmos DB account

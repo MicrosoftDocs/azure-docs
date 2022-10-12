@@ -2,6 +2,7 @@
 title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 01/25/2022
 ---
 

@@ -4,6 +4,7 @@ description: A tutorial on how to configure regional failover using the Azure DN
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 09/27/2022
 ms.author: greglin

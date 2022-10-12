@@ -5,6 +5,7 @@ description: Learn how to query diagnostics logs for troubleshooting data stored
 author: StefArroyo
 services: cosmos-db
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: esarroyo 

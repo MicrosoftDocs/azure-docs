@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for JavaScript with MongoDB driver

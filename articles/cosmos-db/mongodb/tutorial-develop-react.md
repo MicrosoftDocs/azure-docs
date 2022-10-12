@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: gahllevy
 ms.reviewer: mjbrown
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-2022
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]

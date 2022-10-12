@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/21/2022
 ms.author: msangapu
-ms.custom: mvc, seodec18, devx-track-azurecli
+ms.custom: mvc, seodec18, devx-track-azurecli, ignite-2022
 ---
 
 # Connect an App Service app to Azure Cosmos DB via the Azure CLI

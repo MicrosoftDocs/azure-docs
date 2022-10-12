@@ -4,11 +4,11 @@ description: Learn the LINQ operators supported and how the LINQ queries are map
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # LINQ to SQL translation
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

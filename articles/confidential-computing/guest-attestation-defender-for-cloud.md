@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/29/2022
-ms.custom: template-concept 
+ms.custom: template-concept, ignite-2022
 ---
 
 # Microsoft Defender for Cloud integration

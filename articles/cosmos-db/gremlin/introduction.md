@@ -3,6 +3,7 @@ title: 'Introduction to Azure Cosmos DB for Gremlin'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 07/26/2021
 author: manishmsfte

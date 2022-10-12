@@ -2,7 +2,7 @@
 title: Use Azure Service Bus Explorer to run data operations 
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: how-to
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.date: 09/26/2022
 ms.author: egrootenboer
 ---

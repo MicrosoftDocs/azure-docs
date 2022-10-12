@@ -3,7 +3,7 @@ title: Microsoft Defender for Cloud's servers features according to OS, machine 
 description: Learn about the availability of Microsoft Defender for Cloud's servers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
 ms.date: 03/08/2022
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ---
 
 # Feature coverage for machines

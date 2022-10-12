@@ -8,8 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: sidandrews
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, contperf-fy21q2
-
+ms.custom: devx-track-dotnet, contperf-fy21q2, ignite-2022
 ---
 
 # Performance tips for Azure Cosmos DB and .NET

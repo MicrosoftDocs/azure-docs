@@ -9,7 +9,7 @@ ms.date: 01/03/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli, ignite-2022
 ---
 
 # Create a container in Azure Cosmos DB for NoSQL

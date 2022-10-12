@@ -4,11 +4,11 @@ description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/12/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
-
 ---
 # GROUP BY clause in Azure Cosmos DB
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]

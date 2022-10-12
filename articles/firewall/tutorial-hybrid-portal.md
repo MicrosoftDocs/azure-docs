@@ -4,6 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: victorh

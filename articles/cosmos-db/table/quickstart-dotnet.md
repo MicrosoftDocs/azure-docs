@@ -8,7 +8,7 @@ ms.subservice: table
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/22/2022
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, ignite-2022
 ---
 
 # Quickstart: Azure Cosmos DB for Table for .NET

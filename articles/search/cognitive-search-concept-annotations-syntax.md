@@ -6,6 +6,7 @@ description: Explains the annotation syntax and how to reference inputs and outp
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 09/16/2022
 ---

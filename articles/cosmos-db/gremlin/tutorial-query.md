@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/16/2022
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Tutorial: Query Azure Cosmos DB for Gremlin by using Gremlin
@@ -77,4 +77,3 @@ You can now proceed to the Concepts section for more information about Azure Cos
 
 > [!div class="nextstepaction"]
 > [Global distribution](../distribute-data-globally.md) 
-

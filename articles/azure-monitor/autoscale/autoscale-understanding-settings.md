@@ -4,6 +4,7 @@ description: "A detailed breakdown of autoscale settings and how they work. Appl
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
+ms.custom: ignite-2022
 ms.reviewer: riroloff
 ---
 # Understand Autoscale settings
@@ -316,4 +317,3 @@ Learn more about Autoscale by referring to the following:
 * [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
 * [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
 * [Autoscale REST API](/rest/api/monitor/autoscalesettings)
-

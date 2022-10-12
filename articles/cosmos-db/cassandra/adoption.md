@@ -8,7 +8,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 03/24/2022
 ms.reviewer: mjbrown
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, ignite-2022
 ---
 
 # How to adapt to Azure Cosmos DB for Apache Cassandra if you are coming from Apache Cassandra

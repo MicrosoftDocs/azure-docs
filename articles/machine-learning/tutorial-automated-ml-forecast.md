@@ -10,8 +10,8 @@ ms.author: larryfr
 ms.reviewer: nibaccam
 author: blackmist
 ms.date: 10/21/2021
-ms.custom: automl
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
+ms.custom: automl, ignite-2022
+#Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
 # Tutorial: Forecast demand with no-code automated machine learning in the Azure Machine Learning studio
