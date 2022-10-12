@@ -67,12 +67,11 @@ az login
 Create the webapp and other resources, then deploy your code to Azure using [az webapp up](/cli/azure/webapp#az-webapp-up).
 
 ```azurecli
-az webapp up --runtime GO:1.18 --sku B1 --logs
+az webapp up --runtime GO:1.18 --sku B1 
 ```
 
 * The `--runtime` parameter specifies what version of Go your app is running. This example uses Go 1.18. To list all available runtimes, use the command `az webapp list-runtimes --os linux --output table`.
 * The `--sku` parameter defines the size (CPU, memory) and cost of the app service plan. This example uses the B1 (Basic) service plan, which will incur a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
-* The `--logs` flag configures default logging required to enable viewing the log stream immediately after launching the webapp.
 * You can optionally specify a name with the argument `--name <app-name>`. If you don't provide one, then a name will be automatically generated.
 * You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 
@@ -84,7 +83,6 @@ Creating Resource group '&lt;group-name>' ...
 Resource group creation complete
 Creating AppServicePlan '&lt;app-service-plan-name>' ...
 Creating webapp '&lt;app-name>' ...
-Configuring default logging for the app, if not already enabled
 Creating zip with contents of dir /home/tulika/myGoApp ...
 Getting scm site credentials for zip deployment
 Starting zip deployment. This operation can take a while to complete ...
