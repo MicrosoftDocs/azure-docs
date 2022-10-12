@@ -13,7 +13,7 @@ ms.date: 10/01/2022
 
 # Mount an Azure Blob Storage container on Linux by using BlobFuse2 Preview
 
-[BlobFuse2 Preview](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md)
+[BlobFuse2 Preview](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md).
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In BlobFuse2 Preview, some features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -80,7 +80,7 @@ To build the BlobFuse2 binaries from source code:
        sudo apt-get install git
        ```
 
-    1. Install BlobFuse2 dependencies:
+    1. Install BlobFuse2 dependencies.
 
        On Ubuntu:
 
@@ -255,7 +255,7 @@ This table shows how this feature is supported in your account and the effect on
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Azure Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## See also
 
