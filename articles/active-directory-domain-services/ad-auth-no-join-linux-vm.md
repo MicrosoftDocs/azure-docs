@@ -182,7 +182,7 @@ dSCorePropagationData: 16010714223649.0Z
 
 Create */etc/sssd/sssd.conf* with a content like the following. Remember to update the *ldap_uri*, *ldap_search_base* and *ldap_default_bind_dn*.
 
-```txt
+```bash
 [sssd]
 config_file_version = 2
 domains = default
