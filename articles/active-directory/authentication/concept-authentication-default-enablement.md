@@ -18,14 +18,18 @@ ms.collection: M365-identity-device-management
 ---
 # Default enablement for authentication methods in Azure Active Directory
 
-We have seen increasing attack vectors: link to alex's blog. We will be enabling features for customers to better protect them. 
+As security threats evolve, Azure Active Directory (Azure AD) adds and improves security features to better protect customers. If an attack vector emerges as threat to customers, Azure AD may respond by enabling protection by default to help customers maintain security. 
+
+For example, in response to increasing MFA fatigue attacks, Microsoft recommended ways for customers to [defend users](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677). Number matching is recommended to prevent users from accidental multifactor authentication (MFA) approvals. As a result, default behavior for number matching will change from **Microsoft managed** (implicitly disabled) to explicitly **Enabled**.  
+
+This topic explains how default enablement works for security settings in Azure AD. 
 
 ## Types of default enablement
 
-There are two ways in which a setting can be enabled by default: 
+There are two ways for a setting to be enabled by default: 
 
-- Scheduled default enablement is a specific date after which all Azure AD tenants have the setting enabled by default. Microsoft announces the schedule to enable a setting by default far in advance to give customers time to prepare for the change. Customers can't opt out when a setting is scheduled to be enabled by default. 
-- Microsoft managed allows Azure AD to enable or disable the setting depending upon current security threats. Customers control whether to allow Microsoft to manage the setting. They can change a setting from Microsoft managed to either explicitly enabled or disabled at any time. 
+- **Scheduled default enablement** is a specific date after which all Azure AD tenants have the setting enabled by default. Microsoft announces the schedule to enable a setting by default far in advance to give customers time to prepare for the change. Customers can't opt out when a setting is scheduled to be enabled by default. 
+- **Microsoft managed settings** can be enabled or disabled by Azure AD based upon current landscape of security threats. Customers control whether to allow Microsoft to manage the setting. They can change a setting from Microsoft managed to either explicitly enabled or disabled at any time. 
 
 ## Scheduled default enablement
 
