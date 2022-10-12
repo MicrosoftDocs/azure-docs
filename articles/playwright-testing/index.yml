@@ -58,6 +58,8 @@ landingContent:
         links:
           - text: Manage workspaces in Azure portal
             url: how-to-manage-workspace-in-azure-portal.md
+          - text: Manage workspaces in Playwright dashboard
+            url: how-to-manage-workspace-with-playwright-dashboard.md
 
   - title: Security
     linkLists:
