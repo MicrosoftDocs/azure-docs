@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 03/22/2022
 ms.service: storage
 ms.subservice: common
+ms.custom: ignite-2022
 ---
 
 # Running ISV file services in Azure
@@ -192,7 +193,7 @@ This article compares several ISV solutions that provide files services in Azure
 - Ransomware protection
 
 **XenData**
-- Cosmos DB service provides fast synchronization of multiple gateways, including application-specific owner files for global collaboration 
+- The Azure Cosmos DB service provides fast synchronization of multiple gateways, including application-specific owner files for global collaboration 
 - Each gateway has highly granular control of locally cached content
 - Supports video streaming and partial file restores
 - Supports Azure Data Box uploads

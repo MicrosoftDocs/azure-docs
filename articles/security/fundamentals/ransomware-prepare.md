@@ -4,10 +4,10 @@ description: Prepare for a ransomware attack
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
+ms.custom: ignite-2022
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 01/10/2022
-
 ---
 
 # Prepare for a ransomware attack
@@ -164,7 +164,7 @@ Local (operational) backups with Azure Backup
 - Azure Disks
 
 Built-in backups from Azure services
-- Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Cosmos DB, and ANF offer built-in backup capabilities
+- Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Azure Cosmos DB, and ANF offer built-in backup capabilities
 
 ## What's Next
 

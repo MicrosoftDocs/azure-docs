@@ -6,6 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 09/02/2022
 ---
@@ -123,16 +124,16 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Cosmos-DeleteDataFailed
 
-- **Message**: Failed to delete data from cosmos after 3 times retry.
-- **Cause**: The throughput on the Cosmos collection is small and leads to meeting throttling or row data not existing in Cosmos.
+- **Message**: Failed to delete data from Azure Cosmos DB after 3 times retry.
+- **Cause**: The throughput on the Azure Cosmos DB collection is small and leads to meeting throttling or row data not existing in Azure Cosmos DB.
 - **Recommendation**: Please take the following actions to solve this problem:
-    - If the error is 404, make sure that the related row data exists in the Cosmos collection.
-    - If the error is throttling, please increase the Cosmos collection throughput or set it to the automatic scale.
-    - If the error is request timed out, please set 'Batch size' in the Cosmos sink to smaller value, for example 1000.
+    - If the error is 404, make sure that the related row data exists in the Azure Cosmos DB collection.
+    - If the error is throttling, please increase the Azure Cosmos DB collection throughput or set it to the automatic scale.
+    - If the error is request timed out, please set 'Batch size' in the Azure Cosmos DB sink to smaller value, for example 1000.
 
 ### Error code: DF-Cosmos-FailToResetThroughput
 
-- **Message**: Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
+- **Message**: Azure Cosmos DB throughput scale operation cannot be performed because another scale operation is in progress, please retry after sometime.
 - **Cause**: The throughput scale operation of the Azure Cosmos DB can't be performed because another scale operation is in progress.
 - **Recommendation**: Login to Azure Cosmos DB account, and manually change container throughput to be auto scale or add a custom activity after mapping data flows to reset the throughput.
 
@@ -146,7 +147,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Either accountName or accountEndpoint should be specified.
 - **Cause**: Invalid account information is provided.
-- **Recommendation**: In the Cosmos DB linked service, specify the account name or account endpoint.
+- **Recommendation**: In the Azure Cosmos DB linked service, specify the account name or account endpoint.
 
 ### Error code: DF-Cosmos-InvalidAccountKey
 
@@ -158,7 +159,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Invalid connection mode.
 - **Cause**: An invalid connection mode is provided.
-- **Recommendation**: Confirm that the supported mode is **Gateway** and **DirectHttps** in Cosmos DB settings.
+- **Recommendation**: Confirm that the supported mode is **Gateway** and **DirectHttps** in Azure Cosmos DB settings.
 
 ### Error code: DF-Cosmos-InvalidPartitionKey
 
@@ -167,13 +168,13 @@ This section lists common error codes and messages reported by mapping data flow
 - **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
 - **Message**: Partition key is not mapped in sink for delete and update operations.
 - **Cause**: An invalid partition key is provided.
-- **Recommendation**: In Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
+- **Recommendation**: In Azure Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
 
 ### Error code: DF-Cosmos-InvalidPartitionKeyContent
 
 - **Message**: partition key should start with /.
 - **Cause**: An invalid partition key is provided.
-- **Recommendation**: Ensure that the partition key start with `/` in Cosmos DB sink settings, for example: `/movieId`.
+- **Recommendation**: Ensure that the partition key start with `/` in Azure Cosmos DB sink settings, for example: `/movieId`.
 
 ### Error code: DF-Cosmos-PartitionKeyMissed
 
@@ -189,8 +190,8 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Cosmos-ShortTypeNotSupport
 
-- **Message**: Short data type is not supported in Cosmos DB.
-- **Cause**: The short data type is not supported in the Azure Cosmos DB.
+- **Message**: Short data type is not supported in Azure Cosmos DB.
+- **Cause**: The short data type is not supported in the Azure Cosmos DB instance.
 - **Recommendation**: Add a derived column transformation to convert related columns from short to integer before using them in the Azure Cosmos DB sink transformation.
 
 ### Error code: DF-Delimited-ColumnDelimiterMissed

@@ -7,18 +7,17 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.date: 08/11/2022
-ms.custom: "mvc, references_regions"
+ms.custom: mvc, references_regions, ignite-2022
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
+[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
 - [Single Server](../overview-single-server.md)
 - [Flexible Server](./overview.md) 
-- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 

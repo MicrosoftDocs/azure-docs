@@ -5,6 +5,7 @@ metadata:
   services: azure-monitor
   ms.topic: faq
   ms.service: azure-monitor
+  ms.custom: ignite-2022
   author: bwren
   ms.author: bwren
   ms.date: 06/23/2022
@@ -895,13 +896,9 @@ sections:
           The **Other processes** includes:
           
           - Self-managed or managed Kubernetes non-containerized processes
-          
           - Container Run-time processes
-          
           - Kubelet
-          
           - System processes running on your node
-          
           - Other non-Kubernetes workloads running on node hardware or VM
           
       - question: |
