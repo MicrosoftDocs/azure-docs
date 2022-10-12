@@ -28,9 +28,8 @@ Azure Web PubSub Service provides an easy way to publish/subscribe messages usin
 
 Workflow as shown in the above graph:
 1. A *client* connects to the service `/client` endpoint using WebSocket transport. Service forward every WebSocket frame to the configured upstream(server). The WebSocket connection can connect with any custom subprotocol for the server to handle, or it can connect with the service-supported subprotocol `json.webpubsub.azure.v1`, which empowers the clients to do pub/sub directly. Details are described in [client protocol](#client-protocol).
-1. On different client events, the service invokes the server using **CloudEvents HTTP protocol**. [**CloudEvents**](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md) is a standardized and protocol-agnostic definition of the structure and metadata description of events hosted by the Cloud Native Computing Foundation (CNCF). Details are described in [server protocol](#server-protocol).
-1. The service also pushes client events to all the concerning event listeners, if any. Details are described in [event listener](#event-listener).
-1. The Web PubSub server can invoke the service using the REST API to send messages to clients or to manage the connected clients. Details are described in [server protocol](#server-protocol)
+2. On different client events, the service invokes the server using **CloudEvents protocol**. [**CloudEvents**](https://github.com/cloudevents/spec/tree/v1.0.1) is a standardized and protocol-agnostic definition of the structure and metadata description of events hosted by the Cloud Native Computing Foundation (CNCF). Detailed implementation of CloudEvents protocol relies on the server role, described in [server protocol](#server-protocol).
+3. The Web PubSub server can invoke the service using the REST API to send messages to clients or to manage the connected clients. Details are described in [server protocol](#server-protocol)
 
 ## Client protocol
 
@@ -57,20 +56,10 @@ A simple WebSocket client follows a client<->server architecture, as the below s
 ![Diagram showing the sequence for a client connection.](./media/concept-service-internals/simple-client-sequence.png)
 
 
-1. When the client starts a WebSocket handshake, the service tries to invoke the `connect` event handler (the server) for WebSocket handshake. Developers can use this handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
-1. When the client is successfully connected, the service invokes a `connected` event handler. It works as a notification and doesn't block the client from sending messages. Developers can use this handler to do data storage and can respond with messages to the client. The service also pushes a `connected` event to all concerning event listeners, if any.
-2. When the client sends messages, the service triggers the `message` event to the event handler (the server) to handle the messages sent. This event is a general event containing the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler. The service also pushes a `message` event to all concerning event listeners, if any.
-3. When the client disconnects, the service tries to trigger the `disconnected` event to the event handler (the server) once it detects the disconnect. The service also pushes a `disconnect` event to all concerning event listeners, if any.
-
-The events fall into two categories:
-* Synchronous events (blocking)
-    Synchronous events block the client workflow. When such an event trigger fails, the service drops the client connection.
-    * `connect`
-    * `message`: If subprotocol is not used and the service can't find any [event handler](#event-handler) or [event listener](#event-listener) to deliver the event, the service also drops the client connection.
-* Asynchronous events (non-blocking)
-    Asynchronous events don't block the client workflow, it acts as some notification to the upstream event handler or event listener. When such an event trigger fails, the service logs the error detail.
-    * `connected`
-    * `disconnected`
+1. When the client starts a WebSocket handshake, the service tries to invoke the `connect` event handler for WebSocket handshake. Developers can use this handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
+2. When the client is successfully connected, the service invokes a `connected` event handler. It works as a notification and doesn't block the client from sending messages. Developers can use this handler to do data storage and can respond with messages to the client. The service also pushes a `connected` event to all concerning event listeners, if any.
+3. When the client sends messages, the service triggers a `message` event to the event handler to handle the messages sent. This event is a general event containing the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler. The service also pushes a `message` event to all concerning event listeners, if any. If the service can't find any registered servers to receive the messages, the service drops the connection.
+4. When the client disconnects, the service tries to trigger the `disconnected` event to the event handler once it detects the disconnect. The service also pushes a `disconnected` event to all concerning event listeners, if any.
 
 #### Scenarios
 These connections can be used in a typical client-server architecture where the client sends messages to the server and the server handles incoming messages using [Event Handlers](#event-handler). It can also be used when customers apply existing [subprotocols](https://www.iana.org/assignments/websocket/websocket.xml) in their application logic.
@@ -119,7 +108,7 @@ A PubSub WebSocket client can:
 
 [PubSub WebSocket Subprotocol](./reference-json-webpubsub-subprotocol.md) contains the details of the `json.webpubsub.azure.v1` subprotocol.
 
-You may have noticed that for a [simple WebSocket client](#the-simple-websocket-client), the *server* or *event listener* is a **must have** role to receive the `message` events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side or event listeners to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different event handlers / event listeners by customizing the *event* the message belongs.
+You may have noticed that for a [simple WebSocket client](#the-simple-websocket-client), the *server* is a **must have** role to receive the `message` events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different event handlers / event listeners by customizing the *event* the message belongs.
 
 #### Scenarios:
 Such clients can be used when clients want to talk to each other. Messages are sent from `client2` to the service and the service delivers the message directly to `client1` if the clients are authorized to do so.
@@ -162,6 +151,18 @@ client2.onopen = e => {
 
 As the above example shows, `client2` sends data directly to `client1` by publishing messages to `Group1` which `client1` is in.
 
+### Client events summary
+
+Client events fall into two categories:
+* Synchronous events (blocking)
+    Synchronous events block the client workflow. When an event handler returns non-successful response code for such an event, the service drops the client connection.
+    * `connect`: This event is for event handler only. When the client starts a WebSocket handshake, the event is triggered and developers can use `connect` event handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
+    * `message`: This event is triggered when a client sends a message.
+* Asynchronous events (non-blocking)
+    Asynchronous events don't block the client workflow, it acts as some notification to server. When such an event trigger fails, the service logs the error detail.
+    * `connected`: This event is triggered when a client connects to the service successfully.
+    * `disconnected`: This event is triggered when a client disconnected with the service.
+
 ### Client message limit
 The maximum allowed message size for one WebSocket frame is **1MB**.
 
@@ -189,11 +190,12 @@ The server-side can also grant or revoke permissions of the client dynamically t
 
 ## Server protocol
 
-Server protocol provides the functionality for the server to manage the client connections and the groups.
+Server protocol provides the functionality for the server to handle client events and manage the client connections and the groups.
 
-In general, server protocol contains two roles:
+In general, server protocol contains three roles:
 1. [Event handler](#event-handler)
 1. [Connection manager](#connection-manager)
+1. [Event listener](#event-listener)
 
 ### Event handler
 The event handler handles the incoming client events. Event handlers are registered and configured in the service through the portal or Azure CLI. When a client event is triggered, the service can identify if the event is to be handled or not. Now we use `PUSH` mode to invoke the event handler. The event handler on the server side exposes a publicly accessible endpoint for the service to invoke when the event is triggered. It acts as a **webhook**.
@@ -225,7 +227,6 @@ For now, we don't support [WebHook-Request-Rate](https://github.com/cloudevents/
    - Step1: Enable Identity for the Web PubSub service
    - Step2: Select from existing Azure AD application that stands for your webhook web app
 
-
 ### Connection manager
 
 The server is by nature an authorized user. With the help of the *event handler role*, the server knows the metadata of the clients, for example, `connectionId` and `userId`, so it can:
@@ -249,14 +250,7 @@ The service provides REST APIs for the server to do connection management.
 
 The detailed REST API protocol is defined [here][rest].
 
-### Summary
-You may have noticed that the *event handler role* handles communication from the service to the server while *the manager role* handles communication from the server to the service. After combining the two roles, the data flow between service and server looks similar to the following diagram using HTTP protocol.
-
-![Diagram showing the Web PubSub service bi-directional workflow.](./media/concept-service-internals/http-service-server.png)
-
-[rest]: /rest/api/webpubsub/
-
-## Event listener
+### Event listener
 
 The event listener listens to the incoming client events. Each event listener contains a filter to specify which kinds of events it concerns, an endpoint about where to send the events to.
 
@@ -270,7 +264,14 @@ You can configure multiple event listeners. The order of the event listeners doe
 
 You can combine an [event handler](#event-handler) and event listeners for the same event. In this case, both event handler and event listeners will receive the event.
 
-Web PubSub service delivers client events to event listeners using [AMQP protocol bindings for CloudEvent](https://github.com/cloudevents/spec/blob/v1.0.1/amqp-protocol-binding.md). For more details on how Web PubSub extends the protocol, see [CloudEvents AMQP extension for Azure Web PubSub](reference-cloud-events-amqp.md).
+Web PubSub service delivers client events to event listeners using [CloudEvents AMQP extension for Azure Web PubSub](reference-cloud-events-amqp.md).
+
+### Summary
+You may have noticed that the *event handler role* handles communication from the service to the server while *the manager role* handles communication from the server to the service. After combining the two roles, the data flow between service and server looks similar to the following diagram using HTTP protocol.
+
+![Diagram showing the Web PubSub service bi-directional workflow.](./media/concept-service-internals/http-service-server.png)
+
+[rest]: /rest/api/webpubsub/
 
 ## Next steps
 
