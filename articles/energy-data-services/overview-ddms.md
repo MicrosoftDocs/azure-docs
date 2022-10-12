@@ -6,7 +6,7 @@ ms.author: marielherzog #Required; microsoft alias of author; optional team alia
 ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 09/01/2022
 ms.service: energy-data-services
-ms.custom: template-overview #Required; leave this attribute/value as-is.
+ms.custom: template-overview, ignite-2022
 ---
 
 # Domain data management services (DDMS)
@@ -26,7 +26,7 @@ Domain data management services (DDMS) store, access, and retrieve metadata and 
 ### Aspirational components for any DDMS
 
   - Direct connection to OSDU&trade; core services: storage, legal, ingestion and entitlements
-  - Connection to adjacent or proximal databases (blob storage, Cosmos, external) and client applications
+  - Connection to adjacent or proximal databases (Blob storage, Azure Cosmos DB, external) and client applications
   - Configure infrastructure provisioning to enable optimal performance for data streaming and access
 
 ### Additional components for most DDMS (may include but not be limited to)

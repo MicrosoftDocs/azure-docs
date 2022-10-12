@@ -508,7 +508,7 @@ items:
       items:
       - name: Using the VM extension
         href: agents/azure-monitor-agent-manage.md
-      - name: Using Windows client installer (preview)
+      - name: Using Windows client installer
         href: agents/azure-monitor-agent-windows-client.md
     - name: Configure
       items:
@@ -1361,7 +1361,13 @@ items:
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
-      href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Overview
+        href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: Topology
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        href: ../network-watcher/network-insights-troubleshooting.md
     - name: Key Vault
       href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Storage
@@ -1369,6 +1375,8 @@ items:
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md 
   - name: Logs ingestion API
     items:
     - name: Overview
@@ -1469,7 +1477,9 @@ items:
       - name: Move from View Designer to Workbooks
         href: visualize/workbooks-view-designer-conversion-overview.md
       - name: Sample JSON to covert View Designer views
-        href: visualize/workbooks-view-designer-conversions.md 
+        href: visualize/workbooks-view-designer-conversions.md
+    - name: Retrieve legacy workbooks
+      href: visualize/workbooks-retrieve-legacy-workbooks.md
     - name: Access Troubleshooting guides
       href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples

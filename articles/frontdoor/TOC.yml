@@ -274,7 +274,7 @@
           items:
           - name: Azure portal
             href: standard-premium/how-to-enable-private-link-web-app.md
-          - name: Azure Classic
+          - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
       - name: Monitor and Reports
         items:

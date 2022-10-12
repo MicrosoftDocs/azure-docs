@@ -2,7 +2,7 @@
 title: Overview of Container insights in Azure Monitor
 description: This article describes Container insights, which monitors the AKS Container insights solution, and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 ms.date: 09/28/2022
 ms.reviewer: viviandiec
 ---

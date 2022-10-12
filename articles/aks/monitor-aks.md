@@ -2,11 +2,11 @@
 title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor
 description: Describes how to use Azure Monitor monitor the health and performance of AKS clusters and their workloads.
 ms.service:  azure-monitor
+ms.custom: ignite-2022
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2021
-
 ---
 
 # Monitoring Azure Kubernetes Service (AKS) with Azure Monitor

@@ -3,8 +3,9 @@ title: Azure Monitor workspace overview (preview)
 description: Overview of Azure Monitor workspace, which is a unique environment for data collected by Azure Monitor.
 author: bwren 
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 10/05/2022
----
+
 
 # Azure Monitor workspace (preview)
 An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions.
@@ -137,5 +138,3 @@ To be completed.
 ## Next steps
 
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
-
-
