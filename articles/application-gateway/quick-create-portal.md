@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: application-gateway
 author: ryanpfalz
 ms.author: ryanpfalz
-ms.date: 10/07/2022
+ms.date: 10/12/2022
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
