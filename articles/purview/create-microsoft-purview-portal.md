@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account'
 description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 06/20/2022
+ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-ui
@@ -19,6 +19,9 @@ For more information about the governance capabilities of Microsoft Purview, for
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
 ## Create an account
+
+> [!IMPORTANT]
+> If you have any [Azure Policies](../governance/policy/overview.md) preventing creation of **Storage accounts** or **Event Hub namespaces**, or preventing **updates to Storage accounts** first follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts. Otherwise you will not be able to deploy Microsoft Purview.
 
 1. Search for **Microsoft Purview** in the [Azure portal](https://portal.azure.com).
 
