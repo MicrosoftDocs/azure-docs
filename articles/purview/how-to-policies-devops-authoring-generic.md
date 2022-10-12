@@ -16,9 +16,7 @@ ms.custom:
 This how-to guide shows how to provision access from Microsoft Purview to system metadata (e.g. DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-microsoft-purview-portal.md).
-- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
+[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
 ### Data source configuration
 Before authoring policies in the Microsoft Purview policy portal, you'll need to configure the data sources so that they can enforce those policies.
