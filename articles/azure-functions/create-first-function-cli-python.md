@@ -333,7 +333,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 ::: zone pivot="python-mode-decorators"
 ## Deploy the function project to Azure
 
-After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../articles/azure-functions/functions-run-local.md#project-file-deployment) command.  
+After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command.  
 
 In the following example, replace `<APP_NAME>` with the name of your app.
 
