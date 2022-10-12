@@ -34,7 +34,7 @@ Azure Spring Apps allows you to deploy static files using the popular NGINX or H
 
 ## Deploy your static files
 
-* To deploy the static files with the default server configuration file generated automatically, see [Configure auto-generated server configuration files](#configure-auto-generated-server-configuration-files), use the following command:
+* To deploy the static files with the default server configuration file generated automatically, see [Configure auto-generated server configuration file](#configure-auto-generated-server-configuration-file), use the following command:
 
 ```azurecli
 az spring app deploy
@@ -80,7 +80,7 @@ The [Paketo samples](https://github.com/paketo-buildpacks/samples/tree/main/web-
    - BP_WEB_SERVER_ROOT should be set to the build output directory. 
 - Serving static files with your own server configuration file. using either [HTTPD](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/httpd-sample) or [NGINX](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/nginx-sample)
 
-## Configure auto-generated server configuration files
+## Configure auto-generated server configuration file
 You can use environment variables to tweak the automatically-generated server configuration file. Supported environment variables:
 
 |Environment Variable|Description|
