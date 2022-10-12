@@ -94,7 +94,7 @@ To ensure timing accuracy of scheduled workflows it’s curial to consider:
  6. Select **Add attribute**.
  7. Fill in the following information: 
      - Mapping Type: Direct
-     - Source attribute: msDS-cloudExtensionAttribute1
+     - Source attribute: extensionAttribute1
      - Default value: Leave blank
      - Target attribute: employeeHireDate
      - Apply this mapping: Always

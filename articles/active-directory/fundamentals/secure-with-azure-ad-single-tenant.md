@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 7/5/2022
 ms.author: gasinh
 ms.reviewer: ajburnle
-ms.custom: "it-pro"
+ms.custom: it-pro, ignite-2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -82,7 +82,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 
 * **Resource group** - You can assign roles to specific resource groups so that they don't impact any other resource groups. In the example above, the Benefits engineering team can assign the Contributor role to the test lead so they can manage the test DB and the test web app, or to add more resources.
 
-* **Individual resources** - You can assign roles to specific resources so that they don't impact any other resources. In the example above, the Benefits engineering team can assign a data analyst the Cosmos DB Account Reader role just for the test instance of the Cosmos DB, without interfering with the test web app, or any production resource.
+* **Individual resources** - You can assign roles to specific resources so that they don't impact any other resources. In the example above, the Benefits engineering team can assign a data analyst the Cosmos DB Account Reader role just for the test instance of the Azure Cosmos DB database, without interfering with the test web app or any production resource.
 
 For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
