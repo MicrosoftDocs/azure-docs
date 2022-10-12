@@ -681,8 +681,8 @@ customize: [
     type: 'WindowsUpdate'
     searchCriteria: 'IsInstalled=0'
     filters: [
-      exclude:$_.Title -like '*Preview*''
-      include:$true'
+     'exclude:$_.Title -like \'*Preview*\''
+     'include:$true'
     ]
     updateLimit: 20
   }
