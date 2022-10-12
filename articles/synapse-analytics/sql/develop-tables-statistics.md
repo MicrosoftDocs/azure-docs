@@ -6,7 +6,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/13/2022
+ms.date: 10/11/2022
 ms.author: fipopovi
 ms.reviewer: sngun, wiassaf
 ms.custom: 
@@ -518,7 +518,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1');
 ```
 
 #### Show one or more parts of DBCC SHOW_STATISTICS()
@@ -533,7 +533,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
+DBCC SHOW_STATISTICS ('dbo.table1', 'stats_col1')
     WITH histogram, density_vector
 ```
 
