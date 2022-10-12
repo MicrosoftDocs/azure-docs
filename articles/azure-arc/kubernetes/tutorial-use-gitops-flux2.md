@@ -1181,7 +1181,7 @@ az k8s-configuration delete --name <configuration name> --cluster-name <Arc or A
 
 You can also use the Azure portal to view and delete GitOps configurations in Azure Arc-enabled Kubernetes or AKS clusters.
 
-General information about migration from Flux v1 to Flux v2 is available in the fluxcd project: [Migrate from Flux v1 to v2](https://fluxcd.io/docs/migration/).
+General information about migration from Flux v1 to Flux v2 is available in the fluxed project: [Migrate from Flux v1 to v2](https://fluxcd.io/docs/migration/).
 
 ## Next steps
 
