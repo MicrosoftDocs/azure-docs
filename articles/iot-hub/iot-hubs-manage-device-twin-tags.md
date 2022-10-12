@@ -28,7 +28,7 @@ Device twin tags can be used as a powerful tool to help you organize your device
             "floor": "1"
         },
 		"deviceType":"HDCamera"
-    },**
+    },
     "properties": {
      ...
     }
@@ -73,9 +73,9 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    }
    ```
 2. Click **Save**
-   ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-add-nested-tag.png)
+   ![adding nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-add-nested-tag.png)
 3. Select the devices again and click **Assign Tags** to view the newly added tags
-    ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-view-nested-tag.png)
+    ![viewing nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-view-nested-tag.png)
 
 ## Filtering devices with device twin tags
 Device twin tags is a great way to group devices by type, location etc, and you can manage your devices by filtering through device tags. 
