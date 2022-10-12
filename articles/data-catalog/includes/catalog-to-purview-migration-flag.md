@@ -3,7 +3,7 @@ author: whhender
 ms.service: data-catalog
 ms.topic: include
 ms.date: 10/11/2022
-ms.author: hrasheed
+ms.author: whhender
 ---
 > [!IMPORTANT]
 > New Azure Data Catalog accounts can no longer be created.
