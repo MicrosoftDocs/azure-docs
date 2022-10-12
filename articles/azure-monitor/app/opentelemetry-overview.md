@@ -46,7 +46,7 @@ Manual instrumentation is coding against the OpenTelemetry API. In the context o
 >
 > A subset of OpenTelemetry instrumentation libraries will be supported by Azure Monitor, informed by customer feedback. We're also working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/).
 
-Auto-instrumentation enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. Azure Monitor's OpenTelemetry-based auto-instrumentation offering consists of the [Java 3.X OpenTelemetry-based GA offering](java-in-process-agent.md). We continue to invest in it informed by customer feedback. The OpenTelemetry community is also experimenting with C# and Python auto-instrumentation, but Azure Monitor is focused on creating a simple and effective manual instrumentation story in the near term.
+Auto-instrumentation enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. The Azure Monitor OpenTelemetry-based auto-instrumentation offering consists of the [Java 3.X OpenTelemetry-based GA offering](java-in-process-agent.md). We continue to invest in it informed by customer feedback. The OpenTelemetry community is also experimenting with C# and Python auto-instrumentation, but Azure Monitor is focused on creating a simple and effective manual instrumentation story in the near term.
 
 ### Send your telemetry
 
@@ -55,9 +55,9 @@ There are two ways to send your data to Azure Monitor (or any vendor):
 - Via a direct exporter
 - Via an agent
 
-A direct exporter sends telemetry in-process (from the application's code) directly to Azure Monitor's ingestion endpoint. The main advantage of this approach is onboarding simplicity.
+A direct exporter sends telemetry in-process (from the application's code) directly to the Azure Monitor ingestion endpoint. The main advantage of this approach is onboarding simplicity.
 
-*All Azure Monitor's currently supported OpenTelemetry-based offerings use a direct exporter*.
+*All currently supported OpenTelemetry-based offerings in Azure Monitor use a direct exporter*.
 
 Alternatively, sending telemetry via an agent will provide a path for any OpenTelemetry-supported language to send to Azure Monitor via [online transactional processing (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). Receiving OTLP will enable customers to observe applications written in languages beyond our [supported languages](platforms.md).
 
