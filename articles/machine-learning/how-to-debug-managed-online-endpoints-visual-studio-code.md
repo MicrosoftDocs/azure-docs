@@ -89,12 +89,12 @@ This guide assumes you have the following items installed locally on your PC.
 
 For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
 
-The examples in this article can be found in the [Debug online endpoints locally in Visual Studio Code](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb) notebook within the[azureml-examples](https://github.com/azure/azureml-examples) repository. To run the code locally, clone the repo and then change directories to the notebook's parent directory `sdk/endpoints/online/managed`. 
+The examples in this article can be found in the [Debug online endpoints locally in Visual Studio Code](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb) notebook within the[azureml-examples](https://github.com/azure/azureml-examples) repository. To run the code locally, clone the repo and then change directories to the notebook's parent directory `sdk/endpoints/online/managed`. 
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples
-cd sdk/endpoints/online/managed
+cd sdk/python/endpoints/online/managed
 ```
 
 Import the required modules: 
