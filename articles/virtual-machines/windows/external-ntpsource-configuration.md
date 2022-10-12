@@ -1,6 +1,6 @@
 ---
-title: Time Mechanism for Active Directory Windows Virtual Machines in Azure
-description: Time Mechanism for Active Directory Windows Virtual Machines in Azure
+title: Time mechanism for Active Directory Windows Virtual Machines in Azure
+description: Time mechanism for Active Directory Windows Virtual Machines in Azure
 author: NDVALPHA
 ms.service: virtual-machines
 ms.collection: windows
@@ -10,13 +10,13 @@ ms.date: 08/05/2022
 ms.author: ndelvillar
 ---
 
-# Configure Time Mechanism for Active Directory Windows Virtual Machines in Azure
+# Configure the time mechanism for Active Directory Windows Virtual Machines in Azure
 
 **Applies to:** :heavy_check_mark: Windows Virtual Machines
 
 Use this guide to learn how to setup time synchronization for your Azure Windows Virtual Machines that belong to an Active Directory Domain.
 
-## Time Sync Hierarchy in Active Directory Domain Services
+## Time sync hierarchy in Active Directory Domain Services
 
 Time synchronization in Active Directory should be managed by only allowing the **PDC** to access an external time source or NTP Server.
 
@@ -79,7 +79,7 @@ For all other domain members that are not Domain Controllers, you will need to m
 2. In the *Registry Editor* window, from the *File* menu select *Import*.
 3. In the *Import Registry File* dialog box, select the location to which you saved the backup copy, select the backup file, and then click *Open*.
 
-## GPO to Disable the VMICTimeProvider
+## GPO to disable the VMICTimeProvider
 
 Configure the following Group Policy Object to enable domain members to synchronize time with Domain Controllers in their corresponding Active Directory Site:
 

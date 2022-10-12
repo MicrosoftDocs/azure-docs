@@ -813,7 +813,7 @@
     - name: Windows
       displayName: Time sync
       href: ./windows/time-sync.md
-    - name: Time Mechanism for Active Directory Windows Virtual Machines in Azure
+    - name: Time mechanism for Active Directory Windows Virtual Machines in Azure
       displayName: Active Directory, Timesync, Windows, NTP
       href: ./windows/external-ntpsource-configuration.md
   - name: Run Command
