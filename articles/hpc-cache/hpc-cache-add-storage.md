@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 10/05/2022
 ms.custom: subject-rbac-steps
 ms.author: v-erinkelly
 ---
@@ -236,7 +236,7 @@ These three options cover most situations:
 
 * **Greater than 15% writes** - This option speeds up both read and write performance.
 
-  Client reads and client writes are both cached. Files in the cache are assumed to be newer than files on the back-end storage system. Cached files are only automatically checked against the files on back-end storage every eight hours. Modified files in the cache are written to the back-end storage system after they have been in the cache for 20 minutes with no other changes.
+  Client reads and client writes are both cached. Files in the cache are assumed to be newer than files on the back-end storage system. Cached files are only automatically checked against the files on back-end storage every eight hours. Modified files in the cache are written to the back-end storage system after they have been in the cache for an hour with no other changes.
 
   Do not use this option if any clients mount the back-end storage volume directly, because there is a risk it will have outdated files.
 

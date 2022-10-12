@@ -73,7 +73,7 @@ According to the default settings, each time the rule runs on its schedule, any 
 
 In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents, which can be found in **Incidents** under **Threat Management** on the Microsoft Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
 
-Microsoft Sentinel refreshes indicators every 12 days to make sure they are available for matching purposes through the analytic rules. 
+Since analytic rules constrain lookups beyond 14 days, Microsoft Sentinel refreshes indicators every 12 days to make sure they are available for matching purposes through the analytic rules. 
 
 ## Next steps
 

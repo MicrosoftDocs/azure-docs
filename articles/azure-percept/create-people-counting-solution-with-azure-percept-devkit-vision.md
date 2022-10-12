@@ -5,7 +5,7 @@ author: yvonne-dq
 ms.author: sbhasale
 ms.service: azure-percept 
 ms.topic: tutorial 
-ms.date: 10/04/2022 
+ms.date: 10/06/2022
 ms.custom: template-tutorial 
 ---
 
@@ -44,7 +44,6 @@ In this tutorial, you learn how to:
 [ ![Power BI](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi-mini.png) ](./media/create-people-counting-solution-with-azure-percept-vision-images/power-bi.png#lightbox)
 
 
-- Percept DK ([Purchase](https://www.microsoft.com/store/build/azure-percept/8v2qxmzbz9vc))
 - Azure Subscription: ([Free trial account](https://azure.microsoft.com/free/))
 - Power BI subscription: ([Try Power BI for free](https://go.microsoft.com/fwlink/?LinkId=874445&clcid=0x409&cmpid=pbi-gett-hero-try-powerbifree))
 - Power BI workspace: ([Create the new workspaces in Power BI](https://github.com/MicrosoftDocs/powerbi-docs/blob/main/powerbi-docs/collaborate-share/service-create-the-new-workspaces.md))
