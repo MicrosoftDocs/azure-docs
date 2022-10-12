@@ -142,6 +142,9 @@ items:
     href: monitor-azure-monitor.md 
 - name: Data collection
   items: 
+  - name: Overview
+    displayName: data collection, data collection rules
+    href: essentials/data-collection.md
   - name: Data sources
     href: data-sources.md
   - name: Diagnostic Settings
@@ -293,24 +296,40 @@ items:
     items:
     - name: Overview
       displayName: data collection, data collection rules
-      href: essentials/data-collection.md
+      href: essentials/data-collection-rule-overview.md
+    - name: Edit
+      displayName: data collection rules
+      href: essentials/data-collection-rule-edit.md
+    - name: Structure
+      displayName: Data collection rules
+      href: essentials/data-collection-rule-structure.md
     - name: Create with Azure Policy
       displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
       href: essentials/diagnostic-settings-policy.md
     - name: Migrate retention to Azure Storage lifecycle
       href: essentials/migrate-to-azure-storage-lifecycle-policy.md
-    - name: Transformations
-      items:
-      - name: Overview
-        displayName: Transformations
-        href: essentials/data-collection-transformations.md
-      - name: Structure
-        displayName: Transformations
-        href: essentials/data-collection-transformations-structure.md
-      - name: Tutorial (portal)
-        href: logs/tutorial-workspace-transformations-portal.md
-      - name: Tutorial (API)
-        href: logs/tutorial-workspace-transformations-api.md
+  - name: Transformations
+    items:
+    - name: Overview
+      displayName: Transformations
+      href: essentials/data-collection-transformations.md
+    - name: Structure
+      displayName: Transformations
+      href: essentials/data-collection-transformations-structure.md
+    - name: Tutorial (portal)
+      href: logs/tutorial-workspace-transformations-portal.md
+    - name: Tutorial (API)
+      href: logs/tutorial-workspace-transformations-api.md
+  - name: Data collection endpoints
+    href: essentials/data-collection-endpoint-overview.md
+  - name: Private Link networking
+    items:
+    - name: Private Link overview
+      href: logs/private-link-security.md
+    - name: Private Link design
+      href: logs/private-link-design.md
+    - name: Private Link configuration
+      href: logs/private-link-configure.md
 - name: Data platform
   items:
   - name: Overview
@@ -322,21 +341,76 @@ items:
       href: essentials/data-platform-metrics.md
     - name: Custom metrics
       href: essentials/metrics-custom-overview.md
+    - name: Prometheus metrics
+      items: 
+      - name: Overview
+        displayName: Prometheus
+        href: essentials/prometheus-metrics-overview.md
+      - name: Azure Monitor workspace
+        href: essentials/azure-monitor-workspace-overview.md
+      - name: Rule groups
+        displayName: Prometheus
+        href: essentials/prometheus-rule-groups.md
+      - name: Configure Grafana
+        displayName: Prometheus
+        href: essentials/prometheus-grafana.md
+      - name: Troubleshoot collection
+        displayName: Prometheus
+        href: essentials/prometheus-metrics-troubleshoot.md
+      - name: Customize collection
+        items:
+        - name: Default configuration
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-scrape-default.md
+        - name: High scale
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-scrape-scale.md
+        - name: Custom configuration
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-scrape-configuration.md
+        - name: Create and validate custom scrape config
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-scrape-validate.md
+        - name: Minimal ingestion profile
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
+        - name: Send to multiple metric workspaces
+          displayName: Prometheus
+          href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics REST API
       href: essentials/metrics-store-custom-rest-api.md
   - name: Logs
     items:
-     - name: Overview
-       displayName: Platform logs, Resource logs, Activity log
-       href: essentials/platform-logs-overview.md
-     - name: Platform logs
-       href: logs/data-platform-logs.md 
-     - name: Activity log
-       href: essentials/activity-log.md
-     - name: Resource logs
-       href: essentials/resource-logs.md
-     - name: Data security
-       items:
+    - name: Overview
+      displayName: Platform logs, Resource logs, Activity log
+      href: essentials/platform-logs-overview.md
+    - name: Platform logs
+      href: logs/data-platform-logs.md 
+    - name: Activity log
+      href: essentials/activity-log.md
+    - name: Resource logs
+      href: essentials/resource-logs.md
+    - name: Logs ingestion API
+      items:
+      - name: Overview
+        displayName: data ingestion
+        href: logs/logs-ingestion-api-overview.md
+      - name: Tutorial (portal)
+        href: logs/tutorial-logs-ingestion-portal.md
+      - name: Tutorial (API)
+        href: logs/tutorial-logs-ingestion-api.md
+      - name: Migrate from Data Collector API
+        href: logs/custom-logs-migrate.md
+      - name: Data collector API
+        items:
+        - name: Overview
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data collector API
+          href: logs/data-collector-api.md
+        - name: Log Analytics Data Collector API Pipeline example
+          href: logs/create-pipeline-datacollector-api.md
+    - name: Data security
+      items:
         - name: Roles permissions and security
           href: roles-permissions-security.md
         - name: Log data
@@ -349,8 +423,8 @@ items:
           href: logs/personal-data-mgmt.md
         - name: Application data collection, retention, and storage
           href: app/data-retention-privacy.md
-     - name: Log workspaces
-       items:
+    - name: Log workspaces
+      items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
@@ -410,14 +484,14 @@ items:
           - name: Resource Manager templates
             displayName: Workspace transformations
             href: logs/tutorial-workspace-transformations-api.md
-     - name: Integrate with Logic Apps
-       items:
+    - name: Integrate with Logic Apps
+      items:
         - name: Azure Monitor Logs connector
           href: logs/logicapp-flow-connector.md
         - name: Application Insights connector
           href: app/automate-with-logic-apps.md
-     - name: Data export
-       items:
+    - name: Data export
+      items:
           - name: Workspace data export
             href: logs/logs-data-export.md
           - name: Export with Logic Apps
@@ -878,13 +952,18 @@ items:
     - name: Enable
       displayName: container insights
       items:
+    - name: Overview
+      href: containers/container-insights-overview.md
+    - name: FAQ
+      href: /azure/azure-monitor/faq#container-insights
+    - name: Enable
+      displayName: container insights
+      items:
       - name: Overview
         displayName: container insights
         href: containers/container-insights-onboard.md
-      - name: New AKS cluster
-        href: containers/container-insights-enable-new-cluster.md
-      - name: Existing AKS cluster
-        href: containers/container-insights-enable-existing-clusters.md
+      - name: AKS cluster
+        href: containers/container-insights-enable-aks.md
       - name: Azure Arc-enabled cluster
         href: containers/container-insights-enable-arc-enabled-clusters.md
       - name: Hybrid cluster
@@ -895,16 +974,20 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
+    - name: Prometheus metrics
+      items: 
+      - name: Overview
+        href: containers/container-insights-prometheus.md
+      - name: Send to Prometheus
+        href: containers/container-insights-prometheus-metrics-addon.md
+      - name: Send to Logs
+        href: containers/container-insights-prometheus-monitoring-addon.md
     - name: Configure
       items:
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Agent collection settings
         href: containers/container-insights-agent-config.md
-      - name: Prometheus metric scraping
-        href: containers/container-insights-prometheus-integration.md
-      - name: Enable metrics
-        href: containers/container-insights-update-metrics.md
       - name: Enable ContainerLogv2 (preview)
         href: containers/container-insights-logging-v2.md
     - name: Monitor
@@ -921,6 +1004,8 @@ items:
         href: containers/container-insights-persistent-volumes.md
       - name: Reports tab
         href: containers/container-insights-reports.md
+      - name: Custom metrics
+        href: containers/container-insights-custom-metrics.md
     - name: Log queries
       href: containers/container-insights-log-query.md
     - name: View live data
@@ -933,10 +1018,10 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Create log alert rules
-        href: containers/container-insights-log-alerts.md
       - name: Create metric alert rules
         href: containers/container-insights-metric-alerts.md
+      - name: Create log alert rules
+        href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
     - name: Disable monitoring
@@ -1115,7 +1200,7 @@ items:
         href: app/export-power-bi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
-- name: Analyze Data
+- name: Analyze
   items:
   - name: Metrics explorer
     items:
@@ -1143,15 +1228,9 @@ items:
       href: logs/queries.md
     - name: Query packs
       href: logs/query-packs.md
-    - name: Tutorials
-      items:
-        - name: Custom logs
-          items:
-          - name: Custom logs in the Azure portal
-            href: logs/tutorial-logs-ingestion-portal.md
-          - name: Resource Manager templates
-            displayName: Custom logs
-            href: logs/tutorial-logs-ingestion-api.md
+    - name: Tutorial
+      displayName: Log Analytics workspace, log query, log queries, query, queries
+      href: logs/log-analytics-tutorial.md
   - name: Log queries
     items:
       - name: Overview
@@ -1243,7 +1322,7 @@ items:
       items:
       - name: Track web outages
         href: change/tutorial-outages.md
-- name: Respond and take action
+- name: Respond
   items:
   - name: Alerts
     items:
@@ -1287,6 +1366,8 @@ items:
         href: alerts/alerts-log-webhook.md
       - name: Log analytics alerts legacy API
         href: alerts/api-alerts.md
+    - name: Prometheus metric alerts
+      href: alerts/prometheus-alerts.md
     - name: Service health alerts
       items:
       - name: View notifications

@@ -48,7 +48,7 @@ There are three options for configuring time sync for your Windows VMs hosted in
 
 - Host time and time.windows.com. This is the default configuration used in Azure Marketplace images.
 - Host-only.
-- Use another, external time server with or without using host time. For this option follow the [Configure Azure Windows VMs with External NTP Source](external-ntpsource-configuration.md) guide.
+- Use another, external time server with or without using host time. For this option follow the [Time mechanism for Active Directory Windows Virtual Machines in Azure](external-ntpsource-configuration.md) guide.
 
 
 ### Use the default
