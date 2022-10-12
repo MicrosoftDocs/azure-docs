@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },
+        {
             "source_path":  "articles/backup/sap-hana-db-manage.md",
             "redirect_url":  "/azure/backup/sap-hana-database-manage",
             "redirect_document_id":  false   
