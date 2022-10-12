@@ -19,7 +19,7 @@ Use this article to learn about the data and service limits when using orchestra
 
 ## Language resource limits
 
-* Your Language resource has to be created in one of the [supported regions](#regional-support).
+* Your Language resource has to be created in one of the [supported regions](#regional-availability).
 
 * Pricing tiers
 
@@ -37,7 +37,7 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ## Regional availability
 
-Orchestration workflow is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get predictions from a deployment. [Learn more](./concepts/multi-region-deployment.md).
+Orchestration workflow is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md). 
 
 | Region             | Authoring | Prediction  |
 |--------------------|-----------|-------------|

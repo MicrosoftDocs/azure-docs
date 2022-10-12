@@ -35,7 +35,7 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ### Regional availability
 
-Conversational language understanding is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get predictions from a deployment. [Learn more](./concepts/multi-region-deployment.md).
+Conversational language understanding is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md).
 
 | Region             | Authoring | Prediction  |
 |--------------------|-----------|-------------|
