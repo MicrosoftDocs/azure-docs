@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 10/12/2022
 #Customer intent: As an Azure Logic Apps developer, I want to build a logic app workflow from a template so that I can reduce development time.
 ---
 
@@ -21,11 +21,11 @@ Here are some template categories:
 
 | Template type | Description | 
 | ------------- | ----------- | 
-| Enterprise cloud templates | For integrating Azure Blob Storage, Dynamics CRM, Salesforce, and Box. Also includes other connectors for your enterprise cloud needs. For example, you can use these templates to organize business leads or back up your corporate file data. | 
-| Personal productivity templates | For improving personal productivity. You can use these templates to set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user-approval step. | 
-| Consumer cloud templates | For integrating social media services such as Twitter, Slack, and email. Useful for strengthening social media marketing initiatives. These templates also include tasks such as cloud copying, which increases productivity by saving time on traditionally repetitive tasks. | 
-| Enterprise integration pack templates | For configuring validate, extract, transform, enrich, and route (VETER) pipelines. Also for receiving an X12 EDI document over AS2 and transforming it to XML, and for handling X12, EDIFACT, and AS2 messages. | 
-| Protocol pattern templates | For implementing protocol patterns such as request-response over HTTP and integrations across FTP and SFTP. Use these templates as provided, or build on them for complex protocol patterns. | 
+| Enterprise cloud | For integrating Azure Blob Storage, Dynamics CRM, Salesforce, and Box. Also includes other connectors for your enterprise cloud needs. For example, you can use these templates to organize business leads or back up your corporate file data. | 
+| Personal productivity | For improving personal productivity. You can use these templates to set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user-approval step. | 
+| Consumer cloud | For integrating social media services such as Twitter, Slack, and email. Useful for strengthening social media marketing initiatives. These templates also include tasks such as cloud copying, which increases productivity by saving time on traditionally repetitive tasks. | 
+| Enterprise integration pack | For configuring validate, extract, transform, enrich, and route (VETER) pipelines. Also for receiving an X12 EDI document over AS2 and transforming it to XML, and for handling X12, EDIFACT, and AS2 messages. | 
+| Protocol pattern | For implementing protocol patterns such as request-response over HTTP and integrations across FTP and SFTP. Use these templates as provided, or build on them for complex protocol patterns. | 
 ||| 
 
 ## Prerequisites
@@ -83,7 +83,7 @@ Here are some template categories:
    > [!NOTE] 
    > Many templates include connectors that have required properties that are prepopulated. Other templates require that you provide values before you can properly deploy the logic app workflow. If you try to deploy without completing the missing property fields, you get an error message.
 
-1. After you set up any required connections, select **Continue**.
+1. After you set up your required connections, select **Continue**.
 
    :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png" alt-text="Screenshot of the designer. A connection for Azure Blob Storage is visible, and the 'Continue' button is highlighted.":::
 
@@ -123,7 +123,7 @@ Here are some template categories:
    > [!NOTE]
    > Many templates include connectors that have required properties that are prepopulated. Other templates require that you provide values before you can properly deploy the logic app workflow. If you try to deploy without completing the missing property fields, you get an error message.
 
-1. After you set up any required connections, select **Continue**.
+1. After you set up your required connections, select **Continue**.
 
    :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection-designer.png" alt-text="Screenshot of the designer, with a connection for Azure Blob Storage. The 'Continue' button is highlighted.":::
 
