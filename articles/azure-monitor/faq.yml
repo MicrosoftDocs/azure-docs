@@ -351,7 +351,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support private links?
         answer: |
-          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent).
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-azure-monitor-agent).
 
       - question: |
           Does AMA support AuditD logs on linux, or AUOMS?
