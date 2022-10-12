@@ -60,7 +60,7 @@ Now, connect as the Azure AD administrator user to your PostgreSQL database, and
 select * from pgaadauth_create_principal('<identity_name>', false, false);
 ```
 
-For more details on managing Azure AD enabled database roles see [how to manage Azure AD enabled PostgreSQL roles](./how-to-manage-aad-users.md)
+For more details on managing Azure AD enabled database roles see [how to manage Azure AD enabled PostgreSQL roles](./how-to-manage-azure-ad-users.md)
 
 The managed identity now has access when authenticating with the identity name as a role name and Azure AD token as a password.
 
