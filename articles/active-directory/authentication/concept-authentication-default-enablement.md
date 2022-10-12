@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 As security threats evolve, Azure Active Directory (Azure AD) adds and improves security features to better protect customers. If an attack vector emerges as threat to customers, Azure AD may respond by enabling protection by default to help customers maintain security. 
 
-For example, in response to increasing MFA fatigue attacks, Microsoft recommended ways for customers to [defend users](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677). One recommendation to prevent users from accidental multifactor authentication (MFA) approvals is to enable [number matching](). As a result, default behavior for number matching will change from **Microsoft managed** (implicitly disabled) to explicitly **Enabled**.  
+For example, in response to increasing MFA fatigue attacks, Microsoft recommended ways for customers to [defend users](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677). One recommendation to prevent users from accidental multifactor authentication (MFA) approvals is to enable [number matching](how-to-mfa-number-match.md). As a result, default behavior for number matching will change from **Microsoft managed** (implicitly disabled) to explicitly **Enabled**.  
 
 This topic explains how default enablement works for security settings in Azure AD. 
 
@@ -32,6 +32,12 @@ There are two ways for a setting to be enabled by default:
 - **Microsoft managed settings** can be enabled or disabled by Azure AD based upon current landscape of security threats. Customers control whether to allow Microsoft to manage the setting. They can change a setting from **Microsoft managed** at any time to explicitly make it **Enabled** or **Disabled**. 
 
 ## Scheduled default enablement
+
+To address emerging security threats, Microsoft may occasionally change default behavior of a feature, or even deprecate a feature. These changes are announced... how?
+
+The scheduled default enablement for number matching is a good example, where Microsoft responds to increasing MFA fatigue attacks by changing the default behavior for push notifications in Microsoft Authenticator. Number matching was made available initially as a Microsoft managed settings that was disabled. 
+
+After thousands of customers worldwide chose to enable it and as MFA fatigue attacks rise, Azure AD will make number matching in push notifications the default behavior for all users in every tenant. Number matching is already the default behavior for passwordless notifications in Microsoft Authenticator, and users can't opt out.
 
 Customers should leverage the rollout controls that exist via API and UX to enable the feature.
 
