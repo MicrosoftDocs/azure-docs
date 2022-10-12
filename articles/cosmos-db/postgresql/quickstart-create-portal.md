@@ -14,12 +14,12 @@ ms.date: 09/29/2022
 
 # Create an Azure Cosmos DB for PostgreSQL cluster in the Azure portal
 
-## Prerequisites
-
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Azure Cosmos DB for PostgreSQL is a managed service that
 allows you to run horizontally scalable PostgreSQL databases in the cloud.
+
+## Prerequisites
 
 [!INCLUDE [create-db](includes/create-db.md)]
 
