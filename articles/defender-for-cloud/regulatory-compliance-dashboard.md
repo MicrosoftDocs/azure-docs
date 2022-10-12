@@ -9,11 +9,7 @@ ms.date: 09/21/2022
 
 Microsoft Defender for Cloud helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
 
-<<<<<<< HEAD
-When you enable Defender for Cloud on an Azure subscription, the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) is automatically assigned to that subscription. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
-=======
 When you enable Defender for Cloud on an Azure subscription, the [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) is automatically assigned to that subscription. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/), [PCI-DSS](https://www.pcisecuritystandards.org/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
->>>>>>> cbdadd1f668fd9215051edfa858b4e3e8505c639
 
 The regulatory compliance dashboard shows the status of all the assessments within your environment for your chosen standards and regulations. As you act on the recommendations and reduce risk factors in your environment, your compliance posture improves.
 
@@ -234,8 +230,7 @@ The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by 
 Since we’ve released the Microsoft Cloud Security Benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
 
 ### What standards are supported in the compliance dashboard?
-
-By default, the regulatory compliance dashboard shows you the Azure Security Benchmark. The Azure Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Microsoft cloud security benchmark introduction](/security/benchmark/azure/introduction).
+By default, the regulatory compliance dashboard shows you the Microsoft Cloud Security Benchmark. The Microsoft Cloud Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Microsoft Cloud Security Benchmark introduction](/security/benchmark/azure/introduction).
 
 To track your compliance with any other standard, you'll need to explicitly add them to your dashboard.
  
@@ -291,17 +286,7 @@ If you've got *any* of the Microsoft Defender plan enabled on *any* of your Azur
 
 ### How do I remediate a manual assessment?
 
-<<<<<<< HEAD
-### How do I know which benchmark or standard to use?
-[Microsoft cloud security benchmark](/security/benchmark/azure/introduction) (MCSB) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) and [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB is a comprehensive benchmark, and is designed to recommend the most up-to-date security capabilities of a wide range of Azure services. We recommend ASB to customers who want to maximize their security posture and align their compliance status with industry standards.
-
-The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by an independent entity – Center for Internet Security (CIS) – and contains recommendations on a subset of core Azure services. We work with CIS to try to ensure that their recommendations are up to date with the latest enhancements in Azure, but they do sometimes fall behind and become outdated. Nonetheless, some customers like to use this objective, third-party assessment from CIS as their initial and primary security baseline.
-
-Since we’ve released the Microsoft cloud security benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
-
-=======
 By selecting attest, you'll have the ability to demonstrate compliance with this control. Learn how to [remediate a manual assessment](#remediate-a-manual-assessment).
->>>>>>> cbdadd1f668fd9215051edfa858b4e3e8505c639
 
 ## Next steps
 
