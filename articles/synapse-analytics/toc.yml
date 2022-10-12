@@ -650,7 +650,7 @@ items:
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
       - name: Event Grid
         items:
-          - name: Event Hub data connection
+          - name: Event Grid data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md
