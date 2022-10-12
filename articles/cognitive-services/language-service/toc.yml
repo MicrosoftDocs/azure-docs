@@ -585,6 +585,8 @@ items:
     items:
     - name: Recognized entity categories
       href: named-entity-recognition/concepts/named-entity-categories.md 
+    - name: Entity resolution
+      href: named-entity-recognition/concepts/entity-resolutions.md
   - name: Tutorials
     items:
     - name: Extract information in Excel using Power Automate 
