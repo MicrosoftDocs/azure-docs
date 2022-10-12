@@ -163,7 +163,6 @@ The following checklist provides recommendations for designing sustainable workl
 <br/>
 
 
-
  **Assess for Resilience and Performance** _to increase ability to react to failures, allowing for a more optimized fault handling._
 
 :heavy_check_mark: Use [load testing](/azure/load-testing/tutorial-identify-performance-regression-with-cicd) and [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering)
@@ -271,13 +270,6 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
 
 <br/>
 
-**Integrate Endpoint Security** _to identify and remediate attacks, which could impact unnecessary resource misusage_
-
-:heavy_check_mark: Enable [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)
-
-:heavy_check_mark: [Identify vulnerable container images](/azure/defender-for-cloud/defender-for-containers-cicd)
-
-<br/>
 
 **Delete zombie workloads** _to reduce energy waste and optimize costs_
 
