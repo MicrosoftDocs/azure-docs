@@ -32,9 +32,9 @@ Both of these settings are configured by default when you created your Grafana w
 Use the following steps to allow access all Azure Monitor workspaces in a resource group or subscription:
 
 1. Open the **Identity** page for your Grafana workspace in the Azure portal.
-2. If **Status** isd **No**, change it to **Yes**.
+2. If **Status** is **No**, change it to **Yes**.
 3. Click **Azure role assignments** to review the existing access in your subscription.
-4. If **Monitoring Data Reader** is not listed for your subscription or resource gropup:
+4. If **Monitoring Data Reader** is not listed for your subscription or resource group:
    1. Click **+ Add role assignment**. 
    2. For **Scope**, select either **Subscription** or **Resource group**.
    3. For **Role**, select **Monitoring Data Reader**.
@@ -80,9 +80,9 @@ Azure virtual machines support both system assigned and yser assigned identity. 
 Use the following steps to allow access all Azure Monitor workspaces in a resource group or subscription:
 
 1. Open the **Identity** page for your virtual machine in the Azure portal.
-2. If **Status** isd **No**, change it to **Yes**.
+2. If **Status** is **No**, change it to **Yes**.
 3. Click **Azure role assignments** to review the existing access in your subscription.
-4. If **Monitoring Data Reader** is not listed for your subscription or resource gropup:
+4. If **Monitoring Data Reader** is not listed for your subscription or resource group:
    1. Click **+ Add role assignment**. 
    2. For **Scope**, select either **Subscription** or **Resource group**.
    3. For **Role**, select **Monitoring Data Reader**.
