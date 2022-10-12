@@ -17,10 +17,10 @@ ms.custom: language-service-clu
 
 > [!NOTE]
 > This article applies to the following custom features in Azure Cognitive Service for Language:
-> * Conversational language understanding
-> * Custom text classification
-> * Custom NER
-> * Orchestration workflow
+> * [Conversational language understanding](../../conversational-language-understanding/overview.md)
+> * [Custom text classification](../../custom-text-classification/overview.md)
+> * [Custom NER](../../custom-named-entity-recognition/overview.md)
+> * [Orchestration workflow](../../orchestration-workflow/overview.md)
 
 Custom Language service features enable you to deploy your project to more than one region, making it much easier to access your project globally while managing only one instance of your project in one place. 
 
