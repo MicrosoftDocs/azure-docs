@@ -66,9 +66,9 @@ The following table provides different examples of log queries that retrieve Win
 | Query | Description |
 |:---|:---|
 | Event |All Windows events. |
-| Event &#124; where EventLevelName == "error" |All Windows events with severity of error. |
+| Event &#124; where EventLevelName == "Error" |All Windows events with severity of error. |
 | Event &#124; summarize count() by Source |Count of Windows events by source. |
-| Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Count of Windows error events by source. |
+| Event &#124; where EventLevelName == "Error" &#124; summarize count() by Source |Count of Windows error events by source. |
 
 ## Next steps
 

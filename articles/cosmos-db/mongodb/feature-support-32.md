@@ -2,7 +2,8 @@
 title: Azure Cosmos DB's API for MongoDB (3.2 version) supported features and syntax
 description: Learn about Azure Cosmos DB's API for MongoDB (3.2 version) supported features and syntax.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 10/16/2019
 author: gahl-levy
@@ -10,20 +11,20 @@ ms.author: gahllevy
 ---
 
 # Azure Cosmos DB's API for MongoDB (3.2 version): supported features and syntax
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Azure Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
 > [!NOTE]
-> Version 3.2 of the Cosmos DB API for MongoDB has no current plans for end-of-life (EOL). The minimum notice for a future EOL is three years.
+> Version 3.2 of the Azure Cosmos DB for MongoDB has no current plans for end-of-life (EOL). The minimum notice for a future EOL is three years.
 
 ## Protocol Support
 
 All new accounts for Azure Cosmos DB's API for MongoDB are compatible with MongoDB server version **3.6**. This article covers MongoDB version 3.2. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. 
 
-Azure Cosmos DB's API for MongoDB also offers a seamless upgrade experience for qualifying accounts. Learn more on the [MongoDB version upgrade guide](upgrade-mongodb-version.md).
+Azure Cosmos DB's API for MongoDB also offers a seamless upgrade experience for qualifying accounts. Learn more on the [MongoDB version upgrade guide](upgrade-version.md).
 
 ## Query language support
 
@@ -332,25 +333,25 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documents without sort 
 
 ## Unique indexes
 
-Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default `_id` key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique' constraint.
+Azure Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default `_id` key. You can create custom indexes in Azure Cosmos DB by using the createIndex command, including the 'unique' constraint.
 
-Unique indexes are available for all Cosmos accounts using Azure Cosmos DB's API for MongoDB.
+Unique indexes are available for all Azure Cosmos DB accounts using Azure Cosmos DB's API for MongoDB.
 
 ## Time-to-live (TTL)
 
-Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections by going to the [Azure portal](https://portal.azure.com).
 
 ## User and role management
 
-Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Azure Cosmos DB does not yet support users and roles. However, Azure Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Replication
 
-Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Cosmos DB does not support manual replication commands.
+Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Azure Cosmos DB does not support manual replication commands.
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) that specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](../consistency-levels.md).
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) that specifies the number of responses required during a write operation. Due to how Azure Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](../consistency-levels.md).
 
 ## Sharding
 

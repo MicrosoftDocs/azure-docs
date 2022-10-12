@@ -9,10 +9,10 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
 ---
 
-# How to do hyperparameter tuning in pipeline (V2) (preview)
+# How to do hyperparameter tuning in pipeline (v2)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 

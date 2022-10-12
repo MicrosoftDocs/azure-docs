@@ -1,13 +1,13 @@
 ---
 title: Scan container images using GitHub Actions
 description: Learn how to scan the container images using Container Scan action
-author: georgewallace
-ms.author: gwallace
 ms.topic: quickstart
 ms.reviewer: jukullam
 ms.service: azure-monitor
 ms.subservice: containers
-ms.date: 05/20/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: github-actions-azure, mode-other
 ---
 
