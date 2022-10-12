@@ -92,12 +92,12 @@ If you have configured CMK encryption for your SIM group, you can modify the key
 1. Select the SIM group you want to modify.
 1. Select the **Encryption** blade.
 
-    :::image type="content" source="media/manage-sim-groups/modify-sim-group-encryption.png" alt-text="Screenshot of the Azure portal showing the Select user assigned managed identity selection window for a SIM group."  lightbox="media/modify-sim-group-encryption.png" :::
+    :::image type="content" source="media/manage-sim-groups/modify-sim-group-encryption.png" alt-text="Screenshot of the Azure portal showing the Encryption blade of a SIM group."  lightbox="media/manage-sim-groups/modify-sim-group-encryption.png" :::
 
 1. If you want to change the key URI, enter the new value in the **Key URI** field using the values you collected in [Collect SIM and SIM group values](collect-required-information-for-private-mobile-network.md#collect-sim-and-sim-group-values).
 1. If you want to change the user-assigned identity, click the current **User-assigned identity** hyperlink. This expands a new window to select the new identity. Select the identity created in [Collect SIM and SIM group values](collect-required-information-for-private-mobile-network.md#collect-sim-and-sim-group-values) and select **Add**.
 
-    :::image type="content" source="media/manage-sim-groups/modify-sim-group-identity-select.png" alt-text="Screenshot of the Azure portal showing the Select user assigned managed identity selection window for a SIM group."  lightbox="media/modify-sim-group-identity-select.png" :::
+    :::image type="content" source="media/manage-sim-groups/modify-sim-group-identity-select.png" alt-text="Screenshot of the Azure portal showing the Select user assigned managed identity selection window for a SIM group."  lightbox="media/manage-sim-groups/modify-sim-group-identity-select.png" :::
 
 1. Select **Next**.
 1. Review your changes. If they are correct, select **Create**.
