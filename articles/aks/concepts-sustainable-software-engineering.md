@@ -40,7 +40,7 @@ Making workloads more [sustainable and cloud efficient](/azure/architecture/fram
 
  **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
-&nbsp;&nbsp;&nbsp; One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency.
+&nbsp;&nbsp;&nbsp; Run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency and hardware efficiency.
 
  **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
@@ -112,7 +112,7 @@ _Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utiliza
 
 <br/>
 
-**Maximize node resource utilization** _to use more of its underlying hardware_.
+**Maximize node resource utilization** 
 
 _One approach to lowering your carbon footprint is to reduce your idle time. Reducing your idle time involves increasing the utilization of your compute resources._
 
