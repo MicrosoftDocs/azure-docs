@@ -46,7 +46,8 @@ To force the ANF bound traffic through Azure Firewall in the Virtual WAN hub, th
 
 :::image type="content" source="./media/configure-anf-on-vwan/effectiveroutes.png" alt-text="inclusion of specific routes in virtual hub effective routes":::
 
-> [!NOTE] ANF mount leverages Azure Private Endpoint. Therefore, the specific IP address entry is required even if a CIDR to which the ANF volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
+> [!important] 
+> ANF mount leverages Azure Private Endpoint. Therefore, the specific IP address entry is required even if a CIDR to which the ANF volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
 >
 
 ## Listing ANF volume IP under virtual hub effective routes
