@@ -60,22 +60,22 @@ items:
           href: how-to-use-fhir-mappings.md
       - name: Create copies of mappings
         href: how-to-create-mappings-copies.md
-      - name: Monitoring
-        expanded: false
-        items:
-        - name: Monitoring tab metrics
-          href: how-to-use-monitoring-tab.md
-        - name: Configure metrics
-          href: how-to-configure-metrics.md
-        - name: Enable diagnostic settings
-          href: how-to-enable-diagnostic-settings.md
-      - name: Troubleshoot and problem solve
-        expanded: false
-        items:
-        - name: Errors and conditions
-          href: iot-troubleshoot-error-messages-and-conditions.md
-        - name: Device and destination mappings
-          href: iot-troubleshoot-mappings.md
+- name: Monitoring
+  expanded: false
+  items:
+  - name: Monitoring tab metrics
+    href: how-to-use-monitoring-tab.md
+  - name: Configure metrics
+    href: how-to-configure-metrics.md
+  - name: Enable diagnostic settings
+    href: how-to-enable-diagnostic-settings.md
+- name: Troubleshoot and problem solve
+  expanded: false
+  items:
+  - name: Errors and conditions
+    href: iot-troubleshoot-error-messages-and-conditions.md
+  - name: Device and destination mappings
+    href: iot-troubleshoot-mappings.md
 - name: Concepts
   expanded: false
   items:
