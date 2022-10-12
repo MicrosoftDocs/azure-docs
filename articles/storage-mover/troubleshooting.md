@@ -40,7 +40,7 @@ After the logs within the bundle are extracted, they can be used to located and 
 
 Extracting the logs from the Zstd compressed tar file will create the following file structure:
 
-- misc
+- ***misc***
     - df.txt              — Filesystem usage
     - dmesg.txt           — Kernel messages
     - files.txt           — Directory listings
@@ -48,20 +48,20 @@ Extracting the logs from the Zstd compressed tar file will create the following 
     - meminfo.txt         — Memory usage
     - netstat.txt         — Network connections
     - top.txt             — Process memory and CPU usage
-- root
-    - xdmdata
+- ***root***
+    - **xdmdata**
         - archive         — Archived job logs
         - azcopy          — AzCopy logs
         - kv—Agent        — persisted data
         - xdmsh           — Restricted shell logs
-- run
-    - xdatamoved
+- ***run***
+    - **xdatamoved**
         - datadir         — Location of data directory
         - kv              — Agent persisted data
         - pid             — Agent process ID
         - watchdog
-- var
-    - log — Various agent and system logs
+- ***var***
+    - **log** — Various agent and system logs
         - xdatamoved.err  — Agent error log
         - xdatamoved.log  — Agent log
         - xdatamoved.warn — Agent warning log
@@ -78,7 +78,7 @@ The first step to identifying the root cause of the error is to collect the supp
 
 ## Retrieve the agent support bundle
 
-Using the VM's host machine, enter the commands provided by the agent to fetch a copy of the support bundle. You may be prompted to trust the host and be presented with the ECDSA key during the initial connection to the VM. The commands are case-sensitive, and that the flag provided is an upper-case `P`.
+Using the VM's host machine, enter the commands provided by the agent to fetch a copy of the support bundle. You may be prompted to trust the host and be presented with the ECDSA (Elliptic Curve Digital Signature Algorithm) key during the initial connection to the VM. The commands are case-sensitive, and that the flag provided is an upper-case `P`.
 
 :::image type="content" source="media/troubleshooting/bundle-download-sml.png" alt-text="Screen capture of the support bundle being downloaded to the host machine." lightbox="media/troubleshooting/bundle-download-lrg.png":::
 
