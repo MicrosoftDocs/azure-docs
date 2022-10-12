@@ -87,4 +87,4 @@ You now know the key concepts of Azure Load Testing to start creating a load tes
 - Learn how [Azure Load Testing works](./overview-what-is-azure-load-testing.md#how-does-azure-load-testing-work).
 - Learn how to [Create and run a load test for a website](./quickstart-create-and-run-load-test.md).
 - Learn how to [Identify a performance bottleneck in an Azure application](./tutorial-identify-bottlenecks-azure-portal.md).
-- Learn how to [Set up continuous regression testing with Azure Pipelines](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [Set up automated regression testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).

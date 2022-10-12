@@ -13,7 +13,7 @@ ms.date: 08/19/2021
 
 Use this article to plan for capacity and scaling when you replicate on-premises VMware VMs and physical servers to Azure by using [Azure Site Recovery](site-recovery-overview.md) - Classic.
 
-In preview, you need to [create and use Azure Site Recovery replication appliance/multiple appliances](deploy-vmware-azure-replication-appliance-preview.md) to plan capacity.
+In modernized, you need to [create and use Azure Site Recovery replication appliance/multiple appliances](deploy-vmware-azure-replication-appliance-modernized.md) to plan capacity.
 
 ## How do I start capacity planning?
 

@@ -2,14 +2,34 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 author: flang-msft
+
 ms.author: franlanglois
 ms.service: cache
-ms.topic: reference
-ms.date: 08/01/2022
+ms.topic: conceptual
+ms.date: 09/29/2022
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## September 2022
+
+### Upgrade your Azure Cache for Redis instances to use Redis version 6 by June 30, 2023
+
+On June 30, 2023, we'll retire version 4 for Azure Cache for Redis instances. Before that date, you need to upgrade any of your cache instances to version 6.
+
+- All cache instances running Redis version 4 after June 30, 2023 will be upgraded automatically.
+- All cache instances running Redis version 4 that have geo-replication enabled will be upgraded automatically after August 30, 2023.
+
+We recommend that you upgrade your caches on your own to accommodate your schedule and the needs of your users to make the upgrade as convenient as possible.
+
+For more information, see [Retirements](cache-retired-features.md).
+
+### Support for managed identity in Azure Cache for Redis
+
+Authenticating storage account connections using managed identity has now reached General Availability (GA).
+
+For more information, see [Managed identity for storage](cache-managed-identity.md).
 
 ## August 2022
 
@@ -70,7 +90,7 @@ The default version of Redis that is used when creating a cache can change over 
 
 As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by DigiCert Global G2 CA Root. The current Baltimore CyberTrust Root expires in May 2025, requiring this change.
 
-We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as *certificate pinning*.
+We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as _certificate pinning_.
 
 For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 
@@ -78,7 +98,7 @@ For more information, read this blog that contains instructions on [how to check
 
 Active geo-replication for Azure Cache for Redis Enterprise is now generally available (GA).
 
-Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. For more information, see this [post](https://aka.ms/ActiveGeoGA) in the *Azure Developer Community Blog*.
+Active geo-replication is a powerful tool that enables Azure Cache for Redis clusters to be linked together for seamless active-active replication of data. Your applications can write to one Redis cluster and your data is automatically copied to the other linked clusters, and vice versa. For more information, see this [post](https://aka.ms/ActiveGeoGA) in the _Azure Developer Community Blog_.
 
 ## January 2022
 
@@ -86,7 +106,7 @@ Active geo-replication is a powerful tool that enables Azure Cache for Redis clu
 
 Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
 
-For more information, see [Managed identity with Azure Cache for Redis (Preview)](cache-managed-identity.md).
+For more information, see [Managed identity with Azure Cache for Redis](cache-managed-identity.md).
 
 ## October 2021
 

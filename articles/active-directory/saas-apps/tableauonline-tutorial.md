@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 07/29/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Tableau Cloud
@@ -47,6 +47,8 @@ To configure the integration of Tableau Cloud into Azure AD, you need to add Tab
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Tableau Cloud** in the search box.
 1. Select **Tableau Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Tableau Cloud
 
@@ -125,7 +127,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-3. If you want to setup Tableau Cloud manually, in a different web browser window, sign in to your Tableau Cloud company site as an administrator.
+3. If you want to set up Tableau Cloud manually, in a different web browser window, sign in to your Tableau Cloud company site as an administrator.
 
 1. Go to **Settings** and then **Authentication**.
 
@@ -143,9 +145,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
   
     a. In the Azure portal, go on the **Tableau Cloud** application integration page.
 
-	b. In the **User Attributes & Claims** section, click on the edit icon.
+	b. In the **User Attributes & Claims** section, click on the edit icon, perform the following steps to add SAML token attribute as shown in the below table:
 
    ![Screenshot shows the User Attributes & Claims section where you can select the edit icon.](./media/tableauonline-tutorial/attribute-section.png)
+
+	| Name | Source Attribute|
+	| ---------------| --------------- |
+	| DispalyName | user.displayname |
+
 
 	c. Copy the namespace value for these attributes: givenname, email and surname by using the following steps:
 
@@ -163,9 +170,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     * Email: **mail** or **userprincipalname**
 
-    * First name: **givenname**
-
-    * Last name: **surname**
+    * Full name: **displayname**
 
     ![Screenshot shows the Match attributes section where you can enter the values.](./media/tableauonline-tutorial/claims.png)
 

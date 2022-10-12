@@ -118,6 +118,14 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
+  - name: SAP HANA database on Azure VM backup
+    items:
+    - name: About HANA database backup
+      href: sap-hana-database-about.md
+    - name: Architecture
+      href: azure-backup-architecture-for-sap-hana-backup.md      
+  - name: Monitor and Alerts
+    href: monitoring-and-alerts-overview.md
   - name: Security
     items:
     - name: Multi-user authorization
@@ -402,16 +410,22 @@
         href: manage-azure-file-share-rest-api.md
   - name: SAP HANA database on Azure VM backup
     items:
-    - name: Overview
-      href: sap-hana-db-about.md
-    - name: Architecture
-      href: azure-backup-architecture-for-sap-hana-backup.md
     - name: Backup
-      href: backup-azure-sap-hana-database.md
+      items:
+      - name: Database
+        href: backup-azure-sap-hana-database.md
+      - name: HANA System Replication database
+        href: sap-hana-database-with-hana-system-replication-backup.md
+      - name: Snapshots
+        href: sap-hana-database-instances-backup.md
     - name: Restore
-      href: sap-hana-db-restore.md
+      items:
+      - name: Database and HANA System Replication database
+        href: sap-hana-database-restore.md
+      - name: Snapshots
+        href: sap-hana-database-instances-restore.md
     - name: Manage
-      href: sap-hana-db-manage.md
+      href: sap-hana-database-manage.md      
   - name: Azure Backup Server (MABS)
     items:
     - name: Protection matrices
@@ -500,8 +514,6 @@
       href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
-    - name: Overview
-      href: monitoring-and-alerts-overview.md
     - name: Using Backup center
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor alerts
@@ -653,6 +665,8 @@
       href: backup-azure-database-postgresql-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
       href: backup-azure-sap-hana-database-troubleshoot.md
+    - name: SAP HANA database instance backup in Azure VM
+      href: sap-hana-database-instance-troubleshoot.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier

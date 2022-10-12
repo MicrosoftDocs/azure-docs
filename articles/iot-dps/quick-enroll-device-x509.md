@@ -444,7 +444,7 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) has scripts that can help you create root CA, intermediate CA, and device certificates, and do proof-of-possession with the service to verify root and intermediate CA certificates. To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-The [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the [Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
+The [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples/How%20To/GroupCertificateVerificationSample) in the [Azure IoT SDK for C# (.NET)](https://github.com/Azure/azure-iot-sdk-csharp) shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
 
 :::zone-end
 

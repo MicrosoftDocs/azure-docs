@@ -81,7 +81,7 @@ datalake.azure.net (Azure Data Lake Service)
 dev.azure.com (Azure DevOps)
 dev.azuresynapse.net (Azure Synapse)
 digitaltwins.azure.net (Azure Digital Twins)
-docs.microsoft.com (Azure documentation)
+learn.microsoft.com (Azure documentation)
 elm.iga.azure.com  (Azure AD)
 eventhubs.azure.net (Azure Event Hubs)
 functions.azure.com (Azure Functions)
@@ -129,7 +129,7 @@ vault.azure.net (Azure Key Vault Service)
 graph.microsoftazure.us
 ```
 
-### [China Government Cloud](#tab/china-government-cloud)
+### [Azure China Cloud](#tab/azure-china-cloud)
 
 ```
 aadcdn.msauth.cn

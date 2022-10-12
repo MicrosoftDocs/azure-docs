@@ -132,7 +132,7 @@ Below is a self-contained `docker compose`  example to run the Form Recognizer L
 ```yml
 version: "3.9"
 services:
-azure-cognitive-service-layout:
+  azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
     environment:
@@ -146,6 +146,7 @@ azure-cognitive-service-layout:
 networks:
   ocrvnet:
     driver: bridge
+
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:

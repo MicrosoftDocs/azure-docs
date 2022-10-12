@@ -35,7 +35,7 @@ This team would benefit from geo-replication. They can create a replica of their
 - Geo-replication isn't available in the free tier.  
 - Each replica has limits, as outlined in the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/). These limits are isolated per replica. 
 - Azure App Configuration also supports Azure availability zones to create a resilient and highly available store within an Azure Region. Availability zone support is automatically included for a replica if the replica's region has availability zone support. The combination of availability zones for redundancy within a region, and geo-replication across multiple regions, enhances both the availability and performance of a configuration store.
-- Currently, you can only authenticate with replica endpoints with [Azure AD](/azure-app-configuration/overview-managed-identity).
+- Currently, you can only authenticate with replica endpoints with [Azure Active Directory (Azure AD)](/azure/app-service/overview-managed-identity).
 <!--
 To add once these links become available: 
  - Request handling for replicas will vary by configuration provider, for further information reference [.NET Geo-replication Reference](https://azure.microsoft.com/pricing/details/app-configuration/) and [Java Geo-replication Reference](https://azure.microsoft.com/pricing/details/app-configuration/). 

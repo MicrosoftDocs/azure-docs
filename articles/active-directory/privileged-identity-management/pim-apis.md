@@ -4,7 +4,7 @@ description: Information for understanding the APIs in Azure AD Privileged Ident
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity

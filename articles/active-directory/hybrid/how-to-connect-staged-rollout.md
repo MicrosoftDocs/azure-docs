@@ -2,11 +2,11 @@
 title: 'Azure AD Connect: Cloud authentication via Staged Rollout | Microsoft Docs'
 description: This article explains how to migrate from federated authentication, to cloud authentication, by using a Staged Rollout.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2022
+ms.date: 08/24/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -31,16 +31,16 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
 
 ## Prerequisites
 
--   You have an Azure Active Directory (Azure AD) tenant with federated domains.
+-   You have an Azure Active Directory (Azure AD) tenant with [federated domains](./whatis-fed.md).
 
 -   You have decided to move one of the following options:
     - **Password hash synchronization (sync)**. For more information, see [What is password hash sync](whatis-phs.md) 
     - **Pass-through authentication**. For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
-    - **Azure AD Certificate-based authentication (CBA) settings**. For more information, see [What is pass-through authentication](../authentication/concept-certificate-based-authentication.md) 
+    - **Azure AD Certificate-based authentication (CBA) settings**. For more information, see [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md) 
     
     For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
     For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
-    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) or personal registered devices via Add Work or School Account.
+    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) or [personal registered devices](../devices/concept-azure-ad-register.md) via Add Work or School Account.
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
@@ -59,7 +59,7 @@ The following scenarios are supported for Staged Rollout. The feature works only
 
 - Users who are provisioned to Azure AD by using Azure AD Connect. It does not apply to cloud-only users.
 
-- User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use legacy authentication will fall back to federated authentication flows. An example might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
+- User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use [legacy authentication](../conditional-access/block-legacy-authentication.md) will fall back to federated authentication flows. An example of legacy authentication might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
 
 - Group size is currently limited to 50,000 users.  If you have groups that are larger than 50,000 users, it is recommended to split this group over multiple groups for Staged Rollout.
 
@@ -86,7 +86,7 @@ The following scenarios are not supported for Staged Rollout:
 
 - When you first add a security group for Staged Rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "EnforceCloudPasswordPolicyForPasswordSyncedUsers". When "EnforceCloudPasswordPolicyForPasswordSyncedUsers" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. To learn how to set 'EnforceCloudPasswordPolicyForPasswordSyncedUsers' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#enforcecloudpasswordpolicyforpasswordsyncedusers).
+- While users are in Staged Rollout with Password Hash Synchronization (PHS), by default no password expiration is applied. Password expiration can be applied by enabling "EnforceCloudPasswordPolicyForPasswordSyncedUsers". When "EnforceCloudPasswordPolicyForPasswordSyncedUsers" is enabled, password expiration policy is set to 90 days from the time password was set on-prem with no option to customize it. Programatically updating PasswordPolicies attribute is not supported while users are in Staged Rollout. To learn how to set 'EnforceCloudPasswordPolicyForPasswordSyncedUsers' see [Password expiration policy](./how-to-connect-password-hash-synchronization.md#enforcecloudpasswordpolicyforpasswordsyncedusers).
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of Staged Rollout.
 
@@ -172,19 +172,19 @@ You can roll out these options:
 - **Not supported** - **Password hash sync** + **Pass-through authentication** + **Seamless SSO**
 - **Certificate-based authentication settings**
 
-Do the following:
+To configure Staged Rollout, follow these steps:
 
-1. To access the UX, sign in to the [Azure AD portal](https://aka.ms/stagedrolloutux).
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
-2. Select the **Enable Staged Rollout for managed user sign-in** link.
+1. Search for and select **Azure Active Directory**.
 
-   For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
+1. From the left menu, select **Azure AD Connect**.
 
-   
+1. On the *Azure AD Connect* page, under the *Staged rollout of cloud authentication*, select the **Enable staged rollout for managed user sign-in** link. 
 
-  
+1. On the *Enable staged rollout feature* page, select the options you want to enable: [Password Hash Sync](./whatis-phs.md), [Pass-through authentication](./how-to-connect-pta.md), [Seamless single sign-on](./how-to-connect-sso.md), or [Certificate-based Authentication (Preview)](../authentication/active-directory-certificate-based-authentication-get-started.md). For example, if you want to enable **Password Hash Sync** and **Seamless single sign-on**, slide both controls to **On**.
 
-3. Add the groups to the feature to enable *pass-through authentication* and *seamless SSO*. To avoid a UX time-out, ensure that the security groups contain no more than 200 members initially.
+1. Add groups to the features you selected. For example, *pass-through authentication* and *seamless SSO*. To avoid a time-out, ensure that the security groups contain no more than 200 members initially.
 
    
 

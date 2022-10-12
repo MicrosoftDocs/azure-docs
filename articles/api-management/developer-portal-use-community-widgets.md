@@ -4,19 +4,23 @@ titleSuffix: Azure API Management
 description: Learn about community widgets for the API Management developer portal and how to inject and use them in your code. 
 author: dlepow
 ms.author: danlep
-ms.date: 03/25/2021
+ms.date: 08/18/2022
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Use community widgets in the developer portal
 
-All developers place their community-contributed widgets in the `/community/widgets/` folder of the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal). Each has been accepted by the developer portal team. You can use the widgets by injecting them into your [self-hosted version](developer-portal-self-host.md) of the portal. The managed version of the developer portal doesn't currently support community widgets.
+All developers place their community-contributed widgets in the `/community/widgets/` folder of the API Management developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal). Each has been accepted by the developer portal team. You can use the widgets by injecting them into your managed developer portal or a [self-hosted version](developer-portal-self-host.md) of the portal. 
 
 > [!NOTE]
 > The developer portal team thoroughly inspects contributed widgets and their dependencies. However, the team can’t guarantee it’s safe to load the widgets. Use your own judgment when deciding to use a widget contributed by the community. Refer to our [widget contribution guidelines](developer-portal-widget-contribution-guidelines.md#contribution-guidelines) to learn about our preventive measures.
 
-## Inject and use external widgets
+## Inject and use external widget - managed portal
+
+For guidance to create and use a development environment to scaffold and upload a custom widget, see [Create and upload custom widget](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget).
+
+## Inject and use external widget - self-hosted portal
 
 1. Set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 

@@ -19,7 +19,8 @@ See [Monitoring Azure Video Indexer](monitor-video-indexer.md) for details on co
 
 ## Metrics
 
-Azure Video Indexer currently does not support any monitoring on metrics.
+Azure Video Indexer currently does not support any metrics monitoring.
+
 <!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
 <!-- Please keep headings in this order -->
 
@@ -27,7 +28,7 @@ Azure Video Indexer currently does not support any monitoring on metrics.
 
 <!--------------**OPTION 1 EXAMPLE** ---------------------
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
@@ -71,7 +72,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 ## Metric dimensions
 
-Azure Video Indexer currently does not support any monitoring on metrics.
+Azure Video Indexer currently does not support any metrics monitoring.
 <!-- REQUIRED. Please  keep headings in this order -->
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
@@ -83,7 +84,7 @@ Azure Video Indexer does not have any metrics that contain dimensions.
 
 Azure Video Indexer has the following dimensions associated with its metrics.
 
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
+<!-- See https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
 <!--**--------------EXAMPLE format when you have dimensions------------------**
 
@@ -106,7 +107,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 <!--------------**OPTION 1 EXAMPLE** ---------------------
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
@@ -142,6 +143,7 @@ Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monit
 | Category | Display Name | Additional information |
 |:---------|:-------------|------------------|
 | VIAudit   | Azure Video Indexer Audit Logs | Logs are produced from both the Video Indexer portal and the REST API. |
+| IndexingLogs | Indexing Logs | Azure Video Indexer indexing logs to monitor all files uploads, indexing and reindexing jobs. |
 
 <!-- --------------**END Examples** ------------- -->
 
@@ -152,7 +154,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 <!--------------**OPTION 1 EXAMPLE** ---------------------
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
@@ -172,7 +174,8 @@ NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays 
 
 | Table |  Description | Additional information  |
 |:---------|:-------------|------------------|
-| [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer)<!-- (S/azure/azure-monitor/reference/tables/viaudit)-->   | <!-- description copied from previous link --> Events produced using Azure Video Indexer [portal](https://aka.ms/VIportal) or [REST API](https://aka.ms/vi-dev-portal). |  |
+| [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer)<!-- (S/azure/azure-monitor/reference/tables/viaudit)-->   | <!-- description copied from previous link --> Events produced using the Azure Video Indexer [website](https://aka.ms/VIportal) or the [REST API portal](https://aka.ms/vi-dev-portal). |  |
+|VIIndexing| Events produced using the Azure Video Indexer [upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [re-index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs. |
 <!--| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> 
 <!--Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
 |  etc.               |                              |                                                   |  
@@ -238,6 +241,8 @@ The following schemas are in use by Azure Video Indexer
 
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 
+#### Audit schema
+
 ```json
 {
     "time": "2022-03-22T10:59:39.5596929Z",
@@ -264,6 +269,48 @@ The following schemas are in use by Azure Video Indexer
     }
   }
   ```
+
+#### Indexing schema
+
+```json
+{
+    "time": "2022-09-28T09:41:08.6216252Z",
+    "resourceId": "/SUBSCRIPTIONS/{SubscriptionId}/RESOURCEGROUPS/{ResourceGroup}/PROVIDERS/MICROSOFT.VIDEOINDEXER/ACCOUNTS/MY-VI-ACCOUNT",
+    "operationName": "UploadStarted",
+    "category": "IndexingLogs",
+    "correlationId": "5cc9a3ea-126b-4f53-a4b5-24b1a5fb9736",
+    "resultType": "Success",
+    "location": "eastus",
+    "operationVersion": "2.0",
+    "durationMs": "0",
+    "identity": {
+        "upn": "my-email@microsoft.com",
+        "claims": null
+    },
+    "properties": {
+        "accountName": "my-vi-account",
+        "accountId": "6961331d-16d3-413a-8f90-f86a5cabf3ef",
+        "videoId": "46b91bc012",
+        "indexing": {
+            "Language": "en-US",
+            "Privacy": "Private",
+            "Partition": null,
+            "PersonModelId": null,
+            "LinguisticModelId": null,
+            "AssetId": null,
+            "IndexingPreset": "Default",
+            "StreamingPreset": "Default",
+            "Description": null,
+            "Priority": null,
+            "ExternalId": null,
+            "Filename": "1 Second Video 1.mp4",
+            "AnimationModelId": null,
+            "BrandsCategories": null
+        }
+    }
+}
+  ```
+
 
 ## Next steps
 

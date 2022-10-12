@@ -283,3 +283,4 @@ Enterprise tier has built-in VMware Spring Runtime Support, so you can open supp
 ## Next steps
 
 * [How to self-diagnose and solve problems in Azure Spring Apps](./how-to-self-diagnose-solve.md)
+* [Troubleshoot common exit code issues in Azure Spring Apps](./troubleshoot-exit-code.md)

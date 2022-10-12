@@ -88,7 +88,7 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
 
 ## Push notifications 	
 To send push notifications for messages missed by your users while they were away, Communication Services provides two different ways to integrate: 
- - Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
+ - Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
  - Connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground.    
     
     IOS and Android SDK can support the below event:
@@ -106,7 +106,7 @@ To send push notifications for messages missed by your users while they were awa
 For more details, see [Push Notifications](../notifications.md).
 
 > [!NOTE]
-> Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in public preview for iOS version 1.3.0-beta.1.
+> Currently sending chat push notifications with Notification Hub is generally available in Android version 1.1.0 and in IOS version 1.3.0.
 
 ## Build intelligent, AI powered chat experiences
 

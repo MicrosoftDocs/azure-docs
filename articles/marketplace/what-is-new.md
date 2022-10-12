@@ -5,7 +5,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 08/24/2022
 ---
 
 # What's new in the Microsoft commercial marketplace
@@ -16,6 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Offers | ISVs can now publish 1-year and 3-year prices for their Virtual Machine plans to let customers save money when they commit for a long-term agreement. To learn more, see [Plan a virtual machine offer](azure-vm-plan-pricing-and-availability.md#configure-reservation-pricing-optional). | 2022-08-24 |
 | Offers | Software as a service (SaaS) plans now support 2-year and 3-year billing term with upfront, monthly or annually payment options. To learn more, see [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md#saas-billing-terms-and-payment-options). | 2022-08-01 |
 | Offers | ISVs can now offer custom prices, terms, conditions, and pricing for a specific customer through private offers. See [ISV to customer private offers](isv-customer.md) and the [FAQ](isv-customer-faq.yml). | 2022-04-06 |
 | Offers | Publishers can now [change transactable offer and plan pricing](price-changes.md) without having to discontinue an offer and recreate it with new pricing (also see [this FAQ](price-changes-faq.yml)). | 2022-03-30 |
@@ -44,6 +45,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Change history for Microsoft Publisher Agreement version 8.0 – Octrober 2022 update](/legal/marketplace/mpa-change-history-october-2022). | 2022-09-14 |
 | Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Change history for Microsoft Publisher Agreement version 8.0 – May 2022 update](/legal/marketplace/mpa-change-history-may-2022). | 2022-04-15 |
 | Offers | Added new articles to lead you step-by-step through the process of [testing a SaaS offer](test-saas-overview.md). | 2022-03-30 |
 | Payouts | We updated the payment schedule for [Payout schedules and processes](/partner-center/payout-policy-details). | 2022-01-19 |

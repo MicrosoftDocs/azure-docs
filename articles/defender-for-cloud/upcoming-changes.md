@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 08/10/2022
+ms.date: 09/20/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,22 +18,14 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
 | [Removing security alerts for machines reporting to cross tenant Log Analytics workspaces](#removing-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces) | September 2022 |
-| [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation) | September 2022 |
-
-### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
-
-**Estimated date for change:** August 2022
-
-Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc will begin to incur charges in August.
 
 ### Multiple changes to identity recommendations
 
-**Estimated date for change:** September 2022
+**Estimated date for change:** October 2022
 
-Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In June, we'll be making the changes outlined below.
+Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In October, we'll be making the changes outlined below.
 
 #### New recommendations in preview
 
@@ -73,16 +65,6 @@ With this change, alerts on machines connected to Log Analytics workspace in a d
 
 If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the machine.
 
-### Legacy Assessments APIs deprecation
-
-The following APIs are set to be deprecated:
-
-- Security Tasks
-- Security Statuses
-- Security Summaries
-
-These three APIs exposed old formats of assessments and will be replaced by the [Assessments APIs](/rest/api/securitycenter/assessments) and [SubAssessments APIs](/rest/api/securitycenter/sub-assessments). All data that is exposed by these legacy APIs will also be available in the new APIs.
-
 ## Next steps
 
-For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md)
+For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md).

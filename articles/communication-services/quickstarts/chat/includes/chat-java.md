@@ -21,7 +21,7 @@ ms.author: rifox
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
-  az communication identity issue-access-token --scope chat --connection-string "yourConnectionString"
+  az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
@@ -132,8 +132,8 @@ Use the `createChatThread` method to create a chat thread.
 - Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
 
 `CreateChatThreadResult` is the response returned from creating a chat thread.
-It contains a `getChatThread()` method which returns the `ChatThread` object that can be used to get the thread client from which you can get the `ChatThreadClient` for performing operations on the created thread: add participants, send message, etc.
-The `ChatThread` object also contains the `getId()` method which retrieves the unique ID of the thread.
+It contains a `getChatThread()` method, which returns the `ChatThread` object that can be used to get the thread client from which you can get the `ChatThreadClient` for performing operations on the created thread: add participants, send message, etc.
+The `ChatThread` object also contains the `getId()` method, which retrieves the unique ID of the thread.
 
 ```Java
 CommunicationUserIdentifier identity1 = new CommunicationUserIdentifier("<USER_1_ID>");
@@ -178,13 +178,13 @@ ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId)
 
 ## Send a message to a chat thread
 
-Use the `sendMessage` method to send a message to the thread you just created, identified by chatThreadId.
+Use the `sendMessage` method to send a message to the thread you created, identified by chatThreadId.
 `sendChatMessageOptions` is used to describe the chat message request.
 
 - Use `content` to provide the chat message content.
 - Use `type` to specify the chat message content type, TEXT or HTML.
 - Use `senderDisplayName` to specify the display name of the sender.
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add `hasAttachment:true` in metadata so that recipient's application can parse that and display accordingly.
 
 The response `sendChatMessageResult` contains an `id`, which is the unique ID of the message.
 
@@ -213,7 +213,7 @@ chatThreadClient.listMessages().forEach(message -> {
 });
 ```
 
-`listMessages` returns the latest version of the message, including any edits or deletes that happened to the message using .editMessage() and .deleteMessage(). For deleted messages, `chatMessage.getDeletedOn()` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.getEditedOn()` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.getCreatedOn()`, and it can be used for ordering the messages.
+`listMessages` returns the latest version of the message, including any edits or deletes that happened to the message using `.editMessage()` and `.deleteMessage()`. For deleted messages, `chatMessage.getDeletedOn()` returns a datetime value indicating when that message was deleted. For edited messages, `chatMessage.getEditedOn()` returns a datetime indicating when the message was edited. The original time of message creation can be accessed using `chatMessage.getCreatedOn()`, and it can be used for ordering the messages.
 
 Read more about message types here: [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -240,7 +240,7 @@ chatParticipantsResponse.forEach(chatParticipant -> {
 
 ## Add a user as participant to the chat thread
 
-Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants. You'll need to start by getting a new access token and identity for that user. Before calling addParticipants method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Once a chat thread is created, you can then add and remove users from it. By adding users, you give them access to send messages to the chat thread, and add/remove other participants. You'll need to start by getting a new access token and identity for that user. Before calling addParticipants method, ensure that you've acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
 Use the `addParticipants` method to add participants to the thread.
 

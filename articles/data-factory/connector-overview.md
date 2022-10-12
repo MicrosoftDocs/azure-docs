@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 09/16/2022
 ms.author: jianleishen
 ---
 

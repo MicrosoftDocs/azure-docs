@@ -3,7 +3,10 @@ title: Troubleshoot Azure Backup Server
 description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 07/05/2019
+ms.date: 08/26/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Troubleshoot Azure Backup Server
@@ -60,7 +63,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Registering to a vault | Invalid vault credentials provided. The file is corrupted or does not have the latest credentials associated with the recovery service. | Recommended action: <br> <ul><li> Download the latest credentials file from the vault and try again. <br>(OR)</li> <li> If the previous action didn't work, try downloading the credentials to a different local directory or create a new vault. <br>(OR)</li> <li> Try updating the date and time settings as described in [this article](./backup-azure-mars-troubleshoot.md#invalid-vault-credentials-provided). <br>(OR)</li> <li> Check to see if c:\windows\temp has more than 65000 files. Move stale files to another location or delete the items in the Temp folder. <br>(OR)</li> <li> Check the status of certificates. <br> a. Open **Manage Computer Certificates** (in Control Panel). <br> b. Expand the **Personal** node and its child node **Certificates**.<br> c.  Remove the certificate **Windows Azure Tools**. <br> d. Retry the registration in the Azure Backup client. <br> (OR) </li> <li> Check to see if any group policy is in place. </li></ul> |
+| Registering to a vault | Invalid vault credentials provided. The file is corrupted or doesn't have the latest credentials associated with the recovery service. | Recommended action: <br> <ul><li> Download the latest credentials file from the vault and try again. <br>(OR)</li> <li> If the previous action didn't work, try downloading the credentials to a different local directory or create a new vault. <br>(OR)</li> <li> Try updating the date and time settings as described in [this article](./backup-azure-mars-troubleshoot.md#invalid-vault-credentials-provided). <br>(OR)</li> <li> Check to see if c:\windows\temp has more than 65000 files. Move stale files to another location or delete the items in the Temp folder. <br>(OR)</li> <li> Check the status of certificates. <br> a. Open **Manage Computer Certificates** (in Control Panel). <br> b. Expand the **Personal** node and its child node **Certificates**.<br> c.  Remove the certificate **Windows Azure Tools**. <br> d. Retry the registration in the Azure Backup client. <br> (OR) </li> <li> Check to see if any group policy is in place. </li> <li> To prevent errors during vault registration, ensure that you've the MARS agent version 2.0.9249.0 or above installed. If not, we recommend you to download and install the latest version [from here](https://aka.ms/azurebackup_agent). </li></ul> |
 
 ## Replica is inconsistent
 
@@ -72,19 +75,19 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Backup | Online recovery point creation failed | **Error Message**: Windows Azure Backup Agent was unable to create a snapshot of the selected volume. <br> **Workaround**: Try increasing the space in replica and recovery point volume.<br> <br> **Error Message**: The Windows Azure Backup Agent cannot connect to the OBEngine service <br> **Workaround**: verify that the OBEngine exists in the list of running services on the computer. If the OBEngine service is not running, use the "net start OBEngine" command to start the OBEngine service. <br> <br> **Error Message**: The encryption passphrase for this server is not set. Please configure an encryption passphrase. <br> **Workaround**: Try configuring an encryption passphrase. If it fails, take the following steps: <br> <ol><li>Verify that the scratch location exists. This is the location that's mentioned in the registry **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, with the name **ScratchLocation** should exist.</li><li> If the scratch location exists, try re-registering by using the old passphrase. *Whenever you configure an encryption passphrase, save it in a secure location.*</li><ol>|
+| Backup | Online recovery point creation failed | **Error Message**: Windows Azure Backup Agent was unable to create a snapshot of the selected volume. <br> **Workaround**: Try increasing the space in replica and recovery point volume.<br> <br> **Error Message**: The Windows Azure Backup Agent can't connect to the OBEngine service <br> **Workaround**: verify that the OBEngine exists in the list of running services on the computer. If the OBEngine service isn't running, use the "net start OBEngine" command to start the OBEngine service. <br> <br> **Error Message**: The encryption passphrase for this server isn't set. Please configure an encryption passphrase. <br> **Workaround**: Try configuring an encryption passphrase. If it fails, take the following steps: <br> <ol><li>Verify that the scratch location exists. This is the location that's mentioned in the registry **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, with the name **ScratchLocation** should exist.</li><li> If the scratch location exists, try re-registering by using the old passphrase. *Whenever you configure an encryption passphrase, save it in a secure location.*</li><ol>|
 
 ## The original and external DPM servers must be registered to the same vault
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you're trying to restore files to the alternate server from the original server using the External DPM recovery option, and if the server that's being recovered and the original server from where the data is backed-up are not associated with the same Recovery Services vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server are registered to the same vault.|
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you're trying to restore files to the alternate server from the original server using the External DPM recovery option, and if the server that's being recovered and the original server from where the data is backed-up aren't associated with the same Recovery Services vault.<br/> <br/>**Workaround**: To resolve this issue, ensure both the original and alternate servers are registered to the same vault.|
 
 ## Online recovery point creation jobs for VMware VM fail
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Backup | Online recovery point creation jobs for VMware VM fail. DPM encountered an error from VMware while trying to get ChangeTracking information. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Reset the CTK on VMware for the affected VMs.</li> <li>Check that independent disk is not in place on VMware.</li> <li>Stop protection for the affected VMs and reprotect with the **Refresh** button. </li><li>Run a CC for the affected VMs.</li></ol>|
+| Backup | Online recovery point creation jobs for VMware VM fail. DPM encountered an error from VMware while trying to get ChangeTracking information. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Reset the CTK on VMware for the affected VMs.</li> <li>Check that independent disk isn't in place on VMware.</li> <li>Stop protection for the affected VMs and reprotect with the **Refresh** button. </li><li>Run a CC for the affected VMs.</li></ol>|
 
 ## The agent operation failed because of a communication error with the DPM agent coordinator service on the server
 
