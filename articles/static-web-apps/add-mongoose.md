@@ -1,14 +1,15 @@
 ---
-title: "Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps"
-description: Learn to access data in Cosmos DB using Mongoose from an Azure Static Web Apps API function.
+title: "Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps"
+description: Learn to access data in Azure Cosmos DB using Mongoose from an Azure Static Web Apps API function.
 author: GeekTrainer
 ms.author: chrhar
 ms.service: static-web-apps
+ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 10/10/2022
 ---
 
-# Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps
+# Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps
 
 [Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Mongoose allows you to design a data structure and enforce validation, and provides all the tooling necessary to interact with databases that support the MongoDB API. [Cosmos DB](../cosmos-db/mongodb-introduction.md) supports the necessary MongoDB APIs and is available as a back-end server option on Azure.
 ## Prerequisites
@@ -67,6 +68,7 @@ This tutorial uses a GitHub template repository to help you create your applicat
     - Api location: **api**
     - Output location: **build**
     :::image type="content" source="media/add-mongoose/azure-static-web-apps.png" alt-text="Completed Azure Static Web Apps form":::
+
 11. Select **Review and create**.
 12. Select **Create**.
 13. The creation process takes a few moments; select **Go to resource** once the static web app is provisioned.
