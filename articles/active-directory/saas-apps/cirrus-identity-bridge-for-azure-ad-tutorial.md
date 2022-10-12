@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Cirrus Identity Bridge for Azure AD** application integration page, find the **Manage** section and select **Properties**.
 1. On the **Properties** page, toggle **Assignment Required** based on your access requirements. If set to **Yes**, you will need to assign the **Cirrus Identity Bridge for Azure AD** application to an access control group on the **Users and Groups** page.
-1. While still on the **Properties** page, toggle **Visible to users** to **No**. The initial integration will always represent the default integration used for multiple service providers. In this case, there will not be any one service provider to direct end users to. To make specific applications visible to end users, you will have to use linking single sign-on to give end user access in My Apps to specific service providers. [See here](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-linked-sign-on) for more details.
+1. While still on the **Properties** page, toggle **Visible to users** to **No**. The initial integration will always represent the default integration used for multiple service providers. In this case, there will not be any one service provider to direct end users to. To make specific applications visible to end users, you will have to use linking single sign-on to give end user access in My Apps to specific service providers. [See here](../manage-apps/configure-linked-sign-on) for more details.
 
 1. In the Azure portal, on the **Cirrus Identity Bridge for Azure AD** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
