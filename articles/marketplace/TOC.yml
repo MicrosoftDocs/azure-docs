@@ -728,7 +728,7 @@
   - name: Find Tenant and Object IDs
     href: find-tenant-object-id.md
   - name: Supported countries and regions
-    href: sell-from-countries.md  
+    href: supported-countries-regions.md  
   - name: Co-sell country, region, state, and province codes
     href: /partner-center/commercial-marketplace-co-sell-location-codes?context=/azure/marketplace/context/context
   - name: Categories and subcategories
