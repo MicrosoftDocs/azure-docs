@@ -5,7 +5,7 @@ author: harperche
 ms.author: harpercheng
 ms.service: batch
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 10/12/2022
 ---
 
 # Migrate client code to TLS 1.2 in Batch
