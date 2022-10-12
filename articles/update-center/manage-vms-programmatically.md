@@ -215,7 +215,9 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
   "location": "eastus2euap",
   "properties": {
     "namespace": null,
-    "extensionProperties": {},
+    "extensionProperties": {
+      "InGuestPatchMode" : "User"
+    },
     "maintenanceScope": "InGuestPatch",
     "maintenanceWindow": {
       "startDateTime": "2021-08-21 01:18",
@@ -259,7 +261,9 @@ The format of the request body is as follows:
   "location": "eastus2euap",
   "properties": {
     "namespace": null,
-    "extensionProperties": {},
+    "extensionProperties": {
+      "InGuestPatchMode": "User"
+    },
     "maintenanceScope": "InGuestPatch",
     "maintenanceWindow": {
       "startDateTime": "2021-08-21 01:18",
@@ -299,7 +303,9 @@ Invoke-AzRestMethod -Path "/subscriptions/<subscriptionId>/resourceGroups/<resou
   "location": "eastus2euap",
   "properties": {
     "namespace": null,
-    "extensionProperties": {},
+    "extensionProperties": {
+      "InGuestPatchMode" : "User"
+    },
     "maintenanceScope": "InGuestPatch",
     "maintenanceWindow": {
       "startDateTime": "2021-12-21 01:18",
