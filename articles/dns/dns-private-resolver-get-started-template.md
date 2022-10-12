@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Create an Azure DNS Private resolver - Azure Resource Manager template (ARM template)'
 titleSuffix: Azure DNS Private resolver
-description: Learn how to create Azure DNS private resolver. This is a step-by-step quickstart to create and manage your first Azure DNS private resolver using Azure Resource Manager template (ARM template).
+description: Learn how to create Azure DNS private resolver. This article is a step-by-step quickstart to create and manage your first Azure DNS private resolver using Azure Resource Manager template (ARM template).
 services: dns
-author: arunraj-selvaraj
-ms.author: aarunraaj
+author: aarunraaj
+ms.author: arselvar
 ms.date: 10/07/2022
 ms.topic: quickstart
 ms.service: dns
@@ -18,9 +18,9 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you are familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-private-resolver%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-private-resolver%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/azure-dns-private-resolver).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-dns-private-resolver).
 
 This template is configured to create a:
 
@@ -77,7 +77,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Validate the deployment
 
-1. Sign in to the [Azure Portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 
 1. Select **Resource groups** from the left pane.
 
