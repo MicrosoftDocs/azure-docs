@@ -121,7 +121,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To enable SSO in NAVEX IRM (Lockpath/Keylight), perform the following steps:
 
-    a. Sign-on to your NAVEX IRM (Lockpath/Keylight) account as administrator.
+    a. Sign on to your NAVEX IRM (Lockpath/Keylight) account as administrator.
 
     b. In the menu on the top, click **User Icon**, and select **Setup**.
 
