@@ -6,7 +6,7 @@ ms.author: lakshmishaks
 ms.service: energy-data-services
 ms.topic: how-to
 ms.date: 09/29/2022
-ms.custom: template-concept
+ms.custom: template-how-to
 #Customer intent: As a developer, I want to set up private endpoints for Microsoft Energy Data Services.
 ---
 
@@ -23,7 +23,7 @@ This article describes how to set up a private endpoint for Microsoft Energy Dat
 
 ## Prerequisites
 
-[Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Microsoft Energy Data Services instance. This action will allow automatic approval of the Private Link endpoint.
+[Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Microsoft Energy Data Services instance. This virtual network will allow automatic approval of the Private Link endpoint.
 
 ## Create a private endpoint by using the Azure portal
 

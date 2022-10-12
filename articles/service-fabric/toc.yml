@@ -456,6 +456,8 @@
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Use managed identity with an application
       href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
+    - name: Deploy custom image
+      href: how-to-deploy-custom-image.md
   - name: Set up your development environment
     items:
     - name: Windows
