@@ -27,7 +27,7 @@ Benefits of the Azure Key Vault Secrets Provider extension include the following
 
 - A cluster with a supported Kubernetes distribution that has already been [connected to Azure Arc](quickstart-connect-cluster.md). The following Kubernetes distributions are currently supported for this scenario:
   - Cluster API Azure
-  - Connected Azure Kubernetes Service (AKS) clusters on Azure Stack HCI
+  - Azure Kubernetes Service (AKS) clusters on Azure Stack HCI
   - AKS hybrid clusters provisioned from Azure
   - Google Kubernetes Engine
   - OpenShift Kubernetes Distribution
