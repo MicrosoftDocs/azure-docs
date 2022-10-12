@@ -32,6 +32,9 @@ To complete the authentication flow we assume you already have:
     - sssd-ldap o
     - oenldap-clients
 
+> [!NOTE]
+> The test environment in this docs is based on Windows Server 2016 Domain and Forest level on Windows Server 2019 OS.
+
 ## AD Configuration
 
 > [!NOTE]
