@@ -1363,6 +1363,8 @@ items:
       href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md 
   - name: Logs ingestion API
     items:
     - name: Overview
@@ -1463,7 +1465,9 @@ items:
       - name: Move from View Designer to Workbooks
         href: visualize/workbooks-view-designer-conversion-overview.md
       - name: Sample JSON to covert View Designer views
-        href: visualize/workbooks-view-designer-conversions.md 
+        href: visualize/workbooks-view-designer-conversions.md
+    - name: Retrieve legacy workbooks
+      href: visualize/workbooks-retrieve-legacy-workbooks.md
     - name: Access Troubleshooting guides
       href: visualize/workbooks-access-troubleshooting-guide.md
     - name: Workbook Samples
