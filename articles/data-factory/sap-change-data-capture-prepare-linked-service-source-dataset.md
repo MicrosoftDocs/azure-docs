@@ -1,32 +1,33 @@
 ---
-title: Set up a linked service and dataset for the SAP CDC connector (preview) 
+title: Set up a linked service and dataset for the SAP CDC connector
 titleSuffix: Azure Data Factory
-description: Learn how to set up a linked service and source dataset to use with the SAP CDC (change data capture) connector (preview) in Azure Data Factory.
+description: Learn how to set up a linked service and source dataset to use with the SAP CDC (change data capture) connector in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# Set up a linked service and source dataset for the SAP CDC connector (preview)
+# Set up a linked service and source dataset for the SAP CDC connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn how to set up the linked service and source dataset for the SAP CDC connector (preview) in Azure Data Factory.
+Learn how to set up the linked service and source dataset for the SAP CDC connector in Azure Data Factory.
 
 ## Set up a linked service
 
-To set up an SAP CDC (preview) linked service:
+To set up an SAP CDC linked service:
 
 1. In Azure Data Factory Studio, go to the Manage hub of your data factory. In the menu under **Connections**, select **Linked services**. Select **New** to create a new linked service.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-linked-service.png" alt-text="Screenshot of the Manage hub in Azure Data Factory Studio, with the New linked service button highlighted.":::
 
-1. In **New linked service**, search for **SAP**. Select **SAP CDC (Preview)**, and then select **Continue**.
+1. In **New linked service**, search for **SAP**. Select **SAP CDC**, and then select **Continue**.
 
-   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-selection.png" alt-text="Screenshot of the linked service source selection, with SAP CDC (Preview) selected.":::
+   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-linked-service-selection.png" alt-text="Screenshot of the linked service source selection, with SAP CDC selected.":::
 
 1. Set the linked service properties. Many of the properties are similar to SAP Table linked service properties. For more information, see [Linked service properties](connector-sap-table.md?tabs=data-factory#linked-service-properties).
 
@@ -47,9 +48,9 @@ To set up an SAP CDC (preview) linked service:
 
    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-dataset.png" alt-text="Screenshot that shows creating a new pipeline in the Data Factory Studio Author hub.":::  
 
-1. In **New dataset**, search for **SAP**. Select **SAP CDC (Preview)**, and then select **Continue**.
+1. In **New dataset**, search for **SAP**. Select **SAP CDC**, and then select **Continue**.
 
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP CDC (Preview) dataset type in the New dataset dialog.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-selection.png" alt-text="Screenshot of the SAP CDC dataset type in the New dataset dialog.":::
 
 1. In **Set properties**, enter a name for the SAP CDC linked service data source. In **Linked service**, select the dropdown and select **New**.
 
@@ -70,7 +71,7 @@ To set up an SAP CDC (preview) linked service:
 
       To enter the selections directly, select the **Edit** checkbox.
   
-    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-configuration.png" alt-text="Screenshot of the SAP CDC (Preview) dataset configuration page.":::
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-source-dataset-configuration.png" alt-text="Screenshot of the SAP CDC dataset configuration page.":::
 
 1. Select **OK** to create your new SAP CDC source dataset.
 
@@ -80,4 +81,4 @@ To set up a mapping data flow using the SAP CDC dataset as a source, follow [Tra
 
 ## Next steps
 
-[Debug copy activity by sending self-hosted integration runtime logs](sap-change-data-capture-debug-shir-logs.md)
+[Debug the SAP CDC connector by sending self-hosted integration runtime logs](sap-change-data-capture-debug-shir-logs.md)

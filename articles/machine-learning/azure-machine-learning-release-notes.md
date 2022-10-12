@@ -445,7 +445,7 @@ This breaking change comes from the June release of `azureml-inference-server-ht
 
 ## 2021-05-25
 
-### Announcing the CLI (v2) (preview) for Azure Machine Learning
+### Announcing the CLI (v2) for Azure Machine Learning
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 
@@ -1987,7 +1987,7 @@ Access the following web-based authoring tools from the studio:
 
 + **New features**
   + Dataset: Add two options `on_error` and `out_of_range_datetime` for `to_pandas_dataframe` to fail when data has error values instead of filling them with `None`.
-  + Workspace: Added the `hbi_workspace` flag for workspaces with sensitive data that enables further encryption and disables advanced diagnostics on workspaces. We also added support for bringing your own keys for the associated Cosmos DB instance, by specifying the `cmk_keyvault` and `resource_cmk_uri` parameters when creating a workspace, which creates a Cosmos DB instance in your subscription while provisioning your workspace. To learn more, see the [Azure Cosmos DB section of data encryption article](./concept-data-encryption.md#azure-cosmos-db).
+  + Workspace: Added the `hbi_workspace` flag for workspaces with sensitive data that enables further encryption and disables advanced diagnostics on workspaces. We also added support for bringing your own keys for the associated Azure Cosmos DB instance, by specifying the `cmk_keyvault` and `resource_cmk_uri` parameters when creating a workspace, which creates an Azure Cosmos DB instance in your subscription while provisioning your workspace. To learn more, see the [Azure Cosmos DB section of data encryption article](./concept-data-encryption.md#azure-cosmos-db).
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
@@ -2634,7 +2634,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
   + **azureml-core**
     + Fixed issue with blob_cache_timeout parameter ordering.
     + Added external fit and transform exception types to system errors.
-    + Added support for Key Vault secrets for remote runs. Add a azureml.core.keyvault.Keyvault class to add, get, and list secrets from the keyvault associated with your workspace. Supported operations are:
+    + Added support for Key Vault secrets for remote runs. Add an `azureml.core.keyvault.Keyvault` class to add, get, and list secrets from the key vault associated with your workspace. Supported operations are:
       + azureml.core.workspace.Workspace.get_default_keyvault()
       + azureml.core.keyvault.Keyvault.set_secret(name, value)
       + azureml.core.keyvault.Keyvault.set_secrets(secrets_dict)

@@ -90,7 +90,7 @@ Enrollment Number: <EnrollmentNumber>
 
 All Enrollment Administrators can gain access to all of your subscriptions if you proceed.
 Additionally, all Azure subscriptions for which you are the account owner will be converted to your Enterprise Agreement.
-This includes subscriptions which include a monthly credit (e.g. Visual Studio, MPN, BizSpart, etc.) meaning you will lose the monthly credit by proceeding.
+This includes subscriptions which include a monthly credit (e.g. Visual Studio, Microsoft Cloud Partner Program, BizSpart, etc.) meaning you will lose the monthly credit by proceeding.
 All subscriptions based on a Visual Studio subscriber offer (monthly credit for Visual Studio subscribers or Pay-As-You-Go Dev/Test) will be converted to use the Enterprise Dev/Test usage rates and be billed against this enrollment from today onwards.
 If you wish to retain the monthly credits currently associated with any of your subscriptions, please cancel.
 Please see additional details.
