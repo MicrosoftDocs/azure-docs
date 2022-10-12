@@ -1102,7 +1102,20 @@ and thus draw attention to them in relevant experiences including the failures b
 
 #### [.NET](#tab/net)
 
-Placeholder
+```csharp
+using (var activity = activitySource.StartActivity("ExceptionExample"))
+{
+    try
+    {
+        throw new Exception("Test exception");
+    }
+    catch (Exception ex)
+    {
+        activity?.SetStatus(ActivityStatusCode.Error);
+        activity?.RecordException(ex);
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
