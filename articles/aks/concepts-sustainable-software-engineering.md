@@ -106,7 +106,7 @@ _Monolithic applications usually scale as a unit, leaving little room to scale o
 
 **Design for Event Driven scaling** 
 
-_Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utilization; Build Event Driven workloads that scale based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.), and could scale back to 0 when there is no demand _.
+_Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utilization; Build Event Driven workloads that scale based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.), and could scale back to 0 when there is no demand_.
 
 &nbsp;&nbsp;&nbsp; :heavy_check_mark: Use [Keda](https://keda.sh/) to build event driven applications, that could scale to zero when there is no demand.
 
