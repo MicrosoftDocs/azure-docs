@@ -828,17 +828,17 @@ items:
       href: /powerapps/maker/data-platform/export-to-data-lake?context=/azure/synapse-analytics/context/context
   - name: Quickstarts
     items:
-    - name: Connect to Synapse Link for Cosmos DB
+    - name: Connect to Synapse Link for Azure Cosmos DB
       href: quickstart-connect-synapse-link-cosmos-db.md
   - name: Concepts
     items:
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       items:
       - name: Analytical Store Overview
         href: ../cosmos-db/analytical-store-introduction.md?context=/azure/synapse-analytics/context/context
       - name: Synapse Link supported features
         href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
-      - name: Cosmos DB FAQ
+      - name: Azure Cosmos DB FAQ
         href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?context=/azure/synapse-analytics/context/context
       - name: Synapse Link use cases
         href: ../cosmos-db/synapse-link-use-cases.md?context=/azure/synapse-analytics/context/context
@@ -866,11 +866,11 @@ items:
   #   items:  
   - name: How-to guides
     items:
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       items:
       - name: Configure Synapse Link
         href: ../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context
-      - name: Connect to Azure Synapse Link for Cosmos DB
+      - name: Connect to Azure Synapse Link for Azure Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Synapse Link and integrated Power BI
         href: ../cosmos-db/integrated-power-bi-synapse-link.md?context=/azure/synapse-analytics/context/context
@@ -1003,9 +1003,9 @@ items:
         href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&tabs=synapse-analytics
       - name: Azure Cognitive Search
         href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Azure Cosmos DB SQL API
+      - name: Azure Cosmos DB for NoSQL
         href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Azure Cosmos DB's API for MongoDB
+      - name: Azure Cosmos DB for MongoDB
         href: ../data-factory/connector-azure-cosmos-db-mongodb-api.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Data Explorer
         href: ../data-factory/connector-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics

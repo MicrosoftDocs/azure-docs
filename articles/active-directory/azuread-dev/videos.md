@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/12/2020
 ms.author: marsma
-ms.custom: aaddev
+ms.custom: aaddev, ignite-2022
 ms.reviewer: celested
 ROBOTS: NOINDEX
 ---
@@ -21,7 +21,7 @@ Learn about the new Microsoft identity platform and how to migrate to it from th
 
 ## Migrate from v1.0 to v2.0
 
-**Learn about migrating to the the latest version of the Microsoft identity platform**
+**Learn about migrating to the latest version of the Microsoft identity platform**
 
 :::row:::
     :::column:::
