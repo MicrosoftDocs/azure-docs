@@ -7,6 +7,7 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/20/2022
 ---
@@ -48,9 +49,9 @@ Your Azure resources could be protected using any number of the network isolatio
 | --- | --- | ---- |
 | Azure Storage for text-based indexing (blobs, ADLS Gen 2, files, tables) | Supported only if the storage account and search service are in different regions. | Supported |
 | Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Supported |
-| Azure Cosmos DB - SQL API | Supported | Supported |
-| Azure Cosmos DB - MongoDB API | Supported | Unsupported |
-| Azure Cosmos DB - Gremlin API | Supported | Unsupported |
+| Azure Cosmos DB for NoSQL | Supported | Supported |
+| Azure Cosmos DB for MongoDB | Supported | Unsupported |
+| Azure Cosmos DB for Apache Gremlin | Supported | Unsupported |
 | Azure SQL Database | Supported | Supported |
 | SQL Server on Azure virtual machines | Supported | N/A |
 | SQL Managed Instance | Supported | N/A |
