@@ -9,13 +9,13 @@ ms.date: 09/07/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Sample steps to interact with Wellbore ddms
+# Tutorial: Sample steps to interact with Wellbore DDMS
 
-Wellbore ddms provides the capability to operate on well data in the Microsoft Energy Data Services instance.
+Wellbore DDMS provides the capability to operate on well data in the Microsoft Energy Data Services instance.
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
-> * Utilize Wellbore ddms APIs to store and retrieve Wellbore and well log data
+> * Utilize Wellbore DDMS APIs to store and retrieve Wellbore and well log data
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 
 ### Microsoft Energy Data Services instance details
 
-* Once the [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) is created, note down the following details:
+* Once the [Microsoft Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) is created, save the following details:
 
 ```Table
   | Parameter          | Value to use             | Example                               |
@@ -38,20 +38,20 @@ In this tutorial, you'll learn how to:
 
 ### Postman setup
 
-* Download and install [Postman](https://www.postman.com/) desktop app
-* Import the following files into Postman:
-  * [Wellbore ddms Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMS.postman_collection.json)
-  * [Wellbore ddms Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMSEnvironment.postman_environment.json)
+1. Download and install [Postman](https://www.postman.com/) desktop app
+1. Import the following files into Postman:
+  1. [Wellbore ddms Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMS.postman_collection.json)
+  1. [Wellbore ddms Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMSEnvironment.postman_environment.json)
   
-* Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
+1. Update the **CURRENT_VALUE** of the Postman Environment with the information obtained in [Microsoft Energy Data Services instance details](#microsoft-energy-data-services-instance-details)
 
 ### Executing Postman Requests
 
-* The Postman collection for Wellbore ddms contains requests that allows interaction with wells, wellbore, well log and well trajectory data.
-* Make sure to choose the **Wellbore DDMS Environment** before triggering the Postman collection.
+1. The Postman collection for Wellbore ddms contains requests that allows interaction with wells, wellbore, well log and well trajectory data.
+2. Make sure to choose the **Wellbore DDMS Environment** before triggering the Postman collection.
   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png" alt-text="Choose environment." lightbox="media/tutorial-wellbore-ddms/tutorial-postman-choose-wellbore-environment.png":::
-* Each request can be triggered by clicking the **Send** Button.
-* On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the Test Section will indicate failures.
+3. Each request can be triggered by clicking the **Send** Button.
+4. On every request Postman will validate the actual API response code against the expected response code; if there's any mismatch the Test Section will indicate failures.
 
 **Successful Postman Call**
 
@@ -61,13 +61,25 @@ In this tutorial, you'll learn how to:
 
 :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png" alt-text="Screenshot-of-Failure." lightbox="media/tutorial-wellbore-ddms/tutorial-postman-test-failure.png":::
 
-### Utilize Wellbore ddms APIs to store and retrieve wellbore and well log data
+### Generate a token
 
-1. **Get an SPN Token** - Generate the Service Principal Bearer token, which will be used to authenticate further API calls.
-2. **Create a Legal Tag** - Create a legal tag that will be added automatically to the environment for data compliance purpose.
-3. **Create Well** - Creates the wellbore record in Microsoft Energy Data Services instance.
+1. **Get a Token** - Import the CURL command in Postman to generate the bearer token. Update the bearerToken in wellbore ddms environment. Use Bearer Token as Authorization type in other API calls.
+      ```bash
+      curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
+          --header 'Content-Type: application/x-www-form-urlencoded' \
+          --data-urlencode 'grant_type=client_credentials' \
+          --data-urlencode 'client_id={{CLIENT_ID}}' \
+          --data-urlencode 'client_secret={{CLIENT_SECRET}}' \
+          --data-urlencode 'scope={{SCOPE}}'  
+      ```
+  :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-of-the-wellbore-generate-token.png" alt-text="Screenshot of the wellbore generate token." lightbox="media/tutorial-wellbore-ddms/tutorial-of-the-wellbore-generate-token.png":::
+
+## Store and retrieve Wellbore and Well Log data with Wellbore ddms APIs
+
+1. **Create a Legal Tag** - Create a legal tag that will be added automatically to the environment for data compliance purpose.
+2. **Create Well** - Creates the wellbore record in Microsoft Energy Data Services instance.
    :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-create-well.png" alt-text="Screenshot of creating a Well." lightbox="media/tutorial-wellbore-ddms/tutorial-create-well.png":::
-4. **Get Wells** - Returns the well data created in the last step.
+3. **Get Wells** - Returns the well data created in the last step.
   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-wells.png" alt-text="Screenshot of getting all wells." lightbox="media/tutorial-wellbore-ddms/tutorial-get-wells.png":::
 1. **Get Well Versions** - Returns the versions of each ingested well record.
   :::image type="content" source="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png" alt-text="Screenshot of getting all Well versions." lightbox="media/tutorial-wellbore-ddms/tutorial-get-well-versions.png":::

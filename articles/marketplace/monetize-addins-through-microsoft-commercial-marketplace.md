@@ -37,7 +37,7 @@ Your offer must also use the SaaS fulfillment APIs to integrate with Commercial 
 ### Sign up for Partner Center
 
 To begin submitting your SaaS offer, you must create an account in the Commercial Marketplace program in Partner Center. This account must be associated with a company.
-- If you're new to Partner Center, and have never enrolled in the Microsoft Partner Network, see [Create an account using the Partner Center enrollment page](/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
+- If you're new to Partner Center, and have never enrolled in the Microsoft Cloud Partner Program, see [Create an account using the Partner Center enrollment page](/azure/marketplace/partner-center-portal/create-account#create-an-account-using-the-partner-center-enrollment-page).
 - If you're already enrolled in the Microsoft Cloud Partner Program or in a Partner Center developer program, see [Create an account using existing Microsoft Partner Center enrollments](/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-microsoft-partner-center-enrollments) for information about how to create your account.
 
 ### Register a SaaS application

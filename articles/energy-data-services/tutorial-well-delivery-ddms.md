@@ -9,7 +9,7 @@ ms.date: 07/28/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Sample steps to interact with Well Delivery ddms
+# Tutorial: Sample steps to interact with Well Delivery DDMS
 
 Well Delivery DDMS provides the capability to manage well related data in the Microsoft Energy Data Services Preview instance.
 
@@ -55,7 +55,7 @@ In this tutorial, you'll learn how to:
 
 ### Generate a token
 
-1. **Get a Token** - Import the CURL command in Postman to generate the bearer token. Update the bearerToken in well delivery ddms environment. Use Bearer Token as Authorization type in other API calls.
+1. **Get a Token** - Import the CURL command in Postman to generate the bearer token. Update the bearerToken in well delivery DDMS environment. Use Bearer Token as Authorization type in other API calls.
       ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
           --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -92,4 +92,4 @@ Completion of the above steps indicates successful creation and retrieval of wel
 ## See also
 Advance to the next tutorial to learn how to use sdutil to load seismic data into seismic store
 > [!div class="nextstepaction"]
-> [Tutorial: Sample steps to interact with Wellbore ddms](tutorial-wellbore-ddms.md)
+> [Tutorial: Sample steps to interact with Wellbore DDMS](tutorial-wellbore-ddms.md)
