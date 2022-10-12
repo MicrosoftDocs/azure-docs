@@ -44,19 +44,19 @@ You can train a model using only dictionary data. To do so, select only the dict
 
 - If you're using a phrase dictionary, capitalization and punctuation are important. Dictionary entries are case- and punctuation-sensitive. Custom Translator will only match words and phrases in the input sentence that use exactly the same capitalization and punctuation marks as specified in the source dictionary file. Also, translations will reflect the capitalization and punctuation provided in the target dictionary file.
 
-    **Example**
+  **Example**
 
-    * If you're training an English-to-Spanish system that uses a phrase dictionary and you specify "_SQL server_" in the source file and "_Microsoft SQL Server_" in the target file. When you request the translation of a sentence that contains the phrase "_SQL server_", Custom Translator will match the dictionary entry and the translation will contain "_Microsoft SQL Server_."
-    * When you request translation of a sentence that includes the same phrase but **doesn't** match what is in your source file, such as "_sql server_", "_sql Server_" or "_SQL Server_", it **won't** return a match from your dictionary.
-    * The translation follows the rules of the target language as specified in your phrase dictionary.
+  - If you're training an English-to-Spanish system that uses a phrase dictionary and you specify "_SQL server_" in the source file and "_Microsoft SQL Server_" in the target file. When you request the translation of a sentence that contains the phrase "_SQL server_", Custom Translator will match the dictionary entry and the translation will contain "_Microsoft SQL Server_."
+  - When you request translation of a sentence that includes the same phrase but **doesn't** match what is in your source file, such as "_sql server_", "_sql Server_" or "_SQL Server_", it **won't** return a match from your dictionary.
+  - The translation follows the rules of the target language as specified in your phrase dictionary.
 
 - If you're using a sentence dictionary, end-of-sentence punctuation is ignored.
 
-    **Example**
+  **Example**
+  
+  - If your source dictionary contains "_This sentence ends with punctuation!_", then any translation requests containing "_This sentence ends with punctuation_" will match.
 
-    * If your source dictionary contains "_This sentence ends with punctuation!_", then any translation requests containing "_This sentence ends with punctuation_" will match.
-
-- If a word appears more than once in a dictionary file, the system will always use the last entry provided. Thus, your dictionary shouldn't contain multiple translations of the same word.
+- Your dictionary should contain unique source lines. If a source line (a word, phrase, or sentence) appears more than once in a dictionary file, the system will always use the **last entry** provided and return the target when a match is found.
 
 - Avoid adding phrases that consist of only numbers or are two- or three-letter words, such as acronyms, in the source dictionary file.
 
