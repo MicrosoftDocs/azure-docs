@@ -26,8 +26,8 @@ under the Azure Cosmos DB sections in the Azure portal.
 > The name change in the Azure portal for existing Hyperscale (Citus) customers
 > will happen at the end of October. During this process, the cluster may
 > temporarily disappear in the Azure portal in both Hyperscale (Citus) and
-> Cosmos DB. There will be no service downtime for users of the database, only
-> a possible interruption in the portal administrative interface.
+> Azure Cosmos DB. There will be no service downtime for users of the database,
+> only a possible interruption in the portal administrative interface.
 
 ## Find your cluster in the renamed service
 
@@ -46,8 +46,8 @@ select **Azure Cosmos DB** from the results.
 
 ---
 
-Your cluster will appear in this list. Once it's listed in Cosmos DB, it will
-no longer appear as an Azure Database for PostgreSQL server group.
+Your cluster will appear in this list. Once it's listed in Azure Cosmos DB, it
+will no longer appear as an Azure Database for PostgreSQL server group.
 
 ## Next steps
 
