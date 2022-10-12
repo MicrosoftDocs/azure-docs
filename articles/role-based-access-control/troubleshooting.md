@@ -255,7 +255,7 @@ Removing the last Owner role assignment for a subscription is not supported to a
 
 If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
-You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are the Global Administrator for the tenant. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
+You are allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you are a Global Administrator for the tenant or a classic administrator (Service Administrator or Co-Administrator) for the subscription. In this case, there is no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
 
 ### Symptom - Role assignment is not moved after moving a resource
 
