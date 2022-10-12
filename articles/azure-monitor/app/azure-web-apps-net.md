@@ -180,6 +180,21 @@ The table below provides a more detailed explanation of what these values mean, 
 |`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| For ASP.NET remove the reference. 
 |`IKeyExists:false`|This value indicates that the instrumentation key isn't present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings.
 
+### System.IO.FileNotFoundException after 2.8.44 upgrade
+
+2.8.44 version of auto instrumentation upgrades Application Insights SDK to 2.20.0. Application Insights SDK has an indirect reference to `System.Runtime.CompilerServices.Unsafe.dll` through `System.Diagnostics.DiagnosticSource.dll`. If application has [binding redirect](https://learn.microsoft.com/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element) for `System.Runtime.CompilerServices.Unsafe.dll` and if this library is not present in application folder it may throw `System.IO.FileNotFoundException`.
+
+To resolve this issue, remove the binding redirect entry for `System.Runtime.CompilerServices.Unsafe.dll` from web.config file. If the application wanted to use `System.Runtime.CompilerServices.Unsafe.dll` then set the binding redirect as below.
+
+```  
+<dependentAssembly>
+	<assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+	<bindingRedirect oldVersion="0.0.0.0-4.0.4.1" newVersion="4.0.4.1" />
+</dependentAssembly>
+```
+
+As a temporary workaround, you could set the app setting, ApplicationInsightsAgent_EXTENSION_VERSION to a value of 2.8.37. This will trigger App Service to use the old Application Insights extension. Please note that temporary mitigations should only be used as an interim.
+
 ## Release notes
 
 For the latest updates and bug fixes [consult the release notes](web-app-extension-release-notes.md).

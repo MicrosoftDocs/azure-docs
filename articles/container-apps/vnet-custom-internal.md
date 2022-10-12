@@ -1,6 +1,6 @@
 ---
-title: Provide an internal virtual network to an Azure Container Apps environment
-description: Learn how to provide an internal VNET to an Azure Container Apps environment.
+title: Integrate a virtual network with an internal Azure Container Apps environment
+description: Learn how to integrate a VNET to an internal Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
