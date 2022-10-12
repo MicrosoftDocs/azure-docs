@@ -264,7 +264,7 @@ At this point is important to restart the service:
 
 ## Test the configuration
 
-Final step is to verify the flow works fine. In order to verify that try to login with one of your AD user in Active Directory. We tried with an user called *Francesca*. If the configuration is correct you obtain the following result:
+The Final step is to check that the flow works properly. To check this, try to login with one of your AD users in Active Directory. We tried with an user called *Francesca*. If the configuration is correct you will get the following result:
 
 ```console
 [root@centos8 ~]su - Francesca@cetesting.it
