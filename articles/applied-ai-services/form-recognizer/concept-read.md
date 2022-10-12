@@ -114,7 +114,7 @@ Read adds [language detection](language-support.md#detected-languages-read-api) 
 ]
 ```
 ### Microsoft Office and HTML support (preview) <sup>🆕</sup>
-Use the parameter `api-version=2022-06-30-preview when using the REST API or the corresponding SDKs of that API version to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. 
+Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. 
 
 :::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
 

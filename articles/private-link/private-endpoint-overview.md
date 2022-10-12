@@ -4,12 +4,12 @@ titleSuffix: Azure Private Link
 description: In this article, you'll learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: asudbring
-# Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 08/10/2022
 ms.author: allensu
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
+#Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 # What is a private endpoint?
 
@@ -198,7 +198,7 @@ The following table shows an example of a dual port NSG rule:
 
 - The following services may require all destination ports to be open when leveraging a private endpoint and adding NSG security filters:
 
-    - Cosmos DB - For more information see, [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
+    - Azure Cosmos DB - For more information, see [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
 
 ### UDR
 
