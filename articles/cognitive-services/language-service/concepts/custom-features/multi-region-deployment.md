@@ -41,7 +41,7 @@ You would now have three different endpoint URLs to access your project in all t
 
 The same request body to each of those different URLs serves the exact same response directly from that region. 
 
-# Validations and requirements
+## Validations and requirements
 
 Assigning deployment resources requires Microsoft Azure Active Directory (Azure AD) authentication. Azure AD is used to confirm you have access to the resources you are interested in assigning to your project for multi-region deployment. In the Language Studio, you can automatically [enable Azure AD authentication](https://aka.ms/rbac-language) by assigning yourself the _Cognitive Services Language Owner_ role to your original resource. To programmatically use Azure AD authentication, learn more from the [Cognitive Services documentation](/azure/cognitive-services/authentication?tabs=powershell&tryIt=true&source=docs#authenticate-with-azure-active-directory).
 
@@ -62,5 +62,10 @@ If you remove an assigned resource from your project, all of the project deploym
 
 Some regions are only available for deployment and not for authoring projects.
 
-# Next steps
-* Learn how to [deploy to multiple regions](../how-to/deploy-model.md).
+## Next steps
+
+Learn how to deploy models for:
+* [Conversational language understanding](../../conversational-language-understanding/how-to/deploy-model.md)
+* [Custom text classification](../../custom-text-classification/how-to/deploy-model.md)
+* [Custom NER](../../custom-named-entity-recognition/how-to/deploy-model.md)
+* [Orchestration workflow](../../orchestration-workflow/how-to/deploy-model.md)

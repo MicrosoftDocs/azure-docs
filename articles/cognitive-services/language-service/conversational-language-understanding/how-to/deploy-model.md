@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 10/12/2022
 ms.author: aahi
 ms.custom: language-service-clu,
 ---
@@ -77,7 +77,7 @@ This can be used to swap your `production` and `staging` deployments when you wa
 
 ## Assign deployment resources
 
-You can deploy your project to multiple regions by assigning different Language resources that exist in different regions. You can learn more about multi-region deployment [here](../concepts/multi-region-deployment.md).
+You can [deploy your project to multiple regions](../../concepts/custom-features/multi-region-deployment.md) by assigning different Language resources that exist in different regions. 
 
 # [Language Studio](#tab/language-studio)
 
