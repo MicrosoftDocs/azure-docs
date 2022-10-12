@@ -29,7 +29,7 @@ This article introduces and administrator for Azure Active Directory (Azure AD),
 
 You can use groups in Azure AD to assign licenses, or deployed enterprise apps, to large numbers of users. You can also use groups to assign all administrator roles except for Azure AD Global Administrator, or you can grant access to external resources, such as SaaS applications or SharePoint sites.
 
-You can use [dynamic groups](groups-create-rule.md) in Azure AD to expand and contract group membership automatically. Dynamic groups give you greater flexibility and they reduce group membership management work.7uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu8777777778 You'll need an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups.
+You can use [dynamic groups](groups-create-rule.md) in Azure AD to expand and contract group membership automatically. Dynamic groups give you greater flexibility and they reduce group membership management work. You'll need an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups.
 
 ## Assign licenses to groups
 
