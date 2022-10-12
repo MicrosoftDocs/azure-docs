@@ -7,7 +7,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 08/16/2022
+ms.date: 08/26/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -40,7 +40,7 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization, please read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization,read this [FAQ](verifiable-credentials-faq.md#i-cannot-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
   - Android version 6.2206.3973 or later installed.
   - iOS version 6.6.2 or later installed.
@@ -91,37 +91,38 @@ In this step, you create the verified credential expert card by using Microsoft 
         ```
 
     1. Copy the following JSON and paste it in the  **Rules definition** textbox
-    ```JSON
-    {
-      "attestations": {
-        "idTokenHints": [
-          {
-            "mapping": [
+    
+        ```JSON
+        {
+          "attestations": {
+            "idTokenHints": [
               {
-                "outputClaim": "firstName",
-                "required": true,
-                "inputClaim": "$.given_name",
-                "indexed": false
-              },
-              {
-                "outputClaim": "lastName",
-                "required": true,
-                "inputClaim": "$.family_name",
-                "indexed": false
+                "mapping": [
+                  {
+                    "outputClaim": "firstName",
+                    "required": true,
+                    "inputClaim": "$.given_name",
+                    "indexed": false
+                  },
+                  {
+                    "outputClaim": "lastName",
+                    "required": true,
+                    "inputClaim": "$.family_name",
+                    "indexed": false
+                  }
+                ],
+                "required": false
               }
-            ],
-            "required": false
+            ]
+          },
+          "validityInterval": 2592000,
+          "vc": {
+            "type": [
+              "VerifiedCredentialExpert"
+            ]
           }
-        ],
-        "validityInterval": 2592000,
-        "vc": {
-          "type": [
-            "VerifiedCredentialExpert"
-          ]
         }
-      }
-    }
-    ```
+        ```
 
     1. Select **Create**.
 
@@ -142,6 +143,9 @@ Now that you have a new credential, you're going to gather some information abou
 1. Copy the **manifest** URL. It's the URL that Authenticator evaluates before it displays to the user verifiable credential issuance requirements. Record it for later use.
 
 1. Copy your **Tenant ID**, and record it for later. The Tenant ID is the guid in the manifest URL highlighted in red above.
+
+    >[!NOTE]
+    > When setting up access policies for Azure Key Vault, you must add the access policies for both **Verifiable Credentials Service Request** and **Verifiable Credentials Service**.
 
 ## Download the sample code
 
@@ -209,7 +213,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
     "CertificateName": "[Or instead of client secret: Enter here the name of a certificate (from the user cert store) as registered with your application]",
     "IssuerAuthority": "did:web:example.com...",
     "VerifierAuthority": "did:web:example.com...",
-    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert"
   }
 }
 ```
@@ -320,8 +324,8 @@ public async Task<ActionResult> issuanceRequest()
     ...
 
     // Here you could change the payload manifest and change the first name and last name.
-    payload["issuance"]["claims"]["given_name"] = "Megan";
-    payload["issuance"]["claims"]["family_name"] = "Bowen";
+    payload["claims"]["given_name"] = "Megan";
+    payload["claims"]["family_name"] = "Bowen";
     ...
 }
   ```

@@ -1,20 +1,23 @@
 ---
-title: Secure data access in the cloud
+title: Secure data access in the cloud v1
 titleSuffix: Azure Machine Learning
-description: Learn how to securely connect to your data storage on Azure with Azure Machine Learning datastores and datasets.
+description: Learn how to securely connect to your data storage on Azure with Azure Machine Learning datastores and datasets v1
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.reviewer: nibaccam
-author: nibaccam
+ms.reviewer: ssalgado
+author: ssalgadodev
 ms.author: xunwan
 ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
-# Secure data access in Azure Machine Learning
+# Data in Azure Machine Learning v1
+
+[!INCLUDE [CLI v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [SDK v1](../../../includes/machine-learning-sdk-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-data.md)

@@ -18,7 +18,7 @@ The example source code in this article depends on environment variables for sto
 speech_key, service_region = os.environ['SPEECH__SUBSCRIPTION__KEY'], os.environ['SPEECH__SERVICE__REGION']
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 
@@ -58,7 +58,7 @@ def translate_speech_to_text():
     translation_config.speech_recognition_language = from_language
 ```
 
-The `speech_recognition_language` property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The `speech_recognition_language` property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 

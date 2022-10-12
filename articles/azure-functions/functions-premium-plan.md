@@ -244,12 +244,12 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Brazil South| 100 | 20 |
 |Canada Central| 100 | 20 |
 |Central India| 100 | 20 |
-|Central US| 100 | 40 |
+|Central US| 100 | 100 |
 |China East 2| 100 | 20 |
 |China North 2| 100 | 20 |
 |East Asia| 100 | 20 |
-|East US | 100 | 60 |
-|East US 2| 100 | 40 |
+|East US | 100 | 100 |
+|East US 2| 100 | 100 |
 |France Central| 100 | 20 |
 |Germany West Central| 100 | 20 |
 |Japan East| 100 | 20 |
@@ -258,28 +258,27 @@ See the complete regional availability of Functions on the [Azure web site](http
 |Korea Central| 100 | 20 |
 |Korea South| Not Available | 20 |
 |North Central US| 100 | 20 |
-|North Europe| 100 | 40 |
+|North Europe| 100 | 80 |
 |Norway East| 100 | 20 |
 |South Africa North| 100 | 20 |
-|South Central US| 100 | 40 |
+|South Central US| 100 | 60 |
 |South India | 100 | Not Available |
 |Southeast Asia| 100 | 20 |
 |Switzerland North| 100 | 20 |
 |Switzerland West| 100 | 20 |
 |UAE North| 100 | 20 |
-|UK South| 100 | 20 |
+|UK South| 100 | 60 |
 |UK West| 100 | 20 |
 |USGov Arizona| 100 | 20 |
 |USGov Texas| 100 | Not Available |
 |USGov Virginia| 100 | 20 |
 |West Central US| 100 | 20 |
-|West Europe| 100 | 40 |
+|West Europe| 100 | 100 |
 |West India| 100 | 20 |
-|West US| 100 | 20 |
+|West US| 100 | 40 |
 |West US 2| 100 | 20 |
 |West US 3| 100 | 20 |
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Understand Azure Functions hosting options](functions-scale.md)
+* [Understand Azure Functions hosting options](functions-scale.md)

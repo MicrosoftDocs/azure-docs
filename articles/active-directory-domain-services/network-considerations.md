@@ -3,13 +3,13 @@ title: Network planning and connections for Azure AD Domain Services | Microsoft
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/20/2022
+ms.date: 09/21/2022
 ms.author: justinha
 
 ---
@@ -108,14 +108,21 @@ The following sections cover network security groups and Inbound and Outbound po
 
 ### Inbound connectivity
 
-The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
+The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet for your managed domain.
 
 | Inbound port number | Protocol | Source                             | Destination | Action | Required | Purpose |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
 
-An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly. Don't delete this network security group. The load balancer won't work correctly without it.
+Azure AD DS also relies on the Default Security rules AllowVnetInBound and AllowAzureLoadBalancerInBound.
+
+:::image type="content" border="true" source="./media/network-considerations/nsg.png" alt-text="Screenshot of network security group rules.":::
+
+The AllowVnetInBound rule allows all traffic within the VNet which allows the DCs to properly communicate and replicate as well as allow domain join and other domain services to domain members. For more information about required ports for Windows, see [Service overview and network port requirements for Windows](/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements).
+
+
+The AllowAzureLoadBalancerInBound rule is also required so that the service can properly communicate over the loadbalancer to manage the DCs. This network security group secures Azure AD DS and is required for the managed domain to work correctly. Don't delete this network security group. The load balancer won't work correctly without it. 
 
 If needed, you can [create the required network security group and rules using Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 

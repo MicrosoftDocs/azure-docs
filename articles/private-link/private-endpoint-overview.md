@@ -4,12 +4,12 @@ titleSuffix: Azure Private Link
 description: In this article, you'll learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: asudbring
-# Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 08/10/2022
 ms.author: allensu
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
+#Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 # What is a private endpoint?
 
@@ -83,7 +83,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
 | Azure IoT Central | Microsoft.IoTCentral/IoTApps | IoTApps |
-| Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
+| Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |
@@ -100,7 +100,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Microsoft Purview | Microsoft.Purview/accounts | portal |
 | Azure Backup | Microsoft.RecoveryServices/vaults | vault |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
-| Azure Cognitive Search | Microsoft.Search/searchServices | search service |
+| Azure Cognitive Search | Microsoft.Search/searchServices | searchService |
 | Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |
 | Azure SignalR Service | Microsoft.SignalRService/SignalR | signalr |
 | Azure SignalR Service | Microsoft.SignalRService/webPubSub | webpubsub |
@@ -108,7 +108,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Storage | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)<BR> Dfs (dfs, dfs_secondary) |
 | Azure File Sync | Microsoft.StorageSync/storageSyncServices | File Sync Service |
 | Azure Synapse | Microsoft.Synapse/privateLinkHubs | web |
-| Azure Synapse Analytics | Microsoft.Synapse/workspaces | SQL, SqlOnDemand, Dev | 
+| Azure Synapse Analytics | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev | 
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
 | Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
@@ -121,8 +121,10 @@ A private-link resource is the destination target of a specified private endpoin
 
 When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access additional sub-resources within the same Azure service, additional private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the _file_ and _blob_ sub-resources.
 
-Private endpoints provide a privately accessible IP address for the Azure service, but do not necessarily restrict public network access to it. [Azure App Service](tutorial-private-endpoint-webapp-portal.md) and [Azure Functions](../azure-functions/functions-create-vnet.md) become inaccessible publicly when they are associated with a private endpoint. All other Azure services require additional [access controls](../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource. 
- 
+Private endpoints provide a privately accessible IP address for the Azure service, but do not necessarily restrict public network access to it. [Azure App Service](tutorial-private-endpoint-webapp-portal.md) and [Azure Functions](../azure-functions/functions-create-vnet.md) become inaccessible publicly when they are associated with a private endpoint. All other Azure services require additional [access controls](../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource.
+
+Private endpoints support network policies. Network policies enable support for Network Security Groups (NSG), User Defined Routes (UDR), and Application Security Groups (ASG). For more information about enabling network policies for a private endpoint, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md). To use an ASG with a private endpoint, see [Configure an application security group (ASG) with a private endpoint](configure-asg-private-endpoint.md).
+
 ## Access to a private-link resource using approval workflow 
 
 You can connect to a private-link resource by using the following connection approval methods:
@@ -173,8 +175,6 @@ The following information lists the known limitations to the use of private endp
 | --------- | ------------ |
 | Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. |
 | NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. |
-| Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. |
-| Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. |
 | The number of address prefixes per NSG is limited. | Having more than 500 address prefixes in an NSG in a single rule is unsupported. |
 | AllowVirtualNetworkAccess flag | Customers that set virtual network peering on their virtual network (virtual network A) with the *AllowVirtualNetworkAccess* flag set to *false* on the peering link to another virtual network (virtual network B) can't use the *VirtualNetwork* tag to deny traffic from virtual network B accessing private endpoint resources. The customers need to explicitly place a block for virtual network B’s address prefix to deny traffic to the private endpoint. |
 | No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that’s coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |
@@ -198,7 +198,7 @@ The following table shows an example of a dual port NSG rule:
 
 - The following services may require all destination ports to be open when leveraging a private endpoint and adding NSG security filters:
 
-    - Cosmos DB - For more information see, [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
+    - Azure Cosmos DB - For more information, see [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
 
 ### UDR
 

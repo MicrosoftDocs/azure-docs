@@ -440,5 +440,5 @@ The above conditions (explained in more detail in [Architecture Center](/azure/a
 
 The web apps deployed in these examples use public IP addresses that can be  accessed directly from the Internet. This helps with troubleshooting when you are learning about a new feature and trying new things. But if you intend to deploy a feature into production, you'll want to add more restrictions.  Consider the following options:
 
-- Configure [Access restriction rules based on service endpoints](../app-service/networking-features.md#access-restriction-rules-based-on-service-endpoints).  This allows you to lock down inbound access to the app making sure the source address is from Application Gateway.
+- Configure [Access restriction rules based on service endpoints](../app-service/overview-access-restrictions.md#access-restriction-rules-based-on-service-endpoints).  This allows you to lock down inbound access to the app making sure the source address is from Application Gateway.
 - Use [Azure App Service static IP restrictions](../app-service/app-service-ip-restrictions.md). For example, you can restrict the web app so that it only receives traffic from the application gateway. Use the app service IP restriction feature to list the application gateway VIP as the only address with access.

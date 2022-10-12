@@ -80,15 +80,19 @@
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
   - name: Learning path for templates
-    href: /learn/paths/deploy-manage-resource-manager-templates/
+    href: /training/paths/deploy-manage-resource-manager-templates/
 - name: Samples - Azure services
   items:
+  - name: Advisor
+    items:
+    - name: Alerts
+      href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: AI+Machine Learning
     items:
     - name: Cognitive Search
       href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cognitive Services
-      href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+      href: ../../cognitive-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Science Virtual Machine
       href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Machine Learning
@@ -97,10 +101,10 @@
     items:
     - name: Analysis Services
       href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Databricks
-      href: /azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Factory
       href: ../../data-factory/quickstart-create-data-factory-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Databricks
+      href: /azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Hubs
       href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - Hadoop
@@ -117,10 +121,6 @@
       href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Dedicated SQL pool (formerly SQL DW)
       href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-  - name: Blockchain
-    items:
-    - name: Blockchain
-      href: https://azure.microsoft.com/solutions/blockchain/?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
   - name: Compute
     items:
     - name: Batch
@@ -149,7 +149,7 @@
     items:
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/sql/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -208,7 +208,7 @@
     - name: Managed Applications
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Monitor
-      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Portal
@@ -241,10 +241,14 @@
       href: ../../firewall/quick-create-ipgroup-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Firewall - multiple addresses
       href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Firewall Manager
+    - name: Firewall Manager - policy
+      href: ../../firewall-manager/quick-firewall-policy.md?toc=/azure/azure-resource-manager/template/toc.json
+    - name: Firewall Manager - virtual hub
       href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Front Door
       href: ../../frontdoor/quickstart-create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Front Door - Standard/Premium
+      href: ../../frontdoor/create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer - internal
       href: ../../load-balancer/quickstart-load-balancer-standard-internal-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer - public
@@ -263,12 +267,12 @@
     items:
     - name: Attestation
       href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Defender for Cloud
+      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - key
       href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -283,6 +287,8 @@
       href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Redis Web App
+      href: ../../azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Concepts
@@ -490,8 +496,8 @@
     href: /python/api/overview/azure/resources
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/paths/deploy-manage-resource-manager-templates/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

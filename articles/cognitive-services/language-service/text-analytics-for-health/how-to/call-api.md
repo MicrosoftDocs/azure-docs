@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 09/05/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -38,7 +38,9 @@ By default, Text Analytics for health will use the latest available AI model on 
 
 | Supported Versions | latest version |
 |--|--|
+| `2022-03-01` | `2022-03-01`   |
 | `2021-05-15` | `2021-05-15`   |
+
 
 ### Text Analytics for health container
 
@@ -46,7 +48,10 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `3.0.016230002-onprem-amd64` (latest)            | `2021-05-15`  |
+| `/entities/health`              | `3.0.59413252-onprem-amd64` (latest)            | `2022-03-01`  |
+| `/entities/health`              | `3.0.59413252-latin-onprem-amd64` (latin)            | `2022-08-15-preview`  |
+| `/entities/health`              | `3.0.59413252-semitic-onprem-amd64` (semitic)            | `2022-08-15-preview`  |
+| `/entities/health`              | `3.0.016230002-onprem-amd64`            | `2021-05-15`  |
 | `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
 | `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
@@ -56,7 +61,7 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 ### Input languages
 
-Currently the Text Analytics for health only [supports](../language-support.md) the English language. 
+Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview when deploying the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
 
 ## Submitting data
 

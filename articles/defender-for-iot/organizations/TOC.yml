@@ -6,7 +6,11 @@
   - name: About Defender for IoT
     href: overview.md
   - name: What's new?
-    href: release-notes.md
+    items:
+    - name: Whats new in Defender for IoT
+      href: release-notes.md
+    - name: Microsoft Sentinel solution release notes
+      href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
   items:
@@ -19,8 +23,12 @@
     href: tutorial-onboarding.md
   - name: Set up Enterprise IoT network security
     href: tutorial-getting-started-eiot-sensor.md
-  - name: Detect threats with Microsoft Sentinel
-    href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+  - name: Integrate with Microsoft Sentinel
+    items: 
+    - name: Connect Defender for IoT data to Microsoft Sentinel
+      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:
     - name: System architecture
@@ -127,7 +135,11 @@
     - name: Splunk
       href: tutorial-splunk.md
     - name: ServiceNow
-      href: tutorial-servicenow.md
+      items:
+      - name: ServiceNow integrations
+        href: tutorial-servicenow.md
+      - name: Legacy integration
+        href: integrations/service-now-legacy.md
   - name: System deployment
     items:
     - name: Manage plans on Azure subscriptions
@@ -231,12 +243,12 @@
       items:
       - name: HPE ProLiant DL20/DL20 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
+        href: appliance-catalog/dell-edge-5200.md
     - name: Production line
       items:
       - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
-      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
-        href: appliance-catalog/dell-edge-5200.md
       - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances

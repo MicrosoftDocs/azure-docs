@@ -12,11 +12,14 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/05/2017
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
 # Use StorSimple Snapshot Manager to connect and manage StorSimple devices
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+
 ## Overview
 You can use nodes in the StorSimple Snapshot Manager **Scope** pane to verify imported StorSimple device data and refresh connected storage devices. Additionally, when you click the **Devices** node, you can see a list of connected devices and corresponding status information in the **Results** pane.
 

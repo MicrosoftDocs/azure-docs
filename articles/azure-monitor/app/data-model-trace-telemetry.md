@@ -26,7 +26,7 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 ## Next steps
 
 - [Explore .NET trace logs in Application Insights](./asp-net-trace-logs.md).
-- [Explore Java trace logs in Application Insights](java-2x-trace-logs.md).
+- [Explore Java trace logs in Application Insights](./java-in-process-agent.md#autocollected-logs).
 - See [data model](data-model.md) for Application Insights types and data model.
 - [Write custom trace telemetry](./api-custom-events-metrics.md#tracktrace)
 - Check out [platforms](./platforms.md) supported by Application Insights.

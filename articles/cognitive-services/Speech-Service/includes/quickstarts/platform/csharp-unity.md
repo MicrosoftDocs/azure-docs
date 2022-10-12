@@ -29,7 +29,7 @@ This guide requires:
 - On iOS, an iOS device (ARM64) enabled for development with a working microphone.
 - On macOS, a Mac device (x64) and the latest LTS version of Unity 2019 (or later) for integrated support for microphone access in Unity Player settings.
 
-### Install the Speech SDK
+### Install the Speech SDK for Unity
 
 To install the Speech SDK for Unity, follow these steps:
 

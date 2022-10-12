@@ -105,7 +105,7 @@ Allow the project to capture audio input:
 
 1. From the menu bar, select **File** > **Save Package.appxmanifest** to save your changes.
 
-### Install the Speech SDK
+### Install the Speech SDK for UWP
 
 Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and reference the Speech SDK in your project:
 

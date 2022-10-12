@@ -1,35 +1,36 @@
 ---
-title: 4.2 server version supported features and syntax in Azure Cosmos DB API for MongoDB 
-description: Learn about Azure Cosmos DB API for MongoDB 4.2 server version supported features and syntax. Learn about the database commands, query language support, datatypes, aggregation pipeline commands, and operators supported.
+title: 4.2 server version supported features and syntax in Azure Cosmos DB for MongoDB 
+description: Learn about Azure Cosmos DB for MongoDB 4.2 server version supported features and syntax. Learn about the database commands, query language support, datatypes, aggregation pipeline commands, and operators supported.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 04/05/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
 
-# Azure Cosmos DB API for MongoDB (4.2 server version): supported features and syntax
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+# Azure Cosmos DB for MongoDB (4.2 server version): supported features and syntax
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service, offering [multiple database APIs](../choose-api.md). You can communicate with the Azure Cosmos DB API for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service, offering [multiple database APIs](../choose-api.md). You can communicate with the Azure Cosmos DB for MongoDB using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Azure Cosmos DB provides: [global distribution](../distribute-data-globally.md), [automatic sharding](../partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 ## Protocol Support
 
-The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB API for MongoDB. When using Azure Cosmos DB API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
+The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for MongoDB. When using Azure Cosmos DB for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
 > [!NOTE]
-> This article only lists the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with the Azure Cosmos DB API for MongoDB.
+> This article only lists the supported server commands, and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with the Azure Cosmos DB for MongoDB.
 
 ## Query language support
 
-Azure Cosmos DB API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
+Azure Cosmos DB for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
 
 ## Database commands
 
-Azure Cosmos DB API for MongoDB supports the following database commands:
+Azure Cosmos DB for MongoDB supports the following database commands:
 
 ### Query and write operation commands
 
@@ -385,9 +386,15 @@ Azure Cosmos DB API for MongoDB supports the following database commands:
 
 ## Data types
 
-Azure Cosmos DB API for MongoDB supports documents encoded in MongoDB BSON format. The 4.2 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.2 benefit from this.
+Azure Cosmos DB for MongoDB supports documents encoded in MongoDB BSON format. Versions 4.0 and higher (4.0+) enhance the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.0+ benefit from this.
  
-In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to the upgrade to version 4.2 will not benefit from the enhanced performance until they are updated via a write operation through the 4.2 endpoint.
+In an [upgrade scenario](upgrade-version.md), documents written prior to the upgrade to version 4.0+ will not benefit from the enhanced performance until they are updated via a write operation through the 4.0+ endpoint.
+
+16 MB document support raises the size limit for your documents from 2 MB to 16 MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it cannot be disabled. This feature is not compatible with the Azure Synapse Link feature and/or Continuous Backup.
+
+Enabling 16 MB can be done in the features tab in the Azure portal or programmatically by [adding the `EnableMongo16MBDocumentSupport` capability](how-to-configure-capabilities.md). 
+
+We recommend enabling Server Side Retry to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
 
 | Command | Supported |
 |---------|---------|
@@ -431,7 +438,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | Only supported with unique indexes |
+| Partial | No |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
@@ -565,7 +572,7 @@ $polygon | No |
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
 ## Indexing
-The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
+The API for MongoDB [supports a variety of indexes](indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
 
 ## Client-side field level encryption
 
@@ -579,9 +586,9 @@ Azure Cosmos DB supports GridFS through any GridFS-compatible Mongo driver.
 
 ## Replication
 
-Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Cosmos DB does not support manual replication commands.
+Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Azure Cosmos DB does not support manual replication commands.
 
-## Retryable Writes (preview)
+## Retryable Writes
 Retryable writes enables MongoDB drivers to automatically retry certain write operations in case of failure, but results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections will require the shard key to be included in the query filter or update statement.
 
 For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field city = "NYC", the application will need to execute the operation for all shard key (country) values if Retryable writes is enabled. 
@@ -590,7 +597,7 @@ db.coll.deleteMany({"country": "USA", "city": "NYC"}) – Success
 
 db.coll.deleteMany({"city": "NYC"})- Fails with error ShardKeyNotFound(61) 
 
-To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. 
+To enable the feature, [add the `EnableMongoRetryableWrites` capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure portal. 
 
 ## Sharding
 
@@ -610,17 +617,17 @@ Multi-document transactions are supported within an unsharded collection. Multi-
 
 ## User and role management
 
-Azure Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Azure Cosmos DB does not yet support users and roles. However, Azure Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/), which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](../consistency-levels.md).
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/), which specifies the number of responses required during a write operation. Due to how Azure Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](../consistency-levels.md).
 
 ## Next steps
 
-- Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB API for MongoDB.
-- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB API for MongoDB.
-- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB API for MongoDB.
+- Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB for MongoDB.
+- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB for MongoDB.
+- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB for MongoDB.
 - Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md). 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md).

@@ -8,7 +8,7 @@ ms.date: 11/20/2020
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# and is included in the Azure IoT device SDK for C#. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat)
 
 In this tutorial, you:
 
@@ -31,17 +31,17 @@ To complete this tutorial on Windows, install the following software on your loc
 
 If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
 
-Clone the samples from the Azure IoT Samples for C# GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT samples for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository:
+Clone the samples from the Azure IoT Samples for C# GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository:
 
 ```cmd
-git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
 ## Run the sample device
 
 In this quickstart, you use a sample temperature controller device that's written in C# as the IoT Plug and Play device. To run the sample device:
 
-1. Open the *azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\TemperatureController\TemperatureController.csproj* project file in Visual Studio 2019.
+1. Open the *azure-iot-sdk-csharp\iothub\deivce\samples\solutions\PnpDeviceSamples\TemperatureController\TemperatureController.csproj* project file in Visual Studio 2019.
 
 1. In Visual Studio, navigate to **Project > TemperatureController Properties > Debug**. Then add the following environment variables to the project:
 
@@ -66,7 +66,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 The device code connects to your IoT hub using the standard `CreateFromConnectionString` method. The device sends the model ID of the DTDL model it implements in the connection request. A device that sends a model ID is an IoT Plug and Play device:
 

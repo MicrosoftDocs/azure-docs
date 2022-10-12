@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 09/26/2022
 ms.custom: event-tier1-build-2022
 ---
 
@@ -21,46 +21,20 @@ This page shows the supported authentication types and client types of Azure Dat
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Container Apps, and Azure Spring Apps:
 
-### [Azure App Service](#tab/app-service)
-
-| Client type               | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|---------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| .NET (ADO.NET)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Go (pg)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java (JDBC)               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Node.js (pg)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python (psycopg2)         |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python-Django             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| PHP (native)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Ruby (ruby-pg)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| None                      |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-
-### [Azure Container Apps](#tab/container-apps)
-
-| Client type               | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|---------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| .NET (ADO.NET)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Go (pg)                   |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java (JDBC)               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Node.js (pg)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python (psycopg2)         |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python-Django             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| PHP (native)              |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Ruby (ruby-pg)            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| None                      |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-
-### [Azure Spring Apps](#tab/spring-apps)
-
-| Client type               | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|---------------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| Java (JDBC)               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot (JDBC) |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-
----
+| Client type               | System-assigned managed identity     | User-assigned managed identity | Secret / connection string           | Service principal |
+|---------------------------|--------------------------------------|--------------------------------|--------------------------------------|-------------------|
+| .NET (ADO.NET)            |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Go (pg)                   |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Java (JDBC)               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
+| Java - Spring Boot (JDBC) | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) |                   |
+| Node.js (pg)              |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Python (psycopg2)         |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Python-Django             |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| PHP (native)              |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| Ruby (ruby-pg)            |                                      |                                | ![yes icon](./media/green-check.png) |                   |
+| None                      |                                      |                                | ![yes icon](./media/green-check.png) |                   |
 
 ## Default environment variable names or application properties
 
@@ -74,9 +48,15 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 
 ### Java (JDBC) secret / connection string
 
-| Default environment variable name | Description                       | Example value                                                                                                                                                             |
-|-----------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default environment variable name | Description                       | Example value                                                                                                                                                                 |
+|-----------------------------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_POSTGRESQL_CONNECTIONSTRING | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<username>%40<PostgreSQL-server-name>l&password=<password>` |
+
+### Java (JDBC) system-assigned managed identity
+
+| Default environment variable name | Description                       | Example value                                                                                                                        |
+|-----------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| AZURE_POSTGRESQL_CONNECTIONSTRING | JDBC PostgreSQL connection string | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require&user=<connection-name>` |
 
 ### Java - Spring Boot (JDBC) secret / connection string
 
@@ -84,6 +64,14 @@ Use the connection details below to connect compute services to PostgreSQL. For 
 |-----------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
 | spring.datatsource.url      | Database URL      | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
 | spring.datatsource.username | Database username | `<username>@<PostgreSQL-server-name>`                                                                         |
+| spring.datatsource.password | Database password | `<password>`                                                                                                  |
+
+### Java - Spring Boot (JDBC) system-assigned managed identity
+
+| Application properties      | Description       | Example value                                                                                                 |
+|-----------------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| spring.datatsource.url      | Database URL      | `jdbc:postgresql://<PostgreSQL-server-name>.postgres.database.azure.com:5432/<database-name>?sslmode=require` |
+| spring.datatsource.username | Database username | `Connection-Name`                                                                                             |
 | spring.datatsource.password | Database password | `<password>`                                                                                                  |
 
 ### Node.js (pg) secret / connection string

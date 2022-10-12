@@ -32,4 +32,4 @@ None.
 - Application admin
 - Cloud application admin
 
-Find more details in [Azure Active Directory documentation](/azure/active-directory/roles/permissions-reference.md).
+Find more details in [Azure Active Directory documentation](/azure/active-directory/roles/permissions-reference).

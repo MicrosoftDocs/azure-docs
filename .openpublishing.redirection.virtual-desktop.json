@@ -19,6 +19,21 @@
             "source_path_from_root": "/articles/virtual-desktop/create-profile-container-adds.md",
             "redirect_url": "/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory",
             "redirect_document_id": true
-        }
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/shortpath.md",
+            "redirect_url": "/azure/virtual-desktop/rdp-shortpath",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/shortpath-public.md",
+            "redirect_url": "/azure/virtual-desktop/rdp-shortpath",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/using-visual-studio-vm.md",
+            "redirect_url": "/visualstudio/install/using-visual-studio-vm",
+            "redirect_document_id": false
+        }        
     ]
 }

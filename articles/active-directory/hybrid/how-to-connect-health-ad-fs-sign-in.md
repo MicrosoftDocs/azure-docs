@@ -4,7 +4,7 @@ description: This document describes how to integrate AD FS sign-ins with the Az
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity

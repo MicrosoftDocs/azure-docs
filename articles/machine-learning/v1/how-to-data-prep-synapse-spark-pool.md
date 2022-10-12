@@ -42,7 +42,7 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
 
 * [Create Apache Spark pool using Azure portal, web tools, or Synapse Studio](/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
-* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md#create) with the SDK already installed. 
+* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md#create) with the SDK already installed. 
 
 * Install the `azureml-synapse` package (preview) with the following code:
 
@@ -325,5 +325,5 @@ See the example notebooks for more concepts and demonstrations of the Azure Syna
 
 ## Next steps
 
-* [Train a model](../how-to-set-up-training-targets.md).
+* [Train a model](how-to-set-up-training-targets.md).
 * [Train with Azure Machine Learning dataset](how-to-train-with-datasets.md).

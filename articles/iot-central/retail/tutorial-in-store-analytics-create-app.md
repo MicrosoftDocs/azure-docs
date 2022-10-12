@@ -67,8 +67,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/iotc-retail-homepage.png" alt-text="Connected logistics template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab.
 
 1. Select **Create app** under **In-store analytics - checkout**.
 
@@ -108,9 +107,7 @@ To create a custom theme:
 
 1. Optionally, replace the default **Browser colors** by adding HTML hexadecimal color codes. For the **Header**, add *#008575*.  For the **Accent**, add *#A1F3EA*. 
 
-1. Select **Save**. 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/select-application-logo.png" alt-text="Azure IoT Central customized logo.":::
+1. Select **Save**.
 
     After you save, the application updates the browser colors, the logo in the masthead, and the browser icon.
 
@@ -143,8 +140,6 @@ To add a RuuviTag device template to your application:
 1. Find and select the **RuuviTag Multisensor** device template in the Azure IoT device catalog. 
 
 1. Select **Next: Review**.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png" alt-text="Screenshot that highlights the Next: Customize button.":::
 
 1. Select **Create**. The application adds the RuuviTag device template.
 

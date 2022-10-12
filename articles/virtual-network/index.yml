@@ -10,8 +10,8 @@ metadata:
   ms.service: virtual-network
   ms.topic: landing-page
   ms.collection: collection
-  author: mbender-ms
-  ms.author: mbender
+  author: asudbring
+  ms.author: allensu
   ms.date: 06/29/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -33,7 +33,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Virtual Networks
-            url: /learn/modules/introduction-to-azure-virtual-networks
+            url: /training/modules/introduction-to-azure-virtual-networks
  
   # Card (optional)
   - title: Get started
@@ -75,7 +75,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
-            url: /learn/modules/secure-and-isolate-with-nsg-and-service-endpoints
+            url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints
        
   # Card
   - title: Connect virtual networks
@@ -103,7 +103,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Communicate across virtual network with peering
-            url: /learn/modules/integrate-vnets-with-vnet-peering
+            url: /training/modules/integrate-vnets-with-vnet-peering
 
   # Card
   - title: Route network traffic
@@ -119,7 +119,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Manage and control traffic flow in your Azure deployment with routes
-            url: /learn/modules/control-network-traffic-flow-with-routes/       
+            url: /training/modules/control-network-traffic-flow-with-routes/       
 
   # Card
   - title: Create IP addresses 
@@ -187,7 +187,7 @@ landingContent:
             url: ./ip-services/manage-public-ip-address-prefix.md
   
   # Card
-  - title: Architectural Guidance
+  - title: Learn about Virtual Network architecture
     linkLists:
       - linkListType: overview
         links:
@@ -196,7 +196,7 @@ landingContent:
       - linkListType: learn
         links:
         - text: Architect network infrastructure in Azure
-          url: /learn/paths/architect-network-infrastructure/
+          url: /training/paths/architect-network-infrastructure/
       - linkListType: reference
         links:
         - text: Connect an on-premises network to Azure
@@ -219,7 +219,3 @@ landingContent:
             url: /powershell/module/az.network
           - text: REST
             url: /rest/api/virtual-network      
-
-
-
-

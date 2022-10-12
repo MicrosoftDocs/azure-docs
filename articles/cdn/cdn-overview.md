@@ -75,4 +75,4 @@ For a complete list of features that each Azure CDN product supports, see [Compa
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 - Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
-- [Learn module: Introduction to Azure Content Delivery Network (CDN)](/learn/modules/intro-to-azure-content-delivery-network).
+- [Learn module: Introduction to Azure Content Delivery Network (CDN)](/training/modules/intro-to-azure-content-delivery-network).

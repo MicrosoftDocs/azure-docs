@@ -41,7 +41,7 @@ System health checks include the following:
 |- Longest Key     | Displays the longest keys that might cause extensive memory usage.        |
 |**System**     |         |
 |- Core Log     | Provides the last 500 rows of the core log, so that you can view the recent log rows without exporting the entire system log.        |
-|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cash layer (SQL) |
+|- Task Manager     |  Translates the tasks that appear in the table of processes to the following layers: <br><br>  - Persistent layer (Redis)<br>  - Cache layer (SQL) |
 |- Network Statistics     | Displays your network statistics.        |
 |- TOP     |    Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.     |
 |- Backup Memory Check     | Provides the status of the backup memory, checking the following:<br><br> - The location of the backup folder<br>  - The size of the backup folder<br>  - The limitations of the backup folder<br>  - When the last backup happened<br>  - How much space there are for the extra backup files        |
@@ -95,7 +95,7 @@ Verify that you can access the console web GUI:
 
 1. Define the laptop NIC address to be in the same range as the appliance.
 
-    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI.":::
+    :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI." border="false":::
 
 1. Ping the appliance's IP address from the laptop to verify connectivity (default: 10.100.10.1).
 
@@ -124,8 +124,6 @@ Verify that you can access the console web GUI:
 
    1. Use the command `network list` to see the current IP address.
 
-      :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Screenshot that shows the network list.":::
-
 1. If the network parameters are misconfigured, use the following procedure to change them:
 
    1. Use the command `network edit-settings`.
@@ -152,7 +150,7 @@ Verify that you can access the console web GUI:
 
 1. Use the **Support** user credentials to sign in.
 
-1. Use the `system sanity` command and check that all processes are running.
+1. Use the `system sanity` command and check that all processes are running. For example:
 
     :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
 

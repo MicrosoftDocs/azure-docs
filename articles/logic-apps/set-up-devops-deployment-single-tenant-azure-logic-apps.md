@@ -226,7 +226,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
   displayName: 'Deploy logic app workflows'
   inputs:
      azureSubscription: 'MyServiceConnection'
-     appType: 'workflowapp'
+     appType: 'functionAppLinux' ## Default: functionApp 
      appName: 'MyLogicAppName'
      package: 'MyBuildArtifact.zip'
      deploymentMethod: 'zipDeploy'

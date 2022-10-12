@@ -157,12 +157,12 @@ Next, you add code to the project.
 
    [!code-csharp[Intent recognition by using a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-1. Replace the placeholders in this method with your LUIS subscription key, region, and app ID as follows.
+1. Replace the placeholders in this method with your LUIS resource key, region, and app ID as follows.
 
    | Placeholder | Replace with |
    | ----------- | ------------ |
-   | `YourLanguageUnderstandingSubscriptionKey` | Your LUIS key. Again, you must get this item from your Azure dashboard. You can find it on your app's **Azure Resources** page (under **Manage**) in the [LUIS portal](https://www.luis.ai/home). |
-   | `YourLanguageUnderstandingServiceRegion` | The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md). |
+   | `YourLanguageUnderstandingSubscriptionKey` | Your LUIS resource key. Again, you must get this item from your Azure dashboard. You can find it on your app's **Azure Resources** page (under **Manage**) in the [LUIS portal](https://www.luis.ai/home). |
+   | `YourLanguageUnderstandingServiceRegion` | The short identifier for the region your LUIS resource is in, such as `westus` for West US. See [Regions](regions.md). |
    | `YourLanguageUnderstandingAppId` | The LUIS app ID. You can find it on your app's **Settings** page in the [LUIS portal](https://www.luis.ai/home). |
 
 With these changes made, you can build (**Control+Shift+B**) and run (**F5**) the application. When you're prompted, try saying "Turn off the lights" into your PC's microphone. The application displays the result in the console window.
@@ -171,12 +171,12 @@ The following sections include a discussion of the code.
 
 ## Create an intent recognizer
 
-First, you need to create a speech configuration from your LUIS prediction key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
+First, you need to create a speech configuration from your LUIS prediction key and region. You can use speech configurations to create recognizers for the various capabilities of the Speech SDK. The speech configuration has multiple ways to specify the resource you want to use; here, we use `FromSubscription`, which takes the resource key and region.
 
 > [!NOTE]
-> Use the key and region of your LUIS subscription, not a Speech service subscription.
+> Use the key and region of your LUIS resource, not a Speech resource.
 
-Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, you don't need to specify the subscription key again when creating the recognizer.
+Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which resource to use, you don't need to specify the key again when creating the recognizer.
 
 ## Import a LUIS model and add intents
 
@@ -219,7 +219,7 @@ The application doesn't parse the JSON result. It only displays the JSON text in
 
 ## Specify recognition language
 
-By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our application before creating the recognizer to recognize intents in German. For more information, see [LUIS language support](../LUIS/luis-language-support.md#languages-supported).
+By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our application before creating the recognizer to recognize intents in German. For more information, see [LUIS language support](../LUIS/luis-language-support.md).
 
 ## Continuous recognition from a file
 

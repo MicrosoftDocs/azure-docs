@@ -4,7 +4,7 @@ description: This document details device options available in Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: billmath
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory

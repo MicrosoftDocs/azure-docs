@@ -13,6 +13,8 @@ ms.custom: ignite-fall-2021
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
 
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
 This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using the **Logic App (Standard)** resource type and the Azure portal. This resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless). Also, workflows in the same logic app and tenant run in the same process as the redesigned Azure Logic Apps runtime, so they share the same resources and provide better performance. For more information about the single-tenant Azure Logic Apps offering, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.

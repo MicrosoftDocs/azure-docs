@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: reference
-ms.author: larryfr
-author: blackmist
+ms.author: hancwang
+author: luigiw
+ms.reviewer: larryfr
 ms.date: 04/12/2022
 ---
 
@@ -21,7 +22,7 @@ ms.date: 04/12/2022
 In this article, learn about Azure Machine Learning CLI (v2) releases.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
-`https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+`https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
 
 ## 2022-05-24
 
@@ -155,6 +156,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2021-05-25
 
-### Announcing the CLI (v2) (preview) for Azure Machine Learning
+### Announcing the CLI (v2) for Azure Machine Learning
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).

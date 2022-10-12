@@ -5,7 +5,7 @@ author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, ignite-2022
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/16/2021
@@ -218,7 +218,7 @@ To run this script you need:
     - password for the private key (pfx file)
 
 > [!IMPORTANT]
-> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
+> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
 
 ```powershell
 
@@ -402,7 +402,7 @@ else
 ```
 
 #### Validate token signing key
-Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
+Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-configuration-document). Below is the format of the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}

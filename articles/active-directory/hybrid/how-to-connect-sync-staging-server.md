@@ -4,7 +4,7 @@ description: This topic describes operational tasks for Azure AD Connect sync an
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory

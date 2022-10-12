@@ -55,7 +55,7 @@ The Private link configuration defines the infrastructure used by Application Ga
 
 **Configure Private Endpoint**
 
-A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your gateway. Each of the clients will use the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
+A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your Application Gateway. Each of the clients will use the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
 
 1. Select the **Private endpoint connections** tab.
 1. Select **Create**.
@@ -77,7 +77,7 @@ To configure Private link on an existing Application Gateway via Azure PowerShel
 
 ```azurepowershell
 # Disable Private Link Service Network Policies
-# https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 $net =@{
     Name = 'AppGW-PL-PSH'
     ResourceGroupName = 'AppGW-PL-PSH-RG'
@@ -114,7 +114,7 @@ Set-AzApplicationGatewayFrontendIPConfig -ApplicationGateway $agw -Name "appGwPu
 Set-AzApplicationGateway -ApplicationGateway $agw
 
 # Disable Private Endpoint Network Policies
-# https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 $net =@{
     Name = 'AppGW-PL-Endpoint-PSH-VNET'
     ResourceGroupName = 'AppGW-PL-Endpoint-PSH-RG'
@@ -145,7 +145,7 @@ To configure Private link on an existing Application Gateway via Azure CLI, the 
 
 ```azurecli
 # Disable Private Link Service Network Policies
-# https://docs.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 az network vnet subnet update \
 				--name AppGW-PL-Subnet \
 				--vnet-name AppGW-PL-CLI-VNET \
@@ -173,7 +173,7 @@ az network application-gateway private-link list \
 
 
 # Disable Private Endpoint Network Policies
-# https://docs.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy
+# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 az network vnet subnet update \
 				--name MySubnet \
 				--vnet-name AppGW-PL-Endpoint-CLI-VNET \
