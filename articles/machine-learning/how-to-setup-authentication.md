@@ -10,16 +10,18 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 09/23/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
+
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 	
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-setup-authentication.md)
 > * [v2 (current version)](how-to-setup-authentication.md)
 
-Learn how to set up client to Azure authentication to your Azure Machine Learning workspace. Specifically, authenticating from the Azure CLI or the Azure Machine Learning SDK v2 (preview). Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
+Learn how to set up authentication to your Azure Machine Learning workspace from the Azure CLI or Azure Machine Learning SDK v2. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
 * __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis.
 
@@ -37,11 +39,6 @@ Azure AD Conditional Access can be used to further control or restrict access to
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
 * [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
-
-    > [!IMPORTANT]
-    > SDK v2 is currently in public preview.
-    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
