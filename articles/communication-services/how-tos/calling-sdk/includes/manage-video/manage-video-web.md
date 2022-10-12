@@ -333,7 +333,9 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
 ```
 
 - `isReceiving`:
-    - ***This API is provided as a beta feature for developers and may change based on feedback that we receive. To use this api please use 1.5.4-beta.1+ release of Azure Communication Services Calling Web SDK.***
+
+    > [!NOTE]
+    > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 1.5.4-beta.1+ release of Azure Communication Services Calling Web SDK
     - Will inform the application if remote video stream data is being received or not. Such scenarios are:
         - I am viewing the video of a remote participant who is on mobile browser. The remote participant brings the mobile browser app to the background. I now see the RemoteVideoStream.isReceiving flag go to false and I see his video with black frames / frozen. When the remote participant brings the mobile browser back to the foreground, I now see the RemoteVideoStream.isReceiving flag to back to true and I see his video playing normally.
         - I am viewing the video of a remote participant who is on whatever platforms. There are network issues from either side, his video start to look pretty laggy, bad quality, probbaly because of network issues, so i see the RemoteVideoStream.isReceiving flag go to false.
