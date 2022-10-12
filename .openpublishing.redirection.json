@@ -1,6 +1,61 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-manage.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-restore.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id":  false  
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-about.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-about",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-java-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-python-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/container-registry/container-registry-customer-managed-keys.md",
+            "redirect_url":  "/azure/container-registry/tutorial-customer-managed-keys",
+            "redirect_document_id":  false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
             "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
             "redirect_document_id": false
@@ -11,14 +66,39 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-queues.md",
-            "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": false
+            "source_path":  "articles/site-recovery/failover-failback-overview-preview.md",
+            "redirect_url":  "/azure/site-recovery/failover-failback-overview-modernized",
+            "redirect_document_id":  false
         },
         {
-            "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-tables.md",
-            "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": false
+            "source_path":  "articles/site-recovery/switch-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/switch-replication-appliance-modernized",
+            "redirect_document_id":  false 
+        },
+        {
+            "source_path":  "articles/site-recovery/upgrade-mobility-service-preview.md",
+            "redirect_url":  "/azure/site-recovery/upgrade-mobility-service-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-set-up-replication-tutorial-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-architecture-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-architecture-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/physical-server-azure-architecture-preview.md",
+            "redirect_url":  "/azure/physical-server-azure-architecture-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/vmware-azure-tutorial-failover-failback-preview.md",
+            "redirect_url":  "/azure/vmware-azure-tutorial-failover-failback-modernized",
+            "redirect_document_id":  false   
         },
         {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
@@ -6259,6 +6339,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/reference.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/queues/reference.md",
+            "redirect_url": "/azure/storage/queues/storage-queues-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/files/reference.md",
+            "redirect_url": "/azure/storage/files/storage-files-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
             "redirect_url": "/azure/storage/common/storage-client-side-encryption",
             "redirect_document_id": true
@@ -11246,6 +11341,11 @@
         {
             "source_path_from_root": "/articles/ddos-protection/telemetry-monitoring-alerting.md",
             "redirect_url": "/azure/ddos-protection/telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ddos-protection/ddos-protection-standard-features.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-features",
             "redirect_document_id": false
         },
         {
@@ -21221,12 +21321,12 @@
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-what-happened.md",
@@ -28838,6 +28938,12 @@
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/keda-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context",
+            "redirect_document_id": false
         }
     ]
 }
+

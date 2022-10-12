@@ -26,7 +26,7 @@ The following screenshot shows a device template with examples of a device prope
 
 :::image type="content" source="media/howto-use-location-data/location-device-template.png" alt-text="Screenshot showing location property definition in device template" lightbox="media/howto-use-location-data/location-device-template.png":::
 
-For reference, the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definitions for these capabilities look like the following snippet:
+For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definitions for these capabilities look like the following snippet:
 
 ```json
 {

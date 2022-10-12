@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 09/29/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -60,7 +60,7 @@ Unlike LUIS, you cannot label the same text as 2 different entities. Learned com
 
 ## Can I import a LUIS JSON file into conversational language understanding?
 
-Yes, you can [import any LUIS application](./concepts/backwards-compatibility.md) JSON file from the latest version in the service.
+Yes, you can [import any LUIS application](./how-to/migrate-from-luis.md) JSON file from the latest version in the service.
 
 ## Can I import a LUIS `.LU` file into conversational language understanding?
 
