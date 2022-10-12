@@ -119,27 +119,17 @@
             "source_path": "articles/baremetal-infrastructure/workloads/oracle/set-up-snapcenter-to-route-traffic.md",
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
             "redirect_document_id": false
-        },    
-        {
-            "source_path": "articles/baremetal-infrastructure/workloads/oracle/high-availability-features.md",
-            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
-            "redirect_document_id": false
-        }, 
-        {
-            "source_path": "articles/baremetal-infrastructure/workloads/oracle/options-considerations-high-availability.md",
-            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
-            "redirect_document_id": false
-        }, 
-        {
-            "source_path": "articles/baremetal-infrastructure/workloads/oracle/.md",
-            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/baremetal-infrastructure/workloads/oracle/options-considerations-high-availability.md",
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
             "redirect_document_id": false
-        }                                
+        },    
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/oracle/high-availability-features.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview",
+            "redirect_document_id": false
+        }                     
     ]
 }
 
