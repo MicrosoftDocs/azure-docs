@@ -18,7 +18,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | October 2022 |
 
 ### Multiple changes to identity recommendations
 

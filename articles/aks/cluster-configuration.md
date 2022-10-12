@@ -369,7 +369,7 @@ This enables an OIDC Issuer URL of the provider which allows the API server to d
 
 ### Prerequisites
 
-* The Azure CLI version 2.42.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* The Azure CLI version 2.40.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * AKS version 1.22 and higher. If your cluster is running version 1.21 and the OIDC Issuer preview is enabled, we recommend you upgrade the cluster to the minimum required version supported.
 
 ### Create an AKS cluster with OIDC Issuer
