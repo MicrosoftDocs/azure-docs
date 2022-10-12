@@ -1,29 +1,30 @@
 ---
 title: Use Azure Active Directory - Azure Database for PostgreSQL - Flexible Server
 description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for PostgreSQL - Flexible Server
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 10/12/2022
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: kabharati
-author: kabharati
-ms.date: 09/26/2022
 ---
 
-# Use Azure Active Directory for authentication with PostgreSQL Flexible Server
+# Use Azure Active Directory (Azure AD) for authentication with PostgreSQL Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-> [!NOTE]
+> [!NOTE]  
 > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL Flexible Server, and how to connect using an Azure AD token.
 
-## Enabling Azure AD Authentication
+## Enable Azure AD Authentication
 
 Azure Active Directory Authentication for Azure Database for PostgreSQL Flexible Server can be configured either during server provisioning or later.
-Only Azure AD administrator users can create/enable users for Azure AD-based authentication. We recommend not using the Azure AD administrator for regular database operations, as it has elevated user permissions (for example, CREATEDB). You can now have multiple Azure AD admin users with flexible server and Azure AD admin user can be either user, group or a service principal. 
+Only Azure AD administrator users can create/enable users for Azure AD-based authentication. We recommend not using the Azure AD administrator for regular database operations, as it has elevated user permissions (for example, CREATEDB). You can now have multiple Azure AD admin users with flexible server and Azure AD admin user can be either user, group or a service principal.
 
-## Prerequisites 
+## Prerequisites
 
 The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by tenant administrator or a user with tenant admin rights and this is one time activity per tenant.
 
@@ -31,20 +32,19 @@ Install AzureAD PowerShell: AzureAD Module
 
 ### Step 1: Connect to user tenant.
 
-```
+```powershell
 Connect-AzureAD -TenantId <customer tenant id>
-
 ```
-### Step 2: Grant Flexible Server Service Principal read access to customer tenant 
+### Step 2: Grant Flexible Server Service Principal read access to customer tenant
+
+```powershell
+New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed
 ```
-Step 2: New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed
+This command will grant Azure Database for PostgreSQL Flexible Server Service Principal read access to customer tenant to request Graph API tokens for Azure AD validation tasks. AppID (5657e26c-cc92-45d9-bc47-9da6cfdb4ed) in the above command is the AppID for Azure Database for PostgreSQL Flexible Server Service.
 
-```
-This command will grant Azure Database for PostgreSQL Flexible Server Service Principal read access to customer tenant to request Graph API tokens for AAD validation tasks. AppID (5657e26c-cc92-45d9-bc47-9da6cfdb4ed) in the above command is the AppID for Azure Database for PostgreSQL Flexible Server Service.
+### Step 3: Networking Requirements
 
-### Step 3: Networking Requirements 
-
-Azure Active Directory is a multi-tenant application and requires outbound connectivity to perform certain operations like adding AAD admins/ groups and additional networking rules are required for AAD connectivity to work depending upon your network topology.
+Azure Active Directory is a multi-tenant application and requires outbound connectivity to perform certain operations like adding Azure AD admin groups and additional networking rules are required for Azure AD connectivity to work depending upon your network topology.
 
   `Public access (allowed IP addresses)`
 
@@ -54,35 +54,32 @@ No additional networking rules are required.
 
 *  An outbound NSG rule to allow virtual network traffic to reach AzureActiveDirectory service tag only.
 
-* Optionally, if you’re using a proxy then please add a new firewall rule to allow http/s traffic to reach AzureActiveDirectory service tag only.
+* Optionally, if you’re using a proxy then add a new firewall rule to allow http/s traffic to reach AzureActiveDirectory service tag only.
 
-Please complete the above prerequisites steps before adding AAD administrator to your server. To set the Azure AD admin  during server provisioning, please follow the below steps. 
+Complete the above prerequisites steps before adding Azure AD administrator to your server. To set the Azure AD admin  during server provisioning,  follow the below steps.
 
-1. In the Azure Portal, during server provisioning select either `PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method.
-2. Set Azure AD Admin using `set admin` tab and select a valid Azure AD user/ group /service principal/Managed Identity in the customer tenant to be Azure AD administrator
-3. You can also optionally add local postgreSQL admin account if you prefer `PostgreSQL and Azure Active Directory authentication` method.
-
+1. In the Azure portal, during server provisioning select either `PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method.
+1. Set Azure AD Admin using `set admin` tab and select a valid Azure AD user/ group /service principal/Managed Identity in the customer tenant to be Azure AD administrator
+1. You can also optionally add local postgreSQL admin account if you prefer `PostgreSQL and Azure Active Directory authentication` method.
 
 Note only one Azure admin user can be added during server provisioning and you can add multiple Azure AD admin users after server is created.
 
 ![set-azure-ad-administrator][3]
 
-To set the Azure AD administrator after server creation, please follow the below steps
+To set the Azure AD administrator after server creation,  follow the below steps
 
 1. In the Azure portal, select the instance of Azure Database for PostgreSQL that you want to enable for Azure AD.
-2. Under Security, select Authentication and choose either`PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method based upon your requirements.
+1. Under Security, select Authentication and choose either`PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method based upon your requirements.
 
 ![set azure ad administrator][2]
 
-3. Click `Add Azure AD Admins` and select a valid Azure AD user / group /service principal/Managed Identity in the customer tenant to be Azure AD administrator.
-4. Click Save,
+1. Select `Add Azure AD Admins` and select a valid Azure AD user / group /service principal/Managed Identity in the customer tenant to be Azure AD administrator.
+1. Select Save,
 
-> [!IMPORTANT]
-> When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions. 
+> [!IMPORTANT]  
+> When setting the administrator, a new user is added to the Azure Database for PostgreSQL server with full administrator permissions.
 
-
-
-## Connecting to Azure Database for PostgreSQL using Azure AD
+## Connect to Azure Database for PostgreSQL using Azure AD
 
 The following high-level diagram summarizes the workflow of using Azure AD authentication with Azure Database for PostgreSQL:
 
@@ -109,7 +106,7 @@ You can follow along in Azure Cloud Shell, an Azure VM, or on your local machine
 
 Start by authenticating with Azure AD using the Azure CLI tool. This step isn't required in Azure Cloud Shell.
 
-```
+```azurecli-interactive
 az login
 ```
 
@@ -122,7 +119,7 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+az account get-access-token --resource https://ossrdbms-Azure AD.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
@@ -180,11 +177,11 @@ psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com dbname=postgres ssl
 ```
 ### Step 4: Use token as a password for logging in with PgAdmin
 
-To connect using Azure AD token with pgAdmin, you need to follow the next steps:
+To connect using an Azure AD token with pgAdmin, you need to follow the next steps:
 1. Uncheck the connect now option at server creation.
-2. Enter your server details in the connection tab and save.
-3. From the browser menu, select connect to the Azure Database for PostgreSQL Flexible server
-4. Enter the AD token password when prompted.
+1. Enter your server details in the connection tab and save.
+1. From the browser menu, select connect to the Azure Database for PostgreSQL Flexible server
+1. Enter the AD token password when prompted.
 
 Important considerations when connecting:
 
@@ -204,12 +201,12 @@ To enable an Azure AD group for access to your database, use the same mechanism 
 Example:
 
 ```
-select * from pgaadauth_create_principal('Prod DB Readonly', false, false).
+select * from pgAzure ADauth_create_principal('Prod DB Readonly', false, false).
 ```
 
 When logging in, members of the group will use their personal access tokens, but sign with the group name specified as the username.
 
-> [!NOTE]
+> [!NOTE]  
 > PostgreSQL Flexible Servers supports Managed Identities as group members.
 
 ### Step 2: Log in to the user’s Azure Subscription
@@ -227,7 +224,7 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
 Example (for Public Cloud):
 
 ```azurecli-interactive
-az account get-access-token --resource https://ossrdbms-aad.database.windows.net
+az account get-access-token --resource https://ossrdbms-Azure AD.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
