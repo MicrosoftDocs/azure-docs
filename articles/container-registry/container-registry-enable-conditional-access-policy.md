@@ -17,20 +17,20 @@ Learn more about [Conditional Access policy](/azure/active-directory/conditional
 
 The Conditional Access policy applies after the first-factor authentication to the Azure Container Registry is complete. The purpose of Conditional Access for ACR is for user authentication only. The policy enables the user to choose the controls and further blocks or grants access based on the policy decisions.
 
-In this article, you'll learn to
+The following steps will help create a Conditional Access policy for Azure Container Registry (ACR).
 
->* Disable the authentication-as-arm in ACR - Azure CLI.
->* Assign a built-in policy definition to disable ARM audience token authentication - Azure portal. 
->* Create and configure Conditional Access policy for Azure Container Registry.
+1. Disable authentication-as-arm in ACR - Azure CLI.
+2. Disable authentication-as-arm in the ACR - Azure portal.
+3. Create and configure Conditional Access policy for Azure Container Registry.
 
 ## Prerequisites
 
 >* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or later. To find the version, run `az --version`.
 >* Sign into [Azure portal.](https://portal.azure.com) 
 
-## Disable the authentication-as-arm in ACR - Azure CLI
+## Disable authentication-as-arm in ACR - Azure CLI
 
-Disabling the `azureADAuthenticationAsArmPolicy` will force the registry to use ACR audience token. You can use Azure CLI version 2.40.0 or later, run `az --version` to find the version. 
+Disabling `azureADAuthenticationAsArmPolicy` will force the registry to use ACR audience token. You can use Azure CLI version 2.40.0 or later, run `az --version` to find the version. 
 
 1. Run the command to show the current configuration of the registry's policy for authentication using ARM tokens with the registry. If the status is `enabled`, then both ACRs and ARM audience tokens can be used for authentication. If the status is `disabled` it means only ACR's audience tokens can be used for authentication.
 
@@ -44,9 +44,9 @@ Disabling the `azureADAuthenticationAsArmPolicy` will force the registry to use 
     az acr config authentication-as-arm update -r <registry> --status [enabled/disabled]
      ```
 
-## Disable the authentication-as-arm in the Azure Container Registry (ACR) - Azure portal
+## Disable authentication-as-arm in the ACR - Azure portal
 
-Disabling the authentication-as-arm property by assigning a built-in policy will automatically disable the registry property for the current and the future registries. This automatic behavior is for registries created within the policy scope. The possible policy scopes includes either Resource Group level scope or Subscription ID level scope within the tenant.
+Disabling `authentication-as-arm` property by assigning a built-in policy will automatically disable the registry property for the current and the future registries. This automatic behavior is for registries created within the policy scope. The possible policy scopes includes either Resource Group level scope or Subscription ID level scope within the tenant.
 
 You can disable authentication as ARM in the ACR, by following below steps:
 
