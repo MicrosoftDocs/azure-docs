@@ -1,5 +1,5 @@
 ---
-title: Manage AAD users - Azure Database for PostgreSQL - Flexible Server
+title: Manage Azure Active Directory Users - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how you can manage Azure AD enabled roles to interact with an Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -26,8 +26,8 @@ If you like to learn about how to create and manage Azure subscription users and
 
 ## Create or Delete Azure AD administrators using Azure portal or ARM API
 
-1. Open **Authentication** page for your Azure Database for PostgreSQL Flexible Server in Azure Portal
-1. To add an administrator - click **Add Azure AD Admin**  and select a user, group, application or a managed identity from the current AAD tenant.
+1. Open **Authentication** page for your Azure Database for PostgreSQL Flexible Server in Azure portal
+1. To add an administrator - click **Add Azure AD Admin**  and select a user, group, application or a managed identity from the current Azure AD tenant.
 1. To remove an administrator - click **Delete** icon for the one to remove.
 1. Click **Save** and wait for provisioning operation to completed.
 
@@ -71,7 +71,7 @@ select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 - *roleName* - Name of the role to be created. This **must match a name of Azure AD principal**:
    - For **users** use User Principal Name from Profile. For guest users include the full name in their home domain with #EXT# tag.
    - For **groups** and **service principals** use display name. The name must be unique in the tenant.
-- *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via Portal or API.
+- *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via portal or API.
 - *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
 
 ## Create a role using Azure AD object identifier
@@ -83,10 +83,10 @@ select * from pgaadauth_create_principal_with_oid('accounting_application', '000
 **Parameters:**
 - *roleName* - Name of the role to be created.
 - *objectId* - Unique object identifier of the Azure AD object:
-   - For **Users**, **Groups** and **Managed Identities** the ObjectId can be found by searching for the object name in Azure AD page in Azure Portal. [See this guide as example](/partner-center/find-ids-and-domain-names)
-   - For **Applications**, Objectid of the corresponding **Service Principal** must be used. In Azure Portal the required ObjectId can be found on **Enterprise Applications** page.
+   - For **Users**, **Groups** and **Managed Identities** the ObjectId can be found by searching for the object name in Azure AD page in Azure portal. [See this guide as example](/partner-center/find-ids-and-domain-names)
+   - For **Applications**, Objectid of the corresponding **Service Principal** must be used. In Azure portal the required ObjectId can be found on **Enterprise Applications** page.
 - *objectType* - Type of the Azure AD object to link to this role.
-- *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via Portal or API.
+- *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via portal or API.
 - *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
 
 ## Enable Azure AD authentication for an existing PostgreSQL role using SQL

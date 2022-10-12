@@ -18,7 +18,7 @@ ms.date: 09/26/2022
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL Flexible Server, and how to connect using an Azure AD token.
 
-## Enabling AAD Authentication
+## Enabling Azure AD Authentication
 
 Azure Active Directory Authentication for Azure Database for PostgreSQL Flexible Server can be configured either during server provisioning or later.
 Only Azure AD administrator users can create/enable users for Azure AD-based authentication. We recommend not using the Azure AD administrator for regular database operations, as it has elevated user permissions (for example, CREATEDB). You can now have multiple Azure AD admin users with flexible server and Azure AD admin user can be either user, group or a service principal. 
@@ -44,7 +44,7 @@ This command will grant Azure Database for PostgreSQL Flexible Server Service Pr
 
 ### Step 3: Networking Requirements 
 
-Azure Active Directory is a multi-tenant application and requires outbound connectivity to perform certain operations like adding AAD admins/ groups etc and additional networking rules are required for AAD connectivity to work depending upon your network topology.
+Azure Active Directory is a multi-tenant application and requires outbound connectivity to perform certain operations like adding AAD admins/ groups and additional networking rules are required for AAD connectivity to work depending upon your network topology.
 
   `Public access (allowed IP addresses)`
 
