@@ -7,7 +7,7 @@ ms.date: 10/12/2022
 
 # Manage GCP assessments and standards
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can either use the readily available regulatory standards such as GCP CIS 1.1.0, GCP CIS and 1.2.0, or you can create your own custom standards and assessments to meet specific internal requirements.
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available regulatory standards such as GCP CIS 1.1.0, GCP CIS and 1.2.0, or create custom standards and assessments to meet specific internal requirements.
 
 There are three types of resources that are needed to create and manage custom assessments:
 
