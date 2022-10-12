@@ -24,6 +24,7 @@ This article shows you how to use the Deployment Environments Azure CLI extensio
     - Install the Deployment Environments AZ CLI extension:
 
     **Automated install**
+
     Execute the script https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 directly in PowerShell to install:
     ```powershell
     iex "& { $(irm https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 ) }"
