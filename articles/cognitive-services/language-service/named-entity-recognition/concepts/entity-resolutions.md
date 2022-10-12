@@ -68,7 +68,7 @@ Datetime includes several different subtypes that return different response obje
 
 Specific days.
 
-Examples: "January 1st 1995", "12 april", "7th of October 2022", "tomorrow"
+Examples: "January 1 1995", "12 april", "7th of October 2022", "tomorrow"
 
 ```json
 "resolutions": [
@@ -81,7 +81,7 @@ Examples: "January 1st 1995", "12 april", "7th of October 2022", "tomorrow"
                 ]
 ```
 
-Whenever an ambiguous date is provided, you are offered different options for your resolution. For example, "12 April" could refer to any year. Resolution provides this year and the next as options. The `timex` value `XXXX` indicates no year was specified in the query.
+Whenever an ambiguous date is provided, you're offered different options for your resolution. For example, "12 April" could refer to any year. Resolution provides this year and the next as options. The `timex` value `XXXX` indicates no year was specified in the query.
 
 ```json
 "resolutions": [
@@ -179,7 +179,7 @@ A datetime range is a period with a beginning and end date, time, or datetime.
 
 Examples: "from january 3rd 6 AM to april 25th 8 PM 2022", "between Monday to Thursday", "June", "the weekend"
 
-The "duration" parameter indicates the time passed in seconds (S), minutes (M), hours (H), or days (D). This is only returned when an explicit start and end datetime are in the query. "Next week" would only return with "begin" and "end" parameters for the week.
+The "duration" parameter indicates the time passed in seconds (S), minutes (M), hours (H), or days (D). This parameter is only returned when an explicit start and end datetime are in the query. "Next week" would only return with "begin" and "end" parameters for the week.
 
 ```json
 "resolutions": [
@@ -194,7 +194,7 @@ The "duration" parameter indicates the time passed in seconds (S), minutes (M), 
 
 ### Set
 
-A set is a recurring datetime period. Sets do not resolve to exact values, as they do not indicate an exact datetime. 
+A set is a recurring datetime period. Sets don't resolve to exact values, as they don't indicate an exact datetime. 
 
 Examples: "every Monday at 6 PM", "every Thursday", "every weekend"
 
@@ -380,7 +380,7 @@ Possible values for "relativeTo":
 
 ## Temperature
 
-Examples: "88 deg fahrenheit", "twenty three celsius"
+Examples: "88 deg fahrenheit", "twenty three degrees celsius"
 
 ```json
 "resolutions": [

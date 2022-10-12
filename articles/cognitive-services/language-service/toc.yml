@@ -278,6 +278,8 @@ items:
         href: conversational-language-understanding/how-to/migrate-from-luis.md
   - name: Concepts
     items:
+      - name: Best practices
+        href: conversational-language-understanding/concepts/best-practices.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
