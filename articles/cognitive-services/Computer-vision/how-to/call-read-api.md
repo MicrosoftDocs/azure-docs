@@ -16,9 +16,9 @@ ms.author: pafarley
 
 # Call the Computer Vision 3.2 GA Read API
 
-[!INCLUDE [read-editions](../includes/read-editions.md)]
-
 In this guide, you'll learn how to call the v3.2 GA Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs. This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+
+[!INCLUDE [read-editions](../includes/read-editions.md)]
 
 ## Input requirements
 
@@ -43,7 +43,7 @@ When using the Read operation, use the following values for the optional `model-
 | latest | Latest GA model|
 | [2022-04-30](../whats-new.md#may-2022) | Latest GA model. 164 languages for print text and 9 languages for handwritten text along with several enhancements on quality and performance |
 | [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic and related languages. For handwritten text, adds support for Japanese and Korean. |
-| [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages, For handwritten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
+| [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages. For handwritten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
 | 2021-04-12 | 2021 GA model |
 
 ### Input language

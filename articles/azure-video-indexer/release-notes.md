@@ -43,6 +43,12 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## October 2022
 
+### A new built-in role: Video Indexer Restricted Viewer
+
+The limited access **Video Indexer Restricted Viewer** role is intended for the [Azure Video Indexer website](https://www.videoindexer.ai/) users. The role's permitted actions relate to the [Azure Video Indexer website](https://www.videoindexer.ai/) experience. 
+
+For more information, see [Manage access with the Video Indexer Restricted Viewer role](restricted-viewer-role.md).
+
 ### Slate detection insights (preview)
 
 The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
@@ -75,7 +81,7 @@ The new set of logs, described below, enables you to better monitor your indexin
 
 Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
-## Expanded supported languages in LID and MLID through the API
+### Expanded supported languages in LID and MLID through the API
 
 We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
 
