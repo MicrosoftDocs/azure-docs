@@ -437,7 +437,7 @@ Create your container app with your image from the private registry authenticate
 
 # [Azure CLI](#tab/azure-cli)
 
-Copy the identity's resource ID to paste into the *\<IDENTITY_ID\>* placeholders in the command below. If your image tag isn't `latest`, replace 'latest' with it.
+Copy the identity's resource ID to paste into the *\<IDENTITY_ID\>* placeholders in the command below. If your image tag isn't `latest`, replace 'latest' with your tag.
 
 ```azurecli
 echo $IDENTITY_ID
@@ -559,7 +559,7 @@ New-AzContainerApp @AppArgs
 
 Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the Azure Container Registry pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.  
 
-If your image tag isn't `latest`, replace 'latest' with it.
+If your image tag isn't `latest`, replace 'latest' with your tag.
 
 
 # [Azure CLI](#tab/azure-cli)
