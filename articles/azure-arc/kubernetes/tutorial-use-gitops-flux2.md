@@ -1173,6 +1173,6 @@ General information about migration from Flux v1 to Flux v2 is available in the 
 
 ## Next steps
 
-Advance to the next tutorial to learn how to implement CI/CD with GitOps.
+Advance to the next tutorial to learn how to apply configuration at scale with Azure Policy.
 > [!div class="nextstepaction"]
-> [Implement CI/CD with GitOps](./tutorial-gitops-flux2-ci-cd.md)
+> [Use Azure Policy to enforce GitOps at scale](./use-azure-policy-flux-2.md).

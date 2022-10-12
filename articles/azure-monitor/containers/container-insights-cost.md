@@ -79,7 +79,7 @@ The following list is the eight metrics per container collected:
 
 The following list is the cluster inventory data collected by default:
 
-- KubePodInventory – 1 per minute per container
+- KubePodInventory – 1 per pod per minute
 - KubeNodeInventory – 1 per node per minute
 - KubeServices – 1 per service per minute
 - ContainerInventory – 1 per container per minute

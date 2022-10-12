@@ -4,7 +4,7 @@ description: "This article provides a conceptual overview of GitOps in Azure for
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 5/26/2022
+ms.date: 9/22/2022
 ms.topic: conceptual
 ---
 
@@ -93,6 +93,12 @@ For more information on private link scopes in Azure Arc, refer to [this documen
 
 ## Data residency
 The Azure GitOps service (Azure Kubernetes Configuration Management) stores/processes customer data. By default, customer data is replicated to the paired region. For the regions Singapore, East Asia, and Brazil South, all customer data is stored and processed in the region.
+
+## Apply Flux configurations at scale
+
+Because Azure Resource Manager manages your configurations, you can automate creating the same configuration across all Azure Kubernetes Service and Azure Arc-enabled Kubernetes resources using Azure Policy, within the scope of a subscription or a resource group. This at-scale enforcement ensures that specific configurations will be applied consistently across entire groups of clusters.
+
+[Learn how to use the built-in policies for Flux v2](./use-azure-policy-flux-2.md).
 
 ## Next steps
 

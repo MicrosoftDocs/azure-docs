@@ -19,16 +19,19 @@ The Azure Monitor Agent supports [Azure virtual network service tags](../../virt
 
 ## Firewall requirements
 
-| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection|
-|------|------|------|---------|--------|--------|
-| Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes |
-| Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes |
-| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes |
-| Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes |
+| Cloud |Endpoint |Purpose |Port |Direction |Bypass HTTPS inspection| Example |
+|------|------|------|---------|--------|--------|------|
+| Azure Commercial |global.handler.control.monitor.azure.com |Access control service|Port 443 |Outbound|Yes | - |
+| Azure Commercial |`<virtual-machine-region-name>`.handler.control.monitor.azure.com |Fetch data collection rules for specific machine |Port 443 |Outbound|Yes | westus2.handler.control.monitor.azure.com |
+| Azure Commercial |`<log-analytics-workspace-id>`.ods.opinsights.azure.com |Ingest logs data |Port 443 |Outbound|Yes | 1234a123-aa1a-123a-aaa1-a1a345aa6789.ods.opsinsights.azure.com
+| Azure Commercial | management.azure.com | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | - |
+| Azure Commercial | `<virtual-machine-region-name>`.monitoring.azure.com  | Only needed if sending time series data (metrics) to Azure Monitor [Custom metrics](../essentials/metrics-custom-overview.md) database | Port 443 | Outbound | Yes | westus2.monitoring.azure.com |
 | Azure Government | Replace '.com' above with '.us' | Same as above | Same as above | Same as above| Same as above |
 | Azure China | Replace '.com' above with '.cn' | Same as above | Same as above | Same as above| Same as above |
 
-If you use private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).
+>[!NOTE]
+> If you use private links on the agent, you must also add the [DCE endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).  
+> Azure Monitor metrics (custom metrics) preview is not available in Azure Government and Azure China clouds
 
 ## Proxy configuration
 

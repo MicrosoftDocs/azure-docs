@@ -21,16 +21,13 @@ Your container app can be granted two types of identities:
 
 ## Why use a managed identity?
 
-You can use a managed identity in a running container app to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
 
-With managed identities:
-
+- **Authentication service options**: You can use a managed identity in a running container app to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
 - Your app connects to resources with the managed identity. You don't need to manage credentials in your container app.
 - You can use role-based access control to grant specific permissions to a managed identity.
 - System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
 - You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's life cycle.
-- You can use managed identity to [authenticate with a private Azure Container Registry](containers.md#container-registries) without a username and password to pull containers for your Container App.
-
+- You can use managed identity to pull images from a private Azure Container Registry without a username and password.  For more information, see [Azure Container Apps image pull with managed identity](managed-identity-image-pull.md).
 
 ### Common use cases
 

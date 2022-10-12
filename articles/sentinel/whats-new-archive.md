@@ -42,14 +42,14 @@ For more information, see the [Microsoft Security Response Center blog](https://
 
 ### IoT OT Threat Monitoring with Defender for IoT solution (Public preview)
 
-The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
+The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-deploy.md) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
 
-For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
+For more information, see [Tutorial: Investigate Microsoft Defender for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md).
 
 
 ### Ingest GitHub logs into your Microsoft Sentinel workspace (Public preview)
 
-Use the new [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
+Use the new [Continuous Threat Monitoring for GitHub](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftcorporation1622712991604.sentinel4github?tab=Overview) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
 
 The **Continuous Threat Monitoring for GitHub** solution includes a data connector, relevant analytics rules, and a workbook that you can use to visualize your log data.
 
@@ -502,7 +502,7 @@ The **Microsoft Threat Intelligence Matching Analytics** rule currently matches 
 - [DNS](./data-connectors-reference.md#windows-dns-server-preview)
 - [Syslog](connect-syslog.md)
 
-For more information, see [Detect threats using matching analytics (Public preview)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
+For more information, see [Detect threats using matching analytics (Public preview)](use-matching-analytics-to-detect-threats.md).
 
 ### Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)
 

@@ -25,7 +25,7 @@ This topic covers how to troubleshoot Azure AD certificate-based authentication 
 
 ## Why don't I see an option to sign in using certificates against Azure Active Directory after I enter my username?
 
-An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 2: Configure authentication binding policy](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy).
+An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 3: Configure authentication binding policy](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy).
 
 ## User-facing sign-in error messages
 
@@ -47,12 +47,12 @@ Make sure the certificate is valid and works for the user binding and authentica
 
 :::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/reset.png" alt-text="Screenshot of password reset error." :::
 
-Make sure the user is trying to sign in with the correct username. This error happens when a unique user can't be found using the [username binding](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy) on the certificate fields.
+Make sure the user is trying to sign in with the correct username. This error happens when a unique user can't be found using the [username binding](how-to-certificate-based-authentication.md#step-4-configure-username-binding-policy) on the certificate fields.
 
 - Make sure user bindings are set correctly and the certificate field is mapped to the correct user Attribute.
 - Make sure the user Attribute contains the correct value that matches the certificate field value.
 
-For more information, see [Step 3: Configure username binding policy](how-to-certificate-based-authentication.md#step-3-configure-username-binding-policy).
+For more information, see [Step 4: Configure username binding policy](how-to-certificate-based-authentication.md#step-4-configure-username-binding-policy).
 
 If the user is a federated user moving to Azure AD and if the user binding configuration is Principal Name > onPremisesUserPrincipalName:
 
@@ -70,7 +70,7 @@ There is also a known issue when a user who is not in scope for CBA ties to sign
 
 :::image type="content" border="true" source="./media/troubleshoot-certificate-based-authentication/alt-failed.png" alt-text="Screenshot of the alternative error message for Azure Active Directory certificate-based authentication in Azure AD.":::
 
-In both cases, the error can be resolved by making sure the user is in scope for Azure AD CBA. For more information, see [Step 4: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-4-enable-cba-on-the-tenant).
+In both cases, the error can be resolved by making sure the user is in scope for Azure AD CBA. For more information, see [Step 2: Enable CBA on the tenant](how-to-certificate-based-authentication.md#step-2-enable-cba-on-the-tenant).
 
 ### AADSTS90100: flowtoken parameter is empty or not valid
 

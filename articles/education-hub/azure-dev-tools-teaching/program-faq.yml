@@ -122,10 +122,10 @@ sections:
           You can download this software in the [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
           
       - question: |
-          What is Microsoft training?
+          What is Microsoft Learn training?
         answer: |
-          [Microsoft Learn](/training/) is a free online learning platform that lets you to learn Azure technologies at your own pace. Learning paths combine modules that allow you to start with the basics, and then move to advanced methods that address real-world challenges.
-          
+          [Microsoft Learn training](/training/) is a free online learning platform that helps you learn Azure technologies at your own pace. Learning paths combine modules to allow you to start with the basics, and then move to advanced methods that address real-world challenges.
+
   - name: Azure Academic Grant
     questions:
       - question: |

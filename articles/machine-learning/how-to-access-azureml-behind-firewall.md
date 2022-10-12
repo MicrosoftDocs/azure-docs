@@ -82,7 +82,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     > [!TIP]
     > * AzureContainerRegistry.region is only needed for custom Docker images. Including small modifications (such as additional packages) to base images provided by Microsoft.
     > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
-    > * AzureKeyVault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+    > * AzureKeyVault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
     > * For entries that contain `region`, replace with the Azure region that you're using. For example, `AzureContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
@@ -116,20 +116,26 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 ### Kubernetes Compute
 
-[Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra network configuration. Configure the [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. The following outbound URLs are also required for Azure Machine Learning,
+[Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
+
+* For Kubernetes with Azure Arc connection, configure the [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. 
+* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/limit-egress-traffic.md#cluster-extensions). 
+
+Besides above requirements, the following outbound URLs are also required for Azure Machine Learning,
 
 | Outbound Endpoint| Port | Description|Training |Inference |
 |--|--|--|--|--|
 | __\*.kusto.windows.net__<br>__\*.table.core.windows.net__<br>__\*.queue.core.windows.net__ | https:443 | Required to upload system logs to Kusto. |**&check;**|**&check;**|
-| __\*.azurecr.io__ | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
-| __\*.blob.core.windows.net__ | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
-| __\*.workspace.\<region\>.api.azureml.ms__<br>__\<region\>.experiments.azureml.net__<br>__\<region\>.api.azureml.ms__ | https:443 | Azure Machine Learning service API.|**&check;**|**&check;**|
+| __\<your ACR name\>.azurecr.io__<br>__\<your ACR name>\.\<region name>\.data.azurecr.io__ | https:443 | Azure container registry, required to pull docker images used for machine learning workloads.|**&check;**|**&check;**|
+| __\<your storage account name\>.blob.core.windows.net__ | https:443 | Azure blob storage, required to fetch machine learning project scripts,data or models, and upload job logs/outputs.|**&check;**|**&check;**|
+| __\<your AzureML workspace ID>.workspace.\<region\>.api.azureml.ms__<br>__\<region\>.experiments.azureml.net__<br>__\<region\>.api.azureml.ms__ | https:443 | Azure Machine Learning service API.|**&check;**|**&check;**|
 | __pypi.org__ | https:443 | Python package index, to install pip packages used for training job environment initialization.|**&check;**|N/A|
 | __archive.ubuntu.com__<br>__security.ubuntu.com__<br>__ppa.launchpad.net__ | http:80 | Required to download the necessary security patches. |**&check;**|N/A|
 
 > [!NOTE]
 > `<region>` is the lowcase full spelling of Azure Region, for example, eastus, southeastasia.
-
+>
+> `<your AML workspace ID>` can be found in Azure portal - your Machine Learning resource page - Properties - Workspace ID.
 
 
 
@@ -299,7 +305,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 **Azure Machine Learning compute instance and compute cluster hosts**
 
 > [!TIP]
-> * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+> * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
 > * Ports 8787 and 18881 for __compute instance__ are only needed when your Azure Machine workspace has a private endpoint.
 > * In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
 > * Websocket communication must be allowed to the compute instance. If you block websocket traffic, Jupyter notebooks won't work correctly.
