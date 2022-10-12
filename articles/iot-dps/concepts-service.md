@@ -28,27 +28,31 @@ The device provisioning endpoint is the single endpoint all devices use for auto
 
 ## Linked IoT hubs
 
-The Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to an instance of the Device Provisioning Service gives the service read/write permissions to the IoT hub's device registry; with the link, a Device Provisioning Service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
+DPS can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to a DPS instance gives the service read/write permissions to the IoT hub's device registry. With these permissions, DPS can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. The allocation weight setting on a linked IoT hub determines its likelihood of being assigned a device in some allocation policies. You may link hubs in other subscriptions to your DPS instance.
 
 ## Allocation policy
 
-The service-level setting that determines how Device Provisioning Service assigns devices to an IoT hub. There are four supported allocation policies:
+Allocation policies determine how DPS assigns devices to an IoT hub. Each DPS instance has a default allocation policy, but this policy can be overridden by an allocation policy set on an enrollment. Only IoT hubs [linked](#linked-iot-hubs) to the DPS instance can participate in allocation.
 
-* **Evenly weighted distribution**: linked IoT hubs are equally likely to have devices provisioned to them. The default setting. If you are provisioning devices to only one IoT hub, you can keep this setting.
+There are four supported allocation policies:
 
-* **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, the provisioning service hashes devices across those hubs
+* **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they are equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. The default allocation policy for a DPS instance. If you are provisioning devices to only one IoT hub, you can keep this policy.
 
-* **Static configuration via the enrollment list**: specification of the desired IoT hub in the enrollment list takes priority over the service-level allocation policy.
+* **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, the provisioning service hashes devices across those IoT hubs.
 
-* **Custom (Use Azure Function)**: A [custom allocation policy](concepts-custom-allocation.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
+* **Static configuration via the enrollment list**: devices are provisioned to a single IoT hub specified on the enrollment. If this policy is the default for the DPS instance, enrollments must specify an IoT hub.
+
+* **Custom (Use Azure Function)**: A [custom allocation policy](concepts-custom-allocation.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Cannot be set as the DPS instance default policy.
 
 ## Enrollment
 
 An enrollment is the record of devices or groups of devices that may register through auto-provisioning. The enrollment record contains information about the device or group of devices, including:
-- the [attestation mechanism](#attestation-mechanism) used by the device
-- the optional initial desired configuration
-- desired IoT hub
-- the desired device ID
+
+* the [attestation mechanism](#attestation-mechanism) used by the device
+* the optional initial desired configuration
+* the [allocation policy](#allocation-policy) to use to assign devices to an IoT hub; if not specified on the enrollment, the DPS instance default allocation policy is used.
+* the [linked IoT hub(s)](#linked-iot-hubs) to apply the allocation policy to. For the *Static configuration* allocation policy, a single IoT hub must be specified. For all other allocation policies, one or more IoT hubs may be specified; if no IoT hubs are specified on the enrollment, all the IoT hubs linked to the instance are used.
+* the desired device ID (individual enrollments only)
 
 There are two types of enrollments supported by Device Provisioning Service:
 
