@@ -1,6 +1,6 @@
 ---
-title: "What's new for virtual machine scale sets" 
-description: Learn about what's new for virtual machine scale sets in Azure.
+title: "What's new for Virtual Machine Scale Sets" 
+description: Learn about what's new for Virtual Machine Scale Sets in Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.topic: whats-new
@@ -11,7 +11,7 @@ ms.custom: day0
 
 # What's new for scale sets
 
-This article describes what's new for virtual machine scale sets in Azure.
+This article describes what's new for Virtual Machine Scale Sets in Azure.
 
 
 ## Spot Priority Mix for Flexible scale sets
