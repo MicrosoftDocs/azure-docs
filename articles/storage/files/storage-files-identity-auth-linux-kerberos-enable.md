@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/12/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -33,7 +33,7 @@ Azure Files doesn't currently support using identity-based authentication to mou
 
 Only the following client operating systems are currently supported:
 
-- Ubuntu 18.04
+- Ubuntu 18.04 and later
 
 ## Prerequisites
 
@@ -45,12 +45,14 @@ Before you enable AD authentication over SMB for Azure file shares, make sure yo
 - The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
 - An Azure AD tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
-Installing the samba package isn't strictly necessary, but it gives you some useful tools like smbd. Use the commands below to install it. During installation, if you're asked for any input values, leave them blank.
+Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as samba-common and smbclient. Use the commands below to install it. If you're asked for any input values during installation, leave them blank.
 
 ```bash
 localadmin@lxsmb-canvm15:~$ sudo apt update -y
 localadmin@lxsmb-canvm15:~$ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-user keyutils cifs-utils
 ```
+
+The wbinfo tool is part of the samba suite and can be useful for debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
 Make sure that the Linux host keeps the time synchronized with the domain server. You can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). A sample configuration is shown below.
 
@@ -66,7 +68,7 @@ localadmin@lxsmb-canvm15:~$ sudo systemctl restart systemd-timesyncd.service
 
 Three access control models are available while mounting SMB Azure file shares:
 
-1. **Server enforced access control (default):** Uses NT access control lists (ACLs) for enforcing access control. Linux tools that update NT ACLs are minimalistic, so use accordingly. 
+1. **Server enforced access control (default):** Uses NT access control lists (ACLs) for enforcing access control. Linux tools that update NT ACLs are minimal, so use accordingly. 
 
 2. **Client enforced access control (modefromsid,idsfromsid)**: File permissions and ownership information are encoded into NT ACLs. This method should be used when all clients accessing the files are Linux machines.
 
@@ -74,7 +76,7 @@ Three access control models are available while mounting SMB Azure file shares:
 
 ## Enable AD Kerberos authentication
 
-Follow these steps to enable AD Kerberos authentication on Ubuntu-18.04.
+Follow these steps to enable AD Kerberos authentication on Ubuntu.
 
 ### Make sure the domain server is reachable and discoverable
 
@@ -385,7 +387,7 @@ localadmin@lxsmb-canvm15:~$ getent group 'domain users'
 domain users:x:10513: 
 ```
 
-If the above doesn't work, check if the domain controller is reachable using wbinfo tool:
+If the above doesn't work, check if the domain controller is reachable using the wbinfo tool:
 
 ```bash
 localadmin@lxsmb-canvm15:~$ wbinfo --ping-dc
