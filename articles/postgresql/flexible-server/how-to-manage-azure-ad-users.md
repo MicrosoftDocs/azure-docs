@@ -1,45 +1,46 @@
 ---
 title: Manage Azure Active Directory Users - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how you can manage Azure AD enabled roles to interact with an Azure Database for PostgreSQL - Flexible Server.
+author: achudnovskij
+ms.author: anchudno
+ms.reviewer: maghan
+ms.date: 10/12/2022
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: anchudno
-author: achudnovskij
-ms.date: 09/26/2022
 ---
 
-# Manage Azure AD roles in Azure Database for PostgreSQL - Flexible Server
+# Manage Azure Active Directory (Azure AD) roles in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
 This article describes how you can create Azure AD enabled database roles within an Azure Database for PostgreSQL server.
 
-> [!NOTE]
+> [!NOTE]  
 > This guide assumes you already enabled Azure Active Directory authentication on your PostgreSQL Flexible server.
 > See [How to Configure Azure AD Authentication](./how-to-configure-sign-in-azure-ad-authentication.md)
 
-> [!NOTE]
+> [!NOTE]  
 > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 If you like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 
-## Create or Delete Azure AD administrators using Azure portal or ARM API
+## Create or Delete Azure AD administrators using Azure portal or Azure Resource Manager (ARM) API
 
 1. Open **Authentication** page for your Azure Database for PostgreSQL Flexible Server in Azure portal
-1. To add an administrator - click **Add Azure AD Admin**  and select a user, group, application or a managed identity from the current Azure AD tenant.
-1. To remove an administrator - click **Delete** icon for the one to remove.
-1. Click **Save** and wait for provisioning operation to completed.
+1. To add an administrator - select **Add Azure AD Admin**  and select a user, group, application or a managed identity from the current Azure AD tenant.
+1. To remove an administrator - select **Delete** icon for the one to remove.
+1. Select **Save** and wait for provisioning operation to completed.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/how-to-manage-aad-users/add-aad-principal-via-portal.png" alt-text="manage aad administrators via portal":::
+> :::image type="content" source="./media/how-to-manage-aad-users/add-aad-principal-via-portal.png" alt-text="Screenshot of managing Azure AD administrators via portal":::
 
-> [!NOTE]
+> [!NOTE]  
 > Support for Azure AD Administrators management via Azure SDK, az cli and Azure Powershell is coming soon,
 
 ## Manage Azure AD roles using SQL
 
-Once first Azure AD administrator is created from the Azure portal or API you can use the administrator role to manage Azure AD roles in your Azure Database for PostgreSQL Flexible Server.
+Once first Azure AD administrator is created from the Azure portal or API, you can use the administrator role to manage Azure AD roles in your Azure Database for PostgreSQL Flexible Server.
 
 We recommend getting familiar with [Microsoft identity platform](../../active-directory/develop/v2-overview.md). for best use of Azure AD integration with Azure Database for PostgreSQL Flexible Servers.
 
@@ -49,10 +50,10 @@ Azure Database for PostgreSQL Flexible servers internally stores mapping between
 Each PostgreSQL database role can be mapped to one of the following Azure AD object types:
 
 1. **User** - Including Tenant local and guest users.
-2. **Service Principal**. Including [Applications and Managed identities](../../active-directory/develop/app-objects-and-service-principals.md)
-3. **Group**  When a PostgreSQL Role is linked to an Azure AD group, any user or service principal member of this group can connect to the Azure Database for PostgreSQL Flexible Server instance with the group role.
+1. **Service Principal**. Including [Applications and Managed identities](../../active-directory/develop/app-objects-and-service-principals.md)
+1. **Group**  When a PostgreSQL Role is linked to an Azure AD group, any user or service principal member of this group can connect to the Azure Database for PostgreSQL Flexible Server instance with the group role.
 
-### Listing Azure AD roles using SQL
+### List Azure AD roles using SQL
 
 ```sql
 select * from pgaadauth_list_principals(isAdmin);
@@ -69,7 +70,7 @@ select * from pgaadauth_create_principal('mary@contoso.com', false, false);
 
 **Parameters:**
 - *roleName* - Name of the role to be created. This **must match a name of Azure AD principal**:
-   - For **users** use User Principal Name from Profile. For guest users include the full name in their home domain with #EXT# tag.
+   - For **users** use User Principal Name from Profile. For guest users, include the full name in their home domain with #EXT# tag.
    - For **groups** and **service principals** use display name. The name must be unique in the tenant.
 - *isAdmin* - Set to **true** if when creating an admin user and **false** for a regular user. Admin user created this way has the same privileges as one created via portal or API.
 - *isMfa* - Flag if Multi Factor Authentication must be enforced for this role.
@@ -91,10 +92,10 @@ select * from pgaadauth_create_principal_with_oid('accounting_application', '000
 
 ## Enable Azure AD authentication for an existing PostgreSQL role using SQL
 
-Azure Database for PostgreSQL Flexible Servers uses Security Labels associated with database roles to store Azure AD mapping.
-During preview,we don't provide a function to associate existing Azure AD role.
+Azure Database for PostgreSQL Flexible Servers uses Security Labels associated with database roles to store Azure AD mapping. During preview, we don't provide a function to associate existing Azure AD roles.
 
 You can use the following SQL to assign security label:
+
 ```sql
 SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>'
 ```
@@ -103,7 +104,6 @@ SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>'
 - *roleName* - Name of an existing PostgreSQL role to which Azure AD authentication needs to be enabled.
 - *objectId* - Unique object identifier of the Azure AD object.
 
-
 ## Next steps
 
-* Review the overall concepts for [Azure Active Directory authentication with Azure Database for PostgreSQL - Flexible Server](concepts-azure-ad-authentication.md)
+- Review the overall concepts for [Azure Active Directory authentication with Azure Database for PostgreSQL - Flexible Server](concepts-azure-ad-authentication.md)
