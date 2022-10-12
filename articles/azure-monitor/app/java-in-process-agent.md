@@ -541,6 +541,8 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
 
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Release notes
 
 See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.

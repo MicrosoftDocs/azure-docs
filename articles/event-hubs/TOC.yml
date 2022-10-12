@@ -181,6 +181,8 @@
       items:
         - name: Get Event Hubs connection string
           href: event-hubs-get-connection-string.md
+        - name: Connect to an event hub (.NET)
+          href: connect-event-hub.md
         - name: Configure processing units for a premium namespace
           href: configure-processing-units-premium-namespace.md
         - name: Add custom data to events
