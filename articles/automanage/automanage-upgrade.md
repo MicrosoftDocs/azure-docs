@@ -16,9 +16,9 @@ Automanage machine best practices released the generally available API version. 
 
 ## How to upgrade your machines
 
-1. In the [Automanage portal](https://aka.ms/automanageportal), if your machines status is **Needs Upgrade** on the Automanage machines tab, please follow these [steps](automanage-upgrade.md#upgrade-your-machines-to-the-latest-automanage-version). You will also see a banner on the Automanage overview page indicating that you need to upgrade you machines. 
+1. In the [Automanage portal](https://aka.ms/automanageportal), if your machine status is **Needs Upgrade** on the Automanage machines tab, please follow these [steps](automanage-upgrade.md#upgrade-your-machines-to-the-latest-automanage-version). You will also see a banner on the Automanage overview page indicating that you need to upgrade your machines. 
 
-:::image type="content" source="media\automanage-upgrade\overview-blade.png" alt-text="Needs upgrade status.":::
+    :::image type="content" source="media\automanage-upgrade\overview-blade.png" alt-text="Needs upgrade status.":::
 
 2. Update any onboarding automation to reference the GA API version: 2022-05-04. For instance, if you have onboarding templates saved, you will need to update the template to reference the new GA API version as the preview versions will no longer be supported. Also, if you have deployed the [Automanage built-in policy](virtual-machines-policy-enable.md) that references the preview APIs, you will need to redeploy the built-in policy which now references the GA API version. 
 
@@ -76,7 +76,7 @@ In the previous version of Automanage, you selected your Environment type: Dev/T
 In the previous version of Automanage, you were able to customer a subset of settings through **Configuration Preferences**. In the latest version of Automanage, we have enhanced the customization so you can pick and choose each service you want to onboard and support modifying some settings on the services through **Custom Profiles**. 
 
 ### Automanage Account and First party application
-In the previous version of Automanage, the Automanage Account was used as an MSI to preform actions on your machine. However, in the latest version of Automanage, Automanage uses a first party application (Application Id : d828acde-4b48-47f5-a6e8-52460104a052) to order to perform actions on the Automanage machines. 
+In the previous version of Automanage, the Automanage Account was used as an MSI to perform actions on your machine. However, in the latest version of Automanage, Automanage uses a first party application (Application ID: d828acde-4b48-47f5-a6e8-52460104a052) in order to perform actions on the Automanage machines. 
 
 For both the previous version and the new version of Automanage, you need the following permissions:
 * If onboarding Automanage for the first time in a subscription, you need **Owner** role, or **Contributor** along with **User Access Administrator** roles.
