@@ -90,7 +90,7 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
 1. Once your Auth0 logs are generated, your data should now be visible in Application Insights 
 
     > [!NOTE]
-    > You can use steps in the article to handle events from other event sources too. For a generic example of sending Event Grid events to an Azure Blob Storage or Azure Monitor's Application Insights, see [this example on GitHub](https://github.com/awkwardindustries/azure-monitor-handler).
+    > You can use steps in the article to handle events from other event sources too. For a generic example of sending Event Grid events to Azure Blob Storage or Azure Monitor's Application Insights, see [this example on GitHub](https://github.com/awkwardindustries/azure-monitor-handler).
 
 ## Next steps
 
