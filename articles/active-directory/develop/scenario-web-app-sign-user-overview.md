@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/03/2022
+ms.date: 10/12/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
