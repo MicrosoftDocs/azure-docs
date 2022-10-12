@@ -629,6 +629,10 @@
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
+- name: Hyperscale (Citus)
+  items:
+  - name: Where is Hyperscale (Citus)?
+    href: hyperscale/moved.md
 - name: Samples
   items:
   - name: Azure CLI samples

@@ -39,28 +39,28 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 #### LRS
 
 
-|Resource  |West US 2   |France Central   |Southeast Asia  |
-|---------|---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5         |
-|Maximum total capacity (TiB)     |600         |100         |100         |
-|Maximum base capacity (TiB)    |400         |100         |100         |
-|Minimum total capacity (TiB)    |64          |64         |64         |
-|Maximum total IOPS     |2,000,000 |500,000         |500,000         |
-|Maximum total throughput (MB/s)    |32,000 |8,000         |8,000         |
+|Resource  |France Central   |Southeast Asia  |
+|---------|---------|---------|
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |
+|Maximum total capacity (TiB)     |100         |100         |
+|Maximum base capacity (TiB)    |100         |100         |
+|Minimum total capacity (TiB)    |64         |64         |
+|Maximum total IOPS     |500,000         |500,000         |
+|Maximum total throughput (MB/s)    |8,000         |8,000         |
 
 
 #### ZRS
 
-ZRS is only available in West US 2 and France Central.
+ZRS is only available in France Central.
 
-|Resource  |West US 2  |France Central  |
+|Resource  |France Central  |
 |---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |
-|Maximum total capacity (TiB)     |200         |200         |
-|Maximum base capacity (TiB)    |100         |100         |
-|Minimum total capacity (TiB)    |64          |64         |
-|Maximum total IOPS     | 500,000         |LRS/ZRS - 500,000         |
-|Maximum total throughput (MB/s)    | 8,000         |8,000         |
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |
+|Maximum total capacity (TiB)     |200         |
+|Maximum base capacity (TiB)    |100         |
+|Minimum total capacity (TiB)    |64         |
+|Maximum total IOPS     |500,000         |
+|Maximum total throughput (MB/s)    |8,000         |
 
 
 ## Volume group
