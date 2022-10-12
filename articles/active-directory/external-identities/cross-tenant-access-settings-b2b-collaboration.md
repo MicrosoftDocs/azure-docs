@@ -27,7 +27,7 @@ Use External Identities cross-tenant access settings to manage how you collabora
 - Use the tools and follow the recommendations in [Identify inbound and outbound sign-ins](cross-tenant-access-overview.md#identify-inbound-and-outbound-sign-ins) to understand which external Azure AD organizations and resources users are currently accessing.
 - Decide on the default level of access you want to apply to all external Azure AD organizations.
 - Identify any Azure AD organizations that will need customized settings so you can configure **Organizational settings** for them.
-- If you want to apply, access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
+- If you want to apply access settings to specific users, groups, or applications in an external organization, you'll need to contact the organization for information before configuring your settings. Obtain their user object IDs, group object IDs, or application IDs (*client app IDs* or *resource app IDs*) so you can target your settings correctly.
 - If you want to set up B2B collaboration with a partner organization in an external Microsoft Azure cloud, follow the steps in [Configure Microsoft cloud settings](cross-cloud-settings.md). An admin in the partner organization will need to do the same for your tenant.
 
 ## Configure default settings
@@ -123,7 +123,7 @@ With inbound settings, you select which external users and groups will be able t
 
    ![Screenshot showing selecting the target users and groups.](media/cross-tenant-access-settings-b2b-collaboration/generic-inbound-external-users-groups-target.png)
 
-1. If you chose **Select external users and groups**, do the following for each user, or group you want to add:
+1. If you chose **Select external users and groups**, do the following for each user or group you want to add:
 
     - Select **Add external users and groups**.
     - In the **Add other users and groups** pane, in the search box, type the user object ID or group object ID you obtained from your partner organization.
@@ -228,7 +228,7 @@ With outbound settings, you select which of your users and groups will be able t
 
    ![Screenshot showing selecting the target users for b2b collaboration.](media/cross-tenant-access-settings-b2b-collaboration/generic-outbound-external-users-groups-target.png)
 
-1. If you chose **Select \<your organization\> users and groups**, do the following for each user, or group you want to add:
+1. If you chose **Select \<your organization\> users and groups**, do the following for each user or group you want to add:
 
    - Select **Add \<your organization\> users and groups**.
    - In the **Select** pane, type the user name or group name in the search box.
