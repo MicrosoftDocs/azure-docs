@@ -18,14 +18,13 @@ ms.author: pafarley
 
 Version 4.0 of Image Analysis offers the ability to extract text from images. Contextual information like line number and position is also returned. Text reading is also available through the [OCR service](overview-ocr.md), but the latest model version is available through Image Analysis. This version is optimized for image inputs as opposed to documents.
 
-> [!IMPORTANT]
-> you need Image Analysis version 4.0 to use this feature. Version 4.0 is currently available to resources in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+[!INCLUDE [read-editions](./includes/read-editions.md)]
 
 ## Reading text example
 
 The following JSON response illustrates what the Analyze API returns when reading text in the given image.
 
-![Photo of a sticky note with writing on it.](./Images/handwritten-note.jpg).
+![Photo of a sticky note with writing on it.](./Images/handwritten-note.jpg)
 
 ```json
 {

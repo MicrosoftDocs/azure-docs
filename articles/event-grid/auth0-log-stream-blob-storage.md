@@ -2,7 +2,7 @@
 title: Send Auth0 events to Blob Storage via Azure Event Grid
 description: This article shows how to send Auth0 events received by Azure Event Grid to Azure Blob Storage by using Azure Functions.
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 10/12/2022
 ---
 
 # Send Auth0 events to Azure Blob Storage
@@ -96,6 +96,9 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
 1. Select **Containers** under **Data Storage** on the left menu.
 1. Confirm that you see a container named **events**. 
 1. Select the container and verify that your Auth0 logs are being stored. 
+
+    > [!NOTE]
+    > You can use steps in the article to handle events from other event sources too. For a generic example of sending Event Grid events to Azure Blob Storage or Azure Monitor's Application Insights, see [this example on GitHub](https://github.com/awkwardindustries/azure-monitor-handler).
 
 ## Next steps
 

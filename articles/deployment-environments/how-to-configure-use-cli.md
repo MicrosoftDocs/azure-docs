@@ -24,6 +24,7 @@ This article shows you how to use the Deployment Environments Azure CLI extensio
     - Install the Deployment Environments AZ CLI extension:
 
     **Automated install**
+
     Execute the script https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 directly in PowerShell to install:
     ```powershell
     iex "& { $(irm https://aka.ms/DevCenterEnvironments/Install-DevCenterEnvironmentsCli.ps1 ) }"
@@ -235,11 +236,10 @@ az devcenter dev catalog-item list --dev-center-name <devcenter-name> --project-
 az devcenter admin project create -g <resource-group-name> -n <project-name> --dev-center-id <devcenter-resource-id>
 ```
 
-
 **List projects (in the selected subscription if resource group is not specified or configured in defaults)**
 
 ```azurecli
-az devcenter admin project list --output table
+az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects' | project id, name"
 ```
 
 **List projects (in the specified resource group)**
