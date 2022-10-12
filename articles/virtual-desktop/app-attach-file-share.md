@@ -57,7 +57,7 @@ If you're storing your MSIX applications in Azure Files, then for your session h
 
 | Azure object                      | Required role                                     | Role function                                  |
 |-----------------------------------|--------------------------------------------------|-----------------------------------------------|
-| Session host (VM computer objects)| Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
+| Session host (VM computer objects)| Storage File Data SMB Share Reader        | Allows for read access to Azure File Share over SMB  |
 | Admins on File Share              | Storage File Data SMB Share Elevated Contributor | Full control                                  |
 | Users on File Share               | Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
 
@@ -75,7 +75,7 @@ To assign session host VMs permissions for the storage account and file share:
 
 6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 
-7. Assign the synced AD DS group to Azure AD, and assign the storage account the Storage File Data SMB Share Contributor role.
+7. Assign the synced AD DS group to Azure AD, and assign the storage account the Storage File Data SMB Share Reader role.
 
 8. Mount the file share to any session host by following the instructions in [Part two: assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
