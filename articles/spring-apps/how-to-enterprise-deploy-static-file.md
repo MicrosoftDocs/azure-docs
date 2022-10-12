@@ -95,9 +95,9 @@ You can configure web server by providing a customized server configuration file
 
 |Configuration|Description|Nginx Configuration|Httpd Configuration|
 |-------------|-----------|-----|-----|
-|Listening port|Web server must listen on port 8080. The service checks the port on TCP for readiness and liveness. <br/> It's requried to use templated variable PORT in the configuration file. The appropriate port number is injected when the web server is launched|listen {{PORT}};|Listen "${PORT}"|
-|Log path|Config log path to the console| access_log /dev/stdout; error_log /dev/stderr;| ErrorLog "/dev/stderr"|
-|File path with write permission|Web server is granted write permssion to directory /tmp, configure all the path requires write permission under directory /tmp | For example: <br/> client_body_temp_path /tmp/client_body_temp;||
+|Listening port|Web server must listen on port 8080. The service checks the port on TCP for readiness and liveness. <br/> It's requried to use templated variable PORT in the configuration file. The appropriate port number is injected when the web server is launched|listen {{PORT}}|Listen "${PORT}"|
+|Log path|Config log path to the console| access_log /dev/stdout <br/> error_log stderr| ErrorLog /proc/self/fd/2|
+|File path with write permission|Web server is granted write permssion to directory /tmp, configure all the path requires write permission under directory /tmp | For example: <br/> client_body_temp_path /tmp/client_body_temp||
 |Maximum accepted body size of client request|Web server is behind the gateway, maximum accepted body size of client request is set to 500m in the gateway, the vaue for web server must be less than 500m | client_max_body_size should be less than 500m|LimitRequestBody should be less than 500m|
 
 ## Common build error
@@ -110,7 +110,7 @@ You can configure web server by providing a customized server configuration file
 
 |Error Message|Root Cause|Solution|
 |-------------|----------|--------|
-|112404: Exit code 0: purposely stopped, please refer to https://aka.ms/exitcode|Web server failed to start|Validate your server configuration file to see if any configuration error, double check if your configuration file conforms to [Customized server configuration file restriction](#customized-server-configuration-file-restriction)|
+|112404: Exit code 0: purposely stopped, please refer to https://aka.ms/exitcode |Web server failed to start|Validate your server configuration file to see if there's any configuration error, double check if your configuration file conforms to [Customized server configuration file restriction](#customized-server-configuration-file-restriction)|
 |mkdir() "/var/client_body_temp" failed (13: Permission denied)|Web server doesn't have write permission to the specified path|Configure the path under directory /tmp, for example: /tmp/client_body_temp|
 
 ## Next steps
