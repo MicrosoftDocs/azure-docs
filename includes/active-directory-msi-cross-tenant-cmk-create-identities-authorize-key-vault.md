@@ -73,7 +73,7 @@ Configure a user-assigned managed identity as a federated identity credential on
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To use Azure PowerShell to configure the ISV's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 
@@ -89,7 +89,7 @@ The name that you provide for the multi-tenant application is used by the custom
 
 #### The service provider creates a user-assigned managed identity
 
-Sign in to the ISV's tenant, and then create a user-assigned managed identity to be used as a federated identity credential.
+Sign in to the ISV's tenant, and then create a user-assigned managed identity to be used as a federated identity credential. To create a new user-assigned managed identity, you must be assigned a role that includes the **Microsoft.ManagedIdentity/userAssignedIdentities/write** action.
 
 ```azurepowershell
 $tenantId="<isv-tenant-id>"
@@ -153,25 +153,23 @@ echo "Multi-tenant Azure AD Application has appId = $appId and ObjectId = $appOb
 
 #### The service provider creates a user-assigned managed identity
 
-Create a resource group using your Azure subscription. Also create a user-assigned managed identity (to be used as a federated identity credential). Get the object ID of the user-managed identity, which you'll need in the following steps. To create a managed identity, you must have a [Managed identity contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role.
+Sign in to the ISV's tenant, and then create a user-assigned managed identity to be used as a federated identity credential. To create a new user-assigned managed identity, you must be assigned a role that includes the **Microsoft.ManagedIdentity/userAssignedIdentities/write** action.
 
 ```azurecli
-export subscriptionId="aaaaaaaa-0000-aaaa-0000-aaaa0000aaaa"
-export tenantId="bbbbbbbb-0000-bbbb-0000-bbbb0000bbbb"
-export appName="XTCMKDemoApp"
+subscriptionId="<isv-subscription-id>"
+appName="<multi-tenant-app>"
+userIdentityName="<user-assigned-managed-identity>"
+rgName="<isv-resource-group>"
+location="<location>"
 
-export managedIdentity="XTCMKDemoAppUA"
-export rgName="XTCMKDemoAppRG"
-export location="westcentralus"
+appObjectId=$(az ad app create --display-name $appName --sign-in-audience AzureADMultipleOrgs --query id --output tsv)
 
-export appObjectId=$(az ad app create --display-name $appName --sign-in-audience AzureADMultipleOrgs --query id --output tsv)
-
-export appId=$(az ad app show --id $appObjectId --query appId --output tsv)
+appId=$(az ad app show --id $appObjectId --query appId --output tsv)
 
 az group create --location $location --resource-group $rgName --subscription $subscriptionId
-echo "Created a new resource group with name = $rgName, location = $location in subscriptionid = $subscriptionId"
+echo "Created a new resource group with name = $rgName, location = $location in subscriptionId = $subscriptionId"
 
-export uamiObjectId=$(az identity create --name $managedIdentity --resource-group $rgName --location $location --subscription $subscriptionId --query principalId --out tsv)
+principalId=$(az identity create --name $managedIdentity --resource-group $rgName --location $location --subscription $subscriptionId --query principalId --out tsv)
 ```
 
 #### The service provider configures the user-assigned managed identity as a federated credential on the application
@@ -198,7 +196,7 @@ az ad app federated-credential create --id <appObjectId> --parameters credential
 
 #### The service provider shares the application ID with the customer
 
-Find the application ID (client ID) of the multi-tenant application and share it with the customer(s). In this example, it is "appId".
+Find the application ID (client ID) of the multi-tenant application and share it with the customer.
 
 ### The customer grants the service provider's app access to the key in the key vault
 
@@ -271,7 +269,7 @@ Now you can configure customer-managed keys with the key vault URI and key.
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To use Azure PowerShell to configure the client's tenant, install the latest [Az](https://www.powershellgallery.com/packages/Az) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 
