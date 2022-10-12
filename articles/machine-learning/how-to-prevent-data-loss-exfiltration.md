@@ -38,7 +38,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 ## Limitations
 
-* Data exfiltration prevention isn't supported with an Azure Machine Learning compute cluster or compute instance configured for __no public IP__.
+* If you have an Azure Machine Learning compute instance configured for __no public IP__ that was created _before_ October 15th, you must delete and recreate it after step 1 (opt in) below if you want to use data loss exfiltration protection with it. Older compute instances configured for no public IP were created using a different back-end infrastructure. Deleting and recreating the compute instance after opt in to the preview.
 
 ## 1. Opt in to the preview
 
@@ -50,16 +50,7 @@ Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com
 > [!TIP]
 > It may take one to two weeks to allowlist your subscription.
 
-## 2. Allow inbound & outbound network traffic
-
-### Inbound
-
-> [!IMPORTANT]
-> The following information __modifies__ the guidance provided in the [Inbound traffic](how-to-secure-training-vnet.md#inbound-traffic) section of the "Secure training environment with virtual networks" article.
-
-__Inbound__ traffic from the service tag `BatchNodeManagement.<region>` or equivalent IP addresses is __not required__.
-
-### Outbound
+## 2. Allow outbound network traffic
 
 > [!IMPORTANT]
 > The following information is __in addition__ to the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) articles.
