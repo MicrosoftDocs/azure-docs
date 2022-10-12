@@ -7,11 +7,11 @@ ms.date: 10/11/2022
 ms.author: rosemalcolm 
 --- 
 
-# Usage and Quota  
+# Determine Usage and Quota  
 
 Keeping track of how your quota of VM cores is being used across your subscriptions can be difficult. You may want to know what your current usage is, how much you have left, and in what regions you have capacity.  To help you understand where and how you're using your quota, Azure provides the Usage + Quotas page. 
 
-## Determine your usage 
+## Determine your usage and quota
 
 1. In the [Azure portal](https://portal.azure.com), go to the subscription you want to examine. 
 
