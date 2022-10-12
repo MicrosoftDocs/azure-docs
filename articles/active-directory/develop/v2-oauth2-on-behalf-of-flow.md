@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow
 
-The OAuth 2.0 On-Behalf-Of flow (OBO) is most often used when an application invokes a service/web API that needs to call another service/web API. The OBO flow is focused on acting on another party's behalf, known as a delegated scenario. The goal is to propagate the delegated user identity and permissions through the request chain and when a situation like this arises, extra scrutiny is required.
+The on-behalf-of (OBO) flow occurs when a client application calls a web API which then calls another web API as the identity passed by the client application. Referred to as the delegated scenario in OAuth, the intent is to pass a user's identity and permissions through the request chain.
 
 For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform. It only uses delegated *scopes* and not application *roles*. *Roles* remain attached to the principal (the user) and never to the application operating on the user's behalf. This occurs to prevent the user gaining permission to resources they shouldn't have access to.
 
