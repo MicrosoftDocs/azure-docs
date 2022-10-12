@@ -30,7 +30,7 @@ Spring Cloud Gateway also has the following features:
 - Circuit breaker configuration.
 - Support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
+To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md), VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes.
 
 ## Prerequisites
 
@@ -51,8 +51,8 @@ This section describes how to add, update, and manage API routes for apps that u
 
 The route configuration definition includes the following parts:
 
-- OpenAPI URI: The URI points to an OpenAPI specification. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will be shown in API portal to try out. Either a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition may be used.
-- routes: A list of route rules about how the traffic goes to each app.
+- OpenAPI URI: This URI references an OpenAPI specification. A public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where `app-name` is the name of an application in Azure Spring Apps that includes the API definition may be used. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will also be shown in API portal if enabled.
+- routes: A list of route rules to direct traffic to apps and apply filters.
 - protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. Its supported values are `HTTP` or `HTTPS`, the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
@@ -139,7 +139,7 @@ Use the following steps to create an sample application using Spring Cloud Gatew
 
    Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
 
-   Save the following content to a *test-api.json* file.  It includes an RateLimit filter, which allows twenty requests every ten seconds, and a RewritePath filter, which changes the request endpoint to the standard Spring Boot health check endpoint.
+   Save the following content to a *test-api.json* file.  It includes a RateLimit filter, which allows twenty requests every ten seconds, and a RewritePath filter, which allows the request endpoint to reach the standard Spring Boot health check endpoint.
 
    ```json
    [
@@ -187,9 +187,11 @@ Use the following steps to create an sample application using Spring Cloud Gatew
 
    ```azurecli
    az configure --defaults group=<resource group name> spring=<service name>
+
    az spring gateway route-config show \
        --name test-api-routes \
        --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
+       
    az spring gateway route-config list \
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```
@@ -204,7 +206,7 @@ You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kuberne
 
 ### Use commercial filters
 
-For examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
+For more examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
 
 The following example shows how to use the [AddRequestHeadersIfNotPresent](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#add-request-headers-if-not-present) filter by converting the Kubernetes resource definition.
 
