@@ -66,7 +66,7 @@ Microsoft Defender for Cloud enables comprehensive visibility, posture managemen
 
 Now, the new Defender for DevOps service integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration we are empowering security teams to protect their resources from code to cloud.
 
-Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](azure/defender-for-cloud/quickstart-onboard-devops) and [GitHub](azure/defender-for-cloud/quickstart-onboard-github) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high level overview of the discovered security issues that exist within them in a unified DevOps Security page.
+Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
 Security Teams can configure pull request annotations to help Developers address secret scanning findings in Azure DevOps directly on their pull requests.
 
