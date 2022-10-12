@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -51,7 +51,7 @@ Choose the type of summarization you would like to perform, and select one of th
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
 
 |parameter  |Description  |
 |---------|---------|

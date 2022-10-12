@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/29/2022
+ms.date: 09/26/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,38 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## 2022-09-26
+
+### Azure Machine Learning SDK for Python v1.46.0 
+  + **azureml-automl-dnn-nlp**
+    + Customers will no longer be allowed to specify a line in CoNLL which only comprises with a token. The line must always either be an empty newline or one with exactly one token followed by exactly one space followed by exactly one label.
+  + **azureml-contrib-automl-dnn-forecasting**
+    + There is a corner case where samples are reduced to 1 after the cross validation split but sample_size still points to the count before the split and hence batch_size ends up being more than sample count in some cases. In this fix we initialize sample_size after the split
+  + **azureml-core**
+    + Added deprecation warning when inference customers use CLI/SDK v1 model deployment APIs to deploy models and also when python version is 3.6 and less.
+    + The following values of `AZUREML_LOG_DEPRECATION_WARNING_ENABLED` change the behavior as follows:
+      + Default - displays the warning when customer uses python 3.6 and less and for cli/sdk v1. 
+      + `True` - displays the sdk v1 deprecation warning on azureml-sdk packages. 
+      + `False` - disables the sdk v1 deprecation warning on azureml-sdk packages. 
+    + Command to be executed to set the environment variable to disable the deprecation message: 
+      + Windows - `setx AZUREML_LOG_DEPRECATION_WARNING_ENABLED "False"`
+      + Linux - `export AZUREML_LOG_DEPRECATION_WARNING_ENABLED="False"`
+  + **azureml-interpret**
+    + update azureml-interpret package to interpret-community 0.27.*
+  + **azureml-pipeline-core**
+    + Fix schedule default time zone to UTC.
+    + Fix incorrect reuse when using SqlDataReference in DataTransfer step.
+  + **azureml-responsibleai**
+    + update azureml-responsibleai package and curated images to raiwidgets and responsibleai v0.22.0
+  + **azureml-train-automl-runtime**
+    + Fixed a bug in generated scripts that caused certain metrics to not render correctly in ui.
+    + Many Models now supports rolling forecast for inferencing.
+    + Support to return top `N` models in Many models scenario.
+
+
+
 
 ## 2022-08-29
 

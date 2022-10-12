@@ -73,7 +73,7 @@ If you're an EA admin, you can download the CSV file that contains new cost data
 
 In the Azure portal, navigate to [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
-1. Select the billing account.
+1. Select the enrollment.
 1. Select **Usage + charges**.
 1. Select **Download**.
 1. In **Download Usage + Charges**, under **Usage Details Version 2**, select **All Charges (usage and purchases)** and then select download. Repeat for **Amortized charges (usage and purchases)**.
