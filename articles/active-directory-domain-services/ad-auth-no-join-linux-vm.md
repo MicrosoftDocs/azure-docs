@@ -2,14 +2,14 @@
 title: AD Autentication without Domain Join Linux VM | Microsoft Docs
 description: Learn how to configure AD User authentication on Linux VM without Active Directory Domain Services Join.
 services: active-directory-ds
-author: tommasosacco
+author: DevOpsStyle
 manager: francesco.dauri
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 10/12/2022
 ms.author: tommasosacco
 
 ---
