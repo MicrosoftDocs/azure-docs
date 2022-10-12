@@ -133,7 +133,7 @@ Replace `{consent-policy-id}` with the ID of the policy you want to apply. You c
 | microsoft-user-default-low | **Allow user consent for apps from verified publishers, for selected permissions**<br/> Allow limited user consent only for apps from verified publishers and apps that are registered in your tenant, and only for permissions that you classify as *low impact*. (Remember to [classify permissions](configure-permission-classifications.md) to select which permissions users are allowed to consent to.) |
 | microsoft-user-default-legacy | **Allow user consent for apps**<br/> This option allows all users to consent to any permission that doesn't require admin consent, for any application |
 
-For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`, run the following commands:
+For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`, use the following PATCH command:
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
