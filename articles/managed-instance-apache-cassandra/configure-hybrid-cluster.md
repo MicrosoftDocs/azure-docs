@@ -253,7 +253,7 @@ The above instructions provide guidance for configuring a hybrid cluster. Howeve
     > [!IMPORTANT]
     > As also mentioned in the hybrid setup instructions, if the data center(s) in your existing cluster do not enforce [client-to-node encryption (SSL)](https://cassandra.apache.org/doc/3.11/cassandra/operating/security.html#client-to-node-encryption), you will need to enable this in your application code, as Cassandra Managed Instance enforces this. 
 
-1. Run `nodetool rebuild` **again** on all the nodes in your existing cluster's data center, in the same manner as in step 3 above (to ensure any deltas are replicated following application cut over).
+1. Run `nodetool rebuild` **again** on all the nodes in your new Cassandra Managed Instance data center, in the same manner as in step 3 above (to ensure any deltas are replicated following application cut over).
 
 1. Run ALTER KEYSPACE for each keyspace, in the same manner as done earlier, but now removing your old data center(s).
 
