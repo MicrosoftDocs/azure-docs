@@ -1236,7 +1236,7 @@ To override the default directory you should set `AzureMonitorExporterOptions.St
 
 For example:
 ```csharp
-this.tracerProvider = Sdk.CreateTracerProviderBuilder()
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddAzureMonitorTraceExporter(o => {
         o.ConnectionString = "<Your Connection String>";
         o.StorageDirectory = "C:\\SomeDirectory";
