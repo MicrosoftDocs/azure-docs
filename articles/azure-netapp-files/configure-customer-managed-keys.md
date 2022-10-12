@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 10/12/2022
 ms.author: anfdocs
 ---
 
@@ -92,153 +92,48 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
 1. After selecting **Save** button, you will receive a notification communicating the status of the operation. If the operation was not successful, an error message will display. Refer to [error messages and troubleshooting](#error-messages-and-troubleshooting) for assistance in resolving the error.  
 
-<!-- 
-## Configure a NetApp account to use customer-managed keys with user-assigned identity 
-
-The **Encryption** page doesn't currently support choosing an identity type (either system-assigned or user-assigned). To configure encryption with the user-assigned identity, you need to use the REST API to do so. A good tool to use Azure REST API is [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient). 
-
-1. Create a user-assigned identity in the same region as your NetApp account. Alternately, you can use an existing identity. 
-    For more information, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-1. Configure access to the key vault. You can use role-based access control or access policies. 
-    1. For role-based access control, configure the key vault to use role-based access control authorization.
-    :::image type="content" source="../media/azure-netapp-files/azure-role-based-access.png" alt-text="Screenshot of the access policies menu." lightbox="../media/azure-netapp-files/azure-role-based-access.png":::
-    Create a custom role with permissions **Read**, **Encrypt**, and **Decrypt**. 
-    :::image type="content" source="../media/azure-netapp-files/netapp-account-json.png" alt-text="Screenshot of an example JSON configuration." lightbox="../media/azure-netapp-files/netapp-account-json.png":::
-    Add an assignment for the user-assigned identity for the custom role on the key vault. Alternatively, you can use the built-in role `key vault crypto user`, but this role includes more permissions than are necessary.
-    1. Add an access policy for the user-assigned identity on the key vault. 
-    :::image type="content" source="../media/azure-netapp-files/add-access-policy.png" alt-text="Screenshot of the access policies menu with the vault access permission model." lightbox="../media/azure-netapp-files/add-access-policy.png":::
-    Select the permissions **Get**, **Encrypt**, and **Decrypt**. 
-    :::image type="content" source="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png" alt-text="Screenshot of a drop-down menu with get, encrypt, and decrypt options selected." lightbox="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png":::
-    Select the user-assigned identity under **Select principal**. Leave **Authorized application** blank. 
-    :::image type="content" source="../media/azure-netapp-files/access-policy-confirm.png" alt-text="Screenshot of the add access policy menu. Authorized application field is blank." lightbox="../media/azure-netapp-files/access-policy-confirm.png":::
-
-<!-- 
-
-1. Send a PATCH request via the REST API to the NetApp account `/{accountResourceId}?api-version=2022-03` with the following request body:
-    Take note of the `Azure-AsyncOperation` header in the response. That URL can be polled to get the result of the asynchronous patch operation. 
-
-    ```rest
-    { 
-      "identity": { 
-        "type": "UserAssigned", 
-        "userAssignedIdentities": { 
-          "<User assigned identity resource id>": {} 
-        } 
-      }, 
-      "properties": { 
-        "encryption": { 
-          "keySource": "Microsoft.KeyVault", 
-          "keyVaultProperties": { 
-            "keyVaultUri": “<key vault uri>”, 
-            "keyName": "<key name>", 
-            "keyVaultResourceId": "<key vault resource id>" 
-          }, 
-          "identity": { 
-            "userAssignedIdentity": "<user assigned identity resource id>" 
-          } 
-        } 
-      } 
-    } 
-    ```
-
-    **Examples** 
-    
-    User assigned identity resource ID: `/subscriptions/<subscription-id>/resourcegroups/contoso--westcentralus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-wcu-identity` 
-    
-    Key vault URI: `https://contoso-wcu2.vault.azure.net `
-    
-    Key name: `/subscriptions/<subscription-id>/resourceGroups/contoso-westcentralus/providers/Microsoft.KeyVault/vaults/contoso-wcu2`
-
-
-## Use ARM processor REST API with ARMClient 
-
-ARMClient is an open-source tool that makes on-demand requests to ARM processor REST API convenient. Follow the readme document to install and sign into the tool: [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient).
-
-If you're using ARMClient, save the request body in a JSON file for reference. Be sure to use the `–verbose` flag. 
-
-Example: `armclient patch <netapp account resource id>?api-version=2022-03-01 ./<path to json file> -verbose` 
-
-Copy the `Azure-AsyncOperation` header from the response and poll the URI using `armclient get <Azure-AsyncOperation value>`. 
-
-```azurecli
----------- RESPONSE (6363ms) ----------
-HTTP/1.1 202 Accepted
-Content-Length: 848
-Content-Type: application/json; charset=utf-8
-Expires: -1
-Pragma: no-cache
-x-ms-request-id: <request ID>
-Azure-AsyncOperation: https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/westcentralus/operationResults/<operationResultId>?api-version=2022-03-01
-x-ms-ratelimit-remaining-subscription-writes: 1199
-x-ms-correlation-request-id: <correlation-request-id>
-x-ms-routing-request-id: LOCATION:TIMESTAMP:<routing-request-id>
-Strict-Transport-Security: max-age=315360000; includeSubDuomains
-X-Content-Type-Options: noniff
-Cache-Control: no-cache
-Date: Mon, 16 May 2022 13:59:09 GMT
-ETag: W/"datetime"2022-05-16-T13%3A59%3A10.1633
-Location: https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/westcentralus/operationResults/<operationResultsID>?api-version=2022-03-01
-Server: Microsoft-IIS/10.0
-X-Powered-By: ASP.NET
-```
-
-```azurecli
-armclient get https://management.azure.com/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/westcentralus/operationResults/<operationResultsID>?api-version=2022-03-01
-```
-
-```json
-{
-"id": "/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/<region>/operationResults/<operationResultsID>",
-"name": "<operationResultsID>",
-"status": "Succeeded",
-"startTime": "2022-05-16T13:59:10.1809382Z",
-"endTime": "2022-05-16T13:59:13.638715Z",
-"percentComplete": 100.0,
-"properties": {
-	"resourceName": "/subscriptions/<subscriptionID>/resourceGroups/<userID>-rotterdam-<region>/providers/Microsoft.NetApp/netAppAccounts/<account>"
-	}
-}
-```
--->
-
 ## Use role-based access control
 
 You can use an Azure Key Vault that is configured to use Azure role-based access control. To configure customer-managed keys through Azure Portal, you need to provide a user-assigned identity. 
 
 1. In your Azure account, go to the **Access policies** menu.
 1. To create an access policy, under **Permission model**, select **Azure role-based access-control**.
+    :::image type="content" source="../media/azure-netapp-files/rbac-permission.png" alt-text="Screenshot of access configuration menu." lightbox="../media/azure-netapp-files/rbac-permission.png":::
+1. When creating the user-assigned role, there are three permissions required for customer-managed keys: 
+    1. `Microsoft.KeyVault/vaults/keys/read`
+    1. `Microsoft.KeyVault/vaults/keys/encrypt/action`
+    1. `Microsoft.KeyVault/vaults/keys/decrypt/action`
 
-The permissions required for customer-managed keys are: 
-1. `Microsoft.KeyVault/vaults/keys/read`
-1. `Microsoft.KeyVault/vaults/keys/encrypt/action`
-1. `Microsoft.KeyVault/vaults/keys/decrypt/action`
+    Although there are pre-defined roles with these privileges, it is recommended that you create a custom role with the required permissions. See [Azure custom roles](../role-based-access-control/custom-roles.md) for details.
 
-Although there are pre-defined roles with these privileges, it is recommended that you create a custom role with the required permissions. See [Azure custom roles](../role-based-access-control/custom-roles.md) for details.
-
-```json
-{
-	"id": "/subscriptions/<subscription>/Microsoft.Authorization/roleDefinitions/<roleDefinitionsID>",
-	"properties": {
-	    "roleName": "NetApp account",
-	    "description": "Has the necessary permissions for customer-managed key encryption: get key, encrypt and decrypt",
-	    "assignableScopes": [
-            "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>"
-        ],
-	    "permissions": [
-          {
-            "actions": [],
-            "notActions": [],
-            "dataActions": [
-                "Microsoft.KeyVault/vaults/keys/read",
-                "Microsoft.KeyVault/vaults/keys/encrypt/action",
-                "Microsoft.KeyVault/vaults/keys/decrypt/action"
+    ```json
+    {
+    	"id": "/subscriptions/<subscription>/Microsoft.Authorization/roleDefinitions/<roleDefinitionsID>",
+    	"properties": {
+    	    "roleName": "NetApp account",
+    	    "description": "Has the necessary permissions for customer-managed key encryption: get key, encrypt and decrypt",
+    	    "assignableScopes": [
+                "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>"
             ],
-            "notDataActions": []
-	        }
-        ]
-	  }
-}
-```
+    	    "permissions": [
+              {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.KeyVault/vaults/keys/read",
+                    "Microsoft.KeyVault/vaults/keys/encrypt/action",
+                    "Microsoft.KeyVault/vaults/keys/decrypt/action"
+                ],
+                "notDataActions": []
+    	        }
+            ]
+    	  }
+    }
+    ```
+
+1. Once the custom role is created and available to use with the key vault, you can add a role assignment for your user-assigned identity. 
+
+  :::image type="content" source="../media/azure-netapp-files/rbac-review-assign.png" alt-text="Screenshot of RBAC review and assign menu." lightbox="../media/azure-netapp-files/rbac-review-assign.png":::
 
 ## Create an Azure NetApp Files volume using customer-manager keys
 
