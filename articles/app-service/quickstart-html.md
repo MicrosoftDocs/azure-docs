@@ -51,6 +51,14 @@ cd html-docs-hello-world
 
 az webapp up --location westeurope --name <app_name> --html
 ```
+> [!NOTE]
+> If you want to host your static content on a Linux based App Service instance PHP using the --runtime and --os-type flags:
+>
+> `az webapp up --location westeurope --name <app_name> --runtime "PHP:8.1" --os-type linux`
+> 
+> The PHP container includes a webserver that is suitable to host static HTML content.
+
+
 
 The `az webapp up` command does the following actions:
 
