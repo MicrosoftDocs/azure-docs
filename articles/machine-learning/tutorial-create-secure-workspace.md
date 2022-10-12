@@ -336,10 +336,10 @@ There are several ways that you can connect to the secured workspace. The steps 
 
 Use the following steps to create an Azure Virtual Machine to use as a jump box. Azure Bastion enables you to connect to the VM desktop through your browser. From the VM desktop, you can then use the browser on the VM to connect to resources inside the VNet, such as Azure Machine Learning studio. Or you can install development tools on the VM. 
 
-    > [!TIP]
-    > The steps below create a Windows-based Data Science Virtual Machine. If your Azure subscription has specific policy requirements, you can use another virtual machine. For example, if you have a policy that requires you to authenticate to Azure Active Directory when connecting to a service, or that the VM must be domain joined, you might use a Windows 10 or 11 enterprise image instead.
+> [!TIP]
+> The steps below create a Windows 11 enterprise VM. Depending on your requirements, you may want to select a different VM image. The Windows 11 (or 10) enterprise image is useful if you need to join the VM to your organization's domain.
 
-1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select the __Data science virtual machine - Windows__ entry, and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Virtual Machine__. Select the __Virtual Machine__ entry, and then select __Create__.
 
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide values for the following fields:
 
@@ -347,10 +347,11 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
     * __Username__: The username you will use to log in to the VM.
     * __Password__: The password for the username.
     * __Security type__: Standard.
-    * __Image__: Data Science Virtual Machine - Windows Server 2019 - Gen1.
+    * __Image__: Windows 11 Enterprise.
 
-        > [!IMPORTANT]
-        > Do not select a Gen2 image.
+        > [!TIP]
+        > If Windows 11 Enterprise isn't in the list for image selection, use _See all images__. Find the __Windows 11__ entry from Microsoft, and use the __Select__ drop-down to select the enterprise image.
+
 
     You can leave other fields at the default values.
 
