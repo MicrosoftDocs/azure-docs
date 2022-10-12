@@ -3,7 +3,7 @@ title: Azure Government isolation guidelines for Impact Level 5
 description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
 ms.service: azure-government
 ms.topic: article
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 author: stevevi
 ms.author: stevevi
 recommendations: false
@@ -209,7 +209,7 @@ For Databases services availability in Azure Government, see [Products available
 
 ### [Azure Cosmos DB](../cosmos-db/index.yml)
 
-- Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). For more information, see [Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault](../cosmos-db/how-to-setup-cmk.md).
+- Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). For more information, see [Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault](../cosmos-db/how-to-setup-cmk.md).
 
 ### [Azure Database for MySQL](../mysql/index.yml) 
 
