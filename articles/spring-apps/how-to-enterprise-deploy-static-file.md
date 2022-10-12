@@ -1,5 +1,5 @@
 ---
-title: Static Files
+title: How to Deploy Static Files
 titleSuffix: Azure Spring Apps Enterprise Tier
 description: How to Deploy Static File in Azure Spring Apps Enterprise Tier
 author: yilims
@@ -10,7 +10,7 @@ ms.date: 10/09/2022
 ms.custom: event-tier1-build-2022
 ---
 
-# Static files
+# How to Deploy Static Files
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -34,7 +34,7 @@ Azure Spring Apps allows you to deploy static files using the popular NGINX or H
 
 ## Deploy your static files
 
-* To deploy the static files with the default server configuration file generated automatically, see [Configure web server via environment variables](#configure-web-server-via-environment-variables), use the following command:
+* To deploy the static files with the default server configuration file generated automatically, see [Configure auto-generated server configuration files](#configure-auto-generated-server-configuration-files), use the following command:
 
 ```azurecli
 az spring app deploy
@@ -44,9 +44,6 @@ az spring app deploy
     --source-path <path-to-source-code> \
     --build-env BP_WEB_SERVER=nginx
 ```
-Refer to [Paketo samples](https://github.com/paketo-buildpacks/samples/tree/main/web-servers) for serving static files with default server configuration file, using BP_WEB_SERVER to select either [HTTPD](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/HTTPD.md) or [NGINX](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/NGINX.md).
-> [!NOTE]
-> The sample code is maintained by Paketo open source community.
 
 * To deploy dynamic frontend application as static content, use the following command:
 
@@ -58,7 +55,6 @@ az spring app deploy
     --source-path <path-to-source-code> \
     --build-env BP_WEB_SERVER=nginx BP_NODE_RUN_SCRIPTS=build BP_WEB_SERVER_ROOT=build
 ```
-Refer to [Paketo frontend applicaiton sample](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/javascript-frontend-sample) for using NPM to build a React app into static files that can be served by a web server .
 
 * To deploy the static files with customized server configuration file, see [Customized server configuration file restriction](#customized-server-configuration-file-restriction), use the following command:
 
@@ -69,28 +65,30 @@ az spring app deploy
     --name <your-app-name> \
     --source-path <path-to-source-code>
 ```
-Refer to Paketo samples for serving static files with your own server configuration file, using either [HTTPD](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/httpd-sample) or [NGINX](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/nginx-sample).
 
-## Configure web server via environment variables
+## Sample code
+
+> [!NOTE]
+> The sample code is maintained by Paketo open source community.
+
+The [Paketo samples](https://github.com/paketo-buildpacks/samples/tree/main/web-servers) have several different application types demonstrate common use cases such as:
+- Serving static files with default server configuration file, using BP_WEB_SERVER to select either [HTTPD](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/HTTPD.md) or [NGINX](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/NGINX.md).
+- Using NPM to build a [React app](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/javascript-frontend-sample) into static files that can be served by a web server:
+   - Define a script under the "scripts" property of your package.json that builds your production-ready static assets. For React, it's "build".
+   - Find out where static assets are stored after the build script runs. For React, this is "./build" by default.
+   - BP_NODE_RUN_SCRIPTS should be set to the name of the build script.
+   - BP_WEB_SERVER_ROOT should be set to the build output directory. 
+- Serving static files with your own server configuration file. using either [HTTPD](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/httpd-sample) or [NGINX](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/nginx-sample)
+
+## Configure auto-generated server configuration files
 You can use environment variables to tweak the automatically-generated server configuration file. Supported environment variables:
 
 |Environment Variable|Description|
 |--------------------|-----------|
 |BP_WEB_SERVER|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server. <br> It's required when using automatically-generated server configuration file.|
 |BP_WEB_SERVER_ROOT|Defaults to public, set the location of the static files with either an absolute file path or a file path relative to /workspace.|
-|BP_NODE_RUN_SCRIPTS|Define a script under the "scripts" property of your package.json that builds your production-ready static assets. For React, it's "build". Set the BP_NODE_RUN_SCRIPTS to specify which scripts to run. BP_WEB_SERVER_ROOT should be set to the build output directory. For React, it's "build" by default.|
 |BP_WEB_SERVER_ENABLE_PUSH_STATE|Enable push state routing for your application. Regardless of the route that is requested, index.html will always be served. It's useful for single-page web applications.|
 |BP_WEB_SERVER_FORCE_HTTPS|Enforce HTTPS for server connections by redirecting all requests to use the HTTPS protocol.|
-
-```azurecli
-az spring app deploy
-    --resource-group <your-resource-group-name> \
-    --service <your-Azure-Spring-Apps-name> \
-    --name <your-app-name> \
-    --source-path <path-to-source-code>
-    --build-env BP_WEB_SERVER=httpd BP_WEB_SERVER_ROOT=htdocs
-```
-Refer to [NGINX doc](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-nginx-nginx-buildpack.html) and [HTTPD doc](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-httpd-httpd-buildpack.html) for more environment variables.
 
 ## Customized server configuration file restriction
 You can configure web server by providing a customized server configuration file. Your configuration file must conform to the following restrictions:
