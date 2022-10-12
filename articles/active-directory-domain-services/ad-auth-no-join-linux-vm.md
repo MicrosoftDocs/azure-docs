@@ -72,7 +72,7 @@ ldapsearch -H ldap://<ip-domain-controller>:389 -x \
 
 If the ldap query works fine you will obtain an output with some information like follow:
 
----
+```bash
 extended LDIF
 
 LDAPv3
