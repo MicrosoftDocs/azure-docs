@@ -4,7 +4,7 @@ description: Learn more about how to write code for the WebJobs SDK. Create even
 author: ggailey777
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ms.topic: article
 ms.date: 06/24/2021
 ms.author: glenga
@@ -364,13 +364,13 @@ These binding-specific settings are equivalent to settings in the [host.json pro
 
 You can configure the following bindings:
 
-* [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Azure Cosmos DB trigger](#azure-cosmos-db-trigger-configuration-version-3x)
 * [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
 * [Queue storage trigger](#queue-storage-trigger-configuration)
 * [SendGrid binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
 
-#### Azure CosmosDB trigger configuration (version 3.*x*)
+#### Azure Cosmos DB trigger configuration (version 3.*x*)
 
 This example shows how to configure the Azure Cosmos DB trigger:
 
@@ -397,7 +397,7 @@ static async Task Main()
 }
 ```
 
-For more information, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) article.
+For more information, see the [Azure Cosmos DB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) article.
 
 #### Event Hubs trigger configuration (version 3.*x*)
 

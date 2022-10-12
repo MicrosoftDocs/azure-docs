@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure Percept DK over Ethernet
 description: This guide shows users how to connect to the Azure Percept DK setup experience when connected over an Ethernet connection.
-author: nkhuyent
+author: yvonne-dq
 ms.author: wendyowen
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 06/01/2021
+ms.date: 10/06/2021
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ In this how-to guide you'll learn how to launch the Azure Percept DK setup exper
 
 ## Prerequisites
 
-- An Azure Percept DK ([Get one here](https://go.microsoft.com/fwlink/?linkid=2155270))
+- An Azure Percept DK 
 - A Windows, Linux, or OS X based host computer with Wi-Fi or ethernet capability and a web browser
 - Network cable
 
