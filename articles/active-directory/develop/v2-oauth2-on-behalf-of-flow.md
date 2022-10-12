@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/30/2022
 ms.author: ludwignick
 ms.reviewer: ludwignick
-ms.custom: aaddev  
+ms.custom: aaddev, engagement-fy23
 ---
 
 # Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow
 
-The on-behalf-of (OBO) flow occurs when a client application calls a web API which then calls another web API as the identity passed by the client application. Referred to as the delegated scenario in OAuth, the intent is to pass a user's identity and permissions through the request chain.
+The on-behalf-of (OBO) flow describes the scenario of a web API using an identity other than its own to call another web API. Referred to as delegation in OAuth, the intent is to pass a user's identity and permissions through the request chain.
 
 For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform. It only uses delegated *scopes* and not application *roles*. *Roles* remain attached to the principal (the user) and never to the application operating on the user's behalf. This occurs to prevent the user gaining permission to resources they shouldn't have access to.
 
@@ -27,7 +27,7 @@ This article describes how to program directly against the protocol in your appl
 
 ## Client limitations
 
-The OBO flow only works for user principals and doesn't work for service principals. If a service principal requested an app-only token and sent it to an API, that API would then exchange a token that doesn't represent the original service principal. Instead, it must use the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) to get an app-only token. In the case of Single-page apps (SPAs), they should pass an access token to a middle-tier confidential client to perform OBO flows instead.
+The OBO flow only works for user principals and doesn't work for service principals. If a service principal requested an app-only token and sent it to an API, that API would then exchange a token that doesn't represent the original service principal. Instead, it must use the [client credentials flow](v2-oauth2-client-creds-grant-flow.md) to get an app-only token. In the case of Single-page apps (SPAs), they should pass an access token to a middle-tier confidential client to perform OBO flows instead.
 
 If a client uses the implicit flow to get an id_token and also has wildcards in a reply URL, the id_token can't be used for an OBO flow. A wildcard is a URL that ends with a `*` character. For example, if `https://myapp.com/*` was the reply URL the id_token can't be used because it isn't specific enough to identify the client. This would prevent the token being issued. However, access tokens acquired through the implicit grant flow can be redeemed by a confidential client, even if the initiating client has a wildcard reply URL registered. This is because the confidential client can identify the client that acquired the access token. The confidential client can then use the access token to acquire a new access token for the downstream API.
 
@@ -242,7 +242,7 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 
 ## Gaining consent for the middle-tier application
 
-The ultimate goal of the OBO flow is to ensure proper consent is given so that the client app can call the middle-tier app and the middle-tier app has permission to call the back-end resource. Depending on the architecture or usage of your application, you may want to consider the following to ensure that OBO flow is successful.
+The goal of the OBO flow is to ensure proper consent is given so that the client app can call the middle-tier app and the middle-tier app has permission to call the back-end resource. Depending on the architecture or usage of your application, you may want to consider the following to ensure that OBO flow is successful.
 
 ### .default and combined consent
 
