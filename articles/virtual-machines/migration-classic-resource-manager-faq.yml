@@ -47,7 +47,7 @@ sections:
       - question: |
           Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
         answer: |
-          As part of the retirement process, IaaS VMs (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, contact support to add your subscription to the allow list.
+          As part of the retirement process, IaaS VMs (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, contact support to add your subscription to the allowlist.
 
       - question: |
           Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
