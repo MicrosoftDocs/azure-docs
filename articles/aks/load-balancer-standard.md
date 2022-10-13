@@ -26,7 +26,7 @@ This document covers the integration with Public Load balancer. For internal Loa
 
 ## Before you begin
 
-Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. Use the *Standard* SKU to have access to added functionality, such as a larger backend pool, [**multiple node pools**](use-multiple-node-pools.md), and [**Availability Zones**](availability-zones.md). It's the recommended Load Balancer SKU for AKS.
+Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended Load Balancer SKU for AKS.
 
 For more information on the *Basic* and *Standard* SKUs, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
@@ -378,7 +378,6 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
@@ -401,7 +400,7 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 [az-network-public-ip-show]: /cli/azure/network/public-ip#az_network_public_ip_show
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_show
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
-[azure-lb]: ../load-balancer/load-balancer-overview.md
+[azure-lb]: ../load-balancer/load-balancer-overview.md#securebydefault
 [azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-connections.md#outboundrules
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md

@@ -21,7 +21,7 @@ Currently, it's not possible to connect an IoT Central application directly to V
 
 - An IoT Central application. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
-- Data export configured in your IoT Central application to send device data to a destination such as Azure Blob Storage, Azure Event Hubs, or Azure Service Bus. The destination is configured to use a managed identity. To learn more, see [Export IoT data to cloud destinations using data export](howto-export-data.md).
+- Data export configured in your IoT Central application to send device data to a destination such as Azure Blob Storage, Azure Event Hubs, or Azure Service Bus. The destination is configured to use a managed identity. To learn more, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 
 ## Configure the destination service
 

@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 10/29/2021
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -17,13 +17,12 @@ In your IoT hub in the Azure portal, IoT Edge devices are created and managed se
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
-1. In the left pane, select **IoT Edge** from the menu, then select **Add an IoT Edge device**.
-
-   ![Add an IoT Edge device from the Azure portal](./media/iot-edge-register-device-symmetric/portal-add-iot-edge-device.png)
+1. In the left pane, select **Devices** from the menu, then select **Add Device**.
 
 1. On the **Create a device** page, provide the following information:
 
    * Create a descriptive device ID. Make a note of this device ID, as you'll use it later.
+   * Check the **IoT Edge Device** checkbox.
    * Select **Symmetric key** as the authentication type.
    * Use the default settings to auto-generate authentication keys and connect the new device to your hub.
 
@@ -81,15 +80,15 @@ Devices that use symmetric key authentication need their connection strings to c
 
 # [Portal](#tab/azure-portal)
 
-All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
+The edge-enabled devices that connect to your IoT hub are listed on the **Devices** page. You can filter the list by type *Iot Edge Device*. 
 
-![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/iot-edge-register-device-symmetric/portal-view-devices.png)
+:::image type="content" source="./media/iot-edge-register-device/portal-view-devices.png" alt-text="Screenshot of how to view your devices in the Azure portal, IoT Hub.":::
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 
 Devices that authenticate with symmetric keys have their connection strings available to copy in the portal.
 
-1. From the **IoT Edge** page in the portal, click on the device ID from the list of IoT Edge devices.
+1. From the **Devices** page in the portal, select the IoT Edge device ID from the list.
 2. Copy the value of either **Primary Connection String** or **Secondary Connection String**.
 
 # [Visual Studio Code](#tab/visual-studio-code)

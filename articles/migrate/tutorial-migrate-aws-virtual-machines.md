@@ -151,18 +151,18 @@ The first step of migration is to set up the replication appliance. To set up th
 
 8. Copy the appliance setup file and key file to the Windows Server 2016 or Windows Server 2012 AWS VM you created for the replication appliance.
 9. Run the replication appliance setup file, as described in the next procedure.  
-    9.1. Under **Before You Begin**, select **Install the configuration server and process server**, and then select **Next**.   
-    9.2 In **Third-Party Software License**, select **I accept the third-party license agreement**, and then select **Next**.   
-    9.3 In **Registration**, select **Browse**, and then go to where you put the vault registration key file. Select **Next**.  
-    9.4 In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server**, and then select **Next**.  
-    9.5 The **Prerequisites Check** page runs checks for several items. When it's finished, select **Next**.  
-    9.6 In **MySQL Configuration**, provide a password for the MySQL DB, and then select **Next**.  
-    9.7 In **Environment Details**, select **No**. You don't need to protect your VMs. Then, select **Next**.  
-    9.8 In **Install Location**, select **Next** to accept the default.  
-    9.9 In **Network Selection**, select **Next** to accept the default.  
-    9.10 In **Summary**, select **Install**.   
-    9.11 **Installation Progress** shows you information about the installation process. When it's finished, select **Finish**. A window displays a message about a reboot. Select **OK**.   
-    9.12 Next, a window displays a message about the configuration server connection passphrase. Copy the passphrase to your clipboard and save the passphrase in a temporary text file on the source VMs. You’ll need this passphrase later, during the mobility service installation process.
+    1.  Under **Before You Begin**, select **Install the configuration server and process server**, and then select **Next**.   
+    2. In **Third-Party Software License**, select **I accept the third-party license agreement**, and then select **Next**.   
+    3. In **Registration**, select **Browse**, and then go to where you put the vault registration key file. Select **Next**.  
+    4. In **Internet Settings**, select **Connect to Azure Site Recovery without a proxy server**, and then select **Next**.  
+    5. The **Prerequisites Check** page runs checks for several items. When it's finished, select **Next**.  
+    6. In **MySQL Configuration**, provide a password for the MySQL DB, and then select **Next**.  
+    7. In **Environment Details**, select **No**. You don't need to protect your VMs. Then, select **Next**.  
+    8. In **Install Location**, select **Next** to accept the default.  
+    9. In **Network Selection**, select **Next** to accept the default.  
+    10. In **Summary**, select **Install**.   
+    11. **Installation Progress** shows you information about the installation process. When it's finished, select **Finish**. A window displays a message about a reboot. Select **OK**.   
+    12. Next, a window displays a message about the configuration server connection passphrase. Copy the passphrase to your clipboard and save the passphrase in a temporary text file on the source VMs. You’ll need this passphrase later, during the mobility service installation process.
 
 10. After the installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). In this tutorial, we'll be manually installing the Mobility Service on source VMs to be replicated, so create a dummy account in this step and proceed. You can provide the following details for creating the dummy account - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will be using this dummy account in the Enable Replication stage.
 
@@ -240,7 +240,7 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 6. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 7. Check each VM you want to migrate. Then click **Next: Target settings**.
 
-    ![Select VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="./media/tutorial-migrate-physical-virtual-machines/select-vms-expanded.png":::
 
 8. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
 9. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.  
@@ -276,13 +276,15 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
 
-![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
-
 15. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
 
-    ![Disk settings](./media/tutorial-migrate-physical-virtual-machines/disks.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-physical-virtual-machines/disks-expanded.png":::
+
+1. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
+
+    :::image type="content" source="./media/tutorial-migrate-vmware/tags-inline.png" alt-text="Screenshot shows the tags tab of the Replicate dialog box." lightbox="./media/tutorial-migrate-vmware/tags-expanded.png":::
 
 16. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
@@ -369,7 +371,7 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

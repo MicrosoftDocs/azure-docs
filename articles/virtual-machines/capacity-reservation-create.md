@@ -12,6 +12,8 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Create a Capacity Reservation
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
+
 Capacity Reservation is always created as part of a Capacity Reservation group. The first step is to create a group if a suitable one doesn’t exist already, then create reservations. Once successfully created, reservations are immediately available for use with virtual machines. The capacity is reserved for your use as long as the reservation is not deleted.     
 
 A well-formed request for Capacity Reservation group should always succeed as it does not reserve any capacity. It just acts as a container for reservations. However, a request for Capacity Reservation could fail if you do not have the required quota for the VM series or if Azure doesn’t have enough capacity to fulfill the request. Either request more quota or try a different VM size, location, or zone combination. 

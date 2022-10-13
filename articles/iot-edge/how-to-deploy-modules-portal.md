@@ -39,10 +39,10 @@ The Azure portal has a wizard that walks you through creating the deployment man
 ### Select device and add modules
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-1. On the left pane, select **IoT Edge** from the menu.
-1. Click on the ID of the target device from the list of devices.
+1. On the left pane, select **Devices** under the **Device management** menu.
+1. Select the target IoT Edge device from the list.
 1. On the upper bar, select **Set Modules**.
-1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
+1. In the **Container Registry Credentials** section of the page, provide the credentials to access any private container registries that contain your module images.
 1. In the **IoT Edge Modules** section of the page, select **Add**.
 1. Choose one of the three types of modules from the drop-down menu:
 
@@ -102,7 +102,7 @@ Verify that the module is deployed in your IoT Hub in the Azure portal. Select y
 You can quickly deploy a module from the Azure Marketplace onto your device in your IoT Hub in the Azure portal.
 
 1. In the Azure portal, navigate to your IoT Hub.
-1. On the left pane, under **Automatic Device Management**, select **IoT Edge**.
+1. On the left pane, select **Devices** under the **Device management** menu.
 1. Select the IoT Edge device that is to receive the deployment.
 1. On the upper bar, select **Set Modules**.
 1. In the **IoT Edge Modules** section, click **Add**, and select **Marketplace Module** from the drop-down menu.

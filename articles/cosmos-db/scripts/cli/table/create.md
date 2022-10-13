@@ -1,19 +1,21 @@
 ---
-title: Create a Table API table for Azure Cosmos DB
-description: Create a Table API table for Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+title: Create a API for Table table for Azure Cosmos DB
+description: Create a API for Table table for Azure Cosmos DB
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
+ms.custom: ignite-2022
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Create an Azure Cosmos Table API account and table using Azure CLI
+# Create an Azure Cosmos DB Table API account and table using Azure CLI
 
-[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
+[!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
-The script in this article demonstrates creating a Table API table.
+The script in this article demonstrates creating a API for Table table.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +47,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Creates an Azure Cosmos Table API table. |
+| [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Creates an Azure Cosmos DB Table API table. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

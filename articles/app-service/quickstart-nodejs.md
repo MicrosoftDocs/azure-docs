@@ -3,8 +3,7 @@ title: 'Quickstart: Create a Node.js web app'
 description: Deploy your first Node.js Hello World to Azure App Service in minutes.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.custom: mvc, devcenter, seodec18, devdivchpfy22
-#zone_pivot_groups: app-service-platform-windows-linux
+ms.custom: mvc, devcenter, seodec18, devdivchpfy22, ignite-2022
 ms.date: 03/22/2022
 ms.devlang: javascript
 #zone_pivot_groups: app-service-ide-oss
@@ -109,15 +108,11 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 #### Configure the App Service app and deploy code
 
-1. In the **App Service** explorer, select the **Deploy to Web App** icon.
-
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot of the Azure App service in Visual Studio Code showing the blue arrow icon selected.":::
-        
 1. Select the *myExpressApp* folder.
 
 # [Deploy to Linux](#tab/linux)
 
-3. Select **Create new Web App**. A Linux container is used by default.
+2. Right-click on App Services and select **Create new Web App**. A Linux container is used by default. 
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. In Select a runtime stack, select the Node.js version you want. An **LTS** version is recommended.
 1. In Select a pricing tier, select **Free (F1)** and wait for the resources to be provisioned in Azure.
@@ -129,7 +124,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
 # [Deploy to Windows](#tab/windows)
 
-3. Select **Create new Web App... Advanced**.
+2. Right-click on App Services and select **Create new Web App... Advanced**.
 1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
 1. Select **Create a new resource group**, then enter a name for the resource group, such as *AppServiceQS-rg*.
 1. Select the Node.js version you want. An **LTS** version is recommended.
@@ -305,7 +300,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 :::zone target="docs" pivot="development-environment-cli"
 
-2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments:
+2. Save your changes, then redeploy the app using the [az webapp up](/cli/azure/webapp#az-webapp-up) command again with no arguments for Linux. Add `--os-type Windows` for Windows:
 
     ```azurecli
     az webapp up
@@ -462,7 +457,7 @@ Congratulations, you've successfully completed this quickstart!
 
 Check out the other Azure extensions.
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)

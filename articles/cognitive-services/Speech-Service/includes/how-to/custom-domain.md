@@ -13,7 +13,7 @@ Follow these steps to create a [custom subdomain name for Cognitive Services](..
 > [!CAUTION]
 > When you turn on a custom domain name, the operation is [not reversible](../../../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../../../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
-> If your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/), we strongly recommend trying the configuration with a test resource before you modify the resource used in production.
+> If your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://aka.ms/speechstudio/customspeech), we strongly recommend trying the configuration with a test resource before you modify the resource used in production.
 
 # [Azure portal](#tab/portal)
 
@@ -174,7 +174,7 @@ Set the custom domain name to the selected resource. Replace the sample paramete
 > [!CAUTION]
 > After successful execution of the following command, you'll create a custom domain name for your Speech resource. Remember that this name *cannot* be changed.
 
-```azurecli
+```azurecli-interactive
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 

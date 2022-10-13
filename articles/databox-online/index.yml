@@ -41,8 +41,8 @@ landingContent:
             url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
-          - text: 2202 release notes for Azure Stack Edge Pro GPU
-            url: azure-stack-edge-gpu-2111-release-notes.md
+          - text: 2205 release notes for Azure Stack Edge Pro GPU
+            url: azure-stack-edge-gpu-2205-release-notes.md
           - text: 2101 release notes for Azure Stack Edge Pro FPGA
             url: azure-stack-edge-2101-release-notes.md
 

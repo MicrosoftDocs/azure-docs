@@ -4,8 +4,8 @@ description: Learn how to create an Azure Red Hat OpenShift private cluster runn
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: joharder
+ms.author: joharder
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create a private Azure Red Hat OpenShift cluster
@@ -19,7 +19,7 @@ In this article, you'll prepare your environment to create Azure Red Hat OpenShi
 > * Setup the prerequisites and create the required virtual network and subnets
 > * Deploy a cluster with a private API server endpoint and a private ingress controller
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -233,7 +233,7 @@ Once you're logged into the OpenShift Web Console, click on the **?** on the top
 
 ![Image shows Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
 
-You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
+You can also download the [latest release of the CLI](https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/) appropriate to your machine.
 
 ## Connect using the OpenShift CLI
 

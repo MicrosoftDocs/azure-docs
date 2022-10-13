@@ -1,10 +1,10 @@
 ---
 title: Create an experiment that uses an AKS Chaos Mesh fault using Azure Chaos Studio with the Azure portal
 description: Create an experiment that uses an AKS Chaos Mesh fault with the Azure portal
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: how-to
 ms.date: 04/21/2022
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
 ---
@@ -18,10 +18,13 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An AKS cluster with a Linux node pool. If you do not have an AKS cluster, see the AKS quickstart [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal]..
+- An AKS cluster with a Linux node pool. If you do not have an AKS cluster, see the AKS quickstart [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 
 > [!WARNING]
 > AKS Chaos Mesh faults are only supported on Linux node pools.
+
+## Limitations
+- At present Chaos Mesh faults don’t work with private clusters.
 
 ## Set up Chaos Mesh on your AKS cluster
 

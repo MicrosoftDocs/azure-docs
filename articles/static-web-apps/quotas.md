@@ -22,8 +22,10 @@ The following quotas exist for Azure Static Web Apps.
 | Plan size                   | 500 MB max app size for a single deployment, and 0.50 GB max for all staging and production environments  | 500 MB max app size for a single deployment, and 2.00 GB max combined across all staging and production environments |
 | Pre-production environments | 3                | 10 |
 | Custom domains              | 2 per app        | 5 per app |
+| Allowed IP ranges           | Unavailable      | 25 |
 | Authorization (built-in roles) | Unlimited end-users that may authenticate with built-in `authenticated` role | Unlimited end-users that may authenticate with built-in `authenticated` role |
 | Authorization (custom roles) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management), or unlimited end-users that may be assigned custom roles via [serverless function](authentication-authorization.md?tabs=function#role-management) |
+| Request Size Limit | 30 MB               | 30 MB |
 
 ## GitHub storage
 

@@ -1,11 +1,11 @@
 ---
 title: Reference table for all Microsoft Defender for Cloud recommendations 
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
-author: elkrieger
+author: memildin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 03/13/2022
-ms.author: elkrieger
+ms.date: 08/24/2022
+ms.author: memildin
 ms.custom: generated
 ---
 # Security recommendations - a reference guide
@@ -14,8 +14,8 @@ This article lists the recommendations you might see in Microsoft Defender for C
 shown in your environment depend on the resources you're protecting and your customized
 configuration.
 
-Defender for Cloud's recommendations are based on the [Azure Security Benchmark](../security/benchmarks/introduction.md). 
-Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security 
+Defender for Cloud's recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). 
+the Microsoft cloud security benchmark is the Microsoft-authored, Azure-specific set of guidelines for security 
 and compliance best practices based on common compliance frameworks. This widely respected benchmark 
 builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) 
 and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on 
@@ -52,6 +52,8 @@ impact on your secure score.
 
 [!INCLUDE [asc-recs-data](../../includes/asc-recs-data.md)]
 
+[!INCLUDE [devops-recommendations](includes/defender-for-devops-recommendations.md)]
+
 ## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
@@ -74,7 +76,7 @@ impact on your secure score.
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices|Install Azure Security Center for IoT security module to get more visibility into your IoT devices.|Low|
 |Your machines should be restarted to apply system updates|Restart your machines to apply the system updates and secure the machine from vulnerabilities. (Related policy: System updates should be installed on your machines)|Medium|
 |Monitoring agent should be installed on your machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to. (No related policy)|High|
-
+||||
 
 ## Next steps
 

@@ -7,19 +7,19 @@ ms.author: alexwolf
 ms.service: container-apps
 ms.topic: tutorial
 ms.date: 3/04/2022
-ms.custom: mode-ui
+ms.custom: mode-ui, event-tier1-build-2022
 ---
 
 # Tutorial: Deploy to Azure Container Apps using Visual Studio
 
-Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 In this tutorial, you'll deploy a containerized ASP.NET Core 6.0 application to Azure Container Apps using Visual Studio.  The steps below also apply to earlier versions of ASP.NET Core.
 
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Visual Studio 2022 Preview 3 or higher, available as a [free download](https://visualstudio.microsoft.com/vs/preview/).  
+- Visual Studio 2022 version 17.2 or higher, available as a [free download](https://visualstudio.microsoft.com).  
 - [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows) for Windows. Visual Studio uses Docker Desktop for various containerization features.
 
 ## Create the project
@@ -63,7 +63,7 @@ The Visual Studio publish dialogs will help you choose existing Azure resources,
 
    :::image type="content" source="media/visual-studio/container-apps-deploy-azure.png" alt-text="A screenshot showing to publish to Azure.":::
 
-3) On the **Specific target** screen, choose **Azure Container Apps Preview (Linux)**, and then select **Next** again.
+3) On the **Specific target** screen, choose **Azure Container Apps (Linux)**, and then select **Next** again.
 
    :::image type="content" source="media/visual-studio/container-apps-publish-azure.png" alt-text="A screenshot showing Container Apps selected.":::
 

@@ -1,12 +1,10 @@
 ---
 title: Azure Functions Overview 
 description: Learn how Azure Functions can help build robust serverless apps.
-author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 11/20/2020
-ms.author: cshoe
-ms.custom: contperf-fy21q2
+ms.date: 05/27/2022
+ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 ---
 
 # Introduction to Azure Functions
@@ -40,7 +38,7 @@ The following are a common, _but by no means exhaustive_, set of scenarios for A
 | **Build a web API** | Implement an endpoint for your web applications using the [HTTP trigger](./functions-bindings-http-webhook.md) |
 | **Process file uploads** | Run code when a file is uploaded or changed in [blob storage](./functions-bindings-storage-blob.md) |
 | **Build a serverless workflow** | Chain a series of functions together using [durable functions](./durable/durable-functions-overview.md) |
-| **Respond to database changes** | Run custom logic when a document is created or updated in [Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
+| **Respond to database changes** | Run custom logic when a document is created or updated in [Azure Cosmos DB](./functions-bindings-cosmosdb-v2.md) |
 | **Run scheduled tasks** | Execute code on [pre-defined timed intervals](./functions-bindings-timer.md) |
 | **Create reliable message queue systems** | Process message queues using [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md), or [Event Hubs](./functions-bindings-event-hubs.md) |
 | **Analyze IoT data streams** | Collect and process [data from IoT devices](./functions-bindings-event-iot.md) |

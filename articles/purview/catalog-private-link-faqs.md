@@ -1,23 +1,38 @@
 ---
-title: Microsoft Purview private endpoints frequently asked questions (FAQ)
-description: This article answers frequently asked questions about Microsoft Purview private endpoints.
+title: Microsoft Purview private endpoints and managed vnets frequently asked questions (FAQ)
+description: This article answers frequently asked questions about Microsoft Purview private endpoints and managed vnets.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/11/2021
-# Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account for secure access.
+ms.date: 05/06/2022
+# Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
-# FAQ about Microsoft Purview private endpoints
+# FAQ about Microsoft Purview private endpoints and Managed VNets
 
-This article answers common questions that customers and field teams often ask about Microsoft Purview network configurations by using [Azure Private Link](../private-link/private-link-overview.md). It's intended to clarify questions about Microsoft Purview firewall settings, private endpoints, DNS configuration, and related configurations.
+This article answers common questions that customers and field teams often ask about Microsoft Purview network configurations by using [Azure Private Link](../private-link/private-link-overview.md) or [Microsoft Purview Managed VNets](./catalog-managed-vnet.md). It's intended to clarify questions about Microsoft Purview firewall settings, private endpoints, DNS configuration, and related configurations.
 
 To set up Microsoft Purview by using Private Link, see [Use private endpoints for your Microsoft Purview account](./catalog-private-link.md).
+To configure Managed VNets for a Microsoft Purview account, see [Use a Managed VNet with your Microsoft Purview account](./catalog-managed-vnet.md) 
 
 ## Common questions
 
 Check out the answers to the following common questions.
+
+### When should I use a self-hosted integration runtime or a Managed IR?
+
+Use a Managed IR if:
+- Your Microsoft Purview account is deployed in one of the [supported regions for Managed VNets](catalog-managed-vnet.md#supported-regions).
+- You are planning to scan any of the [supported data sources](catalog-managed-vnet.md#supported-data-sources) by Managed IR.
+
+Use a self-hosted integration runtime if:
+- You are planning to scan any Azure IaaS, SaaS on-premises data sources.
+- Managed VNet is not available in the region where your Microsoft Purview account is deployed.
+
+### Can I use both self-hosted integration runtime and Managed IR inside a Microsoft Purview account?
+
+Yes. You can use one or all of the runtime options in a single Microsoft Purview account: Azure IR, Managed IR and self-hosted integration runtime. You can use only one runtime option in a single scan.
 
 ### What's the purpose of deploying the Microsoft Purview account private endpoint?
 
@@ -35,15 +50,23 @@ Microsoft Purview can scan data sources in Azure or an on-premises environment b
 - **Queue** is linked to a Microsoft Purview managed storage account.
 - **namespace** is linked to a Microsoft Purview managed event hub namespace.
 
-### Can I scan data through a public endpoint if a private endpoint is enabled on my Microsoft Purview account?
+### Can I scan a data source through a public endpoint if a private endpoint is enabled on my Microsoft Purview account?
 
 Yes. Data sources that aren't connected through a private endpoint can be scanned by using a public endpoint while Microsoft Purview is configured to use a private endpoint.
 
-### Can I scan data through a service endpoint if a private endpoint is enabled?
+### Can I scan a data source through a service endpoint if a private endpoint is enabled?
 
 Yes. Data sources that aren't connected through a private endpoint can be scanned by using a service endpoint while Microsoft Purview is configured to use a private endpoint.
 
 Make sure you enable **Allow trusted Microsoft services** to access the resources inside the service endpoint configuration of the data source resource in Azure. For example, if you're going to scan Azure Blob Storage in which the firewalls and virtual networks settings are set to **selected networks**, make sure the **Allow trusted Microsoft services to access this storage account** checkbox is selected as an exception.
+
+### Can I scan a data source through a public endpoint using Managed IR?
+
+Yes. If data source is supported by Managed VNet. As a prerequisite, you need to deploy a managed private endpoint for the data source.
+
+### Can I scan a data source through a service endpoint using Managed IR?
+
+Yes. If data source is supported by Managed VNet. As a prerequisite, you need to deploy a managed private endpoint for the data source.
 
 ### Can I access the Microsoft Purview governance portal from a public network if Public network access is set to Deny in Microsoft Purview account networking?
 
@@ -63,9 +86,12 @@ No. As protected resources, access to the Microsoft Purview managed storage acco
 
 To read more about Azure deny assignment, see [Understand Azure deny assignments](../role-based-access-control/deny-assignments.md).
 
-### What are the supported authentication types when you use a private endpoint?
+### What are the supported authentication types when I use a private endpoint?
 
-Azure Key Vault or Service Principal.
+Depends on authentication type supported by the data source type such as SQL Authentication, Windows Authentication, Basic Authentication, Service Principal, etc. stored in Azure Key Vault. MSI cannot be used.
+
+### What are the supported authentication types when I use Managed IR?
+Depends on authentication type supported by the data source type such as SQL Authentication, Windows Authentication, Basic Authentication, Service Principal, etc. stored in Azure Key Vault or MSI.
 
 ### What private DNS zones are required for Microsoft Purview for a private endpoint?
 
@@ -95,6 +121,10 @@ You're also required to set up a [virtual network link](../dns/private-dns-virtu
 
 No. You have to deploy and register a self-hosted integration runtime to scan data by using private connectivity. Azure Key Vault or Service Principal must be used as the authentication method to data sources.
 
+### Can I use Managed IR to scan data sources through a private endpoint?
+
+If you are planning to use Managed IR to scan any of the supported data sources, the data source requires a managed private endpoint created inside Microsoft Purview Managed VNet. For more information, see [Microsoft Purview Managed VNets](./catalog-managed-vnet.md).
+
 ### What are the outbound ports and firewall requirements for virtual machines with self-hosted integration runtime for Microsoft Purview when you use a private endpoint?
 
 The VMs in which self-hosted integration runtime is deployed must have outbound access to Azure endpoints and a Microsoft Purview private IP address through port 443.
@@ -102,6 +132,17 @@ The VMs in which self-hosted integration runtime is deployed must have outbound 
 ### Do I need to enable outbound internet access from the virtual machine running self-hosted integration runtime if a private endpoint is enabled?
 
 No. However, it's expected that the virtual machine running self-hosted integration runtime can connect to your instance of Microsoft Purview through an internal IP address by using port 443. Use common troubleshooting tools for name resolution and connectivity testing, such as nslookup.exe and Test-NetConnection.
+
+### Do I still need to deploy private endpoints for my Microsoft Purview account if I am using Managed VNet?
+
+At least one account and portal private endpoints are required, if public access in Microsoft Purview account is set to **deny**.
+At least one account, portal and ingestion private endpoint are required, if public access in Microsoft Purview account is set to **deny** and you are planning to scan additional data sources using a self-hosted integration runtime.
+
+### What inbound and outbound communications are allowed through public endpoint for Microsoft Purview Managed VNets?
+
+No inbound communication is allowed into a Managed VNet from public network.
+All ports are opened for outbound communications.
+In Microsoft Purview, a Managed VNet can be used to privately connect to Azure data sources to extract metadata during scan.
 
 ### Why do I receive the following error message when I try to launch Microsoft Purview governance portal from my machine?
 

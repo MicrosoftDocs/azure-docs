@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/05/2021
 ms.devlang: javascript
 ms.custom: "devx-track-js"
+ms.reviewer: abinetabate
 ---
 
 # Application Monitoring for Azure App Service and Node.js
@@ -134,6 +135,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 ---
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

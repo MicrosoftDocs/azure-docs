@@ -3,8 +3,8 @@ title: Govern access for external users in Azure AD entitlement management - Azu
 description: Learn about the settings you can specify to govern access for external users in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: ajburnle
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -33,7 +33,7 @@ When using the [Azure AD B2B](../external-identities/what-is-b2b.md) invite expe
 
 With entitlement management, you can define a policy that allows users from organizations you specify to be able to self-request an access package. That policy includes whether approval is required, whether access reviews are required, and an expiration date for the access. If approval is required, you might consider inviting one or more users from the external organization to your directory, designating them as sponsors, and configuring that sponsors are approvers - since they are likely to know which external users from their organization need access. Once you have configured the access package, obtain the access package's request link so you can send that link to your contact person (sponsor) at the external organization. That contact can share with other users in their external organization, and they can use this link to request the access package. Users from that organization who have already been invited into your directory can also use that link.
 
-Typically, when a request is approved, entitlement management will provision the user with the necessary access. If the user is not already in your directory, entitlement management will first invite the user. When the user is invited, Azure AD will automatically create a B2B guest account for them, but will not send the user an email. Note that an administrator may have previously limited which organizations are permitted for collaboration, by setting a [B2B allow or deny list](../external-identities/allow-deny-list.md) to allow or block invites to other organizations.  If the user is not permitted by the allow or block list, then they will not be invited, and cannot be assigned access until the lists are updated.
+Typically, when a request is approved, entitlement management will provision the user with the necessary access. If the user isn't already in your directory, entitlement management will first invite the user. When the user is invited, Azure AD will automatically create a B2B guest account for them but won't send the user an email. Note that an administrator may have previously limited which organizations are allowed for collaboration, by setting a [B2B allow or deny list](../external-identities/allow-deny-list.md) to allow or block invites to other organization's domains.  If the user's domain isn't allowed by those lists, then they won't be invited and can't be assigned access until the lists are updated.
 
 Since you do not want the external user's access to last forever, you specify an expiration date in the policy, such as 180 days. After 180 days, if their access is not extended, entitlement management will remove all access associated with that access package. By default, if the user who was invited through entitlement management has no other access package assignments, then when they lose their last assignment, their guest account will be blocked from signing in for 30 days, and subsequently removed. This prevents the proliferation of unnecessary accounts. As described in the following sections, these settings are configurable.
 
@@ -63,7 +63,7 @@ The following diagram and steps provide an overview of how external users are gr
 
 1. To access the resources, the external user can either click the link in the email or attempt to access any of the directory resources directly to complete the invitation process.
 
-1. If the policy settings includes an expiration date, then later when the access package assignment for the external user expires, the external user's access rights from that access package are removed.
+1. If the policy settings include an expiration date, then later when the access package assignment for the external user expires, the external user's access rights from that access package are removed.
 
 1. Depending on the lifecycle of external users settings, when the external user no longer has any access package assignments, the external user is blocked from signing in and the guest user account is removed from your directory.
 
@@ -80,12 +80,15 @@ To ensure people outside of your organization can request access packages and ge
 ### Configure your Azure AD B2B external collaboration settings
 
 - Allowing guests to invite other guests to your directory means that guest invites can occur outside of entitlement management. We recommend setting **Guests can invite** to **No** to only allow for properly governed invitations.
-- If you are using the B2B allow list, you must make sure all the domains of all the organizations you want to partner with using entitlement management are added to the list. Alternatively, if you are using the B2B deny list, you must make sure no domain of any organization you want to partner with is not present on that list.
-- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. Any B2B allow or deny list settings you have will take precedence. Therefore, be sure to include the domains you intend to include in this policy to your allow list if you are using one, and exclude them from your deny list if you are using a deny list.
+- If you have been previously using the B2B allow list, you must either remove that list, or make sure all the domains of all the organizations you want to partner with using entitlement management are added to the list. Alternatively, if you are using the B2B deny list, you must make sure no domain of any organization you want to partner with is present on that list.
+- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. However, any B2B [allow or deny list](../external-identities/allow-deny-list.md) settings you have will take precedence. Therefore, you will want to remove the allow list, if you were using one, so that **All users** can request access, and exclude all authorized domains from your deny list if you are using a deny list.
 - If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication](../external-identities/one-time-passcode.md).
 - For more information about Azure AD B2B external collaboration settings, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
     ![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png)
+    
+    > [!NOTE]
+    > If you create a connected organization for an Azure AD tenant from a different Microsoft cloud, you also need to configure cross-tenant access settings appropriately. For more information on how to configure these settings, see [Configure cross-tenant access settings](../external-identities/cross-cloud-settings.md).
 
 ### Review your Conditional Access policies
 

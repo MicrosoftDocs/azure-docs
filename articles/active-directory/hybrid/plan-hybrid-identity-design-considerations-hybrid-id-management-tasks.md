@@ -4,7 +4,7 @@ description: Azure AD checks the specific conditions you pick when authenticatin
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory

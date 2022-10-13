@@ -3,7 +3,8 @@ title: Features and Capabilities of Azure Arc-enabled SQL Managed Instance
 description: Features and Capabilities of Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
+ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -26,9 +27,9 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 |Feature|Azure Arc-enabled SQL Managed Instance|
 |-------------|----------------|
 |Always On failover cluster instance<sup>1</sup>| Not Applicable. Similar capabilities available.|
-|Always On availability groups<sup>2</sup>|Business critical service tier. In preview.|
+|Always On availability groups<sup>2</sup>|Business Critical service tier.|
 |Basic availability groups <sup>2</sup>|Not Applicable. Similar capabilities available.|
-|Minimum replica commit availability group <sup>2</sup>|Business critical service tier. In preview.|
+|Minimum replica commit availability group <sup>2</sup>|Business Critical service tier. 
 |Clusterless availability group|Yes|
 |Backup database | Yes - `COPY_ONLY` See [BACKUP - (Transact-SQL)](/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|
 |Backup compression|Yes|
@@ -131,7 +132,7 @@ Azure Arc-enabled SQL Managed Instance supports various data tools that can help
 
 | **Tool** | Azure Arc-enabled SQL Managed Instance|
 | --- | --- | --- |
-| Azure portal <sup>1</sup> | No |
+| Azure portal | Yes |
 | Azure CLI | Yes |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes |
 | Azure PowerShell | No |
@@ -141,8 +142,6 @@ Azure Arc-enabled SQL Managed Instance supports various data tools that can help
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Yes |
-
-<sup>1</sup> The Azure portal can be used to create, view, and delete Azure Arc-enabled SQL Managed Instances.  Updates cannot be done through the Azure portal currently.
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 

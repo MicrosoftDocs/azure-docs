@@ -6,10 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 03/24/2021
+ms.date: 08/20/2022
 ---
 
 # Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Azure Logic Apps helps you automate workflows and integrate data across Azure services, Microsoft services, other software-as-a-service (SaaS) apps, and on-premises systems. This tutorial shows how you can build a [logic app](../logic-apps/logic-apps-overview.md) that handles incoming emails and any attachments. This logic app analyzes the email content, saves the content to Azure storage, and sends notifications for reviewing that content.
 

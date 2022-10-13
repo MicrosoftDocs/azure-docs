@@ -70,7 +70,7 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 
 To directly assign a user to a session host in the Azure portal:
 
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
@@ -99,7 +99,7 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 > - If the session host has no user assignment, nothing will happen when you run this cmdlet.
 
 To unassign a personal desktop in the Azure portal:
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
@@ -131,7 +131,7 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 > - If the session host currently has no user assignment, the personal desktop will be assigned to the provided UPN.
 
 To reassign a personal desktop in the Azure portal:
-1. Sign in to the Azure portal at <https://portal.azure.com>.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.

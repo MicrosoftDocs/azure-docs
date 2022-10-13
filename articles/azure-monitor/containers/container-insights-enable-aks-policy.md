@@ -2,16 +2,21 @@
 title: Enable AKS Monitoring Addon using Azure Policy
 description: Describes how to enable AKS Monitoring Addon using Azure Custom Policy.
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # Enable AKS monitoring addon using Azure Policy
-This article describes how to enable AKS Monitoring Addon using Azure Custom Policy. Monitoring Addon Custom Policy can be assigned either at subscription or resource group scope. If Azure Log Analytics workspace and AKS cluster are in different subscriptions then the managed identity used by the policy assignment has to have the required role permissions on both the subscriptions or least on the resource of the Log Analytics workspace. Similarly, if the policy is scoped to the resource group, then the managed identity should have the required role permissions on the Log Analytics workspace if the workspace not in the selected resource group scope.
+This article describes how to enable AKS Monitoring Addon using Azure Custom Policy. 
 
+## Permissions required
 Monitoring Addon require following roles on the managed identity used by Azure Policy:
 
  - [azure-kubernetes-service-contributor-role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
  - [log-analytics-contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
+
+Monitoring Addon Custom Policy can be assigned at either the subscription or resource group scope. If the Log Analytics workspace and AKS cluster are in different subscriptions, then the managed identity used by the policy assignment must have the required role permissions on both the subscriptions or on the Log Analytics workspace resource. Similarly, if the policy is scoped to the resource group, then the managed identity should have the required role permissions on the Log Analytics workspace if the workspace is not in the selected resource group scope.
+
 
 ## Create and assign policy definition using Azure portal
 
@@ -73,6 +78,6 @@ Monitoring Addon require following roles on the managed identity used by Azure P
 ## Next steps
 
 - Learn more about [Azure Policy](../../governance/policy/overview.md).
-- Learn how [remediation security works](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
+- Learn how [remediation access control works](../../governance/policy/how-to/remediate-resources.md#how-remediation-access-control-works).
 - Learn more about [Container insights](./container-insights-overview.md).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).

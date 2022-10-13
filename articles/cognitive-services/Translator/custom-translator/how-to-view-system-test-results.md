@@ -1,5 +1,5 @@
 ---
-title: View system test results and deployment - Custom Translator
+title: "Legacy: View system test results and deployment - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model.
 author: laujan
@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 12/06/2021
 ms.author: lajanuar
 ms.topic: how-to
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
 ---
 

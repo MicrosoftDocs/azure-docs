@@ -2,8 +2,9 @@
 title: Custom fields in Azure Monitor (Preview) | Microsoft Docs
 description: The Custom Fields feature of Azure Monitor allows you to create your own searchable fields from records in a Log Analytics workspace that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywild
+ms.author: guywild
+ms.reviewer: roygal
 ms.date: 10/20/2021
 
 ---
@@ -25,7 +26,7 @@ For example, the sample record below has useful data buried in the event descrip
 ![Sample extract](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
-> In the Preview, you are limited to 100 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
+> In the Preview, you are limited to 500 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
 
 ## Creating a custom field
 When you create a custom field, Log Analytics must understand which data to use to populate its value.  It uses a technology from Microsoft Research called FlashExtract to quickly identify this data.  Rather than requiring you to provide explicit instructions, Azure Monitor learns about the data you want to extract from examples that you provide.
@@ -76,17 +77,13 @@ The following section walks through a complete example of creating a custom fiel
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
-![Screenshot shows a query for an event source and ID.](media/custom-fields/query.png)
+![Screenshot showing a query for an event source and ID.](media/custom-fields/query.png)
 
-We then select and expand any record with event ID 7036.
+We then right-click on any record with event ID 7036 and select **Extract fields from \`Event`**.
 
-![Source record](media/custom-fields/source-record.png)
+![Screenshot showing the Copy and Extract fields options, which are available when you right-click a record from the list of results.](media/custom-fields/extract-fields.png)
 
-We define custom fields by clicking the ellipsis next to the top property.
-
-![Extract fields](media/custom-fields/extract-fields.png)
-
-The **Field Extraction Wizard** is opened, and the **EventLog** and **EventID** fields are selected in the **Main Example** column.  This indicates that the custom field will be defined for events from the System log with an event ID of 7036.  This is sufficient so we don’t need to select any other fields.
+The **Field Extraction Wizard** opens with the **EventLog** and **EventID** fields selected in the **Main Example** column.  This indicates that the custom field will be defined for events from the System log with an event ID of 7036.  This is sufficient so we don’t need to select any other fields.
 
 ![Main example](media/custom-fields/main-example.png)
 

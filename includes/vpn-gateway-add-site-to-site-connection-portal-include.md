@@ -1,15 +1,11 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/29/2022
+ ms.date: 09/14/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
-1. Open the page for your virtual network gateway. You can navigate to the gateway by going to **Name of your VNet -> Overview -> Connected devices -> Name of your gateway**.
+1. Go to your virtual network. On your VNet page, select **Connected devices** on the left. Locate your VPN gateway and click to open it.
 1. On the page for the gateway, select **Connections**. At the top of the Connections page, select **+Add** to open the **Add connection** page.
 
    :::image type="content" source="./media/vpn-gateway-add-site-to-site-connection-portal-include/connection.png" alt-text="Screenshot of Add Connection page." lightbox="./media/vpn-gateway-add-site-to-site-connection-portal-include/connection.png" :::
@@ -23,7 +19,6 @@
    * Leave **Use Azure Private IP Address** unchecked.
    * Leave **Enable BGP** unchecked.
    * Select **IKEv2**.
-   * The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
 
 1. Select **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
 1. You can view the connection in the **Connections** page of the virtual network gateway. The Status will go from *Unknown* to *Connecting*, and then to *Succeeded*.

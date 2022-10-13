@@ -7,7 +7,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/01/2022
+ms.date: 08/17/2022
 
 ms.author: martinco
 author: martincoetzer
@@ -91,18 +91,20 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 We recommend the following actions:
 
-1.	Discover legacy authentication in your organization with Azure AD Sign-In logs and Log Analytic workbooks.
+1. Discover legacy authentication in your organization with Azure AD Sign-In logs and Log Analytic workbooks.
 1. Setup SharePoint Online and Exchange Online to use modern  authentication.
-1.	If you have Azure AD Premium licenses, use Conditional Access policies to block legacy authentication. For Azure AD free tier, use Azure AD Security Defaults.
-1.	Block legacy authentication if you use AD FS.
-1.	Block Legacy Authentication with Exchange Server 2019.
-1.	Disable legacy authentication in Exchange Online.
+1. If you have Azure AD Premium licenses, use Conditional Access policies to block legacy authentication. For Azure AD free tier, use Azure AD Security Defaults.
+1. Block legacy authentication if you use AD FS.
+1. Block Legacy Authentication with Exchange Server 2019.
+1. Disable legacy authentication in Exchange Online.
 
-For more information, see the article [Blocking legacy authentication protocols in Azure AD](../../active-directory/fundamentals/concept-fundamentals-block-legacy-authentication.md).
+For more information, see the article [Blocking legacy authentication protocols in Azure AD](../../active-directory/conditional-access/block-legacy-authentication.md).
 
 ### Block invalid authentication entry points
 
 Using the verify explicitly principle, you should reduce the impact of compromised user credentials when they happen. For each app in your environment, consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. With Azure AD Conditional Access, you can control how authorized users access their apps and resources based on specific conditions you define.
+
+For more information on how to use Conditional Access for your Cloud Apps and user actions, see [Conditional Access Cloud apps, actions, and authentication context](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md). 
 
 ### Review and govern admin roles
 

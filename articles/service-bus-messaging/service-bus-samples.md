@@ -23,6 +23,13 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | azure-messaging-servicebus (latest) | [Code samples](/samples/azure/azure-sdk-for-java/servicebus-samples/) |
 | azure-servicebus (legacy) | [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) |
 
+## Spring samples
+| Package                                           | Samples location                                                                                                                                                          | 
+|---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| spring-cloud-azure-starter-servicebus-jms         | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-starter-servicebus-jms)         |
+| spring-cloud-azure-starter-integration-servicebus | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-starter-integration-servicebus) |
+| spring-cloud-azure-stream-binder-servicebus       | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/servicebus/spring-cloud-azure-stream-binder-servicebus)       |
+
 ## Python samples
 | Package | Samples location |
 | -------------------- | ----------------------- |
@@ -41,7 +48,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 ## Go samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azure-service-bus-go | [GitHub location](https://github.com/Azure/azure-service-bus-go/) |
+| azservicebus | [GitHub location](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus) |
 
 ## Management samples
 You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.

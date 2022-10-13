@@ -3,7 +3,7 @@ title: Introduction to Azure Stream Analytics windowing functions
 description: This article describes four windowing functions (tumbling, hopping, sliding, session) that are used in Azure Stream Analytics jobs.
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 08/29/2022
 ---
 # Introduction to Stream Analytics windowing functions
 
@@ -11,8 +11,8 @@ In time-streaming scenarios, performing operations on the data contained in temp
 
 There are five kinds of temporal windows to choose from: [**Tumbling**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**Hopping**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**Sliding**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**Session**](/stream-analytics-query/session-window-azure-stream-analytics), and [**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows.  You use the window functions in the [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) clause of the query syntax in your Stream Analytics jobs. You can also aggregate events over multiple windows using the [**Windows()** function](/stream-analytics-query/windows-azure-stream-analytics).
 
-All the [windowing](/stream-analytics-query/windowing-azure-stream-analytics) operations output results at the **end** of the window. Note that when you start a stream analytics job, you can specify the *Job output start time* and the system will automatically fetch previous events in the incoming streams to output the first window at the specified time; for example when you start with the *Now* option, it will start to emit data immediately. 
-The output of the window will be a single event based on the aggregate function used. The output event will have the time stamp of the end of the window and all window functions are defined with a fixed length. 
+All the [windowing](/stream-analytics-query/windowing-azure-stream-analytics) operations output results at the **end** of the window. Note that when you start a stream analytics job, you can specify the *Job output start time* and the system will automatically fetch previous events in the incoming streams to output the first window at the specified time; for example when you start with the *Now* option, it will start to emit data immediately.
+The output of the window will be a single event based on the aggregate function used. The output event will have the time stamp of the end of the window and all window functions are defined with a fixed length.
 
 ![Stream Analytics window functions concepts](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -47,10 +47,9 @@ Will return:
 |2021-10-26T10:15:20|PST|2|
 |2021-10-26T10:15:30|PST|4|
 
-
 ## Hopping window
 
-[**Hopping**](/stream-analytics-query/hopping-window-azure-stream-analytics) window functions hop forward in time by a fixed period. It may be easy to think of them as Tumbling windows that can overlap and be emitted more often than the window size. Events can belong to more than one Hopping window result set. To make a Hopping window the same as a Tumbling window, specify the hop size to be the same as the window size. 
+[**Hopping**](/stream-analytics-query/hopping-window-azure-stream-analytics) window functions hop forward in time by a fixed period. It may be easy to think of them as Tumbling windows that can overlap and be emitted more often than the window size. Events can belong to more than one Hopping window result set. To make a Hopping window the same as a Tumbling window, specify the hop size to be the same as the window size.
 
 ![Stream Analytics hopping window](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
@@ -81,12 +80,11 @@ Will return:
 |2021-10-26T10:15:25|Streaming|4|
 |2021-10-26T10:15:30|Streaming|4|
 
-
 ## Sliding window
 
 [**Sliding**](/stream-analytics-query/sliding-window-azure-stream-analytics) windows, unlike Tumbling or Hopping windows, output events only for points in time when the content of the window actually changes. In other words, when an event enters or exits the window. So, every window has at least one event. Similar to Hopping windows, events can belong to more than one sliding window.
 
-![Stream Analytics 10 second sliding window](media/stream-analytics-window-functions/sliding-window-updated.png)
+![Stream Analytics 10 second sliding window](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 With the following input data (illustrated above):
 
@@ -154,7 +152,7 @@ Will return:
 
 ## Snapshot window
 
-[**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows group events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
+[**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows group events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics)), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
 
 ![Stream Analytics snapshot window](media/stream-analytics-window-functions/stream-analytics-window-functions-snapshot-intro.png)
 
@@ -185,6 +183,7 @@ Will return:
 |2021-10-26T10:15:22|Streaming|2|
 
 ## Next steps
+
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)

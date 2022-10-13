@@ -63,10 +63,21 @@ The price difference between both options is reflected in the internet egress da
 
 ## Limitations
 
+* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
+* Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
+* Internet routing preference IPs are not supported in a public IP address prefix.
 
-* Routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
-* Routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
+### Regional Unavailability
+Internet routing preference is available in all regions except:
 
+* Australia Central
+* Austria East
+* Brazil Southeast
+* Germany Central
+* Germany NorthEast
+* Norway West
+* Sweden Central
+* West US 3
 
 ## Next steps
 

@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 08/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 
 Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
 
-Consider migrating the policies you have not created in the Azure portal because:
+Consider migrating the policies you haven't created in the Azure portal because:
 
-- You can now address scenarios you could not handle before.
+- You can now address scenarios you couldn't handle before.
 - You can reduce the number of policies you have to manage by consolidating them.
 - You can manage all your Conditional Access policies in one central location.
 - The Azure classic portal will be retired.
@@ -31,7 +31,7 @@ This article explains what you need to know to migrate your existing Conditional
 
 ## Classic policies
 
-In the [Azure portal](https://portal.azure.com), Conditional Access policies can be found under **Azure Active Directory** > **Security** > **Conditional Access**. Your organization might also have older Conditional Access policies not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you have created in:
+In the [Azure portal](https://portal.azure.com), Conditional Access policies can be found under **Azure Active Directory** > **Security** > **Conditional Access**. Your organization might also have older Conditional Access policies not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you've created in:
 
 - The Azure classic portal
 - The Intune classic portal
@@ -79,11 +79,11 @@ This is, for example, the case if you want to support all client app types. In a
 
 ![Conditional Access selecting client apps](./media/policy-migration/64.png)
 
-A consolidation into one new policy is also not possible if your classic policies contain several conditions. A new policy that has **Exchange Active Sync** as client apps condition configured does not support other conditions:   
+A consolidation into one new policy is also not possible if your classic policies contain several conditions. A new policy that has **Exchange Active Sync** as client apps condition configured doesn't support other conditions:   
 
 ![Exchange ActiveSync does not support the selected conditions](./media/policy-migration/08.png)
 
-If you have a new policy that has **Exchange Active Sync** as client apps condition configured, you need to make sure that all other conditions are not configured. 
+If you have a new policy that has **Exchange Active Sync** as client apps condition configured, you need to make sure that all other conditions aren't configured. 
 
 ![Conditional Access conditions](./media/policy-migration/16.png)
  
@@ -94,7 +94,7 @@ App-based classic policies for Exchange Online that include **Exchange Active Sy
 You can consolidate multiple classic policies that include **Exchange Active Sync** as client apps condition if they have:
 
 - Only **Exchange Active Sync** as condition 
-- Several requirements for granting access configured
+- Several requirements for granting access are configured
 
 One common scenario is the consolidation of:
 
@@ -117,4 +117,4 @@ In a new policy, you need to select the [device platforms](concept-conditional-a
 
 - [Use report-only mode for Conditional Access to determine the impact of new policy decisions.](concept-conditional-access-report-only.md)
 - If you want to know how to configure a Conditional Access policy, see [Conditional Access common policies](concept-conditional-access-policy-common.md).
-- If you are ready to configure Conditional Access policies for your environment, see the article [How To: Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md). 
+- If you're ready to configure Conditional Access policies for your environment, see the article [How To: Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md). 

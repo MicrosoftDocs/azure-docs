@@ -1,26 +1,19 @@
 ---
-title: Azure Virtual Desktop autoscale (preview) glossary - Azure
-description: A glossary of terms and concepts for the Azure Virtual Desktop autoscale (preview) feature.
-services: virtual-desktop
+title: Azure Virtual Desktop autoscale glossary for Azure Virtual Desktop - Azure
+description: A glossary of terms and concepts for the Azure Virtual Desktop autoscale feature.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 08/03/2022
 ms.author: helohr
 manager: femila
 ---
-# Autoscale (preview) glossary
+# Autoscale glossary for Azure Virtual Desktop
 
-> [!IMPORTANT]
-> The autoscale feature is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This article is a list of definitions for key terms and concepts related to the autoscale (preview) feature for Azure Virtual Desktop.
+This article is a list of definitions for key terms and concepts related to the autoscale feature for Azure Virtual Desktop.
 
 ## Autoscale
 
-The autoscale feature is Azure Virtual Desktop’s native scaling service that turns VMs on and off based on the number of sessions on the session hosts in the host pool and which phase of the [scaling plan](#scaling-plan) [schedule](#schedule) the workday is in.
+Autoscale is Azure Virtual Desktop’s native scaling service that turns VMs on and off based on the number of sessions on the session hosts in the host pool and which phase of the [scaling plan](#scaling-plan) [schedule](#schedule) the workday is in.
 
 ## Scaling tool
 
@@ -60,8 +53,8 @@ The capacity threshold is the percentage of a [host pool's capacity](#available-
 
 For example:
 
-- If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and the autoscale feature can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn the VMs off.
-- If the used host pool capacity goes over the capacity threshold, then the autoscale feature will turn more VMs on until the used host pool capacity goes below the capacity threshold.
+- If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and autoscale can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn off the VMs.
+- If the used host pool capacity goes over the capacity threshold, then autoscale will turn on more VMs until the used host pool capacity goes below the capacity threshold.
 
 ## Available host pool capacity
 
@@ -81,7 +74,7 @@ The number of [active](#active-user-session) and [disconnected user sessions](#d
 
 ## Scaling action
 
-Scaling actions are when [the autoscale feature](#autoscale) turns VMs on or off.
+Scaling actions are when [autoscale](#autoscale) turns VMs on or off.
 
 ## Minimum percentage of hosts
 
@@ -95,16 +88,16 @@ A user session is considered "active" when the user signs in and connects to the
 
 A disconnected user session is an inactive session that the user hasn't signed out of yet. When a user closes the remote session window without signing out, the session becomes disconnected. When a user reconnects to their remote resources, they'll be redirected to their disconnected session on the session host they were working on. At this point, the disconnected session becomes an [active session](#active-user-session) again.
 
-## Force logoff
+## Force log-off
 
-A force logoff, or forced sign-out, is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
+A force log-off, or forced sign-out, is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
 
 ## Exclusion tag
 
-An exclusion tag is a property of a [scaling plan](#scaling-plan) that's a tag name you can apply to VMs that you want to exclude from [scaling actions](#scaling-action). [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
+An exclusion tag is a property of a [scaling plan](#scaling-plan) that's a tag name you can apply to VMs that you want to exclude from [scaling actions](#scaling-action). [Autoscale](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
 
 ## Next steps
 
-- For more information about the autoscale feature, see the [autoscale feature document](autoscale-scaling-plan.md).
-- For examples of how the autoscale feature works, see [Autoscale example scenarios](autoscale-scenarios.md).
+- For more information about autoscale, see the [autoscale feature document](autoscale-scaling-plan.md).
+- For examples of how autoscale works, see [Autoscale example scenarios](autoscale-scenarios.md).
 - For more information about the scaling script, see the [scaling script document](set-up-scaling-script.md).

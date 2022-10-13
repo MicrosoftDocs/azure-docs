@@ -22,6 +22,8 @@ You can configure a single offer type in different ways to enable different publ
 
 Be sure to review the online store and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 
+To publish your offers to [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/), you need to have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
+
 ## List of offer types
 
 The following table shows the commercial marketplace offer types in Partner Center.

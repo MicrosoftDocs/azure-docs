@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.custom: contperf-fy22q2
 ---
@@ -14,7 +14,7 @@ ms.custom: contperf-fy22q2
 
 Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access. Use organizations to implement a multi-tenanted application.
 
-Organizations is an optional feature that gives you more control over the [users and roles](howto-manage-users-roles.md) in your application.
+Organizations are an optional feature that gives you more control over the [users and roles](howto-manage-users-roles.md) in your application.
 
 Organizations are hierarchical:
 
@@ -33,6 +33,8 @@ The following screenshot shows an organization hierarchy definition in IoT Centr
 
 :::image type="content" source="media/howto-create-organization/organizations-definition.png" alt-text="Screenshot of organizations hierarchy definition." lightbox="media/howto-create-organization/organizations-definition.png":::
 
+To learn how to manage organizations by using the IoT Central REST API, see [How to use the IoT Central REST API to manage organizations.](../core/howto-manage-organizations-with-rest-api.md)
+
 ## Create a hierarchy
 
 To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Permissions** section in your IoT Central application, select the **Organizations** tab, and select either **+ New** or use the context menu for an existing organization. To create one or many organizations at a time, select **+ Add another organization**:
@@ -47,7 +49,7 @@ To reassign an organization to a new parent, select **Edit** and choose a new pa
 To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
 
 > [!TIP]
-> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.2-previewdataplane/organizations).
+> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/2022-07-31dataplane/organizations).
 
 ## Assign devices
 
@@ -59,7 +61,7 @@ When you create a new device in your application, assign it to an organization i
 
 To assign or reassign an existing device to an organization, select the device in the device list and then select **Organization**:
 
-:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how change the organization a device is associated with." lightbox="media/howto-create-organization/change-device-organization.png":::
+:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how to change the organization a device is associated with." lightbox="media/howto-create-organization/change-device-organization.png":::
 
 > [!TIP]
 > You can see which organization a device belongs to in the device list. Use the filter tool in the device list to show devices in a particular organization.
@@ -153,9 +155,9 @@ When you start adding organizations, all existing devices, users, and experience
 The following limits apply to organizations:
 
 - The hierarchy can be no more than five levels deep.
-- The total number of organization cannot be more than 200. Each node in the hierarchy counts as an organization.
+- The total number of organizations can't be more than 200. Each node in the hierarchy counts as an organization.
 
 
 ## Next steps
 
-Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
+Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is to learn how to  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).

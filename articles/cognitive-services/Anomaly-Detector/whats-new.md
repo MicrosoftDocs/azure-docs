@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 01/16/2022
+ms.date: 06/03/2022
 ---
 
 # What's new in Anomaly Detector
@@ -15,10 +15,22 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Release notes
 
+### May 2022
+
+* New blog released: [Detect anomalies in equipment with Multivariate Anomaly Detector in Azure Databricks](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/detect-anomalies-in-equipment-with-anomaly-detector-in-azure/ba-p/3390688).
+
+### April 2022
+* Univariate Anomaly Detector is now integrated in Azure Data Explorer(ADX). Check out this [announcement blog post](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/announcing-univariate-anomaly-detector-in-azure-data-explorer/ba-p/3285400) to learn more!
+
+### March 2022
+* Anomaly Detector (univariate) available in Sweden Central.
+
+### February 2022
+* **Multivariate Anomaly Detector API has been integrated with Synapse.** Check out this [blog](https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/announcing-multivariate-anomaly-detector-in-synapseml/ba-p/3122486) to learn more! 
+
 ### January 2022
 * **Multivariate Anomaly Detector API v1.1-preview.1 public preview on 1/18.** In this version, Multivariate Anomaly Detector supports synchronous API for inference and added new fields in API output interpreting the correlation change of variables. 
 * Univariate Anomaly Detector added new fields in API output. 
-
 
 ### November 2021
 * Multivariate Anomaly Detector available in six more regions: UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West. Now in total 26 regions are supported.

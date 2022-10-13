@@ -43,7 +43,17 @@ The price change feature supports the following scenarios:
 
 ### Supported offer types
 
-The ability to change prices is available for both public and private plans of all offers transacted through Microsoft: Azure application (Managed App), Software as a service, and Virtual Machine.
+The ability to change prices is available for both public and private plans of offers transacted through Microsoft.
+
+Supported offer types:
+- Azure application (Managed App)
+- Software as a service (SaaS)
+- Azure virtual machine.
+
+Price changes for the following offer types are not yet supported:
+- Dynamics 365 apps on Dataverse and Power Apps
+- Power BI visual
+- Azure container
 
 ### Unsupported scenarios and limitations
 
@@ -66,7 +76,6 @@ When planning a price change, consider the following:
 | --- | --- | --- |
 | Type of price change | This dictates how far into the future the price will be scheduled. | - Price decreases are scheduled for the first of the next month.<br> - Price increases are scheduled for the first of a future month, at least 90 days after the price change is published.<br> |
 | Offer type | This dictates when you need to publish the price change via Partner Center. | Price changes must be published before the cut-off times below to be scheduled for the next month (based on type of price change):<br> - Software as a service offer: Four days before the end of the month.<br> - Virtual machine offer: Six days before the end of the month.<br> - Azure application offer: 14 days before the end of the month.<br> |
-|
 
 #### Examples
 

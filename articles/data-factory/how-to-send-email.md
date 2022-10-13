@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 08/10/2022
 ---
 
 # Send an email with an Azure Data Factory or Azure Synapse pipeline

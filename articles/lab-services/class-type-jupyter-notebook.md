@@ -109,7 +109,7 @@ physical_device_desc: "device: 0, name: NVIDIA Tesla K80, pci bus id: 0001:00:00
 
 ### Provide notebooks for the class
 
-The next task is to provide students with notebooks that you want them to use. Notebooks can be saved locally on the template VM so each student has their own copy.  If you want to use sample notebooks from Azure Machine Learning, see [how to configure an environment with Jupyter Notebooks](../machine-learning/how-to-configure-environment.md#jupyter).
+The next task is to provide students with notebooks that you want them to use. Notebooks can be saved locally on the template VM so each student has their own copy.  If you want to use sample notebooks from Azure Machine Learning, see [how to configure an environment with Jupyter Notebooks](../machine-learning/how-to-configure-environment.md#jupyter-notebooks).
 
 ### Publish the template machine
 

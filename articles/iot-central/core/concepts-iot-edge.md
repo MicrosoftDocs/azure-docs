@@ -3,7 +3,7 @@ title: Azure IoT Edge and Azure IoT Central | Microsoft Docs
 description: Understand how to use Azure IoT Edge with an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/18/2022
+ms.date: 06/08/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -44,7 +44,6 @@ IoT Central enables the following capabilities to for IoT Edge devices:
   * The commands each module responds to.
   * The relationships between an IoT Edge gateway device and downstream device.
   * Cloud properties that aren't stored on the IoT Edge device.
-  * Customizations that change how the UI shows device capabilities.
   * Device views and forms.
 * The ability to provision IoT Edge devices at scale using Azure IoT device provisioning service.
 * Rules and actions.
@@ -175,7 +174,7 @@ In the previous screenshot you can see:
 
 The deployment manifest doesn't include information about the telemetry the **SimulatedTemperatureSensor** module sends or the commands it responds to. Add these definitions to the device template manually before you publish it.
 
-To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application](/learn/modules/connect-iot-edge-device-to-iot-central/).
+To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application](/training/modules/connect-iot-edge-device-to-iot-central/).
 
 ### Update a deployment manifest
 

@@ -1,10 +1,13 @@
 ---
 title: Azure Service Fabric security best practices
 description: Best practices and design considerations for keeping Azure Service Fabric clusters and applications secure.
-author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: ignite-2022
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Azure Service Fabric security 
@@ -194,7 +197,7 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 ```
 
 Your Service Fabric app can then use the access token to authenticate to Azure Resources that support Active Directory.
-The following example shows how to do this for Cosmos DB resource:
+The following example shows how to do this for a Azure Cosmos DB resource:
 
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
@@ -221,7 +224,7 @@ Customers should configure their Azure-hosted workloads and on-premises applicat
 
 ## Windows Defender 
 
-By default, Windows Defender antivirus is installed on Windows Server 2016. For details, see [Windows Defender Antivirus on Windows Server 2016](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). The user interface is installed by default on some SKUs, but is not required. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, declare the following Virtual Machine Scale Set Extension Resource Manager template properties to exclude your Service Fabric cluster from scans:
+By default, Windows Defender antivirus is installed on Windows Server 2016. For details, see [Windows Defender Antivirus on Windows Server 2016](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows). The user interface is installed by default on some SKUs, but is not required. To reduce any performance impact and resource consumption overhead incurred by Windows Defender, and if your security policies allow you to exclude processes and paths for open-source software, declare the following Virtual Machine Scale Set Extension Resource Manager template properties to exclude your Service Fabric cluster from scans:
 
 
 ```json

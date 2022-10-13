@@ -3,14 +3,14 @@ title: Enable Azure DS Domain Services using PowerShell | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using Azure AD PowerShell and Azure PowerShell.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 05/19/2021
+ms.date: 09/1/2022
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
 
@@ -48,7 +48,7 @@ To complete this article, you need the following resources:
 
 Azure AD DS requires a service principal to authenticate and communicate and an Azure AD group to define which users have administrative permissions in the managed domain.
 
-First, create an Azure AD service principal by using a specific application ID named *Domain Controller Services*. In public Azure, the ID value is *2565bd9d-da50-47d4-8b85-4c97f669dc36*. In other clouds, the value is *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
+First, create an Azure AD service principal by using a specific application ID named *Domain Controller Services*. The ID value is *2565bd9d-da50-47d4-8b85-4c97f669dc36* for global Azure and *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* for other Azure clouds. Don't change this application ID.
 
 Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet:
 
@@ -79,7 +79,7 @@ else {
 }
 ```
 
-With the *AAD DC Administrators* group created, get the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet, then add the user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet..
+With the *AAD DC Administrators* group created, get the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet, then add the user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet.
 
 In the following example, the user object ID for the account with a UPN of `admin@contoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
 
@@ -194,7 +194,7 @@ $vnet | Set-AzVirtualNetwork
 
 Now let's create a managed domain. Set your Azure subscription ID, and then provide a name for the managed domain, such as *aaddscontoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet.
 
-If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
+If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for redundancy.
 
 Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
 
@@ -209,7 +209,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName
@@ -230,7 +230,7 @@ When the Azure portal shows that the managed domain has finished provisioning, t
 
 ## Complete PowerShell script
 
-The following complete PowerShell script combines all of the tasks shown in this article. Copy the script and save it to a file with a `.ps1` extension. Run the script in a local PowerShell console or the [Azure Cloud Shell][cloud-shell].
+The following complete PowerShell script combines all of the tasks shown in this article. Copy the script and save it to a file with a `.ps1` extension. For Azure Global, use AppId value *2565bd9d-da50-47d4-8b85-4c97f669dc36*. For other Azure clouds, use AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Run the script in a local PowerShell console or the [Azure Cloud Shell][cloud-shell].
 
 > [!NOTE]
 > To enable Azure AD DS, you must be a global administrator for the Azure AD tenant. You also need at least *Contributor* privileges in the Azure subscription.

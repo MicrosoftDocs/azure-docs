@@ -2,9 +2,8 @@
 title: Download a blob with .NET - Azure Storage
 description: Learn how to download a blob in Azure Storage by using the .NET client library.
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
@@ -32,25 +31,43 @@ You can also open a stream to read from a blob. The stream will only download th
  
 ## Download to a file path
 
-The following example downloads a blob by using a file path:
+The following example downloads a blob by using a file path. If the specified directory does not exist, handle the exception and notify the user.
 
 ```csharp
 public static async Task DownloadBlob(BlobClient blobClient, string localFilePath)
 {
-    await blobClient.DownloadToAsync(localFilePath);
+    try
+    {
+        await blobClient.DownloadToAsync(localFilePath);
+    }
+    catch (DirectoryNotFoundException ex)
+    {
+        // Let the user know that the directory does not exist
+        Console.WriteLine($"Directory not found: {ex.Message}");
+    }
 }
 ```
 
+If the file already exists at `localFilePath`, it will be overwritten by default during subsequent downloads.
+
 ## Download to a stream
 
-The following example downloads a blob by creating a [Stream](/dotnet/api/system.io.stream) object and then downloading to that stream.
+The following example downloads a blob by creating a [Stream](/dotnet/api/system.io.stream) object and then downloads to that stream. If the specified directory does not exist, handle the exception and notify the user.
 
 ```csharp
 public static async Task DownloadToStream(BlobClient blobClient, string localFilePath)
 {
-    FileStream fileStream = File.OpenWrite(localFilePath);
-    await blobClient.DownloadToAsync(fileStream);
-    fileStream.Close();
+    try
+    {
+        FileStream fileStream = File.OpenWrite(localFilePath);
+        await blobClient.DownloadToAsync(fileStream);
+        fileStream.Close();
+    }
+    catch (DirectoryNotFoundException ex)
+    {
+        // Let the user know that the directory does not exist
+        Console.WriteLine($"Directory not found: {ex.Message}");
+    }
 }
 ```
 
@@ -59,7 +76,7 @@ public static async Task DownloadToStream(BlobClient blobClient, string localFil
 The following example downloads a blob to a string. This example assumes that the blob is a text file.  
 
 ```csharp
-public static async Task DownloadToText(BlobClient blobClient, string localFilePath)
+public static async Task DownloadToText(BlobClient blobClient)
 {
     BlobDownloadResult downloadResult = await blobClient.DownloadContentAsync();
     string downloadedData = downloadResult.Content.ToString();

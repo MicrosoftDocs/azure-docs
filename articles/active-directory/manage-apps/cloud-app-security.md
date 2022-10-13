@@ -1,16 +1,15 @@
 ---
 title: App visibility and control with Microsoft Defender for Cloud Apps
-titleSuffix: Azure AD
 description: Learn ways to identify app risk levels, stop breaches and leaks in real time, and use app connectors to take advantage of provider APIs for visibility and governance.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/29/2021
-ms.author: davidmu
+ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: bokacevi, dacurwin
 ---

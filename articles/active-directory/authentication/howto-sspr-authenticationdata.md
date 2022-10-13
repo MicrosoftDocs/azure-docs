@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 07/12/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 
-To use Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication contact information for a user must be present. Some organizations have users register their authentication data themselves. Other organizations prefer to synchronize from authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Azure AD and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
+To use Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication information for a user must be present. Most organizations have users register their authentication data themselves while collecting information for MFA. Some organizations prefer to bootstrap this process through synchronization of authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Azure AD and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
 
 You can pre-populate authentication contact information if you meet the following requirements:
 
@@ -80,13 +80,13 @@ The following fields can be set through PowerShell:
     * Can only be set if you're not synchronizing with an on-premises directory.
 
 > [!IMPORTANT]
-> There's a known lack of parity in command features between PowerShell v1 and PowerShell v2. The [Microsoft Graph REST API (beta) for authentication methods](/graph/api/resources/authenticationmethods-overview) is the current engineering focus to provide modern interaction.
+> Azure AD PowerShell is planned for deprecation. You can start using [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) to interact with Azure AD as you would in Azure AD PowerShell, or use the [Microsoft Graph REST API for managing authentication methods](/graph/api/resources/authenticationmethods-overview).
 
-### Use PowerShell version 1
+### Use Azure AD PowerShell version 1
 
 To get started, [download and install the Azure AD PowerShell module](/previous-versions/azure/jj151815(v=azure.100)#bkmk_installmodule). After it's installed, use the following steps to configure each field.
 
-#### Set the authentication data with PowerShell version 1
+#### Set the authentication data with Azure AD PowerShell version 1
 
 ```PowerShell
 Connect-MsolService
@@ -98,7 +98,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 4252345678"
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 4251234567" -PhoneNumber "+1 4252345678"
 ```
 
-#### Read the authentication data with PowerShell version 1
+#### Read the authentication data with Azure AD PowerShell version 1
 
 ```PowerShell
 Connect-MsolService
@@ -120,21 +120,21 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-### Use PowerShell version 2
+### Use Azure AD PowerShell version 2
 
 To get started, [download and install the Azure AD version 2 PowerShell module](/powershell/module/azuread/).
 
 To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
 
 ```PowerShell
-Get-Module AzureADPreview
-Install-Module AzureADPreview
+Get-Module AzureAD
+Install-Module AzureAD
 Connect-AzureAD
 ```
 
 After the module is installed, use the following steps to configure each field.
 
-#### Set the authentication data with PowerShell version 2
+#### Set the authentication data with Azure AD PowerShell version 2
 
 ```PowerShell
 Connect-AzureAD
@@ -146,7 +146,7 @@ Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 4252345678"
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 4251234567" -TelephoneNumber "+1 4252345678"
 ```
 
-#### Read the authentication data with PowerShell version 2
+#### Read the authentication data with Azure AD PowerShell version 2
 
 ```PowerShell
 Connect-AzureAD
@@ -156,6 +156,45 @@ Get-AzureADUser -ObjectID user@domain.com | select Mobile
 Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
 
 Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,TelephoneNumber | Format-Table
+```
+
+### Use Microsoft Graph PowerShell
+
+To get started, [download and install the Microsoft Graph PowerShell module](/powershell/microsoftgraph/overview).
+
+To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
+
+```PowerShell
+Get-Module Microsoft.Graph
+Install-Module Microsoft.Graph
+Select-MgProfile -Name "beta"
+Connect-MgGraph -Scopes "User.ReadWrite.All"
+```
+
+After the module is installed, use the following steps to configure each field.
+
+#### Set the authentication data with Microsoft Graph PowerShell
+
+```PowerShell
+Connect-MgGraph -Scopes "User.ReadWrite.All"
+
+Update-MgUser -UserId 'user@domain.com' -otherMails @("emails@domain.com")
+Update-MgUser -UserId 'user@domain.com' -mobilePhone "+1 4251234567"
+Update-MgUser -UserId 'user@domain.com' -businessPhones "+1 4252345678"
+
+Update-MgUser -UserId 'user@domain.com' -otherMails @("emails@domain.com") -mobilePhone "+1 4251234567" -businessPhones "+1 4252345678"
+```
+
+#### Read the authentication data with Microsoft Graph PowerShell
+
+```PowerShell
+Connect-MgGraph -Scopes "User.Read.All"
+
+Get-MgUser -UserId 'user@domain.com' | select otherMails
+Get-MgUser -UserId 'user@domain.com' | select mobilePhone
+Get-MgUser -UserId 'user@domain.com' | select businessPhones
+
+Get-MgUser -UserId 'user@domain.com' | Select businessPhones, mobilePhone, otherMails | Format-Table
 ```
 
 ## Next steps

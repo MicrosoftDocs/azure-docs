@@ -55,13 +55,9 @@ SpeechConfig speechConfig =
 
 // Create an audio config specifying the compressed
 // audio format and the instance of your input stream class.
-AudioStreamFormat audioFormat = 
-    AudioStreamFormat.getCompressedFormat(
-        AudioStreamContainerFormat.OGG_OPUS);
-AudioConfig audioConfig =
-    AudioConfig.fromStreamInput(
-        pullStream,
-        audioFormat);
+PullAudioInputStream pullStream = AudioInputStream.createPullStream(
+    AudioStreamFormat.getCompressedFormat(AudioStreamContainerFormat.OGG_OPUS));
+AudioConfig audioConfig = AudioConfig.fromStreamInput(pullStream);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();

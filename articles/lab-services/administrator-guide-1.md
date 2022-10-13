@@ -1,11 +1,11 @@
 ---
-title: Administrator guide (deprecated) | Microsoft Docs
+title: Administrator guide using lab accounts | Microsoft Docs
 description: This guide helps administrators who create and manage lab accounts by using Azure Lab Services.
 ms.topic: how-to
 ms.date: 10/20/2020
 ---
 
-# Azure Lab Services - Administrator guide (deprecated)
+# Azure Lab Services - Administrator guide when using lab accounts
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 

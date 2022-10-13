@@ -14,7 +14,7 @@ ms.author: duau
 
 Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is the standard security technology for establishing an encrypted link between a web server and a browser. This link ensures that all data passed between the web server and the web browser remain private and encrypted.
 
-To meet your security or compliance requirements, Azure Front Door (AFD) supports end-to-end TLS encryption. Front Door TLS/SSL offload terminates the TLS connection, decrypts the traffic at the Azure Front Door, and re-encrypts the traffic before forwarding it to the backend. Since connections to the backend happen over the public IP. It's highly recommended you configure HTTPS as the forwarding protocol on your Azure Front Door to enforce end-to-end TLS encryption from the client to the backend.
+To meet your security or compliance requirements, Azure Front Door (AFD) supports end-to-end TLS encryption. Front Door TLS/SSL offload terminates the TLS connection, decrypts the traffic at the Azure Front Door, and re-encrypts the traffic before forwarding it to the backend. Since connections to the backend happen over the public IP, it is highly recommended you configure HTTPS as the forwarding protocol on your Azure Front Door to enforce end-to-end TLS encryption from the client to the backend. TLS/SSL offload is also supported if you deploy a private backend with AFD Premium using the [PrivateLink](private-link.md) feature.
 
 ## End-to-end TLS encryption
 
@@ -51,8 +51,6 @@ From a security standpoint, Microsoft doesn't recommend disabling certificate su
 
 * Azure Front Door Standard and Premium - it is present in the origin settings.
 * Azure Front Door (classic) - it is present under the Azure Front Door settings in the Azure portal and in the Backend PoolsSettings in the Azure Front Door API.
-
- under the Azure Front Door settings in the Azure portal and on the BackendPoolsSettings in the Azure Front Door API. 
 
 ## Frontend TLS connection (Client to Front Door)
 

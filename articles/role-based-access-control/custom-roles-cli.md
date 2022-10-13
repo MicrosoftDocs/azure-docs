@@ -4,14 +4,14 @@ description: Learn how to list, create, update, or delete Azure custom roles usi
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 07/28/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -222,18 +222,20 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## Delete a custom role
 
-To delete a custom role, use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+1. Remove any role assignments that use the custom role. For more information, see [Find role assignments to delete a custom role](custom-roles.md#find-role-assignments-to-delete-a-custom-role).
 
-```azurecli
-az role definition delete --name {roleNameOrId}
-```
+1. Use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete) to delete the custom role. To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
-The following example deletes the *Virtual Machine Operator* custom role.
-
-```azurecli
-az role definition delete --name "Virtual Machine Operator"
-```
-
+    ```azurecli
+    az role definition delete --name {roleNameOrId}
+    ```
+    
+    The following example deletes the *Virtual Machine Operator* custom role.
+    
+    ```azurecli
+    az role definition delete --name "Virtual Machine Operator"
+    ```
+    
 ## Next steps
 
 - [Tutorial: Create an Azure custom role using Azure CLI](tutorial-custom-role-cli.md)

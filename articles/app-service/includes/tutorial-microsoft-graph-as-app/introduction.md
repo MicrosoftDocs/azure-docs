@@ -6,7 +6,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: include
 ms.workload: identity
-ms.date: 01/21/2022
+ms.date: 08/19/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: 
@@ -90,7 +90,7 @@ When accessing the Microsoft Graph, the managed identity needs to have proper pe
     
     spId=$(az resource list -n $webAppName --query [*].identity.principalId --out tsv)
     
-    graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].objectId --out tsv)
+    graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].id --out tsv)
     
     appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
     

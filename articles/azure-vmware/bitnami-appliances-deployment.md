@@ -2,8 +2,8 @@
 title: Deploy Bitnami virtual appliances
 description: Learn about the virtual appliances packed by Bitnami to deploy in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/15/2021
-
+ms.service: azure-vmware
+ms.date: 04/11/2022
 ---
 
 # Bitnami appliance deployment
@@ -54,11 +54,11 @@ In this article, you'll learn how to install and configure the following virtual
 
 
 
-## Step 2. Access the local vCenter of your private cloud
+## Step 2. Access the local vCenter Server of your private cloud
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select your private cloud, and then **Manage** > **Identity**.
 
-1. Copy the vCenter URL, username, and password. You'll use them to access your virtual machine (VM). 
+1. Copy the vCenter Server URL, username, and password. You'll use them to access your virtual machine (VM). 
 
 1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) for details.
 
@@ -71,7 +71,7 @@ In this article, you'll learn how to install and configure the following virtual
 
 
 
-## Step 3. Install the Bitnami OVA/OVF file in vCenter
+## Step 3. Install the Bitnami OVA/OVF file in vCenter Server
 
 1. Right-click the cluster that you want to install the LAMP virtual appliance and select **Deploy OVF Template**.
 
@@ -97,7 +97,7 @@ In this article, you'll learn how to install and configure the following virtual
 
 1. After the installation finishes, under **Actions**, select **Power on** to turn on the appliance. 
 
-1. From the vCenter console, select **Launch Web Console** and sign in to the Bitnami virtual appliance. Check the [Bitnami virtual appliance support documentation](https://docs.bitnami.com/vmware-marketplace/faq/get-started/find-credentials/) for the default username and password.
+1. From the vCenter Server console, select **Launch Web Console** and sign in to the Bitnami virtual appliance. Check the [Bitnami virtual appliance support documentation](https://docs.bitnami.com/vmware-marketplace/faq/get-started/find-credentials/) for the default username and password.
 
    >[!NOTE]
    >You can change the default password to a more secure one. For more information, see ...

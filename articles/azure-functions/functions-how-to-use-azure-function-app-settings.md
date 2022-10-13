@@ -247,6 +247,35 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 ---
 
+## Manually install extensions
+
+C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, the recommended way to install extensions is either by [using extension bundles](functions-bindings-register.md#extension-bundles) or by [using Azure Functions Core Tools](functions-run-local.md#install-extensions) locally.  If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
+
+This same process works for any other file you need to add to your app. 
+
+> [!IMPORTANT]
+> When possible, you shouldn't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](functions-run-local.md#install-extensions) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods). 
+
+The Functions editor built into the Azure portal lets you update your function code and configuration (function.json) files directly in the portal. 
+
+1. Select your function app, then under **Functions** select **Functions**.
+1. Choose your function and select **Code + test** under **Developer**.
+1. Choose your file to edit and select **Save** when you're done.
+
+Files in the root of the app, such as function.proj or extensions.csproj need to be created and edited by using the [Advanced Tools (Kudu)](#kudu).
+
+1. Select your function app, then under **Development tools** select **Advanced tools** > **Go**.
+1. If prompted, sign-in to the SCM site with your Azure credentials.
+1. From the **Debug console** menu, choose **CMD**.
+1. Navigate to `.\site\wwwroot`, select the plus (**+**) button at the top, and select **New file**.
+1. Name the file, such as `extensions.csproj` and press Enter.
+1. Select the edit button next to the new file, add or update code in the file, and select **Save**. 
+1. For a project file like extensions.csproj, run the following command to rebuild the extensions project:
+
+    ```bash
+    dotnet build extensions.csproj
+    ```
+
 ## Platform features
 
 Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. When working in the [Azure portal](https://portal.azure.com), the left pane is where you access the many features of the App Service platform that you can use in your function apps. 

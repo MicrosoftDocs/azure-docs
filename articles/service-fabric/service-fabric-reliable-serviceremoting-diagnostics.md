@@ -1,15 +1,16 @@
 ---
 title: Azure ServiceFabric diagnostics and monitoring 
 description: This article describes the performance monitoring features in the Service Fabric Reliable ServiceRemoting runtime, like  performance counters emitted by it.
-author: suchiagicha
-
 ms.topic: conceptual
-ms.date: 06/29/2017
-ms.author: pepogors
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Diagnostics and performance monitoring for Reliable Service Remoting
 The Reliable ServiceRemoting runtime emits  [performance counters](/dotnet/api/system.diagnostics.performancecounter). These provide insights into how the ServiceRemoting is operating and help with troubleshooting and performance monitoring.
-
 
 ## Performance counters
 The Reliable ServiceRemoting runtime defines the following performance counter categories:

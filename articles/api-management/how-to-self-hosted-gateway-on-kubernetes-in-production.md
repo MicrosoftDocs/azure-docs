@@ -12,9 +12,11 @@ ms.date: 12/17/2021
 
 # Guidance for running self-hosted gateway on Kubernetes in production
 
-In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly-available manner, use configuration backups to handle temporary disconnects and many more.
+In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly available manner, use configuration backups to handle temporary disconnects and many more.
 
 This article provides guidance on how to run [self-hosted gateway](./self-hosted-gateway-overview.md) on Kubernetes for production workloads to ensure that it will run smoothly and reliably.
+
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
 
 ## Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
@@ -57,11 +59,11 @@ An alternative is to use Kubernetes Event-driven Autoscaling (KEDA) allowing you
 
 ### Traffic-based autoscaling
 
-Kubernetes does not provide an out-of-the-box mechanism for traffic-based autoscaling.
+Kubernetes doesn't provide an out-of-the-box mechanism for traffic-based autoscaling.
 
 Kubernetes Event-driven Autoscaling (KEDA) provides a few ways that can help with traffic-based autoscaling:
 
-- You can scale based on metrics from a Kubernetes ingress if they are available in [Prometheus](https://keda.sh/docs/latest/scalers/prometheus/) or [Azure Monitor](https://keda.sh/docs/latest/scalers/azure-monitor/) by using an out-of-the-box scaler
+- You can scale based on metrics from a Kubernetes ingress if they're available in [Prometheus](https://keda.sh/docs/latest/scalers/prometheus/) or [Azure Monitor](https://keda.sh/docs/latest/scalers/azure-monitor/) by using an out-of-the-box scaler
 - You can install [HTTP add-on](https://github.com/kedacore/http-add-on), which is available in beta, and scales based on the number of requests per second.
 
 ## Container resources
@@ -107,6 +109,9 @@ If you use custom domain names for the API Management endpoints, especially if y
 
 In this scenario, if the SSL certificate that's used by the Management endpoint isn't signed by a well-known CA certificate, you must make sure that the CA certificate is trusted by the pod of the self-hosted gateway.
 
+> [!NOTE]
+> With the self-hosted gateway v2, API Management provides a new configuration endpoint: `<apim-service-name>.configuration.azure-api.net`. Currently, API Management doesn't enable configuring a custom domain name for the v2 configuration endpoint. If you need custom hostname mapping for this endpoint, you may be able to configure an override in the container's local hosts file, for example, using a [`hostAliases`](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) element in a Kubernetes container spec. 
+
 ## Configuration backup
 
 Configure a local storage volume for the self-hosted gateway container, so it can persist a backup copy of the latest downloaded configuration. If connectivity is down, the storage volume can use the backup copy upon restart. The volume mount path must be `/apim/config` and must be owned by group ID `1001`. See an example on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
@@ -146,6 +151,28 @@ Availability zones allow you to schedule the self-hosted gateway's pod on nodes 
 Pods can experience disruption due to [various](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#voluntary-and-involuntary-disruptions) reasons such as manual pod deletion, node maintenance, etc.
 
 Consider using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) to enforce a minimum number of pods to be available at any given time.
+
+## Security
+The self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
+
+Here's an example of the security context for the self-hosted gateway:
+```yml
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  runAsUser: 1001       # This is a built-in user, but you can use any user ie 1000 as well
+  runAsGroup: 2000      # This is just an example
+  privileged: false
+  capabilities:
+    drop:
+    - all
+```
+
+> [!WARNING]
+> Running the self-hosted gateway with read-only filesystem (`readOnlyRootFilesystem: true`) is not supported.
+
+> [!WARNING]
+> When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
 
 ## Next steps
 

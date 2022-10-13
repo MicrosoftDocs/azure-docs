@@ -98,4 +98,3 @@ The set of actions that are allowed in a policy are described below.
 
 - [How to author and sign an attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
-

@@ -2,12 +2,12 @@
 title: Outbound rules Azure Load Balancer
 description: This article explains how to configure outbound rules to control egress of internet traffic with Azure Load Balancer.
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 1/6/2022
-ms.author: allensu
+ms.author: mbender
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer
@@ -24,7 +24,7 @@ With outbound rules, you have full declarative control over outbound internet co
 
 Outbound rules will only be followed if the backend VM doesn't have an instance-level public IP address (ILPIP).
 
-![Load Balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+:::image type="content" source="media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png" alt-text="This diagram shows configuration of SNAT ports on VMs w/ outbound load balancer rules.":::
 
 With outbound rules, you can explicitly define outbound **SNAT** behavior.
 
@@ -50,11 +50,11 @@ Outbound rules follow the same familiar syntax as load balancing and inbound NAT
 
 An outbound rule configures outbound NAT for _all virtual machines identified by the backend pool_ to be translated to the _frontend_.  
 
-The _parameters_ provide additional fine grained control over the outbound NAT algorithm.
+The _parameters_ provide fine grained control over the outbound NAT algorithm.
 
 ## <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
-Each additional IP address provided by a frontend provides additional 64,000 ephemeral ports for load balancer to use as SNAT ports. 
+Each extra IP address provided by a frontend provides another 64,000 ephemeral ports for load balancer to use as SNAT ports. 
 
 Use multiple IP addresses to plan for large-scale scenarios. Use outbound rules to mitigate [SNAT exhaustion](troubleshoot-outbound-connection.md#configure-load-balancer-outbound-rules-to-maximize-snat-ports-per-vm). 
 
@@ -64,7 +64,7 @@ A public IP prefix increases scaling of your deployment. The prefix can be added
 
 The load balancer has control over the public IP prefix. The outbound rule will automatically use all public IP addresses contained within the public IP prefix for outbound connections. 
 
-Each of the IP addresses within public IP prefix provides an additional 64,000 ephemeral ports per IP address for load balancer to use as SNAT ports.
+Each of the IP addresses within public IP prefix provides an extra 64,000 ephemeral ports per IP address for load balancer to use as SNAT ports.
 
 ## <a name="idletimeout"></a> Outbound flow idle timeout and TCP reset
 
@@ -123,14 +123,14 @@ Use this scenario to tailor outbound connections to originate from a set of publ
 This public IP or prefix can be the same as used by a load-balancing rule. 
 
 
-To use a different public IP or prefix than used by a load-balancing rule: 
+To use a different public IP or prefix than what is used by a load-balancing rule: 
 
 
 1. Create public IP prefix or public IP address.
 2. Create a public standard load balancer 
 3. Create a frontend referencing the public IP prefix or public IP address you wish to use. 
 4. Reuse a backend pool or create a backend pool and place the VMs into a backend pool of the public load balancer
-5. Configure an outbound rule on the public load balancer to enable outbound NAT for the VMs using the frontend. It is not recommended to use a load-balancing rule for outbound, disable outbound SNAT on the load-balancing rule.
+5. Configure an outbound rule on the public load balancer to enable outbound NAT for the VMs using the frontend. It isn't recommended to use a load-balancing rule for outbound, disable outbound SNAT on the load-balancing rule.
 
 
 ### <a name="scenario2out"></a>Scenario 2: Modify [SNAT](load-balancer-outbound-connections.md) port allocation
@@ -151,10 +151,10 @@ Each public IP address contributes up to 64,000 ephemeral ports. The number of V
 You can use outbound rules to tune the SNAT ports given by default. You give more or less than the default [SNAT](load-balancer-outbound-connections.md) port allocation provides. Each public IP address from a frontend of an outbound rule contributes up to 64,000 ephemeral ports for use as [SNAT](load-balancer-outbound-connections.md) ports. 
 
 
-Load balancer gives [SNAT](load-balancer-outbound-connections.md) ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected. Each load balancing rule and inbound NAT rule will consume a range of 8 ports. If a load balancing or inbound NAT rule shares the same range of 8 as another, no additional ports will be consumed.
+Load balancer gives [SNAT](load-balancer-outbound-connections.md) ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected. Each load balancing rule and inbound NAT rule will consume a range of eight ports. If a load balancing or inbound NAT rule shares the same range of 8 as another, no extra ports will be consumed.
 
 
-If you attempt to give more [SNAT](load-balancer-outbound-connections.md) ports than are available based on the number of public IP addresses, the configuration operation is rejected. For example, if you give 10,000 ports per VM and seven VMs in a backend pool share a single public IP, the configuration is rejected. Seven multiplied by 10,000 exceeds the 64,000 port limit. Add more public IP addresses to the frontend of the outbound rule to enable the scenario. 
+If you attempt to give out more [SNAT](load-balancer-outbound-connections.md) ports than are available (based on the number of public IP addresses), the configuration operation is rejected. For example, if you give 10,000 ports per VM and seven VMs in a backend pool share a single public IP, the configuration is rejected. Seven multiplied by 10,000 exceeds the 64,000 port limit. Add more public IP addresses to the frontend of the outbound rule to enable the scenario. 
 
 
 Revert to the [default port allocation](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for the number of ports. For more information on default SNAT port allocation, see [SNAT ports allocation table](./load-balancer-outbound-connections.md#preallocatedports).
@@ -164,7 +164,7 @@ Revert to the [default port allocation](load-balancer-outbound-connections.md#pr
 
 #### Details
 
-Use a public standard load balancer to provide outbound NAT for a group of VMs. In this scenario, use an outbound rule by itself, without any additional rules configured.
+Use a public standard load balancer to provide outbound NAT for a group of VMs. In this scenario, use an outbound rule by itself, without configuring extra rules.
 
 > [!NOTE]
 > **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) for more information.
@@ -218,7 +218,7 @@ For more information, see [Outbound-only load balancer configuration](./egress-o
 #### Details
 
 
-When using a public standard load balancer, the automatic outbound NAT provided matches the transport protocol of the load-balancing rule. 
+With a public standard load balancer, the automatic outbound NAT provided matches the transport protocol of the load-balancing rule. 
 
 
 1. Disable outbound [SNAT](load-balancer-outbound-connections.md) on the load-balancing rule. 

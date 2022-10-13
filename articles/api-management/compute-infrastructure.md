@@ -22,11 +22,14 @@ The following table summarizes the compute platforms currently used for instance
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2` | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Developer, Basic, Standard, Premium<sup>1</sup> |
-| `stv1` |  Single-tenant v1 | [Cloud Service (classic)](../cloud-services/cloud-services-choose-me.md) |  Developer, Basic, Standard, Premium | 
-| `mtv1` | Multi-tenant v1 |  [App service](../app-service/overview.md) |  Consumption |
+| `stv2` | Single-tenant v2 | Azure-allocated compute infrastructure that supports availability zones, private endpoints | Developer, Basic, Standard, Premium<sup>1</sup> |
+| `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
+| `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
 <sup>1</sup> Newly created instances in these tiers, created using the Azure portal or specifying API version 2021-01-01-preview or later. Includes some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
+
+> [!NOTE]
+> Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
 
 ## How do I know which platform hosts my API Management instance?
 
@@ -41,7 +44,7 @@ To find the `platformVersion` property in the portal:
 1. In **API version**, select a current version such as `2021-08-01` or later.
 1. In the JSON view, scroll down to find the `platformVersion` property.
 
-    :::image type="content" source="media/compute-infrastructure/platformversion property.png" alt-text="platformVersion property in JSON view":::
+    :::image type="content" source="media/compute-infrastructure/platformversion-property.png" alt-text="platformVersion property in JSON view":::
 
 ## How do I migrate to the `stv2` platform? 
 
@@ -52,7 +55,7 @@ The following table summarizes migration options for instances in the different 
 
 |Tier  |Migration options  |
 |---------|---------|
-|Premium     |  1. Enable [zone redundancy](zone-redundancy.md)<br/> -or-<br/> 2. Create new [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection<sup>1</sup><br/> -or-<br/> 3. Update existing [VNet configuration](#update-vnet-configuration)    |   
+|Premium     |  1. Enable [zone redundancy](../availability-zones/migrate-api-mgt.md)<br/> -or-<br/> 2. Create new [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection<sup>1</sup><br/> -or-<br/> 3. Update existing [VNet configuration](#update-vnet-configuration)    |   
 |Developer     | 1. Create new [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) VNet connection<sup>1</sup><br/>-or-<br/> 2. Update existing [VNet configuration](#update-vnet-configuration)   |   
 | Standard | 1. [Change your service tier](upgrade-and-scale.md#change-your-api-management-service-tier) (downgrade to Developer or upgrade to Premium). Follow migration options in new tier.<br/>-or-<br/>2. Deploy new instance in existing tier and migrate configurations<sup>2</sup> |
 | Basic | 1. [Change your service tier](upgrade-and-scale.md#change-your-api-management-service-tier) (downgrade to Developer or upgrade to Premium). Follow migration options in new tier<br/>-or-<br/>2. Deploy new instance in existing tier and migrate configurations<sup>2</sup> |
@@ -68,7 +71,7 @@ If you have an existing Developer or Premium tier instance that's connected to a
 
 ### Prerequisites
 
-* A new or existing virtual network and subnet in the same region and subscription as your API Management instance.
+* A new or existing virtual network and subnet in the same region and subscription as your API Management instance. The subnet must be different from the one currently used for the instance hosted on the `stv1` platform, and a network security group must be attached.
 
 * A new or existing Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource in the same region and subscription as your API Management instance.
 
@@ -91,5 +94,5 @@ The virtual network configuration is updated, and the instance is migrated to th
 ## Next steps
 
 * Learn more about using a [virtual network](virtual-network-concepts.md) with API Management.
-* Learn more about [zone redundancy](zone-redundancy.md).
+* Learn more about enabling [availability zones](../availability-zones/migrate-api-mgt.md).
 

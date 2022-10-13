@@ -83,8 +83,8 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Microsoft Learn learning path
-            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc         
+          - text: Learning path
+            url: /training/paths/manage-hybrid-infrastructure-with-azure-arc         
 
  # Card
   - title: Azure service integration
@@ -100,4 +100,4 @@ landingContent:
           - text: Microsoft Sentinel
             url: scenario-onboard-azure-sentinel.md
           - text: Microsoft Defender for Cloud
-            url: /azure/defender-for-cloud/quickstart-onboard-machines?toc=%2Fazure%2Fazure-arc%2Fservers%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fservers%2Fbreadcrumb%2Ftoc.json&pivots=azure-arc    
+            url: ../../defender-for-cloud/quickstart-onboard-machines.md?bc=/azure/azure-arc/servers/breadcrumb/toc.json&pivots=azure-arc&toc=/azure/azure-arc/servers/toc.json

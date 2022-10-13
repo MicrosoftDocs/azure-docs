@@ -1,8 +1,8 @@
 ---
 title: Manage inbound NAT rules for Azure Load Balancer
 description: In this article, you'll learn how to add and remove and inbound NAT rule in the Azure portal.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/15/2022

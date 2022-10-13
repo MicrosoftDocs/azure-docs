@@ -34,7 +34,7 @@ When you call a PSTN number, specify your alternate caller ID. An alternate call
 For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<ACS_USER_ID>' }
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
 ```
 
@@ -43,7 +43,7 @@ For a 1:n call to a user and a PSTN number, use the following code:
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER>'};
-const alternateCallerId = {alternateCallerId: '<ALTERNATE_CALLER_ID>'};
+const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
 ```
 
@@ -107,12 +107,26 @@ When starting/joining/accepting a call with video on, if the specified video cam
 To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs:
 
 ```js
-//mute local device
+//mute local device (microphone / sent audio)
 await call.mute();
 
-//unmute local device
+//unmute local device (microphone / sent audio)
 await call.unmute();
 ```
+
+## Mute and unmute incoming audio
+
+Mute incoming audio sets the call volume to 0. To mute or unmute the incoming audio, you can use the `muteIncomingAudio` and `unmuteIncomingAudio` asynchronous APIs:
+
+```js
+//mute local device (speaker)
+await call.muteIncomingAudio();
+
+//unmute local device (speaker)
+await call.unmuteIncomingAudio();
+```
+
+When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not paly in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
 
 ## Manage remote participants
 
@@ -183,12 +197,14 @@ The state can be:
 - `Disconnected`: Final state. The participant is disconnected from the call. If the remote participant loses their network connectivity, their state changes to `Disconnected` after two minutes.
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
-
     ```js
     const callEndReason = remoteParticipant.callEndReason;
     const callEndReasonCode = callEndReason.code // (number) code associated with the reason
     const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
     ```
+    Note: 
+    - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
+    - In the scenario where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.  
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
@@ -278,6 +294,12 @@ Check if the current microphone is muted. It returns `Boolean`.
 
 ```js
 const muted = call.isMuted;
+```
+
+Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
+
+```js
+const incomingAudioMuted = call._isIncomingAudioMuted;
 ```
 
 Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.

@@ -16,7 +16,7 @@ This chapter guides you through the steps to create an account for the **Azure R
 
 The following steps are needed to create an account for the Azure Remote Rendering service:
 
-1. Go to the [Mixed Reality Preview page](https://aka.ms/MixedRealityPrivatePreview)
+1. Go to the Azure portal [portal.azure.com](https://ms.portal.azure.com/)
 1. Click the 'Create a resource' button
 1. In the search field ("Search the marketplace"), type in "Remote Rendering" and hit 'enter'.
 1. In the result list, click on the "Remote Rendering" tile
@@ -92,7 +92,7 @@ The steps in this paragraph have to be performed for each storage account that s
 > If your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 > [!IMPORTANT]
-> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) for details.
+> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#symptom---role-assignment-changes-are-not-being-detected) for details.
 
 ## Next steps
 

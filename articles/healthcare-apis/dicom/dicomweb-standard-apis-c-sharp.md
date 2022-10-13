@@ -1,12 +1,12 @@
 ---
 title:  Using DICOMweb&trade;Standard APIs with C# - Azure Health Data Services
 description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with C#. 
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 02/15/2022
-ms.author: aersoy
+ms.date: 05/26/2022
+ms.author: mmitrik
 ---
 
 # Using DICOMweb&trade; Standard APIs with C#
@@ -43,7 +43,7 @@ After you've deployed an instance of the DICOM service, retrieve the URL for you
 
 In your application, install the following NuGet packages:
 
-*  [DICOM Client](https://microsofthealthoss.visualstudio.com/FhirServer/_packaging?_a=package&feed=Public&package=Microsoft.Health.Dicom.Client&protocolType=NuGet)
+*  [DICOM Client](https://microsofthealthoss.visualstudio.com/FhirServer/_artifacts/feed/Public/NuGet/Microsoft.Health.Dicom.Client/)
 
 *  [fo-dicom](https://www.nuget.org/packages/fo-dicom/)
 

@@ -9,6 +9,8 @@
   items:
   - name: Deploy Bastion with default settings
     href: quickstart-host-portal.md
+  - name: Deploy Bastion - ARM template
+    href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
   - name: Deploy Bastion with manual settings
@@ -71,6 +73,8 @@
         href: bastion-connect-vm-ssh-linux.md
   - name: Connect to a VM - native client
     href: connect-native-client-windows.md
+  - name: Connect to a VM - IP address
+    href: connect-ip-address.md
   - name: Connect to a VM scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs VMs

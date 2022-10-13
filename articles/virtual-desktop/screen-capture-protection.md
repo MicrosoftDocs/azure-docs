@@ -2,10 +2,10 @@
 title: Azure Virtual Desktop screen capture protection
 titleSuffix: Azure
 description: How to set up screen capture protection for Azure Virtual Desktop.
-author: gundarev
+author: femila
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.author: denisgun
+ms.date: 09/14/2022
+ms.author: femila
 ms.service: virtual-desktop
 ---
 
@@ -16,36 +16,37 @@ The screen capture protection feature prevents sensitive information from being 
 ## Prerequisites
 
 The screen capture protection feature is configured on the session host level and enforced on the client. Only clients that support this feature can connect to the remote session.
-Following clients currently support screen capture protection:
 
-* Windows Desktop client supports screen capture protection for full desktops only.
-* macOS client version 10.7.0 or later supports screen capture protection for both RemoteApp and full desktops.
+The following clients currently support screen capture protection:
 
-Suppose the user attempts to use an unsupported client to connect to the protected session host. In that case, the connection will fail with error 0x1151.
+- The Windows Desktop client supports screen capture protection for full desktops only.
+- The macOS client (version 10.7.0 or later) supports screen capture protection for both RemoteApps and full desktops.
+
+If a user tries to connect to a capture-protected session host with an unsupported client, the connection won't work and will instead show an error message labeled "0x1151."
 
 ## Configure screen capture protection
 
-1. To configure screen capture protection, you need to install administrative templates that add rules and settings for Azure Virtual Desktop.
-2. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the cab file and zip archive.
-3. Copy the **terminalserver-avd.admx** file to **%windir%\PolicyDefinitions** folder.
-4. Copy the **en-us\terminalserver-avd.adml** file to **%windir%\PolicyDefinitions\en-us** folder.
-5. To confirm the files copied correctly, open the Group Policy Editor and navigate to **Computer Configuration** -> **Administrative Templates** -> **Windows Components** -> **Remote Desktop Services** -> **Remote Desktop Session Host** -> **Azure Virtual Desktop**
-6. You should see one or more Azure Virtual Desktop policies, as shown below.
+To configure screen capture protection:
+
+1. Download the [Azure Virtual Desktop policy templates file](https://aka.ms/avdgpo) (AVDGPTemplate.cab) and extract the contents of the cab file and zip archive.
+2. Copy the **terminalserver-avd.admx** file to the **%windir%\PolicyDefinitions** folder.
+3. Copy the **en-us\terminalserver-avd.adml** file to the **%windir%\PolicyDefinitions\en-us** folder.
+4. To confirm the files copied correctly, open the Group Policy Editor and go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see one or more Azure Virtual Desktop policies, as shown in the following screenshot.
 
    :::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor" lightbox="media/azure-virtual-desktop-gpo.png":::
 
    > [!TIP]
    > You can also install administrative templates to the group policy Central Store in your Active Directory domain.
-   > For more information about Central Store for Group Policy Administrative Templates, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+   > For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
-7. Open the **"Enable screen capture protection"** policy and set it to **"Enabled"**.
+5. Finally, open the **"Enable screen capture protection"** policy and set it to **"Enabled"**.
 
 ## Limitations and known issues
 
-* This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and APIs. However, there's no guarantee that this feature will strictly protect content, for example, where someone takes photography of the screen.
-* Customers should use the feature together with disabling clipboard, drive, and printer redirection. Disabling redirection will help to prevent the user from copying the captured screen content from the remote session.
-* Users can't share the Remote Desktop window using local collaboration software, such as Microsoft Teams, when the feature is enabled. If Microsoft Teams is used, both the local Teams app and Teams running with media optimizations can't share the protected content.
+- This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and Application Programming Interfaces (APIs). However, there's no guarantee that this feature will strictly protect content in scenarios where a user were to take a photo of their screen with a physical camera.
+- For maximum security, customers should use this feature while also disabling clipboard, drive, and printer redirection. Disabling redirection prevents users from copying any captured screen content from the remote session.
+- Users can't share their Remote Desktop window using local collaboration software, such as Microsoft Teams, while this feature is enabled. When they use Microsoft Teams, neither the local Teams app nor Teams with media optimization can share protected content.
 
 ## Next steps
 
-* To learn about Azure Virtual Desktop security best practices, see [Azure Virtual Desktop security best practices](security-guide.md).
+Learn about how to secure your Azure Virtual Desktop deployment at [Security best practices](security-guide.md).

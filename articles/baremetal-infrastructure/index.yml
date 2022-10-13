@@ -128,16 +128,16 @@ landingContent:
             url: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Monitor SAP on Azure
             url: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: Azure Monitor for SAP Solutions providers
+          - text: Azure Monitor for SAP solutions providers
             url: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: Deploy Azure Monitor for SAP Solutions - Azure portal
+          - text: Deploy Azure Monitor for SAP solutions - Azure portal
             url: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: Configure Alerts in Azure Monitor for SAP Solutions
+          - text: Configure Alerts in Azure Monitor for SAP solutions
             url: ../virtual-machines/workloads/sap/azure-monitor-alerts-portal.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - linkListType: how-to-guide
         links:
           - text: HA Setup with STONITH
-            url: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            url: ../virtual-machines/workloads/sap/ha-setup-with-fencing-device.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: OS Backup
             url: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Enable Kdump for HANA Large Instances
@@ -147,4 +147,36 @@ landingContent:
           - text: Setting up SMT server for SUSE Linux
             url: ../virtual-machines/workloads/sap/hana-setup-smt.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Buy an SAP HANA Large Instances reservation
-            url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+            url: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
+
+# card 4
+  - title: BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
+    linkLists: 
+      - linkListType: overview
+        links:
+         - text: What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
+           url: workloads/nc2-on-azure/nc2-baremetal-overview.md
+         - text: About BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
+           url: workloads/nc2-on-azure/about-nc2-on-azure.md
+         - text: FAQ
+           url: workloads/nc2-on-azure/faq.md
+      - linkListType: get-started
+        links:
+         - text: Getting started
+           url: workloads/nc2-on-azure/get-started.md
+         - text: Use cases and supported scenarios
+           url: workloads/nc2-on-azure/use-cases-and-supported-scenarios.md  
+         - text: Requirements
+           url: workloads/nc2-on-azure/requirements.md
+         - text: Supported instances and regions
+           url: ./workloads/nc2-on-azure/supported-instances-and-regions.md
+         - text: SKUs
+           url: workloads/nc2-on-azure/skus.md
+      - linkListType: architecture
+        links:
+         - text: Architecture
+           url: workloads/nc2-on-azure/architecture.md 
+      - linkListType: concept
+        links:
+         - text: Solution design
+           url: workloads/nc2-on-azure/solution-design.md

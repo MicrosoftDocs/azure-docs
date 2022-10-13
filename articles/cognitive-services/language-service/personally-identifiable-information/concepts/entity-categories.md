@@ -23,9 +23,8 @@ The PII feature includes the ability to detect personal (`PII`) and health (`PHI
 
 > [!NOTE]
 > To detect protected health information (PHI), use the `domain=phi` parameter and model version `2020-04-01` or later.
->
-> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi&model-version=2021-01-15`
- 
+
+
 The following entity categories are returned when you're sending API requests PII feature.
 
 ## Category: Person
@@ -440,7 +439,7 @@ The entity in this category can have the following subcategories.
 
 ### Azure information
 
-These entity categories includes identifiable Azure information, including authentication information and connection strings. Not returned as PHI.
+These entity categories include identifiable Azure information like authentication information and connection strings. Not returned as PHI.
 
 :::row:::
     :::column span="":::

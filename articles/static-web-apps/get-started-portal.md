@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Building your first static web app with Azure Static Web Apps using the Azure portal'
+title: 'Quickstart: Build your first static web app'
 description: Learn to deploy a static site to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 05/07/2021
+ms.date: 09/19/2022
 ms.topic: quickstart
 ms.service: static-web-apps
 zone_pivot_groups: devops-or-github
 ---
 
-# Quickstart: Building your first static site in the Azure portal
+# Quickstart: Build your first static web app
 
 Azure Static Web Apps publishes a website to a production environment by building apps from an Azure DevOps or GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
@@ -23,7 +23,7 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 
 ::: zone pivot="azure-devops"
 - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
-- [Azure DevOps](https://azure.microsoft.com/services/devops) account
+- [Azure DevOps](https://azure.microsoft.com/services/devops) organization
 ::: zone-end
 
 ::: zone pivot="github"
@@ -119,7 +119,9 @@ After you sign in with GitHub, enter the repository information.
 :::image type="content" source="media/getting-started-portal/quickstart-portal-source-control.png" alt-text="Repository details":::
 
 > [!NOTE]
-> If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+> If you don't see any repositories:
+> - You may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**.
+> - You may need to authorize Azure Static Web Apps in your Azure DevOps organization. You must be an owner of the organization to grant the permissions. Request third-party application access via via OAuth. For more information, see [Authorize access to REST APIs with OAuth 2.0](https://learn.microsoft.com/azure/devops/integrate/get-started/authentication/oauth?view=azure-devops#2-authorize-your-app).
 
 ::: zone-end
 
@@ -212,15 +214,15 @@ The Static Web Apps *Overview* window displays a series of links that help you i
 
 :::image type="content" source="./media/getting-started/overview-window.png" alt-text="The Azure Static Web Apps overview window.":::
 
-1. Clicking on the banner that says, _Click here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
+1. Select the banner that says, _Click here to check the status of your GitHub Actions runs_, which takes you to the GitHub Actions and runs against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
 
-2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
+2. Once GitHub Actions workflow is complete, select on the _URL_ link to open the website in new tab.
 
 ::: zone-end
 
 ::: zone pivot="azure-devops"
 
-Once the  workflow is complete, you can click on the _URL_ link to open the website in new tab.
+Once the  workflow is complete, select the _URL_ link to open the website in new tab.
 
 ::: zone-end
 
@@ -231,8 +233,8 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Open the [Azure portal](https://portal.azure.com).
 1. Search for **my-first-web-static-app** from the top search bar.
 1. Select the app name.
-1. Select the **Delete** button.
-1. Select **Yes** to confirm the delete action (this action may take a few moments to complete).
+2. Select **Delete**.
+3. Select **Yes** to confirm the delete action. This action may take a few moments to complete.
 
 ## Next steps
 

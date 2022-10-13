@@ -3,13 +3,13 @@ title: Azure Active Directory Identity and access management operations referenc
 description: This operations reference guide describes the checks and actions you should take to secure identity and access management operations
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: rkarlin
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: fundamentals
-ms.date: 10/31/2019
+ms.date: 08/17/2022
 ms.author: martinco
 ---
 

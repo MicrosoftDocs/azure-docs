@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-
+ms.reviewer: mattmcinnes
 ---
 # Create and Upload an OpenBSD disk image to Azure
 

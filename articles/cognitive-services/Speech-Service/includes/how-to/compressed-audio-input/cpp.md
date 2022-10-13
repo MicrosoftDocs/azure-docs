@@ -46,15 +46,11 @@ using namespace Microsoft::CognitiveServices::Speech::Audio;
         "YourServiceRegion"
     );
 
-auto audioFormat =
-    AudioStreamFormat::GetCompressedFormat(
-        AudioStreamContainerFormat::OGG_OPUS
-    );
-auto audioConfig =
-    AudioConfig::FromStreamInput(
-        pushStream,
-        audioFormat
-    );
+// Create an audio config specifying the compressed
+// audio format and the instance of your input stream class.
+auto pullStream = AudioInputStream::CreatePullStream(
+    AudioStreamFormat::GetCompressedFormat(AudioStreamContainerFormat::OGG_OPUS));
+auto audioConfig = AudioConfig::FromStreamInput(pullStream);
 
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 auto result = recognizer->RecognizeOnceAsync().get();

@@ -1,12 +1,12 @@
 ---
 title: Get started with FHIR service - Azure Health Data Services
 description: This document describes how to get started with FHIR service in Azure Health Data Services.
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/22/2022
-ms.author: dseven
+ms.date: 06/06/2022
+ms.author: kesheth
 ms.custom: mode-api
 ---
 
@@ -58,7 +58,7 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, o
 #### Access using existing tools
 
 - [Postman](../fhir/use-postman.md)
-- [Rest Client](../fhir/using-rest-client.md)
+- [REST Client](../fhir/using-rest-client.md)
 - [cURL](../fhir/using-curl.md)
 
 #### Load data
@@ -96,3 +96,5 @@ This article described the basic steps to get started using the FHIR service. Fo
 
 >[!div class="nextstepaction"]
 >[Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

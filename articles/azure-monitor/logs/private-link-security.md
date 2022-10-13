@@ -11,6 +11,9 @@ ms.date: 1/5/2022
 
 With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. An Azure Monitor Private Link connects a private endpoint to a set of Azure Monitor resources, defining the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope (AMPLS).
 
+> [!NOTE]
+> Azure Monitor Private Links are structured differently from Private Links to other services you may use. Instead of creating multiple Private Links, one for each resource the VNet connects to, Azure Monitor uses a single Private Link connection, from the VNet to an Azure Monitor Private Link Scope (AMPLS). AMPLS is the set of all Azure Monitor resources to which VNet connects through a Private Link.
+
 
 ## Advantages
 

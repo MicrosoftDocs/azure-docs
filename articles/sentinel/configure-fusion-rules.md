@@ -104,7 +104,7 @@ This detection is enabled by default in Microsoft Sentinel. To check or change i
 
 1. Fusion can also detect scenario-based threats using rules based on the following **scheduled analytics rule templates**.
 
-    To enable the queries availiable as templates in the **Analytics** blade, go to the **Rule templates** tab, select the rule name in the templates gallery, and click **Create rule** in the details pane. 
+    To enable the queries available as templates in the **Analytics** blade, go to the **Rule templates** tab, select the rule name in the templates gallery, and click **Create rule** in the details pane. 
 
     - [Cisco - firewall block but success logon to Azure AD](https://github.com/Azure/Azure-Sentinel/blob/60e7aa065b196a6ed113c748a6e7ae3566f8c89c/Detections/MultipleDataSources/SigninFirewallCorrelation.yaml)
     - [Fortinet - Beacon pattern detected](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/CommonSecurityLog/Fortinet-NetworkBeaconPattern.yaml)
@@ -113,9 +113,9 @@ This detection is enabled by default in Microsoft Sentinel. To check or change i
     - [Rare application consent](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AuditLogs/RareApplicationConsent.yaml)
     - [SharePointFileOperation via previously unseen IPs](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/OfficeActivity/SharePoint_Downloads_byNewIP.yaml)
     - [Suspicious Resource deployment](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AzureActivity/NewResourceGroupsDeployedTo.yaml)
-    - [Palo Alto Threat signatures from Unusual IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/CommonSecurityLog/PaloAlto-UnusualThreatSignatures.yaml)
+    - [Palo Alto Threat signatures from Unusual IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/PaloAlto-PAN-OS/Analytic%20Rules/PaloAlto-UnusualThreatSignatures.yaml)
     
-    To add queries that are not currently availiable as a rule template, see [create a custom analytics rule with a scheduled query](detect-threats-custom.md#create-a-custom-analytics-rule-with-a-scheduled-query). 
+    To add queries that are not currently available as a rule template, see [create a custom analytics rule with a scheduled query](detect-threats-custom.md#create-a-custom-analytics-rule-with-a-scheduled-query). 
     
     - [New Admin account activity seen which was not seen historically](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Hunting%20Queries/OfficeActivity/new_adminaccountactivity.yaml)
 
