@@ -32,8 +32,6 @@ Metamodel includes several predefined asset types and relationship definitions. 
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Write concepts](article-concept.md)
-- [Links](../contribute/links-how-to.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
