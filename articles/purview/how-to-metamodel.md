@@ -26,7 +26,7 @@ introduction.
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](reate-catalog-portal.md).
+- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
 - Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).
 - [Data Curator role](catalog-permissions.md#roles) on the collection where the data asset is housed. See the guide on [managing Microsoft Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
