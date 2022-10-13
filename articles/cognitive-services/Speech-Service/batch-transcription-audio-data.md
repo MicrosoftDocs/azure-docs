@@ -135,6 +135,9 @@ Now the managed identity for your Speech resource can be granted access to your 
 
 Follow these steps to restrict access to the storage account. 
 
+> [!IMPORTANT]
+> Upload audio files in a Blob container before locking down the storage account access.
+
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Storage account.
 1. In the **Settings** group in the left pane, select **Configuration**.
