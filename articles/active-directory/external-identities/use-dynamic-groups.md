@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 Dynamic configuration of security group membership for Azure Active Directory (Azure AD) is available in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as userType, department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Read more about dynamic groups in [Dedicated groups in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Prerequisites
-The appropriate [Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in the article [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+[Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in the article [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## Creating an "all users" dynamic group
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
@@ -39,7 +39,7 @@ You can create a group containing all users within a tenant using a membership r
    ```
 1. Select **OK**. The rule appears in the Rule syntax box:
 
- :::image type="content" source="media/use-dynamic-groups/all-user-rule-syntax.png" alt-text="Screenshot of rule syntax for all users dynamic group.":::
+   :::image type="content" source="media/use-dynamic-groups/all-user-rule-syntax.png" alt-text="Screenshot of rule syntax for all users dynamic group.":::
 
 1.  Select **Save**. The new dynamic group will now include B2B guest users and member users.
 
