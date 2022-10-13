@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/13/2022
+ms.date: 09/16/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # Language identification (preview)
 
-Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md#language-identification).
+Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).
 
 Language identification (LID) use cases include:
 
@@ -41,7 +41,7 @@ Code snippets are included with the concepts described next. Complete samples fo
 
 You provide candidate languages, at least one of which is expected be in the audio. You can include up to 4 languages for [at-start LID](#at-start-and-continuous-language-identification) or up to 10 languages for [continuous LID](#at-start-and-continuous-language-identification).
 
-You must provide the full 4-letter locale, but language identification only uses one locale per base language. Do not include multiple locales (e.g., "en-US" and "en-GB") for the same language.
+You must provide the full locale with dash (`-`) separator, but language identification only uses one locale per base language. Do not include multiple locales (e.g., "en-US" and "en-GB") for the same language.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -92,14 +92,14 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 
 ::: zone-end
 
-For more information, see [supported languages](language-support.md#language-identification).
+For more information, see [supported languages](language-support.md?tabs=language-identification).
 
 ### At-start and Continuous language identification
 
 Speech supports both at-start and continuous language identification (LID).
 
 > [!NOTE]
-> Continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
+> Continuous language identification is only supported with Speech SDKs in C#, C++, Java ([for speech to text only](#speech-to-text)), and Python.
 - At-start LID identifies the language once within the first few seconds of audio. Use at-start LID if the language in the audio won't change.
 - Continuous LID can identify multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. Continuous LID does not support changing languages within the same sentence. For example, if you are primarily speaking Spanish and insert some English words, it will not detect the language change per word.
 
@@ -110,7 +110,7 @@ You implement at-start LID or continuous LID by calling methods for [recognize o
 You can choose to prioritize accuracy or latency with language identification.
 
 > [!NOTE]
-> Latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, and Python.
+> Latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, Java ([for speech to text only](#speech-to-text)), and Python.
 Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve language identification results.
 
 * **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned within 30 seconds. You set the priority for at-start LID with the `SpeechServiceConnection_SingleLanguageIdPriority` property.
@@ -128,6 +128,7 @@ speechConfig.SetProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageId
 ```
 
 ::: zone-end
+
 ::: zone pivot="programming-language-cpp"
 Here is an example of using continuous LID while still prioritizing latency.
 
@@ -136,6 +137,17 @@ speechConfig->SetProperty(PropertyId::SpeechServiceConnection_ContinuousLanguage
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-java"
+Here is an example of using continuous LID while still prioritizing latency.
+
+```java
+speechConfig.setProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
+```
+
+::: zone-end
+
+
 ::: zone pivot="programming-language-python"
 Here is an example of using continuous LID while still prioritizing latency.
 
@@ -199,6 +211,23 @@ recognizer->StopContinuousRecognitionAsync().get();
 ```
 
 ::: zone-end
+::: zone pivot="programming-language-java"
+
+```java
+// Recognize once with At-start LID
+SpeechRecognitionResult  result = recognizer->RecognizeOnceAsync().get();
+
+// Start and stop continuous recognition with At-start LID
+recognizer.startContinuousRecognitionAsync().get();
+recognizer.stopContinuousRecognitionAsync().get();
+
+// Start and stop continuous recognition with Continuous LID
+speechConfig.setProperty(PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, "Latency");
+recognizer.startContinuousRecognitionAsync().get();
+recognizer.stopContinuousRecognitionAsync().get();
+```
+
+::: zone-end
 ::: zone pivot="programming-language-python"
 
 ```python
@@ -206,13 +235,13 @@ recognizer->StopContinuousRecognitionAsync().get();
 result = recognizer.recognize_once()
 
 # Start and stop continuous recognition with At-start LID
-source_language_recognizer.start_continuous_recognition()
-source_language_recognizer.stop_continuous_recognition()
+recognizer.start_continuous_recognition()
+recognizer.stop_continuous_recognition()
 
 # Start and stop continuous recognition with Continuous LID
 speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnection_ContinuousLanguageIdPriority, value='Latency')
-source_language_recognizer.start_continuous_recognition()
-source_language_recognizer.stop_continuous_recognition()
+recognizer.start_continuous_recognition()
+recognizer.stop_continuous_recognition()
 ```
 
 ::: zone-end
@@ -276,7 +305,7 @@ See more examples of standalone language identification on [GitHub](https://gith
 You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech-to-text overview](speech-to-text.md).
 
 > [!NOTE]
-> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, and Python.
+> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, and Python.
 > Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
 ::: zone pivot="programming-language-csharp"
@@ -431,11 +460,15 @@ auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 
 :::code language="cpp" source="~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/speech_recognition_samples.cpp" id="SpeechContinuousRecognitionAndLanguageIdWithMultiLingualFile":::
 
+---
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
 See more examples of speech-to-text recognition with language identification on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java).
+
+### [Recognize once](#tab/once)
 
 ```java
 AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
@@ -458,7 +491,13 @@ autoDetectSourceLanguageConfig.close();
 audioConfig.close();
 result.close();
 ```
+
+### [Continuous recognition](#tab/continuous)
+
+:::code language="java" source="~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java" id="SpeechContinuousRecognitionAndLanguageId":::
+
 ---
+
 
 ::: zone-end
 
@@ -565,7 +604,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ### Using Speech-to-text custom models
 
 ::: zone pivot="programming-language-csharp"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```csharp
 var sourceLanguageConfigs = new SourceLanguageConfig[]
@@ -581,7 +620,7 @@ var autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```cpp
 std::vector<std::shared_ptr<SourceLanguageConfig>> sourceLanguageConfigs;
@@ -598,7 +637,7 @@ auto autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```java
 List sourceLanguageConfigs = new ArrayList<SourceLanguageConfig>();
@@ -615,7 +654,7 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```Python
  en_language_config = speechsdk.languageconfig.SourceLanguageConfig("en-US")
@@ -627,7 +666,7 @@ This sample shows how to use language detection with a custom endpoint. If the d
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Train and deploy a Custom Speech model](how-to-custom-speech-train-model.md).
+This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
 
 ```Objective-C
 SPXSourceLanguageConfiguration* enLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"en-US"];

@@ -4,7 +4,7 @@ description: An introduction to Apache HBase in HDInsight, a NoSQL database buil
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/20/2020
+ms.date: 05/11/2022
 
 #Customer intent: As a developer new to Apache HBase and Apache HBase in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache HBase in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---

@@ -7,7 +7,7 @@ ms.subservice: purview
 ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: jejiang
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 
 # Discover, connect, and explore data in Synapse using Microsoft Purview 
@@ -16,7 +16,7 @@ In this document, you will learn the type of interactions that you can perform
 
 ## Prerequisites 
 
-- [Azure Microsoft Purview account](../../purview/create-catalog-portal.md) 
+- [Microsoft Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
 - [Connect a Microsoft Purview Account into Synapse](quickstart-connect-azure-purview.md) 
 
@@ -38,7 +38,7 @@ Here is a list of the Microsoft Purview features that are available in Synapse:
 - View **lineage** to understand dependencies and do impact analysis. For more information about, see [lineage](../../purview/catalog-lineage-user-guide.md)
 - View and edit **Contacts** to know who is an owner or expert over a dataset 
 - **Related** to understand the hierarchical dependencies of a specific dataset. This experience is helpful to browse through data hierarchy.
-
+- Click **Request Access** to request access to the data by triggering the self-service data access workflow configured by Workflow Admin in Microsoft Purview. For more information see [Request access](../../purview/how-to-request-access.md) and [Self-Service data access workflow](../../purview/how-to-workflow-self-service-data-access-hybrid.md).
 ## Actions that you can perform over datasets with Synapse resources 
 
 ### Connect data to Synapse 

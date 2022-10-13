@@ -1,6 +1,5 @@
 ---
 title: 'Configure enterprise application properties'
-titleSuffix: Azure AD
 description: Configure the properties of an enterprise application in Azure Active Directory.
 services: active-directory
 author: omondiatieno

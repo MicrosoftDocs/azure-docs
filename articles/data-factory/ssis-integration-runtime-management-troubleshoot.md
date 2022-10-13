@@ -6,9 +6,9 @@ ms.subservice: integration-services
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
-ms.reviewer: sawinark
+ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+ms.date: 09/22/2022
 ---
 
 # Troubleshoot SSIS Integration Runtime management

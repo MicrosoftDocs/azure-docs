@@ -85,7 +85,7 @@ The following sections describe steps for configuring user provisioning from Wor
 
 **To configure Workday to Azure Active Directory provisioning for cloud-only users:**
 
-1. Go to <https://portal.azure.com>.
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, search for and select **Azure Active Directory**.
 

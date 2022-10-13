@@ -4,7 +4,7 @@ description: In this quickstart, you create Apache Hadoop cluster in Azure HDIns
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 03/13/2020
+ms.date: 08/21/2022
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template
 ---
 

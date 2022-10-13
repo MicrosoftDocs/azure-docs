@@ -2,20 +2,21 @@
 title: Fix problems with dynamic group memberships - Azure AD | Microsoft Docs
 description: Troubleshooting tips for dynamic group membership in Azure Active Directory
 services: active-directory
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
 ms.topic: troubleshooting
-ms.date: 12/02/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot and resolve groups issues
+This article contains troubleshooting information for groups in Azure Active Directory (Azure AD), part of Microsoft Entra.
 
 ## Troubleshooting group creation issues
 

@@ -12,11 +12,14 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/15/2016
+ms.date: 08/19/2022
 ms.author: alkohli
 
 ---
 # StorSimple Virtual Array Update 0.3 release notes
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ## Overview
 The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates.
 

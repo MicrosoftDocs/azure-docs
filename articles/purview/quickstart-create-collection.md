@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Create a collection'
-description: Collections are used for access control, and asset organization in Microsoft Purview. This article describes how to create a collection and add permissions, register sources, and register assets to collections.
+description: Collections are used for access control, and asset organization in the Microsoft Purview Data Map. This article describes how to create a collection and add permissions, register sources, and register assets to collections.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
-ms.date: 11/04/2021
+ms.date: 06/17/2022
 ms.custom: template-quickstart, mode-other
 ---
 
-# Quickstart: Create a collection and assign permissions in Microsoft Purview
+# Quickstart: Create a collection and assign permissions in the Microsoft Purview Data Map
 
-Collections are Microsoft Purview's tool to manage ownership and access control across assets, sources, and information. They also organize your sources and assets into categories that are customized to match your management experience with your data. This guide will take you through setting up your first collection and collection admin to prepare your Microsoft Purview environment for your organization.
+Collections are the Microsoft Purview Data Map's tool to manage ownership and access control across assets, sources, and information. They also organize your sources and assets into categories that are customized to match your management experience with your data. This guide will take you through setting up your first collection and collection admin to prepare your Microsoft Purview environment for your organization.
 
 ## Prerequisites
 
@@ -24,13 +24,13 @@ Collections are Microsoft Purview's tool to manage ownership and access control 
 
 ## Check permissions
 
-In order to create and manage collections in Microsoft Purview, you will need to be a **Collection Admin** within Microsoft Purview. We can check these permissions in the [Microsoft Purview governance portal](use-azure-purview-studio.md). You can find the studio by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
+In order to create and manage collections in the Microsoft Purview Data Map, you'll need to be a **Collection Admin** within the Microsoft Purview governance portal. We can check these permissions in the [portal](use-azure-purview-studio.md). You can find the studio by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com), and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
     :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of the Microsoft Purview governance portal opened to the Data Map, with the Collections tab selected." border="true":::
 
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Microsoft Purview account. In our example below, it's called Contoso Microsoft Purview.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Microsoft Purview account. In our example below, it's called ContosoPurview.
 
     :::image type="content" source="./media/quickstart-create-collection/select-root-collection.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the root collection highlighted." border="true":::
 
@@ -38,13 +38,13 @@ In order to create and manage collections in Microsoft Purview, you will need to
 
     :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
 
-1. To create a collection, you will need to be in the collection admin list under role assignments. If you created the Microsoft Purview account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
+1. To create a collection, you'll need to be in the collection admin list under role assignments. If you created the account, you should be listed as a collection admin under the root collection already. If not, you'll need to contact the collection admin to grant you permission.
 
     :::image type="content" source="./media/quickstart-create-collection/collection-admins.png" alt-text="Screenshot of the Microsoft Purview governance portal window, opened to the Data Map, with the collection admin section highlighted." border="true":::
 
 ## Create a collection in the portal
 
-To create your collection, we'll start in the [Microsoft Purview governance portal](use-azure-purview-studio.md). You can find the studio by going to your Microsoft Purview account in the Azure portal and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
+To create your collection, we'll start in the [Microsoft Purview governance portal](use-azure-purview-studio.md). You can find the portal by going to your Microsoft Purview account in the [Azure portal](https://portal.azure.com) and selecting the **Open Microsoft Purview governance portal** tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -64,7 +64,7 @@ To create your collection, we'll start in the [Microsoft Purview governance port
 
 ## Assign permissions to collection
 
-Now that you have a collection, you can assign permissions to this collection to manage your users access to Microsoft Purview.
+Now that you have a collection, you can assign permissions to this collection to manage your users access to the Microsoft Purview governance portal.
 
 ### Roles
 

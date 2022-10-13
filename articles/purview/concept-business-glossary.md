@@ -28,13 +28,16 @@ The same term can also imply multiple business objects. It is important that eac
 
 Microsoft Purview supports eight out-of-the-box attributes for any business glossary term:
 - Name (mandatory)
+- Nickname
+- Status
 - Definition
-- Data stewards
-- Data experts
+- Stewards
+- Experts
 - Acronym
 - Synonyms
 - Related terms
 - Resources
+- Parent term
 
 These attributes cannot be edited or deleted. However, these attributes are not sufficient to completely define a term in an organization. To solve this problem, Microsoft Purview provides a feature where you can define custom attributes for your glossary.
 

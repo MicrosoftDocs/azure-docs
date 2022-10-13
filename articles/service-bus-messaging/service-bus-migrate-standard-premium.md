@@ -2,7 +2,8 @@
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 ms.topic: article
-ms.date: 03/09/2022
+ms.custom: ignite-2022
+ms.date: 06/27/2022
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
@@ -21,6 +22,7 @@ Some of the points to note:
 - All **entities** in the standard namespace are **copied** to the premium namespace during the migration process.
 - Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace.
 - You can't directly migrate from **basic tier** to **premium tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
+- The role-based access control (RBAC) settings are not migrated, so you will need to add them manually after the migration. 
 
 ## Migration steps
 
@@ -132,13 +134,8 @@ Here is a list of features not supported by Premium and their mitigation -
 
    If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
 
-### Partitioned entities
-
-   Partitioned entities were supported in the Standard tier to provide better availability in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
-
-   During migration, any partitioned entity in the Standard namespace is created on the Premium namespace as a non-partitioned entity.
-
-   If your ARM template sets 'enablePartitioning' to 'true' for a specific Queue or Topic, then it will be ignored by the broker.
+### RBAC settings
+The role-based access control (RBAC) settings on the namespace aren't migrated to the premium namespace. You'll need to add them manually after the migration. 
 
 ## FAQs
 
@@ -221,4 +218,3 @@ However, if you can migrate during a planned maintenance/housekeeping window, an
 
 * Learn more about the [differences between standard and premium Messaging](./service-bus-premium-messaging.md).
 * Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
-

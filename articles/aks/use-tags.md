@@ -3,7 +3,7 @@ title: Use Azure tags in Azure Kubernetes Service (AKS)
 description: Learn how to use Azure provider tags to track resources in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 02/08/2022
+ms.date: 05/26/2022
 ---
 
 # Use Azure tags in Azure Kubernetes Service (AKS)
@@ -40,8 +40,16 @@ When you create or update an AKS cluster with the `--tags` parameter, the follow
 * The AKS cluster
 * The route table that's associated with the cluster
 * The public IP that's associated with the cluster
+* The load balancer that's associated with the cluster
 * The network security group that's associated with the cluster
 * The virtual network that's associated with the cluster
+* The AKS managed kubelet msi associated with the cluster
+* The AKS managed addon msi associated with the cluster
+* The private DNS zone associated with the private cluster
+* The private endpoint associated with the private cluster
+
+> [!NOTE]
+> Azure Private DNS only supports 15 tags. [tag resources](../azure-resource-manager/management/tag-resources.md). 
 
 To create a cluster and assign Azure tags, run `az aks create` with the `--tags` parameter, as shown in the following command. Running the command creates a *myAKSCluster* in the *myResourceGroup* with the tags *dept=IT* and *costcenter=9999*.
 

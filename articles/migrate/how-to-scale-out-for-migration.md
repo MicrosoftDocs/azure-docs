@@ -66,7 +66,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
 > 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
+> 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
 
 ### 3. Run the Azure Migrate installer script

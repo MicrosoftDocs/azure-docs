@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 06/27/2022
 ms.author: aahi
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner, ignite-fall-2021, ignite-2022
 ---
 
 # Named Entity Recognition (NER) language support 
@@ -36,7 +36,8 @@ Use this article to learn which natural languages are supported by the NER featu
 | Finnish*              | `fi`          | 2019-10-01                   |                    |
 | French                | `fr`          | 2021-01-15                   |                    |
 | German                | `de`          | 2021-01-15                   |                    |
-| Hebrew*               | `he`          | 2019-10-01                   |                    |
+| Hebrew                | `he`          | 2022-10-01                   |                    |
+| Hindi                 | `hi`          | 2022-10-01                   |                    |
 | Hungarian*            | `hu`          | 2019-10-01                   |                    |
 | Italian               | `it`          | 2021-01-15                   |                    |
 | Japanese              | `ja`          | 2021-01-15                   |                    |

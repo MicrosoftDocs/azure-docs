@@ -1,10 +1,11 @@
 ---
-title: 'CLI (v2) Attached Azure Arc-enabled Kubernetes cluster (KubernetesCompute) YAML schema'
+title: 'CLI (v2) Attached Kubernetes cluster (KubernetesCompute) YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Attached Azure Arc-enabled Kubernetes cluster (KubernetesCompute) YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
 
 author: Bozhong68
@@ -19,7 +20,7 @@ ms.reviewer: nibaccam
 
 The source JSON schema can be found at `https://azuremlschemas.azureedge.net/latest/kubernetesCompute.schema.json`.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -44,4 +45,4 @@ The `az ml compute` commands can be used for managing Azure Arc-enabled Kubernet
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
-- [Configure and attach Azure Arc-enabled Kubernetes clusters](how-to-attach-arc-kubernetes.md)
+- [Configure and attach Kubernetes clusters anywhere](how-to-attach-kubernetes-anywhere.md)

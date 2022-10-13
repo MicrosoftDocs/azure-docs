@@ -1,30 +1,42 @@
-- name: Azure DDoS Protection Standard documentation
+- name: Azure DDoS Protection documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure DDoS Protection Standard?
+  - name: What is Azure DDoS Protection?
     href: ddos-protection-overview.md
+  - name: SKU comparison
+    href: ddos-protection-sku-comparison.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Create a DDoS protection plan - Portal
-    href: manage-ddos-protection.md
-  - name: Create a DDoS protection plan - PowerShell
-    href: manage-ddos-protection-powershell.md
-  - name: Create a DDoS protection plan - CLI
-    href: manage-ddos-protection-cli.md
-  - name: Create a DDoS protection plan - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: manage-ddos-protection-bicep.md
-  - name: Create a DDoS protection plan - ARM template
-    displayName: Resource Manager
-    href: manage-ddos-protection-template.md
+  - name: DDoS Network Protection
+    items:
+    - name: Portal
+      href: manage-ddos-protection.md
+    - name: PowerShell
+      href: manage-ddos-protection-powershell.md
+    - name: CLI
+      href: manage-ddos-protection-cli.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: manage-ddos-protection-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: manage-ddos-protection-template.md
+      expanded: true
+  - name: DDoS IP Protection
+    items:
+    - name: PowerShell
+      href: manage-ddos-protection-powershell-ip.md
+      expanded: true
+
 - name: Tutorials
   items:
-  - name: View and configure DDoS protection telemetry
+  - name: View and configure DDoS telemetry
     href: telemetry.md
   - name: View and configure DDoS diagnostic logging
     href: diagnostic-logging.md
-  - name: View and configure DDoS protection alerts
+  - name: View and configure DDoS alerts
     href: alerts.md
 - name: Concepts
   items:
@@ -32,8 +44,8 @@
     href: types-of-attacks.md
   - name: Fundamental best practices
     href: fundamental-best-practices.md
-  - name: Azure DDoS Protection Standard features
-    href: ddos-protection-standard-features.md
+  - name: Azure DDoS Protection features
+    href: ddos-protection-features.md
   - name: Components of a DDoS response strategy
     href: ddos-response-strategy.md
   - name: Reference architectures
@@ -41,7 +53,7 @@
   - name: Business continuity
     href: ddos-disaster-recovery-guidance.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
+    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
 - name: How-to guides
   items:
     - name: Test with simulation partners

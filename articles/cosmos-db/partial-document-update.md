@@ -3,16 +3,16 @@ title: Partial document update in Azure Cosmos DB
 description: Learn about partial document update in Azure Cosmos DB.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 04/29/2022
 ms.author: sidandrews
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Partial document update in Azure Cosmos DB
 
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 Azure Cosmos DB Partial Document Update feature (also known as Patch API) provides a convenient way to modify a document in a container. Currently, to update a document the client needs to read it, execute Optimistic Concurrency Control checks (if necessary), update the document locally and then send it over the wire as a whole document Replace API call.
 
@@ -29,23 +29,40 @@ An example target JSON document:
 
 ```json
 {
-  "/": 9,
-  "~1": 10
+ "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+ "name": "R-410 Road Bicycle",
+ "price": 455.95,
+ "inventory": {
+   "quantity": 15
+ },
+ "used": false,
+ "categoryId": "road-bikes"
 }
 ```
 
 A JSON Patch document:
 
 ```json
-[{ "op": "test", "path": "/~01", "value": 10 }]
+[
+ { "op": "add", "path": "/color", "value": "silver" },
+ { "op": "remove", "path": "/used" },
+ { "op": "set", "path": "/price", "value": 355.45 }
+ { "op": "increment", "path": "/inventory/quantity", "value": 10 }
+]
 ```
 
 The resulting JSON document:
 
 ```json
 {
-  "/": 9,
-  "~1": 10
+ "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+ "name": "R-410 Road Bicycle",
+ "price": 355.45,
+ "inventory": {
+   "quantity": 25
+ },
+ "categoryId": "road-bikes",
+ "color": "silver"
 }
 ```
 

@@ -1,12 +1,12 @@
 ---
 title:  What is the workspace? - Azure Health Data Services
 description: This article describes an overview of the Azure Health Data Services workspace.
-author: stevewohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/28/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: mikaelw
 ---
 
 # What is Azure Health Data Services workspace?
@@ -76,3 +76,5 @@ To start working with Azure Health Data Services, follow the 5-minute quick star
 
 >[!div class="nextstepaction"]
 >[Deploy workspace in the Azure portal](healthcare-apis-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

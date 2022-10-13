@@ -1,107 +1,55 @@
 ---
-title: 'Quickstart: Set up the development environment'
+title: Install the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to install the Speech SDK for your preferred combination of platform and programming language.
+description: In this quickstart, you'll learn how to install the Speech SDK for your preferred programming language.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/24/2022
+ms.date: 09/16/2022
 ms.author: eur
-ms.devlang: cpp, csharp, golang, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
-zone_pivot_groups: programming-languages-speech-services-one-nomore
+zone_pivot_groups: programming-languages-speech-sdk
 ---
 
-# Quickstart: Set up the development environment
+# Install the Speech SDK
 
 ::: zone pivot="programming-language-csharp"
-
-**Choose your target environment**
-
-# [.NET](#tab/dotnet)
-
-[!INCLUDE [dotnet](../includes/quickstarts/platform/csharp-dotnet-windows.md)]
-
-# [.NET Core](#tab/dotnetcore)
-
-[!INCLUDE [dotnetcore](../includes/quickstarts/platform/csharp-dotnetcore-windows.md)]
-
-# [Unity](#tab/unity)
-
-[!INCLUDE [unity](../includes/quickstarts/platform/csharp-unity.md)]
-
-# [UWP](#tab/uwp)
-
-[!INCLUDE [uwp](../includes/quickstarts/platform/csharp-uwp.md)]
-
-# [Xamarin](#tab/xaml)
-
-[!INCLUDE [xamarin](../includes/quickstarts/platform/csharp-xamarin.md)]
-
-* * *
+[!INCLUDE [C# include](../includes/quickstarts/platform/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-
-**Choose your target environment**
-
-# [Linux](#tab/linux)
-
-[!INCLUDE [linux](../includes/quickstarts/platform/cpp-linux.md)]
-
-# [macOS](#tab/macos)
-
-[!INCLUDE [macos](../includes/quickstarts/platform/cpp-macos.md)]
-
-# [Windows](#tab/windows)
-
-[!INCLUDE [windows](../includes/quickstarts/platform/cpp-windows.md)]
-
-* * *
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-**Choose your target environment**
-
-# [Java Runtime](#tab/jre)
-
-[!INCLUDE [jre](../includes/quickstarts/platform/java-jre.md)]
-
-# [Android](#tab/android)
-
-[!INCLUDE [android](../includes/quickstarts/platform/java-android.md)]
-
-* * *
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [python](../includes/quickstarts/platform/python.md)]
-
+[!INCLUDE [C++ include](../includes/quickstarts/platform/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](../includes/quickstarts/platform/go.md)]
+::: zone-end
 
-[!INCLUDE [go-linux](../includes/quickstarts/platform/go-linux.md)]
-
-* * *
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java include](../includes/quickstarts/platform/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-
-**Choose your target environment**
-
-#### [Browser-based](#tab/browser)
-
-[!INCLUDE [browser](../includes/quickstarts/platform/javascript-browser.md)]
-
-#### [Node.js](#tab/nodejs)
-
-[!INCLUDE [node](../includes/quickstarts/platform/javascript-node.md)]
-
-* * *
+[!INCLUDE [JavaScript include](../includes/quickstarts/platform/javascript.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+[!INCLUDE [ObjectiveC include](../includes/quickstarts/platform/objectivec.md)]
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Swift include](../includes/quickstarts/platform/swift.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python include](./../includes/quickstarts/platform/python.md)]
+::: zone-end
+
+## Next steps
+
+* [Speech-to-text quickstart](../get-started-speech-to-text.md)
+* [Text-to-speech quickstart](../get-started-text-to-speech.md)
+* [Speech translation quickstart](../get-started-speech-translation.md)

@@ -1,12 +1,12 @@
 ---
 title: Register a confidential client app in Azure AD - Azure API for FHIR
 description: Register a confidential client application in Azure Active Directory that authenticates on a user's behalf and requests access to resource applications.
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: mikaelw
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # Register a confidential client application in Azure Active Directory for Azure API for FHIR
@@ -68,3 +68,5 @@ In this article, you were guided through the steps of how to register a confiden
  
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

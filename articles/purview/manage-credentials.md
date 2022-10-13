@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 10/12/2022
 ms.custom: ignite-fall-2021, fasttrack-edit
 ---
 
@@ -22,7 +22,7 @@ This article describes how you can create credentials in Microsoft Purview. Thes
 
 A credential is authentication information that Microsoft Purview can use to authenticate to your registered data sources. A credential object can be created for various types of authentication scenarios, such as Basic Authentication requiring username/password. Credential capture specific information required to authenticate, based on the chosen type of authentication method. Credentials use your existing Azure Key Vaults secrets for retrieving sensitive authentication information during the Credential creation process.
 
-In Microsoft Purview, there are few options to use as authentication method to scan data sources such as the following options:
+In Microsoft Purview, there are few options to use as authentication method to scan data sources such as the following options. Learn from each [data source article](azure-purview-connector-overview.md) for its supported authentication.
 
 - [Microsoft Purview system-assigned managed identity](#use-microsoft-purview-system-assigned-managed-identity-to-set-up-scans)
 - [User-assigned managed identity](#create-a-user-assigned-managed-identity) (preview)
@@ -30,8 +30,10 @@ In Microsoft Purview, there are few options to use as authentication method to s
 - SQL Authentication (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
 - Service Principal (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
 - Consumer Key (using [Key Vault](#create-azure-key-vaults-connections-in-your-microsoft-purview-account))
+- And more
 
 Before creating any credentials, consider your data source types and networking requirements to decide which authentication method you need for your scenario.
+
 ## Use Microsoft Purview system-assigned managed identity to set up scans
 
 If you're using the Microsoft Purview system-assigned managed identity (SAMI) to set up scans, you won't need to create a credential and link your key vault to Microsoft Purview to store them. For detailed instructions on adding the Microsoft Purview SAMI to have access to scan your data sources, refer to the data source-specific authentication sections below:
@@ -40,7 +42,7 @@ If you're using the Microsoft Purview system-assigned managed identity (SAMI) to
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
+- [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Workspace](register-scan-synapse-workspace.md#authentication-for-registration)
 - [Azure Synapse dedicated SQL pools (formerly SQL DW)](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
@@ -71,6 +73,9 @@ At the bottom of the page, under Exception, enable the **Allow trusted Microsoft
 #### Private endpoint connections
 
 To connect to Azure Key Vault with private endpoints, follow [Azure Key Vault's private endpoint documentation](../key-vault/general/private-link-service.md).
+
+> [!NOTE]
+> Private endpoint connection option is supported when using Azure integration runtime in [managed virtual network](catalog-managed-vnet.md) to scan the data sources. For self-hosted integration runtime, you need to enable [trusted Microsoft services](#trusted-microsoft-services).
 
 ### Microsoft Purview permissions on the Azure Key Vault
 
@@ -199,7 +204,7 @@ The following steps will show you how to create a UAMI for Microsoft Purview to 
 * [Azure Data Lake Gen 1](register-scan-adls-gen1.md) 
 * [Azure Data Lake Gen 2](register-scan-adls-gen2.md) 
 * [Azure SQL Database](register-scan-azure-sql-database.md) 
-* [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)	 
+* [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)	 
 * [Azure SQL Dedicated SQL pools](register-scan-azure-synapse-analytics.md) 
 * [Azure Blob Storage](register-scan-azure-blob-storage-source.md) 
 

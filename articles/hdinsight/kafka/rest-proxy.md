@@ -149,6 +149,8 @@ get_topic_api = 'metadata/topics'
 topic_api_format = 'topics/{topic_name}'
 producer_api_format = 'producer/topics/{topic_name}'
 consumer_api_format = 'consumer/topics/{topic_name}/partitions/{partition_id}/offsets/{offset}?count={count}'  # by default count = 1
+partitions_api_format = 'topics/{topic_name}/partitions'
+partition_api_format = 'topics/{topic_name}/partitions/{partition_id}'
 
 # Request header
 headers = {

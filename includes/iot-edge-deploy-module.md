@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-edge
- author: kgremban
+ author: PatAltimore
  ms.service: iot-edge
  ms.topic: include
  ms.date: 06/30/2020
- ms.author: kgremban
+ ms.author: patricka
  ms.custom: include file
 ---
 
@@ -18,9 +18,9 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
+1. From the menu on the left, under **Device Management**, select **Devices**.
 
-1. Select the device ID of the target device from the list of devices.
+1. Select the device ID of the target IoT Edge device from the list of devices.
 
 1. On the upper bar, select **Set Modules**.
 

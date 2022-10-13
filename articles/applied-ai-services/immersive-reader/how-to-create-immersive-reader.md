@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
-ms.date: 11/11/2021
+ms.date: 7/1/2022
 ms.author: rwaller
 ---
 
@@ -38,9 +38,8 @@ The script is designed to be flexible. It will first look for existing Immersive
         [Parameter(Mandatory=$true)] [String] $ResourceLocation,
         [Parameter(Mandatory=$true)] [String] $ResourceGroupName,
         [Parameter(Mandatory=$true)] [String] $ResourceGroupLocation,
-        [Parameter(Mandatory=$true)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
+        [Parameter(Mandatory=$true)] [String] $AADAppDisplayName,
         [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
-        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret,
         [Parameter(Mandatory=$true)] [String] $AADAppClientSecretExpiration
     )
     {
@@ -90,31 +89,37 @@ The script is designed to be flexible. It will first look for existing Immersive
         $clientId = az ad app show --id $AADAppIdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $clientId = az ad app create --password $AADAppClientSecret --end-date "$AADAppClientSecretExpiration" --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
-
+            $clientId = az ad app create --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
             if (-not $clientId) {
-                throw "Error: Failed to create Azure Active Directory app"
+                throw "Error: Failed to create Azure Active Directory application"
             }
-            Write-Host "Azure Active Directory app created successfully."
-            Write-Host "NOTE: To manage your Active Directory app client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> $AADAppDisplayName -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
+            Write-Host "Azure Active Directory application created successfully."
+
+            $clientSecret = az ad app credential reset --id $clientId --end-date "$AADAppClientSecretExpiration" --query "password" | % { $_.Trim('"') }
+            if (-not $clientSecret) {
+                throw "Error: Failed to create Azure Active Directory application client secret"
+            }
+            Write-Host "Azure Active Directory application client secret created successfully."
+            
+            Write-Host "NOTE: To manage your Active Directory application client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> (your app) '$AADAppDisplayName' -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
         # Create a service principal if it doesn't already exist
-        $principalId = az ad sp show --id $AADAppIdentifierUri --query "objectId" -o tsv
+        $principalId = az ad sp show --id $AADAppIdentifierUri --query "id" -o tsv
         if (-not $principalId) {
             Write-Host "Creating new service principal"
             az ad sp create --id $clientId | Out-Null
-            $principalId = az ad sp show --id $AADAppIdentifierUri --query "objectId" -o tsv
+            $principalId = az ad sp show --id $AADAppIdentifierUri --query "id" -o tsv
 
             if (-not $principalId) {
                 throw "Error: Failed to create new service principal"
             }
             Write-Host "New service principal created successfully"
-        }
 
-        # Sleep for 5 seconds to allow the new service principal to propagate
-        Write-Host "Sleeping for 5 seconds"
-        Start-Sleep -Seconds 5
+            # Sleep for 5 seconds to allow the new service principal to propagate
+            Write-Host "Sleeping for 5 seconds"
+            Start-Sleep -Seconds 5
+        }
 
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
         $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services Immersive Reader User"
@@ -130,11 +135,21 @@ The script is designed to be flexible. It will first look for existing Immersive
         $result = @{}
         $result.TenantId = $tenantId
         $result.ClientId = $clientId
-        $result.ClientSecret = $AADAppClientSecret
+        $result.ClientSecret = $clientSecret
         $result.Subdomain = $ResourceSubdomain
 
-        Write-Host "Success! " -ForegroundColor Green -NoNewline
-        Write-Host "Save the following JSON object to a text file for future reference:"
+        Write-Host "`nSuccess! " -ForegroundColor Green -NoNewline
+        Write-Host "Save the following JSON object to a text file for future reference."
+        Write-Host "*****"
+        if($clientSecret -ne $null) {
+            
+            Write-Host "This function has created a client secret (password) for you. This secret is used when calling Azure Active Directory to fetch access tokens."
+            Write-Host "This is the only time you will ever see the client secret for your Azure Active Directory application, so save it now." -ForegroundColor Yellow
+        }
+        else{
+            Write-Host "You will need to retrieve the ClientSecret from your original run of this function that created it. If you don't have it, you will need to go create a new client secret for your Azure Active Directory application. Please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> (your app) '$AADAppDisplayName' -> Certificates and Secrets blade -> Client Secrets section." -ForegroundColor Yellow
+        }
+        Write-Host "*****`n"
         Write-Output (ConvertTo-Json $result)
     }
     ```
@@ -142,10 +157,10 @@ The script is designed to be flexible. It will first look for existing Immersive
 1. Run the function `Create-ImmersiveReaderResource`, supplying the '<PARAMETER_VALUES>' placeholders below with your own values as appropriate.
 
     ```azurepowershell-interactive
-    Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+    Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
     ```
 
-    The full command will look something like the following. Here we have put each parameter on its own line for clarity, so you can see the whole command. Do not copy or use this command as-is. Copy and use the command above with your own values. This example has dummy values for the '<PARAMETER_VALUES>' above. Yours will be different, as you will come up with your own names for these values.
+    The full command will look something like the following. Here we have put each parameter on its own line for clarity, so you can see the whole command. __Do not copy or use this command as-is.__ Copy and use the command above with your own values. This example has dummy values for the '<PARAMETER_VALUES>' above. Yours will be different, as you will come up with your own names for these values.
 
     ```
     Create-ImmersiveReaderResource
@@ -158,7 +173,6 @@ The script is designed to be flexible. It will first look for existing Immersive
         -ResourceGroupLocation 'westus2'
         -AADAppDisplayName 'MyOrganizationImmersiveReaderAADApp'
         -AADAppIdentifierUri 'api://MyOrganizationImmersiveReaderAADApp'
-        -AADAppClientSecret 'SomeStrongPassword'
         -AADAppClientSecretExpiration '2021-12-31'
     ```
 
@@ -168,13 +182,12 @@ The script is designed to be flexible. It will first look for existing Immersive
     | ResourceName |  Must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters.|
     | ResourceSubdomain |A custom subdomain is needed for your Immersive Reader resource. The subdomain is used by the SDK when calling the Immersive Reader service to launch the Reader. The subdomain must be globally unique. The subdomain must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters. This parameter is optional if the resource already exists. |
     | ResourceSKU |Options: `S0` (Standard tier) or `S1` (Education/Nonprofit organizations). Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. This parameter is optional if the resource already exists. |
-    | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. This parameter is optional if the resource already exists. |
+    | ResourceLocation |Options: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `germanywestcentral`, `japaneast`, `japanwest`, `jioindiawest`, `koreacentral`, `northcentralus`, `northeurope`, `norwayeast`, `southafricanorth`, `southcentralus`, `southeastasia`, `swedencentral`, `switzerlandnorth`, `switzerlandwest`, `uaenorth`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `westus3`. This parameter is optional if the resource already exists. |
     | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply the name of an existing resource group. If the resource group does not already exist, a new one with this name will be created. |
     | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. Use the *name* property (without spaces) of the returned result. This parameter is optional if your resource group already exists. |
     | AADAppDisplayName |The Azure Active Directory application display name. If an existing Azure AD application is not found, a new one with this name will be created. This parameter is optional if the Azure AD application already exists. |
-    | AADAppIdentifierUri |The URI for the Azure AD app. If an existing Azure AD app is not found, a new one with this URI will be created. For example, `api://MyOrganizationImmersiveReaderAADApp`. Here we are using the default Azure AD URI scheme prefix of `api://` for compatibility with the [Azure AD policy of using verified domains](../../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains). |
-    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. To manage Azure AD application client secrets after you've created this resource please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> `[AADAppDisplayName]` -> Certificates and Secrets blade -> Client Secrets section (as shown in the "Manage your Azure AD application secrets" screenshot below). |
-    | AADAppClientSecretExpiration |The date or datetime after which your `[AADAppClientSecret]` will expire (e.g. '2020-12-31T11:59:59+00:00' or '2020-12-31'). |
+    | AADAppIdentifierUri |The URI for the Azure AD application. If an existing Azure AD application is not found, a new one with this URI will be created. For example, `api://MyOrganizationImmersiveReaderAADApp`. Here we are using the default Azure AD URI scheme prefix of `api://` for compatibility with the [Azure AD policy of using verified domains](../../active-directory/develop/reference-breaking-changes.md#appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains). |
+    | AADAppClientSecretExpiration |The date or datetime after which your AAD Application Client Secret (password) will expire (e.g. '2020-12-31T11:59:59+00:00' or '2020-12-31'). This function will create a client secret for you. To manage Azure AD application client secrets after you've created this resource, please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> (your app) `[AADAppDisplayName]` -> Certificates and Secrets blade -> Client Secrets section (as shown in the "Manage your Azure AD application secrets" screenshot below).|
 
     Manage your Azure AD application secrets
 

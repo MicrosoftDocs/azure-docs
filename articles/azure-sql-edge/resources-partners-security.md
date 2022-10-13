@@ -1,15 +1,14 @@
 ---
 title: External partners for security solutions for Azure SQL Edge
-description: Providing details about external partners who are working with Azure SQL Edge 
-keywords: security partners Azure SQL Edge
-services: sql-edge
+description: Providing details about external partners who are working with Azure SQL Edge
+author: kendalvandyke
+ms.author: kendalv
+ms.reviewer: randolphwest
+ms.date: 10/09/2020
 ms.service: sql-edge
 ms.topic: conceptual
-ms.subservice:
-author: kendalvandyke
-ms.author: kendalv 
-ms.reviewer: jroth
-ms.date: 10/09/2020
+keywords: security partners Azure SQL Edge
+services: sql-edge
 ---
 # Azure SQL Edge security partners
 

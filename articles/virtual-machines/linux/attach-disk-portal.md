@@ -1,11 +1,11 @@
 ---
 title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
-author: cynthn
-ms.service: virtual-machines
+author: roygara
+ms.service: storage
 ms.topic: how-to
 ms.date: 08/13/2021
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
 ms.collection: linux
 
@@ -77,7 +77,7 @@ sdc     3:0:0:0       4G
 
 In this example, the disk that I added is `sdc`. It is a LUN 0 and is 4GB.
 
-For a more complex example, here is what multiple data disks looks like in the portal:
+For a more complex example, here is what multiple data disks look like in the portal:
 
 :::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Screenshot of multiple disks shown in the portal.":::
 
@@ -99,15 +99,17 @@ sde     3:0:0:2      32G
 
 From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 16GB disk at LUN 1 is `sdd`, and the 32G disk at LUN 2 is `sde`.
 
-### Partition a new disk
+### Prepare a new empty disk
 
-If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
+> [!IMPORTANT]
+> If you are using an existing disk that contains data, skip to [mounting the disk](#mount-the-disk). 
+> The following instuctions will delete data on the disk.
+
+If you are attaching a new disk, you need to partition the disk.
 
 The `parted` utility can be used to partition and to format a data disk.
-
-> [!NOTE]
-> It is recommended that you use the latest version `parted` that is available for your distro.
-> If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
+- It is recommended that you use the latest version `parted` that is available for your distro.
+- If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
 
 
 The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We are also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.

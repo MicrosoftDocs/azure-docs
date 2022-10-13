@@ -2,11 +2,11 @@
 title: Grant permissions to users and client applications using CLI and REST API - Azure Health Data Services
 description: This article describes how to grant permissions to users and client applications using CLI and REST API.
 services: healthcare-apis
-author: dougseven
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/21/2022
-ms.author: dseven
+ms.date: 06/06/2022
+ms.author: mikaelw
 ---
 
 # Configure Azure RBAC role using Azure CLI and REST API
@@ -192,3 +192,5 @@ In this article, you learned how to grant permissions to client applications usi
 
 >[!div class="nextstepaction"]
 >[Access using REST Client](./fhir/using-rest-client.md) 
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

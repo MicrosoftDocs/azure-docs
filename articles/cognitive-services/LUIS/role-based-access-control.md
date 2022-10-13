@@ -7,11 +7,14 @@ ms.author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 11/09/2021
+ms.date: 08/23/2022
 ms.topic: conceptual
 ---
 
 # LUIS role-based access control
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
@@ -41,6 +44,12 @@ Within a few minutes, the target will be assigned the selected role at the selec
 Use the following table to determine access needs for your LUIS application.
 
 These custom roles only apply to authoring (Language Understanding Authoring) and not prediction resources (Language Understanding).
+
+> [!NOTE]
+> * *Owner* and *Contributor* roles take priority over the custom LUIS roles.
+> * Azure Active Directory (Azure AAD) is only used with custom LUIS roles.
+> * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in LUIS portal.
+
 
 ### Cognitive Services LUIS reader
 
@@ -116,6 +125,9 @@ A user that is responsible for building and modifying LUIS application, as a col
 :::row-end:::
 
 ### Cognitive Services LUIS owner
+
+> [!NOTE]
+> * If you are assigned as an *Owner* and *LUIS Owner* you will be be shown as *LUIS Owner* in LUIS portal.
 
 These users are the gatekeepers for LUIS applications in a production environment. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments.
 

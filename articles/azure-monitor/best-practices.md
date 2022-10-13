@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
+ms.reviewer: bwren
 ---
 
 # Azure Monitor best practices
@@ -12,7 +13,7 @@ This scenario provides recommended guidance for configuring features of Azure Mo
 
 Azure Monitor is available the moment you create an Azure subscription. The Activity log immediately starts collecting events about activity in the subscription, and platform metrics are collected for any Azure resources you created. Features such as metrics explorer are available to analyze data. Other features require configuration. This scenario identifies the configuration steps required to take advantage of all Azure Monitor features. It also makes recommendations for which features you should leverage and how to determine configuration options based on your particular requirements.
 
-Enabling Azure Monitor to monitor of all your Azure resources is a combination of configuring Azure Monitor components and configuring Azure resources to generate monitoring data for Azure Monitor to collect. The goal of a complete implementation is to collect all useful data from all of your cloud resources and applications and enable the entire set of Azure Monitor features based on that data.
+Enabling Azure Monitor to monitor all of your Azure resources is a combination of configuring Azure Monitor components and configuring Azure resources to generate monitoring data for Azure Monitor to collect. The goal of a complete implementation is to collect all useful data from all of your cloud resources and applications and enable the entire set of Azure Monitor features based on that data.
 
 
 > [!IMPORTANT]

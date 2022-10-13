@@ -13,6 +13,8 @@ ms.custom: devx-track-azurecli
 
 # Customize server parameters for Azure Database for PostgreSQL - Flexible Server using Azure CLI
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 You can list, show, and update configuration parameters for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). A subset of engine parameters is exposed at server-level and can be modified. 
 
 ## Prerequisites

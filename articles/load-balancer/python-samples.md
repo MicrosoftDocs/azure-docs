@@ -4,12 +4,12 @@ titleSuffix: Azure Load Balancer
 description: With these samples, load balance traffic to multiple websites. Deploy load balancers in a HA configuration.
 services: virtual-network
 documentationcenter: load-balancer
-author: asudbring
+author: mbender-ms
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: allensu
+ms.author: mbender
 
 ---
 # Python Samples for Azure Load Balancer

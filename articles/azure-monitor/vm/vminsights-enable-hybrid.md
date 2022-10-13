@@ -4,7 +4,7 @@ description: This article describes how you enable VM insights for a hybrid clou
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 06/08/2022
 
 ---
 
@@ -13,6 +13,9 @@ This article describes how to enable VM insights for a virtual machine outside o
 
 > [!IMPORTANT]
 > The recommended method of enabling hybrid VMs is first enabling [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for VM insights using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
+
 
 ## Prerequisites
 
@@ -38,8 +41,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.13.19190 | 0882504FE5828C4C4BA0A869BD9F6D5B0020A52156DDBD21D55AAADA762923C4    |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.13.19190 | 7D90A2A7C6F1D7FB2BCC274ADC4C5D6C118E832FF8A620971734AED4F446B030  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.14.20760 | D4DB398FAD36E86FEACCC41D7B8AF46711346A943806769B6CE017F0BF1625FF    |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.14.20760 | 3DE3B485BA79B57E74B3DFB60FD277A30C8A5D1BD898455AD77FECF20E0E2610  |
 
 
 ## Install the Dependency agent on Windows

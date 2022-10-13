@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 09/14/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -17,6 +17,9 @@ Microsoft Purview supports automated scanning of on-premises, multicloud, and so
 Running a *scan* invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
 
 The curation process applies automated classification labels on the schema attributes based on the scan rule set configured. Sensitivity labels are applied if your Microsoft Purview account is connected to the Microsoft Purview compliance portal.
+
+> [!IMPORTANT]
+> If you have any [Azure Policies](../governance/policy/overview.md) preventing **updates to Storage accounts**, this will cause errors for Microsoft Purview's scanning process. Follow the [Microsoft Purview exception tag guide](create-azure-purview-portal-faq.md) to create an exception for Microsoft Purview accounts. 
 
 ## Why do you need best practices to manage data sources?
 
@@ -156,7 +159,7 @@ After you register your source in the relevant [collection](./how-to-create-and-
 
 - If a field or column, table, or a file is removed from the source system after the scan was executed, it will only be reflected (removed) in Microsoft Purview after the next scheduled full or incremental scan.
 - An asset can be deleted from a Microsoft Purview catalog by using the **Delete** icon under the name of the asset. This action won't remove the object in the source. If you run a full scan on the same source, it would get reingested in the catalog. If you've scheduled a weekly or monthly scan instead (incremental), the deleted asset won't be picked unless the object is modified at the source. An example is if a column is added or removed from the table.
-- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through the Microsoft Purview governance portal, see [Catalog asset details](./catalog-asset-details.md#scans-on-edited-assets).
+- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through the Microsoft Purview governance portal, see [Catalog asset details](./catalog-asset-details.md#editing-assets).
 -  For more information, see the tutorial on [how to view, edit, and delete assets](./catalog-asset-details.md).
 
 ## Next steps

@@ -1,13 +1,12 @@
 ---
-title: People's detected in a video clothing
-description: This topic gives an overview of a person's detected in a video clothing feature.
-
-ms.topic: conceptual
+title: Enable detected clothing feature
+description: Azure Video Indexer detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level.
+ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: juliako
 ---
 
-# People's detected clothing (preview)
+# Enable detected clothing feature (preview)
 
 Azure Video Indexer detects clothing associated with the person wearing it in the video and provides information such as the type of clothing detected and the timestamp of the appearance (start, end). The API returns the detection confidence level.
  
@@ -20,7 +19,7 @@ The newly added clothing detection feature is available when indexing your file 
  
 :::image type="content" source="./media/detected-clothing/index-video.png" alt-text="This screenshot represents an indexing video option":::  
 
-When you choose to see **Insights** of your video on the [Azure Video Indexer](https://www.videoindexer.ai/) (former Video Indexer) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
+When you choose to see **Insights** of your video on the [Azure Video Indexer](https://www.videoindexer.ai/) website, the People's detected clothing could be viewed from the **Observed People** tracing insight. When choosing a thumbnail of a person the detected clothing became available.
 
 :::image type="content" source="./media/detected-clothing/observed-people.png" alt-text="Observed people screenshot":::  
  

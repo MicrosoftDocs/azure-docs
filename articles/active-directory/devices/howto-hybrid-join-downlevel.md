@@ -10,7 +10,7 @@ ms.date: 01/20/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -21,6 +21,7 @@ If some of your domain-joined devices are Windows [downlevel devices](hybrid-azu
 
 - Configure the local intranet settings for device registration
 - Install Microsoft Workplace Join for Windows downlevel computers
+- Need AD FS (for federated domains) or Seamless SSO configured (for managed domains).
 
 > [!NOTE]
 > Windows 7 support ended on January 14, 2020. For more information, [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).

@@ -65,7 +65,7 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 7. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Tutorial: Create a NAT gateway using the Azure portal](../nat-gateway/tutorial-create-nat-gateway-portal.md)
+> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Quickstart: Create a NAT gateway using the Azure portal](../nat-gateway/quickstart-create-nat-gateway-portal.md)
 >
 > For more information on Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
 
@@ -97,7 +97,7 @@ To change the IP, you'll associate a new public IP address created previously wi
 
 ## Add public IP prefix
 
-Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,000 ephemeral ports that can be used.
+Public IP prefixes extend the extensibility of SNAT for outbound connections from the NAT gateway. A public IP prefix avoids SNAT port exhaustion. Each IP provides 64,512 ephemeral ports to NAT gateway for connecting outbound.
 
 > [!NOTE] 
 > When assigning a public IP prefix to a NAT gateway, the entire range will be used. 

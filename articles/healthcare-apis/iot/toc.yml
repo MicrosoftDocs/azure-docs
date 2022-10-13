@@ -4,23 +4,32 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: About MedTech service
+  - name: What is MedTech service?
     href: iot-connector-overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Get started with MedTech service
     href: get-started-with-iot.md
-  - name: Deploy MedTech service
-    expanded: true
+  - name: Deploy the MedTech service
+    expanded: false
     items:
-    - name: Using portal
-      href: deploy-iot-connector-in-azure.md
+    - name: Deployment methods   
+      expanded: true
+      items:
+      - name: Choose a deployment method
+        href: deploy-iot-connector-in-azure.md
+      - name: Quickstart template
+        href: deploy-02-new-button.md
+      - name: Azure PowerShell & CLI
+        href: deploy-08-new-ps-cli.md
+      - name: Manual deployment
+        href: deploy-03-new-manual.md
 - name: Tutorials
   expanded: true
   items:
   - name: Ingest data from IoT devices
-    expanded: true
+    expanded: false
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md 
@@ -71,7 +80,7 @@ items:
     - name: Open-source projects
       href: iot-git-projects.md
     - name: Troubleshooting
-      expanded: true
+      expanded: false
       items:
       - name: Troubleshooting guide  
         href: iot-troubleshoot-guide.md

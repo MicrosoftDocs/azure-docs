@@ -5,13 +5,13 @@ author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 07/11/2022
 ms.author: patricka
 ---
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
 
@@ -91,7 +91,7 @@ After entering the provisioning information in the configuration file, restart t
 <!-- end 1.1 -->
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 You can quickly configure your IoT Edge device with symmetric key authentication using the following command:
@@ -114,7 +114,7 @@ If you want to see the configuration file, you can open it:
    sudo nano /etc/aziot/config.toml
    ```
 
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 ::: moniker-end
 
 ## Verify successful configuration
@@ -135,7 +135,7 @@ Check to see that the IoT Edge system service is running.
 
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
    ```bash
@@ -157,7 +157,7 @@ If you need to troubleshoot the service, retrieve the service logs.
 
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
    ```bash
@@ -175,6 +175,15 @@ Use the `check` tool to verify configuration and connection status of the device
 >[!TIP]
 >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
 
+>[!NOTE]
+>On a newly provisioned device, you may see an error related to IoT Edge Hub:
+>
+>**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+>
+>**Could not check current state of edgeHub container**
+>
+>This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
    ```bash
@@ -190,7 +199,7 @@ The steps in this section are for scenarios not covered by the standard installa
 * Install IoT Edge while offline
 * Install a release candidate version
 
-Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
@@ -208,7 +217,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
    2. Use the copied link in the following command to install that version of the hsmlib:
 
       ```bash
-      curl -L libiothsm-std_link_here -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
+      curl -L <libiothsm-std_link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
       ```
 
    3. Find the **iotedge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -222,11 +231,11 @@ Using curl commands, you can target the component files directly from the IoT Ed
 <!-- end 1.1 -->
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 >[!NOTE]
->If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
+>If your device is currently running IoT Edge version 1.1 or older, uninstall the **iotedge** and **libiothsm-std** packages before following the steps in this section. For more information, see [Update from 1.0 or 1.1 to latest release](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-latest-release).
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 
@@ -238,20 +247,34 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    2. Use the copied link in the following command to install that version of the identity service:
 
+      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
       ```bash
       curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
+
+      # [Red Hat Enterprise Linux](#tab/rhel)
+      ```bash
+      curl -L <identity service link> -o aziot-identity-service.rpm && sudo yum localinstall ./aziot-identity-service.rpm
+      ```
+      ---
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
 
    4. Use the copied link in the following command to install that version of IoT Edge.
 
+      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
       ```bash
       curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
 
-<!-- end 1.2 -->
+      # [Red Hat Enterprise Linux](#tab/rhel)
+      ```bash
+      curl -L <iotedge link> -o aziot-edge.rpm && sudo yum localinstall ./aziot-edge.rpm
+      ```
+      ---
+
 ::: moniker-end
+<!-- end iotedge-2020-11 -->
 
 Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Provision the device with its cloud identity](#provision-the-device-with-its-cloud-identity).
 
@@ -265,21 +288,28 @@ Remove the IoT Edge runtime.
 ::: moniker range="iotedge-2018-06"
 
 ```bash
-sudo apt-get remove iotedge
+sudo apt-get autoremove iotedge
 ```
 
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 ```bash
-sudo apt-get remove --purge aziot-edge
+sudo apt-get autoremove --purge aziot-edge
 ```
 
-::: moniker-end
+Leave out the `--purge` flag if you plan to reinstall IoT Edge and use the same configuration information in the future. The `--purge` flags deletes all the files associated with IoT Edge, including your configuration files.
 
-Use the `--purge` flag if you want to delete all the files associated with IoT Edge, including your configuration files. Leave this flag out if you want to reinstall IoT Edge and use the same configuration information in the future.
+# [Red Hat Enterprise Linux](#tab/rhel)
+```bash
+sudo yum remove aziot-edge
+```
+---
+
+::: moniker-end
 
 When the IoT Edge runtime is removed, any containers that it created are stopped but still exist on your device. View all containers to see which ones remain.
 
@@ -295,9 +325,15 @@ sudo docker rm -f <container name>
 
 Finally, remove the container runtime from your device.
 
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 ```bash
-sudo apt-get remove --purge moby-cli
-sudo apt-get remove --purge moby-engine
+sudo apt-get autoremove --purge moby-engine
+```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+```bash
+sudo yum remove moby-cli
+sudo yum remove moby-engine
 ```
 
 ## Next steps

@@ -17,6 +17,8 @@ items:
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json
+    - name: Security information
+      href: hpc-cache-security-info.md
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -31,9 +33,9 @@ items:
       href: add-namespace-paths.md
     - name: Move data to storage targets (if needed)
       items:
-      - name: Preload new Blob storage
+      - name: Move data to blob storage
         href: hpc-cache-ingest.md
-      - name: Alternate data ingest methods
+      - name: Additional data ingest methods
         items:
         - name: Populate the cache with parallel copy
           href: hpc-cache-ingest-parallelcp.md
@@ -71,6 +73,8 @@ items:
   items:
   - name: Contact support
     href: hpc-cache-support-ticket.md
+  - name: Increase quota
+    href: increase-quota.md
 
   - name: Troubleshoot
     items:
@@ -95,6 +99,9 @@ items:
 
   - name: Load balance client traffic
     href: client-load-balancing.md
+
+  - name: Customize file write-back
+    href: custom-flush-script.md
 
   - name: Prime the cache
     href: prime-cache.md

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2021
+ms.date: 07/29/2022
 ms.author: jeedes
 
 ---
@@ -28,12 +28,20 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A valid CrowdStrike Falcon subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * CrowdStrike Falcon Platform supports **SP and IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding CrowdStrike Falcon Platform from the gallery
 
@@ -46,6 +54,7 @@ To configure the integration of CrowdStrike Falcon Platform into Azure AD, you n
 1. In the **Add from the gallery** section, type **CrowdStrike Falcon Platform** in the search box.
 1. Select **CrowdStrike Falcon Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for CrowdStrike Falcon Platform
 
@@ -68,9 +77,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type one of the following URLs:
 
@@ -92,21 +101,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://falcon.laggar.gcw.crowdstrike.com/saml/acs` |
     |
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step, if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type one of the following URLs:
 
     | Sign-on URL |
     | -------------- |
-    | `https://falcon.crowdstrike.com/login` |
-    | `https://falcon.us-2.crowdstrike.com/login` |
-    | `https://falcon.eu-1.crowdstrike.com/login` |
-    | `https://falcon.laggar.gcw.crowdstrike.com/login` |
+    | `https://falcon.crowdstrike.com/login/sso` |
+    | `https://falcon.us-2.crowdstrike.com/login/sso` |
+    | `https://falcon.eu-1.crowdstrike.com/login/sso` |
+    | `https://falcon.laggar.gcw.crowdstrike.com/login/sso` |
     |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -145,16 +155,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to CrowdStrike Falcon Platform Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to CrowdStrike Falcon Platform Sign-on URL where you can initiate the login flow.  
 
 * Go to CrowdStrike Falcon Platform Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the CrowdStrike Falcon Platform for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the CrowdStrike Falcon Platform for which you set up the SSO.
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the CrowdStrike Falcon Platform tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the CrowdStrike Falcon Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+You can also use Microsoft My Apps to test the application in any mode. When you click the CrowdStrike Falcon Platform tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the CrowdStrike Falcon Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

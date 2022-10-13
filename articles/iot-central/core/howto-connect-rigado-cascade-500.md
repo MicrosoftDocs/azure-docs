@@ -5,9 +5,9 @@ services: iot-central
 ms.service: iot-central
 ms.topic: how-to
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
-ms.author: avneets
-author: avneet723
-ms.date: 08/18/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/15/2022
 
 # This article applies to solution builders.
 ---
@@ -36,15 +36,11 @@ To onboard a Cascade 500 gateway device into your Azure IoT Central application 
 
 To add a Cascade 500 device template:
 
-1. Navigate to the **Device Templates** tab in the left pane, select **+ New**:
-
-    ![Create new device template](./media/howto-connect-rigado-cascade-500/device-template-new.png)
+1. Navigate to the **Device Templates** tab in the left pane, select **+ New**
 
 1. The page gives you an option to **Create a custom template** or **Use a preconfigured device template**.
 
-1. Select the C500 device template from the list of preconfigured device templates as shown below:
-
-    ![Select C500 device template](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
+1. Select the C500 device template from the list of preconfigured device templates.
 
 1. Select **Next: Customize** to continue to the next step.
 

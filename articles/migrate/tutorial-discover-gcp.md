@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Start continuous discovery.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options.  
+> Tutorials show the quickest path for trying out a scenario and using default options.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -69,15 +69,15 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps.**
+  To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps**.
 
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In the Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
 
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-gcp/register-apps.png)
 
-1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare GCP instances
 
@@ -119,7 +119,7 @@ Set up a new project.
 ![Page showing Server Assessment tool added by default.](./media/tutorial-discover-gcp/added-tool.png)
 
 > [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project).
 
 ## Set up the appliance
 
@@ -130,30 +130,30 @@ The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate: D
 
 [Learn more](migrate-appliance.md) about the Azure Migrate appliance.
 
-To set up the appliance you:
+To set up the appliance, you:
 
 1. Provide an appliance name and generate a project key in the portal.
 1. Download a zipped file with Azure Migrate installer script from the Azure portal.
 1. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
 1. Execute the PowerShell script to launch the appliance web application.
-1. Configure the appliance for the first time, and register it with the project using the project key.
+1. Configure the appliance for the first time and register it with the project using the project key.
 
 ### 1. Generate the project key
 
-1. In **Migration Goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
-4. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
+4. Click **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
 5. After the successful creation of the Azure resources, a **project key** is generated.
 6. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the installer script
 
-In **2: Download Azure Migrate appliance**, click on **Download**.
+In **2: Download Azure Migrate appliance**, click **Download**.
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
+Check that the zipped file is secure before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file:
@@ -165,13 +165,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
 
     - For Azure Government:
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
  
 
 ### 3. Run the Azure Migrate installer script
@@ -215,10 +215,10 @@ Make sure that the appliance can connect to Azure URLs for [public](migrate-appl
 
 Set up the appliance for the first time.
 
-1. Open a browser on any machine that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
+1. Open a browser on any machine that can connect to the appliance and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the desktop by clicking the app shortcut.
-2. Accept the **license terms**, and read the third-party information.
+2. Accept the **license terms** and read the third-party information.
 
 #### Set up prerequisites and register the appliance
 
@@ -277,7 +277,7 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
     - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and click on **Save**.
     - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
 
-5. On clicking Save, appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
+5. On clicking **Save**, the appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, click on **Delete**.
 6. You can **revalidate** the connectivity to servers anytime before starting the discovery.
@@ -287,21 +287,27 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
 
 ### Start discovery
 
-Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+Click **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
 
 ## How discovery works
 
+
 * It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
 * [Software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers is finished.
+* [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
+* Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 * The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
+* SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
+* By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
+    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
 ## Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
 
 ## Next steps
 

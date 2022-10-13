@@ -8,6 +8,8 @@ ms.custom: ignite-fall-2021
 ---
 # Viewing of videos
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 ## Suggested pre-reading
 
 * [Video Analyzer video resource](terminology.md#video)

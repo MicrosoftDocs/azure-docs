@@ -56,3 +56,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   }
 }
 ```
+
+## Next steps
+
+For more information about the linter, see [Use Bicep linter](./linter.md).

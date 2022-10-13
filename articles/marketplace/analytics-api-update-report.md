@@ -19,7 +19,6 @@ This API helps you modify a report parameter.
 | Method | Request URI |
 | ------------ | ------------- |
 | PUT | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport/{Report ID}` |
-|||
 
 **Request header**
 
@@ -27,7 +26,6 @@ This API helps you modify a report parameter.
 | ------------ | ------------- | ------------- |
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
-||||
 
 **Path parameter**
 
@@ -38,7 +36,6 @@ None
 | Parameter name | Required | Type | Description |
 | ------------ | ------------- | ------------- | ------------- |
 | `reportId` | Yes | string | ID of the report being modified |
-|||||
 
 **Request payload**
 
@@ -67,7 +64,6 @@ This table lists the key definitions of elements in the request payload.
 | `RecurrenceCount` | No | Number of reports to be generated. Default is indefinite | integer |
 | `Format` | Yes | File format of the exported file. Default is CSV. | CSV/TSV |
 | `CallbackUrl` | Yes | https callback URL to be called on report generation | string |
-|||||
 
 **Glossary**
 
@@ -125,4 +121,3 @@ Response payload:
 | `RecurrenceCount` | Recurrence count provided during report creation |
 | `CallbackUrl` | Callback URL provided in the request |
 | `Format` | Format of the report files |
-|||

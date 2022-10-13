@@ -26,9 +26,6 @@
   - name: Install the Microsoft Defender for IoT micro agent (Preview)
     displayName: package, authentication, methods, certificate, authenticate, version
     href: tutorial-standalone-agent-binary-installation.md
-  - name: Configure Microsoft Defender for IoT agent-based solution
-    displayName: data, collection, geolocation, log analytics, raw events
-    href: tutorial-configure-agent-based-solution.md
   - name: Investigate security recommendations
     href: tutorial-investigate-security-recommendations.md
   - name: Investigate security alerts
@@ -182,8 +179,8 @@
     href: edge-security-module-deprecation.md
 - name: Resource
   items:
-  - name: Build your security skills with Microsoft Learn
-    href: /learn/browse/?term=securityS&terms=securityS
+  - name: Build your security skills with Microsoft training
+    href: /training/browse/?term=securityS&terms=securityS
   - name: Azure security documentation 
     href: ../../security/index.yml
   - name: Azure IoT Security, Privacy, & Compliance blog

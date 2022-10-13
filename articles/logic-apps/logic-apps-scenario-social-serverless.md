@@ -3,14 +3,14 @@ title: Create customer insights dashboard
 description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions.
 services: logic-apps
 ms.suite: integration
-author: jeffhollan
-ms.author: jehollan
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/15/2018
+ms.date: 08/20/2022
 ---
 
 # Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 

@@ -6,23 +6,24 @@ author: eedorenko
 ms.author: iefedore
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 12/15/2021
+ms.date: 05/24/2022
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Implement CI/CD with GitOps (Flux v2)
 
-In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. Using the sample Azure Vote app, you'll:
+In this tutorial, you'll set up a CI/CD solution using GitOps with Flux v2 and Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. Using the sample Azure Vote app, you'll:
 
 > [!div class="checklist"]
 > * Create an Azure Arc-enabled Kubernetes or AKS cluster.
-> * Connect your application and GitOps repositories to Azure Repos or Git Hub.
+> * Connect your application and GitOps repositories to Azure Repos or GitHub.
 > * Implement CI/CD flow with either Azure Pipelines or GitHub.
 > * Connect your Azure Container Registry to Azure DevOps and Kubernetes.
 > * Create environment variable groups or secrets.
 > * Deploy the `dev` and `stage` environments.
 > * Test the application environments.
 
-General Availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -92,12 +93,12 @@ Import an [application repository](./conceptual-gitops-ci-cd.md#application-repo
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
+   * Import the repository with name `arc-cicd-demo-src`
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
    * Works as a base for your cluster resources that house the Azure Vote App.
+   * Import the repository with name `arc-cicd-demo-gitops`
 
 Learn more about [importing Git repositories](/azure/devops/repos/git/import-git-repository).
 
@@ -123,9 +124,9 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
-      --namespace cluster-config \
+      --namespace flux-system \
       --resource-group myResourceGroup \
-      -u https://dev.azure.com/<Your organization>/<Your project>/arc-cicd-demo-gitops \
+      -u https://dev.azure.com/<Your organization>/<Your project>/_git/arc-cicd-demo-gitops \
       --https-user <Azure Repos username> \
       --https-key <Azure Repos PAT token> \
       --scope cluster \
@@ -136,6 +137,8 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. Check the state of the deployment in Azure portal.
    * If successful, you'll see both `dev` and `stage` namespaces created in your cluster.
+   * You can also check on Azure Portal page of your K8s cluster on `GitOps` tab a configuration `cluster-config` is created.
+
 
 ### Import the CI/CD pipelines
 
@@ -145,9 +148,9 @@ The application repository contains a `.pipeline` folder with the pipelines you'
 
 | Pipeline file name | Description |
 | ------------- | ------------- |
-| [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-pr-pipeline.yaml)  | The application PR pipeline, named **arc-cicd-demo-src PR** |
-| [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
-| [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
+| [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-pr-pipeline.yaml) | The application PR pipeline, named **arc-cicd-demo-src PR** |
+| [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
+| [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
 
 ### Connect Azure Container Registry to Azure DevOps
 During the CI process, you'll deploy your application containers to a registry. Start by creating an Azure service connection:
@@ -193,6 +196,9 @@ CD pipeline manipulates PRs in the GitOps repository. It needs a Service Connect
       --set gitOpsAppURL=https://dev.azure.com/<Your organization>/<Your project>/_git/arc-cicd-demo-gitops \
       --set orchestratorPAT=<Azure Repos PAT token>
 ```
+> [!NOTE]
+> `Azure Repos PAT token` should have `Build: Read & execute` and `Code: Full` permissions.
+
 3. Configure Flux to send notifications to GitOps connector:
 ```console
 cat <<EOF | kubectl apply -f -
@@ -205,9 +211,9 @@ spec:
   eventSeverity: info
   eventSources:
   - kind: GitRepository
-    name: <Flux GitRepository to watch>
+    name: cluster-config
   - kind: Kustomization
-    name: <Flux Kustomization to watch>
+    name: cluster-config-cluster-config 
   providerRef:
     name: gitops-connector
 ---
@@ -260,17 +266,20 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 
 You're now ready to deploy to the `dev` and `stage` environments.
 
+#### Create environments
+
+In Azure DevOps project create `Dev` and `Stage` environments. See [Create and target an environment](/azure/devops/pipelines/process/environments) for more details.
+
 ### Give more permissions to the build service
 
 The CD pipeline uses the security token of the running build to authenticate to the GitOps repository. More permissions are needed for the pipeline to create a new branch, push changes, and create pull requests.
 
 1. Go to `Project settings` from the Azure DevOps project main page.
 1. Select `Repos/Repositories`.
-1. Select `<GitOps Repo Name>`.
 1. Select `Security`. 
-1. For the `<Project Name> Build Service (<Organization Name>)`, allow `Contribute`, `Contribute to pull requests`, and `Create branch`.
+1. For the `<Project Name> Build Service (<Organization Name>)` and for the `Project Collection Build Service (<Organization Name>)` (type in the search field, if it doesn't show up), allow `Contribute`, `Contribute to pull requests`, and `Create branch`.
 1. Go to `Pipelines/Settings`
-1. Switch off `Limit job authorization scope to referenced Azure DevOps repositories`
+1. Switch off `Protect access to repositories in YAML pipelines` option      
 
 For more information, see:
 - [Grant VC Permissions to the Build Service](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
@@ -391,7 +400,7 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
    * View the Azure Vote app in your browser at `http://localhost:8080/` and verify the voting choices have changed to Tabs vs Spaces.
 1. Repeat steps 1-7 for the `stage` environment.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
+Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
 
 ## Implement CI/CD with GitHub
 
@@ -404,8 +413,6 @@ Fork an [application repository](./conceptual-gitops-ci-cd.md#application-repo) 
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
@@ -462,6 +469,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
       --set gitOpsAppURL=https://github.com/<Your organization>/arc-cicd-demo-gitops/commit \
       --set orchestratorPAT=<GitHub PAT token>
 ```
+
 3. Configure Flux to send notifications to GitOps connector:
 ```console
 cat <<EOF | kubectl apply -f -
@@ -474,9 +482,9 @@ spec:
   eventSeverity: info
   eventSources:
   - kind: GitRepository
-    name: <Flux GitRepository to watch>
+    name: cluster-config
   - kind: Kustomization
-    name: <Flux Kustomization to watch>
+    name: cluster-config-cluster-config
   providerRef:
     name: gitops-connector
 ---
@@ -569,7 +577,7 @@ The CD Stage workflow:
 
 Once the manifests PR to the Stage environment is merged and Flux successfully applied all the changes, it updates Git commit status in the GitOps repository.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops-githubfluxv2.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD workflows used in this tutorial. 
+Your deployment is now complete. This ends the CI/CD workflow. Refer to the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops-githubfluxv2.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD workflows used in this tutorial. 
 
 ## Clean up resources
 

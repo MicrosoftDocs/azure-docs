@@ -3,7 +3,7 @@ title: How to configure an Azure Active Directory Application Proxy application
 description: Learn how to create and configure an Azure Active Directory Application Proxy application in a few simple steps  
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

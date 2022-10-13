@@ -20,6 +20,25 @@ Host pools are a collection of one or more identical virtual machines (VMs), als
 
 This article will walk you through the setup process for creating a host pool for an Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to either an Active Directory (AD) domain or Azure Active Directory (Azure AD) tenant, and register the VMs with Azure Virtual Desktop.
 
+You can create host pools in the following Azure regions:
+
+- Australia East
+- Canada Central
+- Canada East
+- Central US
+- East US
+- East US 2
+- Japan East
+- North Central US
+- North Europe
+- South Central US
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West US
+- West US 2
+
 ## Prerequisites
 
 Before you can create a host pool, make sure you've completed the prerequisites. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md).
@@ -55,7 +74,7 @@ To start creating your new host pool:
      > ![A screenshot of the Azure portal showing the Location field with the East US location selected. Next to the field is text that says, "Metadata will be stored in East US."](media/portal-location-field.png)
   
    >[!NOTE]
-   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) troubleshooting article.
+   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-dont-see-the-azure-region-i-want-to-use-when-selecting-the-location-for-my-service-objects) troubleshooting article.
 
 8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
 
@@ -139,15 +158,16 @@ To set up your virtual machine within the Azure portal host pool setup process:
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the Trusted Launch security features available to select from.](https://user-images.githubusercontent.com/62080236/146099320-24cbfdfe-c5ec-43c1-b6b9-ad02378c3709.png)
 
-6. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
+6. Next, choose the image that needs to be used to create the virtual machine. You can choose **Gallery** for new host pool deployments with **Storage blob** no longer available.
 
-    - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
+    - After choosing **Gallery**, select a Windows image that meets your requirements from the drop-down menu:
 
-      - Windows 10 Enterprise multi-session, Version 1909
-      - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps
+      - Windows 11 Enterprise multi-session (Gen2)
+      - Windows 11 Enterprise multi-session + Microsoft 365 Apps (Gen2)
+      - Windows 10 Enterprise multi-session, Version 21H2 (Gen2)
+      - Windows 10 Enterprise multi-session, Version 21H2 + Microsoft 365 Apps (Gen2)
       - Windows Server 2019 Datacenter
-      - Windows 10 Enterprise multi-session, Version 2004
-      - Windows 10 Enterprise multi-session, Version 2004 + Microsoft 365 Apps
+     
 
       If you don't see the image you want, select **See all images**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers. Make sure that the image you choose is one of the [supported OS images](prerequisites.md#operating-systems-and-licenses).
 
@@ -159,7 +179,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the My Items tab.](media/my-items.png)
 
-    - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
+    - If you are adding a VM to a host pool that allows **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
    
    The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](./faq.yml#which-availability-option-is-best-for-me-).
 
@@ -186,7 +206,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
     If you choose **Advanced**, select an existing network security group that you've already configured.
 
-12. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory** (Preview).
+12. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory**.
 
     - For Active Directory, provide an account to join the domain and choose if you want to join a specific domain and organizational unit.
 

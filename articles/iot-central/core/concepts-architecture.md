@@ -3,11 +3,11 @@ title: Architectural concepts in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/31/2021
+ms.date: 06/03/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-
+ms.custom: [iot-central-frontdoor]
 ---
 
 # Azure IoT Central architecture
@@ -48,6 +48,7 @@ In IoT Central, you can configure and manage security in the following areas:
 - Device access to your application.
 - Programmatic access to your application.
 - Authentication to other services from your application.
+- Audit logs track activity in your application.
 
 To learn more, see the [IoT Central security guide](overview-iot-central-security.md).
 
@@ -85,7 +86,8 @@ Reasons to export data include:
 
 ### Storage and analysis
 
-For long-term storage and control over archiving and retention policies, you can [continuously export your data](howto-export-data.md) to other storage destinations. Use of separate storage also lets you use other analytics tools to derive insights and view the data in your solution.
+For long-term storage and control over archiving and retention policies, you can [continuously export your data](howto-export-to-blob-storage.md).
+ to other storage destinations. Use of separate storage also lets you use other analytics tools to derive insights and view the data in your solution.
 
 ### Business automation
 

@@ -4,7 +4,7 @@ description: Learn how to set up HBase replication from one HDInsight version to
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 09/15/2022
 ---
 
 # Set up Apache HBase cluster replication in Azure virtual networks
@@ -50,7 +50,7 @@ To help you set up the environments, we have created some [Azure Resource Manage
 
 ### Set up two virtual networks in two different regions
 
-To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button. The template definition is stored in a [public blob storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+To use a template that creates two virtual networks in two different regions and the VPN connection between the VNets, select the following **Deploy to Azure** button.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
@@ -89,6 +89,11 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
+
+Alternatively, follow below steps to setup two different vnets and VMs manually
+1. [Create Two VNET (Virtual Network)](../../virtual-network/quick-create-portal.md) in different Region
+2. Enable [Peering in both the VNET](../../virtual-network/virtual-network-peering-overview.md). Go to **Virtual network** created in above steps then click on **peering** and add peering link of another region. Do it for both the virtual network. 
+3. [Create the latest version of the UBUNTU](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine) in each VNET. 
 
 ## Setup DNS
 

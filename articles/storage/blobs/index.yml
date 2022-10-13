@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: normesta #Required; your GitHub user alias, with correct capitalization.
   ms.author: normesta #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/20/2019 #Required; mm/dd/yyyy format.
+  ms.date: 08/05/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -101,6 +101,8 @@ landingContent:
             url: storage-quickstart-blobs-dotnet.md
           - text: Azure Blob Storage for Java
             url: storage-quickstart-blobs-java.md
+          - text: Azure Blob Storage for Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
           - text: Azure Blob Storage for Python
             url: storage-quickstart-blobs-python.md
           - text: Azure Blob Storage for JavaScript using Node.js
@@ -151,6 +153,8 @@ landingContent:
         links:
           - text: Transfer with AzCopy
             url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - text: Access Azure blob data on Linux with BlobFuse2
+            url: blobfuse2-how-to-deploy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - text: Transfer with Azure Data Factory
             url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   #Card

@@ -3,6 +3,7 @@ title: Monitor applications running on Azure Functions with Application Insights
 description: Azure Monitor seamlessly integrates with your application running on Azure Functions, and allows you to monitor the performance and spot the problems with your apps in no time.
 ms.topic: conceptual
 ms.date: 08/27/2021
+ms.reviewer: abinetabate
 ---
 
 # Monitoring Azure Functions with Azure Monitor Application Insights
@@ -50,6 +51,18 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
 ```
 APPLICATIONINSIGHTS_ENABLE_AGENT: true
 ```
+
+### Troubleshooting
+
+* Sometimes the latest version of the Application Insights Java agent is not
+  available in Azure Function - it takes a few months for the latest versions to
+  roll out to all regions. In case you need the latest version of Java agent to
+  monitor your app in Azure Function to use a specific version of Application
+  Insights Java Auto-instrumentation Agent, you can upload the agent manually:
+   
+  Please follow this [instruction](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Distributed tracing for Python Function apps
 

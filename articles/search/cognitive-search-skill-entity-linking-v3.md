@@ -1,19 +1,19 @@
 ---
-title: Entity Linking cognitive skill
+title: Entity Linking cognitive skill (v3)
 titleSuffix: Azure Cognitive Search
 description: Extract different linked entities from text in an enrichment pipeline in Azure Cognitive Search.
 
 manager: jennmar
-author: ayokande
-ms.author: aakande
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 08/17/2022
 ---
 
-# Entity Linking cognitive skill
+# Entity Linking cognitive skill (v3)
 
-The **Entity Linking** skill returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
+The **Entity Linking** skill (v3) returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
 
 > [!NOTE]
 > This skill is bound to the [Entity Linking](../cognitive-services/language-service/entity-linking/overview.md) machine learning models in [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md) and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -35,7 +35,7 @@ Parameter names are case-sensitive and are all optional.
 |--------------------|-------------|
 | `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See the [full list of supported languages](../cognitive-services/language-service/entity-linking/language-support.md). |
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `entities` output) is lower than this value, the entity is not returned. The default is 0. |
-| `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/entity-linking/how-to/call-api.md#determine-how-to-process-the-data-optional) to use when calling entity linking. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.|
+| `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/concepts/model-lifecycle.md) to use when calling entity linking. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary.|
 
 ## Skill inputs
 

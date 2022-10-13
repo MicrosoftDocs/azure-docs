@@ -2,10 +2,10 @@
 title: Use Azure Chaos Studio to replicate an internet DNS outage using the network security group fault
 description: Get started with Chaos Studio by creating a DNS outage using the network security group fault.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: article
 ms.date: 08/26/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
 ---
@@ -57,7 +57,7 @@ First you register a fault provider on the subscription where your network secur
 Once the network security group fault provider has been created, you can now start creating experiments in Chaos Studio.
 
 1. Open the Azure portal with the Chaos Studio feature flag:
-    * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
+    * If using an @microsoft.com account, [click this link](https://portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 1. Click **Add an experiment**.
 
@@ -141,7 +141,7 @@ As a safety precaution all chaos experiments must be granted access to the Azure
 ## Run the chaos experiment
 
 1. Open the Azure portal with the Chaos Studio feature flag:
-    * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
+    * If using an @microsoft.com account, [click this link](https://portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 1. Check the box next to the experiments name and click **Start Experiment**.
 
@@ -158,7 +158,7 @@ As a safety precaution all chaos experiments must be granted access to the Azure
 Follow these steps if you're not going to continue to use this experiment and wish to delete it.
 
 Open the Azure portal with the Chaos Studio feature flag:
-    * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
+    * If using an @microsoft.com account, [click this link](https://portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 1. Check the box next to the experiment name and click **Delete**.
 1. Click **Yes** to confirm you want to delete the experiment.

@@ -70,6 +70,23 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
 
+### Pricing example: Outbound Call from Microsoft Dynamics 365 Omnichannel for Customer Service agent application via Azure Communication Services direct routing
+
+Alice is a Dynamics 365 contact center agent, who makes an outbound call from Omnichannel for Customer Service to a telephone number (Bob) via Azure Communication Services direct routing.
+- Alice uses Omnichannel for Customer Service client application 
+- Omnichannel for Customer Service bot starts new outgoing call via direct routing
+- Call goes to a Session Border Controller (SBC) connected via Communication Services direct routing
+- Dynamics 365 Omnichannel for Customer Service bot adds Alice to a call by escalating the direct routing call to a group call
+- The call lasts a total of 10 minutes. 
+
+**Cost calculations**
+
+- One participant on the VoIP leg (Alice) from Omnichannel for Customer Service client application x 10 minutes x $0.004 per participant leg per minute = $0.04
+- One participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
+- Omnichannel for Customer Servicebot does not introduce additional ACS charges.
+
+**Total cost for the call**: $0.04 + $0.04 = $0.08
+
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 
 Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
@@ -85,55 +102,6 @@ Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's
 Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
 **Total cost for the VoIP + escalation call**: $0.16 + $0.13 = $.29
-
-
-### Pricing example: A user of the Communication Services JavaScript SDK joins a scheduled Microsoft Teams meeting
-
-Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the healthcare provider website, which connects to the meeting using the Communication Services JavaScript SDK. Bob will use his mobile phone to enter the meeting using a web browser (iPhone with Safari). Chat will be available during the virtual visit.
-
-- The call lasts a total of 30 minutes.
-- When Bob joins the meeting, he's placed in the Teams meeting lobby per Teams policy. After one minute, Alice admits him into the meeting.
-- After Bob is admitted to the meeting, Alice and Bob participate for the entire call. Alice turns on her video five minutes after the call starts and shares her screen for 13 minutes. Bob has his video on for the whole call.
-- Alice sends five messages, Bob replies with three messages.
-
-
-**Cost calculations**
-
-- One Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged at regular rate of meetings) = $0.004
-- One participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
-- One participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
-- One participant (Bob) x three chat messages x $0.0008 = $0.0024.
-- One participant (Alice) x five chat messages x $0.000  = $0.0*.
-
-*Alice's participation is covered by her Teams license. Your Azure invoice will show the minutes and chat messages that Teams users had with Communication Services Users for your convenience, but those minutes and messages originating from the Teams client won't be charged.
-
-**Total cost for the visit**:
-- User joining using the Communication Services JavaScript SDK: $0.004 + $0.116 + $0.0024 = $0.1224
-- User joining on Teams Desktop Application: $0 (covered by Teams license)
-
-### Pricing example: Inbound PSTN call to the Communication Services JavaScript SDK with Teams identity elevated to group call with another Teams user on Teams desktop client
-
-Alice has ordered a product from Contoso and struggles to set it up. Alice calls from her phone (Android) 800-CONTOSO to ask for help with the received product. Bob is a customer support agent in Contoso and sees an incoming call from Alice on the customer support website (Windows, Chrome browser). Bob accepts the incoming call via Communication Services JavaScript SDK initialized with Teams identity. Teams calling plan enables Bob to receive PSTN calls. Bob sees on the website the product ordered by Alice. Bob decides to invite product expert Charlie to the call. Charlie sees an incoming group call from Bob in the Teams Desktop client and accepts the call.
-
-- The call lasts a total of 30 minutes.
-- Bob accepts the call from Alice.
-- After five minutes, Bob adds Charlie to the call. Charlie has his camera turned off for 10 minutes. Then turns his camera on for the rest of the call. 
-- After another 10 minutes, Alice leaves the call. 
-- After another five minutes, both Bob and Charlie leave the call
-
-**Cost calculations**
-
-- One Participant (Alice) called the phone number associated with Teams user Bob using Teams Calling plan x 25 minutes deducted from Bob's tenant Teams minute pool
-- One participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
-- One participant (Charlie) x 25 minutes x $0.000 per participant per minute = $0.0*.
-
-*Charlie's participation is covered by her Teams license.
-
-**Total cost of the visit**:
-- Teams cost for a user joining using the Communication Services JavaScript SDK: 25 minutes from Teams minute pool
-- Communication Services cost for a user joining using the Communication Services JavaScript SDK: $0.12
-- User joining on Teams Desktop client: $0 (covered by Teams license)
-
 
 ## Call Recording
 
@@ -190,13 +158,47 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## SMS (Short Messaging Service) and Telephony
+## SMS (Short Messaging Service)
 
-Please refer to the following links for details on SMS and Telephony pricing
+Azure Communication Services allows for adding SMS messaging capabilities to your applications. You can embed the experience into your applications using JavaScript, Java, Python, or .NET SDKs. Refer to our [full list of available SDKs](./sdk-options.md).
 
-- [SMS Pricing Details](./sms-pricing.md)
+### Pricing
+
+The SMS usage price is a per-message segment charge based on the destination of the message. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Please refer to the [SMS Pricing Page](./sms-pricing.md) for pricing details. 
+
+### Pricing example: 1:1 SMS sending
+
+Contoso is a healthcare company with clinics in US and Canada. Contoso has a Patient Appointment Reminder application that sends out SMS appointment reminders to patients regarding upcoming appointments. 
+
+- The application sends appointment reminders to 20 US patients and 30 Canada patients using a US toll-free number.
+- Message length of the reminder message is 150 chars < 1 message segment*. Hence, total sent messages are 20 message segments for US and 30 message segments for CA.
+
+**Cost calculations**
+
+- US - 20 message segments x $0.0075 per sent message segment + 20 message segments x $0.0025 carrier surcharge per sent message segment = $0.20
+- CA - 30 message segments x $0.0075 per sent message segment + 30 message segments x $0.0085 carrier surcharge per sent message segment = $0.48
+
+**Total cost for the appointment reminders for 20 US patients and 30 CA patients**: $0.20 + $0.48 = $0.68
+
+### Pricing example: 1:1 SMS receiving
+
+Contoso is a healthcare company with clinics in US and Canada. Contoso has a Patient Appointment Reminder application that sends out SMS appointment reminders to patients regarding upcoming appointments. Patients can respond to the messages with "Reschedule" and include their date/time preference to reschedule their appointments.
+
+- The application sends appointment reminders to 20 US patients and 30 Canada patients using a CA toll-free number.
+- 6 US patients and 4 CA patients respond back to reschedule their appointments. Contoso receives 10 SMS responses in total.
+- Message length of the reschedule messages is less than 1 message segment*. Hence, total messages received are 6 message segments for US and 4 message segments for CA.
+
+**Cost calculations**
+
+- US - 6 message segments x $0.0075 per received message segment + 6 message segments x $0.0010 carrier surcharge per received message segment = $0.051
+- CA - 4 message segments x $0.0075 per received message segment = $0.03
+
+**Total cost for receiving patient responses from 6 US patients and 4 CA patients**: $0.051 + $0.03 = $0.081
+
+## Telephony
+Please refer to the following links for details on Telephony pricing
+
 - [PSTN Pricing Details](./pstn-pricing.md)
-
 
 ## Next Steps
 Get started with Azure Communication Services:

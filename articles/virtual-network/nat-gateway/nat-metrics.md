@@ -34,8 +34,8 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
-| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
-| Total SNAT connection count | Total number of active SNAT connections (~ SNAT ports currently in use by NAT gateway) | Sum | Protocol (6 TCP; 17 UDP) |
+| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State (Attempted, Established, Failed, Closed, Timed Out), Protocol (6 TCP; 17 UDP) |
+| Total SNAT connection count | Total number of active SNAT connections | Sum | Protocol (6 TCP; 17 UDP) |
 | Data path availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Where to find my NAT gateway metrics
@@ -122,7 +122,7 @@ Reasons for why you may see dropped packets:
 
 ### SNAT connection count
 
-The SNAT connection count metric shows you the number of newly used SNAT ports within a specified time frame. 
+The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. 
 
 Use this metric to: 
 
@@ -190,6 +190,40 @@ Alerts can be configured in Azure Monitor for each of the preceding metrics. The
 
 For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../../azure-monitor/alerts/alerts-metric-overview.md). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
 
+### Alerts for data path availability droppage
+
+If the datapath of your NAT gateway resource begins to experience drops in availability, you can set up an alert to be fired when it hits a specific threshold in availability. 
+
+The recommended guidance is to alert on NAT gateway’s datapath availability when it drops below 90% over a 15 minute period. This configuration will be indicative of a NAT gateway resource going into a degraded state.
+
+To set up a datapath availability alert, follow these steps:
+
+1. From the NAT gateway resource page, select **Alerts**. 
+
+2. Select **Create alert rule**. 
+
+3. From the signal list, select **Datapath Availability**. 
+
+4. From the **Operator** drop-down menu, select **Less than**. 
+
+5. From the **Aggregation type** drop-down menu, select **Average**. 
+
+6. In the **Threshold value** box, enter **90%** as the value that the datapath availability must drop below before an alert is fired.
+
+7. From the **Unit** drop-down menu, select **Count**. 
+
+8. From the **Aggregation granularity (Period)** drop-down menu, select **15 minutes**. 
+
+9. Create an **Action** for your alert by providing a name, notification type, and type of action that is performed when the alert is triggered.
+
+10. Before deploying your action, **test the action group**.
+
+11. Select **Create** to create the alert rule.
+
+>[!NOTE]
+>Aggregation granularity is the period of time over which the datapath availability is measured to determine if it has dropped below the threshold value. 
+Setting the aggregation granularity to less than 5 minutes may trigger false positive alerts that detect noise in the datapath.
+
 ### Alerts for SNAT port usage
 
 Use the total **SNAT connection count** metric and alerts for when you're nearing the limits of available SNAT ports. 
@@ -206,7 +240,7 @@ To create the alert, use the following steps:
 
 5. From the **Aggregation type** drop-down menu, select **Total**. 
 
-6. In the **Threshold value** box, enter a percentage value that the Total SNAT connection count must drop below before an alert is fired. When deciding what threshold value to use, keep in mind how much you've scaled out your NAT gateway outbound connectivity with public IP addresses. For more information, see [Scale NAT gateway](./nat-gateway-resource.md#scale-nat-gateway). 
+6. In the **Threshold value** box, enter a percentage value that the Total SNAT connection count must drop below before an alert is fired. When deciding what threshold value to use, keep in mind how much you've scaled out your NAT gateway outbound connectivity with public IP addresses. For more information, see [Scale NAT gateway](./nat-gateway-resource.md#scalability). 
 
 7. From the **Unit** drop-down menu, select **Count**. 
 
@@ -223,7 +257,7 @@ To create the alert, use the following steps:
 
 ## Network Insights
 
-[Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
+[Azure Monitor Network Insights](../../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
 
 ### View the topology of your Azure architectural setup
 

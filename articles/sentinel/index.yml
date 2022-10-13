@@ -64,7 +64,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create KQL queries for Microsoft Sentinel
-            url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+            url: /training/paths/sc-200-utilize-kql-for-azure-sentinel/
 
   # Card
   - title: Collect data
@@ -112,7 +112,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Write your first query with Kusto Query Language
-            url: /learn/modules/write-first-query-kusto-query-language/
+            url: /training/modules/write-first-query-kusto-query-language/
           - text: More KQL learning and skilling resources
             url: kusto-resources.md
       - linkListType: reference
@@ -158,7 +158,7 @@ landingContent:
           - text: Entities reference
             url: entities-reference.md
           - text: UEBA enrichments
-            url: ueba-enrichments.md
+            url: ueba-reference.md
 
  # Card (optional)
   - title: Threat hunting

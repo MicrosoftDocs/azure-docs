@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2022
+ms.date: 05/31/2022
 ms.author: jeedes
 
 ---
@@ -29,6 +29,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * OpenLearning single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
@@ -45,6 +48,8 @@ To configure the integration of OpenLearning into Azure AD, you need to add Open
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **OpenLearning** in the search box.
 1. Select **OpenLearning** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for OpenLearning
 
@@ -67,17 +72,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
 	a. Click **Upload metadata file**.
 
-    ![Upload metadata file](common/upload-metadata.png)
+    ![Screenshot shows to upload metadata file.](common/upload-metadata.png "Metadata")
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![choose metadata file](common/browse-upload-metadata.png)
+	![Screenshot shows to choose metadata file.](common/browse-upload-metadata.png "Folder")
 
 	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
 
@@ -87,13 +92,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!Note]
 	> If the **Identifier** value does not get auto populated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [OpenLearning Client support team](mailto:dev@openlearning.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
+1. OpenLearning Identity Authentication application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, OpenLearning Identity Authentication application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+    | Name | Source Attribute|
+	| ---------------| --------------- |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.9 | user.extensionattribute1 |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.objectid |
+    | urn:oid:2.5.4.10 | user.companyname |
+
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
 1. On the **Set up OpenLearning** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to copy Configuration appropriate U R L.](common/copy-configuration-urls.png "Configuration")
 	
 1. OpenLearning application expects to enable token encryption in order to make SSO work. To activate token encryption, go to the **Azure Active Directory** > **Enterprise applications** and select **Token encryption**. For more information, please refer this [link](../manage-apps/howto-saml-token-encryption.md).
 
@@ -149,13 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create OpenLearning test user
 
-1. In a different web browser window, log in to your OpenLearning website as an administrator.
-
-1. Navigate to **People** and select **Invite People**.
-
-1. Enter the valid **Email Addresses** in the textbox and click **INVITE ALL USERS**.
-
-    ![Screenshot shows inviting all users](./media/openlearning-tutorial/users.png "SAML USERS")
+In this section, a user called Britta Simon is created in OpenLearning. OpenLearning supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OpenLearning, a new one is created after authentication.
 
 ## Test SSO 
 

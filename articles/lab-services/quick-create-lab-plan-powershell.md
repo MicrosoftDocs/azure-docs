@@ -3,8 +3,8 @@ title: Azure Lab Services Quickstart - Create a lab plan using PowerShell
 description: In this quickstart, you learn how to create an Azure Lab Services lab plan using PowerShell and the Az module. 
 author: RogerBestMSFT
 ms.topic: quickstart
-ms.date: 02/15/2022
-ms.custom: template-quickstart
+ms.date: 06/15/2022
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a lab plan using PowerShell and the Azure modules
@@ -52,7 +52,7 @@ New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
     -ResourceGroupName "MyResourceGroup"
 ```
 
-For more information about role assignments, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+For more information about role assignments, see [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 ## Clean up resources
 

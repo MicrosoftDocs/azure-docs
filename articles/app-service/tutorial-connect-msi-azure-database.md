@@ -6,18 +6,18 @@ keywords: azure app service, web app, security, msi, managed service identity, m
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: "mvc, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli, ignite-2022
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
 [App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to Azure databases, including: 
 
 - [Azure SQL Database](/azure/azure-sql/database/)
-- [Azure Database for MySQL](/azure/mysql/)
-- [Azure Database for PostgreSQL](/azure/postgresql/)
+- [Azure Database for MySQL](../mysql/index.yml)
+- [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -54,7 +54,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 1. If your Azure AD tenant doesn't have a user yet, create one by following the steps at [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az_ad_user_list) and replace *\<user-principal-name>*. The result is saved to a variable.
+1. Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
     ```azurecli-interactive
     azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
@@ -62,7 +62,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 # [Azure SQL Database](#tab/sqldatabase)
 
-3. Add this Azure AD user as an Active Directory administrator using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Azure AD user as an Active Directory administrator using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -72,7 +72,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 # [Azure Database for MySQL](#tab/mysql)
 
-3. Add this Azure AD user as an Active Directory administrator using [`az mysql server ad-admin create`](/cli/azure/mysql/server/ad-admin#az_mysql_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Azure AD user as an Active Directory administrator using [`az mysql server ad-admin create`](/cli/azure/mysql/server/ad-admin#az-mysql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az mysql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name <user-principal-name> --object-id $azureaduser
@@ -83,7 +83,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 # [Azure Database for PostgreSQL](#tab/postgresql)
 
-3. Add this Azure AD user as an Active Directory administrator using [`az postgres server ad-admin create`](/cli/azure/postgres/server/ad-admin#az_postgres_server_ad_admin_create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
+3. Add this Azure AD user as an Active Directory administrator using [`az postgres server ad-admin create`](/cli/azure/postgres/server/ad-admin#az-postgres-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<group-name>* and *\<server-name>* with your own parameters.
 
     ```azurecli-interactive
     az postgres server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name <user-principal-name> --object-id $azureaduser
@@ -98,7 +98,7 @@ First, enable Azure Active Directory authentication to the Azure database by ass
 
 Next, you configure your App Service app to connect to SQL Database with a managed identity.
 
-1. Enable a managed identity for your App Service app with the [az webapp identity assign](/cli/azure/webapp/identity#az_webapp_identity_assign) command in the Cloud Shell. In the following command, replace *\<app-name>*.
+1. Enable a managed identity for your App Service app with the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command in the Cloud Shell. In the following command, replace *\<app-name>*.
 
     # [System-assigned identity](#tab/systemassigned/sqldatabase)
 
@@ -237,7 +237,7 @@ Next, you configure your App Service app to connect to SQL Database with a manag
 
     ```sql
     SET aad_validate_oids_in_tenant = off;
-    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-system-assigned-identity>' IN ROLE azure_ad_user;
+    CREATE ROLE <postgresql-user-name> WITH LOGIN PASSWORD '<application-id-of-user-assigned-identity>' IN ROLE azure_ad_user;
     ```
 
     Whatever name you choose for *\<postgresql-user-name>*, it's the PostgreSQL user you'll use to connect to the database later from your code in App Service.
@@ -741,7 +741,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     The `if` statement sets the MySQL username based on which identity the token applies to. The token is then passed in to the [standard MySQL connection](../mysql/connect-python.md) as the password of the Azure identity.
 
-    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
+    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/en/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 

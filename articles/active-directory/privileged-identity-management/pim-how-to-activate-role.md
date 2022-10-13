@@ -3,8 +3,8 @@ title: Activate Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to activate Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/02/2022
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -65,16 +65,18 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## Activate a role using Graph API
+## Activate a role using Microsoft Graph API
+
+For more information about Microsoft Graph APIs for PIM, see [Overview of role management through the privileged identity management (PIM) API](/graph/api/resources/privilegedidentitymanagementv3-overview).
 
 ### Get all eligible roles that you can activate
 
-When a user gets their role eligibility via group membership, this Graph request doesn't return their eligibility.
+When a user gets their role eligibility via group membership, this Microsoft Graph request doesn't return their eligibility.
 
 #### HTTP request
 
 ````HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on='principal')  
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on='principal')  
 ````
 
 #### HTTP response
@@ -82,107 +84,122 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilitySch
 To save space we're showing only the response for one role, but all eligible role assignments that you can activate will be listed.
 
 ````HTTP
-{ 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(unifiedRoleEligibilityScheduleRequest)", 
-    "value": [ 
-        { 
-            "@odata.type": "#microsoft.graph.unifiedRoleEligibilityScheduleRequest", 
-            "id": "<request-ID-GUID>", 
-            "status": "Provisioned", 
-            "createdDateTime": "2021-07-15T19:39:53.33Z", 
-            "completedDateTime": "2021-07-15T19:39:53.383Z", 
-            "approvalId": null, 
-            "customData": null, 
-            "action": "AdminAssign", 
-            "principalId": "<principal-ID-GUID>", 
-            "roleDefinitionId": "<definition-ID-GUID>", 
-            "directoryScopeId": "/", 
-            "appScopeId": null, 
-            "isValidationOnly": false, 
-            "targetScheduleId": "<schedule-ID-GUID>", 
-            "justification": "test", 
-            "createdBy": { 
-                "application": null, 
-                "device": null, 
-                "user": { 
-                    "displayName": null, 
-                    "id": "<user-ID-GUID>" 
-                } 
-            }, 
-            "scheduleInfo": { 
-                "startDateTime": "2021-07-15T19:39:53.3846704Z", 
-                "recurrence": null, 
-                "expiration": { 
-                    "type": "noExpiration", 
-                    "endDateTime": null, 
-                    "duration": null 
-                } 
-            }, 
-            "ticketInfo": { 
-                "ticketNumber": null, 
-                "ticketSystem": null 
-            } 
-        },
-} 
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(unifiedRoleEligibilityScheduleRequest)",
+    "value": [
+        {
+            "@odata.type": "#microsoft.graph.unifiedRoleEligibilityScheduleRequest",
+            "id": "50d34326-f243-4540-8bb5-2af6692aafd0",
+            "status": "Provisioned",
+            "createdDateTime": "2022-04-12T18:26:08.843Z",
+            "completedDateTime": "2022-04-12T18:26:08.89Z",
+            "approvalId": null,
+            "customData": null,
+            "action": "adminAssign",
+            "principalId": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5",
+            "roleDefinitionId": "8424c6f0-a189-499e-bbd0-26c1753c96d4",
+            "directoryScopeId": "/",
+            "appScopeId": null,
+            "isValidationOnly": false,
+            "targetScheduleId": "50d34326-f243-4540-8bb5-2af6692aafd0",
+            "justification": "Assign Attribute Assignment Admin eligibility to myself",
+            "createdBy": {
+                "application": null,
+                "device": null,
+                "user": {
+                    "displayName": null,
+                    "id": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5"
+                }
+            },
+            "scheduleInfo": {
+                "startDateTime": "2022-04-12T18:26:08.8911834Z",
+                "recurrence": null,
+                "expiration": {
+                    "type": "afterDateTime",
+                    "endDateTime": "2024-04-10T00:00:00Z",
+                    "duration": null
+                }
+            },
+            "ticketInfo": {
+                "ticketNumber": null,
+                "ticketSystem": null
+            }
+        }
+    ]
+}
 ````
 
-### Activate a role assignment with justification
+### Self-activate a role eligibility with justification
 
 #### HTTP request
 
 ````HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignmentScheduleRequests 
 
-{ 
-    "action": "SelfActivate", 
-    "justification": "adssadasasd", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    "principalId": "<principal-ID-GUID>" 
-} 
+{
+    "action": "selfActivate",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "8424c6f0-a189-499e-bbd0-26c1753c96d4",
+    "directoryScopeId": "/",
+    "justification": "I need access to the Attribute Administrator role to manage attributes to be assigned to restricted AUs",
+    "scheduleInfo": {
+        "startDateTime": "2022-04-14T00:00:00.000Z",
+        "expiration": {
+            "type": "AfterDuration",
+            "duration": "PT5H"
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": "CONTOSO:Normal-67890",
+        "ticketSystem": "MS Project"
+    }
+}
 ````
 
 #### HTTP response
 
 ````HTTP
-{ 
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
-    "id": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
-    "status": "PendingApprovalProvisioning", 
-    "createdDateTime": "2021-07-15T19:51:07.1870599Z", 
-    "completedDateTime": "2021-07-15T19:51:17.3903028Z", 
-    "approvalId": "<approval-ID-GUID>", 
-    "customData": null, 
-    "action": "SelfActivate", 
-    "principalId": "<principal-ID-GUID>", 
-    "roleDefinitionId": "<definition-ID-GUID>", 
-    "directoryScopeId": "/", 
-    "appScopeId": null, 
-    "isValidationOnly": false, 
-    "targetScheduleId": "<schedule-ID-GUID>", 
-    "justification": "test", 
-    "createdBy": { 
-        "application": null, 
-        "device": null, 
-        "user": { 
-            "displayName": null, 
-            "id": "<user-ID-GUID>" 
-        } 
-    }, 
-    "scheduleInfo": { 
-        "startDateTime": null, 
-        "recurrence": null, 
-        "expiration": { 
-            "type": "afterDuration", 
-            "endDateTime": null, 
-            "duration": "PT5H30M" 
-        } 
-    }, 
-    "ticketInfo": { 
-        "ticketNumber": null, 
-        "ticketSystem": null 
-    } 
-} 
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity",
+    "id": "911bab8a-6912-4de2-9dc0-2648ede7dd6d",
+    "status": "Granted",
+    "createdDateTime": "2022-04-13T08:52:32.6485851Z",
+    "completedDateTime": "2022-04-14T00:00:00Z",
+    "approvalId": null,
+    "customData": null,
+    "action": "selfActivate",
+    "principalId": "071cc716-8147-4397-a5ba-b2105951cc0b",
+    "roleDefinitionId": "8424c6f0-a189-499e-bbd0-26c1753c96d4",
+    "directoryScopeId": "/",
+    "appScopeId": null,
+    "isValidationOnly": false,
+    "targetScheduleId": "911bab8a-6912-4de2-9dc0-2648ede7dd6d",
+    "justification": "I need access to the Attribute Administrator role to manage attributes to be assigned to restricted AUs",
+    "createdBy": {
+        "application": null,
+        "device": null,
+        "user": {
+            "displayName": null,
+            "id": "071cc716-8147-4397-a5ba-b2105951cc0b"
+        }
+    },
+    "scheduleInfo": {
+        "startDateTime": "2022-04-14T00:00:00Z",
+        "recurrence": null,
+        "expiration": {
+            "type": "afterDuration",
+            "endDateTime": null,
+            "duration": "PT5H"
+        }
+    },
+    "ticketInfo": {
+        "ticketNumber": "CONTOSO:Normal-67890",
+        "ticketSystem": "MS Project"
+    }
+}
 ````
 
 ## View the status of activation requests

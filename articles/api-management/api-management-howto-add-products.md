@@ -57,6 +57,9 @@ In this tutorial, you learn how to:
 
 1. Select **Create** to create your new product.
 
+> [!CAUTION]
+> Use care when configuring a product that doesn't require a subscription. This configuration may be overly permissive and may make the product's APIs more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
 ### [Azure CLI](#tab/azure-cli)
 
 To begin using Azure CLI:
@@ -83,6 +86,9 @@ You can specify various values for your product:
    | `--approval-required` | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved. |
    | `--subscriptions-limit` | Optionally, limit the count of multiple simultaneous subscriptions.|
    | `--legal-terms`         | You can include the terms of use for the product, which subscribers must accept to use the product. |
+
+> [!CAUTION]
+> Use care when configuring a product that doesn't require a subscription. This configuration may be overly permissive and may make the product's APIs more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
 
 To see your current products, use the [az apim product list](/cli/azure/apim/product#az-apim-product-list) command:
 
@@ -174,6 +180,9 @@ After you publish a product, developers can access the APIs. Depending on how th
     > You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update) or PowerShell command.
 
 * **Open product** - Developers can access an open product's APIs without a subscription key. However, you can configure other mechanisms to secure client access to the APIs, including [OAuth 2.0](api-management-howto-protect-backend-with-aad.md), [client certificates](api-management-howto-mutual-certificates-for-clients.md), and [restricting caller IP addresses](./api-management-access-restriction-policies.md#RestrictCallerIPs).
+
+    > [!NOTE]
+    > Open products aren't listed in the developer portal for developers to learn about or subscribe to. They're visible only to the **Administrators** group. You'll need to use another mechanism to inform developers about APIs that can be accessed without a subscription key.
 
     When a client makes an API request without a subscription key:
     

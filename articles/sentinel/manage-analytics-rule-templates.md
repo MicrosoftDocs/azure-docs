@@ -49,7 +49,6 @@ With the implementation of template version control, you can see and track the v
     :::image type="content" source="media/manage-analytics-rule-templates/see-template-versions.png" alt-text="Screenshot of details pane. Scroll down to see template version numbers." border="false":::
 
     The number is in a “1.0.0” format – major version, minor version, and build.  
-    (For the time being, the build number is not in use and will always be 0.)
 
     - A difference in the *major version* number indicates that something essential in the template was changed, that could affect how the rule detects threats or even its ability to function altogether. This is a change you will want to include in your rules.
 

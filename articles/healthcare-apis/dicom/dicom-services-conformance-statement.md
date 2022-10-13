@@ -2,12 +2,12 @@
 title: DICOM Conformance Statement for Azure Health Data Services
 description: This document provides details about the DICOM Conformance Statement for Azure Health Data Services. 
 services: healthcare-apis
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/24/2022
-ms.author: aersoy
+ms.date: 06/10/2022
+ms.author: mmitrik
 ---
 
 # DICOM Conformance Statement
@@ -22,7 +22,14 @@ Additionally, the following non-standard API(s) are supported:
 
 - [Delete](#delete)
 
-Our service also makes use of REST API versioning. For information on how to specify the version when making requests visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
+Our service makes use of REST API versioning. 
+
+> [!NOTE]
+> The version of the REST API must be explicitly specified in the request URL as in the following example:
+>
+> `https://<service_url>/v<version>/studies`
+
+For information on how to specify the version when making requests visit the [API Versioning for DICOM service documentation](api-versioning-dicom-service.md).
 
 ## Store (STOW-RS)
 

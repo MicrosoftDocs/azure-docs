@@ -1,14 +1,16 @@
 ---
 title: Date_Bucket (Transact-SQL) - Azure SQL Edge
 description: Learn about using Date_Bucket in Azure SQL Edge
-keywords: Date_Bucket, SQL Edge
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/03/2020
 ms.service: sql-edge
 ms.topic: reference
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/03/2020
+keywords:
+  - Date_Bucket
+  - SQL Edge
+services: sql-edge
 ---
 
 # Date_Bucket (Transact-SQL)
@@ -48,7 +50,7 @@ The part of *date* that is used with the ‘number’ parameter. Ex. Year, month
 
 *number*
 
-The integer number that decides the width of the bucket combined with *datepart* argument. This represents the width of the datepart buckets from the origin time. **`This argument cannot be a negative integer value`**.
+The *integer* number that decides the width of the bucket combined with *datepart* argument. This represents the width of the datepart buckets from the origin time. **`This argument has to be a positive integer value`**.
 
 *date*
 

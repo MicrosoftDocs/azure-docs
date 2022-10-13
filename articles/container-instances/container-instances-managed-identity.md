@@ -1,8 +1,12 @@
 ---
 title: Enable managed identity in container group
 description: Learn how to enable a managed identity in Azure Container Instances that can authenticate with other Azure services
-ms.topic: article
-ms.date: 07/02/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # How to use managed identities with Azure Container Instances
@@ -34,10 +38,6 @@ Azure Container Instances supports both types of managed Azure identities: user-
 ### Use a managed identity
 
 To use a managed identity, the identity must be granted access to one or more Azure service resources (such as a web app, a key vault, or a storage account) in the subscription. Using a managed identity in a running container is similar to using an identity in an Azure VM. See the VM guidance for using a [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell or Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), or the [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
-
-### Limitations
-
-* Currently you can't use a managed identity in a container group deployed to a virtual network.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -168,7 +168,7 @@ az container exec \
 Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to key vault, run the following command:
 
 ```bash
-client_id="CLIENT ID (xxxxxxxx-5523-45fc-9f49-xxxxxxxxxxxx)"
+client_id="xxxxxxxx-5523-45fc-9f49-xxxxxxxxxxxx"
 curl "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net&client_id=$client_id" -H Metadata:true -s
 ```
 

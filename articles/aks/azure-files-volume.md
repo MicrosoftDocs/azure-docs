@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/1/2022
+ms.date: 05/09/2022
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage using Azure Files to a pod in AKS.
@@ -19,9 +19,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster with 1.21 or later version. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+If you want to interact with Azure Files on an AKS cluster with 1.20 or previous version, see the [Kubernetes plugin for Azure Files][kubernetes-files].
 
 ## Create an Azure file share
 
@@ -68,7 +68,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## Mount file share as an inline volume
 > [!NOTE]
-> Inline `azureFile` volume can only access secrets in the same namespace as the pod. To specify a different secret namespace, [please use the persistent volume example][persistent-volume-example] below instead.
+> Inline volume can only access secrets in the same namespace as the pod. To specify a different secret namespace, [please use the persistent volume example][persistent-volume-example] below instead.
 
 To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
@@ -78,6 +78,8 @@ kind: Pod
 metadata:
   name: mypod
 spec:
+  nodeSelector:
+    kubernetes.io/os: linux
   containers:
   - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: mypod
@@ -95,6 +97,7 @@ spec:
   - name: azure
     csi:
       driver: file.csi.azure.com
+      readOnly: false
       volumeAttributes:
         secretName: azure-secret  # required
         shareName: aksshare  # required
@@ -200,8 +203,6 @@ kubectl apply -f azure-files-pod.yaml
 ## Next steps
 
 For Azure File CSI driver parameters, see [CSI driver parameters][CSI driver parameters].
-
-For information about AKS 1.20 or below clusters interact with Azure Files, see the [Kubernetes plugin for Azure Files][kubernetes-files].
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 

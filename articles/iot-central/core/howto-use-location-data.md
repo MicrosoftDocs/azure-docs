@@ -3,7 +3,7 @@ title: Use location data in an Azure IoT Central solution
 description: Learn how to use location data sent from a device connected to your IoT Central application. Plot location data on a map or create geofencing rules.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,7 +26,7 @@ The following screenshot shows a device template with examples of a device prope
 
 :::image type="content" source="media/howto-use-location-data/location-device-template.png" alt-text="Screenshot showing location property definition in device template" lightbox="media/howto-use-location-data/location-device-template.png":::
 
-For reference, the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definitions for these capabilities look like the following snippet:
+For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definitions for these capabilities look like the following snippet:
 
 ```json
 {

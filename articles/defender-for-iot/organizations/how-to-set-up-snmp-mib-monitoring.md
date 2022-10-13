@@ -1,7 +1,7 @@
 ---
 title: Set up SNMP MIB monitoring
 description: You can perform sensor health monitoring by using SNMP. The sensor responds to SNMP queries sent from an authorized monitoring server.
-ms.date: 01/31/2022
+ms.date: 05/31/2022
 ms.topic: how-to
 ---
 
@@ -10,6 +10,13 @@ ms.topic: how-to
 Monitoring sensor health is possible through the Simple Network Management Protocol (SNMP). The sensor responds to SNMP requests sent by an authorized monitoring server. The SNMP monitor polls sensor OIDs periodically (up to 50 times a second).
 
 Supported SNMP versions are SNMP version 2 and version 3. The SNMP protocol utilizes UDP as its transport protocol with port 161.
+
+## Download the SNMP MIB file
+
+Download the SNMP MIB file from Defender for IoT in the Azure portal. Select **Sites and sensors > More actions > Download SNMP MIB file**.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 
 ## Sensor OIDs
 
@@ -35,7 +42,7 @@ Note that:
 
 ## Prerequisites for AES and 3-DES Encryption Support for SNMP Version 3
 - The network management station (NMS) must support Simple Network Management Protocol (SNMP) Version 3 to be able to use this feature.
-- It is important to understand the SNMP architecture and the terminology of the architecture to understand the security model used and how the security model interacts with the other subsystems in the architecture.
+- It's important to understand the SNMP architecture and the terminology of the architecture to understand the security model used and how the security model interacts with the other subsystems in the architecture.
 - Before you begin configuring SNMP monitoring, you need to open the port UDP 161 in the firewall.
 
 
@@ -50,7 +57,7 @@ Note that:
     
         | Parameter | Description |
         |--|--|
-        | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
+        | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces aren't allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Password** | Enter a case-sensitive authentication password. The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). <br /> <br/>The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Auth Type** | Select MD5 or SHA-1. |
         | **Encryption** | Select DES (56 bit key size)<sup>[1](#1)</sup> or AES (AES 128 bits supported)<sup>[2](#2)</sup>. |

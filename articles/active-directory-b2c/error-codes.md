@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/16/2021
+ms.date: 07/18/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,6 +20,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 
 | Error code | Message | Notes |
 | ---------- | ------- | ----- |
+| `AADB2C90001` | This user already exists, and profile '{0}' does not allow the same user to be created again. | [Sign-up flow](add-sign-up-and-sign-in-policy.md) |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. | [Hosting the page content](customize-ui-with-html.md#hosting-the-page-content) |
 | `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client ID '{1}'. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90007` | The application associated with client ID '{0}' has no registered redirect URIs. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
@@ -60,6 +61,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99059` | The supplied request must present a code_challenge. Required for single-page apps using the authorization code flow.| [Authorization code flow](authorization-code-flow.md) |
 | `AADB2C90067` | The post logout redirect URI '{0}' has an invalid format. Specify an https based URL such as 'https://example.com/return' or for native clients use the IETF native client URI 'urn:ietf:wg:oauth:2.0:oob'. | [Send a sign-out request](openid-connect.md#send-a-sign-out-request) |
 | `AADB2C90068` | The provided application with ID '{0}' is not valid against this service. Please use an application created via the B2C portal and try again. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
+| `AADB2C90073` | KeyContainer with 'id': '{0}' cannot be found in the directory '{1}' |
 | `AADB2C90075` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response with Code '{2}' and Reason '{3}'. |
 | `AADB2C90077` | User does not have an existing session and request prompt parameter has a value of '{0}'. |
 | `AADB2C90079` | Clients must send a client_secret when redeeming a confidential grant. | [Create a web app client secret](configure-authentication-sample-web-app-with-api.md#step-24-create-a-web-app-client-secret) |

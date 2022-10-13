@@ -1,9 +1,12 @@
 ---
 title: Deploy container image from Azure Container Registry using a managed identity
 description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry using a managed identity.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
 services: container-instances
-ms.topic: article
-ms.date: 11/11/2021
+ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -18,8 +21,6 @@ ms.custom: mvc, devx-track-azurecli
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
 ## Limitations
-* Container groups running in Azure Virtual Networks don't support managed identity authentication image pulls with ACR.
-
 * Windows containers don't support managed identity-authenticated image pulls with ACR.
 
 * The Azure container registry must have [Public Access set to either 'Select networks' or 'None'](../container-registry/container-registry-access-selected-networks.md). To set the Azure container registry's Public Access to 'All networks', visit ACI's article on [how to authenticate with ACR with service principal based authentication](container-instances-using-azure-container-registry.md).

@@ -3,22 +3,22 @@ title: Configure privileged access groups settings in PIM - Azure Active Directo
 description: Learn how to configure role-assignable groups settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/12/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Configure privileged access group settings (preview) in Privileged Identity Management
 
-Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM). Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
 ## Open role settings
 
@@ -29,6 +29,8 @@ Follow these steps to open the settings for an Azure privileged access group rol
 1. Open **Azure AD Privileged Identity Management**.
 
 1. Select **Privileged access (Preview)**.
+    >[!NOTE]
+    > Approver doesn't have to be member of the group, owner of the group or have Azure AD role assigned.
 
 1. Select the group that you want to manage.
 

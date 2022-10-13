@@ -1,6 +1,5 @@
 ---
-title: Azure AD B2C (MSAL Android) | Azure
-titleSuffix: Microsoft identity platform
+title: Azure AD B2C (MSAL Android)
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for Android (MSAL.Android)
 services: active-directory
 author: iambmelt
@@ -221,7 +220,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://learn.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function

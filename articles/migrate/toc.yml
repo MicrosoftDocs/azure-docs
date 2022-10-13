@@ -46,10 +46,18 @@
         href: tutorial-assess-webapps.md
       - name: Assess servers for migration to AVS
         href: tutorial-assess-vmware-azure-vmware-solution.md
-    - name: Assess servers in Hyper-V environment for migration to Azure VMs
-      href: tutorial-assess-hyper-v.md
-    - name: Assess physical servers for migration to Azure
-      href: tutorial-assess-physical.md
+    - name: Assess servers in Hyper-V environment 
+      items:
+      - name: Assess servers for migration to Azure VMs
+        href: tutorial-assess-hyper-v.md
+      - name: Assess SQL instances for migration to Azure SQL
+        href: tutorial-assess-sql.md
+    - name: Assess physical servers
+      items:
+      - name: Assess servers for migration to Azure VMs
+        href: tutorial-assess-physical.md
+      - name: Assess SQL instances for migration to Azure SQL
+        href: tutorial-assess-sql.md 
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
@@ -76,16 +84,18 @@
       href: tutorial-migrate-aws-virtual-machines.md
     - name: Migrate GCP instances
       href: tutorial-migrate-gcp-virtual-machines.md
-  - name: Containerize
+  - name: Modernize
     items:
     - name: Containerize ASP.NET apps and migrate to AKS
       href: tutorial-app-containerization-aspnet-kubernetes.md
     - name: Containerize Java web apps and migrate to AKS
       href: tutorial-app-containerization-java-kubernetes.md
-    - name: Containerize ASP.NET apps and migrate to App Service
+    - name: Containerize ASP.NET apps and migrate to App Service containers
       href: tutorial-app-containerization-aspnet-app-service.md
-    - name: Containerize Java web apps and migrate to App Service
+    - name: Containerize Java web apps and migrate to App Service containers
       href: tutorial-app-containerization-java-app-service.md
+    - name: Modernize ASP.NET web apps to App Service code
+      href: tutorial-migrate-webapps.md
     - name: CI/CD for Day 2 operations
       href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
@@ -145,11 +155,13 @@
       href: hyper-v-migration-architecture.md
     - name: VMware agent-based migration architecture
       href: agent-based-migration-architecture.md
+    - name: Web apps migration support
+      href: concepts-migration-webapps.md
 - name: How-to guides
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
-  - name: Use Azure Migrate with private endpoints
+  - name: Use Azure Migrate with private endpoints 
     items:
       - name: Support requirements and considerations
         href: how-to-use-azure-migrate-with-private-endpoints.md
@@ -273,6 +285,8 @@
     items:
     - name: Troubleshoot replication issues in agentless VMware migration
       href: troubleshoot-changed-block-tracking-replication.md
+    - name: Troubleshoot web app migration issues
+      href: troubleshoot-webapps-migration.md  
 - name: Reference
   items:
   - name: Azure CLI

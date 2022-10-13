@@ -19,7 +19,7 @@ Here is how schedules affect lab VM:
 
 The scheduled running time of VMs does not count against the [quota](classroom-labs-concepts.md#quota) given to a user. The quota is for the time outside of schedule hours that a student spends on VMs.
 
-Educators can create, edit, and delete lab schedules within Canvas as in the Azure Lab Services portal. For more information on scheduling, see [Creating and managing schedules](how-to-create-schedules-within-canvas.md).
+Educators can create, edit, and delete lab schedules within Canvas as in the Azure Lab Services portal. For more information on scheduling, see [Creating and managing schedules](how-to-create-schedules.md).
 
 > [!IMPORTANT]
 > Schedules will apply at the course level.  If you have many sections of a course, consider using [automatic shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) and/or [quotas hours](how-to-configure-student-usage.md#set-quotas-for-users).
