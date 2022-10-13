@@ -41,11 +41,11 @@ Before you associate an existing Functions app, you first need to adjust to conf
 
 1. Set `api_location` value to an empty string (`""`) in the [workflow configuration](./build-configuration.md) file.
 
-2. Open your Static Web Apps instance in the [Azure portal](https://portal.azure.com).
+1. Open your Static Web Apps instance in the [Azure portal](https://portal.azure.com).
 
-3. From the _Settings_ menu, select **APIs**.
+1. From the _Settings_ menu, select **APIs**.
 
-4. From the _Production_ row, select **Link** to open the *Link new Backend* window.
+1. From the _Production_ row, select **Link** to open the *Link new Backend* window.
 
     Enter the following settings.
 
@@ -55,7 +55,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
     | Subscription | Select your Azure subscription name. |
     | Resource name | Select the Azure Functions app name. |
 
-5. Select the **Link** button.
+1. Select the **Link** button.
 
 The Azure Functions app is now mapped to the `/api` route of your static web app.
 
