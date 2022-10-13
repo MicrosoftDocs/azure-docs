@@ -151,6 +151,8 @@
                   href: private-endpoint.md
                 - name: Retrieve IP addresses
                   href: api-management-howto-ip-addresses.md
+                - name: Defend against DDoS attacks
+                  href: protect-with-ddos-protection.md
             - name: Configuration management
               items:
               - name: Landing zone accelerator
