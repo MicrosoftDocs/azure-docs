@@ -127,7 +127,7 @@ Add **azure-sdk-bom** to take a dependency on the latest version of the library.
 </dependencyManagement>
 ```
 
-Then add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless authentication.
+Then add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless connections to Azure services.
 
 ```xml
 <dependency>
@@ -137,10 +137,6 @@ Then add the following dependency elements to the group of dependencies. The **a
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-identity</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core</artifactId>
 </dependency>
 ```
 
@@ -161,7 +157,6 @@ package com.blobs.quickstart;
 /**
  * Azure Blob Storage quickstart
  */
-import com.azure.core.*;
 import com.azure.identity.*;
 import com.azure.storage.blob.*;
 import com.azure.storage.blob.models.*;
@@ -401,7 +396,7 @@ mvn package
 Run the following `mvn` command to execute the app:
 
 ```console
-mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonThreads=false
+mvn exec:java -D exec.mainClass=com.blobs.quickstart.App -D exec.cleanupDaemonThreads=false
 ```
 
 The output of the app is similar to the following example (UUID values omitted for readability):
