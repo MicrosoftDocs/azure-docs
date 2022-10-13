@@ -197,7 +197,7 @@ The following table has descriptions of each supported style.
 
 ### Style degree
 
-The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. 
+The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued.
 
 For a list of neural voices that support speaking style degree, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
 
@@ -224,7 +224,7 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
 
 ### Role
 
-Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. 
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed.
 
 For a list of supported roles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
 
@@ -538,7 +538,7 @@ To define how multiple entities are read, you can create a custom lexicon, which
 The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text that describes the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text that describes how the `lexeme` is pronounced. When the `alias` and `phoneme` elements are provided with the same `grapheme` element, `alias` has higher priority.
 
 > [!IMPORTANT]
-> The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello," it won't work for the `lexeme` "hello." 
+> The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello," it won't work for the `lexeme` "hello."
 
 Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it won't work.
 
@@ -762,6 +762,7 @@ The `say-as` element is optional. It indicates the content type, such as number 
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
 The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in the table below.
+
 | interpret-as   | format   | Interpretation |
 | ----------- | --------- | -------- |
 | `characters`, `spell-out` |  | The text is spoken as individual letters (spelled out). The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />As "T E S T." |
@@ -848,7 +849,7 @@ Only one background audio file is allowed per SSML document. You can intersperse
 
 > [!NOTE]
 > The `mstts:backgroundaudio` element should be put in front of all `voice` elements, i.e., the first child of the `speak` element.
-> 
+>
 > The `mstts:backgroundaudio` element is not supported by the [Long Audio API](long-audio-api.md).
 
 **Syntax**
@@ -946,7 +947,7 @@ A viseme is the visual description of a phoneme in spoken language. It defines t
 | `type`    | Specifies the type of viseme output.<ul><li>`redlips_front` – lip-sync with viseme ID and audio offset output </li><li>`FacialExpression` – blend shapes output</li></ul> | Required  |
 
 > [!NOTE]
-> Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales. 
+> Currently, `redlips_front` only supports neural voices in `en-US` locale, and `FacialExpression` supports neural voices in `en-US` and `zh-CN` locales.
 
 **Example**
 
