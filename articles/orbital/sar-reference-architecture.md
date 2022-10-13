@@ -24,7 +24,7 @@ container, and then run at scale. While the performance of processing a given im
 pipeline that utilizes vendor provided binaries and/or open-source software. While processing of any individual file or image won't occur any faster, many files can be processed simultaneously in parallel. With the flexibility of AKS, each step in the pipeline can execute on the hardware best suited for the tool, for example, GPU, high core
 count, or increased memory.
 
-:::image type="content" source="media/aks-argo-diagram.png" alt-text="Diagram of AKS and Argo Workflows.":::
+:::image type="content" source="media/aks-argo-diagram.png" alt-text="Diagram of AKS and Argo Workflows." lightbox="media/aks-argo-diagram.png":::
 
 Raw products are received by a ground station application, which, in turn, writes the data into Azure Blob Storage. Using an Azure Event Grid subscription, a notification is supplied to Azure Event Hubs when a new product image is written to blob storage. Argo Events, running on Azure Kubernetes Service, subscribes to the Azure Event Hubs notification and upon receipt of the event, triggers an Argo Workflows workflow to process the image.
 
@@ -38,7 +38,7 @@ With Azure Kubernetes Service, this typically involves creating node pools with 
 The approach to use Azure Synapse is slightly different than a normal pipeline. Typically, lots of data processing firms already have algorithms that are processing the data. They may not want to rewrite the algorithms that are already written but they may need a way to scale those algorithms horizontally. What we are showing here's an approach using which they can easily run their code on distributed
 framework like Apache Spark and not have to worry about dealing with all the complexities one would when working with Distributed system. We're taking advantage of vectorization and SIMD architecture where we're processing more than one row at a time instead of processing one row at a time. These features are specific to Apache Spark DataFrame and JVM
 
-:::image type="content" source="media/azure-synapse-processing.png" alt-text="Diagram of data processing using Azure Synapse.":::
+:::image type="content" source="media/azure-synapse-processing.png" alt-text="Diagram of data processing using Azure Synapse." lightbox="media/azure-synapse-processing.png":::
 
 ## Data ingestion
 
@@ -52,7 +52,7 @@ Remote Sensing Data is sent to a ground station. The ground station app collects
 
 Under this approach using Apache Spark, we're gluing the library that has algorithms with JNA. JNA requires you to define the interfaces for your native code and does the heavy lifting to converting your data to and from the native library to usable Java Types. Now without any major rewriting, we can distribute the computation of data on nodes vs a single machine. Typical Spark Execution under this model looks like as follows.
 
-:::image type="content" source="media/spark-execution-model.png" alt-text="Diagram of the Spark execution model.":::
+:::image type="content" source="media/spark-execution-model.png" alt-text="Diagram of the Spark execution model." lightbox="media/spark-execution-model.png":::
 
 ## Considerations
 
