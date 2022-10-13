@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure subscription.
-* Azure Front Door. To complete the steps in this tutorial, you must have a Front Door configured with rules engine. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md) and [Configure your Rules Engine](front-door-tutorial-rules-engine.md).
+* An Azure Front Door. To complete the steps in this tutorial, you must have a Front Door configured with rules engine. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md) and [Configure your Rules Engine](front-door-tutorial-rules-engine.md).
 
 ## Add a Content-Security-Policy header in Azure portal
 
