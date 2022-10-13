@@ -2,12 +2,12 @@
 title: DICOM Conformance Statement for Azure Health Data Services
 description: This document provides details about the DICOM Conformance Statement for Azure Health Data Services. 
 services: healthcare-apis
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/10/2022
-ms.author: v-smcevoy
+ms.author: mmitrik
 ---
 
 # DICOM Conformance Statement

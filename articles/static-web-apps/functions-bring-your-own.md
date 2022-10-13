@@ -54,7 +54,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
     | Subscription | Select your Azure subscription name. |
     | Resource name | Select the Azure Functions app name. |
 
-1. Select the **Link** button.
+2. Select **Link**.
 
 The Azure Functions app is now mapped to the `/api` route of your static web app.
 

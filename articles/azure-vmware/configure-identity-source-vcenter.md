@@ -152,7 +152,7 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
    | **BaseDNUsers**  |  Where to look for valid users, for example, **CN=users,DC=avslab,DC=local**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups, for example, **CN=group1, DC=avslab,DC=local**. Base DN is needed to use LDAP Authentication.  |
    | **Credential**  | The domain username and password used for authentication with the AD source (not cloudadmin). The user must be in the **username@avslab.local** format.  |
-   | **GroupName**  | The group to give cloud admin access in your external identity source, for example, **avs-admins**.  |
+   | **GroupName**  | The group to give cloudadmin access in your external identity source, for example, **avs-admins**.  |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | Alphanumeric name, for example, **addexternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
@@ -161,7 +161,7 @@ You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an externa
 
 ## Add existing AD group to cloudadmin group
 
-You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to a cloudadmin group. Users in the cloud admin group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
+You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to a cloudadmin group. Users in the cloudadmin group have privileges equal to the cloudadmin (cloudadmin@vsphere.local) role defined in vCenter Server SSO.
 
 1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
 
@@ -204,7 +204,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 ## Assign additional vCenter Server Roles to Active Directory Identities
 After you've added an external identity over LDAP or LDAPS you can assign vCenter Server Roles to Active Directory security groups based on your organization's security controls.
 
-1. After you sign in to vCenter Server with cloud admin privileges, you can select an item from the inventory, select **ACTIONS** menu and select **Add Permission**.
+1. After you sign in to vCenter Server with cloudadmin privileges, you can select an item from the inventory, select **ACTIONS** menu and select **Add Permission**.
    
     :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-1.png" alt-text="Screenshot displaying hot to add permission assignment." lightbox="media/run-command/ldaps-vcenter-permission-assignment-1.png":::
 
@@ -260,6 +260,9 @@ Now that you've learned about how to configure LDAP and LDAPS, you can learn mor
 
 - [How to configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating.
 
-- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
+- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the cloudadmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
 - [Configure external identity source for NSX-T](configure-external-identity-source-nsx-t.md) 
+- [Azure VMware Solution identity concepts](concepts-identity.md)
+- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
+
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/06/2022
+ms.date: 09/27/2022
 ms.author: jeedes
 
 ---
@@ -81,15 +81,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Reply URL** textbox, type the URL: 
     `https://zola-prod.auth.eu-west-3.amazoncognito.com/saml2/idpresponse`
 
-    b. In the **Sign-on URL** textbox, type the URL:
-    `https://app.zola.fr`
+    b. In the **Sign-on URL** textbox, type the URL provided by Zola:
+    `https://app.zola.fr?company=<MYCOMPANYID>`
 
     c. In the **Relay State** textbox, type the URL:
-    `https://app.zola.fr/version-test/dashboard-v2`
+    `https://app.zola.fr/dashboard-v2`
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+    > [!NOTE]
+	> The Sign-on URL value is not real. Update the value with the actual Sign on URL. Contact [Zola support team](mailto:tech@zola.fr) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-    ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up Zola** section, copy the appropriate URL(s) based on your requirement.
 
@@ -131,11 +134,11 @@ In this section, you create a user called Britta Simon at Zola. Work with [Zola 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Zola Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Zola Sign on URL where you can initiate the login flow. 
 
-* Go to Zola Sign-on URL directly and initiate the login flow from there.
+* Go to Zola Sign on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Zola tile in the My Apps, this will redirect to Zola Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Zola tile in the My Apps, this will redirect to Zola Sign on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

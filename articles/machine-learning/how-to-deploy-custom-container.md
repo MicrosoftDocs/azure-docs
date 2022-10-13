@@ -55,8 +55,10 @@ cd azureml-examples/cli
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/sdk/endpoints/online/custom-container
+cd azureml-examples/sdk
 ```
+
+See also [the example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container.ipynb) but note that `3. Test locally` section in the notebook assumes to run under the `azureml-examples/sdk` directory.
 
 ---
 
@@ -64,35 +66,35 @@ cd azureml-examples/sdk/endpoints/online/custom-container
 
 Define environment variables:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="initialize_variables":::
 
 ## Download a TensorFlow model
 
 Download and unzip a model that divides an input by two and adds 2 to the result:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="download_and_unzip_model":::
 
 ## Run a TF Serving image locally to test that it works
 
 Use docker to run your image locally for testing:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="run_image_locally_for_testing":::
 
 ### Check that you can send liveness and scoring requests to the image
 
 First, check that the container is "alive," meaning that the process inside the container is still running. You should get a 200 (OK) response.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_liveness_locally":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="check_liveness_locally":::
 
 Then, check that you can get predictions about unlabeled data:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_scoring_locally":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="check_scoring_locally":::
 
 ### Stop the image
 
 Now that you've tested locally, stop the image:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="stop_image":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="stop_image":::
 
 ## Deploy your online endpoint to Azure
 Next, deploy your online endpoint to Azure.
@@ -105,11 +107,11 @@ You can configure your cloud deployment using YAML. Take a look at the sample YA
 
 __tfserving-endpoint.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving/half-plus-two/tfserving-endpoint.yml":::
 
 __tfserving-deployment.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container//tfserving/half-plus-two/tfserving-deployment.yml":::
 
 # [Python SDK](#tab/python)
 
@@ -338,7 +340,7 @@ Once your deployment completes, see if you can make a scoring request to the dep
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="invoke_endpoint":::
 
 # [Python SDK](#tab/python)
 
@@ -347,7 +349,7 @@ Using the `MLClient` created earlier, we will get a handle to the endpoint. The 
 - `request_file` - File with request data
 - `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/custom-container).
+We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/custom-container).
 
 ```python
 # test the blue deployment with some sample data
