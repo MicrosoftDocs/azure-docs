@@ -713,6 +713,8 @@
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
+  - name: GitHub commercial marketplace project template 
+    href: https://aka.ms/marketplace-template
   - name: Marketplace Office Hours
     href: https://go.microsoft.com/fwlink/?linkid=2185526
   - name: Partner Center support options
