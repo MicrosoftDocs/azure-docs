@@ -146,7 +146,6 @@ sections:
         answer: |
           The first time you access the application, you must navigate to the application URL link you received from the administrator
 
-
   - name: Organizations
     questions:
       - question: |
@@ -168,3 +167,15 @@ sections:
           Can device groups, dashboards, and jobs be associated with multiple organizations?
         answer: |
           No, experiences such as device groups, dashboards, and jobs are associated with a single organization.
+
+  - name: Monitoring and logging
+    questions:
+      - question: |
+          What are the differences between monitoring an IoT Central application in the Azure portal and using the audit logs within in IoT Central application.
+        answer: |
+          Monitoring in the Azure portal is useful for operations monitoring. The audit log in an IoT Central application lets you see who made changes to entities within the application.
+      - question: |
+          Can I extend the audit log to store more than 30 days of data?
+        answer: |
+          Currently, you can't store more tha 30 days of data in the audit log. Entries older than 30 days are deleted automatically.
+  

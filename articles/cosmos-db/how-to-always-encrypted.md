@@ -2,6 +2,7 @@
 title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.author: sidandrews
@@ -9,7 +10,7 @@ author: seesharprun
 ---
 
 # Use client-side encryption with Always Encrypted for Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 > [!IMPORTANT]
 > A breaking change has been introduced with the 1.0 release of our encryption packages. If you created data encryption keys and encryption-enabled containers with prior versions, you will need to re-create your databases and containers after migrating your client code to 1.0 packages.

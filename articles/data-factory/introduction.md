@@ -125,7 +125,7 @@ Here are important next step documents to explore:
 - [Integration runtime](concepts-integration-runtime.md)
 - [Mapping Data Flows](concepts-data-flow-overview.md)
 - [Data Factory UI in the Azure portal](quickstart-create-data-factory-portal.md)
-- [Copy Data tool in the Azure portal](quickstart-create-data-factory-copy-data-tool.md)
+- [Copy Data tool in the Azure portal](quickstart-hello-world-copy-data-tool.md)
 - [PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)

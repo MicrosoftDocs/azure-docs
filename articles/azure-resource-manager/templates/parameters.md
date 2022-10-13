@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 09/28/2022
 ---
 
 # Parameters in ARM templates
@@ -16,9 +16,9 @@ Each parameter must be set to one of the [data types](data-types.md).
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
 
-You are limited to 256 parameters. For more information, see [Template limits](./best-practices.md#template-limits).
+You are limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
-For parameter best practices, see [Parameters](./best-practices.md#parameters). 
+For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ## Minimal declaration
 

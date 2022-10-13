@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 10/05/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -39,6 +39,8 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 ### Microsoft Threat Intelligence Collection rules
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+
+Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection. For example, rule ID 942440, *SQL Comment Sequence Detected.*, has been disabled, and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
 
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 

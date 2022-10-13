@@ -52,13 +52,13 @@ This attribute can be set either:
 ### Disable the synchronization scheduler:
 
 Before you start either scenario, you must disable the synchronization scheduler while making changes to the sync rules.
- 1. Start Windows PowerShell enter.
+ 1. Start Windows PowerShell and enter.
 
-     `set-adsyncscheduler-synccycleenabled$false`
+     `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 2. Confirm the scheduler is disabled by running the following cmdlet:
 
-    `get-adsyncscheduler`
+    `Get-ADSyncScheduler`
 
 For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
