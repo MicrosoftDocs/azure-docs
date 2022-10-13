@@ -7,32 +7,127 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: dem108
 ms.author: sehan
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.date: 04/29/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022
+ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022,sdkv2
 ---
 
-# Safe rollout for online endpoints
+# Safe rollout for managed online endpoints
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-You've an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+In this article, you learn how to deploy a new version of a machine learning model in production without causing any disruption. Using blue-green deployment (or safe rollout), you'll introduce a new version of a web service to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
 In this article, you'll learn to:
 
 > [!div class="checklist"]
-> * Deploy a new online endpoint called "blue" that serves version 1 of the model
+> * Confirm that an online endpoint called "blue" and serves version 1 of the model exists
 > * Scale this deployment so that it can handle more requests
 > * Deploy version 2 of the model to an endpoint called "green" that accepts no live traffic
-> * Test the green deployment in isolation 
+> * Test the green deployment in isolation
 > * Send 10% of live traffic to the green deployment
 > * Fully cut-over all live traffic to the green deployment
 > * Delete the now-unused v1 blue deployment
 
 ## Prerequisites
 
-* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
+* If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
+
+   ```azurecli
+   az account set --subscription <subscription ID>
+   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
+   ```
+
+* An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
+
+* If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
+
+   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+
+<!-- * (Recommended) Clone the samples repository and switch to the repository's `cli/` directory: 
+
+   ```azurecli
+   git clone https://github.com/Azure/azureml-examples
+   cd azureml-examples/cli
+   ```
+
+The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory. -->
+
+
+* (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
+
+The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
+
+> [!IMPORTANT]
+> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
+
+# [Python](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+
+* (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
+
+## Prepare your system
+
+# [Azure CLI](#tab/azure-cli)
+
+### Clone the sample repository
+
+To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
+
+```azurecli
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples
+cd cli
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository. This reduces time to complete the operation.
+
+### Set an endpoint name
+
+To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
+
+For Unix, run this command:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
+
+> [!NOTE]
+> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 
+
+# [Python](#tab/python)
+
+### Clone the sample repository
+
+To run the training examples, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and change into the `azureml-examples/sdk/python/endpoints/online/managed` directory:
+
+```bash
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples/sdk/python/endpoints/online/managed
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+
+The information in this article is based on the [online-endpoints-simple-deployment.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-simple-deployment.ipynb) notebook. It contains the same content as this article, although the order of the codes is slightly different.
+
+
+
+## -----------------------------------------------------------------
+<!-- * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
 
@@ -44,23 +139,10 @@ In this article, you'll learn to:
 
    ```azurecli
    az account set --subscription <subscription id>
-   az configure --defaults workspace=<azureml workspace name> group=<resource group>
+   az configure --defaults workspace=<azureml workspace name> group=<resource group> -->
    ```
 
-* An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-* If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
-
-   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
-
-* (Recommended) Clone the samples repository and switch to the repository's `cli/` directory: 
-
-   ```azurecli
-   git clone https://github.com/Azure/azureml-examples
-   cd azureml-examples/cli
-   ```
-
-The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
 ## Confirm your existing deployment is created
 
