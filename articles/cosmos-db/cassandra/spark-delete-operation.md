@@ -1,22 +1,23 @@
 ---
-title: Delete operations on Azure Cosmos DB Cassandra API from Spark 
-description: This article details how to delete data in tables in Azure Cosmos DB Cassandra API from Spark
+title: Delete operations on Azure Cosmos DB for Apache Cassandra from Spark 
+description: This article details how to delete data in tables in Azure Cosmos DB for Apache Cassandra from Spark
 author: TheovanKraay
 ms.author: thvankra
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.devlang: scala
+ms.custom: ignite-2022
 ---
 
-# Delete data in Azure Cosmos DB Cassandra API tables from Spark
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Delete data in Azure Cosmos DB for Apache Cassandra tables from Spark
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-This article describes how to delete data in Azure Cosmos DB Cassandra API tables from Spark.
+This article describes how to delete data in Azure Cosmos DB for Apache Cassandra tables from Spark.
 
-## Cassandra API configuration
+## API for Cassandra configuration
 Set below spark configuration in your notebook cluster. It's one time activity.
 ```scala
 //Connection-related
@@ -39,7 +40,7 @@ Set below spark configuration in your notebook cluster. It's one time activity.
 ```
 
 > [!NOTE]
-> If you are using Spark 3.x, you do not need to install the Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
+> If you are using Spark 3.x, you do not need to install the Azure Cosmos DB helper and connection factory. You should also use `remoteConnectionsPerExecutor` instead of `connections_per_executor_max` for the Spark 3 connector (see above).
 
 > [!WARNING]
 > The Spark 3 samples shown in this article have been tested with Spark **version 3.2.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.2.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.

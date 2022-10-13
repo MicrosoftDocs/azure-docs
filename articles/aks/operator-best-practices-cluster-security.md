@@ -73,10 +73,8 @@ spec:
 ```
 
 > [!NOTE]
-> We recommend you review [Azure AD workload identity][workload-identity-overview] (preview).
-> This authentication method replaces pod-managed identity (preview), which integrates with the
-> Kubernetes native capabilities to federate with any external identity providers on behalf of the
-> application.
+> Alternatively you can use [Pod Identity](./use-azure-ad-pod-identity.md) though this is in Public Preview.  It has a pod (NMI) that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the Azure Instance Metadata Service on each node, redirect them to itself and validates if the pod has access to the identity it's requesting a token for and fetch the token from the Azure AD tenant on behalf of the application.
+>
 
 ## Secure container access to resources
 
