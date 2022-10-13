@@ -46,7 +46,7 @@ Disabling `azureADAuthenticationAsArmPolicy` will force the registry to use ACR 
 
 ## Disable authentication-as-arm in the ACR - Azure portal
 
-Disabling `authentication-as-arm` property by assigning a built-in policy will automatically disable the registry property for the current and the future registries. This automatic behavior is for registries created within the policy scope. The possible policy scopes includes either Resource Group level scope or Subscription ID level scope within the tenant.
+Disabling `authentication-as-arm` property by assigning a built-in policy will automatically disable the registry property for the current and the future registries. This automatic behavior is for registries created within the policy scope. The possible policy scopes include either Resource Group level scope or Subscription ID level scope within the tenant.
 
 You can disable authentication-as-arm in the ACR, by following below steps:
 
