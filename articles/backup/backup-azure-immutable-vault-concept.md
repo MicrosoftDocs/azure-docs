@@ -15,7 +15,7 @@ Immutable vault can help you protect your backup data by blocking any operations
 
 ## Before you start
 
-- Immutable vault is currently in preview and is available in the following regions: East US 2, West US, North Europe, Japan East.
+- Immutable vault is currently in preview and is available in the following regions: East US, East US 2, West US, West US 2, West Central US, North Europe, Brazil South, Japan East.
 - Immutable vault is currently supported for Recovery Services vaults only.
 - Enabling Immutable vault blocks you from performing specific operations on the vault and its protected items. See the [restricted operations](#restricted-operations).
 - Enabling immutability for the vault is a reversible operation. However, you can choose to make it irreversible to prevent any malicious actors from disabling it (after disabling it, they can perform destructive operations). Learn about [making Immutable vault irreversible](#making-immutability-irreversible).
