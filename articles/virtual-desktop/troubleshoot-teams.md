@@ -36,7 +36,7 @@ For Teams known issues that aren't related to virtualized environments, see [Sup
 
 If you encounter issues with the Teams desktop app in your Azure Virtual Desktop environment, collect client logs under **%appdata%\Microsoft\Teams\logs.txt** on the host VM.
 
-If you encounter issues with calls and meetings, collect Teams Web client logs with the key combination **Ctrl** + **Alt** + **Shift** + **1**. Logs will be written to **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_TIME.txt** on the host VM.
+If you encounter issues with calls and meetings, you can start collecting Teams diagnostic logs with the key combination **Ctrl** + **Alt** + **Shift** + **1**. Logs will be written to **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_TIME.txt** on the host VM.
 
 ## Contact Microsoft Teams support
 

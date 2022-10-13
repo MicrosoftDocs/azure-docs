@@ -72,15 +72,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
-2. Run one of the following commands to install the MSI to the host VM:
-
-    - Per-user installation
-
-        ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
-        ```
-
-        This process is the default installation, which installs Teams to the **%AppData%** user folder. Per-user installation only works on personal host pools.
+2. Run the following commands to install the MSI to the host VM:
 
     - Per-machine installation
 
@@ -96,13 +88,24 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         |---|---|
         |ALLUSER=1|Used in virtual desktop infrastructure (VDI) environments to specify per-machine installation.|
         |ALLUSERS=1|Used in both non-VDI and VDI environments to make the Teams Machine-Wide Installer appear in Programs and Features under the Control Panel and in Apps & Features in Windows Settings. The installer lets all users with admin credentials uninstall Teams.|
+
+        When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
         
         > [!NOTE]
         > We recommend you use per-machine installation for better centralized management for both persistent and non-persistent setups.
         >
         > Users and admins can't disable automatic launch for Teams during sign-in at this time.
 
-        When you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month. To learn more about deploying the Teams desktop app, check out [Deploy the Teams desktop app to the VM](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/).
+    - Optionally, you can also install Teams with per-user installation by running the following command:
+
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        ```
+
+        This process is the default installation process, which installs Teams to the **%AppData%** user folder.
+        
+        >[!NOTE]
+        >Per-user installation only works on personal host pools. If your deployment uses pooled host pools, we recommend using per-machine installation instead.
 
 ## Verify media optimizations loaded
 
