@@ -115,13 +115,17 @@ az mysql flexible-server create \
     --output tsv
 ```
 
-Run the following command to create user identity for assigning:
+Run the following command to create **User-Assigned Identity** for assigning:
 
 ```azurecli
 az identity create \
 	--resource-group $AZ_RESOURCE_GROUP \
 	--name $AZ_USER_IDENTITY_NAME
 ```
+
+> [!IMPORTANT]
+> After creating **User-Assigned Identity**, ask your **Global Administrator** or **Privileged Role Administrator** to grant three permissions: `User.Read.All`, `GroupMember.Read.All` and `Application.Read.ALL` for this identity.
+> More information refer [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions)
 
 Run the following command to assign the identity to MySQL server for creating Azure AD admin:
 
