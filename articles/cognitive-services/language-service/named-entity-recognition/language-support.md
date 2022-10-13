@@ -24,33 +24,33 @@ Use this article to learn which natural languages are supported by the NER featu
 
 ## NER language support
 
-| Language              | Language code | Starting with model version: | Notes              |
-|:----------------------|:-------------:|:----------------------------:|:------------------:|
-| Arabic*               | `ar`          | 2019-10-01                   |                    |
-| Chinese-Simplified    | `zh-hans`     | 2021-01-15                   | `zh` also accepted |
-| Chinese-Traditional*  | `zh-hant`     | 2019-10-01                   |                    |
-| Czech*                | `cs`          | 2019-10-01                   |                    |
-| Danish*               | `da`          | 2019-10-01                   |                    |
-| Dutch*                | `nl`          | 2019-10-01                   |                    |
-| English               | `en`          | 2019-10-01                   |                    |
-| Finnish*              | `fi`          | 2019-10-01                   |                    |
-| French                | `fr`          | 2021-01-15                   |                    |
-| German                | `de`          | 2021-01-15                   |                    |
-| Hebrew                | `he`          | 2022-10-01                   |                    |
-| Hindi                 | `hi`          | 2022-10-01                   |                    |
-| Hungarian*            | `hu`          | 2019-10-01                   |                    |
-| Italian               | `it`          | 2021-01-15                   |                    |
-| Japanese              | `ja`          | 2021-01-15                   |                    |
-| Korean                | `ko`          | 2021-01-15                   |                    |
-| Norwegian  (Bokmål)*  | `no`          | 2019-10-01                   | `nb` also accepted |
-| Polish*               | `pl`          | 2019-10-01                   |                    |
-| Portuguese (Brazil)   | `pt-BR`       | 2021-01-15                   |                    |
-| Portuguese (Portugal) | `pt-PT`       | 2021-01-15                   | `pt` also accepted |
-| Russian*              | `ru`          | 2019-10-01                   |                    |
-| Spanish               | `es`          | 2020-04-01                   |                    |
-| Swedish*              | `sv`          | 2019-10-01                   |                    |
-| Turkish*              | `tr`          | 2019-10-01                   |                    |
+| Language              | Language code | Starting with model version: | Supports entity resolution | Notes              |
+|:----------------------|:-------------:|:----------------------------:|:--------------------------:|:------------------:|
+| Arabic*               | `ar`          | 2019-10-01                   |                            |                    |
+| Chinese-Simplified    | `zh-hans`     | 2021-01-15                   | ✓                         | `zh` also accepted |
+| Chinese-Traditional*  | `zh-hant`     | 2019-10-01                   |                            |                    |
+| Czech*                | `cs`          | 2019-10-01                   |                            |                    |
+| Danish*               | `da`          | 2019-10-01                   |                            |                    |
+| Dutch*                | `nl`          | 2019-10-01                   | ✓                         |                    |
+| English               | `en`          | 2019-10-01                   | ✓                         |                    |
+| Finnish*              | `fi`          | 2019-10-01                   |                            |                    |
+| French                | `fr`          | 2021-01-15                   | ✓                         |                    |
+| German                | `de`          | 2021-01-15                   | ✓                         |                    |
+| Hebrew                | `he`          | 2022-10-01                   |                            |                    |
+| Hindi                 | `hi`          | 2022-10-01                   | ✓                         |                    |
+| Hungarian*            | `hu`          | 2019-10-01                   |                            |                    |
+| Italian               | `it`          | 2021-01-15                   | ✓                         |                    |
+| Japanese              | `ja`          | 2021-01-15                   | ✓                         |                    |
+| Korean                | `ko`          | 2021-01-15                   |                            |                    |
+| Norwegian  (Bokmål)*  | `no`          | 2019-10-01                   |                            | `nb` also accepted |
+| Polish*               | `pl`          | 2019-10-01                   |                            |                    |
+| Portuguese (Brazil)   | `pt-BR`       | 2021-01-15                   | ✓                         |                    |
+| Portuguese (Portugal) | `pt-PT`       | 2021-01-15                   |                            | `pt` also accepted |
+| Russian*              | `ru`          | 2019-10-01                   |                            |                    |
+| Spanish               | `es`          | 2020-04-01                   | ✓                         |                    |
+| Swedish*              | `sv`          | 2019-10-01                   |                            |                    |
+| Turkish*              | `tr`          | 2019-10-01                   | ✓                         |                    |
 
 ## Next steps
 
-[PII feature overview](overview.md)
+[NER feature overview](overview.md)
