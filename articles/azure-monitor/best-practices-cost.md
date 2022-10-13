@@ -73,11 +73,6 @@ The most straightforward strategy to reduce your costs for data ingestion and re
 | Application insights | There are multiple methods that you can use to limit the amount of data collected by Application Insights. See 
 
 
-#### Virtual machines
-
-
-
-
 #### Application Insights
 
 

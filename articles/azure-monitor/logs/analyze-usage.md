@@ -22,7 +22,7 @@ An unexpected increase in any of these factors can result in increased charges f
 
 To avoid unexpected bills, you should be proactively notified anytime you experience excessive usage. Notification allows you to address any potential anomalies before the end of your billing period.
 
-The following example is a [log alert rule](alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** setting to use a different threshold based on expected usage in your environment. You can also increase the frequency to check usage multiple times every day, but this option will result in a higher charge for the alert rule.
+The following example is a [log alert rule](../alerts/alerts-unified-log.md) that sends an alert if the billable data volume ingested in the last 24 hours was greater than 50 GB. Modify the **Alert Logic** setting to use a different threshold based on expected usage in your environment. You can also increase the frequency to check usage multiple times every day, but this option will result in a higher charge for the alert rule.
 
 | Setting | Value |
 |:---|:---|
@@ -32,7 +32,7 @@ The following example is a [log alert rule](alerts/alerts-unified-log.md) that s
 | Query | `Usage \| where IsBillable \| summarize DataGB = sum(Quantity / 1000.)` |
 | Measurement | Measure: *DataGB*<br>Aggregation type: Total<br>Aggregation granularity: 1 day |
 | Alert Logic | Operator: Greater than<br>Threshold value: 50<br>Frequency of evaluation: 1 day |
-| Actions | Select or add an [action group](alerts/action-groups.md) to notify you when the threshold is exceeded. |
+| Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
 | **Details** | |
 | Severity| Warning |
 | Alert rule name | Billable data volume greater than 50 GB in 24 hours. |
