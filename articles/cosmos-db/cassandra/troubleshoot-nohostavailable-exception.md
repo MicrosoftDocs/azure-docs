@@ -3,11 +3,12 @@ title: Troubleshoot NoHostAvailableException and NoNodeAvailableException
 description: This article discusses the various reasons for having a NoHostException and ways to handle it.
 author: IriaOsara
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.topic: troubleshooting
 ms.date: 12/02/2021
 ms.author: IriaOsara
 ms.devlang: csharp, java
+ms.custom: ignite-2022
 ---
 
 # Troubleshoot NoHostAvailableException and NoNodeAvailableException
@@ -84,14 +85,14 @@ Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-
         .setCoreConnectionsPerHost(HostDistance.REMOTE, 10) // default 1
         .setMaxConnectionsPerHost(HostDistance.REMOTE, 10); //default 1
     
-    // cosmos load balancing policy
+    // Azure Cosmos DB load balancing policy
     String Region = "West US";
     CosmosLoadBalancingPolicy cosmosLoadBalancingPolicy = CosmosLoadBalancingPolicy.builder()
         .withWriteDC(Region)
         .withReadDC(Region)
         .build();
     
-    // cosmos retry policy
+    // Azure Cosmos DB retry policy
     CosmosRetryPolicy retryPolicy = CosmosRetryPolicy.builder()
         .withFixedBackOffTimeInMillis(5000)
         .withGrowingBackOffTimeInMillis(1000)
@@ -174,7 +175,7 @@ Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-
 
 ## Next steps
 * To understand the various error codes and their meaning, see [Server-side diagnostics](error-codes-solution.md).
-* See [Diagnose and troubleshoot issues with the Azure Cosmos DB .NET SDK](../sql/troubleshoot-dot-net-sdk.md).
-* Learn about performance guidelines for [.NET v3](../sql/performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](../sql/performance-tips.md).
-* See [Troubleshoot issues with the Azure Cosmos DB Java SDK v4 with SQL API accounts](../sql/troubleshoot-java-sdk-v4-sql.md).
-* See [Performance tips for the Azure Cosmos DB Java SDK v4](../sql/performance-tips-java-sdk-v4-sql.md).
+* See [Diagnose and troubleshoot issues with the Azure Cosmos DB .NET SDK](../nosql/troubleshoot-dotnet-sdk.md).
+* Learn about performance guidelines for [.NET v3](../nosql/performance-tips-dotnet-sdk-v3.md) and [.NET v2](../nosql/performance-tips.md).
+* See [Troubleshoot issues with the Azure Cosmos DB Java SDK v4 with API for NoSQL accounts](../nosql/troubleshoot-java-sdk-v4.md).
+* See [Performance tips for the Azure Cosmos DB Java SDK v4](../nosql/performance-tips-java-sdk-v4.md).
