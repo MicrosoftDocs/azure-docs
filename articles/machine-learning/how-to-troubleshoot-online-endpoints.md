@@ -189,7 +189,7 @@ Below is a list of common image build failure scenarios:
 
 If the error message mentions `"container registry authorization failure"`, that means the container registry could not be accessed with the current credentials.
 This can be caused by desynchronization of a workspace resource's keys and it takes some time to automatically synchronize.
-However, you can [manually call for a synchronization of keys](https://learn.microsoft.com/cli/azure/ml/workspace?view=azure-cli-latest#az-ml-workspace-sync-keys) which may resolve the authorization failure.
+However, you can [manually call for a synchronization of keys](https://learn.microsoft.com/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
 
 Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network been set up properly.
 
