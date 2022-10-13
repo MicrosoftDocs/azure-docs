@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 10/13/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -89,6 +89,34 @@ DRS 2.1 includes 17 rule groups, as shown in the following table. Each group con
 |**[MS-ThreatIntel-AppSec](#drs9903-21)**|Protect against AppSec attacks|
 |**[MS-ThreatIntel-SQLI](#drs99031-21)**|Protect against SQLI attacks|
 |**[MS-ThreatIntel-CVEs](#drs99001-21)**|Protect against CVE attacks|
+
+#### Disabled rules
+
+The following rules are disabled by default for DRS 2.1:
+
+
+|Rule ID  |Rule Group|Description  |Why disabled|
+|---------|---------|---------|---------|
+|932200      |LFI|RCE Bypass Technique |Missing MATCHED_VAR support in FDv2/Roxy|
+|942130      |SQLI |SQL Injection Attack: SQL Tautology Detected |Not supported by Regex engine |
+|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
+|942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
+|942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Replaced by MSTIC rule 99031004 |
+|942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Too many false positives.|
+|942440      |SQLI|SQL Comment Sequence Detected|Replaced by MSTIC rule 99031002 |
+|920380      |PROTOCOL-ENFORCEMENT |Too many arguments in request |Requires customer input to specify request limits |
+|920360      |PROTOCOL-ENFORCEMENT|Argument name too long |Requires customer input to specify request limits|
+|920370      |PROTOCOL-ENFORCEMENT|Argument name too long|Requires customer input to specify request limits|
+|920390      |PROTOCOL-932200 ENFORCEMENT |Total arguments size exceeded |Requires customer input to specify request limits|
+|920400      |PROTOCOL-ENFORCEMENT|Uploaded file size too large |Requires customer input to specify request limits |
+|920410      |PROTOCOL-ENFORCEMENT|Total uploaded files size too large |Requires customer input to specify request limits |
+|920250      |PROTOCOL-ENFORCEMENT|UTF8 Encoding Abuse Attack Attempt |Disabled by default in CRS |
+|913102      |SCANNER-DETECTION |Found User-Agent associated with web crawler/bot |To be integrated into Bot Manager ruleset |
+|913101      |SCANNER-DETECTION |Found User-Agent associated with scripting/generic HTTP client |To be integrated into Bot Manager ruleset |
+|913120      |SCANNER-DETECTION |Found request filename/argument associated with security scanner |To be integrated into Bot Manager ruleset |
+|913110      |SCANNER-DETECTION |Found request header associated with security scanner |To be integrated into Bot Manager ruleset |
+|913100      |SCANNER-DETECTION |Found User-Agent associated with security scanner |To be integrated into Bot Manager ruleset |
+
 
 ### DRS 2.0
 
