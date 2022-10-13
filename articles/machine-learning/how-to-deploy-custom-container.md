@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: sehan
 author: dem108
 ms.reviewer: larryfr
-ms.date: 05/11/2022
+ms.date: 10/13/2022
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
 ms.devlang: azurecli
@@ -19,11 +19,6 @@ ms.devlang: azurecli
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to deploy a custom container as an online endpoint in Azure Machine Learning.
 

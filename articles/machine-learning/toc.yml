@@ -432,6 +432,10 @@
               href: how-to-train-scikit-learn.md
             - name: TensorFlow
               href: how-to-train-tensorflow.md
+            - name: Keras
+              href: how-to-train-keras.md
+            - name: PyTorch
+              href: how-to-train-pytorch.md   
             - name: Use Key Vault when training
               displayName: secrets keyvault job
               href: how-to-use-secrets-in-runs.md
