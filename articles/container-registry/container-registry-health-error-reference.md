@@ -2,7 +2,9 @@
 title: Error reference for registry health checks
 description: Error codes and possible solutions to problems found by running the az acr check-health diagnostic command in Azure Container Registry
 ms.topic: article
-ms.date: 01/25/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 # Health check error reference
 
@@ -50,7 +52,7 @@ This error means that the CLI was unable to determine the Helm version installed
 
 This error means that the registry can't access the user-assigned or sysem-assigned managed identity used to configure registry encryption with a customer-managed key. The managed identity might have been deleted.  
 
-*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](container-registry-customer-managed-keys.md#troubleshoot).
+*Potential solution*: To resolve the issue and rotate the key using a different managed identity, see steps to troubleshoot [the user-assigned identity](tutorial-troubleshoot-customer-managed-keys.md).
 
 ## CONNECTIVITY_DNS_ERROR
 
