@@ -223,24 +223,36 @@ items:
     - name: Prometheus metrics
       items: 
       - name: Overview
+        displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: Rule groups
+        displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Configure Grafana
+        displayName: Prometheus
+        href: essentials/prometheus-grafana.md
       - name: Troubleshoot collection
+        displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md
       - name: Customize collection
         items:
         - name: Default configuration
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-default.md
         - name: High scale
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-scale.md
         - name: Custom configuration
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration.md
         - name: Create and validate custom scrape config
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration-minimal.md
         - name: Send to multiple metric workspaces
+          displayName: Prometheus
           href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics explorer
       items:
