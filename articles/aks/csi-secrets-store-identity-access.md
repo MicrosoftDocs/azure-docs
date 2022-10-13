@@ -15,7 +15,7 @@ The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides a variet
 
 ## Use Azure AD workload identity (preview)
 
-An Azure AD workload identity is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer where Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
+An [Azure AD workload identity][workload-identity] is an identity used by an application running on a pod that can authenticate itself against other Azure services that support it, such as Storage or SQL. It integrates with the capabilities native to Kubernetes to federate with external identity providers. In this security model, the AKS cluster acts as token issuer where Azure Active Directory uses OpenID Connect to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
 
 > [!NOTE]
 > This authentication method replaces pod-managed identity (preview).
@@ -46,7 +46,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     export IDENTITY_TENANT=$(az aks show --name $clusterName --resource-group $RG --query aadProfile.tenantId -o tsv)
     ```
 
-2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the [az keyvault set-policy][az-keyvault-set-policy] command as shown below.
+2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the `az keyvault set-policy` command shown below.
 
     ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $USER_ASSIGNED_CLIENT_ID
@@ -456,5 +456,5 @@ To validate that the secrets are mounted at the volume path that's specified in 
 [az-rest]: /cli/azure/reference-index#az-rest
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [enable-oidc-issuer]: cluster-configuration.md#oidc-issuer
-
+[workload-identity]: ./workload-identity-overview.md
 <!-- LINKS EXTERNAL -->
