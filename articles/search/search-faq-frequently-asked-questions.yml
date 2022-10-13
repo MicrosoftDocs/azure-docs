@@ -27,6 +27,11 @@ sections:
           Azure Search was renamed to Azure Cognitive Search in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. 
 
       - question: |
+          What languages are supported?
+        answer: |
+          The default analyzer used for tokenization is standard Lucene and it's language agnostic. Otherwise, language support is expressed through [language analyzers](index-add-language-analyzers.md#supported-language-analyzers) that apply linguistic rules to inbound (indexing) and outbound (queries) content. Some features, such as [semantic search](/rest/api/searchservice/preview-api/search-documents#queryLanguage) and [speller](speller-how-to-add.md#supported-languages), are limited to a subset of languages.
+
+      - question: |
           How do integrate search into my solution?
         answer: |
           Client code should call the client libraries or REST APIs to connect to a search index, formulate queries, and handle responses. You can also write code that builds and refreshes an index, or runs indexers programmatically or by script.
