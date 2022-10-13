@@ -1,6 +1,7 @@
 ---
 author: ElazarK
 ms.service: defender-for-cloud
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/14/2022
 ms.author: elkrieger
@@ -27,6 +28,8 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
     > [!Note]
     > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](../supported-machines-endpoint-solutions-clouds-containers.md).
+
+1. (Optional) Enable vulnerability scanning of your ECR images. Learn more about [vulnerability assessment for ECR images](../defender-for-containers-va-ecr.md).
 
 1. Continue through the remaining pages of the connector wizard.
 
