@@ -7,61 +7,21 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 10/11/2022
-ms.custom: references_regions
+ms.custom:
 ---
 # Provision access to Arc-enabled SQL Server for DevOps actions (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-This how-to guide shows how to provision access via Microsoft Purview to Arc-enabled SQL Server system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
+[DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
+
+This how-to guide covers how to provision access from Microsoft Purview to Arc-enabled SQL Server system metadata (DMVs and DMFs) via *SQL Performance Monitoring* or *SQL Security Auditing* actions. Microsoft Purview access policies apply to Azure AD Accounts only.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
-- Get SQL server version 2022 RC 1 or later running on Windows and install it. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022).
-- Complete process to onboard that SQL server with Azure Arc [Follow this link](https://learn.microsoft.com/sql/sql-server/azure-arc/connect).
-- Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup [follow this link](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
+[!INCLUDE [Access policies Arc enabled SQL Server pre-requisites](./includes/access-policies-prerequisites-arc-sql-server.md)]
 
-**Enforcement of policies for this data source is currently available in the following regions for Microsoft Purview**
-- East US
-- East US2
-- South Central US
-- West US3
-- Canada Central
-- Brazil South
-- North Europe
-- West Europe
-- France Central
-- UK South
-- Japan East
-- Australia East
-
-## Security considerations for SQL Server
-- The Server admin can turn off the Microsoft Purview policy enforcement.
-- Arc Admin/Server admin permissions empower the Arc admin or Server admin with the ability to change the ARM path of the given server. Given that mappings in Microsoft Purview use ARM paths, this can lead to wrong policy enforcements. 
-- SQL Admin (DBA) can gain the power of Server admin and can tamper with the cached policies from Microsoft Purview.
-- The recommended configuration is to create a separate App Registration per SQL server instance. This prevents SQL server2 from reading the policies meant for SQL server1, in case a rogue admin in SQL server2 tampers with the ARM path.
-
-## Configuration
-
-### Configuration for Arc-enabled SQL server
-This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
-
-1. Sign in to Azure portal this this [link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/sqlServers) which lists SQL Servers on Azure Arc.
-
-1. Select the SQL Server you want to configure
-
-1. Navigate to **Azure Active Directory** feature on the left pane
-
-1. Verify that Azure Active Directory Authentication is configured. This means that all these have been entered: an admin login, a SQL Server service certificate, and a SQL Server app registration.
-![Screenshot shows how to configure Microsoft Purview endpoint in Azure AD section.](./media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
-
-1. Scroll down to set **External Policy Based Authorization** to enabled
-
-1. Enter **Microsoft Purview Endpoint** in the format *https://\<purview-account-name\>.purview.azure.com*. You can see the names of Microsoft Purview accounts in your tenant through [this link](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Purview%2FAccounts). Optionally, you can confirm the endpoint by navigating to the Microsoft Purview account, then  to the Properties section on the left menu and scrolling down until you see "Scan endpoint". The full endpoint path will be the one listed without the "/Scan" at the end.
-
-1. Make a note of the **App registration ID**, as you will need it when you register and enable this data source for *Data use Management* in Microsoft Purview.
-   
-1. Select the **Save** button to save the configuration.
+## Microsoft Purview configuration
 
 ### Register data sources in Microsoft Purview
 The Arc-enabled SQL Server data source needs to be registered first with Microsoft Purview, before policies can be created.
@@ -85,9 +45,6 @@ The Arc-enabled SQL Server data source needs to be registered first with Microso
 
 Once your data source has the **Data Use Management** toggle *Enabled*, it will look like this picture. 
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-arc-sql.png)
-
-> [!Important]
-> You can assign the data source side permission (i.e., *IAM Owner*) **only** by entering Azure portal through this [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers). Alternatively, you can configure this permission at the parent resource group level so that it gets inherited by the "SQL Server - Azure Arc" data source.
 
 > [!Note]
 > If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID.
@@ -144,7 +101,6 @@ SELECT * FROM sys.dm_server_external_policy_principal_assigned_actions
 ```
 
 ## Additional information
-N/A
 
 ### Policy action mapping
 
