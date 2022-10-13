@@ -94,6 +94,8 @@
         href: event-hubs-capture-overview.md
       - name: Explore captured Avro files
         href: explore-captured-avro-files.md
+    - name: Log compaction
+      href: log-compaction.md
     - name: Application groups
       href: resource-governance-overview.md     
     - name: Tiers 
@@ -175,8 +177,6 @@
         href: event-hubs-amqp-troubleshoot.md
 - name: How-to guides
   items:
-    - name: Create and manage application groups
-      href: resource-governance-with-app-groups.md
     - name: Develop
       items:
         - name: Get Event Hubs connection string
@@ -203,6 +203,11 @@
               href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
             - name: JavaScript in GitHub (azure/event-hubs)
               href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
+    - name: Use log compaction
+      href: use-log-compaction.md
+    - name: Create and manage application groups
+      href: resource-governance-with-app-groups.md
+
     - name: Process data
       items:
         - name: Capture Event Hubs data in Parquet format

@@ -114,10 +114,6 @@ This feature is fundamentally at odds with Azure Event Hubs' multi-protocol mode
 
 The payload of any Event Hubs event is a byte stream and the content can be compressed with an algorithm of your choosing. The Apache Avro encoding format supports compression natively.
 
-### Log Compaction
-
-Apache Kafka log compaction is a feature that allows evicting all but the last record of each key from a partition, which effectively turns an Apache Kafka topic into a key-value store where the last value added overrides the previous one. This feature is presently not implemented by Azure Event Hubs. The key-value store pattern, even with frequent updates, is far better supported by database services like [Azure Cosmos DB](../cosmos-db/introduction.md). For more information, see [Log Projection](event-hubs-federation-overview.md#log-projections). 
-
 ### Kafka Streams
 
 Kafka Streams is a client library for stream analytics that is part of the Apache Kafka open-source project, but is separate from the Apache Kafka event stream broker. 
