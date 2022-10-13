@@ -26,7 +26,7 @@ The following steps will help create a Conditional Access policy for Azure Conta
 ## Prerequisites
 
 >* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or later. To find the version, run `az --version`.
->* Sign into [Azure portal.](https://portal.azure.com) 
+>* Sign into [Azure portal.](https://portal.azure.com).
 
 ## Disable authentication-as-arm in ACR - Azure CLI
 
@@ -58,7 +58,7 @@ You can disable authentication-as-arm in the ACR, by following below steps:
   
 You can enable registry's Conditional Access policy in the [Azure portal](https://portal.azure.com). 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your **Azure Container Registry** > **Resource Group** > **Settings** > **Policies** .
  
@@ -80,7 +80,7 @@ You can enable registry's Conditional Access policy in the [Azure portal](https:
    
      :::image type="content" source="media/container-registry-enable-conditional-policy/05-built-in-policy-definitions.png" alt-text="Screenshot of built-in-policy-definitions":::
 
-Azure Container Registry has two built-in policy definitions to disable authentication-as-arm 
+Azure Container Registry has two built-in policy definitions to disable authentication-as-arm, as below:
 
 >* `Container registries should have ARM audience token authentication disabled.` - This policy will report, block any non-compliant resources, and also sends a request to update non-compliant to compliant.
 >* `Configure container registries to disable ARM audience token authentication.` - This policy offers remediation and updates non-compliant to compliant resources.
@@ -91,7 +91,7 @@ Azure Container Registry has two built-in policy definitions to disable authenti
 
 1. Confirm your settings and set policy enforcement as **enabled**.
 
-1. Select **Review+Create**
+1. Select **Review+Create**.
 
    :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy":::
 
@@ -153,6 +153,6 @@ We have now completed creating the Conditional Access policy for the Azure Conta
 
 ## Next steps
 
-* Learn more about [Azure Policy definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md)
-* Learn more about [common access concerns that Conditional Access policies can help with](concept-conditional-access-policy-common.md)
-* Learn more about [Identity Protection](../identity-protection/overview-identity-protection.md)
+* Learn more about [Azure Policy definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md).
+* Learn more about [common access concerns that Conditional Access policies can help with](concept-conditional-access-policy-common.md).
+* Learn more about [Identity Protection](../identity-protection/overview-identity-protection.md).
