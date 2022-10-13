@@ -28,7 +28,7 @@
     - name: Azure Cosmos DB
       href: understand-cosmosdb-reservation-charges.md
     - name: Azure Cosmos DB for PostgreSQL
-      href: ../../cosmos-db/postgresql/resources-pricing?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../cosmos-db/postgresql/resources-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Database for MariaDB
       href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
