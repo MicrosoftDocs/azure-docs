@@ -121,7 +121,7 @@ During the hunting and investigation process, you may come across query results 
 
 - In your results, mark the checkboxes for any rows you want to preserve, and select **Add bookmark**. This creates for a record for each marked row - a bookmark - that contains the row results as well as the query that created the results. You can add your own tags and notes to each bookmark.
 
-  - As with custom queries, you can enrich your bookmarks with entity mappings to extract multiple entity types and identifiers, and MITRE ATT&CK mappings to associate particular tactics and techniques.
+  - As with scheduled analytics rules, you can enrich your bookmarks with entity mappings to extract multiple entity types and identifiers, and MITRE ATT&CK mappings to associate particular tactics and techniques.
   - Bookmarks will default to use the same entity and MITRE ATT&CK technique mappings as the hunting query that produced the bookmarked results. 
 
 - View all the bookmarked findings by clicking on the **Bookmarks** tab in the main **Hunting** page. Add tags to bookmarks to classify them for filtering. For example, if you're investigating an attack campaign, you can create a tag for the campaign, apply the tag to any relevant bookmarks, and then filter all the bookmarks based on the campaign.
