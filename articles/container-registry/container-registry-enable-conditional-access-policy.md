@@ -50,9 +50,9 @@ Disabling `authentication-as-arm` property by assigning a built-in policy will a
 
 You can disable authentication-as-arm in the ACR, by following below steps:
 
->* Sign in to the [Azure portal](https://portal.azure.com). 
->* Refer to the ACR's built-in policy definitions in the [azure-container-registry-built-in-policy definition's](policy-reference.md).
->* Assign a built-in policy to disable authentication-as-arm definition - Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+2. Refer to the ACR's built-in policy definitions in the [azure-container-registry-built-in-policy definition's](policy-reference.md).
+3. Assign a built-in policy to disable authentication-as-arm definition - Azure portal.
 
 ### Assign a built-in policy definition to disable ARM audience token authentication - Azure portal.
   
@@ -132,14 +132,14 @@ Create a Conditional Access policy and assign your test group of users as follow
 
 1.  Browse for and select apps to apply Conditional Access, in this case *Azure Container Registry*, then choose **Select**.
 
-   :::image type="content" alt-text="A screenshot of the list of apps, with results filtered, and 'Azure Container Registry' selected." source="media/container-registry-enable-conditional-policy/05-select-azure-container-registry-app.png":::
+      :::image type="content" alt-text="A screenshot of the list of apps, with results filtered, and 'Azure Container Registry' selected." source="media/container-registry-enable-conditional-policy/05-select-azure-container-registry-app.png":::
 
 1.  Under **Conditions** , configure control access level with options such as *User risk level*, *Sign-in risk level*, *Sign-in risk detections (Preview)*, *Device platforms*, *Locations*, *Client apps*, *Time (Preview)*, *Filter for devices*.
 
 1. Under **Grant**, filter and choose from options to enforce grant access or block access, during a sign-in event to the Azure portal. In this case grant access with *Require multifactor authentication*, then choose **Select**.
 
->[!TIP]
-> To configure and grant multi-factor authentication, see [configure and conditions for multi-factor authentication.](/azure/active-directory/authentication/tutorial-enable-azure-mfa#configure-the-conditions-for-multi-factor-authentication)
+   >[!TIP]
+   > To configure and grant multi-factor authentication, see [configure and conditions for multi-factor authentication.](/azure/active-directory/authentication/tutorial-enable-azure-mfa#configure-the-conditions-for-multi-factor-authentication)
 
 1. Under **Session**, filter and choose from options to enable any control on session level experience of the cloud apps.
 
@@ -153,12 +153,6 @@ We have now completed creating the Conditional Access policy for the Azure Conta
 
 ## Next steps
 
-To learn more about assigning policies
-
-> [!div class="nextstepaction"]
-> Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md).
-> Learn more about [governance capabilities](../governance/index.yml).
-> The [policy assignment structure](/azure/governance/policy/concepts/assignment-structure#enforcement-mode)
-> Enable conditional policy using [Azure portal](../governance/policy/assign-policy-portal.md) 
-> Enable conditional policy using [Azure CLI](../governance/policy/assign-policy-azurecli.md)
-> Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
+* Learn more about [Azure Policy definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md)
+* Learn more about [common access concerns that Conditional Access policies can help with](concept-conditional-access-policy-common.md)
+* Learn more about [Identity Protection](../identity-protection/overview-identity-protection.md)
