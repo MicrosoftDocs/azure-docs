@@ -128,7 +128,7 @@ PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-0
 >[!NOTE]
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which updates the `displayName` to the device:
+The sample request body looks like the following example that updates the `displayName` to the device:
 
 ```json
 {
@@ -360,7 +360,7 @@ The response to this request looks like the following example:
 
 You can also combine two or more filters.
 
-The following example shows how to retrieve the top 2 device where the display name contains the string `thermostat`.
+The following example shows how to retrieve the top two devices where the display name contains the string `thermostat`.
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
@@ -469,7 +469,7 @@ The response to this request looks like the following example:
 PATCH https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
-The sample request body looks like the following example which updates the `displayName` of the device group:
+The sample request body looks like the following example that updates the `displayName` of the device group:
 
 ```json
 {
@@ -860,7 +860,7 @@ Use the following request to update an enrollment group.
 PATCH https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
 ```
 
-The following example shows a request body that updates the display name of a  enrollment group:
+The following example shows a request body that updates the display name of an enrollment group:
 
 ```json
 {

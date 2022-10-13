@@ -277,7 +277,7 @@ The response to this request looks like the following example:
 }
 ```
 
-If the device is an IoT Edge device, use the following request to retrieve property values from a from a module. This example uses a device called `environmental-sensor-01` with a module called `SimulatedTemperatureSensor`:
+If the device is an IoT Edge device, use the following request to retrieve property values from a module. This example uses a device called `environmental-sensor-01` with a module called `SimulatedTemperatureSensor`:
 
 ```http
 GET https://{your app subdomain}.azureiotcentral.com/api/devices/environmental-sensor-01/modules/SimulatedTemperatureSensor/properties?api-version=2022-07-31

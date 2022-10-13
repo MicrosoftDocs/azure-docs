@@ -456,7 +456,7 @@ PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?ap
 >[!NOTE]
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which adds a the `LastMaintenanceDate` cloud property to the device template:
+The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the device template:
 
 ```json
 {
@@ -1264,7 +1264,7 @@ The response to this request looks like the following example:
 
 You can also combine two or more filters.
 
-The following example shows how to retrieve the top 2 device templates where the display name contains the string `thermostat`.
+The following example shows how to retrieve the top two device templates where the display name contains the string `thermostat`.
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
