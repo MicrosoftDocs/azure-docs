@@ -108,12 +108,6 @@ The SFTP connector has different versions, based on [logic app type and host env
 
 ## Add an SFTP trigger
 
-The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create and edit logic app workflows:
-
-* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
-
-* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
-
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
@@ -242,17 +236,25 @@ For example, the action named **Get file content using path** gets the content f
 
 ## Override chunk size
 
-To override the default adaptive behavior that chunking uses, you can specify a constant chunk size from 5 MB to 50 MB.
+To override the default adaptive behavior that chunking uses on an SFTP-SSH action, you can specify a constant chunk size from 5 MB to 50 MB.
+
+### [Consumption](#tab/consumption)
+
+1. On the designer, in the SFTP-SSH action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
+
+1. Under **Content Transfer**, in the **Chunk size** property, enter an integer value from `5` to `50`.
+
+1. After you finish, select **Done**.
+
+### [Standard](#tab/standard)
 
 1. In the action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
 
-   ![Open SFTP-SSH settings](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
-
-1. Under **Content Transfer**, in the **Chunk size** property, enter an integer value from `5` to `50`, for example: 
-
-   ![Specify chunk size to use instead](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+1. Under **Content Transfer**, in the **Chunk size** property, enter an integer value from `5` to `50`.
 
 1. After you finish, select **Done**.
+
+---
 
 <a name="troubleshooting-errors"></a>
 
