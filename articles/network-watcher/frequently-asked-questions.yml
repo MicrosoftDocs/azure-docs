@@ -96,7 +96,7 @@ sections:
       - question: |
           Why is only one instance of Network Watcher allowed per region? 
         answer: |
-          Network Watcher just needs to be enabled once for a subscription for its features to work, this is a not a service limit.
+          Network Watcher just needs to be enabled once for a subscription for its features to work, this is not a service limit.
 
       - question: |
           How can I manage the Network Watcher Resource? 
@@ -108,7 +108,7 @@ sections:
       - question: |
           Is the Network Watcher service zone resilient? 
         answer: |
-          Yes. The the Network Watcher service is zone-resilient by default. 
+          Yes. The Network Watcher service is zone-resilient by default. 
 
       - question: |
           How do I configure the Network Watcher service to be zone-resilient? 
