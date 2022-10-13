@@ -234,7 +234,7 @@ To generate device keys, use the enrollment group master key to compute an [HMAC
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [az iot dps enrollment-group compute-device-key](/cli/azure/iot/dps/enrollment-group?view=azure-cli-latest#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used from both Windows-based and Linux systems.
+The IoT extension for the Azure CLI provides the [az iot dps enrollment-group compute-device-key](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used from both Windows-based and Linux systems.
 
 Replace the value of the `--key` parameter with the **Primary Key** from your enrollment group.
 
