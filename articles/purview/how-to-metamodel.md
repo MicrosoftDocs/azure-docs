@@ -1,6 +1,6 @@
 ---
 title: Manage assets with metamodel
-description: The Microsoft Purview metamodel helps you represent a business perspective of your data— how it’s grouped into data domains, used in business processes, organized into systems, and more.  
+description: The Microsoft Purview metamodel helps you represent a business perspective of your data, how it’s grouped into data domains, used in business processes, organized into systems, and more.  
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
@@ -11,7 +11,6 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
 # Manage assets with metamodel
-TODO: Add your heading
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
@@ -29,7 +28,7 @@ introduction.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](../create-catalog-portal.md).
 - Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md).
-- [Data Curator role](catalog-permissions.md#roles) on the collection where the data asset his housed. See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users).
+- [Data Curator role](catalog-permissions.md#roles) on the collection where the data asset is housed. See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users).
 
 ## Create and modify asset types
 
@@ -51,16 +50,18 @@ introduction.
 
 1. There will be no integration with collections when private preview opens, so all assets created via the metamodel canvas will be listed under the data catalog. 
 
-1. To create a new asset, select **New asset**, select the asset type from the drop down menu, give it a name, description, and complete any required attributes.
+1. To create a new asset, select **New asset**, select the asset type from the drop-down menu, give it a name, description, and complete any required attributes.
 
-1. To establish a relationship between two assets, go to the asset detail page and select **Edit** > **Related** and the relationship you’d like to populate.
+1. To establish a relationship between two assets, go to the asset detail page and select **Edit > Related,** and the relationship you’d like to populate.
 
 1. Select the assets or assets you’d like to link from the data catalog and select **OK**.
 
 1. Save your changes. You can see the relationships you established in the asset overview.
 
-1. You can also explore a visual representation of related assets in the Related tab. Note: this is the experience provided by default from Atlas. We know it leaves much to be desired. During private preview we’ll finalize designs for how this will look for public preview and beyond.
+1. You can also explore a visual representation of related assets in the Related tab. 
 
+>[!NOTE]
+>This is the experience provided by default from Atlas.
 
 ## Next steps
 

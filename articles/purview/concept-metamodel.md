@@ -1,6 +1,6 @@
 ---
 title: Microsoft Purview metamodel
-description: The Microsoft Purview metamodel helps you represent a business perspective of your data— how it’s grouped into data domains, used in business processes, organized into systems, and more.  
+description: The Microsoft Purview metamodel helps you represent a business perspective of your data, how it’s grouped into data domains, used in business processes, organized into systems, and more.  
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
@@ -16,7 +16,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 The Microsoft Purview metamodel helps you represent a business perspective of your data—how it’s grouped into data domains, used in business processes, organized into systems, and more.  
 
-The backbone of the metamodel is comprised of asset types and their relationship definitions. An asset type is a template for storing a concept that’s important to you—anything you might want to represent in your data map alongside your physical metadata. The instances of each asset type are assets. These can be discovered in the data catalog just like the data assets that are automatically created when you scan and ingest new metadata.
+The backbone of the metamodel is composed of asset types and their relationship definitions. An asset type is a template for storing a concept that’s important to you—anything you might want to represent in your data map alongside your physical metadata. The instances of each asset type are assets. These can be discovered in the data catalog just like the data assets that are automatically created when you scan and ingest new metadata.
 
 Relationships are first class citizens of the metamodel. A relationship definition is the template for a relationship you’d like to represent in your data map. The relationship is the instance.  
 
