@@ -16,7 +16,7 @@ To support security best practices and remain in compliance with industry standa
 
 TLS versions 1.0 and TLS 1.1 are known to be susceptible to BEAST and POODLE attacks and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. TLS 1.0 and TLS 1.1 don't support the modern encryption methods and cipher suites that the Payment Card Industry (PCI) compliance standards recommends. Microsoft is participating in an industry-wide push toward the exclusive use of TLS version 1.2 or later.
 
-If you have already migrated to use TLS 1.2 in your Batch client application, then this retirement does not apply to you. Only APIs requests which go directly to the Batch service via the data plane API (i.e., not management plane) are impacted. API requests at the management plane layer are routed through ARM and are subject to ARM TLS minimum version requirements, although we recommend for security best practices to migrate to TLS 1.2 across all client calls, if applicable.
+If you've already migrated to use TLS 1.2 in your Batch client application, then this retirement doesn't apply to you. Only APIs requests that go directly to the Batch service via the data plane API (that is, not management plane) are impacted. API requests at the management plane layer are routed through ARM and are subject to ARM TLS minimum version requirements. We recommend that you migrate to TLS 1.2 across Batch data plane or management plane API calls for security best practices, if applicable.
 
 ## Alternative: Use TLS 1.2
 
@@ -40,11 +40,11 @@ For more information, see [TLS best practices for the .NET Framework](/dotnet/fr
 
 - What happens if I don’t upgrade?
 
-   After the feature retirement from Azure Batch, your client application will not be able to communicate with Batch data plane API services unless you upgrade to TLS 1.2.
+   After the feature retirement from Azure Batch, your client application won't be able to communicate with Batch data plane API services unless you upgrade to TLS 1.2.
 
-- Will upgrading to TLS 1.2 affect the performance of my application?
+- Does upgrading to TLS 1.2 affect the performance of my application?
 
-   Upgrading to TLS 1.2 shouldn't affect your application's performance.
+   Upgrading to TLS 1.2 generally shouldn't affect your application's performance.
 
 - How do I know if I’m using TLS 1.0 or TLS 1.1?
 
