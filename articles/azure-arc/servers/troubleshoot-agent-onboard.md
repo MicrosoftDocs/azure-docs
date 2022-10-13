@@ -23,8 +23,8 @@ Use the following table to identify and resolve issues when configuring the Azur
 | AZCM0018 | The command was executed without administrative privileges | Retry the command in an elevated user context (administrator/root). |
 | AZCM0019 | The path to the configuration file is incorrect | Ensure the path to the configuration file is correct and try again. |
 | AZCM0023 | The value provided for a parameter (argument) is invalid | Review the error message for more specific information. Refer to the syntax of the command (`azcmagent <command> --help`) for valid values or expected format for the arguments. |
-| AZCM0026 | There is an error in network configuration or some critical services are temporarily unavailable | Check if the required endpoints are reachable (e.g., hostnames are resolvable, endpoints are not blocked). If the network is configured for Private Link Scope, a Private Link Scope resource ID must be provided for onboarding using the `--private-link-scope` parameter. |
-| AZCM0041 | The credentials supplied are invalid | For device logins, verify that the user account specified has access to the tenant and subscription where the server resource will be created<sup>[1](#footnote3)</sup>.<br> For service principal logins, check the client ID and secret for correctness, the expiration date of the secret<sup>[2](#footnote4)</sup>, and that the service principal is from the same tenant where the server resource will be created<sup>[1](#footnote3)</sup>.<br> <a name="footnote3"></a><sup>1</sup>See [How to find your Azure Active Directory tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).<br> <a name="footnote4"></a><sup>2</sup>In Azure portal, open Azure Active Directory and select the App registration blade. Select the application to be used and the Certificates and secrets within it. Check whether the expiration data has passed. If it has, create new credentials with sufficient roles and try again — see [Connected Machine agent prerequisites-required permissions](prerequisites.md#required-permissions). |
+| AZCM0026 | There is an error in network configuration or some critical services are temporarily unavailable | Check if the required endpoints are reachable (for example, hostnames are resolvable, endpoints are not blocked). If the network is configured for Private Link Scope, a Private Link Scope resource ID must be provided for onboarding using the `--private-link-scope` parameter. |
+| AZCM0041 | The credentials supplied are invalid | For device logins, verify that the user account specified has access to the tenant and subscription where the server resource will be created<sup>[1](#footnote3)</sup>.<br> For service principal logins, check the client ID and secret for correctness, the expiration date of the secret<sup>[2](#footnote4)</sup>, and that the service principal is from the same tenant where the server resource will be created<sup>[1](#footnote3)</sup>.<br> <a name="footnote3"></a><sup>1</sup>See [How to find your Azure Active Directory tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant).<br> <a name="footnote4"></a><sup>2</sup>In Azure portal, open Azure Active Directory and select the App registration blade. Select the application to be used and the Certificates and secrets within it. Check whether the expiration data has passed. If it has, create new credentials with sufficient roles and try again. See [Connected Machine agent prerequisites-required permissions](prerequisites.md#required-permissions). |
 | AZCM0042 | Creation of the Azure Arc-enabled server resource failed | Review the error message in the output to identify the cause of the failure to create resource and the suggested remediation. For permission issues, see [Connected Machine agent prerequisites-required permissions](prerequisites.md#required-permissions) for more information. |
 | AZCM0043 | Deletion of the Azure Arc-enabled server resource failed | Verify that the user/service principal specified has permissions to delete Azure Arc-enabled server/resources in the specified group — see [Connected Machine agent prerequisites-required permissions](prerequisites.md#required-permissions).<br> If the resource no longer exists in Azure, use the `--force-local-only` flag to proceed. |
 | AZCM0044 | A resource with the same name already exists | Specify a different name for the `--resource-name` parameter or delete the existing Azure Arc-enabled server in Azure and try again. |
@@ -32,10 +32,10 @@ Use the following table to identify and resolve issues when configuring the Azur
 | AZCM0063 | An error occurred while disconnecting the server | Review the error message in the output for more specific information. If this error persists, delete the resource in Azure, and then run `azcmagent disconnect --force-local-only` on the server. |
 | AZCM0067 | The machine is already connected to Azure | Run `azcmagent disconnect` to remove the current connection, then try again. |
 | AZCM0068 | Subscription name was provided, and an error occurred while looking up the corresponding subscription GUID. | Retry the command with the subscription GUID instead of subscription name. |
-| AZCM0061<br>AZCM0064<br>AZCM0065<br>AZCM0066<br>AZCM0070<br> | The agent service is not responding or unavailable | Verify the command is run in an elevated user context (administrator/root), ensure that the HIMDS service is running (start or restart HIMDS as needed), and try the command again. |
+| AZCM0061<br>AZCM0064<br>AZCM0065<br>AZCM0066<br>AZCM0070<br> | The agent service is not responding or unavailable | Verify the command is run in an elevated user context (administrator/root). Ensure that the HIMDS service is running (start or restart HIMDS as needed) then try the command again. |
 | AZCM0081 | An error occurred while downloading the Azure Active Directory managed identity certificate | If this message is encountered while attempting to connect the server to Azure, the agent won't be able to communicate with the Azure Arc service. Delete the resource in Azure and try connecting again. |
 | AZCM0101 | The command was not parsed successfully | Run `azcmagent <command> --help` to review the command syntax |
-| AZCM0102 | An error occurred while retrieving the computer hostname | Retry the command and specify a resource name (with parameter --resource-name or –n), which uses only alphanumeric characters, hyphens and/or underscores; note that resource name cannot end with a hyphen or underscore. |
+| AZCM0102 | An error occurred while retrieving the computer hostname | Retry the command and specify a resource name (with parameter --resource-name or –n). Use only alphanumeric characters, hyphens and/or underscores; note that resource name cannot end with a hyphen or underscore. |
 | AZCM0103 | An error occurred while generating RSA keys | Contact Microsoft Support for assistance |
 | AZCM0105 | An error occurred while downloading the Azure Active Directory managed identify certificate | Delete the resource created in Azure and try again. |
 | AZCM0147-<br>AZCM0152 | An error occurred while installing Azcmagent on Windows | Review the error message in the output for more specific information. |
@@ -47,13 +47,13 @@ Before following the troubleshooting steps described later in this article, the 
 
 ### Windows
 
-The following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an interactive installation.
+Following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an interactive installation.
 
 ```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
-The following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an at-scale installation using a service principal.
+Following is an example of the command to enable verbose logging with the Connected Machine agent for Windows when performing an at-scale installation using a service principal.
 
 ```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
@@ -68,7 +68,7 @@ The following is an example of the command to enable verbose logging with the Co
 
 ### Linux
 
-The following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an interactive installation.
+Following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an interactive installation.
 
 >[!NOTE]
 >You must have *root* access permissions on Linux machines to run **azcmagent**.
@@ -77,7 +77,7 @@ The following is an example of the command to enable verbose logging with the Co
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
-The following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an at-scale installation using a service principal.
+Following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an at-scale installation using a service principal.
 
 ```bash
 azcmagent connect \
