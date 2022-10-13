@@ -10,21 +10,7 @@ ms.date: 10/13/2022
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
-This template provides the basic structure of a How-to article pattern. See the [instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Start your H1 with a verb. Pick an H1 that clearly conveys the task the user 
-will complete.
--->
-
-# [H1 heading]
+# Manage assets with metamodel
 TODO: Add your heading
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
@@ -37,55 +23,46 @@ short.
 Readers should have a clear idea of what they will do in this article after reading the 
 introduction.
 -->
-[Add your introductory paragraph]
-TODO: Add your introductory paragraph
-
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Optional: If there are prerequisites for the task covered by the how-to guide, make 
-**Prerequisites** your first H2 in the guide. The prerequisites H2 is never numbered.
-Use clear and unambiguous language and use a unordered list format.
-If there are specific versions of software a user needs, call out those versions (for example: 
-Visual Studio 2019 or later).
--->
 
 ## Prerequisites
-TODO: Determine if prerequisites are appropriate
-TODO: List the prerequisites if appropriate
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](../create-catalog-portal.md).
+- Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md).
+- [Data Curator role](catalog-permissions.md#roles) on the collection where the data asset his housed. See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users).
 
-Required: Each major step in completing a task should be represented as an H2 in the article.
-These steps should be numbered.
-The procedure should be introduced with a brief sentence or two.
-Multiple procedures should be organized in H2 level sections.
-Procedure steps use ordered lists.
--->
+## Create and modify asset types
 
-## 1 - [Doing the first thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
+1. To get started, open the data map and select **Metamodels**. You’ll see a list of available asset types. Predefined asset types will have unique icons. All custom assets are designated with a puzzle piece icon. 
 
-## 2 - [Doing the second thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
+1. To create a new asset type, select **New asset type** and add a name, description, and attributes.  
 
-## 3 - [Doing the next thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
+1. To define a relationship between two asset types, select **New relationship type**.  
 
-## [N - Doing the last thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
-<!-- 5. Next steps ------------------------------------------------------------------------
+1. Give the relationship a name and define its reverse direction. Assign it to one or more pairs of assets.  
 
-Required: Provide at least one next step and no more than three. Include some context so the 
-customer can determine why they would click the link.
-Add a context sentence for the following links.
--->
+1. As you create more asset types, your canvas may get crowded with asset types. To hide an asset from the canvas, select the eye icon on the asset card. 
+
+1. To add an asset type back to the canvas, drag it from the left panel.
+
+## Create and modify assets
+
+1. When you’re ready to begin working with assets, go to the data catalog.  
+
+1. There will be no integration with collections when private preview opens, so all assets created via the metamodel canvas will be listed under the data catalog. 
+
+1. To create a new asset, select **New asset**, select the asset type from the drop down menu, give it a name, description, and complete any required attributes.
+
+1. To establish a relationship between two assets, go to the asset detail page and select **Edit** > **Related** and the relationship you’d like to populate.
+
+1. Select the assets or assets you’d like to link from the data catalog and select **OK**.
+
+1. Save your changes. You can see the relationships you established in the asset overview.
+
+1. You can also explore a visual representation of related assets in the Related tab. Note: this is the experience provided by default from Atlas. We know it leaves much to be desired. During private preview we’ll finalize designs for how this will look for public preview and beyond.
+
 
 ## Next steps
-TODO: Add your next step link(s)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
