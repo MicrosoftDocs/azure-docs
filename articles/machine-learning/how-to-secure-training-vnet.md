@@ -119,6 +119,15 @@ In this article you learn how to secure the following training compute resources
 
 * If you create a compute instance and plan to use the no public IP address configuration, your Azure Machine Learning workspace's managed identity must be assigned the __Reader__ role for the virtual network that contains the workspace. For more information on assigning roles, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
+    > [!IMPORTANT]
+    > On October TBD, the public preview for no public IP configuration for compute cluster and compute instance moved to a new architecture. This new architecture removes limitations, such as the requirement for inbound access from the Azure Batch management and Azure Machine Learning services. However, the new architecture requires you to opt-in. Before opting in to this preview, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
+    >
+    > Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription.
+
+    > [!TIP]
+    > If you have existing compute instances configured for no public IP, you will need to delete and recreate them after your subscription has been allowlisted to take advantage of the new architecture. For existing compute clusters configured for no public IP, once the cluster has been reduced to 0 nodes (requires the minimum nodes to be configured as 0), it will take advantage of the new architecture the next time nodes are allocated after the subscription is allowlisted.
+
+
 * If you have configured Azure Container Registry for your workspace behind the virtual network, you must use a compute cluster to build Docker images. If you use a compute cluster configured for no public IP address, you must provide some method for the cluster to access the public internet. Internet access is required when accessing images stored on the Microsoft Container Registry, packages installed on Pypi, Conda, etc. For more information, see [Enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 * If the Azure Storage Accounts for the workspace are also in the virtual network, use the following guidance on subnet limitations:

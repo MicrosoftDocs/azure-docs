@@ -7,7 +7,4 @@ ms.author: sgilley
 ---
 
 > [!NOTE]
-> Support for compute instances without public IP addresses is currently available and in public preview for the following regions: France Central, East Asia, South East Asia, West Central US, South Central US, West US 2, West US 3, East US, East US 2, North Europe, West Europe, Central US, North Central US, West US, Australia East, Australia Southeast, Japan East, Japan West, Brazil Southeast, Brazil South, Canada Central, Canada East, Central India, South India, Korea Central, Korea South, Sweden Central, Sweden South, Switzerland North, Switzerland West, UK West, UK South, UAE North, Germany West Central, Norway East, South Africa North.
-> 
-> Support for compute clusters without public IP addresses is currently available and in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe, North Central US, West US, Australia East, Japan East, Japan West.
->
+> Support for compute instances and compute clusters without public IP addresses is currently available and in public preview for the following regions: France Central, East Asia, South East Asia, West Central US, South Central US, West US 2, West US 3, East US, East US 2, North Europe, West Europe, Central US, North Central US, West US, Australia East, Australia Southeast, Japan East, Japan West, Brazil Southeast, Brazil South, Canada Central, Canada East, Central India, South India, Korea Central, Korea South, Sweden Central, Sweden South, Switzerland North, Switzerland West, UK West, UK South, UAE North, Germany West Central, Norway East, South Africa North. 
