@@ -338,7 +338,7 @@ _Continuously monitor your nodes capacity utilization over time, to optimize the
 
 **Consider Carbon Awareness for your workload orchestration**
 
-:heavy_check_mark: Plan your deployments to maximize compute utilization for running batch workloads, during low-carbon intensity periods (at night for instance, where usage tension on power is usually lower).
+:heavy_check_mark: Plan your deployments to maximize compute utilization for batch workloads, during low carbon periods (at night for instance, where usage tension on power is usually lower).
 
 
 
