@@ -28,7 +28,7 @@ To purchase in the Azure Marketplace, you must meet the following prerequisites:
 
 - Your Azure subscription is registered to the `Microsoft.SaaS` resource provider. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Your Azure subscription has an [associated payment method](/marketplace/azure-marketplace-overview#purchasing-requirements). Azure credits or free MSDN subscriptions aren't supported.
-- Your Azure subscription belongs to a billing account in a [Marketplace-supported geographic location](#supported-geographic-location).
+- Your Azure subscription belongs to a billing account in a [Marketplace-supported geographic location](#supported-geographic-locations).
 - Your organization allows [Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 - Your organization allows acquiring any Azure Marketplace software application listed in [Purchase policy management](/marketplace/azure-purchasing-invoicing#purchase-policy-management).
 - You need to accept the legal terms and privacy statements during provisioning enterprise tier on Azure portal or use below CLI command to do it ahead.
