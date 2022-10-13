@@ -27,6 +27,8 @@
     href: virtual-wan-expressroute-portal.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -99,6 +101,12 @@
       href: about-client-address-pools.md
     - name: P2S global and hub profiles
       href: global-hub-profile.md
+    - name: P2S client address pools
+      items:
+      - name: About address pools
+        href: about-client-address-pools.md
+      - name: User groups - assign client-specific addresses
+        href: user-groups-about.md
   - name: Virtual hub settings
     href: hub-settings.md
   - name: Gateway settings
@@ -211,6 +219,12 @@
         href: howto-always-on-device-tunnel.md
     - name: Configure forced tunneling
       href: how-to-forced-tunnel.md
+    - name: Configure user groups for address pools
+      items:
+      - name: Configure a user group
+        href: user-groups-create.md
+      - name: RADIUS - configure NPS vendor-specific attributes
+        href: user-groups-radius.md
   - name: Routing
     items:
     - name: Configure virtual hub routing

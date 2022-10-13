@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 08/18/2022
 ---
 
 # SSIS migration assessment rules

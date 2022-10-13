@@ -16,7 +16,7 @@ ms.date: 09/14/2022
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
-When an [Azure Cognitive Search indexer](search-indexer-overview.md) loads a search index, it determines the data path  through source-to-destination field mappings. Implicit field mappings are internal and occur when field names and data types are compatible between the source and destination. 
+When an [Azure Cognitive Search indexer](search-indexer-overview.md) loads a search index, it determines the data path through source-to-destination field mappings. Implicit field mappings are internal and occur when field names and data types are compatible between the source and destination. 
 
 If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. Field mappings can also be used to introduce light-weight data conversion, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
 

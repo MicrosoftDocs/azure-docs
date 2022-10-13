@@ -2,7 +2,7 @@
 title: Decompile ARM template JSON to Bicep
 description: Describes commands for decompiling Azure Resource Manager templates to Bicep files.
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 09/28/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -123,23 +123,12 @@ The decompiled file works, but it has some names that you might want to change. 
 var uniqueStorageName = 'store${uniqueString(resourceGroup().id)}'
 ```
 
+To rename across the file, right-click the name, and then select **Rename symbol**. You can also use the **F2** hotkey.
+
 The resource has a symbolic name that you might want to change. Instead of `storageAccountName` for the symbolic name, use `exampleStorage`.
 
 ```bicep
 resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-```
-
-Since you changed the name of the variable for the storage account name, you need to change where it's used.
-
-```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: uniqueStorageName
-```
-
-And in the output, use:
-
-```bicep
-output storageAccountName string = uniqueStorageName
 ```
 
 The complete file is:

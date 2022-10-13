@@ -14,7 +14,7 @@ ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python-ios-android-rest
 ---
 
-# Understand Identifier types
+# Understand identifier types
 
 Communication Services SDKs and REST APIs use the *identifier* type to identify who is communicating with whom. For example, identifiers specify who to call, or who has sent a chat message.
 

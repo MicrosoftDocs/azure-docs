@@ -26,9 +26,6 @@ This article demonstrates how to deploy an existing container to Azure Container
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 ## Setup
 
-> [!NOTE]
-> An Azure Container Apps environment can be deployed as a zone redundant resource in regions where support is available. This is a deployment-time only configuration option.
-
 Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 ## Create a container app
