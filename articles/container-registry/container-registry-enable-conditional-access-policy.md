@@ -85,15 +85,15 @@ Azure Container Registry has two built-in policy definitions to disable authenti
 >* `Container registries should have ARM audience token authentication disabled.` - This policy will report, block any non-compliant resources, and also sends a request to update non-compliant to compliant.
 >* `Configure container registries to disable ARM audience token authentication.` - This policy offers remediation and updates non-compliant to compliant resources.
 
-1. Use filters to select and confirm  **Scope**, **Policy definition**, and **Assignment name**.
+   1. Use filters to select and confirm  **Scope**, **Policy definition**, and **Assignment name**.
 
-1. Use the filters to limit compliance states or to search for policies.
+   1. Use the filters to limit compliance states or to search for policies.
 
-1. Confirm your settings and set policy enforcement as **enabled**.
+   1. Confirm your settings and set policy enforcement as **enabled**.
 
-1. Select **Review+Create**.
+   1. Select **Review+Create**.
 
-   :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy":::
+      :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy":::
 
 
 ## Create and configure a Conditional Access policy - Azure portal
