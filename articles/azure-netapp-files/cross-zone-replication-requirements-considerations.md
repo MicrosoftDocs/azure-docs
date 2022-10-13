@@ -29,7 +29,7 @@ This article describes requirements and considerations about [using the volume c
 * The destination account must be in a different zone from the source volume zone. You can also select an existing NetApp account in a different zone.  
 * The replication destination volume is read-only until you fail over to the destination zone to enable the destination volume for read and write. For more information about the failover process, refer to [fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 * Azure NetApp Files replication doesn't currently support multiple subscriptions; all replications must be performed under a single subscription.
-* See [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of cross-zone destination volumes. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes (per subscription in a region). <!-- need figure --->
+* See [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of cross-zone destination volumes. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes (per subscription in a region). 
 * There can be a delay up to five minutes for the interface to reflect a newly added snapshot on the source volume.  
 * Cascading and fan in/out topologies aren't supported.
 * Configuring volume replication for source volumes created from snapshot isn't supported at this time.

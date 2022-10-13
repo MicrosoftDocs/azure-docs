@@ -95,7 +95,7 @@
     href: management.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
-  - name: FSLogix profile containers and Azure files
+  - name: FSLogix profile containers and Azure Files
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md

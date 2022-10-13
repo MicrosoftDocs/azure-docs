@@ -2,7 +2,7 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 09/23/2022
+ms.date: 09/30/2022
 ---
 
 # Add linter settings in the Bicep config file
@@ -87,6 +87,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-protectedsettings-for-commandtoexecute-secrets": {
+          "level": "warning"
+        },
+        "use-recent-api-versions": {
           "level": "warning"
         },
         "use-resource-id-functions": {
