@@ -154,5 +154,5 @@ We have now completed creating the Conditional Access policy for the Azure Conta
 ## Next steps
 
 * Learn more about [Azure Policy definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md).
-* Learn more about [common access concerns that Conditional Access policies can help with](concept-conditional-access-policy-common.md).
-* Learn more about [Identity Protection](../identity-protection/overview-identity-protection.md).
+* Learn more about [common access concerns that Conditional Access policies can help with](/azure/active-directory/conditional-access/concept-conditional-access-policy-common).
+* Learn more about [Conditional Access policy components](/azure/active-directory/conditional-access/concept-conditional-access-policies).
