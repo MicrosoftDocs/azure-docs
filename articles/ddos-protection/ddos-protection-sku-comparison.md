@@ -34,7 +34,7 @@ DDoS IP Protection is currently available in the following regions.
 | North Central US | Germany West Central | Qatar Central |                    | Korea Central       |
 | West US          | Switzerland North    |               |                    | Japan East          |
 | West US 3        | France South         |               |                    | West India          |
-|                  | Norway East          |               |                    | Jio india Central    |
+|                  | Norway East          |               |                    | Jioindia Central    |
 |                  | Sweden Central       |               |                    | Australia Central 2 |
 |                  | Germany North        |               |                    |                     |
 
