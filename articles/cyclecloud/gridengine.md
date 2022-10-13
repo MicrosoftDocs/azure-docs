@@ -426,8 +426,8 @@ where `physical_cpu` is the complex name:
 ]
 ```
 
-Ordering is also important when you want a particular behavior for a specific attribute, like making sure
-only one slot will be allocate per node on a selected nodearray:
+Ordering is important when you want a particular behavior for a specific attribute. To allocate a single slot
+for a specific nodearray while retaining default slot count for all other nodearrays:
 
 ```json
     "default_resources": [
@@ -620,6 +620,6 @@ In the _gridengine.txt_ file, locate the first occurrence of `[[[configuration]]
 
 ```
 
-These configs will override the default gridengine version and installation location, as the cluster starts.  
+These configs will override the default gridengine version and installation location when the cluster starts.
 It is not safe to move off of the `/sched` as it's a specifically shared nfs location in the cluster.
 ::: moniker-end
