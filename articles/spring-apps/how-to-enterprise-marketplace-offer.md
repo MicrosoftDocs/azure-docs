@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to view the Azure Spring Apps Enterprise Tier with VMware Tanzu offering through Azure Marketplace and how to redirect to the Azure Spring Apps Enterprise tier creation page from Azure Marketplace.
+This article shows you how to view the Azure Spring Apps Enterprise Tier with VMware Tanzu offering through Azure Marketplace. You can redirect to the Azure Spring Apps Enterprise tier creation page from Azure Marketplace.
 
 Azure Spring Apps Enterprise Tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from commercial Tanzu components, such as VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, and VMware Tanzu® Service Registry, and access to Spring experts.
 
@@ -46,7 +46,7 @@ To see the offering and read a detailed description, see [Azure Spring Apps Ente
 
 To see the supported plans in your market, select **Plans + Pricing**.
 
-:::image type="content" source="media/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise Tier V M ware Tanzu offering.":::
+:::image type="content" source="media/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Azure Marketplace screenshot showing Azure Spring Apps Enterprise Tier VMware Tanzu offering.":::
 
 > [!NOTE]
 > If you see "No plans are available for market '\<Location>'", that means none of your Azure subscriptions can purchase the SaaS offering. For more information, see [No plans are available for market '\<Location>'](./troubleshoot.md#no-plans-are-available-for-market-location) in [Troubleshooting](./troubleshoot.md).

@@ -21,7 +21,7 @@ This quickstart shows you how to build and deploy applications to Azure Spring A
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- To be able to provision successfully with a marketplace offer purchasing, please refer to prerequisites section in [View Azure Spring Apps Enterprise tier Offer in Azure Marketplace](how-to-enterprise-marketplace-offer.md).
+- To provision successfully with a marketplace offer purchase, the items listed in the Prerequisites section in [View Azure Spring Apps Enterprise Tier offering from Azure Marketplace](how-to-enterprise-marketplace-offer.md).
 - [The Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli).
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
