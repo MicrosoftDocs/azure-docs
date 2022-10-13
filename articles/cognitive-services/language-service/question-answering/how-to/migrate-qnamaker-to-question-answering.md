@@ -70,7 +70,7 @@ When you are looking at migrating to Question Answering, please consider the fol
 
 **Example price estimations**
 
-|Usage |Number of resources in QnA Maker|Number of app services in QnA Maker (Tier)|Search Partitions x search replica (Tier)|Relative cost in Question Answering|
+|Usage |Number of resources in QnA Maker|Number of app services in QnA Maker (Tier)|Monthly inference calls in QnA Maker|Search Partitions x search replica (Tier)|Relative cost in Question Answering|
 |------|--------------------------------|------------------------------------------|-----------------------------------------|-----------------------------------|
 |High  |5                               |5(P1)                                     |9x3(S2)                                  |More expensive                     |
 |High  |100                             |100(P1)                                   |9x3(S2)                                  |Less expensive                     |
