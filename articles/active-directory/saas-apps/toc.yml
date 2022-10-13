@@ -550,6 +550,8 @@
         href: consent2go-tutorial.md
       - name: Contentful
         href: contentful-tutorial.md
+      - name: Contentkalender
+        href: contentkalender-tutorial.md
       - name: Contentsquare SSO
         href: contentsquare-sso-tutorial.md
       - name: ContractSafe Saml2 SSO
@@ -1381,7 +1383,7 @@
         href: lecorpio-tutorial.md
       - name: Lenses.io
         href: lensesio-tutorial.md
-      - name: Lesson.ly
+      - name: Lessonly
         href: lessonly-tutorial.md
       - name: Lexonis TalentScape
         href: lexonis-talentscape-tutorial.md
