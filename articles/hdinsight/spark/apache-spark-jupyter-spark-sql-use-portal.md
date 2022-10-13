@@ -48,6 +48,8 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
     |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to login in to the Jupyter Notebook later in the quickstart. |
     |Cluster login password| Enter the cluster login password. |
     |Secure Shell (SSH) username| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
+    
+:::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png " alt-text="Screenshot shows Create HDInsight cluster with the Basics tab selected." border="true":::
 
     Select **Next: Storage >>** to continue to the **Storage** page.
 
