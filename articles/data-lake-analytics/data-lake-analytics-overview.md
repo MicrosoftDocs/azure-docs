@@ -4,10 +4,10 @@ description: Data Lake Analytics lets you drive you business using insights gain
 author: saveenr
 ms.author: saveenr
 
-ms.reviewer: jasonwhowell
+ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: overview
-ms.date: 06/23/2017
+ms.date: 10/13/2022
 ---
 # What is Azure Data Lake Analytics?
 
