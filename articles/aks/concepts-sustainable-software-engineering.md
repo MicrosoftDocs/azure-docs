@@ -35,6 +35,15 @@ Making workloads more [sustainable and cloud efficient](/azure/architecture/fram
 > [!IMPORTANT]
 > [Reserved Instances](https://review.learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations) are a significant cost reduction vector. However, you should make sure to maximize utilisation of your reserved resouces, to avoid wasting capacity and energy, which would lead to an increase in carbon emissions and a lower ROI for your reservations.
 
+## Sustainability is a shared responsibility
+
+As a cloud provider, Microsoft is responsible for the data centers hosting your applications.
+
+However, deploying an application in the Microsoft cloud doesn't automatically make it sustainable, even if the data centers are optimized for sustainability. Applications that aren't optimized may still emit more carbon than necessary.
+
+Read more about [the shared responsibility model for sustainability](/framework/sustainability/sustainability-design-methodology#the-shared-responsibility-model-for-sustainability)
+
+
 ## Sustainability design principles
  **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
 
