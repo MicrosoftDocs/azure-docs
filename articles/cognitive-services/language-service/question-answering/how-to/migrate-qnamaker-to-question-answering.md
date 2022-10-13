@@ -76,6 +76,7 @@ When you are looking at migrating to Question Answering, please consider the fol
 |High  |100                             |100(P1)                                   |9x3(S2)                                  |Less expensive                     |
 |Medium|10                              |10(S1)                                    |4x3(S1)                                  |Less expensive                     |
 |Low   |4                               |4(B1)                                     |3x3(S1)                                  |Less expensive                     |
+ Summary : Customers should save cost across the most common configurations as seen in the relative cost column.
 
 Here you can find the pricing details for [Question Answering](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/) and [QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
