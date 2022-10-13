@@ -140,7 +140,7 @@ To create the service:
 
     Note that the `rule_block_icmp_and_udp_uplink_traffic` rule has a lower value for the **Policy rule** precedence field than the `rule_allow_other_icmp_and_udp_traffic` rule (10 and 15 respectively). Rules with lower values are given higher priority. This ensures that the `rule_block_icmp_and_udp_uplink_traffic` rule to block packets is applied first, before the wider `rule_allow_other_icmp_and_udp_traffic` is applied to all remaining packets.
 
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the create a service screen with all fields correctly filled out and two data flow policy rules.":::
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-protocol-filtering-service.png" alt-text="Screenshot of the Azure portal. It shows the Create a service screen with all fields correctly filled out and two data flow policy rules.":::
 
 1. On the **Basics** configuration tab, select **Review + create**.
 1. Select **Create** to create the service.
