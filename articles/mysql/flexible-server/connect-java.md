@@ -125,7 +125,7 @@ az identity create \
 
 > [!IMPORTANT]
 > After creating **User-Assigned Identity**, ask your **Global Administrator** or **Privileged Role Administrator** to grant three permissions: `User.Read.All`, `GroupMember.Read.All` and `Application.Read.ALL` for this identity.
-> More information refer [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions)
+> More information refer [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions).
 
 Run the following command to assign the identity to MySQL server for creating Azure AD admin:
 
