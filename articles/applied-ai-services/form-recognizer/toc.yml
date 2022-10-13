@@ -202,16 +202,14 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Azure Form Recognizer REST APIs
-    items:
     - name: REST API v3.0 
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
-    - name: REST API v2.1 reference
+    - name: Error codes and messages v3.0
+      href: v3-error-guide.md
+    - name: REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
     - name: REST API versions
       href: https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form
-    - name: Error codes and messages v3.0
-      href: v3-error-guide.md
 - name: Resources
   items:
   - name:  Customer spotlight
