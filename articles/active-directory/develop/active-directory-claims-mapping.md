@@ -5,7 +5,7 @@ author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, ignite-2022
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/13/2022
@@ -212,7 +212,7 @@ To run this script, you need:
     - public key (typically a .cer file)
     - private key in PKCS#12 format (in .pfx file)
     - password for the private key (pfx file)
-
+    
 The private key must be in PKCS#12 format since Azure AD doesn't support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
 
 ```powershell

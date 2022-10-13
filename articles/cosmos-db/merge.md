@@ -4,14 +4,14 @@ description: Learn more about the merge partitions capability in Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.reviewer: dech
 ms.date: 05/09/2022
 ---
 
 # Merge partitions in Azure Cosmos DB (preview)
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 Merging partitions in Azure Cosmos DB (preview) allows you to reduce the number of physical partitions used for your container in place. With merge, containers that are fragmented in throughput (have low RU/s per partition) or storage (have low storage per partition) can have their physical partitions reworked. If a container's throughput has been scaled up and needs to be scaled back down, merge can help resolve throughput fragmentation issues. For the same amount of provisioned RU/s, having fewer physical partitions means each physical partition gets more of the overall RU/s. Minimizing partitions reduces the chance of rate limiting if a large quantity of data is removed from a container and RU/s per partition is low. Merge can help clear out unused or empty partitions, effectively resolving storage fragmentation problems.
 
@@ -76,7 +76,7 @@ In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a 
 // Add the preview extension
 Install-Module -Name Az.CosmosDB -AllowPrerelease -Force
 
-// SQL API
+// API for NoSQL
 Invoke-AzCosmosDBSqlContainerMerge `
     -ResourceGroupName "<resource-group-name>" `
     -AccountName "<cosmos-account-name>" `
@@ -99,7 +99,7 @@ Invoke-AzCosmosDBMongoDBCollectionMerge `
 // Add the preview extension
 az extension add --name cosmosdb-preview
 
-// SQL API
+// API for NoSQL
 az cosmosdb sql container merge \
     --resource-group '<resource-group-name>' \
     --account-name '<cosmos-account-name>' \
@@ -126,20 +126,20 @@ You can track whether merge is still in progress by checking the **Activity Log*
 ## Limitations
 
 ### Preview eligibility criteria
-To enroll in the preview, your Cosmos account must meet all the following criteria:
-* Your Cosmos account uses SQL API or API for MongoDB with version >=3.6.
-* Your Cosmos account is using provisioned throughput (manual or autoscale). Merge doesn't apply to serverless accounts.
+To enroll in the preview, your Azure Cosmos DB account must meet all the following criteria:
+* Your Azure Cosmos DB account uses API for NoSQL or MongoDB with version >=3.6.
+* Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Merge doesn't apply to serverless accounts.
     * Currently, merge isn't supported for shared throughput databases. You may enroll an account that has both shared throughput databases and containers with dedicated throughput (manual or autoscale).
     * However, only the containers with dedicated throughput will be able to be merged.
-* Your Cosmos account is a single-write region account (merge isn't currently supported for multi-region write accounts).
-* Your Cosmos account doesn't use any of the following features:
+* Your Azure Cosmos DB account is a single-write region account (merge isn't currently supported for multi-region write accounts).
+* Your Azure Cosmos DB account doesn't use any of the following features:
   * [Point-in-time restore](continuous-backup-restore-introduction.md)
   * [Customer-managed keys](how-to-setup-cmk.md)
   * [Analytical store](analytical-store-introduction.md)
-* Your Cosmos account uses bounded staleness, session, consistent prefix, or eventual consistency (merge isn't currently supported for strong consistency).
-* If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When merge preview enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
+* Your Azure Cosmos DB account uses bounded staleness, session, consistent prefix, or eventual consistency (merge isn't currently supported for strong consistency).
+* If you're using API for NoSQL, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When merge preview enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
     * There are no SDK or driver requirements to use the feature with API for MongoDB.
-* Your Cosmos account doesn't use any currently unsupported connectors:
+* Your Azure Cosmos DB account doesn't use any currently unsupported connectors:
     * Azure Data Factory
     * Azure Stream Analytics
     * Logic Apps
@@ -150,7 +150,7 @@ To enroll in the preview, your Cosmos account must meet all the following criter
     * Any 3rd party library or tool that has a dependency on an Azure Cosmos DB SDK that is not .NET V3 SDK v3.27.0 or higher
 
 ### Account resources and configuration
-* Merge is only available for SQL API and API for MongoDB accounts. For API for MongoDB accounts, the MongoDB account version must be 3.6 or greater.
+* Merge is only available for API for NoSQL and MongoDB accounts. For API for MongoDB accounts, the MongoDB account version must be 3.6 or greater.
 * Merge is only available for single-region write accounts. Multi-region write account support isn't available.
 * Accounts using merge functionality can't also use these features (if these features are added to a merge enabled account, resources in the account will no longer be able to be merged):
   * [Point-in-time restore](continuous-backup-restore-introduction.md)
@@ -160,7 +160,7 @@ To enroll in the preview, your Cosmos account must meet all the following criter
 * Merge is only available for accounts using bounded staleness, session, consistent prefix, or eventual consistency. It isn't currently supported for strong consistency.
 * After a container has been merged, it isn't possible to read the change feed with start time. Support for this feature is planned for the future.
 
-### SDK requirements (SQL API only)
+### SDK requirements (API for NoSQL only)
 
 Accounts with the merge feature enabled are supported only when you use the latest version of the .NET v3 SDK. When the feature is enabled on your account (regardless of whether you run the merge), you must only use the supported SDK using the account. Requests sent from other SDKs or earlier versions won't be accepted. As long as you're using the supported SDK, your application can continue to run while a merge is ongoing. 
 
