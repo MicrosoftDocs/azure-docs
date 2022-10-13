@@ -631,7 +631,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/studio/overview-what-is-machine-learning-studio.md",
+        "source_path_from_root": "/articles/machine-learning/overview-what-is-machine-learning-studio.md ",
         "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning#studio",
         "redirect_document_id": false
     },
