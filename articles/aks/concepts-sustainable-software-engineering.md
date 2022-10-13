@@ -232,7 +232,7 @@ The following checklist provides recommendations for designing energy and hardwa
 
 **Chose the best Azure region**
 
-_When choosing the Azure region to deploy your worklods to, evaluate Carbon efficiency in your decision criteria._
+_When choosing the Azure region to deploy your worklods to, evaluate carbon efficiency in your decision criteria._
 
 :heavy_check_mark: Evaluate deploying to Regions powered by renewable and low-carbon energy sources.
 
