@@ -5,10 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.custom: engagement-fy23
+ms.date: 09/22/2022
 ---
 
 # Call, trigger, or nest logic apps by using HTTPS endpoints in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 To make your logic app callable through a URL and able to receive inbound requests from other services, you can natively expose a synchronous HTTPS endpoint by using a request-based trigger on your logic app. With this capability, you can call your logic app from other logic apps and create a pattern of callable endpoints. To set up a callable endpoint for handling inbound calls, you can use any of these trigger types:
 
@@ -17,7 +20,6 @@ To make your logic app callable through a URL and able to receive inbound reques
 * Managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive inbound HTTPS requests
 
 This article shows how to create a callable endpoint on your logic app by using the Request trigger and call that endpoint from another logic app. All principles apply identically to the other trigger types that you can use to receive inbound requests.
-
 
 For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 

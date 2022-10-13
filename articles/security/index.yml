@@ -128,7 +128,7 @@ additionalContent:
 
     - title: Additional security guidance
       items:
-        - title: Microsoft Learn
+        - title: Microsoft Learn training
           summary: If you're new to security, build your skills with Microsoft Learn training
           url: /training/browse/?products=azure&roles=security-engineer%2Csecurity-operations-analyst
         - title: Microsoft Cloud Adoption Framework for Azure

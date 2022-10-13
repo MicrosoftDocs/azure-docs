@@ -802,9 +802,6 @@ module.exports = df.entity(function(context) {
 # [Python](#tab/python)
 
 ```python
-import logging
-import json
-
 import azure.functions as func
 import azure.durable_functions as df
 

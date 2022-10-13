@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 05/27/2022
+ms.date: 09/28/2022
 ms.author: aahi
 ms.custom: language-service-key-phrase, ignite-fall-2021, cogserv-non-critical-language
 ---
@@ -32,11 +32,11 @@ In this tutorial, you'll learn how to:
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Language resource. If you don't have one, you can [create one](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 - The [Language resource key](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
-- Customer comments. You can use our example data or your own data. This tutorial assumes you're using our example data.
+- Customer comments. You can [use our example data](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/language-service/tutorials/comments.csv) or your own data. This tutorial assumes you're using our example data.
 
 ## Load customer data
 
-To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
+To get started, open Power BI Desktop and load the comma-separated value (CSV) file that you downloaded as part of the [prerequisites](#prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
 > Power BI can use data from a wide variety of web-based sources, such as SQL databases. See the [Power Query documentation](/power-query/connectors/) for more information.
@@ -45,7 +45,7 @@ In the main Power BI Desktop window, select the **Home** ribbon. In the **Extern
 
 ![The Get Data button](../media/tutorials/power-bi/get-data-button.png)
 
-The Open dialog appears. Navigate to your Downloads folder, or to the folder where you downloaded the `FabrikamComments.csv` file. Click `FabrikamComments.csv`, then the **Open** button. The CSV import dialog appears.
+The Open dialog appears. Navigate to your Downloads folder, or to the folder where you downloaded the CSV file. Click on the name of the file, then the **Open** button. The CSV import dialog appears.
 
 ![The CSV Import dialog](../media/tutorials/power-bi/csv-import.png)
 

@@ -10,6 +10,9 @@ ms.custom: devx-track-csharp
 ---
 
 # Alter utterance data before or during prediction
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 LUIS provides ways to manipulate the utterance before or during the prediction. These include [fixing spelling](luis-tutorial-bing-spellcheck.md), and fixing timezone issues for prebuilt [datetimeV2](luis-reference-prebuilt-datetimev2.md).
 
 ## Correct spelling errors in utterance
