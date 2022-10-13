@@ -17,16 +17,15 @@ Before you begin, it's a good idea to read the overview page for
 > [!IMPORTANT]
 > The machine configuration extension is required for Azure virtual machines. To
 > deploy the extension at scale across all machines, assign the following policy
-> initiative: `Deploy prerequisites to enable machine configuration policies on
+> initiative: `Deploy prerequisites to enable guest configuration policies on
 > virtual machines`
 >
 > To use machine configuration packages that apply configurations, Azure VM guest
 > configuration extension version **1.29.24** or later,
 > or Arc agent **1.10.0** or later, is required.
 >
-> Custom machine configuration policy definitions using **AuditIfNotExists** are
-> Generally Available, but definitions using **DeployIfNotExists** with guest
-> configuration are **in preview**.
+> Custom machine configuration policy definitions using **AuditIfNotExists** 
+> as well as **DeployIfNotExists** are now Generally Available. 
 
 ## How remediation (Set) is managed by machine configuration
 

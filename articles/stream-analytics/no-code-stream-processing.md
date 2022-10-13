@@ -5,17 +5,21 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022
-ms.date: 08/26/2022
+ms.custom: mvc, event-tier1-build-2022, ignite-2022
+ms.date: 10/12/2022
 ---
 
-# No-code stream processing through Azure Stream Analytics (preview)
+# No-code stream processing through Azure Stream Analytics
 
 You can process your real-time data streams in Azure Event Hubs by using Azure Stream Analytics. The no-code editor allows you to develop a Stream Analytics job without writing a single line of code. In minutes, you can develop and run a job that tackles many scenarios, including:
 
-- Filtering and ingesting to Azure Synapse SQL.
-- Capturing your Event Hubs data in Parquet format in Azure Data Lake Storage Gen2.
-- Materializing data in Azure Cosmos DB.
+- [Filtering and ingesting to Azure Synapse SQL](./filter-ingest-synapse-sql.md)
+- [Capturing your Event Hubs data in Parquet format in Azure Data Lake Storage Gen2](./capture-event-hub-data-parquet.md)
+- [Materializing data in Azure Cosmos DB](./no-code-materialize-cosmos-db.md)
+- [Filter and ingest to Azure Data Lake Storage Gen2](./filter-ingest-data-lake-storage-gen2.md)
+- [Enrich data and ingest to event hub](./no-code-enrich-event-hub-data.md)
+- [Transform and store data to Azure SQL database](./no-code-transform-filter-ingest-sql.md)
+- [Filter and ingest to Azure Data Explorer](./no-code-filter-ingest-data-explorer.md)
 
 The experience provides a canvas that allows you to connect to input sources to quickly see your streaming data. Then you can transform it before writing to your destination of choice in Azure.
 
@@ -74,7 +78,7 @@ After you set up your event hub's details and select **Connect**, you can add fi
 
 When Stream Analytics jobs detect the fields, you'll see them in the list. You'll also see a live preview of the incoming messages in the **Data Preview** table under the diagram view.
 
-You can always edit the field names, or remove or change the data type, by selecting the three-dot symbol next to each field. You can also expand, select, and edit any nested fields from the incoming messages, as shown in the following image.
+You can always edit the field names, or remove or change the data type, or change the event time (**Mark as event time**: TIMESTAMP BY clause if a datetime type field), by selecting the three-dot symbol next to each field. You can also expand, select, and edit any nested fields from the incoming messages, as shown in the following image.
 
 :::image type="content" source="./media/no-code-stream-processing/event-hub-schema.png" alt-text="Screenshot that shows selections for adding, removing, and editing the fields for an event hub." lightbox="./media/no-code-stream-processing/event-hub-schema.png" :::
 
@@ -138,6 +142,10 @@ Use the **Filter** transformation to filter events based on the value of a field
 The **Manage fields** transformation allows you to add, remove, or rename fields coming in from an input or another transformation. The settings on the side pane give you the option of adding a new one by selecting **Add field** or adding all fields at once.
 
 :::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="Screenshot that shows selections for managing fields." lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
+
+You can also add new field with the **Build-in Functions** to aggregate the data from upstream. Currently, the build-in functions we support are some functions in **String Functions**, **Date and Time Functions**, **Mathematical Functions**. To learn more about the definitions of these functions, see [Built-in Functions (Azure Stream Analytics)](/stream-analytics-query/built-in-functions-azure-stream-analytics.md).
+
+:::image type="content" source="./media/no-code-stream-processing/build-in-functions-managed-fields.png" alt-text="Screenshot that shows the build-in functions." lightbox="./media/no-code-stream-processing/build-in-functions-managed-fields.png" :::
 
 > [!TIP]
 > After you configure a tile, the diagram view gives you a glimpse of the settings within the tile. For example, in the **Manage fields** area of the preceding image, you can see the first three fields being managed and the new names assigned to them. Each tile has information that's relevant to it.
@@ -242,20 +250,37 @@ Under the **Outputs** section on the ribbon, select **CosmosDB** as the output f
 
 When you're connecting to Azure Cosmos DB, if you select **Managed Identity** as the authentication mode, then the Contributor role will be granted to the managed identity for the Stream Analytics job. To learn more about managed identities for Azure Cosmos DB, see [Use managed identities to access Azure Cosmos DB from an Azure Stream Analytics job (preview)](cosmos-db-managed-identity.md). 
 
-Managed identities eliminate the limitations of user-based authentication methods. These limitations include the need to reauthenticate because of password changes or user token expirations that occur every 90 days. 
-
-![Screenshot that shows selecting managed identity as the authentication method for Azure Cosmos DB.](./media/no-code-stream-processing/msi-cosmosdb-nocode.png)
+Managed identities authentication method is also supported in the Azure Cosmos DB output in no-code editor that has the same benefit as it is in above ADLS Gen2 output.
 
 ### Azure SQL Database
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed platform as a service (PaaS) database engine that can help you to create a highly available and high-performance data storage layer for the applications and solutions in Azure. By using the no-code editor, you can configure Azure Stream Analytics jobs to write the processed data to an existing table in SQL Database.
 
+To configure Azure SQL Database as output, select **SQL Database** under the **Outputs** section on the ribbon. Then fill in the needed information to connect your SQL database and select the table that you want to write data to.
+
 > [!IMPORTANT]
 > The Azure SQL Database table must exist before you can add it as output to your Stream Analytics job. The table's schema must match the fields and their types in your job's output.
 
-To configure Azure SQL Database as output, select **SQL Database** under the **Outputs** section on the ribbon. Then fill in the needed information to connect your SQL database and select the table that you want to write data to.
-
 For more information about Azure SQL Database output for a Stream Analytics job, see [Azure SQL Database output from Azure Stream Analytics](./sql-database-output.md).
+
+### Event Hubs
+
+With the real-time data coming through event hub to ASA, no-code editor can transform, enrich the data and then output the data to another event hub as well. You can choose the **Event Hub** output when you configure your Azure Stream Analytics job.
+
+To configure Event Hubs as output, select **Event Hub** under the Outputs section on the ribbon. Then fill in the needed information to connect your event hub that you want to write data to.
+
+For more information about Event Hubs output for a Stream Analytics job, see [Event Hubs output from Azure Stream Analytics](./event-hubs-output.md).
+
+### Azure Data Explorer
+
+Azure Data Explorer is a fully managed, high-performance, big data analytics platform that makes it easy to analyze high volumes of data. You can use [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) as an output for your Azure Stream Analytics job by using no-code editor as well.
+
+To configure Azure Data Explorer as output, select **Azure Data Explorer** under the Outputs section on the ribbon. Then fill in the needed information to connect your Azure Data Explorer database and specify the table that you want to write data to.
+
+> [!IMPORTANT]
+> The table must exist in your selected database and the table's schema must exactly match the fields and their types in your job's output.
+
+For more information about Azure Data Explorer output for a Stream Analytics job, see [Azure Data Explorer output from Azure Stream Analytics (Preview)](./azure-database-explorer-output.md).
 
 ## Data preview, authoring errors, runtime logs, and metrics
 
@@ -281,7 +306,7 @@ After you add and set up any steps in the diagram view, you can test their behav
 
 :::image type="content" source="./media/no-code-stream-processing/get-static-preview.png" alt-text="Screenshot that shows the button for getting a static preview." lightbox="./media/no-code-stream-processing/get-static-preview.png" :::
 
-After you do, the Stream Analytics job evaluates all transformations and outputs to make sure they're configured correctly. Stream Analytics then displays the results in the static data preview, as shown in the following image.
+After you do, the Stream Analytics job evaluates all transformations, and outputs to make sure they're configured correctly. Stream Analytics then displays the results in the static data preview, as shown in the following image.
 
 :::image type="content" source="./media/no-code-stream-processing/refresh-static-preview.png" alt-text="Screenshot that shows the Data Preview tab, where you can refresh the static preview." lightbox="./media/no-code-stream-processing/refresh-static-preview.png" :::
 
@@ -357,3 +382,6 @@ Learn how to use the no-code editor to address common scenarios by using predefi
 - [Filter and ingest to Azure Synapse SQL](filter-ingest-synapse-sql.md)
 - [Filter and ingest to Azure Data Lake Storage Gen2](filter-ingest-data-lake-storage-gen2.md)
 - [Materialize data to Azure Cosmos DB](no-code-materialize-cosmos-db.md)
+- [Transform and store data to SQL database](no-code-transform-filter-ingest-sql.md)
+- [Filter and store data to Azure Data Explorer](no-code-filter-ingest-data-explorer.md)
+- [Enrich data and ingest to Event Hubs](no-code-enrich-event-hub-data.md)

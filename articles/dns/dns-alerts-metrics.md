@@ -29,7 +29,7 @@ Azure DNS provides the following metrics to Azure Monitor for your DNS zones:
 
 For more information, see [metrics definition](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkdnszones).
 
->[!NOTE]
+> [!NOTE]
 > At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics won't provide data for those zones. In addition, the metrics and alerting feature is only supported in Azure Public cloud. Support for sovereign clouds will follow at a later time. 
 
 The most granular element that you can see metrics for is a DNS zone. You currently can't see metrics for individual resource records within a zone.
@@ -70,7 +70,7 @@ To view this metric, select **Metrics** explorer experience from the **Monitor**
 
 ## Alerts in Azure DNS
 
-Azure Monitor has alerting that you can configure for each available metric value. See [Azure Monitor alerts](../azure-monitor/alerts/alerts-metric.md) for more information.
+Azure Monitor has alerting that you can configure for each available metric value. For more information, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-metric.md).
 
 1. To configure alerting for Azure DNS zones, select **Alerts** from *Monitor* page in the Azure portal. Then select **+ New alert rule**.
 

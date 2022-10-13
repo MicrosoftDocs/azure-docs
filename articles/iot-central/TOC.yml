@@ -230,6 +230,8 @@
           href: core/howto-manage-jobs-with-rest-api.md
         - name: Manage applications
           href: core/howto-manage-iot-central-with-rest-api.md
+        - name: Manage dashboards  
+          href: core/howto-manage-dashboards-with-rest-api.md
         - name: File upload
           href: core/howto-upload-file-rest-api.md
           
@@ -242,6 +244,8 @@
           href: core/howto-administer.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles.md
+        - name: Use audit logs
+          href: core/howto-use-audit-logs.md
         - name: Manage organizations
           href: core/howto-create-organizations.md
         - name: Customize application UI
