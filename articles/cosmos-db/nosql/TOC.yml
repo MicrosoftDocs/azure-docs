@@ -258,6 +258,28 @@
           href: ../synapse-link-frequently-asked-questions.yml
         - name: Analytical store - overview
           href: ../analytical-store-introduction.md
+    - name: Back up and restore
+      items:
+        - name: Back up and restore introduction
+          href: ../online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+            - name: Continuous backup - Introduction
+              href: ../continuous-backup-restore-introduction.md
+            - name: Continuous backup - FAQ
+              href: ../continuous-backup-restore-frequently-asked-questions.yml
+            - name: Continuous backup - Resource model
+              href: ../continuous-backup-restore-resource-model.md
+            - name: Latest restorable timestamp
+              href: ../latest-restore-timestamp-continuous-backup.md
+            - name: Auditing restore action with continuous backup
+              href: ../audit-restore-continuous.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -273,6 +295,26 @@
           href: ../conflict-resolution-policies.md
         - name: Global distribution - under the hood
           href: ../global-dist-under-the-hood.md
+    - name: Manage back up and restore
+      items:
+        - name: Manage continuous backup
+          items:
+            - name: Permissions and roles - Continuous backup
+              href: ../continuous-backup-restore-permissions.md
+            - name: Create account - Continuous backup
+              href: ../provision-account-continuous-backup.md
+            - name: Get the latest restorable timestamp
+              href: ../get-latest-restore-timestamp.md
+            - name: Restore an account - Continuous backup
+              href: ../restore-account-continuous-backup.md
+            - name: Migrate to continuous backup
+              href: ../migrate-continuous-backup.md
+        - name: Manage periodic backup
+          items:
+            - name: Configure periodic backup
+              href: ../configure-periodic-backup-restore.md
+            - name: Update backup storage redundancy
+              href: ../update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Security overview
@@ -296,28 +338,6 @@
           href: /security/benchmark/azure/baselines/cosmos-db-security-baseline?bc=/azure/cosmos-db/breadcrumb/toc.json&toc=/azure/cosmos-db/toc.json
         - name: Threat protection with Microsoft Defender for Cloud
           href: defender-for-cosmos-db.md
-    - name: Back up and restore
-      items:
-        - name: Back up and restore introduction
-          href: ../online-backup-and-restore.md
-        - name: Continuous backup
-          items:
-            - name: Continuous backup - Introduction
-              href: ../continuous-backup-restore-introduction.md
-            - name: Continuous backup - FAQ
-              href: ../continuous-backup-restore-frequently-asked-questions.yml
-            - name: Continuous backup - Resource model
-              href: ../continuous-backup-restore-resource-model.md
-            - name: Latest restorable timestamp
-              href: ../latest-restore-timestamp-continuous-backup.md
-            - name: Auditing restore action with continuous backup
-              href: ../audit-restore-continuous.md
-        - name: Manage periodic backup
-          items:
-            - name: Configure periodic backup
-              href: ../configure-periodic-backup-restore.md
-            - name: Update backup storage redundancy
-              href: ../update-backup-storage-redundancy.md
     - name: Enterprise readiness
       items:
         - name: Service quotas
@@ -449,382 +469,7 @@
         - name: Async Java sample with change feed
           href: how-to-java-change-feed.md
     - name: SQL query
-      items:
-        - name: Getting started
-          displayName: sql query, query basics
-          href: ../nosql/query/getting-started.md
-        - name: Clauses
-          items:
-            - name: SELECT
-              displayName: select, select clause
-              href: ../nosql/query/select.md
-            - name: FROM
-              displayName: from, from clause
-              href: ../nosql/query/from.md
-            - name: WHERE
-              displayName: where, where clause
-              href: ../nosql/query/where.md
-            - name: ORDER BY
-              displayName: order by, order by clause
-              href: ../nosql/query/order-by.md
-            - name: GROUP BY
-              displayName: group by clause
-              href: ../nosql/query/group-by.md
-            - name: OFFSET LIMIT
-              displayName: offset limit
-              href: ../nosql/query/offset-limit.md
-        - name: Working with JSON
-          displayName: alias, JSON, projection
-          href: ../nosql/query/working-with-json.md
-        - name: Subquery
-          displayName: subquery, exists
-          href: ../nosql/query/subquery.md
-        - name: Joins
-          displayName: join
-          href: ../nosql/query/join.md
-        - name: Arrays and objects
-          displayName: object and array creation, object and array
-          href: ../nosql/query/object-array.md
-        - name: Keywords
-          displayName: keywords, distinct, between, in, top
-          href: ../nosql/query/keywords.md
-        - name: Constants
-          displayName: object, number,array
-          href: ../nosql/query/constants.md
-        - name: Scalar expressions
-          displayName: scalar expressions, scalar
-          href: ../nosql/query/scalar-expressions.md
-        - name: Operators
-          items:
-            - name: Equality and comparison operators
-              displayName: equality, comparison, operators
-              href: ../nosql/query/equality-comparison-operators.md
-            - name: Logical operators
-              displayName: logical, and, or, operators
-              href: ../nosql/query/logical-operators.md
-            - name: Ternary and coalesce operators
-              displayName: ternary, coalesce, operators
-              href: ../nosql/query/ternary-coalesce-operators.md
-            - name: Bitwise operators
-              displayName: bitwise, binary, operators
-              href: ../nosql/query/bitwise-operators.md
-        - name: Functions
-          items:
-            - name: User-defined functions
-              displayName: functions, udf
-              href: ../nosql/query/udfs.md
-        - name: Aggregate functions
-          items:
-            - name: Aggregate functions
-              displayName: functions, aggregate, count, sum, min, minimum, max, maximum, avg, average
-              href: ../nosql/query/aggregate-functions.md
-            - name: Avg
-              displayName: functions, aggregate, avg, average
-              href: ../nosql/query/aggregate-avg.md
-            - name: Count
-              displayName: functions, aggregate, count
-              href: ../nosql/query/aggregate-count.md
-            - name: Max
-              displayName: functions, aggregate, max, maximum
-              href: ../nosql/query/aggregate-max.md
-            - name: Min
-              displayName: functions, aggregate, min, minimum
-              href: ../nosql/query/aggregate-min.md
-            - name: Sum
-              displayName: functions, aggregate, sum
-              href: ../nosql/query/aggregate-sum.md
-        - name: System functions
-          items:
-            - name: System functions
-              displayName: functions, system functions, built-in functions
-              href: ../nosql/query/system-functions.md
-            - name: Array functions
-              items:
-                - name: Array functions
-                  displayName: array functions, array, system functions, built-in functions
-                  href: ../nosql/query/array-functions.md
-                - name: ARRAY_CONCAT
-                  displayName: ARRAY_CONCAT, array concat, array functions
-                  href: ../nosql/query/array-concat.md
-                - name: ARRAY_CONTAINS
-                  displayName: ARRAY_CONTAINS, array contains, array functions
-                  href: ../nosql/query/array-contains.md
-                - name: ARRAY_LENGTH
-                  displayName: ARRAY_LENGTH, array length, array functions
-                  href: ../nosql/query/array-length.md
-                - name: ARRAY_SLICE
-                  displayName: ARRAY_SLICE, array slice, array functions
-                  href: ../nosql/query/array-slice.md
-            - name: Date and time functions
-              items:
-                - name: Date and time functions
-                  displayName: date and time functions, date and time, datetime, system functions, built-in functions
-                  href: ../nosql/query/date-time-functions.md
-                - name: DateTimeAdd
-                  displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
-                  href: ../nosql/query/datetimeadd.md
-                - name: DateTimeBin
-                  displayName: DateTimeBin, date time bin, date and time functions, datetime
-                  href: ../nosql/query/datetimebin.md
-                - name: DateTimeDiff
-                  displayName: DateTimeDiff, date time diff, date and time functions, datetime
-                  href: ../nosql/query/datetimediff.md
-                - name: DateTimeFromParts
-                  displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
-                  href: ../nosql/query/datetimefromparts.md
-                - name: DateTimePart
-                  displayName: DateTimePart, date time part, date and time functions, datetime
-                  href: ../nosql/query/datetimepart.md
-                - name: DateTimeToTicks
-                  displayName: DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks
-                  href: ../nosql/query/datetimetoticks.md
-                - name: DateTimeToTimestamp
-                  displayName: DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp
-                  href: ../nosql/query/datetimetotimestamp.md
-                - name: GetCurrentDateTime
-                  displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
-                  href: ../nosql/query/getcurrentdatetime.md
-                - name: GetCurrentTicks
-                  displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
-                  href: ../nosql/query/getcurrentticks.md
-                - name: GetCurrentTimestamp
-                  displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
-                  href: ../nosql/query/getcurrenttimestamp.md
-                - name: TicksToDateTime
-                  displayName: TicksToDateTime, ticks to date time, date and time functions, datetime, ticks
-                  href: ../nosql/query/tickstodatetime.md
-                - name: TimestampToDateTime
-                  displayName: TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp
-                  href: ../nosql/query/timestamptodatetime.md
-            - name: Mathematical functions
-              items:
-                - name: Mathematical functions
-                  displayName: mathematical, mathematical functions, system functions, built-in functions
-                  href: ../nosql/query/mathematical-functions.md
-                - name: ABS
-                  displayName: ABS, absolute value, built-in functions
-                  href: ../nosql/query/abs.md
-                - name: ACOS
-                  displayName: ACOS, arccosine, built-in functions
-                  href: ../nosql/query/acos.md
-                - name: ASIN
-                  displayName: ASIN, asine, built-in functions
-                  href: ../nosql/query/asin.md
-                - name: ATAN
-                  displayName: ATAN, arctangent, built-in functions
-                  href: ../nosql/query/atan.md
-                - name: ATN2
-                  displayName: ATN2, built-in functions
-                  href: ../nosql/query/atn2.md
-                - name: CEILING
-                  displayName: CEILING, built-in functions
-                  href: ../nosql/query/ceiling.md
-                - name: COS
-                  displayName: COS, cosine, built-in functions
-                  href: ../nosql/query/cos.md
-                - name: COT
-                  displayName: COT, cotangent, built-in functions
-                  href: ../nosql/query/cot.md
-                - name: DEGREES
-                  displayName: DEGREES, built-in functions
-                  href: ../nosql/query/degrees.md
-                - name: EXP
-                  displayName: EXP, exponential value, built-in functions
-                  href: ../nosql/query/exp.md
-                - name: FLOOR
-                  displayName: FLOOR, built-in functions
-                  href: ../nosql/query/floor.md
-                - name: LOG
-                  displayName: LOG, logarithm, built-in functions
-                  href: ../nosql/query/log.md
-                - name: LOG10
-                  displayName: LOG10, log base 10, built-in functions
-                  href: ../nosql/query/log10.md
-                - name: PI
-                  displayName: PI, built-in functions
-                  href: ../nosql/query/pi.md
-                - name: POWER
-                  displayName: POWER, exponent, built-in functions
-                  href: ../nosql/query/power.md
-                - name: RADIANS
-                  displayName: RADIANS, built-in functions
-                  href: ../nosql/query/radians.md
-                - name: RAND
-                  displayName: RAND, random, built-in functions
-                  href: ../nosql/query/rand.md
-                - name: ROUND
-                  displayName: ROUND, built-in functions
-                  href: ../nosql/query/round.md
-                - name: SIGN
-                  displayName: SIGN, built-in functions
-                  href: ../nosql/query/sign.md
-                - name: SIN
-                  displayName: SIN, sine, built-in functions
-                  href: ../nosql/query/sin.md
-                - name: SQRT
-                  displayName: SQRT, square root, built-in functions
-                  href: ../nosql/query/sqrt.md
-                - name: SQUARE
-                  displayName: SQUARE, built-in functions
-                  href: ../nosql/query/square.md
-                - name: TAN
-                  displayName: TAN, built-in functions
-                  href: ../nosql/query/tan.md
-                - name: TRUNC
-                  displayName: TRUNC, truncate, built-in functions
-                  href: ../nosql/query/trunc.md
-            - name: Spatial functions
-              items:
-                - name: Spatial functions
-                  displayName: spatial functions, spatial, system functions, built-in functions
-                  href: ../nosql/query/spatial-functions.md
-                - name: ST_DISTANCE
-                  displayName: ST_DISTANCE, st distance, distance, built-in functions
-                  href: ../nosql/query/st-distance.md
-                - name: ST_WITHIN
-                  displayName: ST_WITHIN, st within, within, built-in functions
-                  href: ../nosql/query/st-within.md
-                - name: ST_INTERSECTS
-                  displayName: ST_INTERSECTS, st intersects, intersects, built-in functions
-                  href: ../nosql/query/st-intersects.md
-                - name: ST_ISVALID
-                  displayName: ST_ISVALID, st isvalid, is valid, built-in functions
-                  href: ../nosql/query/st-isvalid.md
-                - name: ST_ISVALIDDETAILED
-                  displayName: ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions
-                  href: ../nosql/query/st-isvaliddetailed.md
-            - name: String functions
-              items:
-                - name: String functions
-                  displayName: string functions, string, system functions, built-in functions
-                  href: ../nosql/query/string-functions.md
-                - name: CONCAT
-                  displayName: CONCAT, concatenate, built-in functions
-                  href: ../nosql/query/concat.md
-                - name: CONTAINS
-                  displayName: CONTAINS, built-in functions
-                  href: ../nosql/query/contains.md
-                - name: ENDSWITH
-                  displayName: ENDSWITH, built-in functions
-                  href: ../nosql/query/endswith.md
-                - name: INDEX_OF
-                  displayName: INDEX_OF, index of, built-in functions
-                  href: ../nosql/query/index-of.md
-                - name: LEFT
-                  displayName: LEFT, built-in functions
-                  href: ../nosql/query/left.md
-                - name: LENGTH
-                  displayName: LENGTH, built-in functions
-                  href: ../nosql/query/length.md
-                - name: LOWER
-                  displayName: LOWER, built-in functions
-                  href: ../nosql/query/lower.md
-                - name: LTRIM
-                  displayName: LTRIM, left trim, built-in functions
-                  href: ../nosql/query/ltrim.md
-                - name: REGEXMATCH
-                  displayName: REGEXMATCH, built-in functions
-                  href: ../nosql/query/regexmatch.md
-                - name: REPLACE
-                  displayName: REPLACE, built-in functions
-                  href: ../nosql/query/replace.md
-                - name: REPLICATE
-                  displayName: REPLICATE, built-in functions
-                  href: ../nosql/query/replicate.md
-                - name: REVERSE
-                  displayName: REVERSE, built-in functions
-                  href: ../nosql/query/reverse.md
-                - name: RIGHT
-                  displayName: RIGHT, built-in functions
-                  href: ../nosql/query/right.md
-                - name: RTRIM
-                  displayName: RTRIM, right trim, built-in functions
-                  href: ../nosql/query/rtrim.md
-                - name: STARTSWITH
-                  displayName: STARTSWITH, starts with, built-in functions
-                  href: ../nosql/query/startswith.md
-                - name: STRINGEQUALS
-                  displayName: STRINGEQUALS, equals, case-insensitive
-                  href: ../nosql/query/stringequals.md
-                - name: StringToArray
-                  displayName: StringToArray, string to array, built-in functions
-                  href: ../nosql/query/stringtoarray.md
-                - name: StringToBoolean
-                  displayName: StringToBoolean, string to boolean, built-in functions
-                  href: ../nosql/query/stringtoboolean.md
-                - name: StringToNull
-                  displayName: StringToNull, string to null, built-in functions
-                  href: ../nosql/query/stringtonull.md
-                - name: StringToNumber
-                  displayName: StringToNumber, string to number, built-in functions
-                  href: ../nosql/query/stringtonumber.md
-                - name: StringToObject
-                  displayName: StringToObject, string to object, built-in functions
-                  href: ../nosql/query/stringtoobject.md
-                - name: SUBSTRING
-                  displayName: SUBSTRING, built-in functions
-                  href: ../nosql/query/substring.md
-                - name: ToString
-                  displayName: ToString, to sting, built-in functions
-                  href: ../nosql/query/tostring.md
-                - name: TRIM
-                  displayName: TRIM, built-in functions
-                  href: ../nosql/query/trim.md
-                - name: UPPER
-                  displayName: UPPER, built-in functions
-                  href: ../nosql/query/upper.md
-            - name: Type checking functions
-              items:
-                - name: Type checking functions
-                  displayName: type checking functions, type checking, type, system functions, built-in functions
-                  href: ../nosql/query/type-checking-functions.md
-                - name: IS_ARRAY
-                  displayName: IS_ARRAY, is array, built-in functions
-                  href: ../nosql/query/is-array.md
-                - name: IS_BOOL
-                  displayName: IS_BOOL, IsBool, is bool, built-in functions
-                  href: ../nosql/query/is-bool.md
-                - name: IS_DEFINED
-                  displayName: IS_DEFINED, IsDefined, is defined, built-in functions
-                  href: ../nosql/query/is-defined.md
-                - name: IS_NULL
-                  displayName: IS_NULL, IsNull, is null, built-in functions
-                  href: ../nosql/query/is-null.md
-                - name: IS_NUMBER
-                  displayName: IS_NUMBER, IsNumber, is number, built-in functions
-                  href: ../nosql/query/is-number.md
-                - name: IS_OBJECT
-                  displayName: IS_OBJECT, IsObject, is object, built-in functions
-                  href: ../nosql/query/is-object.md
-                - name: IS_PRIMITIVE
-                  displayName: IS_PRIMITIVE, IsPrimitive, is primitive, built-in functions
-                  href: ../nosql/query/is-primitive.md
-                - name: IS_STRING
-                  displayName: IS_STRING, IsString, is string, built-in functions
-                  href: ../nosql/query/is-string.md
-        - name: Geospatial data
-          items:
-            - name: Geospatial overview
-              displayName: geospatial, spatial
-              href: ../nosql/query/geospatial-intro.md
-            - name: Query geospatial data
-              displayName: geospatial, spatial, query
-              href: ../nosql/query/geospatial-query.md
-            - name: Index geospatial data
-              displayName: geospatial, spatial, index
-              href: ../nosql/query/geospatial-index.md
-        - name: DateTime
-          displayName: datetime, date, time
-          href: ../nosql/query/working-with-dates.md
-        - name: Parameterized query
-          displayName: parameterized query, parameterized, parameter, parameters
-          href: ../nosql/query/parameterized-queries.md
-        - name: Pagination
-          displayName: continuation tokens, paging, pagination
-          href: ../nosql/query/pagination.md
-        - name: LINQ to SQL
-          displayName: linq, .NET
-          href: ../nosql/query/linq-to-sql.md
+      href: query/toc.yml
     - name: Throughput (Request units)
       items:
         - name: Provisioned throughput
