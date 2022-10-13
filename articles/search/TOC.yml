@@ -3,12 +3,14 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Cognitive Search?
+  - name: What's Cognitive Search?
     href: search-what-is-azure-search.md
+  - name: What's new in Search?
+    href: whats-new.md
   - name: Features in Search
     href: search-features-list.md
-  - name: New in Search
-    href: whats-new.md
+  - name: FAQ
+    href: search-faq-frequently-asked-questions.yml
 - name: Quickstarts
   items:
   - name: Portal
@@ -17,10 +19,10 @@
       href: search-get-started-portal.md
     - name: Create a demo app
       href: search-create-app-portal.md
-    - name: Create a knowledge store
-      href: knowledge-store-create-portal.md
     - name: Create a skillset
       href: cognitive-search-quickstart-blob.md
+    - name: Create a knowledge store
+      href: knowledge-store-create-portal.md
     - name: Query with Search Explorer
       href: search-explorer.md
   - name: Visual Studio Code 
@@ -618,8 +620,6 @@
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.yml
   - name: Demo sites
     href: resource-demo-sites.md
   - name: Tools

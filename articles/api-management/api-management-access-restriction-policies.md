@@ -557,7 +557,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value. The JSON Web Key Set (JWKS) is cached and is not fetched on each request. Automatic metadata refresh occurs once per hour. If retrieval fails, it will be refreshed in five minutes.
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.

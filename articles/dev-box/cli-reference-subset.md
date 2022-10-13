@@ -1,15 +1,16 @@
 ---
-title: Microsoft Dev Box Azure CLI Reference
+title: Microsoft Dev Box Preview Azure CLI Reference
+titleSuffix: Microsoft Dev Box Preview
 description: This article contains descriptions and definitions for a subset of the Dev Box Azure CLI extension.
 services: dev-box
 ms.service: dev-box
 ms.topic: reference
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/29/2022
+ms.date: 10/12/2022
 ---
-# Dev Box CLI reference
-This article contains descriptions and definitions for a subset of the Dev Box Azure CLI extension. 
+# Microsoft Dev Box Preview Azure CLI reference
+This article contains descriptions and definitions for a subset of the Microsoft Dev Box Preview CLI extension. 
 
 > [!NOTE]
 > Microsoft Dev Box is currently in public preview. Features and commands may change. If you need additional assistance, contact the Dev Box team by using [Report a problem](https://aka.ms/devbox/report).
