@@ -11,18 +11,18 @@ ms.date: 10/13/2022
 ---
 # What is Azure Data Lake Analytics?
 
-Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it is running, making it cost-effective. 
+Azure Data Lake Analytics is an on-demand analytics job service that simplifies big data. Instead of deploying, configuring, and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by setting the dial for how much power you need. You only pay for your job when it's running, making it cost-effective.
 
 ## Azure Data Lake analytics recent update information
 
-Azure Data Lake analytics service is updated on an aperiodic basis for certain purpose. We continue to provide the support for this service with component update, component beta preview and so on. 
+Azure Data Lake analytics service is updated on an aperiodic basis for certain purpose. We continue to provide the support for this service with component update, component beta preview and so on.
 
 - For recent update general information, refer to [What's new in Data Lake Analytics?](data-lake-analytics-whats-new.md).
 - For each update details, refer to [Azure Data Lake analytics release note](https://github.com/Azure/AzureDataLake/tree/master/docs/Release_Notes).
 
 ## Dynamic scaling
   
-Data Lake Analytics dynamically provisions resources and lets you do analytics on terabytes to petabytes of data. You pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute resources used, you don’t have to rewrite code. 
+Data Lake Analytics dynamically provisions resources and lets you do analytics on terabytes to petabytes of data. You pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute resources used, you don’t have to rewrite code.
 
 ## Develop faster, debug, and optimize smarter using familiar tools
   
@@ -49,12 +49,11 @@ Data Lake Analytics works with **Azure Data Lake Storage Gen1** for the highest 
 
 ## In-region data residency
   
-Data Lake Analytics does not move or store customer data out of the region in which it is deployed.
-
+Data Lake Analytics doesn't move or store customer data out of the region in which it's deployed.
 
 ## Next steps
 
-* See the Azure Data Lake Analytics recent update using [What's new in Azure Data Lake Analytics?](data-lake-analytics-whats-new.md)
-* Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)
-* Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
-* [How to control costs and save money with Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)
+- See the Azure Data Lake Analytics recent update using [What's new in Azure Data Lake Analytics?](data-lake-analytics-whats-new.md)
+- Get Started with Data Lake Analytics using [Azure portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)
+- Manage Azure Data Lake Analytics using [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
+- [How to control costs and save money with Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)
