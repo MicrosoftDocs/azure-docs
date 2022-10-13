@@ -28,7 +28,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 In the *appsettings.json* file, do the following:
 
 - Update the `Instance` entry with your custom domain.
-- Update the `Domain` entry with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Update the `Domain` entry with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following JSON shows the app settings before the change: 
 

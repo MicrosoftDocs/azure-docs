@@ -105,7 +105,7 @@ To create a workflow, follow these steps:
     | Section| Name | Value |
     | ---- | ----- |----- |
     | `env` | `clientId` | **Application (client) ID** of the application you registered in the [Register an MS Graph application](#register-a-microsoft-graph-application) step. |
-    |`env`| `tenant` | Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, contoso.onmicrosoft.com). |
+    |`env`| `tenant` | Your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, contoso.onmicrosoft.com). |
     | `with`| `folder`| A folder where the custom policies files are stored, for example, `./Policies`.|
     | `with`| `files` | Comma-delimited list of policy files to deploy, for example, `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
     

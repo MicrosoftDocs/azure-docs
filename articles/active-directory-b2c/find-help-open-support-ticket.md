@@ -65,7 +65,7 @@ If you're unable to find answers by using self-help resources, you can open an o
 
 1. Under **3. Additional details** tab, fill out the required details accurately. For example:
 
-    1. Your tenant ID or domain name. See how to find your [tenant ID](tenant-management.md#get-your-tenant-id) or [tenant name](tenant-management.md#get-your-tenant-name).  
+    1. Your tenant ID or domain name. See how to find your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id) or [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name).  
 
     1. The time and date when the problem occurred.
  

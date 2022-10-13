@@ -81,7 +81,7 @@ To create the desktop app registration, do the following:
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *desktop-app1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
-1. Under **Redirect URI**, select **Public client/native (desktop & desktop)** and then, in the URL box, enter `https://your-tenant-name.b2clogin.com/oauth2/nativeclient`. Replace `your-tenant-name` with your [tenant name](tenant-management.md#get-your-tenant-name). For more options, see [Configure redirect URI](enable-authentication-wpf-desktop-app-options.md#configure-the-redirect-uri).
+1. Under **Redirect URI**, select **Public client/native (desktop & desktop)** and then, in the URL box, enter `https://your-tenant-name.b2clogin.com/oauth2/nativeclient`. Replace `your-tenant-name` with your [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For more options, see [Configure redirect URI](enable-authentication-wpf-desktop-app-options.md#configure-the-redirect-uri).
 1. Select **Register**.
 1. After the app registration is completed, select **Overview**.
 1. Record the **Application (client) ID** for later use, when you configure the desktop application.
@@ -121,7 +121,7 @@ Update the following class members:
 
 |Key  |Value  |
 |---------|---------|
-|`TenantName`|The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
+|`TenantName`|The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
 |`ClientId`|The desktop application ID from [step 2.3](#step-23-register-the-desktop-app).|
 |`PolicySignUpSignIn`| The sign-up or sign-in user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow).|
 |`PolicyEditProfile`|The edit profile user flow or custom policy that you created in [step 1](#step-1-configure-your-user-flow).|

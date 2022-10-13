@@ -1,5 +1,5 @@
 ---
-title: Manage administrator accounts in Azure Active Directory B2C tenant
+title: Manage administrator accounts in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Learn how to add an administrator account to your Azure Active Directory B2C tenant. Learn how to invite a guest account as an administrator into your Azure AD B2C tenant. 
 services: active-directory-b2c
@@ -15,7 +15,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Manage administrator accounts in Azure Active Directory B2C tenant
+# Manage administrator accounts in Azure Active Directory B2C
 
 In Azure Active Directory B2C (Azure AD B2C), a tenant represents your directory of consumer, work and guest accounts. With an administrator role, work and guest accounts can manage the tenant.  
 
