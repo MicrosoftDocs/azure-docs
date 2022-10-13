@@ -23,49 +23,50 @@ An Azure AD workload identity (preview) is an identity used by an application ru
 ### Prerequisites
 
 - Installed the latest version of the `aks-preview` extension, version 0.5.102 or later. To learn more, see [How to install extensions][how-to-install-extensions].
+- Existing Keyvault
+- Existing Azure Subscrioption with EnableWorkloadIdentityPreview feature enabled
+- Existing AKS cluster with enable-oidc-issuer and enable-workload-identity enabled
 
 Azure AD workload identity (preview) is supported on both Windows and Linux clusters.
 
 ### Configure workload identity
 
-1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription.
+1. Use the Azure CLI `az account set` command to set a specific subscription to be the current active subscription. Then use the `az identity create` command to create a managed identity.
 
     ```azurecli
-    az account set --subscription "subscriptionID"
+    export subscriptionID=<subscription id>
+    export resourceGroupName=<resource group name>
+    export UAMI=<name for user assigned identity>
+    export KEYVAULT_NAME=<existing keyvault name>
+    export clusterName=<aks cluster name>
+    
+    az account set --subscription $subscriptionID
+    az identity create --name $UAMI --resource-group $resourceGroupName
+    export USER_ASSIGNED_CLIENT_ID="$(az identity show -g $resourceGroupName --name $UAMI --query 'clientId' -o tsv)"
     ```
 
-2. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
+2. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the [az keyvault set-policy][az-keyvault-set-policy] command as shown below.
 
     ```azurecli
-    az account set --subscription "subscriptionID"
+    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $USER_ASSIGNED_CLIENT_ID
+    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $USER_ASSIGNED_CLIENT_ID
+    az keyvault set-policy -n $KEYVAULT_NAME --certificate-permissions get --spn $USER_ASSIGNED_CLIENT_ID
     ```
 
-    ```azurecli
-    az identity create --name "userAssignedIdentityName" --resource-group "resourceGroupName" --location "location" --subscription "subscriptionID"
-    ```
-
-3. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the [az keyvault set-policy][az-keyvault-set-policy] command as shown below.
+3. Run the [az aks show][az-aks-show] command to get the AKS cluster OIDC issuer URL.
 
     ```azurecli
-    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $APPLICATION_CLIENT_ID
-    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $APPLICATION_CLIENT_ID
-    az keyvault set-policy -n $KEYVAULT_NAME --certificate-permissions get --spn $APPLICATION_CLIENT_ID
-    ```
-
-4. Run the [az aks show][az-aks-show] command to get the AKS cluster OIDC issuer URL, and replace the default value for the cluster name and the resource group name.
-
-    ```azurecli
-    az aks show --resource-group resourceGroupName --name clusterName --query "oidcIssuerProfile.issuerUrl" -otsv
+    export AKS_OIDC_ISSUER="$(az aks show --resource-group $resourceGroupName --name $clusterName --query "oidcIssuerProfile.issuerUrl" -o tsv)"
+    echo $AKS_OIDC_ISSUER
     ```
 
     > [!NOTE]
     > If the URL is empty, verify you have installed the latest version of the `aks-preview` extension, version 0.5.102 or later. Also verify you've [enabled the
     > OIDC issuer][enable-oidc-issuer] (preview).
 
-5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+4. Establish a federated identity credential between the Azure AD application and the service account issuer and subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
     ```bash
-    export APPLICATION_OBJECT_ID="$(az ad app show --id ${APPLICATION_CLIENT_ID} --query id -otsv)"
     export SERVICE_ACCOUNT_NAME=serviceAccountName
     export SERVICE_ACCOUNT_NAMESPACE=serviceAccountNamespace
     ```
