@@ -415,7 +415,7 @@ This error occurs when the Azure file share is inaccessible because of a storage
 | **Error string** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT_SERVICEUNAVAILABLE |
 | **Remediation required** | No |
 
-These errors usually resolves itself, and can occur if there are:
+These errors usually resolve themselves and can occur if there are:
 
 * A high number of file changes across the servers in the sync group.
 * A large number of errors on individual files and directories.
