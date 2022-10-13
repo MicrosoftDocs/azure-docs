@@ -68,7 +68,7 @@ For feature announcements from 2019 and 2020, see the content archive, [**Previo
 
 <a name="new-service-name"></a>
 
-## Service re-brand
+## Service re-brand announcement
 
 Azure Search was renamed to **Azure Cognitive Search** in October 2019 to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
 
