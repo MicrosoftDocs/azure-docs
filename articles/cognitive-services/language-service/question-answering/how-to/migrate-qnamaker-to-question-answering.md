@@ -66,7 +66,7 @@ When you are looking at migrating to Question Answering, please consider the fol
 
 - Users may select a higher tier with higher capacity, which will impact overall price they pay. It doesn’t impact the price on language component of Custom Question Answering.
 
-- “Text Records” in Question Answering features refers to the query submitted by the user to the runtime, and it is a concept common to all features within Language service
+- “Text Records” in Question Answering features refers to the query submitted by the user to the runtime, and it is a concept common to all features within Language service. Sometimes a query may have more text records when the query length is higher. 
 
 **Example price estimations**
 
