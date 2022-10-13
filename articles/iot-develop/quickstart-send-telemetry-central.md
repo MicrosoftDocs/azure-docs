@@ -5,10 +5,10 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: quickstart
-ms.date: 10/13/20022
+ms.date: 10/13/2022
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.custom: mode-other, contperf-fy22q2
+ms.custom: mode-other, engagement-fy23
 #Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Central, and send telemetry.
 ---
 
