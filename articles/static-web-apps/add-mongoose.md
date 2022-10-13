@@ -34,7 +34,7 @@ Complete the following steps to create a Cosmos serverless DB.
     - Location: **West US 2**
     - Capacity mode: **Serverless (preview)**
     - Version: **4.0**
-:::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Create new Cosmos DB instance":::
+:::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Screenshot showing form for creating new Cosmos DB instance.":::
 8. Select **Review + create**.
 9. Select **Create**.
 

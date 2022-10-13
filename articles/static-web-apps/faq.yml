@@ -45,7 +45,7 @@ sections:
       - question: |
           My React application fails to build with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this error?
         answer: |
-          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build command treats warnings as errors when running in a continuous integration (CI) environment such as GitHub Actions or Azure Pipelines. If you have warnings in your app, it fails to build. To fix these issues, modify your app to remove the warnings. If want the build to succeed even if there are warnings, update your build script in _package.json_ to unset the `CI` environment variable:
+          If your app uses [create-react-app](https://github.com/facebook/create-react-app), its build command treats warnings as errors when running in a continuous integration (CI) environment such as GitHub Actions or Azure Pipelines. If you have warnings in your app, it fails to build. To fix these issues, modify your app to remove the warnings. If you want the build to succeed even if there are warnings, update your build script in _package.json_ to unset the `CI` environment variable:
 
           ```json
           "scripts": {

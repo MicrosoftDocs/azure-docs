@@ -96,7 +96,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Select **Review + create**.
 1. Select **Create**.
-2. Select **Go to resource**n.
+2. Select **Go to resource**.
 3. Select **Manage deployment token**.
 4. Copy the deployment token value and set it aside in an editor for later use.
 5. Select **Close** on the *Manage deployment token* window.
