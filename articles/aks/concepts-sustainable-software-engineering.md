@@ -33,7 +33,7 @@ Before you look at AKS, it is important that you review the goals and general de
 Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing natural resource consumption. Optimizing the application's cost is often the initial step in making workloads more sustainable, as it's an organic proxy to utilization and consumption.
 
 > [!IMPORTANT]
-> [Reserved Instances](https://review.learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations) are a significant Cost reduction vector. However, you should make sure to maximize utilisation of your reserved resouces, which would otherwise waste capacity and energy, and lead to an increase in carbon emissions an a lower costs ROI.
+> [Reserved Instances](https://review.learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations) are a significant Cost reduction vector. However, you should make sure to maximize utilisation of your reserved resouces, to avoid wasting capacity and energy, which would lead to an increase in carbon emissions an a lower ROI for reservations.
 
 ## Sustainability design principles
  **[Carbon Efficiency](https://learn.greensoftware.foundation/practitioner/carbon-efficiency)**: Emit the least amount of carbon possible.
