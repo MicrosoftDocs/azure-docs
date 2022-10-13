@@ -5,7 +5,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 10/13/2022
 ms.author: mmitrik
 ---
 
@@ -15,35 +15,15 @@ This tutorial provides an overview of how to use DICOMweb&trade; Standard APIs w
 
 The DICOM service supports a subset of DICOMweb&trade; Standard that includes:
 
-* Store (STOW-RS)
-* Retrieve (WADO-RS)
-* Search (QIDO-RS)
-* Manage (UPS-RS)
-
-## Modality Worklist (UPS-RS)
-
-The DICOM service's Modality Worklist (UPS-RS) enables clients to manage work items. It also describes how notifications (including subscriptions) work.
-
-Available UPS-RS endpoints include:
-
-|Verb|	Path |	Description |
-|:--- |:--- |:--- |
-|POST|	{s}/workitems{?AffectedSOPInstanceUID}|	Create a work item|
-|POST|	{s}/workitems/{instance}{?transaction}|	Update a work item
-|GET|	{s}/workitems{?query*}	|Search for work items
-|GET|	{s}/workitems/{instance}|	Retrieve a work item
-|PUT|	{s}/workitems/{instance}/state|	Change work item state
-|POST|	{s}/workitems/{instance}/cancelrequest	|Cancel work item|
-|POST	|{s}/workitems/{instance}/subscribers/{AETitle}{?deletionlock}	|Create subscription|
-|POST|	{s}/workitems/1.2.840.10008.5.1.4.34.5/	Suspend subscription|
-|DELETE	|{s}/workitems/{instance}/subscribers/{AETitle}	|Delete subscription
-|GET |	{s}/subscribers/{AETitle}|	Open subscription channel|
-|
+* [Store (STOW-RS)](dicom-services-conformance-statement#store-stow-rs)
+* [Retrieve (WADO-RS)](dicom-services-conformance-statement#retrieve-wado-rs)
+* [Search (QIDO-RS)](dicom-services-conformance-statement#search-qido-rs)
+* [Delete](dicom-services-conformance-statement#delete)
 
 Additionally, the following non-standard API(s) are supported:
 
-* Delete
-* Change Feed
+* [Change Feed](dicom-change-feed-overview.md)
+* [Extended Query Tags](dicom-extended-query-tags-overview.md)
 
 To learn more about our support of DICOM Web Standard APIs, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md) reference document.
 

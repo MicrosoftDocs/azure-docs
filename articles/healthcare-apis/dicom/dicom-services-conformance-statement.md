@@ -29,16 +29,16 @@ The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standa
 
 Additionally, the following non-standard API(s) are supported:
 
-* [Change Feed](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/change-feed.md)
-* [Extended Query Tags](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/extended-query-tags.md)
+* [Change Feed](dicom-change-feed.md)
+* [Extended Query Tags](dicom-extended-query-tags.md)
 
 All paths below include an implicit base URL of the server, such as `https://localhost:63838` when running locally.
 
 The service makes use of REST API versioning. Note that the version of the REST API must be explicitly specified as part of the base URL as in the following example:
 
-`https://localhost:63838/v1/studies`
+`https://<service_url>/v<version>/studies`
 
-For more information on how to specify the version when making requests, visit the [API Versioning Documentation](https://github.com/microsoft/dicom-server/blob/main/docs/api-versioning.md).
+For more information on how to specify the version when making requests, visit the [API Versioning Documentation](api-versioning-dicom-service.md).
 
 You'll find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
 
@@ -67,7 +67,7 @@ The following `Accept` header(s) for the response are supported:
 
 The following `Content-Type` header(s) are supported:
 
-* `multipart/related; type="application/dicom`
+* `multipart/related; type="application/dicom"`
 * `application/dicom`
 
 > [!NOTE]
@@ -75,16 +75,16 @@ The following `Content-Type` header(s) are supported:
 
 The following DICOM elements are required to be present in every DICOM file attempting to be stored:
 
-* StudyInstanceUID
-* SeriesInstanceUID
-* SOPInstanceUID
-* SOPClassUID
-* PatientID
+* `StudyInstanceUID`
+* `SeriesInstanceUID`
+* `SOPInstanceUID`
+* `SOPClassUID`
+* `PatientID`
 
 > [!NOTE]
 > All identifiers must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`.
 
-Each file stored must have a unique combination of StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID. The warning code `45070` will be returned if a file with the same identifiers already exists.
+Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID`. The warning code `45070` will be returned if a file with the same identifiers already exists.
 
 Only transfer syntaxes with explicit Value Representations are accepted.
 
@@ -109,25 +109,25 @@ The response payload will populate a DICOM dataset with the following elements:
 
 | Tag          | Name                  | Description |
 | :----------- | :-------------------- | :---------- |
-| (0008, 1190) | RetrieveURL           | The Retrieve URL of the study if the StudyInstanceUID was provided in the store request and at least one instance is successfully stored. |
-| (0008, 1198) | FailedSOPSequence     | The sequence of instances that failed to store. |
-| (0008, 1199) | ReferencedSOPSequence | The sequence of stored instances. |
+| (0008, 1190) | `RetrieveURL`           | The Retrieve URL of the study if the StudyInstanceUID was provided in the store request and at least one instance is successfully stored. |
+| (0008, 1198) | `FailedSOPSequence`     | The sequence of instances that failed to store. |
+| (0008, 1199) | `ReferencedSOPSequence` | The sequence of stored instances. |
 
-Each dataset in the FailedSOPSequence will have the following elements (if the DICOM file attempting to be stored could be read):
-
-| Tag          | Name                     | Description |
-| :----------- | :----------------------- | :---------- |
-| (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
-| (0008, 1197) | FailureReason            | The reason code why this instance failed to store. |
-
-Each dataset in the ReferencedSOPSequence will have the following elements:
+Each dataset in the `FailedSOPSequence` will have the following elements (if the DICOM file attempting to be stored could be read):
 
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
-| (0008, 1150) | ReferencedSOPClassUID    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1155) | ReferencedSOPInstanceUID | The SOP instance unique identifier of the instance that failed to store. |
-| (0008, 1190) | RetrieveURL              | The retrieve URL of this instance on the DICOM server. |
+| (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that failed to store. |
+| (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1197) | `FailureReason`            | The reason code why this instance failed to store. |
+
+Each dataset in the `ReferencedSOPSequence` will have the following elements:
+
+| Tag          | Name                     | Description |
+| :----------- | :----------------------- | :---------- |
+| (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that failed to store. |
+| (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1190) | `RetrieveURL`              | The retrieve URL of this instance on the DICOM server. |
 
 An example response with `Accept` header `application/dicom+json`:
 
@@ -190,8 +190,8 @@ An example response with `Accept` header `application/dicom+json`:
 | :---- | :---------- |
 | `272`   | The store transaction didn't store the instance because of a general failure in processing the operation. |
 | `43264` | The DICOM instance failed the validation. |
-| `43265` | The provided instance StudyInstanceUID didn't match the specified StudyInstanceUID in the store request. |
-| `45070` | A DICOM instance with the same StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID has already been stored. If you wish to update the contents, delete this instance first. |
+| `43265` | The provided instance `StudyInstanceUID` didn't match the specified `StudyInstanceUID` in the store request. |
+| `45070` | A DICOM instance with the same `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` has already been stored. If you wish to update the contents, delete this instance first. |
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create has failed and the cleanup process hasn't had chance to clean up yet. Delete the instance first before attempting to create again. |
 
 ### Retrieve (WADO-RS)
@@ -289,6 +289,7 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | `304 (Not Modified)`           | The requested data hasn't been modified since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
 | `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
+| `403 (Forbidden)`              | The user isn't authorized. |
 | `404 (Not Found)`              | The specified DICOM resource couldn't be found. |
 | `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
@@ -331,18 +332,18 @@ We support searching the following attributes and search types.
 
 | Attribute Keyword | Study | Series | Instance |
 | :---------------- | :---: | :----: | :------: |
-| StudyInstanceUID | X | X | X |
-| PatientName | X | X | X |
-| PatientID | X | X | X |
-| PatientBirthDate | X | X | X |
-| AccessionNumber | X | X | X |
-| ReferringPhysicianName | X | X | X |
-| StudyDate | X | X | X |
-| StudyDescription | X | X | X |
-| SeriesInstanceUID |  | X | X |
-| Modality |  | X | X |
-| PerformedProcedureStepStartDate |  | X | X |
-| SOPInstanceUID |  |  | X |
+| `StudyInstanceUID` | X | X | X |
+| `PatientName` | X | X | X |
+| `PatientID` | X | X | X |
+| `PatientBirthDate` | X | X | X |
+| `AccessionNumber` | X | X | X |
+| `ReferringPhysicianName` | X | X | X |
+| `StudyDate` | X | X | X |
+| `StudyDescription` | X | X | X |
+| `SeriesInstanceUID` |  | X | X |
+| `Modality` |  | X | X |
+| `PerformedProcedureStepStartDate` |  | X | X |
+| `SOPInstanceUID` |  |  | X |
 
 #### Search matching
 
@@ -375,47 +376,47 @@ The response will be an array of DICOM datasets. Depending on the resource, by *
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 0005) | SpecificCharacterSet |
-| (0008, 0020) | StudyDate |
-| (0008, 0030) | StudyTime |
-| (0008, 0050) | AccessionNumber |
-| (0008, 0056) | InstanceAvailability |
-| (0008, 0090) | ReferringPhysicianName |
-| (0008, 0201) | TimezoneOffsetFromUTC |
-| (0010, 0010) | PatientName |
-| (0010, 0020) | PatientID |
-| (0010, 0030) | PatientBirthDate |
-| (0010, 0040) | PatientSex |
-| (0020, 0010) | StudyID |
-| (0020, 000D) | StudyInstanceUID |
+| (0008, 0005) | `SpecificCharacterSet` |
+| (0008, 0020) | `StudyDate` |
+| (0008, 0030) | `StudyTime` |
+| (0008, 0050) | `AccessionNumber` |
+| (0008, 0056) | `InstanceAvailability` |
+| (0008, 0090) | `ReferringPhysicianName` |
+| (0008, 0201) | `TimezoneOffsetFromUTC` |
+| (0010, 0010) | `PatientName` |
+| (0010, 0020) | `PatientID` |
+| (0010, 0030) | `PatientBirthDate` |
+| (0010, 0040) | `PatientSex` |
+| (0020, 0010) | `StudyID` |
+| (0020, 000D) | `StudyInstanceUID` |
 
 #### Default series tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 0005) | SpecificCharacterSet |
-| (0008, 0060) | Modality |
-| (0008, 0201) | TimezoneOffsetFromUTC |
-| (0008, 103E) | SeriesDescription |
-| (0020, 000E) | SeriesInstanceUID |
-| (0040, 0244) |PerformedProcedureStepStartDate |
-| (0040, 0245) | PerformedProcedureStepStartTime |
-| (0040, 0275) | RequestAttributesSequence |
+| (0008, 0005) | `SpecificCharacterSet` |
+| (0008, 0060) | `Modality` |
+| (0008, 0201) | `TimezoneOffsetFromUTC` |
+| (0008, 103E) | `SeriesDescription` |
+| (0020, 000E) | `SeriesInstanceUID` |
+| (0040, 0244) | `PerformedProcedureStepStartDate` |
+| (0040, 0245) | `PerformedProcedureStepStartTime` |
+| (0040, 0275) | `RequestAttributesSequence` |
 
 #### Default instance tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 0005) | SpecificCharacterSet |
-| (0008, 0016) | SOPClassUID |
-| (0008, 0018) | SOPInstanceUID |
-| (0008, 0056) | InstanceAvailability |
-| (0008, 0201) | TimezoneOffsetFromUTC |
-| (0020, 0013) | InstanceNumber |
-| (0028, 0010) | Rows |
-| (0028, 0011) | Columns |
-| (0028, 0100) | BitsAllocated |
-| (0028, 0008) | NumberOfFrames |
+| (0008, 0005) | `SpecificCharacterSet` |
+| (0008, 0016) | `SOPClassUID` |
+| (0008, 0018) | `SOPInstanceUID` |
+| (0008, 0056) | `InstanceAvailability` |
+| (0008, 0201) | `TimezoneOffsetFromUTC` |
+| (0020, 0013) | `InstanceNumber` |
+| (0028, 0010) | `Rows` |
+| (0028, 0011) | `Columns` |
+| (0028, 0100) | `BitsAllocated` |
+| (0028, 0008) | `NumberOfFrames` |
 
 If `includefield=all`, the below attributes are included along with default attributes. Along with the default attributes, this is the full list of attributes supported at each resource level.
 
@@ -423,26 +424,26 @@ If `includefield=all`, the below attributes are included along with default attr
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 1030) | Study Description |
-| (0008, 0063) | AnatomicRegionsInStudyCodeSequence |
-| (0008, 1032) | ProcedureCodeSequence |
-| (0008, 1060) | NameOfPhysiciansReadingStudy |
-| (0008, 1080) | AdmittingDiagnosesDescription |
-| (0008, 1110) | ReferencedStudySequence |
-| (0010, 1010) | PatientAge |
-| (0010, 1020) | PatientSize |
-| (0010, 1030) | PatientWeight |
-| (0010, 2180) | Occupation |
-| (0010, 21B0) | AdditionalPatientHistory |
+| (0008, 1030) | `Study Description` |
+| (0008, 0063) | `AnatomicRegionsInStudyCodeSequence` |
+| (0008, 1032) | `ProcedureCodeSequence` |
+| (0008, 1060) | `NameOfPhysiciansReadingStudy` |
+| (0008, 1080) | `AdmittingDiagnosesDescription` |
+| (0008, 1110) | `ReferencedStudySequence` |
+| (0010, 1010) | `PatientAge` |
+| (0010, 1020) | `PatientSize` |
+| (0010, 1030) | `PatientWeight` |
+| (0010, 2180) | `Occupation` |
+| (0010, 21B0) | `AdditionalPatientHistory` |
 
 #### Additional Series tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0020, 0011) | SeriesNumber |
-| (0020, 0060) | Laterality |
-| (0008, 0021) | SeriesDate |
-| (0008, 0031) | SeriesTime |
+| (0020, 0011) | `SeriesNumber` |
+| (0020, 0060) | `Laterality` |
+| (0008, 0021) | `SeriesDate` |
+| (0008, 0031) | `SeriesTime` |
 
 Along with those below attributes are returned:
 
@@ -461,7 +462,8 @@ The query API returns one of the following status codes in the response:
 | `200 (OK)`                  | The response payload contains all the matching resources. |
 | `204 (No Content)`          | The search completed successfully but returned no results. |
 | `400 (Bad Request)`         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
-| `401 (Unauthorized)`        | The client is not authenticated. |
+| `401 (Unauthorized)`        | The client isn't authenticated. |
+| `403 (Forbidden)`              | The user isn't authorized. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Please try again later. |
 
 ### Additional notes
@@ -497,7 +499,8 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 | :--------------------------- | :---------- |
 | `204 (No Content)`             | When all the SOP instances have been deleted. |
 | `400 (Bad Request)`            | The request was badly formatted. |
-| `401 (Unauthorized)`           | The client is not authenticated. |
+| `401 (Unauthorized)`           | The client isn't authenticated. |
+| `403 (Forbidden)`              | The user isn't authorized. |
 | `404 (Not Found)`              | When the specified series was not found within a study or the specified instance was not found within the series. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
@@ -511,14 +514,29 @@ The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-
 
 Throughout, the variable `{workitem}` in a URI template stands for a Workitem UID.
 
+Available UPS-RS endpoints include:
+
+|Verb|	Path |	Description |
+|:--- |:--- |:--- |
+|POST|	{s}/workitems{?AffectedSOPInstanceUID}|	Create a work item|
+|POST|	{s}/workitems/{instance}{?transaction}|	Update a work item
+|GET|	{s}/workitems{?query*}	| Search for work items
+|GET|	{s}/workitems/{instance}|	Retrieve a work item
+|PUT|	{s}/workitems/{instance}/state|	Change work item state
+|POST|	{s}/workitems/{instance}/cancelrequest	| Cancel work item|
+|POST	|{s}/workitems/{instance}/subscribers/{AETitle}{?deletionlock}	| Create subscription|
+|POST|	{s}/workitems/1.2.840.10008.5.1.4.34.5/ |	Suspend subscription|
+|DELETE	| {s}/workitems/{instance}/subscribers/{AETitle}	| Delete subscription
+|GET |	{s}/subscribers/{AETitle}| Open subscription channel |
+
 ### Create Workitem
 
 This transaction uses the POST method to create a new Workitem.
 
 |Method|	Path	|Description|
 |:---|:---|:---|
-|POST	|../workitems|	Create a Workitem.|
-|POST	|../workitems?{workitem}|	Creates a Workitem with the specified UID.|
+| POST	|../workitems|	Create a Workitem.|
+| POST	|../workitems?{workitem}|	Creates a Workitem with the specified UID.|
 
 If not specified in the URI, the payload dataset must contain the Workitem in the `SOPInstanceUID` attribute.
 
@@ -538,6 +556,7 @@ Notes on dataset attributes:
 |`201 (Created)`|	The target Workitem was successfully created.|
 |`400 (Bad Request)`|	There was a problem with the request. For example, the request payload did not satisfy the requirements above.|
 |`401 (Unauthorized)`|	The client is not authenticated.
+|`403 (Forbidden)`              | The user isn't authorized. |
 |`409 (Conflict)`	|The Workitem already exists.
 |`415 (Unsupported Media Type)`|	The provided `Content-Type` is not supported.
 |`503 (Service Unavailable)`|	The service is unavailable or busy. Please try again later.|
@@ -559,7 +578,7 @@ There are four valid Workitem states:
 * CANCELED
 * COMPLETED
 
-This transaction will only succeed against Workitems in the **SCHEDULED** state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to **IN PROGRESS**. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are **IN PROGRESS** will return failure. An owned Workitem can be canceled via the [Change Workitem State](https://github.com/microsoft/dicom-server/blob/main/docs/resources/conformance-statement.md#change-workitem-state) transaction.
+This transaction will only succeed against Workitems in the **SCHEDULED** state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to **IN PROGRESS**. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are **IN PROGRESS** will return failure. An owned Workitem can be canceled via the [Change Workitem State](dicom-services-conformance-statement.md#change-workitem-state) transaction.
 
 |Method	|Path|	Description|
 |:---|:---|:---|
@@ -576,6 +595,7 @@ The request payload may include Action Information as [defined in the DICOM Stan
 |`202 (Accepted)`|	The request was accepted by the server, but the Target Workitem state has not necessarily changed yet.|
 |`400 (Bad Request)`|	There was a problem with the syntax of the request.|
 |`401 (Unauthorized)`|	The client is not authenticated.
+|`403 (Forbidden)`              | The user isn't authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.
 |`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the **SCHEDULED** or **COMPLETED** state.
 |`415 (Unsupported Media Type)`	|The provided `Content-Type` is not supported.|
@@ -604,7 +624,8 @@ The `Accept` header is required and must have the value `application/dicom+json`
 |:--- |:---
 |`200 (OK)`|	Workitem Instance was successfully retrieved.|
 |`400 (Bad Request)`|	There was a problem with the request.|
-|`401 (Unauthorized)`|	The client is not authenticated.|
+|`401 (Unauthorized)`|	The client isn't authenticated.|
+|`403 (Forbidden)`   | The user isn't authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.|
 
 #### Retrieve Workitem Response Payload
@@ -643,6 +664,7 @@ Notes on dataset attributes:
 |`200 (OK)`|	The Target Workitem was updated.|
 |`400 (Bad Request)`|	There was a problem with the request. For example: (1) the Target Workitem was in the **COMPLETED** or **CANCELED** state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset did not conform to the requirements.|
 |`401 (Unauthorized)`|	The client is not authenticated.|
+| `403 (Forbidden)`              | The user isn't authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.|
 |`409 (Conflict)`	|The request is inconsistent with the current state of the Target Workitem.|
 |`415 (Unsupported Media Type)`| The provided `Content-Type` is not supported.|
@@ -665,7 +687,7 @@ If the Workitem exists on the origin server, the Workitem shall be returned in a
 
 |Method|	Path|	Description|
 |:---|:---|:---|
-|PUT|	../workitems/{workitem}/state|Change Workitem State
+|PUT|	../workitems/{workitem}/state|Change Workitem State |
 
 The `Accept` header is required, and must have the value `application/dicom+json`.
 
@@ -680,7 +702,8 @@ The request payload shall contain the Change UPS State Data Elements. These data
 |:---|:---|
 |`200 (OK)`|	Workitem Instance was successfully retrieved.|
 |`400 (Bad Request)`	|The request cannot be performed for one of the following reasons: (1) the request is invalid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect|
-|`401 (Unauthorized)`	|The client is not authenticated.|
+|`401 (Unauthorized)`	|The client isn't authenticated.|
+|`403 (Forbidden)`   | The user isn't authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.|
 |`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem.|
 
@@ -709,7 +732,7 @@ The following parameters for each query are supported:
 |Key	|Support| Values|	Allowed| Count	|Description|
 |:--- |:---   |:---   |:---    |:---    |:---|
 |`{attributeID}=`|	`{value}`	|0...N	|Search for attribute/ value matching in query.
-|`includefield=`	|`{attributeID} all`|	0...N	|The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](https://github.com/microsoft/dicom-server/blob/main/docs/resources/conformance-statement.md###Search-Response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server will default to using 'all'.
+|`includefield=`	|`{attributeID} all`|	0...N	|The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response]dicom-services-conformance-statement.md###search-response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server will default to using 'all'.
 |`limit=`|	`{value}`|	0...1|	Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`.|
 |`offset=`|	`{value}`|	0...1|	Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response will be returned.
 |`fuzzymatching=`	|`true/false`|	0...1	|If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It will do a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` will all match. However `ohn` will **not** match.|
@@ -720,16 +743,16 @@ We support searching on these attributes:
 
 |Attribute Keyword|
 |:---| 
-|PatientName|
-|PatientID|
-|ReferencedRequestSequence.AccessionNumber|
-|ReferencedRequestSequence.RequestedProcedureID|
-|ScheduledProcedureStepStartDateTime|
-|ScheduledStationNameCodeSequence.CodeValue|
-|ScheduledStationClassCodeSequence.CodeValue|
-|ScheduledStationGeographicLocationCodeSequence.CodeValue|
-|ProcedureStepState|
-|StudyInstanceUID|
+|`PatientName`|
+|`PatientID`|
+|`ReferencedRequestSequence.AccessionNumber`|
+|`ReferencedRequestSequence.RequestedProcedureID`|
+|`ScheduledProcedureStepStartDateTime`|
+|`ScheduledStationNameCodeSequence.CodeValue`|
+|`ScheduledStationClassCodeSequence.CodeValue`|
+|`ScheduledStationGeographicLocationCodeSequence.CodeValue`|
+|`ProcedureStepState`|
+|`StudyInstanceUID`|
 
 ##### Search Matching
 
@@ -776,7 +799,8 @@ The query API will return one of the following status codes in the response:
 |`206 (Partial Content)`	|The response payload contains only some of the search results, and the rest can be requested through the appropriate request.|
 |`204 (No Content)`|	The search completed successfully but returned no results.|
 |`400 (Bad Request)`|	The was a problem with the request. For example, invalid Query Parameter syntax. Response body contains details of the failure.|
-|`401 (Unauthorized)`|	The client is not authenticated.|
+|`401 (Unauthorized)`|	The client isn't authenticated.|
+|`403 (Forbidden)`              | The user isn't authorized. |
 |`503 (Service Unavailable)`	|The service is unavailable or busy. Please try again later.|
 
 #### Additional Notes
