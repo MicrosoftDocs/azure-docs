@@ -32,7 +32,7 @@ This page covers a new installation of the server and setting it up with on-prem
 
 Before you download the Azure AD Multi-Factor Authentication Server, think about what your load and high availability requirements are. Use this information to decide how and where to deploy.
 
-A good guideline for the amount of memory you need is the number of users you expect to authenticate on a regular basis.
+A good guideline for the amount of memory you need is the number of users you expect to authenticate regularly.
 
 | Users | RAM |
 | ----- | --- |
@@ -42,7 +42,7 @@ A good guideline for the amount of memory you need is the number of users you ex
 | 100,000-200,001 | 16 GB |
 | 200,001+ | 32 GB |
 
-Do you need to set up multiple servers for high availability or load balancing? There are a number of ways to set up this configuration with Azure MFA Server. When you install your first Azure MFA Server, it becomes the master. Any additional servers become subordinate, and automatically synchronize users and configuration with the master. Then, you can configure one primary server and have the rest act as backup, or you can set up load balancing among all the servers.
+Do you need to set up multiple servers for high availability or load balancing? There are many ways to set up this configuration with Azure MFA Server. When you install your first Azure MFA Server, it becomes the master. Any other servers become subordinate, and automatically synchronize users and configuration with the master. Then, you can configure one primary server and have the rest act as backup, or you can set up load balancing among all the servers.
 
 When a master Azure MFA Server goes offline, the subordinate servers can still process two-step verification requests. However, you can't add new users and existing users can't update their settings until the master is back online or a subordinate gets promoted.
 
