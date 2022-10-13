@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 10/11/2022
-ms.custom: references_regions
+ms.custom:
 ---
 # Provision access to Arc-enabled SQL Server for DevOps actions (preview)
 
