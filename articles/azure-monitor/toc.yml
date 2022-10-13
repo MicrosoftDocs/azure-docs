@@ -113,22 +113,6 @@ items:
   - name: Monitor a virtual machine
     items:
     - name: Overview
-      href: vm/monitor-virtual-machine.md
-    - name: Configure monitoring
-      href: vm/monitor-virtual-machine-configure.md
-    - name: Analyze data
-      href: vm/monitor-virtual-machine-analyze.md
-    - name: Monitor security
-      href: vm/monitor-virtual-machine-security.md
-    - name: Create alerts
-      href: vm/monitor-virtual-machine-alerts.md
-    - name: Monitor workloads
-      href: vm/monitor-virtual-machine-workloads.md
-  - name: Monitor Kubernetes
-    href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Migrate from Operations Manager
-    href: azure-monitor-operations-manager.md
-  - name: System Center integration
     items:
     - name: Connect Operations Manager
       href: agents/om-agents.md
