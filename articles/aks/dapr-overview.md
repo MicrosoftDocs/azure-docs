@@ -79,7 +79,7 @@ If you install Dapr through the AKS extension, our recommendation is to continue
 
 ## Next Steps
 
-After learning about Dapr and some of the challenges it solves, try [Deploying an application with the Dapr cluster extension][dapr-quickstart].
+After learning about Dapr and some of the challenges it solves, try [installing the dapr extension][dapr-extension].
 
 <!-- Links Internal -->
 [csi-secrets-store]: ./csi-secrets-store-driver.md
@@ -87,6 +87,7 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-quickstart]: ./quickstart-dapr.md
 [dapr-migration]: ./dapr-migration.md
+[dapr-extension]: ./dapr.md
 
 <!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/
