@@ -4,6 +4,7 @@ description: "A detailed breakdown of autoscale settings and how they work. Appl
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
+ms.custom: ignite-2022
 ms.reviewer: riroloff
 ---
 # Understand Autoscale settings
@@ -155,60 +156,66 @@ There are three types of Autoscale profiles:
 - **Recurrence profile:** This type of profile enables you to ensure that this profile is always used on a particular day of the week. Recurrence profiles only have a start time. They run until the next recurrence profile or fixed date profile is set to start. An Autoscale setting with only one recurrence profile runs that profile, even if there is a regular profile defined in the same setting. The following two examples illustrate how this profile is used:
 
     **Example 1: Weekdays vs. weekends**
-    
-    Let’s say that on weekends, you want your maximum capacity to be 4. On weekdays, because you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
+
+    Let's say that on weekends, you want your maximum capacity to be 4. On weekdays, because you expect more load, you want your maximum capacity to be 10. In this case, your setting would contain two recurrence profiles, one to run on weekends and the other on weekdays.
+
     The setting looks like this:
 
-    ``` JSON
+    ```json
     "profiles": [
-    {
-    "name": "weekdayProfile",
-    "capacity": {
-        ...
-    },
-    "rules": [{
-        ...
-    }],
-    "recurrence": {
-        "frequency": "Week",
-        "schedule": {
-            "timeZone": "Pacific Standard Time",
-            "days": [
-                "Monday"
+        {
+            "name": "weekdayProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }
             ],
-            "hours": [
-                0
+            "recurrence": {
+                "frequency": "Week",
+                "schedule": {
+                    "timeZone": "Pacific Standard Time",
+                    "days": [
+                        "Monday"
+                    ],
+                    "hours": [
+                        0
+                    ],
+                    "minutes": [
+                        0
+                    ]
+                }
+            }
+        },
+        {
+            "name": "weekendProfile",
+            "capacity": {
+              ...
+            },
+            "rules": [
+                {
+                  ...
+                }
             ],
-            "minutes": [
-                0
-            ]
+            "recurrence": {
+                "frequency": "Week",
+                "schedule": {
+                    "timeZone": "Pacific Standard Time",
+                    "days": [
+                        "Saturday"
+                    ],
+                    "hours": [
+                        0
+                    ],
+                    "minutes": [
+                        0
+                    ]
+                }
+            }
         }
-    }}
-    },
-    {
-    "name": "weekendProfile",
-    "capacity": {
-        ...
-    },
-    "rules": [{
-        ...
-    }]
-    "recurrence": {
-        "frequency": "Week",
-        "schedule": {
-            "timeZone": "Pacific Standard Time",
-            "days": [
-                "Saturday"
-            ],
-            "hours": [
-                0
-            ],
-            "minutes": [
-                0
-            ]
-        }
-    }
-    }]
+    ]
     ```
 
     The preceding setting shows that each recurrence profile has a schedule. This schedule determines when the profile starts running. The profile stops when it’s time to run another profile.
@@ -219,7 +226,7 @@ There are three types of Autoscale profiles:
     
     Let's say you want to have one metric threshold during business hours (9:00 AM to 5:00 PM), and a different one for all other times. The setting would look like this:
     
-    ``` JSON
+    ```json
     "profiles": [
     {
     "name": "businessHoursProfile",
@@ -310,4 +317,3 @@ Learn more about Autoscale by referring to the following:
 * [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
 * [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
 * [Autoscale REST API](/rest/api/monitor/autoscalesettings)
-
