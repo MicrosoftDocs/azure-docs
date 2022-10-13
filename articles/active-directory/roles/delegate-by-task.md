@@ -366,6 +366,13 @@ You can further restrict permissions by assigning roles at smaller scopes or by 
 > | View a Temporary Access Pass details for a user (without reading the code itself) | [Global Reader](permissions-reference.md#global-reader) |  |
 > | Configure or update the Temporary Access Pass authentication method policy | [Authentication Policy Administrator](permissions-reference.md#authentication-policy-administrator) |  |
 
+## Tenant Creation
+
+> [!div class="mx-tableFixed"]
+> | Task | Least privileged role | Additional roles |
+> | ---- | --------------------- | ---------------- |
+> | Create Azure AD or Azure AD B2C Tenant | [Tenant Creator](permissions-reference.md#tenant-creator) |  [Global Administrator](permissions-reference.md#global-administrator) |
+
 ## Users
 
 > [!div class="mx-tableFixed"]
