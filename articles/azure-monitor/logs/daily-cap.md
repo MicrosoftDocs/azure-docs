@@ -98,7 +98,7 @@ To receive an alert when the daily cap is reached, create a [log alert rule](../
 | **Condition** | |
 | Signal type | Log |
 | Signal name | Custom log search |
-| Query | `_LogOperation | where Operation =~ "Data collection stopped" | where Detail contains "OverQuota"` |
+| Query | `_LogOperation | where Category =~ "Ingestion" | where Detail contains "OverQuota"` |
 | Measurement | Measure: *Table rows*<br>Aggregation type: Count<br>Aggregation granularity: 5 minutes |
 | Alert Logic | Operator: Greater than<br>Threshold value: 0<br>Frequency of evaluation: 5 minutes |
 | Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
