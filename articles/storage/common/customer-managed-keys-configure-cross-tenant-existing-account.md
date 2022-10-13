@@ -156,13 +156,13 @@ kvUri="<key-vault-uri>"
 keyName="<key-name>"
 multiTenantAppId="<multi-tenant-app-id>"
 
-principalId=$(az identity show --name $managedIdentity --resource-group $rgName --query principalId --output tsv)
-identityResourceId=$(az identity show --name $managedIdentity --resource-group $rgName --query id --output tsv)
+principalId=$(az identity show --name $managedIdentity --resource-group $isvRgName --query principalId --output tsv)
+identityResourceId=$(az identity show --name $managedIdentity --resource-group $isvRgName --query id --output tsv)
 
 az storage account create \
     --name $accountName \
-    --resource-group $rgName \
-    --location $location \
+    --resource-group $isvRgName \
+    --location $isvLocation \
     --sku Standard_LRS \
     --kind StorageV2 \
     --identity-type SystemAssigned,UserAssigned \
