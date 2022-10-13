@@ -13,7 +13,7 @@ ms.custom: mode-ui
 
 # Quickstart: Use Search explorer to run queries in the portal
 
-**Search explorer** is a built-in query tool in the Azure portal used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
+In this quickstart, you'll learn how ot use **Search explorer**, a built-in query tool in the Azure portal used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
 
 This quickstart uses an existing index to demonstrate Search explorer. 
 

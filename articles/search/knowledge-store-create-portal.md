@@ -13,16 +13,13 @@ ms.custom: mode-ui
 
 # Quickstart: Create a knowledge store in the Azure portal
 
-[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. 
+In this quickstart, you'll create a [knowledge store](knowledge-store-concept-intro.md) that serves as a repository for output created from an [AI enrichment pipeline](cognitive-search-concept-intro.md). A knowledge store makes enriched content available in Azure Storage for downstream apps and workloads, for other work besides full text search.
 
-In this quickstart, you'll set up some sample data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
-
-> [!NOTE]
-> This quickstart shows you the fastest route to a finished knowledge store in Azure Storage. For more detailed explanations of each step, see [Create a knowledge store in REST](knowledge-store-create-rest.md) instead.
+First, you'll set up some sample data. Then, you'll run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the data  source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
 ## Prerequisites
 
-This quickstart uses the following services:
+Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
