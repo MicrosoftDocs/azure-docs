@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/29/2022
+ms.date: 10/07/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -85,9 +85,6 @@ Take the following steps to order Data Box Disk.
 
 6. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks (or both). 
     
-    
-
-
     |Setting|Value|
     |---|---|
     |Data destination |Choose from storage account or managed disks or both.<br> Based on the specified Azure region, select a storage account from the filtered list of an existing storage account. Data Box Disk can be linked with only 1 storage account.<br> You can also create a new General-purpose v1, General-purpose v2, or Blob storage account.<br> Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to Add Azure Data Box as a trusted service.|
