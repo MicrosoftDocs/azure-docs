@@ -947,6 +947,7 @@
     "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
     "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
     ".openpublishing.redirection.virtual-desktop.json",
+    ".openpublishing.redirection.deployment-environments.json",
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
     "articles/applied-ai-services/.openpublishing.archived.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",

@@ -6,16 +6,16 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 10/10/2022
 ms.custom: event-tier1-build-2022
 ---
 
 # Resource group and subscription access provisioning by data owner (Preview)
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+[Data owner policies](concept-policies-data-owner.md) are a type of Microsoft Purview access policies. They allow you to manage access to user data in sources that have been registered for *Data Use Management* in Microsoft Purview. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source.
 
-You can also [register an entire resource group or subscription](register-scan-azure-multiple-sources.md), and create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards. This article describes how this is done. 
+In this guide we cover how to register an entire resource group or subscription and then create a single policy that will manage access to **all** data sources in that resource group or subscription. That single policy will cover all existing data sources and any data sources that are created afterwards.
 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
@@ -27,8 +27,7 @@ You can also [register an entire resource group or subscription](register-scan-a
 
 (*) Only the *SQL Performance monitoring* and *Security auditing* actions are fully supported for SQL-type data sources. The *Read* action needs a workaround described later in this guide. The *Modify* action is not currently supported for SQL-type data sources.
 
-## Configuration
-[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
+## Microsoft Purview configuration
 
 ### Register the subscription or resource group for Data Use Management
 The subscription or resource group needs to be registered with Microsoft Purview to later define access policies.
@@ -39,7 +38,7 @@ To register your subscription or resource group, follow the **Prerequisites** an
 
 After you've registered your resources, you'll need to enable Data Use Management. Data Use Management needs certain permissions and can affect the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
-In the end, your resource will have the  **Data Use Management** toggle **Enabled**, as shown in the picture:
+In the end, your resource will have the  **Data Use Management** toggle **Enabled**, as shown in the screenshot:
 
 ![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-policies-data-owner-resource-group/register-resource-group-for-policy.png)
 

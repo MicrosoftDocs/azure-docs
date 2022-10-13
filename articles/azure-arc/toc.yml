@@ -32,7 +32,7 @@
   href: ./system-center-virtual-machine-manager/overview.md
 - name: Azure Arc-enabled VMs on Azure Stack HCI >
   href: /azure-stack/hci/manage/azure-arc-enabled-virtual-machines
-- name: SQL Server on Azure Arc-enabled servers >
+- name: Azure Arc-enabled SQL Server >
   href: /sql/sql-server/azure-arc/overview
 - name: Arc validation program
   items:
