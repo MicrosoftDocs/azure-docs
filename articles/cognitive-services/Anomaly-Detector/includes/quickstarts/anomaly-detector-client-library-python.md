@@ -94,7 +94,7 @@ This quickstart uses the `request-data.csv` file that can be downloaded from our
 curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
 ```
 
-## Detect an anomaly from an entire time series
+## Detect anomalies
 
 1. Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
