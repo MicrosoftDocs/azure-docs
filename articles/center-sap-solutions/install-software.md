@@ -84,7 +84,7 @@ Before you can download the software, set up an Azure Storage account for storin
 
     1. Select **Create**.
     
- 1. Grant the ACSS application *Azure SAP Workloads Management* **Storage Blob Data Reader** and **Reader and Data Access** role access on this storage account.
+ 1. Grant the **User-assigned managed identity**, which was used during infrastructure deployment, **Storage Blob Data Reader** and **Reader and Data Access** role access on this storage account.
 
 
 ### Download SAP media
