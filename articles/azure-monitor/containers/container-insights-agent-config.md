@@ -3,7 +3,7 @@ title: Configure Container insights agent data collection | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
 ms.date: 08/25/2022
-ms.reviewer: aul
+ms.reviewer: viviandiec
 ---
 
 # Configure agent data collection for Container insights

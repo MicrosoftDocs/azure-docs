@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 09/15/2022
 
 
 ms.author: justinha
@@ -48,7 +48,7 @@ The Azure AD accounts can be in the same tenant or different tenants. Guest acco
 To use passwordless phone sign-in with Microsoft Authenticator, the following prerequisites must be met:
 
 - Recommended: Azure AD Multi-Factor Authentication, with push notifications allowed as a verification method. Push notifications to your smartphone or tablet help the Authenticator app to prevent unauthorized access to accounts and stop fraudulent transactions. The Authenticator app automatically generates codes when set up to do push notifications so a user has a backup sign-in method even if their device doesn't have connectivity. 
-- Latest version of Microsoft Authenticator installed on devices running iOS 12.0 or greater, or Android 6.0 or greater.
+- Latest version of Microsoft Authenticator installed on devices running iOS or Android.
 - For Android, the device that runs Microsoft Authenticator must be registered to an individual user. We're actively working to enable multiple accounts on Android. 
 - For iOS, the device must be registered with each tenant where it's used to sign in. For example, the following device must be registered with Contoso and Wingtiptoys to allow all accounts to sign in:
   - balas@contoso.com

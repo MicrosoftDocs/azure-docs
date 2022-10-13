@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration policy definitions
 description: Learn how to create a machine configuration policy.
-ms.date: 08/09/2022
+ms.date: 09/12/2022
 ms.topic: how-to
 ms.service: machine-configuration
 ms.author: timwarner
@@ -86,14 +86,14 @@ create the machine configuration policy definition. The `New-GuestConfigurationP
 cmdlet takes a custom policy package and creates a policy definition.
 
 The **PolicyId** parameter of `New-GuestConfigurationPolicy` requires a unique
-string. A globally unique identifier (GUID) is recommended. For new definitions,
+string. A globally unique identifier (GUID) is required. For new definitions,
 generate a new GUID using the cmdlet `New-GUID`. When making updates to the
 definition, use the same unique string for **PolicyId** to ensure the correct
 definition is updated.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
-- **PolicyId**: A GUID or other unique string that identifies the definition.
+- **PolicyId**: A GUID.
 - **ContentUri**: Public HTTP(s) URI of machine configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
@@ -133,7 +133,7 @@ configuration package, in a specified path:
 ```powershell
 $PolicyConfig2      = @{
   PolicyId      = '_My GUID_'
-  ContentUri    = $contenturi 
+  ContentUri    = $contenturi
   DisplayName   = 'My audit policy'
   Description   = 'My audit policy'
   Path          = './policies/deployIfNotExists.json'

@@ -11,6 +11,9 @@ ms.service: iot-hub-device-update
 
 # Configure Microsoft Connected Cache for Device Update for IoT Hub
 
+> [!NOTE]
+> This information relates to a preview feature that's available for early testing and use in a production environment. This feature is fully supported but it's still in active development and may receive substantial changes until it becomes generally available.
+
 Microsoft Connected Cache (MCC) is deployed to Azure IoT Edge gateways as an IoT Edge module. Like other IoT Edge modules, environment variables and container create options are used to configure MCC modules. This article defines the environment variables and container create options that are required for a customer to successfully deploy the Microsoft Connected Cache module for use by Device Update for IoT Hub.
 
 ## Module deployment details

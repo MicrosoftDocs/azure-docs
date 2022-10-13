@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.custom: engagement-fy23
+ms.date: 09/14/2022
 ---
 
 # Built-in connectors in Azure Logic Apps
@@ -150,18 +151,25 @@ You can use the following built-in connectors to perform general tasks, for exam
         **FTP**<br>(*Standard workflow only*)
         \
         \
-        Connect to FTP or FTPS servers you can access from the internet so that you can work with your files and folders.
+        Connect to FTP or FTPS servers that you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         ![SFTP-SSH icon][sftp-ssh-icon]
         \
         \
-        **SFTP-SSH**<br>(*Standard workflow only*)
+        **SFTP**<br>(*Standard workflow only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
     :::column-end:::
     :::column:::
+        ![SMTP icon][smtp-icon]
+        \
+        \
+        **SMTP**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to SMTP servers that you can send email.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -213,6 +221,8 @@ You can use the following built-in connectors to access specific services and sy
         \
         Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
     :::column-end:::
+:::row-end:::
+:::row:::
     :::column:::
         ![Azure Event Hubs icon][azure-event-hubs-icon]
         \
@@ -222,8 +232,15 @@ You can use the following built-in connectors to access specific services and sy
         \
         Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
     :::column-end:::
-:::row-end:::
-:::row:::
+    :::column:::
+        ![Azure File Storage icon][azure-file-storage-icon]
+        \
+        \
+        **Azure File Storage**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to your Azure Storage account so that you can create, update, and manage files.
+    :::column-end:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
         \
@@ -234,6 +251,17 @@ You can use the following built-in connectors to access specific services and sy
         Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
     :::column-end:::
     :::column:::
+        ![Azure Key Vault icon][azure-key-vault-icon]
+        \
+        \
+        **Azure Key Vault**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to Azure Key Vault to store, access, and manage secrets.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
@@ -243,10 +271,10 @@ You can use the following built-in connectors to access specific services and sy
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
-        ![Azure Service Bus icon][azure-service-bus-icon]
+        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
-        **Azure Service Bus**<br>(*Standard workflow only*)
+        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard workflow only*)
         \
         \
         Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
@@ -261,16 +289,25 @@ You can use the following built-in connectors to access specific services and sy
         Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
     :::column:::
+        ![Azure Queue Storage][azure-queue-storage-icon]
+        \
+        \
+        **Azure Queue Storage**<br>(*Standard workflow only*)
+        \
+        \
+        Connect to your Azure Storage account so that you can create, update, and manage queues.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
         ![IBM DB2 icon][ibm-db2-icon]
         \
         \
-        **DB2**<br>(*Standard workflow only*)
+        **IBM DB2**<br>(*Standard workflow only*)
         \
         \
         Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         ![IBM Host File icon][ibm-host-file-icon]
         \
@@ -297,10 +334,6 @@ You can use the following built-in connectors to access specific services and sy
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -608,8 +641,11 @@ For more information, review the following documentation:
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
+[azure-file-storage-icon]: ./media/apis-list/azure-file-storage.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
+[azure-key-vault-icon]: ./media/apis-list/azure-key-vault.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
+[azure-queue-storage-icon]: ./media/apis-list/azure-queues.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [azure-table-storage-icon]: ./media/apis-list/azure-table-storage.png
 [batch-icon]: ./media/apis-list/batch.png
@@ -630,6 +666,7 @@ For more information, review the following documentation:
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
 [sftp-ssh-icon]: ./media/apis-list/sftp.png
+[smtp-icon]: ./media/apis-list/smtp.png
 [sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png

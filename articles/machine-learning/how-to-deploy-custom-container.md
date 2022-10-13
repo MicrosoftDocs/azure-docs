@@ -34,52 +34,31 @@ Custom container deployments can use web servers other than the default Python F
 
 ## Prerequisites
 
-* You must have an Azure resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
+[!INCLUDE [cli & sdk](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
-* You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
+* You, or the service principal you use, must have `Contributor` access to the Azure Resource Group that contains your workspace. You'll have such a resource group if you configured your workspace using the quickstart article.
 
 * To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
-
-# [CLI](#tab/CLI)
-
-* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
-
-* If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
-
-   ```azurecli
-   az account set --subscription <subscription id>
-   az configure --defaults workspace=<azureml workspace name> group=<resource group>
-   ```
-
-# [Python](#tab/python)
-
-* If you haven't installed Python SDK v2, please install with this command:
-
-  ```azurecli
-  pip install --pre azure-ai-ml
-  ```
-
-  For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
-
----
 
 ## Download source code
 
 To follow along with this tutorial, download the source code below.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/sdk/endpoints/online/custom-container
+cd azureml-examples/sdk
 ```
+
+See also [the example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container.ipynb) but note that `3. Test locally` section in the notebook assumes to run under the `azureml-examples/sdk` directory.
 
 ---
 
@@ -120,7 +99,7 @@ Now that you've tested locally, stop the image:
 ## Deploy your online endpoint to Azure
 Next, deploy your online endpoint to Azure.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 ### Create a YAML file for your endpoint and deployment
 
@@ -134,7 +113,7 @@ __tfserving-deployment.yml__
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ### Connect to Azure Machine Learning workspace
 Connect to Azure Machine Learning Workspace, configure workspace details, and get a handle to the workspace as follows:
@@ -255,7 +234,7 @@ For example, if you have a directory structure of `/azureml-examples/cli/endpoin
 
 :::image type="content" source="./media/how-to-deploy-custom-container/local-directory-structure.png" alt-text="Diagram showing a tree view of the local directory structure.":::
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 and `tfserving-deployment.yml` contains:
 
@@ -266,7 +245,7 @@ model:
     path: ./half_plus_two
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 and `Model` class contains:
 
@@ -285,7 +264,7 @@ You can optionally configure your `model_mount_path`. It enables you to change t
 > [!IMPORTANT]
 > The `model_mount_path` must be a valid absolute path in Linux (the OS of the container image).
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 For example, you can have `model_mount_path` parameter in your _tfserving-deployment.yml_:
 
@@ -300,7 +279,7 @@ model_mount_path: /var/tfserving-model-mount
 .....
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 For example, you can have `model_mount_path` parameter in your `ManagedOnlineDeployment` class:
 
@@ -323,7 +302,7 @@ then your model will be located at `/var/tfserving-model-mount/tfserving-deploym
 
 ### Create your endpoint and deployment
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 Now that you've understood how the YAML was constructed, create your endpoint.
 
@@ -339,7 +318,7 @@ az ml online-deployment create --name tfserving-deployment -f endpoints/online/c
 
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 Using the `MLClient` created earlier, we will now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
@@ -359,18 +338,18 @@ ml_client.begin_create_or_update(blue_deployment)
 
 Once your deployment completes, see if you can make a scoring request to the deployed endpoint.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 Using the `MLClient` created earlier, we will get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 - `endpoint_name` - Name of the endpoint
 - `request_file` - File with request data
 - `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/custom-container).
+We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/custom-container).
 
 ```python
 # test the blue deployment with some sample data
@@ -387,13 +366,13 @@ ml_client.online_endpoints.invoke(
 
 Now that you've successfully scored with your endpoint, you can delete it:
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 az ml online-endpoint delete --name tfserving-endpoint
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)

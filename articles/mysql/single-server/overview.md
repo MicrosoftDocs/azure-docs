@@ -7,7 +7,7 @@ ms.subservice: single-server
 ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/20/2022
+ms.date: 06/20/2022 
 ---
 
 # What is Azure Database for MySQL?
@@ -52,11 +52,13 @@ Flexible servers are best suited for
 
 For detailed overview of flexible server deployment mode, refer [flexible server overview](../flexible-server/overview.md). For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](../flexible-server/whats-new.md).
 
-### Azure Database for MySQL - Single Server 
+### Azure Database for MySQL - Single Server
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL Single Server is a fully managed database service designed for minimal customization. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6 (retired), 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
-Single servers are best suited **only for existing applications already leveraging single server**. For all new developments or migrations, Flexible Server would be the recommended deployment option. To learn about the differences between Flexible Server and Single Server deployment options, refer [select the right deployment option for you](select-right-deployment-type.md) documentation.
+Single servers are best suited **only for existing applications already leveraging single server**. For all new developments or migrations, Flexible Server would be the recommended deployment option. To learn about the differences between Flexible Server and Single Server deployment options, refer to [select the right deployment option for your documentation](select-right-deployment-type.md).
 
 For detailed overview of single server deployment mode, refer [single server overview](single-server-overview.md). For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Single Server](single-server-whats-new.md).
 

@@ -15,12 +15,11 @@ ms.date: 08/29/2022
 
 # Configure a private endpoint for an Azure Machine Learning workspace with SDK and CLI v1
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [SDK v1](how-to-configure-private-link.md)
-> * [SDK v2 (current version)](../how-to-configure-private-link.md)
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
+> * [CLI or SDK v1](how-to-configure-private-link.md)
+> * [CLI v2 (current version)](../how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
@@ -65,7 +64,7 @@ Use one of the following methods to create a workspace with a private endpoint. 
 > [!TIP]
 > If you'd like to create a workspace, private endpoint, and virtual network at the same time, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](../how-to-create-workspace-template.md).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
 
@@ -85,7 +84,9 @@ ws = Workspace.create(name='myworkspace',
     show_output=True)
 ```
 
-# [Azure CLI](#tab/azurecliextensionv1)
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+
 
 If you're using the Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md), use the [az ml workspace create](/cli/azure/ml/workspace#az-ml-workspace-create) command. The following parameters for this command can be used to create a workspace with a private network, but it requires an existing virtual network:
 
@@ -120,7 +121,7 @@ Use one of the following methods to add a private endpoint to an existing worksp
 >
 > If you have any existing compute targets associated with this workspace, and they are not behind the same virtual network tha the private endpoint is created in, they will not work.
 
-# [Python1](#tab/python)
+# [Python](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -135,7 +136,8 @@ ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approv
 
 For more information on the classes and methods used in this example, see [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) and [Workspace.add_private_endpoint](/python/api/azureml-core/azureml.core.workspace(class)#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
 
-# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint add](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-add) command.
 
@@ -156,7 +158,7 @@ You can remove one or all private endpoints for a workspace. Removing a private 
 
 To remove a private endpoint, use the following information:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To remove a private endpoint, use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-). The following example demonstrates how to remove a private endpoint:
 
@@ -171,8 +173,7 @@ _, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].
 ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
 ```
 
-# [Azure CLI extension 1.0](#tab/azurecliextensionv1)
-
+# [Azure CLI](#tab/cli)
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 The Azure CLI [extension 1.0 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace private-endpoint delete](/cli/azure/ml(v1)/workspace/private-endpoint#az-ml-workspace-private-endpoint-delete) command.
@@ -201,7 +202,7 @@ To enable public access, use the following steps:
 >
 > Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To enable public access, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `allow_public_access_when_behind_vnet=True`.
 
@@ -214,7 +215,7 @@ ws = Workspace.from_config()
 ws.update(allow_public_access_when_behind_vnet=True)
 ```
 
-# [Azure CLI](#tab/azurecliextensionv1)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 

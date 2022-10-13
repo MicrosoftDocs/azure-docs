@@ -11,12 +11,124 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/2/2022
+ms.date: 10/11/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## October 2022 Guest OS
+
+>[!NOTE] 
+
+>The October Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the October Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-10 |  [5016623]  |  Latest Cumulative Update(LCU) | 6.49 | Aug 9, 2022 |
+|  Rel 22-10 |  [5016618]  |  IE Cumulative Updates | 2.129, 3.116, 4.109 | Aug 9, 2022 |
+|  Rel 22-10 |  [5016627]  |  Latest Cumulative Update(LCU) | 7.17 | Aug 9, 2022 |
+|  Rel 22-10 |  [5016622]  |  Latest Cumulative Update(LCU) | 5.73 | Aug 9, 2022 |
+|  Rel 22-10 |  [5013637]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 2.129 | Oct 11, 2022 |
+|  Rel 22-10 |  [5013644]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 2.129 | May 10, 2022 |
+|  Rel 22-10 |  [5013638]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 4.109 | Jun 14, 2022 |
+|  Rel 22-10 |  [5013643]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 4.109 | May 10, 2022 |
+|  Rel 22-10 |  [5013635]  |  .NET Framework 3.5 Security and Quality Rollup LKG | 3.116 | Oct 11, 2022 |
+|  Rel 22-10 |  [5013642]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | 3.116 | May 10, 2022 |
+|  Rel 22-10 |  [5013641]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update LKG | 6.49 | May 10, 2022 |
+|  Rel 22-10 |  [5017028]  |  .NET Framework 4.8 Security and Quality Rollup LKG | 7.17 | Sep 13, 2022 |
+|  Rel 22-10 |  [5018454]  |  Monthly Rollup | 2.129 | Oct 11, 2022 |
+|  Rel 22-10 |  [5018457]  |  Monthly Rollup | 3.116 | Oct 11, 2022 |
+|  Rel 22-10 |  [5018474]  |  Monthly Rollup | 4.109 | Oct 11, 2022 |
+|  Rel 22-10 |  [5016263]  |  Servicing Stack update | 3.116 | Jul 12, 2022 |
+|  Rel 22-10 |  [5018922]  |  Servicing Stack update | 4.109 | Oct 11, 2022 |
+|  Rel 22-10 |  [4578013]  |  OOB Standalone Security Update | 4.109 | Aug 19, 2020 |
+|  Rel 22-10 |  [5017396]  |  Servicing Stack update | 5.73 | Sep 13, 2022 |
+|  Rel 22-10 |  [5017397]  |  Servicing Stack update | 2.129 | Sep 13, 2022 |
+|  Rel 22-10 |  [4494175]  |  Microcode | 5.73 | Sep 1, 2020 |
+|  Rel 22-10 |  [4494174]  |  Microcode | 6.49 | Sep 1, 2020 |
+
+[5016623]: https://support.microsoft.com/kb/5016623
+[5016618]: https://support.microsoft.com/kb/5016618
+[5016627]: https://support.microsoft.com/kb/5016627
+[5016622]: https://support.microsoft.com/kb/5016622
+[5013637]: https://support.microsoft.com/kb/5013637
+[5013644]: https://support.microsoft.com/kb/5013644
+[5013638]: https://support.microsoft.com/kb/5013638
+[5013643]: https://support.microsoft.com/kb/5013643
+[5013635]: https://support.microsoft.com/kb/5013635
+[5013642]: https://support.microsoft.com/kb/5013642
+[5013641]: https://support.microsoft.com/kb/5013641
+[5017028]: https://support.microsoft.com/kb/5017028
+[5018454]: https://support.microsoft.com/kb/5018454
+[5018457]: https://support.microsoft.com/kb/5018457
+[5018474]: https://support.microsoft.com/kb/5018474
+[5016263]: https://support.microsoft.com/kb/5016263
+[5018922]: https://support.microsoft.com/kb/5018922
+[4578013]: https://support.microsoft.com/kb/4578013
+[5017396]: https://support.microsoft.com/kb/5017396
+[5017397]: https://support.microsoft.com/kb/5017397
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
+## September 2022 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-09 |  [5017315]  |  Latest Cumulative Update(LCU) | [6.48] | Sep 13, 2022 |
+|  Rel 22-09 |  [5016618]  |  IE Cumulative Updates | [2.128], [3.115], [4.108] | Aug 9, 2022 |
+|  Rel 22-09 |  [5017316]  |  Latest Cumulative Update(LCU) | [7.16] | Sep 13, 2022 |
+|  Rel 22-09 |  [5017305]  |  Latest Cumulative Update(LCU) | [5.72] | Sep 13, 2022 |
+|  Rel 22-09 |  [5013641]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.48] | May 10, 2022 |
+|  Rel 22-09 |  [5017397]  |  Servicing Stack Update | [2.128] | Sep 13, 2022 |
+|  Rel 22-09 |  [5017361]  |  September '22 Rollup | [2.128] | Sep 13, 2022 |
+|  Rel 22-09 |  [5013637]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [2.128] | Sep 13, 2022 |
+|  Rel 22-09 |  [5013644]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | [2.128] | May 10, 2022 |
+|  Rel 22-09 |  [5016263]  |  Servicing Stack Update | [3.115] | July 12, 2022 |
+|  Rel 22-09 |  [5017370]  |  September '22 Rollup | [3.115] | Sep 13, 2022 |
+|  Rel 22-09 |  [5013635]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [3.115] | Sep 13, 2022 |
+|  Rel 22-09 |  [5013642]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | [3.115] | May 10, 2022 |
+|  Rel 22-09 |  [5017398]  |  Servicing Stack Update | [4.108] | Sep 13, 2022 |
+|  Rel 22-09 |  [5017367]  |  Monthly Rollup | [4.108] | Sep 13, 2022 |
+|  Rel 22-09 |  [5013638]  |  .NET Framework 3.5 Security and Quality Rollup LKG | [4.108] | Jun 14, 2022 |
+|  Rel 22-09 |  [5013643]  |  .NET Framework 4.6.2 Security and Quality Rollup LKG | [4.108] | May 10, 2022 |
+|  Rel 22-09 |  [4578013]  |  OOB Standalone Security Update | [4.108] | Aug 19, 2020 |
+|  Rel 22-09 |  [5017396]  |  Servicing Stack Update | [5.72] | Sep 13, 2022 |
+|  Rel 22-09 |  [4494175]  |  Microcode | [5.72] | Sep 1, 2020 |
+|  Rel 22-09 |  5015896  |  Servicing Stack Update | [6.48] | Sep 1, 2020 |
+|  Rel 22-09 |  [5013626]  |  .NET Framework 4.8 Security and Quality Rollup LKG | [6.48] | May 10, 2022 |
+
+[5017315]: https://support.microsoft.com/kb/5017315
+[5016618]: https://support.microsoft.com/kb/5016618
+[5017316]: https://support.microsoft.com/kb/5017316
+[5017305]: https://support.microsoft.com/kb/5017305
+[5013641]: https://support.microsoft.com/kb/5013641
+[5017397]: https://support.microsoft.com/kb/5017397
+[5017361]: https://support.microsoft.com/kb/5017361
+[5013637]: https://support.microsoft.com/kb/5013637
+[5013644]: https://support.microsoft.com/kb/5013644
+[5016263]: https://support.microsoft.com/kb/5016263
+[5017370]: https://support.microsoft.com/kb/5017370
+[5013635]: https://support.microsoft.com/kb/5013635
+[5013642]: https://support.microsoft.com/kb/5013642
+[5017398]: https://support.microsoft.com/kb/5017398
+[5017367]: https://support.microsoft.com/kb/5017367
+[5013638]: https://support.microsoft.com/kb/5013638
+[5013643]: https://support.microsoft.com/kb/5013643
+[4578013]: https://support.microsoft.com/kb/4578013
+[5017396]: https://support.microsoft.com/kb/5017396
+[4494175]: https://support.microsoft.com/kb/4494175
+[5015896]: https://support.microsoft.com/kb/5015896
+[5013626]: https://support.microsoft.com/kb/5013626
+[2.128]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.115]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.108]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.72]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.48]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.16]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## August 2022 Guest OS
 

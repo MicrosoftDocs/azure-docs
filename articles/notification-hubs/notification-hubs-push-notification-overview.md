@@ -41,7 +41,7 @@ Push notifications are vital for consumer apps in increasing app engagement and 
 
 For more information on push notifications for a few popular platforms, see the following topics:
 
-- [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
+- [Android](https://developer.android.com/develop/ui/views/notifications)
 - [iOS](https://developer.apple.com/notifications/)
 - [Windows](/previous-versions/windows/apps/hh779725(v=win.10))
 
