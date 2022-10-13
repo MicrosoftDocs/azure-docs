@@ -183,21 +183,21 @@ _Servish mesh operates by deploying additional containers for communication (sid
 
 <br/>
 
- **Assess for Resilience and Performance** 
+ **Assess for resilience and performance** 
 
 _To be able to scale down your workloads, or schedule them to SPOT nodes, your workloads need to tolerate interruptions and failures. Load testing and chaos engineering can significantly help improve resiliency of your workloads to handle interruptions and failures gracefully and with less wasted resources._
 
 :heavy_check_mark: Use [load testing](/azure/load-testing/tutorial-identify-performance-regression-with-cicd) to assess performance of your workloads during high spikes.
 
-<br/>
-
 :heavy_check_mark: Use [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering) resilience of your workloads to failures and interruptions.
+
+<br/>
 
 **Turn off workloads outside of business hours** 
 
 _Reduce energy waste and optimize costs_
 
-:heavy_check_mark: You can use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to turn off applications (scale pods to zero), outside regular business hours.
+:heavy_check_mark: You can use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to turn off applications (scale pods to zero), outside of regular business hours.
 
 <br/>
 
@@ -229,6 +229,7 @@ _Continuously monitor your workloads capacity usage over time, to optimize their
 
 
 The following checklist provides recommendations for designing energy and hardware efficient AKS clusters, that operate in a sustainable way.
+
 <br/>
 
 **Chose the best Azure region**
@@ -272,7 +273,7 @@ _One approach to lowering your carbon footprint is increasing the utilization of
  
 **Utilize node auto-scaling and bursting capabilities** 
 
-_Oversized compute nodes have usually "unused" or "underused" capacity ; ultimately leading to a waste of energy and increased costs._
+_Oversizing compute usually leaves "unused" or "underused" capacity ; ultimately leading to a waste of energy and increased costs._
 
 :heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on demand.
 
