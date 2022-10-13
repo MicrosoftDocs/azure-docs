@@ -9,7 +9,7 @@ ms.author: eur
 
 #### New Speech-to-text-locale
 
-Added 1 new locale as shown in the following table. See the complete language list [here](../../language-support.md?tabs=stt-tts).
+Added support for Malayalam (India) with the `ml-IN` locale. See the complete language list [here](../../language-support.md?tabs=stt-tts).
 
 
 ### 2022-July release
