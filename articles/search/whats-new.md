@@ -16,7 +16,7 @@ ms.custom: references_regions
 Learn about the latest updates to Azure Cognitive Search functionality.
 
 > [!NOTE]
-> Looking for preview feature status? Preview features are announced in this what's new article, but we also maintain a [preview features list](search-api-preview.md) so that you can conveniently find all preview features in one place.
+> Looking for preview feature status? Preview features are announced in this what's new article, but we also maintain a [preview features list](search-api-preview.md) so that you can find them all in one place.
 
 ## June 2022
 
