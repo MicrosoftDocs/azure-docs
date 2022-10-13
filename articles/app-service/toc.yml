@@ -433,7 +433,7 @@
         href: provision-resource-terraform.md
 - name: Reference
   items:
-    - name: Name Reservation Service
+    - name: Subdomain takeover
       href: reference-dangling-subdomain-prevention.md
     - name: Monitoring data
       href: monitor-app-service-reference.md
