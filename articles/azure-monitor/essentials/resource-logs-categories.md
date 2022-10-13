@@ -769,7 +769,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |CollectionCrudLogEvent|CollectionCrud|Yes|
-|ScanStatusLogEvent|ScanStatus|Yes|
+|ScanStatusLogEvent|ScanStatus|No|
 
 
 ## Microsoft.RecoveryServices/Vaults
