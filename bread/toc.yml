@@ -45,7 +45,7 @@
       - name: B2B
         tocHref: /azure/active-directory/b2b/
         topicHref: /azure/active-directory/b2b/
-      - name: B2C 
+      - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/
       - name: Domain services
