@@ -1,21 +1,32 @@
 ---
-title: Name Reservation Service
-description: Describes the Name Reservation Service on Azure App Service to prevent dangling subdomain takeovers
+title: Prevent subdomain takeovers
+description: Describes options for dangling subdomain prevention on Azure App Service.
 ms.topic: article
-ms.date: 10/11/2022
+ms.date: 10/14/2022
 ms.author: msangapu
 author: msangapu-msft
 ---
 
-# Name Reservation Service
+## What is a subdomain takeover?
 
-When a DNS record points to a resource that isn't available, the record itself should be removed from your DNS zone. If it hasn't been deleted, it's a "dangling DNS" record and creates the possibility for subdomain takeover. Name Reservation Service (also known as DNS reservations) prevents this subdomain takeover.
+Subdomain takeovers are a common threat for organizations that regularly create and delete many resources. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
+
+The risks of subdomain takeover include:
+
+- Loss of control over the content of the subdomain
+- Cookie harvesting from unsuspecting visitors
+- Phishing campaigns
+- Further risks of classic attacks such as XSS, CSRF, CORS bypass
+
+Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover.md).
+
+Azure App Service provides Name Reservation Service and domain verification tokens to prevent subdomain takeovers.
 
 ## How Name Reservation Service works
 
-Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to tenant of the subscription originally owning the DNS. 
+Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, re-use of the DNS will be forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
 
-After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean up any associations/pointers to said DNS or re-claim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'.
+After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean up any associations/pointers to said DNS or re-claim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'. Name Reservation Service is enabled by default and doesn't require additional configuration.
 
 #### Example scenario
 
@@ -24,17 +35,10 @@ Subscription 'A' and subscription 'B' are the only subscriptions belonging to te
 During the reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.azurewebsites.net' by creating a classic cloud service named 'test'. No other subscriptions will be allowed to claim it. After the reservation period is complete, any subscription in Azure can now claim 'test.azurewebsites.net'.
 
 
-## What is a subdomain takeover?
+## Domain verification token
 
-Subdomain takeovers are a common threat for organizations that regularly create and delete many resources. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
+When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT record with the Domain Verification ID. When such a TXT record exists, no other Azure Subscription can validate the Custom Domain or take it over.
 
-The risks of subdomain takeover include:
-•	Loss of control over the content of the subdomain
-•	Cookie harvesting from unsuspecting visitors
-•	Phishing campaigns
-•	Further risks of classic attacks such as XSS, CSRF, CORS bypass
+These records don't prevent someone from creating the Azure App Service with the same name that's in your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
 
-Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover.md).
-
-
-
+DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation. Be aware that the DNS records could time to propagate. If they have a "www.domain.com" and "test.domain.com", they would need to create TXT records for each of them to avoid domain takeovers.
