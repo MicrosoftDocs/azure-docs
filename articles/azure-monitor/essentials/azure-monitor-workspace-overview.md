@@ -12,13 +12,14 @@ An Azure Monitor workspace is a unique environment for data collected by Azure M
 
 
 ## Contents of Azure Monitor workspace
-Azure Monitor workspaces will eventually contain all data collected by Azure Monitor, including Log Analytics workspaces and native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics.
+Azure Monitor workspaces will eventually contain all metric data collected by Azure Monitor. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics.
 
 The following table lists the contents of Azure Monitor workspaces. This table will be updated as other types of data are stored in them.
 
 | Current contents | Future contents |
 |:---|:---|
-| Prometheus metrics | Log Analytics workspace<br>Native platform metrics<br>Native custom metrics<br>Prometheus metrics |
+| Prometheus metrics | Native platform metrics<br>Native custom metrics<br>Prometheus metrics |
+
 
 
 ## Workspace design
