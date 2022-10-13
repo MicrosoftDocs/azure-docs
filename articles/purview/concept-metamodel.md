@@ -10,51 +10,25 @@ ms.date: 10/13/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-<!--Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
-This template provides the basic structure of a Concept article pattern. See the [instructions - Concept](../level4/article-concept.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. Should NOT begin with a verb.
--->
-
 # Microsoft Purview metamodel
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+The Microsoft Purview metamodel helps you represent a business perspective of your data—how it’s grouped into data domains, used in business processes, organized into systems, and more.  
 
-[add your introductory paragraph]
+The backbone of the metamodel is comprised of asset types and their relationship definitions. An asset type is a template for storing a concept that’s important to you—anything you might want to represent in your data map alongside your physical metadata. The instances of each asset type are assets. These can be discovered in the data catalog just like the data assets that are automatically created when you scan and ingest new metadata.
 
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+Relationships are first class citizens of the metamodel. A relationship definition is the template for a relationship you’d like to represent in your data map. The relationship is the instance.  
 
-## [Section 1 heading]
-<!-- add your content here -->
+For example, if we want to use Purview to show how key data sets are used in our business processes, we can represent that information as a template:  
 
-## [Section 2 heading]
-<!-- add your content here -->
+:::image type="content" source="media/concept-metamodel/process-dataset.png" alt-text="Diagram showing that a business process uses a dataset.":::
 
-## [Section n heading]
-<!-- add your content here -->
+Which we can then use to describe how a specific business process uses a specific data set: 
 
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+:::image type="content" source="media/concept-metamodel/specific-example.png" alt-text="Diagram mirroring previous diagram showing social media management using customer demographics.":::
+
+Metamodel includes several predefined asset types and relationship definitions. You can also create your own. 
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
