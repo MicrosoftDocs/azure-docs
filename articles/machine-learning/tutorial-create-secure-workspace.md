@@ -504,4 +504,4 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
-Now that you have created a secure workspace and can access studio, learn how to [run a Python script](tutorial-azure-ml-in-a-day.md) using Azure Machine Learning.
+Now that you have created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
