@@ -43,7 +43,7 @@ The IoT Central REST API lets you:
 Use the following request to create and publish a new device template. Default views are automatically generated for device templates created this way.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -318,7 +318,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device template from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -450,7 +450,7 @@ The response to this request looks like the following example:
 ## Update a device template
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -726,7 +726,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device template:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 ## List device templates
@@ -734,7 +734,7 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?a
 Use the following request to retrieve a list of device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example: 
