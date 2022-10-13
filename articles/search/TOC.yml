@@ -91,7 +91,7 @@
       href: search-howto-index-encrypted-blobs.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Enrich with SynapseML
+  - name: Index large data
     href: search-synapseml-cognitive-services.md
   - name: Enrich with AI (skills)
     items:
@@ -142,7 +142,7 @@
     - name: Query types and composition
       href: search-query-overview.md
     - name: Relevance scoring
-      href: index-similarity-and-scoring.md     
+      href: index-similarity-and-scoring.md
   - name: Indexing
     items:
     - name: Search indexes
