@@ -29,7 +29,7 @@ The following sections explain how to create and use a service principal to depl
 
 ## Prerequisites - Azure CLI
 
-If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you’re using the Azure CLI, you’ll need Azure CLI version 2.30.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group - Azure CLI
 

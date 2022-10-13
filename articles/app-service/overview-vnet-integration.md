@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 10/05/2022
 ms.author: madsd
 
 ---
@@ -60,7 +60,10 @@ When you scale up or down in size, the required address space is doubled for a s
 
 <sup>*</sup>Assumes that you'll need to scale up or down in either size or SKU at some point.
 
-Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required.
+Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required. If the subnet already exists before integrating through the portal you can use a /28 subnet.
+
+>[!NOTE]
+> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have for example 10 Windows Container App Service plan instances with 4 apps running, you will need 50 IP addresses and additional addresses to support horizontal (up/down) scale. 
 
 When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
 
@@ -87,7 +90,7 @@ Through application routing or configuration routing options, you can configure 
 Application routing applies to traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during startup. When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that **Route All** is enabled.
 
 * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
-* When **Route All** is enabled, outbound traffic from your app is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
+* When **Route All** is enabled, the source address for your outbound public traffic from your app is still one of the IP addresses that are listed in your app properties. If you route your traffic through a firewall or a NAT gateway, the source IP address will then originate from this service.
 
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
 

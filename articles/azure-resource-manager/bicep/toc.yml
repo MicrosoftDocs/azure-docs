@@ -107,7 +107,7 @@
     items:
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
@@ -312,6 +312,8 @@
       href: bicep-functions-deployment.md
     - name: File functions
       href: bicep-functions-files.md
+    - name: Lambda functions
+      href: bicep-functions-lambda.md
     - name: Logical functions
       href: bicep-functions-logical.md
     - name: Numeric functions
@@ -400,7 +402,7 @@
         href: linter-rule-max-variables.md
       - name: No hardcoded environment URLs
         href: linter-rule-no-hardcoded-environment-urls.md
-      - name: No hard-coded locations
+      - name: No hardcoded locations
         href: linter-rule-no-hardcoded-location.md
       - name: No location expressions outside of parameter default values
         href: linter-rule-no-loc-expr-outside-params.md
@@ -422,12 +424,18 @@
         href: linter-rule-protect-commandtoexecute-secrets.md
       - name: Secure parameter default
         href: linter-rule-secure-parameter-default.md
+      - name: Secure parameters in nested deployments
+        href: linter-rule-secure-params-in-nested-deploy.md
       - name: Secure secrets in parameters
         href: linter-rule-secure-secrets-in-parameters.md
       - name: Simplify interpolation
         href: linter-rule-simplify-interpolation.md
       - name: Use explicit values for module location parameters
         href: linter-rule-explicit-values-for-loc-params.md
+      - name: use recent API versions
+        href: linter-rule-use-recent-api-versions.md
+      - name: use resource ID functions
+        href: linter-rule-use-resource-id-functions.md
       - name: Use stable resource identifier
         href: linter-rule-use-stable-resource-identifier.md
       - name: Use stable VM image

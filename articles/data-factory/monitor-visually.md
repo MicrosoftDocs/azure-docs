@@ -170,7 +170,7 @@ You can raise alerts on supported metrics in Data Factory. Select **Monitor** > 
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
+> [!VIDEO https://learn.microsoft.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### Create alerts
 

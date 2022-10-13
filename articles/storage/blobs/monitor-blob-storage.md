@@ -517,6 +517,9 @@ Log entries are created only if there are requests made against the service endp
 
 Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
+> [!NOTE]
+> Azure Monitor currently filters out logs that describe activity in the `insights-` container. You can track activities in that container by using storage analytics (classic logs).
+
 ### Log anonymous requests
 
  The following types of anonymous requests are logged:
@@ -632,8 +635,8 @@ Get started with any of these guides.
 
 | Guide | Description |
 |---|---|
-| [Gather metrics from your Azure Blob Storage containers](/learn/modules/gather-metrics-blob-storage/) | Create charts that show metrics (Contains step-by-step guidance). |
-| [Monitor, diagnose, and troubleshoot your Azure Storage](/learn/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
+| [Gather metrics from your Azure Blob Storage containers](/training/modules/gather-metrics-blob-storage/) | Create charts that show metrics (Contains step-by-step guidance). |
+| [Monitor, diagnose, and troubleshoot your Azure Storage](/training/modules/monitor-diagnose-and-troubleshoot-azure-storage/) | Troubleshoot storage account issues (contains step-by-step guidance). |
 | [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md) | A unified view of storage performance, capacity, and availability |
 | [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md) | Guidance for common monitoring and troubleshooting scenarios. | 
 | [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) | A tour of Metrics Explorer. 

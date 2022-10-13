@@ -4,20 +4,20 @@ description: Configure Azure and on-premises DNS to resolve private DNS zones an
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 09/08/2022
 ms.author: greglin
-# Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
+#Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
 ---
 
 # Resolve Azure and on-premises domains
 
+## Hybrid DNS resolution
+
 This article provides guidance on how to configure hybrid DNS resolution by using an [Azure DNS Private Resolver](#azure-dns-private-resolver) with a [DNS forwarding ruleset](#dns-forwarding-ruleset). 
 
 *Hybrid DNS resolution* is defined here as enabling Azure resources to resolve your on-premises domains, and on-premises DNS to resolve your Azure private DNS zones.
-
-> [!IMPORTANT]
-> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Azure DNS Private Resolver
 
@@ -111,4 +111,4 @@ The path for this query is: client's default DNS resolver (10.100.0.2) > on-prem
 * Learn about [Azure DNS Private Resolver endpoints and rulesets](private-resolver-endpoints-rulesets.md).
 * Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
-* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
+* [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

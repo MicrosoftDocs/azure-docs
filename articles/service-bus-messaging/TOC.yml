@@ -29,18 +29,20 @@
         href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:
-      - name: .NET (Azure.Messaging.ServiceBus)
+      - name: .NET
         href: service-bus-dotnet-get-started-with-queues.md
-      - name: Java (azure-messaging-servicebus)
-        href: service-bus-java-how-to-use-queues.md
-      - name: Spring
-        href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
-      - name: Python (azure-servicebus)
-        href: service-bus-python-how-to-use-queues.md
-      - name: JavaScript (@azure/service-bus)
-        href: service-bus-nodejs-how-to-use-queues.md
-      - name: Go (azservicebus)
+      - name: Go
         href: service-bus-go-how-to-use-queues.md
+      - name: Java
+        items:
+        - name: Java
+          href: service-bus-java-how-to-use-queues.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
+      - name: JavaScript
+        href: service-bus-nodejs-how-to-use-queues.md
+      - name: Python
+        href: service-bus-python-how-to-use-queues.md
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions
@@ -53,16 +55,18 @@
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
       items:
-      - name: .NET (Azure.Messaging.ServiceBus)
+      - name: .NET
         href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-      - name: Java (azure-messaging-servicebus)
-        href: service-bus-java-how-to-use-topics-subscriptions.md
-      - name: Spring
-        href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
-      - name: Python (azure-servicebus)
-        href: service-bus-python-how-to-use-topics-subscriptions.md
-      - name: JavaScript (@azure/service-bus)
+      - name: Java
+        items:
+        - name: Java
+          href: service-bus-java-how-to-use-topics-subscriptions.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus?toc=/azure/service-bus-messaging/toc.json
+      - name: JavaScript
         href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+      - name: Python
+        href: service-bus-python-how-to-use-topics-subscriptions.md
 - name: Tutorials
   items:
   - name: Update inventory
@@ -231,8 +235,10 @@
       href: enable-message-sessions.md
     - name: Enable duplicate detection for a queue or topic
       href: enable-duplicate-detection.md
-    - name: Enable partitions for a queue or topic
-      href: enable-partitions.md
+    - name: Enable partitions (basic / standard)
+      href: enable-partitions-basic-standard.md
+    - name: Enable partitions (premium tier)
+      href: enable-partitions-premium.md
     - name: Enable auto forwarding for a queue or subscription
       href: enable-auto-forward.md
     - name: Enable dead lettering for a queue or subscription
@@ -355,8 +361,8 @@
   items:
   - name: FAQ
     href: service-bus-faq.yml
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-service-bus
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-service-bus
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog

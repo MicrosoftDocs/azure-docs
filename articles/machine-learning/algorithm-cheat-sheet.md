@@ -16,6 +16,16 @@ adobe-target: true
 
 The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm from the designer for a predictive analytics model.
 
+>[!Note]
+> Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible. 
+>
+>Classic prebuilt components provides prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>
+>Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
+>
+>This article applies to classic prebuilt components. 
+
 Azure Machine Learning has a large library of algorithms from the ***classification***, ***recommender systems***, ***clustering***, ***anomaly detection***, ***regression***, and ***text analytics*** families. Each is designed to address a different type of machine learning problem.
 
 For more information, see [How to select algorithms](how-to-select-algorithms.md).

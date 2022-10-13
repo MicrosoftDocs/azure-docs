@@ -26,7 +26,7 @@ By default, Azure Static Web Apps provides an auto-generated domain name for you
 
 ## Watch the video
 
-> [!VIDEO https://docs.microsoft.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
+> [!VIDEO https://learn.microsoft.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
 
 ## Get your static web app URL
 
@@ -59,23 +59,25 @@ Domain registrars are the services you can use to purchase and manage domain nam
 
 1. Under *Settings*, select **Custom domains** > **+ Add**. Select **Custom domain on other DNS**.
 
+1. Select **+ Add**.
+
 1. In the *Enter domain* tab, enter your domain name prefixed with **www**, and then select **Next**.
 
     For instance, if your domain name is `example.com`, enter `www.example.com`.
     :::image type="content" source="media/custom-domain/add-domain.png" alt-text="Screenshot showing sequence of steps in add custom domain form.":::
 
-2. In the *Validate + Configure* tab, enter the following values.
+1. In the *Validate + Configure* tab, enter the following values.
 
     | Setting | Value |
     |---|---|
     | Domain name | This value should match the domain name you entered in the previous step (with the `www` subdomain). |
     | Hostname record type | Select **CNAME**. |
 
-3. Select **Add**.
+1. Select **Add**.
 
    Azure creates your `CNAME` record and updates the DNS settings. Since DNS settings need to propagate, this process can take up to an hour or longer to complete.
 
-4. When the update completes, open a new browser tab and go to your domain with the `www` subdomain.
+1. When the update completes, open a new browser tab and go to your domain with the `www` subdomain.
 
     You should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 

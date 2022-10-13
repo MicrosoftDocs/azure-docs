@@ -71,6 +71,10 @@ Roles at this level apply to users or accounts that need to perform tasks that c
   
  By default, when you create a new tabular model project, the model project does not have any roles. Roles can be defined by using the Role Manager dialog box in Visual Studio. When roles are defined during model project design, they are applied only to the model workspace database. When the model is deployed, the same roles are applied to the deployed model. After a model has been deployed, server and database administrators can manage roles and members by using SSMS. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
   
+## Considerations and limitations
+
+* Azure Analysis Services does not support the use of One-Time Password for B2B users
+  
 ## Next steps
 
 [Manage access to resources with Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md)   
