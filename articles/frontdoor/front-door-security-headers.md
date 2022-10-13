@@ -24,8 +24,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Azure Front Door. To complete the steps in this tutorial, you must have a Front Door. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md).
-* If this is your first time using the Rules Engine feature, see how to [Set up a Rules Engine](front-door-tutorial-rules-engine.md).
+* An Azure subscription.
+* Azure Front Door. To complete the steps in this tutorial, you must have a Front Door configured with rules engine. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md) and [Configure your Rules Engine](front-door-tutorial-rules-engine.md).
 
 ## Add a Content-Security-Policy header in Azure portal
 
@@ -33,18 +33,18 @@ In this tutorial, you learn how to:
 
 :::image type="content" source="media/front-door-security-headers/front-door-rules-engine-configuration.png" alt-text="Screenshot showing rules engine configuration page of Azure Front Door.":::
 
-1. Select **Add rule** to add a new rule. Provide the rule a name and then select **Add an Action** > **Response Header**.
+2. Select **Add rule** to add a new rule. Provide the rule a name and then select **Add an Action** > **Response Header**.
 
-1. Set the Operator to **Append** to add this header as a response to all of the incoming requests to this route.
+3. Set the Operator to **Append** to add this header as a response to all of the incoming requests to this route.
 
-1. Add the header name: *Content-Security-Policy* and define the values this header should accept, then select **Save**. In this scenario, we choose *`script-src 'self' https://apiphany.portal.azure-api.net`*.
+4. Add the header name: *Content-Security-Policy* and define the values this header should accept, then select **Save**. In this scenario, we choose *`script-src 'self' https://apiphany.portal.azure-api.net`*.
 
 :::image type="content" source="./media/front-door-security-headers/front-door-security-header.png" alt-text="Screenshot showing the added security header under.":::
 
    > [!NOTE]
    > Header values are limited to 640 characters.
 
-4. Once you've added all of the rules you'd like to your configuration, don't forget to go to your preferred route and associate your Rules engine configuration to the Route Rule. This step is required to enable the rule to work.
+5. Once you've added all of the rules you'd like to your configuration, don't forget to go to your preferred route and associate your Rules engine configuration to the Route Rule. This step is required to enable the rule to work.
 
 :::image type="content" source="./media/front-door-security-headers/front-door-associate-routing-rule.png" alt-text="Screenshot showing how to associate a routing rule.":::
 
