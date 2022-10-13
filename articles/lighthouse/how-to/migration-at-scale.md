@@ -65,7 +65,7 @@ The workflow for this model will be similar to the following:
 
 ## Partner recognition for customer migrations
 
-As a member of the [Microsoft Partner Network](https://partner.microsoft.com), you can link your partner ID with the credentials used to manage delegated customer resources. This allows Microsoft to attribute influence and Azure consumed revenue to your organization based on the tasks you perform for customers, including migration projects.
+As a member of the [Microsoft Cloud Partner Program](https://partner.microsoft.com), you can link your partner ID with the credentials used to manage delegated customer resources. This allows Microsoft to attribute influence and Azure consumed revenue to your organization based on the tasks you perform for customers, including migration projects.
 
 For more information, see [Link your partner ID to track your impact on delegated resources](partner-earned-credit.md).
 

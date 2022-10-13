@@ -55,7 +55,7 @@ Billing for the commitment tiers is done per workspace on a daily basis. If the 
 Azure Commitment Discounts such as those received from [Microsoft Enterprise Agreements](https://www.microsoft.com/licensing/licensing-programs/enterprise) are applied to Azure Monitor Logs Commitment Tier pricing just as they are to Pay-As-You-Go pricing (whether the usage is being billed per workspace or per dedicated cluster). 
 
 > [!TIP]
-> The **Usage and estimated costs** menu item for each Log Analytics workspace hows an estimate of your monthly charges at each commitment level. You should periodically review this information to determine if you can reduce your charges by moving to another tier. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) for information on this view.
+> The **Usage and estimated costs** menu item for each Log Analytics workspace shows an estimate of your monthly charges at each commitment level. You should periodically review this information to determine if you can reduce your charges by moving to another tier. See [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) for information on this view.
 
 ## Dedicated clusters
 An [Azure Monitor Logs dedicated cluster](logs-dedicated-clusters.md) is a collection of workspaces in a single managed Azure Data Explorer cluster. Dedicated clusters support advanced features such as [customer-managed keys](customer-managed-keys.md) and use the same commitment tier pricing model as workspaces although they must have a commitment level of at least 500 GB/day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier.  There is no Pay-As-You-Go option for clusters. 

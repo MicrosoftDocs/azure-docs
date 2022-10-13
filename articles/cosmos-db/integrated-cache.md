@@ -3,7 +3,8 @@ title: Azure Cosmos DB integrated cache
 description: The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows.
 author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/29/2022
 ms.author: sidandrews
@@ -11,7 +12,7 @@ ms.reviewer: jucocchi
 ---
 
 # Azure Cosmos DB integrated cache - Overview
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
 The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows. The integrated cache is easy to set up and you don’t need to spend time writing custom code for cache invalidation or managing backend infrastructure. Your integrated cache uses a [dedicated gateway](dedicated-gateway.md) within your Azure Cosmos DB account. The integrated cache is the first of many Azure Cosmos DB features that will utilize a dedicated gateway for improved performance. You can choose from three possible dedicated gateway sizes based on the number of cores and memory needed for your workload.
 
@@ -157,7 +158,7 @@ Check the `DedicatedGatewayRequests`. This metric includes all requests that use
 
 ### I can’t tell if my requests are hitting the integrated cache
 
-Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, [connecting with gateway mode](sql-sdk-connection-modes.md), and [have set session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
+Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, [connecting with gateway mode](nosql/sdk-connection-modes.md), and [have set session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
 
 ### I want to understand if my dedicated gateway is too small
 
