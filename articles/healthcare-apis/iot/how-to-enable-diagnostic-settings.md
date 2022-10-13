@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 10/13/2022
 ms.author: jasteppe
 ---
 
@@ -79,7 +79,9 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
    :::image type="content" source="media/iot-diagnostic-settings/view-and-edit-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options." lightbox="media/iot-diagnostic-settings/view-and-edit-diagnostic-settings.png"::: 
  
    > [!TIP]
-   > For more information about how to work with diagnostic logs, see the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md).
+   > For more information about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
+   > 
+   > For more information about how to work with diagnostic logs, see the [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Next steps
 
