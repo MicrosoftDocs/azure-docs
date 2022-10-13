@@ -70,7 +70,7 @@ A Debug Session works with all generally available [indexer data sources](search
 
 The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata created will be visible and available in the session.
 
-A debug session can be cancelled while it's executing using the **Cancel** button.
+A debug session can be canceled while it's executing using the **Cancel** button.
 
 ## Start with errors and warnings
 
