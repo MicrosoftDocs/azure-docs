@@ -235,8 +235,6 @@ _When choosing the region to deploy your worklods to, evaluate Carbon efficiency
 
 _Running on outdated software can result in running a suboptimal workload with unnecessary performance issues. New software tends to be more efficient in general._
 
-_to use the latest functionality and security updates to help increase efficiency_
-
  :heavy_check_mark: Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)
 
  :heavy_check_mark: Configure [Automatic **Security updates**](/aks/node-upgrade-github-actions)
@@ -246,7 +244,7 @@ _to use the latest functionality and security updates to help increase efficienc
 
 **Maximize Node resource utilization** 
 
-_One approach to lowering your carbon footprint is to reduce your idle time. Reducing your idle time involves increasing the utilization of your compute resources._
+_One approach to lowering your carbon footprint is increasing the utilization of your compute resources._
 
 :heavy_check_mark: Separate applications into different node pools tgo allow independent sizing & scalling of workloads.
 
@@ -262,7 +260,7 @@ heavy_check_mark: [Size the nodes for storage need](/azure/aks/operator-best-pra
  
 **Utilize Node auto-scaling and bursting capabilities** 
 
-_Oversized compute nodes have usually "unused" or "underused" capacity, ultimately leading to a waste of energy._
+_Oversized compute nodes have usually "unused" or "underused" capacity, ultimately leading to a waste of energy. and increased costs_
 
 :heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
 
@@ -338,7 +336,7 @@ _Continuously monitor your nodes capacity utilization over time, to optimize the
 
 **Consider Carbon Awareness for your workload orchestration**
 
-:heavy_check_mark: Plan your deployments to maximize compute utilization for running batch workloads, during low-carbon intensity periods (at night for instance where usage tension on power is usually lower).
+:heavy_check_mark: Plan your deployments to maximize compute utilization for running batch workloads, during low-carbon intensity periods (at night for instance, where usage tension on power is usually lower).
 
 
 
