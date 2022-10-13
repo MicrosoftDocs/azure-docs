@@ -84,6 +84,13 @@ In the **Threat Intelligence** page:
 
 :::image type="content" source="media/work-with-threat-indicators/matching-analytics-threat-intelligence.png" alt-text="Screenshot of the Threat Intelligence overview with an indicator selecting showing the details pain and the source as Microsoft Threat Intelligence Analytics.":::
 
+## Get additional context from Microsoft Defender Threat Intelligence
+
+Part of the Microsoft Threat Intelligence available through matching analytics is sourced from Microsoft Defender Threat Intelligence (MDTI). Along with high fidelity alerts and incidents, MDTI indicators include the link to a reference article in their community portal.
+
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/mdti-article-link.png" alt-text="Screenshot of an incident with a link to the reference MDTI article.":::
+
+For more information, see the [MDTI portal](https://ti.defender.microsoft.com).
 
 ## Next steps
 

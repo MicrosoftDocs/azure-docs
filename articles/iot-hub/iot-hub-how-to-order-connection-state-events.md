@@ -3,11 +3,11 @@ title: Order device connection events from Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state.
 services: iot-hub
 ms.service: iot-hub
+ms.custom: ignite-2022
 author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog 
-
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
@@ -27,7 +27,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 ## Prerequisites
 
-* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-java.md#create-a-database-account) for a walkthrough.
+* An active Azure Cosmos DB for NoSQL account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-java.md#create-a-database-account) for a walkthrough.
 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
@@ -237,9 +237,9 @@ You see something similar to the following output that shows the sensor data and
 
 You have now run a sample application to collect sensor data and send it to your IoT hub.
 
-### Observe events in Cosmos DB
+### Observe events in Azure Cosmos DB
 
-You can see results of the executed stored procedure in your Cosmos DB document. Here's what it looks like. Each row contains the latest device connection state per device.
+You can see results of the executed stored procedure in your Azure Cosmos DB document. Here's what it looks like. Each row contains the latest device connection state per device.
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
