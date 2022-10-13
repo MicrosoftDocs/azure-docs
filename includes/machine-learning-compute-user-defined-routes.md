@@ -9,7 +9,7 @@ ms.author: larryfr
 > [!IMPORTANT]
 > A compute instance or compute cluster without a public IP (a preview feature) does not need inbound traffic from Azure Batch management and Azure Machine Learning services. However, if you have multiple computes and some of them use a public IP address, you will need to allow this traffic.
 
-When using Azure Machine Learning __compute instance__ or __compute cluster__ (with a public IP address), allow inbound traffic from Azure Batch management and Azure Machine Learning services. A compute instance or compute cluster with no public IP (preview) does not require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
+When using Azure Machine Learning __compute instance__ or __compute cluster__ (_with a public IP address_), allow inbound traffic from Azure Batch management and Azure Machine Learning services. A compute instance or compute cluster _with no public IP_ (preview) __doesn't__ require this inbound communication. A Network Security Group allowing this traffic is dynamically created for you, however you may need to also create user-defined routes (UDR) if you have a firewall. When creating a UDR for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
 
 # [IP Address routes](#tab/ipaddress)
 
