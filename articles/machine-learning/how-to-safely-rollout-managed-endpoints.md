@@ -97,6 +97,8 @@ cd cli
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository. This reduces time to complete the operation.
 
+The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
+
 ### Set an endpoint name
 
 To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
