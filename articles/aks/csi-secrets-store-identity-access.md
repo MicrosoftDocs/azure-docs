@@ -351,7 +351,7 @@ Azure Active Directory (Azure AD) pod-managed identities (preview) use AKS primi
 
 ### Usage
 
-1. Verify that your Virtual Machine Scale set or availability set nodes have their own system-assigned identity:
+1. Verify that your Virtual Machine Scale Set or Availability Set nodes have their own system-assigned identity:
 
     ```azurecli-interactive
     az vmss identity show -g <resource group>  -n <vmss scalset name> -o yaml
