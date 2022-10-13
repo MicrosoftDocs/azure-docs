@@ -26,6 +26,8 @@ ms.custom: devx-track-python, devx-track-azurecli, cliv1
 > The YAML syntax detailed in this document is based on the JSON schema for the v1 version of the ML CLI extension. This syntax is guaranteed only to work with the ML CLI v1 extension.
 > Switch to the [v2 (current version)](../reference-yaml-job-pipeline.md) for the syntax for ML CLI v2.
 
+[!INCLUDE [cli v1 only](../../../includes/machine-learning-cli-version-1-only.md)]
+
 Define your machine learning pipelines in [YAML](https://yaml.org/). When using the machine learning extension for the [Azure CLI **v1**](reference-azure-machine-learning-cli.md)., many of the pipeline-related commands expect a YAML file that defines the pipeline.
 
 The following table lists what is and is not currently supported when defining a pipeline in YAML for use with CLI v1:

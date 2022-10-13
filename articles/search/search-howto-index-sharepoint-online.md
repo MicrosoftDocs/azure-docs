@@ -9,7 +9,7 @@ manager: liamca
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/25/2022
+ms.date: 09/08/2022
 ---
 
 # Index data from SharePoint document libraries
@@ -215,7 +215,7 @@ api-key: [admin key]
 
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create the indexer.
 
-During this section you’ll be asked to sign in with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have.
+During this section you’ll be asked to sign in with your organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have. 
 
 There are a few steps to creating the indexer:
 
@@ -249,7 +249,8 @@ There are a few steps to creating the indexer:
               "mappingFunction" : { 
                 "name" : "base64Encode" 
               } 
-          }
+             }
+        ]
     }
     ```
 
@@ -293,9 +294,9 @@ There are a few steps to creating the indexer:
         "maxFailedItemsPerBatch": null,
         "base64EncodeKeys": null,
         "configuration:" {
-            "indexedFileNameExtensions" : null,
-            "excludedFileNameExtensions" : null,
-            "dataToExtract": "contentAndMetadata"
+            "dataToExtract": "contentAndMetadata",
+            "indexedFileNameExtensions" : ".pdf, .docx",
+            "excludedFileNameExtensions" : ".png, .jpg"
           }
         },
         "schedule" : { },
@@ -306,7 +307,8 @@ There are a few steps to creating the indexer:
               "mappingFunction" : { 
                 "name" : "base64Encode" 
               } 
-          }
+            }
+        ]
     }
     ```
 

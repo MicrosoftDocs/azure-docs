@@ -61,6 +61,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99059` | The supplied request must present a code_challenge. Required for single-page apps using the authorization code flow.| [Authorization code flow](authorization-code-flow.md) |
 | `AADB2C90067` | The post logout redirect URI '{0}' has an invalid format. Specify an https based URL such as 'https://example.com/return' or for native clients use the IETF native client URI 'urn:ietf:wg:oauth:2.0:oob'. | [Send a sign-out request](openid-connect.md#send-a-sign-out-request) |
 | `AADB2C90068` | The provided application with ID '{0}' is not valid against this service. Please use an application created via the B2C portal and try again. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
+| `AADB2C90073` | KeyContainer with 'id': '{0}' cannot be found in the directory '{1}' |
 | `AADB2C90075` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response with Code '{2}' and Reason '{3}'. |
 | `AADB2C90077` | User does not have an existing session and request prompt parameter has a value of '{0}'. |
 | `AADB2C90079` | Clients must send a client_secret when redeeming a confidential grant. | [Create a web app client secret](configure-authentication-sample-web-app-with-api.md#step-24-create-a-web-app-client-secret) |

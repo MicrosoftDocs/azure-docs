@@ -1,12 +1,12 @@
 ---
 title: Get started with FHIR service - Azure Health Data Services
 description: This document describes how to get started with FHIR service in Azure Health Data Services.
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: kesheth
 ms.custom: mode-api
 ---
 

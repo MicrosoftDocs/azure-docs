@@ -4,7 +4,7 @@ description: Application performance monitoring for Java applications running in
 ms.topic: conceptual
 ms.date: 07/22/2022
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-2022
 ms.reviewer: mmcc
 ---
 
@@ -30,23 +30,29 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.1/applicationinsights-agent-3.3.1.jar) file.
+Download the [applicationinsights-agent-3.4.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.1/applicationinsights-agent-3.4.1.jar) file.
 
 > [!WARNING]
-> 
-> If you're upgrading from 3.2.x:
-> 
->    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>
+> If you are upgrading from an earlier 3.x version,
+>
+> Starting from 3.4.0:
+>
+>    - Rate-limited sampling is now the default (if you have not configured a fixed percentage previously). By default, it will capture at most around 5 requests per second (along with their dependencies, traces and custom events). See [fixed-percentage sampling](./java-standalone-config.md#fixed-percentage-sampling) if you wish to revert to the previous behavior of capturing 100% of requests.
+>
+> Starting from 3.3.0:
+>
+>    - `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
-> If you're upgrading from 3.1.x:
+> Starting from 3.2.0:
 > 
->    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
+>    - Controller "InProc" dependencies are no longer captured by default. For details on how to re-enable these, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
 >    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 > 
-> If you're upgrading from 3.0.x:
+> Starting from 3.1.0:
 > 
 >    - The operation names and request telemetry names are now prefixed by the HTTP method, such as `GET` and `POST`.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
@@ -56,7 +62,7 @@ Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.1.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -74,7 +80,7 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your applicati
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.1.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.1.jar` with the following content:
 
         ```json
         {
@@ -199,7 +205,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
 * [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
-[//]: # "Cosmos 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
+[//]: # "Azure Cosmos DB 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
 
 [//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
 [//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
@@ -225,39 +231,38 @@ This section explains how to modify telemetry.
 
 ### Add spans
 
-You can use `opentelemetry-api` to create [tracers](https://opentelemetry.io/docs/instrumentation/java/manual/#tracing) and spans.
+The easiest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
+
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-extension-annotations-1.16.0.jar` to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <artifactId>opentelemetry-extension-annotations</artifactId>
+     <version>1.16.0</version>
    </dependency>
    ```
 
-1. Add spans in your code:
+1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
 
    ```java
-    import io.opentelemetry.api.trace.Tracer;
-    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.extension.annotations.WithSpan;
 
-    Tracer tracer = GlobalOpenTelemetry.getTracer("myApp");
-    Span span = tracer.spanBuilder("mySpan").startSpan();
+    @WithSpan(value = "your span name")
+    public void yourMethod() {
+    }
    ```
 
-> [!TIP]
-> The tracer name ideally describes the source of the telemetry, in this case your application,
-> but currently Application Insights Java is not reporting this name to the backend.
+By default the span will end up in the dependencies table with dependency type `InProc`.
 
-> [!TIP]
-> Tracers are thread-safe, so it's generally best to store them into static fields in order to
-> avoid the performance overhead of creating lots of new tracer objects.
+If your method represents a background job that is not already captured by auto-instrumentation,
+it is recommended to apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
+so that it will end up in the Application Insights `requests` table.
 
 ### Add span events
 
@@ -535,6 +540,8 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

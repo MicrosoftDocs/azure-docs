@@ -19,7 +19,7 @@ In this article, you'll learn about network isolation changes with our new v2 AP
 
 ## Prerequisites
 
-* The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning Python SDK v1](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
 
     > [!IMPORTANT]
     > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.
@@ -89,7 +89,7 @@ After the parameter has been implemented, the default value of the flag depends 
 
 To update v1_legacy_mode, use the following steps:
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 To disable v1_legacy_mode, use [Workspace.update](/python/api/azureml-core/azureml.core.workspace(class)#update-friendly-name-none--description-none--tags-none--image-build-compute-none--service-managed-resources-settings-none--primary-user-assigned-identity-none--allow-public-access-when-behind-vnet-none-) and set `v1_legacy_mode=false`.
 
@@ -117,10 +117,10 @@ The return value of the `az ml workspace update` command may not show the update
 az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
 ```
 
+---
+    
 > [!IMPORTANT]
 > Note that it takes about 30 minutes to an hour or more for changing v1_legacy_mode parameter from __true__ to __false__ to be reflected in the workspace. Therefore, if you set the parameter to __false__ but receive an error that the parameter is __true__ in a subsequent operation, please try after a few more minutes.
-
----
 
 ## Next steps
 

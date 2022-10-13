@@ -77,6 +77,15 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.1.18.0
+
+### Release status: 
+10/5/2022: Released for download
+
+### Bug fixes
+ - we fixed a bug where upgrade from version 1.6 to version 2.1 got stuck in a loop due to IsMemberOfLocalGroup enumeration.
+ - we fixed a bug where the Azure AD Connect Configuration Wizard was sending incorrect credentials (username format) while validating if Enterprise Admin. 
+
 ## 2.1.16.0
 
 ### Release status
@@ -344,8 +353,6 @@ There are no functional changes in this release.
 > This release is a security update release of Azure AD Connect. It's intended to be used by customers who are running an older version of Windows Server and can't upgrade their server to Windows Server 2016 or newer at this time. You can't use this version to update an Azure AD Connect V2.0 server.
 
 This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability, see the CVE.
-
-To download the latest version of Azure AD Connect 1.6, see the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=103336).
 
 ### Release status
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2022
+ms.date: 09/08/2022
 ms.author: jeedes
 
 ---
@@ -47,6 +47,8 @@ To configure the integration of Infrascale Cloud Backup into Azure AD, you need 
 1. In the **Add from the gallery** section, type **Infrascale Cloud Backup** in the search box.
 1. Select **Infrascale Cloud Backup** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Infrascale Cloud Backup
 
 Configure and test Azure AD SSO with Infrascale Cloud Backup using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Infrascale Cloud Backup.
@@ -78,28 +80,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** textbox, type the URL:
     `https://dashboard.managedoffsitebackup.net/Account/AssertionConsumerService`  
 
-    c. In the **Sign-on URL** text box, type one of the following URLs:
-    
-    | **Sign-on URL** |
-    |------------|
-    | `https://dashboard.avgonlinebackup.com/Account/SingleSignOn` |
-    | `https://dashboard.infrascale.com/Account/SingleSignOn` |
-    | `https://dashboard.managedoffsitebackup.net/Account/SingleSignOn` |
-    | `https://dashboard.sosonlinebackup.com/Account/SingleSignOn` |
-    |`https://dashboard.trustboxbackup.com/Account/SingleSignOn` |
-    | `https://radialpoint-dashboard.managedoffsitebackup.net/Account/SingleSignOn` |
-    | `https://dashboard-cw.infrascale.com/Account/SingleSignOn` |
-    | `https://dashboard.digicelcloudbackup.com/Account/SingleSignOn` |
-    | `https://dashboard-cw.sosonlinebackup.com/Account/SingleSignOn` |
-    |`https://dashboard.my-data.dk/Account/SingleSignOn` |
-    |`https://dashboard.beesafe.nu/Account/SingleSignOn` |
-    |`https://dashboard.bekcloud.com/Account/SingleSignOn` |
-    | `https://dashboard.alltimesecure.com/Account/SingleSignOn` |
-    | `https://dashboard-ec1.sosonlinebackup.com/Account/SingleSignOn` |
-    | `https://dashboard.glcsecurecloud.com/Account/SingleSignOninfrascalecloudbackup.com/infrascalecloudbackup.com/` |
+    c. The **Sign-on URL** text box requires a specific URL for your company. The general pattern of the URL is:
+    `https://[OptionalPrefix]dashboard[OptionalSuffix].CompanySpecificString.[com/net,etc]/Account/SingleSignOn`
 
     > [!Note]
-    > The Identifier value is not real. Update this value with the actual Identifier URL. Contact [Infrascale Cloud Backup support team](mailto:support@infrascale.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Do not enter this in the Sign-on URL text box. The Identifier value is not a real URL – just a general pattern. Update this value with the actual Identifier URL obtained from Infrascale. Contact [Infrascale Cloud Backup support team](mailto:support@infrascale.com) to get the value.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

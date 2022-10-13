@@ -32,10 +32,10 @@ In this tutorial, you perform the following tasks:
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
 
-* This tutorial uses sample code from [Azure IoT samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp).
+* This tutorial uses sample code from [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp).
 
-  * Download or clone the samples repo to your development machine.
-  * Have .NET Core 3.0.0 or greater on your development machine. Check your version by running `dotnet --version` and [Download .NET](https://dotnet.microsoft.com/download) if necessary. <!-- TODO: update sample to use .NET 6.0 -->
+  * Download or clone the SDK repo to your development machine.
+  * Have .NET Core 3.0.0 or greater on your development machine. Check your version by running `dotnet --version` and [Download .NET](https://dotnet.microsoft.com/download) if necessary.
 
 * Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -100,32 +100,28 @@ Register a new device in your IoT hub.
 ---
 
 Now that you have a device ID and key, use the sample code to start sending device telemetry messages to IoT Hub.
-<!-- TODO: update sample to use environment variables, not inline variables -->
 
 >[!TIP]
 >If you're following the Azure CLI steps for this tutorial, run the sample code in a separate session. That way, you can allow the sample code to continue running while you follow the rest of the CLI steps.
 
-1. If you didn't as part of the prerequisites, download or clone the [Azure IoT samples for C# repo](https://github.com/Azure-Samples/azure-iot-samples-csharp) from GitHub now.
-1. In the sample folder, navigate to the `/iot-hub/Tutorials/Routing/SimulatedDevice/` folder.
-1. In an editor of your choice, open the `Program.cs` file.
-1. Find the variable definitions at the top of the **Program** class. Update the following variables with your own information:
-
-   * **s_myDeviceId**: The device ID that you assigned when registering the device.
-   * **s_iotHubUri**: The hostname of your IoT hub, which takes the format `IOTHUB_NAME.azure-devices.net`.
-   * **s_deviceKey**: The device key that you copied from the device identity information.
-
-1. Save and close the file.
+1. If you didn't as part of the prerequisites, download or clone the [Azure IoT SDK for C# repo](https://github.com/Azure/azure-iot-sdk-csharp) from GitHub now.
+1. In the sample folder, navigate to the `/iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/` folder.
 1. Install the Azure IoT C# SDK and necessary dependencies as specified in the `SimulatedDevice.csproj` file:
 
    ```console
    dotnet restore
    ```
 
-1. Run the sample code:
+1. In an editor of your choice, open the `Paramaters.cs` file. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
+1. Build and run the sample code using the following command:
 
-   ```console
-   dotnet run
-   ```
+    * Replace `<myDeviceId>` with the device ID that you assigned when registering the device.
+    * Replace `<iotHubUri>` with the hostname of your IoT hub, which takes the format `IOTHUB_NAME.azure-devices.net`.
+    * Replace `<deviceKey>` with the device key that you copied from the device identity information.
+
+    ```cmd
+    dotnet run --d <myDeviceId> --u <iotHubUri> --k <deviceKey>
+    ```
 
 1. You should start to see messages printed to output as they are sent to IoT Hub. Leave this program running for the duration of the tutorial.
 

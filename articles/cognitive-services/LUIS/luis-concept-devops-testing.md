@@ -9,6 +9,9 @@ ms.date: 06/3/2020
 
 # Testing for LUIS DevOps
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 Software engineers who are developing a Language Understanding (LUIS) app can apply DevOps practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management) by following these guidelines.
 
 In agile software development methodologies, testing plays an integral role in building quality software. Every significant change to a LUIS app should be accompanied by tests designed to test the new functionality the developer is building into the app. These tests are checked into your source code repository along with the `.lu` source of your LUIS app. The implementation of the change is finished when the app satisfies the tests.
