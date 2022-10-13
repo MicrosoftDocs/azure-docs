@@ -59,7 +59,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Defender for Container's image scan now supports Windows images that are hosted in Azure Container Registry. This feature is free while in preview, and will incur a cost when it becomes generally available.
 
-Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-usage.md).
+Learn more in [Use Microsoft Defender for Container to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
 
 ### New alert for Microsoft Defender for Storage (preview)
 
@@ -521,7 +521,7 @@ Learn more in [Prioritize security actions by data sensitivity](information-prot
 
 Microsoft Defender for Cloud's security recommendations are enabled and supported by the Azure Security Benchmark.
 
-[Azure Security Benchmark](../security/benchmarks/introduction.md) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
+[Azure Security Benchmark](/security/benchmark/azure/introduction) is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
 From Ignite 2021, Azure Security Benchmark **v3** is available in [Defender for Cloud's regulatory compliance dashboard](update-regulatory-compliance-packages.md) and enabled as the new default initiative for all Azure subscriptions protected with Microsoft
 Defender for Cloud.
@@ -875,7 +875,7 @@ It's likely that this change will impact your secure scores. For most subscripti
 
 ### Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link
 
-Azure Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-usage.md).
+Azure Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
 
 To limit access to a registry hosted in Azure Container Registry, assign virtual network private IP addresses to the registry endpoints and use Azure Private Link as explained in [Connect privately to an Azure container registry using Azure Private Link](../container-registry/container-registry-private-link.md).
 
@@ -889,7 +889,7 @@ With this update, you can now set Security Center to automatically provision thi
 
 :::image type="content" source="media/release-notes/auto-provisioning-guest-configuration.png" alt-text="Enable auto deployment of Guest Configuration extension.":::
 
-Learn more about how auto provisioning works in [Configure auto provisioning for agents and extensions](enable-data-collection.md).
+Learn more about how auto provisioning works in [Configure auto provisioning for agents and extensions](monitoring-components.md).
 
 ### Recommendations to enable Azure Defender plans now support "Enforce"
 
@@ -1190,7 +1190,7 @@ The new vulnerability scanning feature for container images, utilizing Trivy, he
 
 Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
 
-Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-containers-cicd.md).
+Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-devops-introduction.md).
 
 ### More Resource Graph queries available for some recommendations
 
@@ -1213,7 +1213,7 @@ Learn more about Security Center's vulnerability scanners:
 
 - [Azure Defender's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Azure Defender's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
-- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-containers-usage.md)
+- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-containers-va-acr.md)
 
 ### SQL data classification recommendation severity changed
 
@@ -1329,7 +1329,7 @@ New vulnerabilities are discovered every day. With this update, container images
 
 Scanning is charged on a per image basis, so there's no additional charge for these rescans.
 
-Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-usage.md).
+Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-va-acr.md).
 
 ### Use Azure Defender for Kubernetes to protect hybrid and multicloud Kubernetes deployments (in preview)
 
@@ -2128,7 +2128,7 @@ You can now configure the auto provisioning of:
 - (New) Azure Policy Add-on for Kubernetes
 - (New) Microsoft Dependency agent
 
-Learn more in [Auto provisioning agents and extensions from Azure Security Center](enable-data-collection.md).
+Learn more in [Auto provisioning agents and extensions from Azure Security Center](monitoring-components.md).
 
 ### Secure score is now available in continuous export (preview)
 
@@ -2411,7 +2411,7 @@ This option is available from the recommendations details pages for:
 - **Vulnerabilities in Azure Container Registry images should be remediated**
 - **Vulnerabilities in your virtual machines should be remediated**
 
-Learn more in [Disable specific findings for your container images](defender-for-containers-usage.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
+Learn more in [Disable specific findings for your container images](defender-for-containers-va-acr.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
 
 ### Exempt a resource from a recommendation
 
@@ -2454,7 +2454,7 @@ The security findings are now available for export through continuous export whe
 Related pages:
 
 - [Security Center's integrated Qualys vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
-- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-containers-usage.md)
+- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-containers-va-acr.md)
 - [Continuous export](continuous-export.md)
 
 ### Prevent security misconfigurations by enforcing recommendations when creating new resources
