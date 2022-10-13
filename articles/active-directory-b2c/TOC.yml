@@ -30,8 +30,17 @@
   - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
   - name: 4 - Manage your tenant
-    href: tenant-management.md
-    displayName: break glass account, emergence account
+    items:
+    - name: Add administrator (work account)
+      href: tenant-management-manage-administrator.md
+    - name: Manage emergency access
+      href: tenant-management-emergency-access-account.md
+      displayName: break glass account, emergence account
+    - name: Find tenant name and ID  
+      href: tenant-management-read-tenant-name.md
+      displayName: tenant name, tenant ID, tenant details
+    - name: Find tenant directory size quota
+      href: tenant-management-directory-size-quota.md      
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
