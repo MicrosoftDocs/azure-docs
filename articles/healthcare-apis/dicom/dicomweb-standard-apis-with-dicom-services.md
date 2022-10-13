@@ -17,7 +17,7 @@ The DICOM service supports a subset of DICOMweb&trade; Standard that includes:
 
 * [Store (STOW-RS)](dicom-services-conformance-statement.md#store-stow-rs)
 * [Retrieve (WADO-RS)](dicom-services-conformance-statement.md#retrieve-wado-rs)
-* [Search (QIDO-RS)](dicom-services-conformance-statement.mf#search-qido-rs)
+* [Search (QIDO-RS)](dicom-services-conformance-statement.md#search-qido-rs)
 * [Delete](dicom-services-conformance-statement.md#delete)
 
 Additionally, the following non-standard API(s) are supported:
