@@ -51,7 +51,7 @@ Read more about [the shared responsibility model for sustainability](/framework/
 
  **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
-&nbsp;&nbsp;&nbsp; One way to increase energy efficiency, is to run the workload on as few servers as possible, with the servers running at the highest utilization rate ; thereby increasing also hardware efficiency.
+&nbsp;&nbsp;&nbsp; One way to increase energy efficiency, is to run the workload on as few servers as possible, with the servers running at the highest utilization rate ; thereby increasing hardware efficiency as well.
 
  **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
 
@@ -222,7 +222,8 @@ _Continuously monitor your workloads capacity usage over time, to optimize their
 
 :heavy_check_mark: Read more about [Best Practices for Monitoring Microservices Application on AKS](/azure/architecture/microservices/logging-monitoring).
 
-
+<br/>
+<br/>
 
 ## For Platform Teams: Sustainability Checklist for AKS clusters
 
@@ -257,7 +258,7 @@ _Running on outdated software can result in running a suboptimal workload with u
 
 _One approach to lowering your carbon footprint is increasing the utilization of your compute resources._
 
-:heavy_check_mark: Separate applications into different node pools tgo allow independent sizing & scalling of workloads.
+:heavy_check_mark: Separate applications into different node pools to allow independent sizing & scalling of workloads.
 
 :heavy_check_mark: Align node SKU selection and managed disk size with applications requirements.
 
@@ -347,7 +348,7 @@ _Continuously monitor your nodes capacity utilization over time, to optimize the
 
 **Consider carbon awareness for workload orchestration**
 
-:heavy_check_mark: Plan your deployments to maximize compute utilization for batch workloads, during low carbon periods (at night for instance, where usage tension on power is usually lower).
+:heavy_check_mark: Plan your deployments to maximize compute utilization for batch workloads, during low carbon periods (at night for instance, where demand tension on power is usually lower).
 
 
 
