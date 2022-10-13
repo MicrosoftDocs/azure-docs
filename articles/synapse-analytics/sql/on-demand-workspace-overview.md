@@ -6,13 +6,14 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
+ms.custom: ignite-2022
 ms.date: 10/11/2022
 ms.author: fipopovi
 ms.reviewer: sngun
 ---
 # Serverless SQL pool in Azure Synapse Analytics
 
-Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the [Azure Data Lake](query-data-storage.md) ([Parquet](query-data-storage.md#query-parquet-files), [Delta Lake](query-delta-lake-format.md), [delimited text](query-data-storage.md#query-csv-files) formats), [Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key), or Dataverse.
+Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints that you can use to query data in the [Azure Data Lake](query-data-storage.md) ([Parquet](query-data-storage.md#query-parquet-files), [Delta Lake](query-delta-lake-format.md), [delimited text](query-data-storage.md#query-csv-files) formats), [Azure Cosmos DB](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key), or Dataverse.
 
 Serverless SQL pool is a query service over the data in your data lake. It enables you to access your data through the following functionalities:
 
@@ -98,7 +99,7 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [Various delimited text formats (with custom field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
 
-[Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key)
+[Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key)
 
 [Read a chosen subset of columns](query-data-storage.md#read-a-chosen-subset-of-columns)
 
@@ -148,9 +149,9 @@ A user that is logged into the serverless SQL pool service must be authorized to
 
 - **[Workspace Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity)** is an authorization type where the identity of the Synapse workspace  is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to workspace identity for accessing the data.
 
-### Access to Cosmos DB
+### Access to Azure Cosmos DB
 
-You need to create server-level or database-scoped credential with the Cosmos DB account read-only key to [access Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key).
+You need to create server-level or database-scoped credential with the Azure Cosmos DB account read-only key to [access the Azure Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key).
 
 ## Next steps
 Additional information on endpoint connection and querying files can be found in the following articles: 

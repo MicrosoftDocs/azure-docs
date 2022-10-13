@@ -4,6 +4,7 @@ description: Describes how to use Service Bus to optimize performance when excha
 ms.topic: article
 ms.date: 09/28/2022
 ms.devlang: csharp
+ms.custom: ignite-2022
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -40,7 +41,7 @@ As expected, throughput is higher for smaller message payloads that can be batch
 
 #### Benchmarks
 
-Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) which you can run to see the expected throughput you'll receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you'll receive for your SB namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
 The benchmarking sample doesn't use any advanced features, so the throughput your applications observe will be different based on your scenarios.
 

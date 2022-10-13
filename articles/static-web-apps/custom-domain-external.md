@@ -30,9 +30,9 @@ This guide demonstrates how to configure your domain name with the `www` subdoma
 
 ## Get static web app URL
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your static web app.
+1. Go to your static web app.
 
 1. From the *Overview* window, copy the generated **URL** of your site and set it aside in a text editor for future use.
 
@@ -42,7 +42,7 @@ Domain registrars are the services that allow you to purchase and manage domain 
 
 1. Open a new browser tab and sign in to your domain registrar account.
 
-1. Navigate to your domain name's DNS configuration settings.
+1. Go to your domain name's DNS configuration settings.
 
 1. Add a new `CNAME` record with the following values.
 
@@ -59,26 +59,26 @@ Domain registrars are the services that allow you to purchase and manage domain 
 
 1. Under *Settings*, select **Custom domains**.
 
-1. Select the **+ Add** button.
+2. Select **+ Add**.
 
-1. In the *Enter domain* tab, enter your domain name prefixed with **www**.
+3. In the *Enter domain* tab, enter your domain name prefixed with **www**.
 
     For instance, if your domain name is `example.com`, enter `www.example.com` into this box.
 
-1. Select the **Next** button.
+4. Select **Next**.
 
-1. In the *Validate + Configure* tab, enter the following values.
+5. In the *Validate + Configure* tab, enter the following values.
 
     | Setting | Value |
     |---|---|
     | Domain name | This value should match the domain name you entered in the previous step (with the `www` subdomain). |
     | Hostname record type | Select **CNAME**. |
 
-1. Select the **Add** button.
+6. Select **Add**.
 
    Your `CNAME` record is being created and the DNS settings are being updated. Since DNS settings need to propagate, this process can take up to an hour or longer to complete.
 
-1. Once the domain settings are in effect, open a new browser tab and navigate to your domain with the `www` subdomain.
+7. Once the domain settings are in effect, open a new browser tab and go to your domain with the `www` subdomain.
 
     After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 

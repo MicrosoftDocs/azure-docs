@@ -173,7 +173,7 @@ vpnType=$(xmllint --xpath "string(/VpnProfile/VpnType)" Generic/VpnSettings.xml 
 routes=$(xmllint --xpath "string(/VpnProfile/Routes)" Generic/VpnSettings.xml)
 
 sudo cp "${installDir}ipsec.conf" "${installDir}ipsec.conf.backup"
-sudo cp "Generic/VpnServerRoot.cer" "${installDir}ipsec.d/cacerts"
+sudo cp "Generic/VpnServerRoot.cer_0" "${installDir}ipsec.d/cacerts"
 sudo cp "${username}.p12" "${installDir}ipsec.d/private" 
 
 echo -e "\nconn $virtualNetworkName" | sudo tee -a "${installDir}ipsec.conf" > /dev/null

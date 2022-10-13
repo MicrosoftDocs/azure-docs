@@ -112,7 +112,7 @@ The following device attributes can be used with the filter for devices conditio
 | --- | --- | --- | --- |
 | deviceId | Equals, NotEquals, In, NotIn | A valid deviceId that is a GUID | (device.deviceid -eq "498c4de7-1aee-4ded-8d5d-000000000000") |
 | displayName | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Any string | (device.displayName -contains "ABC") |
-| deviceOwnership | Equals, NotEquals | Supported values are "Personal" for bring your own devices and "Company" for corprate owned devices  | (device.deviceOwnership -eq "Company") |
+| deviceOwnership | Equals, NotEquals | Supported values are "Personal" for bring your own devices and "Company" for corporate owned devices  | (device.deviceOwnership -eq "Company") |
 | isCompliant | Equals, NotEquals | Supported values are "True" for compliant devices and "False" for non compliant devices  | (device.isCompliant -eq "True") |
 | manufacturer | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | Any string | (device.manufacturer -startsWith "Microsoft") |
 | mdmAppId | Equals, NotEquals, In, NotIn | A valid MDM application ID | (device.mdmAppId -in ["0000000a-0000-0000-c000-000000000000"] |
