@@ -1,5 +1,5 @@
 ---
-title: Bulk Data Uploads For Azure Database for PostgreSQL - Flexible Server
+title: Bulk data uploads For Azure Database for PostgreSQL - Flexible Server
 description: Best practices to bulk load data in Azure Database for PostgreSQL - Flexible Server 
 author: sarat0681
 ms.author: sbalijepalli
