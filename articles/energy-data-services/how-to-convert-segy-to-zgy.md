@@ -237,10 +237,11 @@ Later in this tutorial, you'll need at least one `owner` and at least one `viewe
       * `ACL_VIEWER=data.default.viewers@<your-partition-id>.<your-tenant>.com`
       * `LEGAL_TAG=<legal-tag-created-above>`
 
+    * Run the `prepare-records.sh` script.
     * The output will be a JSON array with all objects and will be saved in the `all_records.json` file.
     * Save the `filecollection_segy_id` and the `work_product_id` values in that JSON file to use in the conversion step. That way the converter knows where to look for this contents of your `all_records.json`.
 
-11. Insert the contents of your `all_records.json` file in storage for work-product, seismic trace data, seismic grid, and file collection (that is, copy and paste the contents of that file to the `--data-raw` field in the following command):
+11. Insert the contents of your `all_records.json` file in storage for work-product, seismic trace data, seismic grid, and file collection. In other words, copy and paste the contents of that file to the `--data-raw` field in the following command. If the above steps have produced two sets, you can run this command twice, using each set once.
 
     ```bash
         curl --location --request PUT '<url>/api/storage/v2/records' \
