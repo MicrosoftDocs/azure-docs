@@ -15,7 +15,7 @@ ms.author: mmitrik
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
-    * [Store (STOW-RS)](#store-stow-rs)
+    * [Store (STOW-RS)](#store-stow-rs)dic'dicom-services-c
     * [Retrieve (WADO-RS)](#retrieve-wado-rs)
     * [Search (QIDO-RS)](#search-qido-rs)
     * [Delete](#delete)
@@ -29,8 +29,8 @@ The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standa
 
 Additionally, the following non-standard API(s) are supported:
 
-* [Change Feed](dicom-change-feed.md)
-* [Extended Query Tags](dicom-extended-query-tags.md)
+* [Change Feed](dicom-change-feed-overview.md)
+* [Extended Query Tags](dicom-extended-query-tags-overview)
 
 All paths below include an implicit base URL of the server, such as `https://localhost:63838` when running locally.
 
@@ -578,7 +578,7 @@ There are four valid Workitem states:
 * CANCELED
 * COMPLETED
 
-This transaction will only succeed against Workitems in the **SCHEDULED** state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to **IN PROGRESS**. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are **IN PROGRESS** will return failure. An owned Workitem can be canceled via the [Change Workitem State](dicom-services-conformance-statement.md#change-workitem-state) transaction.
+This transaction will only succeed against Workitems in the **SCHEDULED** state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to **IN PROGRESS**. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are **IN PROGRESS** will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
 
 |Method	|Path|	Description|
 |:---|:---|:---|
@@ -732,7 +732,7 @@ The following parameters for each query are supported:
 |Key	|Support| Values|	Allowed| Count	|Description|
 |:--- |:---   |:---   |:---    |:---    |:---|
 |`{attributeID}=`|	`{value}`	|0...N	|Search for attribute/ value matching in query.
-|`includefield=`	|`{attributeID} all`|	0...N	|The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response]dicom-services-conformance-statement.md###search-response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server will default to using 'all'.
+|`includefield=`	|`{attributeID} all`|	0...N	|The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server will default to using 'all'.
 |`limit=`|	`{value}`|	0...1|	Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`.|
 |`offset=`|	`{value}`|	0...1|	Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response will be returned.
 |`fuzzymatching=`	|`true/false`|	0...1	|If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It will do a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` will all match. However `ohn` will **not** match.|
