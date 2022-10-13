@@ -129,7 +129,7 @@ Open MFA Server, click **User Portal**:
 |- OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
 |Allow users to select language|Language settings will be automatically applied to a user based on the locale settings in their browser|
 |Allow users to activate mobile app|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
-|- Device limit|Azure AD limits users to 5 cumulative devices (mobile app instances + hardware OATH token + software OATH token) per user|
+|- Device limit|Azure AD limits users to five cumulative devices (mobile app instances + hardware OATH token + software OATH token) per user|
 |Use security questions for fallback|Azure AD allows users to choose a fallback method at authentication time should the chosen authentication method fail|
 |- Questions to answer|Security Questions in Azure AD can only be used for SSPR. See more details for [Azure AD Custom Security Questions](concept-authentication-security-questions.md#custom-security-questions)|
 |Allow users to associate third-party OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
