@@ -35,7 +35,7 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.m
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-# [Form Recognizer v3.0 ](#tab/v30)
+::: moniker range="form-recog-3.0.0"
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -54,7 +54,9 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.m
 
 <sup>3</sup> Open a support request to increase the monthly training limit.
 
-# [Form Recognizer v2.1 ](#tab/v21)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -65,7 +67,7 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.m
 | **Max number of pages (Training)** | 500 | 500 (default value) |
 | Adjustable | No | No |
 
------
+::: moniker-end
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).

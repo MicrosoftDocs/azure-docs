@@ -9,11 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/10/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
 # Form Recognizer ID document model
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 The ID document model combines Optical Character Recognition (OCR) with deep learning models to analyze and extract key information from US Drivers Licenses (all 50 states and District of Columbia), international passport biographical pages, US state IDs, social security cards, and permanent resident (green) cards. The API analyzes identity documents, extracts key information, and returns a structured JSON data representation.
 

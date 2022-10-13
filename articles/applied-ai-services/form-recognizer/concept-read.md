@@ -15,6 +15,9 @@ recommendations: false
 
 # Form Recognizer Read OCR model
 
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+
+
 Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) model. The Read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
 
 ## Supported document types

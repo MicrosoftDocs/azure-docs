@@ -34,9 +34,9 @@ The process for copying a custom model consists of the following steps:
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied with the payload (copy authorization) returned from the previous call. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
-### [Form Recognizer REST API v3.0 ](#tab/v30)
+::: moniker range="form-recog-3.0.0"
 
-## Generate Copy authorization request
+## POST copy authorization request
 
 The following HTTP request gets copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.
 
@@ -96,9 +96,11 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
 ```
 
-### [Form Recognizer REST API v2.1 ](#tab/v21)
+::: moniker-end
 
-## Generate Copy authorization request
+::: moniker range="form-recog-2.1.0"
+
+## Generate copy authorization request
 
 The following HTTP request gets copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.
 
@@ -115,7 +117,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1
 {"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 ```
 
-## Start Copy operation
+## POST Copy operation
 
 The following HTTP request starts the Copy operation on the source resource. You'll need to enter the endpoint and key of your source resource as headers. Notice that the request URL contains the model ID of the source model you want to copy.
 
@@ -141,12 +143,12 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
 
------
+::: moniker-end
 
 > [!NOTE]
 > The Copy API transparently supports the [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) feature. This doesn't require any special treatment, but note that if you're copying between an unencrypted resource to an encrypted resource, you need to include the request header `x-ms-forms-copy-degrade: true`. If this header is not included, the copy operation will fail and return a `DataProtectionTransformServiceError`.
 
-### Common errors
+### Common copy request error codes
 
 |Error|Resolution|
 |:--|:--|
@@ -155,14 +157,16 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ## Track Copy progress
 
-### [Form Recognizer v3.0 ](#tab/v30)
+::: moniker range="form-recog-3.0.0"
 
-```
-GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
+```console
+  GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-### [Form Recognizer v2.1 ](#tab/v21)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 
@@ -179,9 +183,7 @@ Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
 
------
-
-### Common errors
+### Common copy progress error codes
 
 |Error|Resolution|
 |:--|:--|
@@ -190,7 +192,7 @@ Content-Type: application/json; charset=utf-8
 |"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request isn't allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
 |"errors":[{"code":"ResourceResolverError",<br>"message":"Couldn't fetch information for Cognitive resource with ID '...'. Ensure the resource is valid and exists in the specified region 'westus2'.."}] | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.|
 
-### [Optional] Track the target model ID 
+### Track the target model ID (optional)
 
 You can also use the **Get Custom Model** API to track the status of the operation by querying the target model. Call this API using the target model ID that you copied down in the first step.
 
@@ -229,7 +231,20 @@ curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecogniz
 curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.1/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}"
 ```
 
+::: moniker-end
+
 ## Next steps
+
+::: moniker range="form-recog-3.0.0"
 
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
 * [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
+* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync)
+
+::: moniker-end

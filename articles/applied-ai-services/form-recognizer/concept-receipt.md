@@ -9,12 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/22/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
 # Form Recognizer receipt model
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns structured JSON data.
 

@@ -9,9 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/10/2022
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
+recommendations: false
 ---
 
-# Interpret and improve accuracy and confidence for custom models
+# Accuracy and confidence scores for custom models
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 > [!NOTE]
 >
