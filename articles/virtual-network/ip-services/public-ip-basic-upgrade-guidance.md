@@ -25,13 +25,16 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 1. Create a migration plan for planned downtime.
 1. Depending on the resource associated with your Basic SKU public IP addresses, perform the upgrade based on the following table:
 
-  | Resource using Basic SKU public IP addresses | Decision path |
+ | Resource using Basic SKU public IP addresses | Decision path |
   | ------ | ------ |
   | Virtual Machine or Virtual Machine Scale Sets (flex model) | Disassociate IP(s) and utilize the upgrade options detailed after the table. |
-  | Load Balancer (Basic) | New LB SKU required. Use the upgrade scripts for [virtual machines](https://learn.microsoft.com/azure/load-balancer/upgrade-basic-standard) or [VMSS without ILPIPs](https://learn.microsoft.com/azure/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets) to upgrade to Standard Load Balancer |
-  | VPN Gateway (Basic or Gw1-5 using Basic) | New VPN Gateway SKU required. Create a [new Virtual Network Gateway with a Standard SKU IP](../../vpn-gateway/tutorial-create-gateway-portal.md). |
-    | ExpressRoute Gateway (using Basic) | New ExpressRoute Gateway required. Create a [new ExpressRoute Gateway with a Standard SKU IP](https://learn.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager). |
-  | Application Gateway (v1) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
+  | Load Balancer (Basic SKU) | New LB SKU required. Use the upgrade scripts for [virtual machines](https://learn.microsoft.com/azure/load-balancer/upgrade-basic-standard) or [virtual machine scale sets (without IPs per VM)](https://learn.microsoft.com/azure/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets) to upgrade to Standard Load Balancer |
+  | VPN Gateway (Basic SKU or VpnGw1-5 SKU using Basic IPs) | New VPN Gateway SKU required. Create a [new Virtual Network Gateway with a Standard SKU IP](../../vpn-gateway/tutorial-create-gateway-portal.md). |
+    | ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway required. Create a [new ExpressRoute Gateway with a Standard SKU IP](../../expressroute/expressroute-howto-add-gateway-portal-resource-manager). |
+  | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
+
+    > [!NOTE]
+    > If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these are not Public IP resources and as such cannot be upgraded; a new virtual machine scale set is required.  You can use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine). 
 
 ## Basic SKU vs. Standard SKU 
 
