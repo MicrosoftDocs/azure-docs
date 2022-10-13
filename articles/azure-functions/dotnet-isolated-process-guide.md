@@ -12,7 +12,7 @@ recommendations: false
 
 # Guide for running C# Azure Functions in an isolated process
 
-This article is an introduction to using C# to develop .NET isolated process functions, which run out-of-process in Azure Functions. Running out-of-process lets you decouple your function code from the Azure Functions runtime. Isolated process C# functions run on .NET 6.0, .NET 7.0, and .NET Framework 4.8 (preview support). [In-process C# class library functions](functions-dotnet-class-library.md) aren't supported on .NET 7.0. 
+This article is an introduction to using C# to develop .NET isolated process functions, which runs Azure Functions in an isolated process. This allows you to decouple your function code from the Azure Functions runtime, check out [supported version](#supported-versions) for Azure functions in an isolated process. [In-process C# class library functions](functions-dotnet-class-library.md) aren't supported on .NET 7.0. 
 
 | Getting started | Concepts| Samples |
 |--|--|--| 
@@ -85,7 +85,7 @@ A [HostBuilder] is used to build and return a fully initialized [IHost] instance
 
 ### Configuration
 
-The [ConfigureFunctionsWorkerDefaults] method is used to add the settings required for the function app to run out-of-process, which includes the following functionality:
+The [ConfigureFunctionsWorkerDefaults] method is used to add the settings required for the function app to run in an isolated process, which includes the following functionality:
 
 + Default set of converters.
 + Set the default [JsonSerializerOptions] to ignore casing on property names.

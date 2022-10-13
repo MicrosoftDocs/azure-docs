@@ -11,7 +11,7 @@ ms.custom: subject-policy-compliancecontrols
 # Azure Policy Regulatory Compliance controls for Azure Cognitive Search
 
 If you are using [Azure Policy](../governance/policy/overview.md) to enforce the recommendations in
-[Azure Security Benchmark](/azure/security/benchmarks/introduction), then you probably already know
+[Microsoft cloud security benchmark](/azure/security/benchmarks/introduction), then you probably already know
 that you can create policies for identifying and fixing non-compliant services. These policies might
 be custom, or they might be based on built-in definitions that provide compliance criteria and
 appropriate solutions for well-understood best practices.

@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 10/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -17,6 +17,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2022
+  - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
+  - [Immutable vault for Azure Backup (in preview)](#immutable-vault-for-azure-backup-in-preview)
   - [SAP HANA instance snapshot backup support (preview)](#sap-hana-instance-snapshot-backup-support-preview)
   - [SAP HANA System Replication database backup support (preview)](#sap-hana-system-replication-database-backup-support-preview)
 - September 2022
@@ -47,6 +49,20 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Enhanced soft delete for Azure Backup (preview)
+
+Enhanced soft delete provides improvements to the existing [soft delete](backup-azure-security-feature-cloud.md) feature. With enhanced soft delete, you can now make soft delete irreversible to prevent malicious actors from disabling it and deleting backups.
+
+You can also customize soft delete retention period (for which soft deleted data must be retained). Enhanced soft delete is available for Recovery Services vaults and Backup vaults.
+
+For more information, see [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+
+## Immutable vault for Azure Backup (in preview)
+
+Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
+
+For more information, see the [concept of Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-concept.md).
+
 ## SAP HANA instance snapshot backup support (preview)
 
 Azure Backup now supports SAP HANA instance snapshot backup that provides a cost-effective backup solution using Managed disk incremental snapshots. Because instant backup uses snapshot, the effect on the database is minimum. 
@@ -75,7 +91,6 @@ Azure Backup now offers a new and improved alerting solution via Azure Monitor. 
 If you're currently using the [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
 
 For more information, see [Switch to Azure Monitor based alerts for Azure Backup](move-to-azure-monitor-alerts.md).
-
 
 ## Multi-user authorization using Resource Guard is now generally available
  
