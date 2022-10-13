@@ -48,7 +48,7 @@ Disabling `azureADAuthenticationAsArmPolicy` will force the registry to use ACR 
 
 Disabling `authentication-as-arm` property by assigning a built-in policy will automatically disable the registry property for the current and the future registries. This automatic behavior is for registries created within the policy scope. The possible policy scopes includes either Resource Group level scope or Subscription ID level scope within the tenant.
 
-You can disable authentication as ARM in the ACR, by following below steps:
+You can disable authentication-as-arm in the ACR, by following below steps:
 
 >* Sign in to the [Azure portal](https://portal.azure.com). 
 >* Refer to the ACR's built-in policy definitions in the [azure-container-registry-built-in-policy definition's](policy-reference.md).
@@ -80,7 +80,7 @@ You can enable registry's Conditional Access policy in the [Azure portal](https:
    
      :::image type="content" source="media/container-registry-enable-conditional-policy/05-built-in-policy-definitions.png" alt-text="Screenshot of built-in-policy-definitions":::
 
-Azure Container Registry has two built-in policy definitions to disable authentication as ARM 
+Azure Container Registry has two built-in policy definitions to disable authentication-as-arm 
 
 >* `Container registries should have ARM audience token authentication disabled.` - This policy will report, block any non-compliant resources, and also sends a request to update non-compliant to compliant.
 >* `Configure container registries to disable ARM audience token authentication.` - This policy offers remediation and updates non-compliant to compliant resources.
@@ -98,7 +98,7 @@ Azure Container Registry has two built-in policy definitions to disable authenti
 
 ## Create and configure a Conditional Access policy - Azure portal
 
-ACR supports Conditional Access policy for Active Directory users only. It currently doesn't support Conditional Access policy for Service Principal. To configure Conditional Access policy for the registry you must disable `authentication-as-arm` for all the registries within the desired tenant. In this tutorial, we will create a basic Conditional Access policy for the Azure Container Registry from the Azure portal.
+ACR supports Conditional Access policy for Active Directory users only. It currently doesn't support Conditional Access policy for Service Principal. To configure Conditional Access policy for the registry, you must disable `authentication-as-arm` for all the registries within the desired tenant. In this tutorial, we'll create a basic Conditional Access policy for the Azure Container Registry from the Azure portal.
 
 Create a Conditional Access policy and assign your test group of users as follows:
 
