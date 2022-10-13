@@ -67,19 +67,19 @@ Before you configure Snowflake for automatic user provisioning with Azure AD, yo
 
 2. Use the ACCOUNTADMIN role.
 
-    ![Screenshot of a worksheet in the Snowflake UI with the SCIM access token called out.](media/Snowflake-provisioning-tutorial/step2.png)
+    ![Screenshot of a worksheet in the Snowflake UI with the SCIM access token called out.](media/Snowflake-provisioning-tutorial/step-2.png)
 
 3. Create the custom role AAD_PROVISIONER. All users and roles in Snowflake created by Azure AD will be owned by the scoped down AAD_PROVISIONER role.
 
-    ![Screenshot showing the custom role.](media/Snowflake-provisioning-tutorial/step3.png)
+    ![Screenshot showing the custom role.](media/Snowflake-provisioning-tutorial/step-3.png)
 
 4. Let the ACCOUNTADMIN role create the security integration using the AAD_PROVISIONER custom role.
 
-    ![Screenshot showing the security integrations.](media/Snowflake-provisioning-tutorial/step4.png)
+    ![Screenshot showing the security integrations.](media/Snowflake-provisioning-tutorial/step-4.png)
 
 5. Create and copy the authorization token to the clipboard and store securely for later use. Use this token for each SCIM REST API request and place it in the request header. The access token expires after six months and a new access token can be generated with this statement.
 
-    ![Screenshot showing the token generation.](media/Snowflake-provisioning-tutorial/step5.png)
+    ![Screenshot showing the token generation.](media/Snowflake-provisioning-tutorial/step-5.png)
 
 ## Step 3: Add Snowflake from the Azure AD application gallery
 
