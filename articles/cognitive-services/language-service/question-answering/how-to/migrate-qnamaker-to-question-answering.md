@@ -64,7 +64,7 @@ When you are looking at migrating to Question Answering, please consider the fol
 |Azure Search cost              |✔️      |✔️                |Applicable for both QnA Maker and Question Answering.                                                    |
 |App Service cost               |✔️      |➖                |Only applicable for QnA Maker. This is the biggest cost savings for users moving to Question Answering.  |
 
-- Knowledge base/project content or size has no implications on pricing
+- Users may select a higher tier with higher capacity, which will impact overall price they pay. It doesn’t impact the price on language component of Custom Question Answering.
 
 - “Text Records” in Question Answering features refers to the query submitted by the user to the runtime, and it is a concept common to all features within Language service
 
