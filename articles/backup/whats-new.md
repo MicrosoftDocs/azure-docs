@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 10/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -17,6 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2022
+  - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
   - [Immutable vault for Azure Backup (in preview)](#immutable-vault-for-azure-backup-in-preview)
   - [SAP HANA instance snapshot backup support (preview)](#sap-hana-instance-snapshot-backup-support-preview)
   - [SAP HANA System Replication database backup support (preview)](#sap-hana-system-replication-database-backup-support-preview)
@@ -47,6 +48,14 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Enhanced soft delete for Azure Backup (preview)
+
+Enhanced soft delete provides improvements to the existing [soft delete](backup-azure-security-feature-cloud.md) feature. With enhanced soft delete, you can now make soft delete irreversible to prevent malicious actors from disabling it and deleting backups.
+
+You can also customize soft delete retention period (for which soft deleted data must be retained). Enhanced soft delete is available for Recovery Services vaults and Backup vaults.
+
+For more information, see [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
 
 ## Immutable vault for Azure Backup (in preview)
 
