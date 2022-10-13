@@ -43,9 +43,9 @@ This diagram shows routing traffic from on-premises to an Azure NetApp Files vol
 
 :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-vnet-diagram.png" alt-text="Diagram of routing on-premises traffic via secure virtual hub":::
 
-To learn how to install an Azure Firewall in a Virtual WAN hub, refer [Configure Azure Firewall in a Virtual WAN hub](../virtual-vwan/howto-firewall.md).
+To learn how to install an Azure Firewall in a Virtual WAN hub, refer [Configure Azure Firewall in a Virtual WAN hub](../virtual-wan/howto-firewall.md).
 
-To force different traffic flows via the Azure Firewall installed in the hub, see [How to configure Virtual WAN Hub routing intent and routing policies](../virtual-vwan/how-to-routing-policies.md).
+To force different traffic flows via the Azure Firewall installed in the hub, see [How to configure Virtual WAN Hub routing intent and routing policies](../virtual-wan/how-to-routing-policies.md).
 
 To force the Azure NetApp Files bound traffic through Azure Firewall in the Virtual WAN hub, the effective routes of the virtual hub should have the specific IP address of the Azure NetApp Files volume pointing to the Azure Firewall. The following image of the Azure portal shows an example virtual hub effective routes. Note the listing of 10.2.0.5/32. The static routing entry's destination prefix is `<IP-Azure NetApp Files-Volume>/32` and the next hop is `Azure-Firewall-in-hub`.
 
@@ -60,7 +60,7 @@ To identify the private IP address associated with your Azure NetApp Files volum
 1. Navigate to the **Volumes** in your Azure NetApp Files subscription. 
 1. Identify the volume you are looking for. The private IP address associated with an Azure NetApp Files volume is listed as part of the mount path of the volume.
 
-:::image type="content" source="../media/azure-netapp-files/anfvolumes.png" alt-text="private IP address of an Azure NetApp Files volume is listed as part of its mount path" lightbox="../media/azure-netapp-files/anfvolumes.png":::
+:::image type="content" source="../media/azure-netapp-files/vwan-volumes-list.png" alt-text="Screenshot showing the private IP address of an Azure NetApp Files volume  listed as part of its mount path" lightbox="../media/azure-netapp-files/vwan-volumes-list.png":::
 
 ### Edit virtual hub effective routes
 
