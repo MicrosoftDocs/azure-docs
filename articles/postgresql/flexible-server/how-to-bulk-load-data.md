@@ -1,5 +1,5 @@
 ---
-title: Bulk Data Uploads
+title: Bulk Data Uploads For Azure Database for PostgreSQL - Flexible Server
 description: Best practices to bulk load data in Azure Database for PostgreSQL - Flexible Server 
 author: sarat0681
 ms.author: sbalijepalli
@@ -11,7 +11,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 
-# Bulk data load best practices
+# Best practices for bulk data upload for Azure Database for PostgreSQL - Flexible Server
 
 There are two types of bulk loads:
 - Initial data load of an empty database
@@ -23,7 +23,7 @@ This article discusses various loading techniques along with best practices when
 
 Performance-wise, the data loading methods arranged in the order of most time consuming to least time consuming is as follows:
 - Single record Insert
-- Batch into 100-1000 rows per commit. One can use transaction block to wrap multiple records per commit [Batch Inserts]
+- Batch into 100-1000 rows per commit. One can use transaction block to wrap multiple records per commit  
 - INSERT with multi row values
 - COPY command
 
@@ -33,27 +33,27 @@ The preferred method to load the data into the database is by copy command. If t
 
 #### Drop indexes
 
-Before an initial data load, it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
+Before an initial data load, it's advised to drop all the indexes in the tables. It's always more efficient to create the indexes after the data load.
 
 #### Drop constraints
 
 ##### Unique key constraints
 
-To achieve strong performance, it's advised to drop unique key constraints before a initial data load and recreate it once the data load is completed. However, be aware that dropping unique key constraints cancels the safeguards against duplicated data.
+To achieve strong performance, it's advised to drop unique key constraints before an initial data load, and recreate it once the data load is completed. However, dropping unique key constraints cancels the safeguards against duplicated data.
 
 ##### Foreign key constraints
 
 It's advised to drop foreign key constraints before initial data load and recreate once data load is completed.
 
-Changing the `session_replication_role` parameter to replica also disables all foreign key checks.However, be aware making the change can leave data in an inconsistent state if not properly used.
+Changing the `session_replication_role` parameter to replica also disables all foreign key checks. However, be aware making the change can leave data in an inconsistent state if not properly used.
 
 #### Unlogged tables
 
-Use of unlogged tables will make data load faster. Data written to unlogged tables is not written to the write-ahead log.
+Use of unlogged tables will make data load faster. Data written to unlogged tables isn't written to the write-ahead log.
 
 The disadvantages of using unlogged tables are
-- They are not crash-safe. An unlogged table is automatically truncated after a crash or unclean shutdown.
-- Data from unlogged tables cannot be replicated to standby servers.
+- They aren't crash-safe. An unlogged table is automatically truncated after a crash or unclean shutdown.
+- Data from unlogged tables can't be replicated to standby servers.
 
 The pros and cons of using unlogged tables should be considered before using in initial data loads.
 
@@ -84,7 +84,7 @@ The maintenance_work_mem can be set to a maximum of 2 GB on a flexible server. `
 
 `checkpoint_timeout`
 
-On the flexible server, the checkpoint_timeout can be increased to maximum 24h from default 5 minutes. It is advised to increase the value to 1 hour before initial data loads on Flexible server.
+On the flexible server, the checkpoint_timeout can be increased to maximum 24 h from default 5 minutes. It's advised to increase the value to 1 hour before initial data loads on Flexible server.
 
 `checkpoint_completion_target`
 
@@ -96,12 +96,12 @@ The max_wal_size can be set to the maximum allowed value on the Flexible server,
 
 `wal_compression`
 
-wal_compression can be turned on. Enabling the parameter can reduce the WAL volume without increasing the risk of unrecoverable data corruption, but at the cost of some extra CPU spent on the compression during WAL logging and on the decompression during WAL replay.
+wal_compression can be turned on. Enabling the parameter can have some extra  CPU cost spent on the compression during WAL logging and on the decompression during WAL replay.
 
 
 #### Flexible server recommendations
 
-Before the start of initial data load on a Flexible server, it is recommended to
+Before the start of initial data load on a Flexible server, it's recommended to
 
 - Disable high availability [HA] on the server. You can enable HA once initial load is completed on master/primary.
 - Create read replicas after initial data load is completed.
@@ -118,7 +118,7 @@ Sets the maximum number of workers that the system can support for parallel quer
 
 `max_parallel_maintenance_workers`
 
-Controls the maximum number of worker process, which can be used to CREATE INDEX.
+Controls the maximum number of worker processes, which can be used to CREATE INDEX.
 
 One could also create the indexes by making recommended settings at the session level. An example of how it can be done at the session level is shown below:
 
@@ -133,7 +133,7 @@ CREATE INDEX test_index ON test_table (test_column);
 
 #### Table partitioning
 
-It is always recommended to partition large tables. Some advantages of partitioning, especially during incremental loads:
+It's always recommended to partition large tables. Some advantages of partitioning, especially during incremental loads:
 - Creation of new partitions based on the new deltas makes it efficient to add new data to the table.
 - Maintenance of tables becomes easier. One can drop a partition during incremental data loads avoiding time-consuming deletes on large tables.
 - Autovacuum would be triggered only on partitions that were changed or added during incremental loads, which make maintaining statistics on the table easier.
@@ -145,7 +145,7 @@ Monitoring and maintaining table statistics is important for query performance o
 #### Index creation on foreign key constraints
 
 Creating indexes on foreign keys in the child tables would be beneficial in the following scenarios:
-- Data updates or deletions in the parent table. When data is updated or deleted in the parent table lookups would be performed on the child table.To make lookups faster you could index foreign keys on the child table.
+- Data updates or deletions in the parent table. When data is updated or deleted in the parent table lookups would be performed on the child table. To make lookups faster, you could index foreign keys on the child table.
 - Queries, where we see join between parent and child tables on key columns.
 
 #### Unused indexes
@@ -235,7 +235,7 @@ SELECT round (pg_wal_lsn_diff('LSN value when run second time','LSN value when r
 
 `wal_compression`
 
-wal_compression can be turned on. Enabling the parameter can reduce the WAL volume without increasing the risk of unrecoverable data corruption, but at the cost of some extra CPU spent on the compression during WAL logging and on the decompression during WAL replay.
+wal_compression can be turned on. Enabling the parameter can have some extra  CPU cost spent on the compression during WAL logging and on the decompression during WAL replay.
 
 
 ## Next steps
