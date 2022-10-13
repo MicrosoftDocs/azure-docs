@@ -66,7 +66,7 @@ There are three web components that make up Azure MFA Server:
 
 All three components can be installed on the same server if the server is internet-facing. If breaking up the components, the Web Service SDK is installed on the Azure MFA application server and the User portal and Mobile App Web Service are installed on an internet-facing server.
 
-### Azure AD Multi-Factor Authentication Server firewall requirements
+### Azure Multi-Factor Authentication Server firewall requirements
 
 Each MFA server must be able to communicate on port 443 outbound to the following addresses:
 
