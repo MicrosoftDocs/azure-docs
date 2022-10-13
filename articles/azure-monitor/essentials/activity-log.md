@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 07/01/2022
-ms.author: orens
+ms.author: guywild
 ms.reviewer: orens
 ---
 
