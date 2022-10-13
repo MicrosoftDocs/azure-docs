@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell, mvc, mode-api
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure PowerShell
 
-In this quickstart, you'll deploy a virtual machine (VM) and then check communications to an IP address and URL and from an IP address. You will determine the cause of a communication failure and learn how you can resolve it.
+In this quickstart, you deploy a virtual machine (VM) and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -48,7 +48,7 @@ $vM = New-AzVm `
     -Location "East US"
 ```
 
-The VM takes a few minutes to create. Don't continue with the steps until the VM is created and PowerShell returns the output.
+The VM takes a few minutes to create. Don't continue with the remaining steps until the VM is created and PowerShell returns the output.
 
 ## Test network communication
 
