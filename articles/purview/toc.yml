@@ -100,16 +100,18 @@ items:
     href: catalog-permissions.md
   - name: Data map
     items:
+    - name: Classification
+      href: concept-classification.md
+    - name: Data lineage
+      href: concept-data-lineage.md
     - name: Elastic data map
       href: concept-elastic-data-map.md
+    - name: Metamodel
+      href: concept-metamodel.md
     - name: Resource sets
       href: concept-resource-sets.md
     - name: Scans and ingestion
       href: concept-scans-and-ingestion.md
-    - name: Data lineage
-      href: concept-data-lineage.md
-    - name: Classification
-      href: concept-classification.md
   - name: Data catalog
     items:
     - name: Business glossary
@@ -151,6 +153,8 @@ items:
       displayName: Create and manage credentials
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
+    - name: Manage assets with Metamodel
+      href: how-to-metamodel.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
     - name: Request access to data asset
