@@ -10,14 +10,14 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Azure Active Directory Authentication (Azure AD) with PostgreSQL Flexible Server
+# Azure Active Directory Authentication with PostgreSQL Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-> [!NOTE]  
+> [!NOTE]
 > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
-Microsoft Azure Active Directory  authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
+Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 Benefits of using Azure AD include:
@@ -55,7 +55,7 @@ The following high-level diagram summarizes how authentication works using Azure
 
 ## Manage PostgreSQL Access For AD Principals
 
-When Azure AD authentication is enabled and Azure AD principal is added as an Azure AD administrator the account gets the same privileges as the original PostgreSQL administrator. Only Azure AD administrator can manage other Azure AD enabled roles on the server using Azure portal or Database API. The Azure AD administrator login can be an Azure AD user, Azure AD group, Service Principal or Managed Identity. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the PostgreSQL server. Multiple Azure AD administrators can be configured at any time and you can optionally disable password authentication to an Azure Database for PostgreSQL Flexible Server for better auditing and compliance needs.
+When Azure AD authentication is enabled and Azure AD principal is added as an Azure AD administrator the account gets the same privileges as the original PostgreSQL administrator. Only Azure AD administrator can manage other Azure AD enabled roles on the server using Azure portal or Database API. The Azure AD administrator log in can be an Azure AD user, Azure AD group, Service Principal or Managed Identity. Using a group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in the PostgreSQL server. Multiple Azure AD administrators can be configured at any time and you can optionally disable password authentication to an Azure Database for PostgreSQL Flexible Server for better auditing and compliance needs.
 
 ![admin structure][2]
 
