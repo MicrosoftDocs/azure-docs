@@ -6,9 +6,8 @@ ms.author: victorh
 ms.service: firewall
 services: firewall
 ms.topic: overview
-ms.custom: mvc, contperf-fy21q1
+ms.custom: mvc, contperf-fy21q1, references_regions
 ms.date: 10/13/2022
-ms.custom: references_regions
 
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
