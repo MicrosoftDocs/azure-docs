@@ -22,7 +22,7 @@ This article lists the features of Microsoft Teams that Azure Virtual Desktop cu
 |Configure audio devices|Yes|No|
 |Large gallery view and Together mode|Yes|Yes|
 |Live captions|Yes|Yes|
-|CART transcriptions|Yes|Yes|
+|Communication Access Real-time Translation (CART) transcriptions|Yes|Yes|
 |Give and take control |Yes|Yes|
 |Multiwindow|Yes|Yes|
 |Background blur|Yes|No|
