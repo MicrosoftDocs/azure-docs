@@ -39,7 +39,7 @@ You can create a group containing all users within a tenant using a membership r
    ```
 1. Select **OK**. The rule appears in the Rule syntax box:
 
-    :::image type="content" source="media/use-dynamic-groups/all-user-rule-syntax.png" alt-text="Screenshot of rule syntax for all users dynamic group.":::
+ :::image type="content" source="media/use-dynamic-groups/all-user-rule-syntax.png" alt-text="Screenshot of rule syntax for all users dynamic group.":::
 
 1.  Select **Save**. The new dynamic group will now include B2B guest users and member users.
 
