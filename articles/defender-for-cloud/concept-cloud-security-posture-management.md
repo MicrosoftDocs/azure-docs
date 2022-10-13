@@ -21,7 +21,7 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 
 ## Defender CSPM plan options
 
-The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender Cloud Security Posture Management (CSPM). When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverages offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) to your subscription and resources.
+The Defender CSPM plan comes with two options, foundational CSPM capabilities and Defender Cloud Security Posture Management (CSPM). When you deploy Defender for Cloud to your subscription and resources, you'll automatically gain the basic coverage offered by the CSPM plan. To gain access to the other capabilities provided by Defender CSPM, you'll need to [enable the Defender Cloud Security Posture Management (CSPM) plan](enable-enhanced-security.md) on your subscription and resources.
 
 The following table summarizes what's included in each plan and their cloud availability.
 
@@ -60,11 +60,14 @@ Learn more about [Cloud Security Explorer](concept-attack-path.md#what-is-cloud-
 
 ## Attack Path Analysis
 
-Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack Path Analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach.
+Attack Path Analysis is a graph-based algorithm that scans the Cloud Security Graph. The scans:
 
-By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack Path Analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+- expose exploitable paths that attackers may use to breach your environment and reach your high-impact assets
+- provide recommendations for ways to prevent successful breaches
 
-Learn more about [Attack Path Analysis](concept-attack-path.md#what-is-attack-path-analysis)
+By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more, this analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+
+Learn more about [Attack Path Analysis](concept-attack-path.md#what-is-attack-path-analysis).
 
 ## Agentless scanning for machines 
 
