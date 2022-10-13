@@ -25,7 +25,7 @@ If the enrichment pipeline does not have any errors, a debug session can be used
 
 ## Managing the Debug Session state
 
-The debug session can be run again after its creation and its first run using the **Start** button. It may also be cancelled while it is still executing using the **Cancel** button. Finally, it may be deleted using the **Delete** button.
+The debug session can be run again after its creation and its first run using the **Start** button. It may also be canceled while it is still executing using the **Cancel** button. Finally, it may be deleted using the **Delete** button.
 
 :::image type="content" source="media/cognitive-search-debug/debug-session-commands.png" alt-text="Screenshot of the Debug Session control buttons." border="true":::
 
