@@ -46,7 +46,7 @@ Rulesets have the following associations:
 - A ruleset can have up to 1000 DNS forwarding rules. 
 - A ruleset can be linked to up to 500 virtual networks in the same region
 
-A ruleset can't be linked to a virtual network in another region. For more information about ruleset and other private resolver limits, see [What are the usage limits for Azure DNS?](dns-faq.md#what-are-the-usage-limits-for-azure-dns-).
+A ruleset can't be linked to a virtual network in another region. For more information about ruleset and other private resolver limits, see [What are the usage limits for Azure DNS?](dns-faq.yml#what-are-the-usage-limits-for-azure-dns-).
 
 ### Ruleset links
 
