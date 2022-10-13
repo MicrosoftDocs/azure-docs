@@ -1810,7 +1810,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UpdateDiagnosticsSettings|No|Account Diagnostic Settings Updated|Count|Count|Account Diagnostic Settings Updated|DiagnosticSettingsName, ResourceGroupName|
 
 
-# microsoft.edgezones/edgezones
+## microsoft.edgezones/edgezones
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
