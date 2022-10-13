@@ -163,7 +163,7 @@ _From an embodied carbon perspective, it's better to have an automated mechanism
 
 <br/>
 
-**Evaluate whether to use End to End TLS termination** 
+**Evaluate whether to use end to end TLS termination** 
 
 _Terminating and re-establishing TLS is CPU consumption that might be unnecessary in certain architectures._
 
