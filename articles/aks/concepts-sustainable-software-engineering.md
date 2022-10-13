@@ -194,11 +194,11 @@ _Reduce energy waste and optimize costs_
 
  **Assess for Resilience and Performance** 
 
-_Load Testing and Chaos engineering can significantly help improve reliability and resilience and how the applications react to traffic spikes and component failures. In doing so, the workload can be optimized to handle failures gracefully and with less wasted resources._
+_To be able to scale down your workloads, or schedule them to SPOT nodes, your workloads need to tolerate interruptions and failures. Load Testing and Chaos engineering can significantly help improve resiliency of your workloads to handle interruptions and failures gracefully and with less wasted resources._
 
-:heavy_check_mark: Use [load testing](/azure/load-testing/tutorial-identify-performance-regression-with-cicd) to assess performance of your workloads.
+:heavy_check_mark: Use [load testing](/azure/load-testing/tutorial-identify-performance-regression-with-cicd) to assess performance of your workloads during high spikes.
 
-:heavy_check_mark: Use [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering) resilience of your workloads.
+:heavy_check_mark: Use [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering) resilience of your workloads to failures and interruptions.
 
 <br/>
 
