@@ -6,7 +6,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/10/2022
+ms.date: 10/13/2022
 ms.author: mmitrik
 ---
 
@@ -34,13 +34,13 @@ Additionally, the following non-standard API(s) are supported:
 
 All paths below include an implicit base URL of the server, such as `https://localhost:63838` when running locally.
 
-The service makes use of REST API versioning. Note that the version of the REST API must be explicitly specified as part of the base URL as in the following example:
+The service uses REST API versioning. The version of the REST API must be explicitly specified as part of the base URL, as in the following example:
 
 `https://<service_url>/v<version>/studies`
 
-For more information on how to specify the version when making requests, visit the [API Versioning Documentation](api-versioning-dicom-service.md).
+For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You'll find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You will find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
 
 ## Preamble Sanitization
 
@@ -96,11 +96,11 @@ Only transfer syntaxes with explicit Value Representations are accepted.
 | `202 (Accepted)`               | Some instances in the request have been stored but others have failed. |
 | `204 (No Content)`             | No content was provided in the store transaction request. |
 | `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format. |
-| `401 (Unauthorized)`           | The client isn't authenticated. |
-| `403 (Forbidden)`              | The user isn't authorized. |
-| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
+| `401 (Unauthorized)`           | The client is not authenticated. |
+| `403 (Forbidden)`              | The user is not authorized. |
+| `406 (Not Acceptable)`         | The specified `Accept` header is not supported. |
 | `409 (Conflict)`               | None of the instances in the store transaction request have been stored. |
-| `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `415 (Unsupported Media Type)` | The provided `Content-Type` is not supported. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
 ### Store response payload
@@ -213,7 +213,7 @@ This Retrieve Transaction offers support for retrieving stored studies, series, 
 The following `Accept` header(s) are supported for retrieving instances within a study or a series:
 
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
-* `multipart/related; type="application/dicom";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
+* `multipart/related; type="application/dicom";` (when transfer-syntax is not specified, 1.2.840.10008.1.2.1 is used as default)
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
 
@@ -223,8 +223,8 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 
 * `application/dicom; transfer-syntax=*`
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
-* `application/dicom;` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default)
-* `multipart/related; type="application/dicom"` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default)
+* `application/dicom;` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default)
+* `multipart/related; type="application/dicom"` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default)
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
@@ -235,9 +235,9 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 The following `Accept` headers are supported for retrieving frames:
 
 * `multipart/related; type="application/octet-stream"; transfer-syntax=*`
-* `multipart/related; type="application/octet-stream";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default)
+* `multipart/related; type="application/octet-stream";` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default)
 * `multipart/related; type="application/octet-stream"; transfer-syntax=1.2.840.10008.1.2.1`
-* `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
+* `multipart/related; type="image/jp2";` (when transfer-syntax is not specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 
 #### Retrieve transfer syntax
@@ -286,12 +286,12 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | Code                         | Description |
 | :--------------------------- | :---------- |
 | `200 (OK)`                     | All requested data has been retrieved. |
-| `304 (Not Modified)`           | The requested data hasn't been modified since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
-| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
-| `401 (Unauthorized)`           | The client isn't authenticated. |
-| `403 (Forbidden)`              | The user isn't authorized. |
+| `304 (Not Modified)`           | The requested data hasn't been modified since the last request. Content is not added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
+| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding is not supported. |
+| `401 (Unauthorized)`           | The client is not authenticated. |
+| `403 (Forbidden)`              | The user is not authorized. |
 | `404 (Not Found)`              | The specified DICOM resource couldn't be found. |
-| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
+| `406 (Not Acceptable)`         | The specified `Accept` header is not supported. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
 ### Search (QIDO-RS)
@@ -462,8 +462,8 @@ The query API returns one of the following status codes in the response:
 | `200 (OK)`                  | The response payload contains all the matching resources. |
 | `204 (No Content)`          | The search completed successfully but returned no results. |
 | `400 (Bad Request)`         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
-| `401 (Unauthorized)`        | The client isn't authenticated. |
-| `403 (Forbidden)`              | The user isn't authorized. |
+| `401 (Unauthorized)`        | The client is not authenticated. |
+| `403 (Forbidden)`              | The user is not authorized. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Please try again later. |
 
 ### Additional notes
@@ -499,8 +499,8 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 | :--------------------------- | :---------- |
 | `204 (No Content)`             | When all the SOP instances have been deleted. |
 | `400 (Bad Request)`            | The request was badly formatted. |
-| `401 (Unauthorized)`           | The client isn't authenticated. |
-| `403 (Forbidden)`              | The user isn't authorized. |
+| `401 (Unauthorized)`           | The client is not authenticated. |
+| `403 (Forbidden)`              | The user is not authorized. |
 | `404 (Not Found)`              | When the specified series was not found within a study or the specified instance was not found within the series. |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Please try again later. |
 
@@ -556,7 +556,7 @@ Notes on dataset attributes:
 |`201 (Created)`|	The target Workitem was successfully created.|
 |`400 (Bad Request)`|	There was a problem with the request. For example, the request payload did not satisfy the requirements above.|
 |`401 (Unauthorized)`|	The client is not authenticated.
-|`403 (Forbidden)`              | The user isn't authorized. |
+|`403 (Forbidden)`              | The user is not authorized. |
 |`409 (Conflict)`	|The Workitem already exists.
 |`415 (Unsupported Media Type)`|	The provided `Content-Type` is not supported.
 |`503 (Service Unavailable)`|	The service is unavailable or busy. Please try again later.|
@@ -595,7 +595,7 @@ The request payload may include Action Information as [defined in the DICOM Stan
 |`202 (Accepted)`|	The request was accepted by the server, but the Target Workitem state has not necessarily changed yet.|
 |`400 (Bad Request)`|	There was a problem with the syntax of the request.|
 |`401 (Unauthorized)`|	The client is not authenticated.
-|`403 (Forbidden)`              | The user isn't authorized. |
+|`403 (Forbidden)`              | The user is not authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.
 |`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the **SCHEDULED** or **COMPLETED** state.
 |`415 (Unsupported Media Type)`	|The provided `Content-Type` is not supported.|
@@ -624,8 +624,8 @@ The `Accept` header is required and must have the value `application/dicom+json`
 |:--- |:---
 |`200 (OK)`|	Workitem Instance was successfully retrieved.|
 |`400 (Bad Request)`|	There was a problem with the request.|
-|`401 (Unauthorized)`|	The client isn't authenticated.|
-|`403 (Forbidden)`   | The user isn't authorized. |
+|`401 (Unauthorized)`|	The client is not authenticated.|
+|`403 (Forbidden)`   | The user is not authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.|
 
 #### Retrieve Workitem Response Payload
@@ -664,7 +664,7 @@ Notes on dataset attributes:
 |`200 (OK)`|	The Target Workitem was updated.|
 |`400 (Bad Request)`|	There was a problem with the request. For example: (1) the Target Workitem was in the **COMPLETED** or **CANCELED** state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset did not conform to the requirements.|
 |`401 (Unauthorized)`|	The client is not authenticated.|
-| `403 (Forbidden)`              | The user isn't authorized. |
+| `403 (Forbidden)`              | The user is not authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.|
 |`409 (Conflict)`	|The request is inconsistent with the current state of the Target Workitem.|
 |`415 (Unsupported Media Type)`| The provided `Content-Type` is not supported.|
@@ -702,8 +702,8 @@ The request payload shall contain the Change UPS State Data Elements. These data
 |:---|:---|
 |`200 (OK)`|	Workitem Instance was successfully retrieved.|
 |`400 (Bad Request)`	|The request cannot be performed for one of the following reasons: (1) the request is invalid given the current state of the Target Workitem. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect|
-|`401 (Unauthorized)`	|The client isn't authenticated.|
-|`403 (Forbidden)`   | The user isn't authorized. |
+|`401 (Unauthorized)`	|The client is not authenticated.|
+|`403 (Forbidden)`   | The user is not authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.|
 |`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem.|
 
@@ -782,12 +782,12 @@ Example query:
 
 #### Search Response
 
-The response will be an array of 0...N DICOM datasets. The following attributes are returned:
+The response will be an array of `0...N` DICOM datasets with the following attributes returned:
 
-* All attributes in [DICOM PS 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1 or 2.
-* All attributes in [DICOM PS 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1C for which the conditional requirements are met.
-* All other Workitem attributes passed as match parameters.
-* All other Workitem attributes passed as includefield parameter values.
+* All attributes in [DICOM PS 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1 or 2
+* All attributes in [DICOM PS 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1C for which the conditional requirements are met
+* All other Workitem attributes passed as match parameters
+* All other Workitem attributes passed as includefield parameter values
 
 #### Search Response Codes
 
@@ -796,12 +796,12 @@ The query API will return one of the following status codes in the response:
 |Code	|Description|
 |:---|:---|
 |`200 (OK)`|	The response payload contains all the matching resource.|
-|`206 (Partial Content)`	|The response payload contains only some of the search results, and the rest can be requested through the appropriate request.|
-|`204 (No Content)`|	The search completed successfully but returned no results.|
-|`400 (Bad Request)`|	The was a problem with the request. For example, invalid Query Parameter syntax. Response body contains details of the failure.|
-|`401 (Unauthorized)`|	The client isn't authenticated.|
-|`403 (Forbidden)`              | The user isn't authorized. |
-|`503 (Service Unavailable)`	|The service is unavailable or busy. Please try again later.|
+|`206 (Partial Content)`	| The response payload contains only some of the search results, and the rest can be requested through the appropriate request.|
+|`204 (No Content)`|	The search completed successfully, but returned no results.|
+|`400 (Bad Request)`|	The was a problem with the request. For example, invalid Query Parameter syntax. The Response body contains details of the failure.|
+|`401 (Unauthorized)`| The client is not authenticated.|
+|`403 (Forbidden)`              | The user is not authorized. |
+|`503 (Service Unavailable)`	| The service is unavailable or busy. Please try again later.|
 
 #### Additional Notes
 
@@ -814,7 +814,7 @@ The query API will not return `413 (request entity too large)`. If the requested
 
 ### Next Steps
 
-For information about the DICOM service, see 
+For more information, see 
 
 >[!div class="nextstepaction"]
 >[Overview of the DICOM service](dicom-services-overview.md)

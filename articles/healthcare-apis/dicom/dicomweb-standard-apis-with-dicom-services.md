@@ -35,7 +35,7 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 
 ## Overview of various methods to use with DICOM service
 
-Because DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+Because DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Services Conformance Statement](dicom-services-conformance-statement.md).
 
 To see language-specific examples, refer to the examples below. You can view Postman collection examples in several languages including:
 
@@ -51,7 +51,7 @@ To see language-specific examples, refer to the examples below. You can view Pos
 * PowerShell
 * Python
 * Ruby 
-* Swift.
+* Swift
 
 ### C#
 
