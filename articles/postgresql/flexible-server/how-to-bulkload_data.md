@@ -33,7 +33,7 @@ The preferred method to load the data into the database is by copy command. If t
 
 #### Drop indexes
 
-Before a initial data load it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
+Before an initial data load, it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
 
 #### Drop constraints
 
@@ -43,7 +43,7 @@ To achieve strong performance, it's advised to drop unique key constraints befor
 
 ##### Foreign key constraints
 
-It's is advised to drop foreign key constraints before initial data load and recreate once data load is completed.
+It's advised to drop foreign key constraints before initial data load and recreate once data load is completed.
 
 Changing the `session_replication_role` parameter to replica also disables all foreign key checks.However, be aware making the change can leave data in an inconsistent state if not properly used.
 
@@ -92,7 +92,7 @@ A value of 0.9 is always recommended.
 
 `max_wal_size`
 
-The max_wal_size can be set to maximum allowed value on the Flexible server, which is 64 GB while we do the initial data load.
+The max_wal_size can be set to the maximum allowed value on the Flexible server, which is 64 GB while we do the initial data load.
 
 `wal_compression`
 
