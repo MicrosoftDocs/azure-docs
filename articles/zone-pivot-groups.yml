@@ -1787,6 +1787,17 @@ groups:
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
+## template without azure AD PowerShell
+- id: enterprise-apps-minus-aad-powershell
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph API
 ## Create service principal with appId
 - id: enterprise-apps-cli
   title: Enterprise apps
