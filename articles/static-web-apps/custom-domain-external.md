@@ -5,16 +5,16 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 02/10/2022
+ms.date: 10/13/2022
 ms.author: cshoe
 ---
 
 # Set up a custom domain in Azure Static Web Apps
 
-By default, Azure Static Web Apps provides an auto-generated domain name for your website, but you can point a custom domain to your site. Free SSL/TLS certificates automatically get created for the auto-generated domain name and any custom domains that you might add.
+By default, Azure Static Web Apps provides an auto-generated domain name for your website, but you can point a custom domain to your site. Free SSL/TLS certificates automatically get created for the auto-generated domain name and any custom domains that you might add. This article shows how to configure your domain name with the `www` subdomain, using an external provider.
 
-This article shows how to configure your domain name with the `www` subdomain.
-
+> [!NOTE]
+> Static Web Apps doesn't support set-up of a custom domain with a private DNS server, hosted on-premises. Consider using an [Azure Private DNS zone](../dns/private-dns-privatednszone.md). 
 ## Prerequisites
 
 - Consider how you want to support your apex domain. Domain names without a subdomain are known as apex root domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
@@ -57,12 +57,12 @@ Domain registrars are the services you can use to purchase and manage domain nam
 
 1. Return to your static web app in the Azure portal.
 
-1. Under *Settings*, select **Custom domains** > **+ Add**.
+1. Under *Settings*, select **Custom domains** > **+ Add**. Select **Custom domain on other DNS**.
 
 1. In the *Enter domain* tab, enter your domain name prefixed with **www**, and then select **Next**.
 
     For instance, if your domain name is `example.com`, enter `www.example.com`.
-   
+    :::image type="content" source="media/custom-domain/add-domain.png" alt-text="Screenshot showing sequence of steps in add custom domain form.":::
 
 2. In the *Validate + Configure* tab, enter the following values.
 
@@ -77,7 +77,7 @@ Domain registrars are the services you can use to purchase and manage domain nam
 
 4. When the update completes, open a new browser tab and go to your domain with the `www` subdomain.
 
-    After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
+    You should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 
 ## Next steps
 
