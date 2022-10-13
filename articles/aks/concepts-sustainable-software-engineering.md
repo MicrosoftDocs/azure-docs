@@ -40,7 +40,7 @@ Making workloads more [sustainable and cloud efficient](/azure/architecture/fram
 
  **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
-&nbsp;&nbsp;&nbsp; One way to to increase energy efficiency, is to run the workload on as few servers as possible, with the servers running at the highest utilization rate : thereby increasing also hardware efficiency.
+&nbsp;&nbsp;&nbsp; One way to increase energy efficiency, is to run the workload on as few servers as possible, with the servers running at the highest utilization rate : thereby increasing also hardware efficiency.
 
  **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
 
@@ -112,13 +112,13 @@ _Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utiliza
 
 **Maximize node resource utilization** 
 
-_One approach to lowering your carbon footprint is to reduce your idle time. Reducing your idle time involves increasing the utilization of your compute resources._
+_One approach to lowering your carbon footprint is increasing the utilization of your compute resources._
 
 :heavy_check_mark: Define workloads [resource requests and limits](/azure/aks/developer-best-practices-resource-management#define-pod-resource-requests-and-limits) to inform the Kubernetes scheduler which compute resources to assign to a pod.
 
 :heavy_check_mark: Use [Vertical Pod Auto-scaler](/azure/aks/vertical-pod-autoscaler) to automatically set resource requests and limits on containers per workload based on past usage.
 
-:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to further optimize scheduling your applications (pods) on nodes.
+:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to further optimize scheduling your workloads (pods) on nodes.
 
 <br/>
 
@@ -132,7 +132,7 @@ _Removing state from the design reduces the in-memory or on-disk data required b
 
 **Optimize storage utilization for statefull design**
 
-_From both an embodied carbon angle and an energy proportionality angle, it's better to maximise storage utilisation so the storage layer is optimised for the task._
+_From both an embodied carbon angle and an energy proportionality angle, it's better to maximize storage utilisation so the storage layer is optimised for the task._
 
 :heavy_check_mark: Choose [the appropriate storage type](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type).
 
