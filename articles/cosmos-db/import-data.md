@@ -62,8 +62,7 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 > [!NOTE]
 > We recommend using [container copy jobs](intra-account-container-copy.md) for copying data within the same Azure Cosmos DB account.
-
-> [!NOTE]
+> 
 > You should only use the Azure Cosmos DB migration tool for small migrations. For large migrations, view our [guide for ingesting data](migration-choices.md).
 
 ## <a id="Install"></a>Installation
