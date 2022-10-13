@@ -14,6 +14,8 @@ ms.date: 08/18/2022
 
 In this article, you create, view, and delete Microsoft Playwright Testing Preview workspaces, using the Azure portal.
 
+You can also [manage workspaces in the Playwright dashboard](./how-to-manage-workspace-in-azure-portal.md).
+
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -58,7 +60,7 @@ In this article, you create, view, and delete Microsoft Playwright Testing Previ
 
 ## Find a workspace
 
-See a list of all the workspaces you can use.
+To see the list of Playwright workspaces:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the top search field, type **Microsoft Playwright Testing**.
@@ -69,13 +71,17 @@ See a list of all the workspaces you can use.
 
 ## Delete a workspace
 
-In the [Azure portal](https://portal.azure.com), select **Delete** at the top of the workspace you wish to delete.
+To delete a Playwright workspace in the Azure portal:
 
-:::image type="content" source="./media/how-to-manage-workspace-in-azure-portal/azure-portal-delete-workspace.png" alt-text="Screenshot that shows the delete workspace functionality in the Azure portal.":::
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to your Playwright workspace.
+1. Select **Delete** to delete the workspace.
 
-> [!WARNING]
-> Once a Microsoft Playwright Testing workspace has been deleted, it cannot be recovered.
+    :::image type="content" source="./media/how-to-manage-workspace-in-azure-portal/azure-portal-delete-workspace.png" alt-text="Screenshot that shows the delete workspace functionality in the Azure portal.":::
 
+    > [!WARNING]
+    > Once a Microsoft Playwright Testing workspace has been deleted, it cannot be recovered.
+    
 ## Next steps
 
 - Learn how to [Identify app issues with end-to-end tests](./tutorial-identify-issues-with-end-to-end-tests.md)

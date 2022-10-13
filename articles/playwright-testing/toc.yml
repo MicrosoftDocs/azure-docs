@@ -25,6 +25,8 @@ items:
   items:
     - name: Manage workspaces in Azure portal
       href: how-to-manage-workspace-in-azure-portal.md
+    - name: Manage workspaces in Playwright dashboard
+      href: how-to-manage-workspace-with-playwright-dashboard.md
     - name: Run existing Playwright tests in the cloud
       href: how-to-run-with-playwright-testing.md
     - name: Run tests across multiple operating systems
