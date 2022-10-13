@@ -2,6 +2,7 @@
 title: What is monitored by Azure Monitor
 description: Reference of all services and other resources monitored by Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 author: rboucher
 ms.author: robb
 ms.date: 04/05/2022
@@ -56,7 +57,7 @@ The other services and older monitoring solutions in the following table store t
 |:---|:---|
 | [Azure Automation](../automation/index.yml) | Manage operating system updates and track changes on Windows and Linux computers. See [Change tracking](../automation/change-tracking/overview.md) and [Update management](../automation/update-management/overview.md). |
 | [Azure Information Protection](/azure/information-protection/) | Classify and optionally protect documents and emails. See [Central reporting for Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
-| [Defender for the Cloud (was Azure Security Center)](../defender-for-cloud/defender-for-cloud-introduction.md) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](../defender-for-cloud/enable-data-collection.md). |
+| [Defender for the Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](../defender-for-cloud/monitoring-components.md). |
 | [Microsoft Sentinel](../sentinel/index.yml) | Connect to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Network [Traffic Analytics](../network-watcher/traffic-analytics.md) | Analyze Network Watcher network security group flow logs to provide insights into traffic flow in your Azure cloud. |
