@@ -118,7 +118,26 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     echo $SERVER_APP_ID
     ```
 
-1.  Download the [oauth2-permissions.json](./media/azure-rbac/oauth2-permissions.json) for AzureCLI > v2.37 and update ID with server app id.  Update the application's group membership claims:
+1. Copy this JSON and save it in a file called oauth2-permissions.json.
+ 
+    ```json
+    {
+        "oauth2PermissionScopes": [
+            {
+                "adminConsentDescription": "Sign in and read user profile",
+                "adminConsentDisplayName": "Sign in and read user profile",
+                "id": "<oauth_app_ID>",
+                "isEnabled": true,
+                "type": "User",
+                "userConsentDescription": "Sign in and read user profile",
+                "userConsentDisplayName": "Sign in and read user profile",
+                "value": "User.Read"
+            }
+        ]
+    }
+    ```
+
+1.  Update the application's group membership claims:
     
     ```azurecli 
         az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
