@@ -13,9 +13,13 @@ ms.date: 10/12/2022
 
 You can process your real-time data streams in Azure Event Hubs by using Azure Stream Analytics. The no-code editor allows you to develop a Stream Analytics job without writing a single line of code. In minutes, you can develop and run a job that tackles many scenarios, including:
 
-- Filtering and ingesting to Azure Synapse SQL.
-- Capturing your Event Hubs data in Parquet format in Azure Data Lake Storage Gen2.
-- Materializing data in Azure Cosmos DB.
+- [Filtering and ingesting to Azure Synapse SQL](./filter-ingest-synapse-sql.md)
+- [Capturing your Event Hubs data in Parquet format in Azure Data Lake Storage Gen2](./capture-event-hub-data-parquet.md)
+- [Materializing data in Azure Cosmos DB](./no-code-materialize-cosmos-db.md)
+- [Filter and ingest to Azure Data Lake Storage Gen2](./filter-ingest-data-lake-storage-gen2.md)
+- [Enrich data and ingest to event hub](./no-code-enrich-event-hub-data.md)
+- [Transform and store data to Azure SQL database](./no-code-transform-filter-ingest-sql.md)
+- [Filter and ingest to Azure Data Explorer](./no-code-filter-ingest-data-explorer.md)
 
 The experience provides a canvas that allows you to connect to input sources to quickly see your streaming data. Then you can transform it before writing to your destination of choice in Azure.
 
@@ -139,7 +143,7 @@ The **Manage fields** transformation allows you to add, remove, or rename fields
 
 :::image type="content" source="./media/no-code-stream-processing/manage-field-transformation.png" alt-text="Screenshot that shows selections for managing fields." lightbox="./media/no-code-stream-processing/manage-field-transformation.png" :::
 
-You can also add new field with the **Build-in Functions** to aggregate the data from upstream. Currently, the build-in functions we support are some functions in **String Functions**, **Data and Time Functions**, **Mathematical Functions**. To learn more about the definitions of these functions, see [Built-in Functions (Azure Stream Analytics)](/stream-analytics-query/built-in-functions-azure-stream-analytics.md).
+You can also add new field with the **Build-in Functions** to aggregate the data from upstream. Currently, the build-in functions we support are some functions in **String Functions**, **Date and Time Functions**, **Mathematical Functions**. To learn more about the definitions of these functions, see [Built-in Functions (Azure Stream Analytics)](/stream-analytics-query/built-in-functions-azure-stream-analytics.md).
 
 :::image type="content" source="./media/no-code-stream-processing/build-in-functions-managed-fields.png" alt-text="Screenshot that shows the build-in functions." lightbox="./media/no-code-stream-processing/build-in-functions-managed-fields.png" :::
 
