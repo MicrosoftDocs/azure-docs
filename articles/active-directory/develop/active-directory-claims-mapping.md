@@ -8,7 +8,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/13/2022
 ms.author: davidmu
 ms.reviewer: ludwignick
 ---
@@ -21,21 +21,17 @@ A claim is information that an identity provider states about a user inside the 
 - Create claim types that don't already exist.
 - Choose or change the source of data emitted in specific claims.
 
-Claims customization supports configuring claim-mapping policies for the WS-Fed, SAML, OAuth, and OpenID Connect protocols.
-
-> [!NOTE]
-> This feature replaces and supersedes the [claims customization](active-directory-saml-claims-customization.md) offered through the Azure portal. On the same application, if you customize claims using the portal in addition to the Microsoft Graph/PowerShell method detailed in this document, tokens issued for that application will ignore the configuration in the portal. Configurations made through the methods detailed in this document will not be reflected in the portal.
+Claims customization supports configuring claim-mapping policies for the WS-Fed, SAML, OAuth, and OpenID Connect protocols. This feature replaces and supersedes the [claims customization](active-directory-saml-claims-customization.md) offered through the Azure portal. On the same application, if you customize claims using the portal in addition to the Microsoft Graph/PowerShell method detailed in this document, tokens issued for that application will ignore the configuration in the portal. Configurations made through the methods detailed in this document won't be reflected in the portal.
 
 In this article, we walk through a few common scenarios that can help you understand how to use the [claims-mapping policy type](reference-claims-mapping-policy-type.md).
 
 ## Get started
 
-In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you're new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
+In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you're new to Azure Active Directory (Azure AD), we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
 When creating a claims-mapping policy, you can also emit a claim from a directory extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory extension attributes](active-directory-schema-extensions.md).
 
-> [!NOTE]
-> The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, while the claims mapping and token creation runtime in Azure is generally available. Updates to the preview PowerShell module could require you to update or change your configuration scripts. 
+The [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview) is required to configure claims-mapping policies. The PowerShell module is in preview, while the claims mapping and token creation runtime in Azure is generally available. Updates to the preview PowerShell module could require you to update or change your configuration scripts. 
 
 To get started, do the following steps:
 
@@ -92,8 +88,8 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"employeeid"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
 
-      > [!WARNING]
-      > When you define a claims mapping policy for a directory extension attribute, use the `ExtensionID` property instead of the `ID` property within the body of the `ClaimsSchema` array.
+      
+       When you define a claims mapping policy for a directory extension attribute, use the `ExtensionID` property instead of the `ID` property within the body of the `ClaimsSchema` array.
 
    2. To see your new policy, and to get the policy ObjectId, run the following command:
 
@@ -204,8 +200,8 @@ Authorization: Bearer {token}
 Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
 To run this script, you need:
-1. The object ID of your application's service principal, found in the **Overview** blade of your application's entry in [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) in the Azure portal.
-2. An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the **Overview** blade of the application's entry in [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. The app registration should have the following configuration:
+1. The object ID of your application's service principal, found in the **Overview** pane of your application's entry in [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) in the Azure portal.
+2. An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the **Overview** pane of the application's entry in [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. The app registration should have the following configuration:
     - A redirect URI of "http://localhost" listed in the **Mobile and desktop applications** platform configuration
     - In **API permissions**, Microsoft Graph delegated permissions **Application.ReadWrite.All** and **User.Read** (make sure you grant Admin consent to these permissions)
 3. A user who logs in to get the Microsoft Graph access token. The user should be one of the following Azure AD administrative roles (required to update the service principal):
@@ -217,8 +213,7 @@ To run this script, you need:
     - private key in PKCS#12 format (in .pfx file)
     - password for the private key (pfx file)
 
-> [!IMPORTANT]
-> The private key must be in PKCS#12 format since Azure AD does not support other format types. Using the wrong format can result in the the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
+The private key must be in PKCS#12 format since Azure AD doesn't support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate info.
 
 ```powershell
 
@@ -412,8 +407,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 For single tenant apps, you can set the `acceptMappedClaims` property to `true` in the [application manifest](reference-app-manifest.md).  As documented on the [apiApplication resource type](/graph/api/resources/apiapplication#properties), this allows an application to use claims mapping without specifying a custom signing key. 
 
-> [!WARNING]
-> Do not set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
+Don't set `acceptMappedClaims` property to `true` for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
 
 This does require the requested token audience to use a verified domain name of your Azure AD tenant, which means you should ensure to set the `Application ID URI` (represented by the `identifierUris` in the application manifest) for example to `https://contoso.com/my-api` or (simply using the default tenant name) `https://contoso.onmicrosoft.com/my-api`.
 
