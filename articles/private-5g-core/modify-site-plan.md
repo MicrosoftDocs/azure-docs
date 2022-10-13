@@ -6,17 +6,17 @@ author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 10/06/2022
+ms.date: 10/13/2022
 ms.custom: template-how-to
 ---
 
 # Modify the billing plan in a site
 
-The *site plan* determines the throughput and the number of devices each network supports. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
+The *site plan* determines the throughput and the number of devices each site supports. The plan you selected when creating the site can be easily updated to support your deployment requirements as they change. In this how-to guide, you'll learn how to modify the billing plan in a site using the Azure portal.
 
-<!-- Should we add a note like the one below? Do we have somewhere we can refer the user to for more information? -->
+<!-- Should we add a note like the one below? Do we have somewhere we can refer the user to for more information? e.g. https://azure.microsoft.com/en-us/products/private-5g-core/#pricing
 > [!IMPORTANT]
-> Modifying the the billing plan may affect how much you're charged. Refer to ... for more information.
+> Modifying the the site plan may affect how much you're charged. Refer to [link] for more information. -->
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ The *site plan* determines the throughput and the number of devices each network
 
 ## Choose the new site plan
 
-Use the following table to choose the new billing plan that will best fit your requirements.
+Use the following table to choose the new site plan that will best fit your requirements.
 
 | Site Plan | Throughput | Activated SIMs |
 |------|------|------|
@@ -34,7 +34,9 @@ Use the following table to choose the new billing plan that will best fit your r
 | G4 |  4 Gbps | 400 |
 | G5 |  5 Gbps | 500 |
 
-## Modify the site plan
+## View the current site plan
+
+You can view your current site plan in the Azure portal.
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
 2. Search for and select the **Mobile Network** resource representing the private mobile network.
@@ -42,17 +44,26 @@ Use the following table to choose the new billing plan that will best fit your r
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
 3. In the **Resource** menu, select **Sites**.
-4. Select the site you want to modify.
-5. Select **Change plan**.
+4. Select the site you're interested in.
+5. Check the **Site Plan** field under the **Essentials** heading to view the current site plan.
+
+    :::image type="content" source="media/modify-site-plan/view-site-plan.png" alt-text="Screenshot of the Azure portal showing a site resource. The Site Plan field is highlighted.":::
+
+## Modify the site plan
+
+To modify your site plan:
+
+1. If you haven't already, navigate to the site that you're interested in modifying as described in [View the current site plan](#view-the-current-site-plan).
+2. Select **Change plan**.
 
     :::image type="content" source="media/modify-site-plan/change-site-plan.png" alt-text="Screenshot of the Azure portal showing the Change plan option.":::
 
-6. In **Site Plan** on the right, select the new site plan you collected in [Choose the new site plan](#choose-the-new-site-plan). Save your change with **Select**.
+3. In **Site Plan** on the right, select the new site plan you collected in [Choose the new site plan](#choose-the-new-site-plan). Save your change with **Select**.
 
     :::image type="content" source="media/modify-site-plan/site-plan-selection-tab.png" alt-text="Screenshot of the Azure portal showing the Site Plan screen.":::
 
-7. Azure will now redeploy the packet core instance.
-8. When the deployment is complete, navigate to the **Mobile Network Site** resource as described in [Modify the site plan](#modify-the-site-plan). Check that the field under **Site Plan** contains the updated information.
+4. Wait while the Azure portal redeploys the packet core instance with the new configuration. You'll see a confirmation screen when the deployment is complete.
+5. Navigate to the **Mobile Network Site** resource as described in [View the current site plan](#view-the-current-site-plan). Check that the field under **Site Plan** contains the updated information.
 
 ## Next steps
 
