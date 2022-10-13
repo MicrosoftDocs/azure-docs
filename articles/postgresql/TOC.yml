@@ -549,7 +549,7 @@
         href: flexible-server/how-to-autovacuum-tuning.md
         displayName: Autovacuum troubleshooting, tuning
       - name: Best practices for bulk data upload 
-        href: flexible-server/how-to-bulkload_data.md
+        href: flexible-server/how-to-bulk-load-data.md
         displayName: Best practices for bulk data upload
       - name: Best practices for pg_dump and restore
         href: flexible-server/how-to-pgdump-restore.md
