@@ -62,36 +62,36 @@ You can enable registry's Conditional Access policy in the [Azure portal](https:
 
 1. Navigate to your **Azure Container Registry** > **Resource Group** > **Settings** > **Policies** .
  
-    :::image type="content" source="media/container-registry-enable-conditional-policy/01-azure-policies.png" alt-text="Screenshot to navigate Azure policies":::
+    :::image type="content" source="media/container-registry-enable-conditional-policy/01-azure-policies.png" alt-text="Screenshot showing how to navigate Azure policies.":::
 
 1. Navigate to  **Azure Policy**, On the **Assignments**, select **Assign policy**.
    
-   :::image type="content" source="media/container-registry-enable-conditional-policy/02-Assign-policy.png" alt-text="Screenshot to assign a policy":::
+   :::image type="content" source="media/container-registry-enable-conditional-policy/02-Assign-policy.png" alt-text="Screenshot showing how to assign a policy.":::
 
 1. Under the **Assign policy** , use filters to search and find the **Scope**, **Policy definition**, **Assignment name**.
 
-    :::image type="content" source="media/container-registry-enable-conditional-policy/03-Assign-policy-tab.png" alt-text="Screenshot of assign policy tab":::
+    :::image type="content" source="media/container-registry-enable-conditional-policy/03-Assign-policy-tab.png" alt-text="Screenshot of the assign policy tab.":::
 
 1. Select **Scope** to filter and search for the **Subscription** and **ResourceGroup** and choose **Select**.
  
-     :::image type="content" source="media/container-registry-enable-conditional-policy/04-select-scope.png" alt-text="Screenshot of Scope tab":::
+     :::image type="content" source="media/container-registry-enable-conditional-policy/04-select-scope.png" alt-text="Screenshot of the Scope tab.":::
 
 1. Select **Policy definition** to filter and search the built-in policy definitions for the Conditional Access policy.
    
-     :::image type="content" source="media/container-registry-enable-conditional-policy/05-built-in-policy-definitions.png" alt-text="Screenshot of built-in-policy-definitions":::
+     :::image type="content" source="media/container-registry-enable-conditional-policy/05-built-in-policy-definitions.png" alt-text="Screenshot of built-in-policy-definitions.":::
 
 Azure Container Registry has two built-in policy definitions to disable authentication-as-arm, as below:
 
 >* `Container registries should have ARM audience token authentication disabled.` - This policy will report, block any non-compliant resources, and also sends a request to update non-compliant to compliant.
 >* `Configure container registries to disable ARM audience token authentication.` - This policy offers remediation and updates non-compliant to compliant resources.
 
-   1. Use filters to select and confirm  **Scope**, **Policy definition**, and **Assignment name**.
+1. Use filters to select and confirm  **Scope**, **Policy definition**, and **Assignment name**.
 
-   1. Use the filters to limit compliance states or to search for policies.
+1. Use the filters to limit compliance states or to search for policies.
 
-   1. Confirm your settings and set policy enforcement as **enabled**.
+1. Confirm your settings and set policy enforcement as **enabled**.
 
-   1. Select **Review+Create**.
+1. Select **Review+Create**.
 
       :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy":::
 
@@ -147,7 +147,7 @@ Create a Conditional Access policy and assign your test group of users as follow
 
 1. To apply and activate the policy, Select **Create**.
 
-    :::image type="content" alt-text="A screenshot to activate the Conditional Access policy." source="media/container-registry-enable-conditional-policy/06-enable-conditional-access-policy.png":::
+    :::image type="content" alt-text="A screenshot showing how to activate the Conditional Access policy." source="media/container-registry-enable-conditional-policy/06-enable-conditional-access-policy.png":::
 
 We have now completed creating the Conditional Access policy for the Azure Container Registry.
 
