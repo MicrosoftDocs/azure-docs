@@ -10,14 +10,14 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Use Azure Active Directory (Azure AD) for authentication with PostgreSQL Flexible Server
+# Use Azure Active Directory for authentication with PostgreSQL Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-> [!NOTE]  
+> [!NOTE]
 > Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
-This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL Flexible Server, and how to connect using an Azure AD token.
+This article walks you through the steps how to configure Azure Active Directory (Azure AD) access with Azure Database for PostgreSQL Flexible Server, and how to connect using an Azure AD token.
 
 ## Enable Azure AD Authentication
 
