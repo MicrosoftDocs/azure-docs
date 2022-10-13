@@ -14,7 +14,7 @@ ms.date: 04/29/2022
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
-# How Azure Machine Learning works: resources and assets (v2)
+# How Azure Machine Learning works: resources and assets
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 

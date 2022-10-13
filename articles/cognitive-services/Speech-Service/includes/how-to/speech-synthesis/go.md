@@ -407,6 +407,7 @@ func wordBoundaryHandler(event speech.SpeechSynthesisWordBoundaryEventArgs) {
 }
 
 func main() {
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
 	speechKey := os.Getenv("SPEECH_KEY")
 	speechRegion := os.Getenv("SPEECH_REGION")
 
