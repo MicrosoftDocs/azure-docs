@@ -27,8 +27,8 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
-- Teams for Azure Virtual Desktop doesn't currently support uploading custom background images.
-- Teams for Azure Virtual Desktop doesn’t currently support screenshots for incoming videos from the VM. As a workaround, we recommend you minimize the session desktop window and screenshot from the client machine instead. 
+- This feature doesn't support uploading custom background images.
+- This feature doesn’t support taking screenshots for incoming videos from the virtual machine (VM). As a workaround, we recommend you minimize the session desktop window and screenshot from the client machine instead. 
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
 
