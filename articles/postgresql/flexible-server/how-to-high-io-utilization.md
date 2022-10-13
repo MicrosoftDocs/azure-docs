@@ -1,5 +1,5 @@
 ---
-title: High IOPS Utilization for Azure Database for PostgreSQL - Flexible Server
+title: High IOPS utilization for Azure Database for PostgreSQL - Flexible Server
 description: Troubleshooting guide for high IOPS utilization in Azure Database for PostgreSQL - Flexible Server 
 author: sarat0681
 ms.author: sbalijepalli
