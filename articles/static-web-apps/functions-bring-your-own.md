@@ -60,7 +60,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
 The Azure Functions app is now mapped to the `/api` route of your static web app.
 
 > [!IMPORTANT]
-> Make sure to set the `api_location` value to an empty string (`""`) in the [workflow configuration](./build-configuration.md) file before you link an existing Functions application. Also, calls assume that the external function app retains the default "api" route prefix. Many apps remove this prefix in the host.json, so make sure the prefix is in place, otherwise the call fails.
+> Make sure to set the `api_location` value to an empty string (`""`) in the [workflow configuration](./build-configuration.md) file before you link an existing Functions application. Also, calls assume that the external function app retains the default `api` route prefix. Many apps remove this prefix in the *host.json*. Make sure the prefix is in place in the configuration, otherwise the call fails.
 
 ## Deployment
 
