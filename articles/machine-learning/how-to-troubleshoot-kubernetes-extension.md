@@ -44,7 +44,7 @@ This happens when an uninstallation operation isn't finished and another install
 This happens when you specify a wrong extension version. You need to make sure the specified version exists. If you want to use the latest version, you don't need to specify ```--version```  .
 
 ### Error: cannot be imported into the current release: invalid ownership metadata 
-This error means confliction between existing cluster resources and AzureML extension. A full error message could be like this: 
+This error means there is a conflict between existing cluster resources and AzureML extension. A full error message could be like this: 
 ```
 CustomResourceDefinition "jobs.batch.volcano.sh" in namespace "" exists and cannot be imported into the current release: invalid ownership metadata; label validation error: missing key "app.kubernetes.io/managed-by": must be set to "Helm"; annotation validation error: missing key "meta.helm.sh/release-name": must be set to "amlarc-extension"; annotation validation error: missing key "meta.helm.sh/release-namespace": must be set to "azureml"
 ```
@@ -100,9 +100,9 @@ AzureML extension uses some open source components, including Prometheus Operato
 ### Prometheus operator
 [Prometheus operator](https://github.com/prometheus-operator/prometheus-operator) is an open source framework to help build metric monitoring system in kubernetes. AzureML extension also utilizes Prometheus operator to help monitor resource utilization of jobs.
 
-If the Prometheus operator has already been installed in cluster by other service, you can specify ```installPromOp=false``` to disable the Prometheus operator in AzureML extension to avoid confliction between two Prometheus operators.
+If the Prometheus operator has already been installed in cluster by other service, you can specify ```installPromOp=false``` to disable the Prometheus operator in AzureML extension to avoid a conflict between two Prometheus operators.
 In this case, all Prometheus instances will be managed by the existing prometheus operator. To make sure Prometheus works properly, the following things need to be paid attention to when you disable prometheus operator in Azureml extension.
-1. Check if prometheus in azureml namespace is managed by the Prometheus operator. In some scenarios, prometheus operator is set to only monitor some specific namespaces. If so, make sure azureml namespace is in the allow list. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L165).
+1. Check if prometheus in azureml namespace is managed by the Prometheus operator. In some scenarios, prometheus operator is set to only monitor some specific namespaces. If so, make sure azureml namespace is in the allowlist. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L165).
 2. Check if kubelet-service is enabled in prometheus operator. Kubelet-service contains all the endpoints of kubelet. For more information, see [command flags](https://github.com/prometheus-operator/prometheus-operator/blob/b475b655a82987eca96e142fe03a1e9c4e51f5f2/cmd/operator/main.go#L149). And also need to make sure that kubelet-service has a label`k8s-app=kubelet`.
 3. Create ServiceMonitor for kubelet-service. Run the following command with variables replaced:
     ```bash
