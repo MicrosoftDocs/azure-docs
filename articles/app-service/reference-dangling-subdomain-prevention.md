@@ -20,13 +20,12 @@ The risks of subdomain takeover include:
 
 Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover.md).
 
-Azure App Service provides Name Reservation Service and domain verification tokens to prevent subdomain takeovers.
-
+Azure App Service provides [Name Reservation](#how-name-reservation-service-works) Service and [domain verification tokens](#domain-verification-token) to prevent subdomain takeovers.
 ## How Name Reservation Service works
 
 Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, re-use of the DNS will be forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
 
-After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean up any associations/pointers to said DNS or re-claim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'. Name Reservation Service is enabled by default and doesn't require additional configuration.
+After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean up any associations/pointers to said DNS or re-claim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'. Name Reservation Service is enabled by default on Azure App Service and doesn't require additional configuration.
 
 #### Example scenario
 
@@ -41,4 +40,4 @@ When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT
 
 These records don't prevent someone from creating the Azure App Service with the same name that's in your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
 
-DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation. Be aware that the DNS records could time to propagate. If they have a "www.domain.com" and "test.domain.com", they would need to create TXT records for each of them to avoid domain takeovers.
+DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation. Be aware that the DNS records take time to propagate.
