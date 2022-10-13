@@ -126,7 +126,7 @@ If you have the required access, but the delete request fails, it may be because
 
 If you accidentally delete a resource group or resource, in some situations it might be possible to recover it.
 
-Some resource types support *soft delete*, including [Azure Key Vault](../../key-vault/general/soft-delete-overview.md), [Azure Backup](../../backup/backup-azure-delete-vault.md), and [Azure Storage](../../storage/blobs/soft-delete-container-overview.md). You might have to configure soft delete before you can use it.
+Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For more information about enabling soft delete, see the documentation for [Azure Key Vault](../../key-vault/general/soft-delete-overview.md), [Azure Backup](../../backup/backup-azure-delete-vault.md), and [Azure Storage](../../storage/blobs/soft-delete-container-overview.md). 
 
 You can also [open an Azure support case](../../azure-portal/supportability/how-to-create-azure-support-request.md). Provide as much detail as you can about the deleted resources, including their resource IDs, types, and resource names, and request that the support engineer check if the resources can be restored.
 
