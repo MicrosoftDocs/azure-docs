@@ -14,8 +14,8 @@ This article describes how to use Azure Active Directory (Azure AD) to secure th
 ## Scenarios
 This article explains how to implement the following two scenarios in detail: 
 
-- Delivering events to a webhook that is in the same Azure AD tenant as the event subscription. You can use either an Azure AD user or an Azure AD application as the event subscription writer in this scenario. 
-- Delivering events to a webhook that is in a different Azure AD tenant from the event subscription. You can only use an Azure AD application as an event subscription writer in this scenario. 
+- [Delivering events to a webhook that is in the same Azure AD tenant as the event subscription](#deliver-events-to-a-webhook-in-the-same-azure-ad-tenant). You can use either an Azure AD user or an Azure AD application as the event subscription writer in this scenario. 
+- [Delivering events to a webhook that is in a different Azure AD tenant from the event subscription](#deliver-events-to-a-webhook-in-a-different-azure-ad-tenant). You can only use an Azure AD application as an event subscription writer in this scenario. 
 
     In the first scenario, you run all the steps or scripts in a single tenant that has both the event subscription and the webhook. And, in the second scenario, you run some steps in the tenant that has the event subscription and some steps in the tenant that has the webhook. 
 
