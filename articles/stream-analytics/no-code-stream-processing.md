@@ -250,7 +250,7 @@ Under the **Outputs** section on the ribbon, select **CosmosDB** as the output f
 
 When you're connecting to Azure Cosmos DB, if you select **Managed Identity** as the authentication mode, then the Contributor role will be granted to the managed identity for the Stream Analytics job. To learn more about managed identities for Azure Cosmos DB, see [Use managed identities to access Azure Cosmos DB from an Azure Stream Analytics job (preview)](cosmos-db-managed-identity.md). 
 
-Managed identities authentication method is also supported in the Azure Cosmos DB output in no-code editor which has the same benefit as it is in above ADLS Gen2 output.
+Managed identities authentication method is also supported in the Azure Cosmos DB output in no-code editor that has the same benefit as it is in above ADLS Gen2 output.
 
 ### Azure SQL Database
 
@@ -267,9 +267,9 @@ For more information about Azure SQL Database output for a Stream Analytics job,
 
 With the real-time data coming through event hub to ASA, no-code editor can transform, enrich the data and then output the data to another event hub as well. You can choose the **Event Hub** output when you configure your Azure Stream Analytics job.
 
-To configure Event Hub as output, select **Event Hub** under the Outputs section on the ribbon. Then fill in the needed information to connect your event hub that you want to write data to.
+To configure Event Hubs as output, select **Event Hub** under the Outputs section on the ribbon. Then fill in the needed information to connect your event hub that you want to write data to.
 
-For more information about Event Hub output for a Stream Analytics job, see [Event Hubs output from Azure Stream Analytics](./event-hubs-output.md).
+For more information about Event Hubs output for a Stream Analytics job, see [Event Hubs output from Azure Stream Analytics](./event-hubs-output.md).
 
 ### Azure Data Explorer
 
@@ -306,7 +306,7 @@ After you add and set up any steps in the diagram view, you can test their behav
 
 :::image type="content" source="./media/no-code-stream-processing/get-static-preview.png" alt-text="Screenshot that shows the button for getting a static preview." lightbox="./media/no-code-stream-processing/get-static-preview.png" :::
 
-After you do, the Stream Analytics job evaluates all transformations and outputs to make sure they're configured correctly. Stream Analytics then displays the results in the static data preview, as shown in the following image.
+After you do, the Stream Analytics job evaluates all transformations, and outputs to make sure they're configured correctly. Stream Analytics then displays the results in the static data preview, as shown in the following image.
 
 :::image type="content" source="./media/no-code-stream-processing/refresh-static-preview.png" alt-text="Screenshot that shows the Data Preview tab, where you can refresh the static preview." lightbox="./media/no-code-stream-processing/refresh-static-preview.png" :::
 
@@ -384,4 +384,4 @@ Learn how to use the no-code editor to address common scenarios by using predefi
 - [Materialize data to Azure Cosmos DB](no-code-materialize-cosmos-db.md)
 - [Transform and store data to SQL database](no-code-transform-filter-ingest-sql.md)
 - [Filter and store data to Azure Data Explorer](no-code-filter-ingest-data-explorer.md)
-- [Enrich data and ingest to Event Hub](no-code-enrich-event-hub-data.md)
+- [Enrich data and ingest to Event Hubs](no-code-enrich-event-hub-data.md)
