@@ -109,7 +109,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 
 ## Arguments
 
-You have two choices for input files that contain the target data for querying. Valid values are:
+You have three choices for input files that contain the target data for querying. Valid values are:
 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 

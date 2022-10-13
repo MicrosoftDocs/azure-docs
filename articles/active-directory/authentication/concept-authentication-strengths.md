@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/13/2022
 
 ms.author: justinha
 author: justinha
@@ -188,6 +188,7 @@ In external user scenarios, the authentication methods that can satisfy authenti
 |FIDO2 security key                           | &#x2705;        |          |
 |Windows Hello for Business                   | &#x2705;        |          |
 
+For more information about how to set authentication strengths for external users, see [Conditional Access: Require an authentication strength for external users](../conditional-access/howto-conditional-access-policy-authentication-strength-external.md).
 
 ### User experience for external users
 
@@ -209,7 +210,8 @@ An authentication strength Conditional Access policy works together with [MFA tr
 - **Authentication strength is not enforced on Register security information user action** – If an Authentication strength Conditional Access policy targets **Register security information** user action, the policy would not apply. 
 
 - **Conditional Access audit log** – When a Conditional Access policy with the authentication strength grant control is created or updated in the Azure AD portal, the auditing log includes details about the policy that was updated, but doesn't include the details about which authentication strength is referenced by the Conditional Access policy. This issue doesn't exist when a policy is created or updated By using Microsoft Graph APIs.
-<!-- Namrata to update about B2B--->
+
+- **Using 'Require one of the selected controls' with 'require authentication strength' control** - After you select authentication strengths grant control and additional controls, all the selected controls must be satisfied in order to gain access to the resource. Using **Require one of the selected controls** isn't applicable, and will default to requiring all the controls in the policy.
 
 ## Limitations
 
