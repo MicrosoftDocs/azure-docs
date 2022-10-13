@@ -3,7 +3,7 @@
 title: Upgrading a basic public IP address to standard SKU - Guidance
 description: Overview of upgrade options and guidance for migrating basic public IP to standard public IP for future basic public IP address retirement
 author: mbender-ms
-ms.service: load-balancer
+ms.service: ip-services
 ms.author: mbender
 ms.topic: overview
 ms.date: 09/19/2022
