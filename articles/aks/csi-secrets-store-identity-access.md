@@ -24,7 +24,7 @@ An [Azure AD workload identity][workload-identity] is an identity used by an app
 
 - Installed the latest version of the `aks-preview` extension, version 0.5.102 or later. To learn more, see [How to install extensions][how-to-install-extensions].
 - Existing Keyvault
-- Existing Azure Subscrioption with EnableWorkloadIdentityPreview feature enabled
+- Existing Azure Subscription with EnableWorkloadIdentityPreview feature enabled
 - Existing AKS cluster with enable-oidc-issuer and enable-workload-identity enabled
 
 Azure AD workload identity (preview) is supported on both Windows and Linux clusters.
@@ -90,7 +90,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     export federatedIdentityName="aksfederatedidentity" # can be changed as needed
     az identity federated-credential create --name $federatedIdentityName --identity-name $UAMI --resource-group $RG --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${serviceAccountNamespace}:${serviceAccountName}
     ```
-5. Deploy a `SecretProviderClass` by using the following YAML script, noticing that the variables will interpolated:
+5. Deploy a `SecretProviderClass` by using the following YAML script, noticing that the variables will be interpolated:
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -351,7 +351,7 @@ Azure Active Directory (Azure AD) pod-managed identities (preview) use AKS primi
 
 ### Usage
 
-1. Verify that your virtual machine scale set or availability set nodes have their own system-assigned identity:
+1. Verify that your Virtual Machine Scale set or availability set nodes have their own system-assigned identity:
 
     ```azurecli-interactive
     az vmss identity show -g <resource group>  -n <vmss scalset name> -o yaml
