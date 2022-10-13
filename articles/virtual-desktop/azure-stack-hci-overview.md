@@ -43,7 +43,7 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 ## Supported platforms
 
-Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clients](user-documentation.md) as Azure Virtual Desktop, and supports the following x64 operating system images:
+Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clients](user-documentation/index.yml) as Azure Virtual Desktop, and supports the following x64 operating system images:
 
 - Windows 11 Enterprise multi-session
 - Windows 11 Enterprise
