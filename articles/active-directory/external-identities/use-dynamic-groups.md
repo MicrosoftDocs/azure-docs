@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 10/13/2022
 
 ms.author: mimart
 author: msmimart
@@ -16,11 +16,12 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
 
-# Dynamic groups and Azure Active Directory B2B collaboration
+# Create dynamic groups in Azure Active Directory B2B collaboration
 
 ## What are dynamic groups?
 Dynamic configuration of security group membership for Azure Active Directory (Azure AD) is available in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as userType, department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Read more about dynamic groups in [Dedicated groups in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
+## Prerequisites
 The appropriate [Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in the article [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## Creating an "all users" dynamic group
@@ -38,9 +39,9 @@ You can create a group containing all users within a tenant using a membership r
    ```
 1. Select **OK**. The rule appears in the Rule syntax box:
 
-   ![Rule syntax for all users dynamic group](media/use-dynamic-groups/all-user-rule-syntax.png)
+    :::image type="content" source="media/use-dynamic-groups/all-user-rule-syntax.png" alt-text="Screenshot of rule syntax for all users dynamic group.":::
 
-1.  Select **Save**. The new dynamic group will now include B2B guest users as well as member users.
+1.  Select **Save**. The new dynamic group will now include B2B guest users and member users.
 
 
 1. Select **Create** on the **New group** page to create the group.
@@ -55,7 +56,7 @@ If you want your group to exclude guest users and include only members of your t
 
 The following image shows the rule syntax for a dynamic group modified to include members only and exclude guests.
 
-![Shows rule where user type equals member](media/use-dynamic-groups/all-member-user-rule-syntax.png)
+:::image type="content" source="media/use-dynamic-groups/all-member-user-rule-syntax.png" alt-text="Screenshot of rule syntax where user type equals member.":::
 
 ## Creating a group of guests only
 
@@ -67,7 +68,7 @@ You might also find it useful to create a new dynamic group that contains only g
 
 The following image shows the rule syntax for a dynamic group modified to include guests only and exclude member users.
 
-![Shows rule where user type equals guest](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
+:::image type="content" source="media/use-dynamic-groups/all-guest-user-rule-syntax.png" alt-text="Screenshot of rule syntax where user type equals guest.":::
 
 ## Next steps
 
