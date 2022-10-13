@@ -277,7 +277,7 @@ _Oversizing compute usually leaves "unused" or "underused" capacity ; ultimately
 
 :heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on demand.
 
-:heavy_check_mark: Leverage [Scaling **User node pools** to 0 when there is no demand](/azure/aks/scale-cluster#scale-user-node-pools-to-0).
+:heavy_check_mark: Leverage [Scaling **User node pools** to 0](/azure/aks/scale-cluster#scale-user-node-pools-to-0) when there is no demand.
 
 :heavy_check_mark: Use [Virtual Nodes](/azure/aks/virtual-nodes) to rapidly burst to Serverless Nodes (that scale to zero when there is no demand).
 
