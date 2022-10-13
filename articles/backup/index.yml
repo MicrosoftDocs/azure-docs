@@ -59,8 +59,6 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Azure Blobs backup
-            url: blob-backup-overview.md
           - text: Azure Disk Backup
             url: disk-backup-overview.md
           - text: Backup Center
@@ -79,6 +77,8 @@ landingContent:
             url: multi-user-authorization.md
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
+          - text: Immutable vault (preview)
+            url: backup-azure-immutable-vault-concept.md
   # Card
   - title: Back up Azure VMs
     linkLists:

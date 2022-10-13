@@ -130,6 +130,8 @@
     items:
     - name: Multi-user authorization
       href: multi-user-authorization-concept.md
+    - name: Immutable vault
+      href: backup-azure-immutable-vault-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -592,6 +594,8 @@
       href: backup-rbac-rs-vault.md
     - name: Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
+    - name: Manage Immutable vaults
+      href: backup-azure-immutable-vault-how-to-manage.md
     - name: Soft delete
       items:
       - name: Overview
