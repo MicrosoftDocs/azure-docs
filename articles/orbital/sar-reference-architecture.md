@@ -120,13 +120,6 @@ We were using Apache Spark 3.1 with Scala 2.12 to develop our pipelines. This ve
 
  - Compute heavy tasks that want to be distributed.
 
-
-## References
-
- - [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics)
- - [Apache Spark](https://spark.apache.org)
- - [Argo](https://argoproj.github.io/)
-
 ## Contributors
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors*
@@ -140,3 +133,23 @@ Additional contributors:
 - Joey Frazee | Principal Engineering Manager
 - Katy Smith | Data Scientist
 - Steve Truitt | Principal Program Manager
+
+## Next steps
+
+- [Azure Maps Geospatial Services](https://microsoft.github.io/SynapseML/docs/features/geospatial_services/GeospatialServices%20-%20Overview)
+- [Getting geospatial insights from big data using SynapseML](https://techcommunity.microsoft.com/t5/azure-maps-blog/getting-geospatial-insides-in-big-data-using-synapseml/ba-p/3154717)
+- [Get started with Azure Synapse Analytics](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/synapse-analytics/get-started.md)
+- [Explore Azure Synapse Studio](/training/modules/explore-azure-synapse-studio)
+- [SpaceBorne Data Analysis](/docs/industries/aerospace/geospatial-processing-analytics-content.md)
+
+## See also
+
+- [Geospatial data processing and analytics](https://github.com/MicrosoftDocs/architecture-center/blob/main/docs/example-scenario/data/geospatial-data-processing-analytics-azure.yml)
+- [Geospatial analysis for the telecommunications industry](https://github.com/MicrosoftDocs/architecture-center/blob/main/docs/example-scenario/data/geospatial-analysis-telecommunications-industry.yml)
+- [Big data architectures](https://github.com/MicrosoftDocs/architecture-center/tree/main/docs/data-guide/big-data)
+
+## References
+
+ - [Azure Synapse](https://azure.microsoft.com/services/synapse-analytics)
+ - [Apache Spark](https://spark.apache.org)
+ - [Argo](https://argoproj.github.io/)
