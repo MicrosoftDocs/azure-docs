@@ -183,6 +183,52 @@ Run the application with the `python` command on your quickstart file
     python quickstart.py
     ```
 
+### Output
+
+```console
+0 available models before training.
+Training new model...(it may take a few minutes)
+MODEL STATUS: CREATED
+MODEL STATUS: RUNNING
+MODEL STATUS: RUNNING
+MODEL STATUS: RUNNING
+MODEL STATUS: RUNNING
+MODEL STATUS: READY
+Model training complete.
+--------------------
+1 available models after training.
+New Model ID GUID
+Get detection result...(it may take a few seconds)
+Result ID: GUID
+Result status:	 READY
+Result length:	 721
+timestamp: 2021-01-02 12:06:00+00:00, is_anomaly: True , anomaly score: 0.5633, severity: 0.3278, contributor count: 5   
+	correlation changes: series_2  , contribution score: 0.2950
+	correlation changes: series_3  , contribution score: 0.2281
+	correlation changes: series_1  , contribution score: 0.2148
+	correlation changes: series_4  , contribution score: 0.1927
+	correlation changes: series_0  , contribution score: 0.0694
+timestamp: 2021-01-02 12:27:00+00:00, is_anomaly: True , anomaly score: 0.4873, severity: 0.2836, contributor count: 5   
+	correlation changes: series_2  , contribution score: 0.4787
+	correlation changes: series_4  , contribution score: 0.2131
+	correlation changes: series_1  , contribution score: 0.1528
+	correlation changes: series_3  , contribution score: 0.1338
+	correlation changes: series_0  , contribution score: 0.0215
+timestamp: 2021-01-02 13:08:00+00:00, is_anomaly: True , anomaly score: 0.5176, severity: 0.3012, contributor count: 5   
+	correlation changes: series_1  , contribution score: 0.4417
+	correlation changes: series_4  , contribution score: 0.1921
+	correlation changes: series_3  , contribution score: 0.1730
+	correlation changes: series_0  , contribution score: 0.1591
+	correlation changes: series_2  , contribution score: 0.0341
+timestamp: 2021-01-02 13:19:00+00:00, is_anomaly: True , anomaly score: 0.6038, severity: 0.3514, contributor count: 5   
+	correlation changes: series_0  , contribution score: 0.3545
+	correlation changes: series_3  , contribution score: 0.3002
+	correlation changes: series_2  , contribution score: 0.2700
+	correlation changes: series_4  , contribution score: 0.0608
+	correlation changes: series_1  , contribution score: 0.0144
+timestamp: 2021-01-02 13:22:00+00:00, is_anomaly: True , anomaly score: 0.5010, severity: 0.2915, contributor count: 5   
+```
+
 We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb) to help you get started.
 
 # Clean up resources
