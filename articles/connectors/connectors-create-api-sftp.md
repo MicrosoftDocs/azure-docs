@@ -15,6 +15,6 @@ ROBOTS: NOINDEX
 
 The SFTP connector is deprecated, so this connector's operations no longer appear in the workflow designer. However, you can use the [SFTP-SSH connector](/connectors/sftpwithssh/) instead. For more information, see [Connect to an SFTP file server using SSH in Azure Logic Apps](connectors-sftp-ssh.md).
 
-## Next steps
+Next steps:
 
 * [Managed connector reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
