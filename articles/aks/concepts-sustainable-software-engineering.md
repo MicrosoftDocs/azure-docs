@@ -134,11 +134,11 @@ _Removing state from the design reduces the in-memory or on-disk data required b
 
 _From both an embodied carbon angle and an energy proportionality angle, it's better to maximize storage utilisation so the storage layer is optimised for the task._
 
-:heavy_check_mark: Choose [the appropriate storage type](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type).
+:heavy_check_mark: Understand the application performance needs and access patterns to [choose the appropriate storage type](/azure/aks/operator-best-practices-storage#choose-the-appropriate-storage-type).
 
-:heavy_check_mark: Use [Storage Classes to define application needs](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs).
+:heavy_check_mark: Use [Storage Classes to define application storage needs](/azure/aks/operator-best-practices-storage#create-and-use-storage-classes-to-define-application-needs).
 
-:heavy_check_mark: [Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes).
+:heavy_check_mark: [Dynamically provision volumes](/azure/aks/operator-best-practices-storage#dynamically-provision-volumes) and set reclaim policies.
 
 <br/>
 
