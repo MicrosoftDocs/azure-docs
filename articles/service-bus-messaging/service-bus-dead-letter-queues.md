@@ -55,7 +55,7 @@ In addition to the system-provided dead-lettering features, applications can use
 
 This can be done by calling [QueueClient.DeadLetterAsync(Guid lockToken, string deadLetterReason, string deadLetterErrorDescription) method](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletterasync?view=azure-dotnet#microsoft-servicebus-messaging-queueclient-deadletterasync(system-guid-system-string-system-string)).
 
-It is recommended to include the type of the exception in the DeadLetterReason and the StackTrace of the exception in the DeadLetterDescription as this makes it easier to troubleshoot the cause of the problem resulting in messages being dead-lettered.
+It is recommended to include the type of the exception in the DeadLetterReason and the StackTrace of the exception in the DeadLetterDescription as this makes it easier to troubleshoot the cause of the problem resulting in messages being dead-lettered. Be aware that this may result in some messages exceeding [the 256KB quota limit for the Standard Tier of Azure Service Bus](/azure/service-bus-messaging/service-bus-quotas), further indicating that the Premium Tier is what should be used for production environments.
 
 ## Dead-lettering in ForwardTo or SendVia scenarios
 Messages will be sent to the transfer dead-letter queue under the following conditions:
