@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Azure Blob Storage library - Java"
-description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+description: In this quickstart, you learn how to use the Azure Blob Storage client library for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api
@@ -224,7 +224,7 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-java/main/sdk/identity/azure-identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
 
-For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
 #### Assign roles to your Azure AD user account
 
@@ -273,7 +273,7 @@ You can authorize access to data in your storage account using the following ste
     </dependency>
     ```
 
-3. Add this code to the `Main` method. When the code runs on your local workstation, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
+3. Add this code to the `Main` method. When the code runs on your local workstation, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio Code.
 
     :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateServiceClientDAC":::
 
