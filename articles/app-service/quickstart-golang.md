@@ -1,9 +1,9 @@
 ---
-title: 'Quickstart: Create a GoLang web app'
-description: Deploy your first Go Hello World to Azure App Service in minutes.
+title: 'Quickstart: Create a Go web app'
+description: Deploy your first Go (GoLang) Hello World to Azure App Service in minutes.
 ms.topic: quickstart
 ms.date: 10/13/2022
-ms.devlang: golang
+ms.devlang: go
 ms.author: msangapu
 author: msangapu-msft
 ---
@@ -18,8 +18,8 @@ In this quickstart, you'll deploy a Go web app to Azure App Service. Azure App S
 
 To complete this quickstart, you need:
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
-2. [Go 1.18](https://go.dev/dl/) or higher installed locally.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
+- [Go 1.18](https://go.dev/dl/) or higher installed locally.
 
 ## 1 - Sample Application
 
@@ -31,7 +31,7 @@ The `go mod init` command creates a go.mod file to track your code's dependencie
 
 Create a file called main.go. We'll be doing most of our coding here.
 
-```golang
+```go
 package main
 import (
     "fmt"
@@ -119,3 +119,13 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 ```azurecli-interactive
 az group delete --resource-group <resource-group-name>
 ```
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Configure an App Service app](./configure-common.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Deploy from Azure Container Registry](./tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Map a custom domain name](./app-service-web-tutorial-custom-domain.md)
