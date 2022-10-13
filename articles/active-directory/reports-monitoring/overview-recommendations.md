@@ -4,9 +4,7 @@ description: Provides a general overview of Azure Active Directory recommendatio
 services: active-directory
 author: shlipsey3
 manager: amycolannino
-
 ms.service: active-directory
-
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
