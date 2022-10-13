@@ -511,11 +511,11 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
 
 - Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/4.1/howto/static-files/deployment/). For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/) to enable serving the files. The WhiteNoise package was already installed with requirements.txt, and its middleware is added to the list.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-14" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-14" highlight="14":::
 
     Then the static file settings are configured according to the Django documentation.
 
-    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="23-24" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="23-24":::
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
 

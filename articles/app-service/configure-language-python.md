@@ -155,7 +155,7 @@ For App Service, you then make the following modifications:
 
     Here, `FRONTEND_DIR`, to build a path to where a build tool like yarn is run. You can again use an environment variable and App Setting as desired.
 
-1. Add `whitenoise` to your *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve it's own static files. Whitenoise specifically serves those files that are found in the folder specified by the Django `STATIC_ROOT` variable.
+1. Add `whitenoise` to your *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve its own static files. Whitenoise specifically serves those files that are found in the folder specified by the Django `STATIC_ROOT` variable.
 
 1. In your *settings.py* file, add the following line for Whitenoise:
 
@@ -181,7 +181,7 @@ For App Service, you then make the following modifications:
 
 ## Serve static files for Flask apps
 
-If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.1.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [quickstart sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on Github. 
+If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.1.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [quickstart sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on GitHub. 
 
 To serve static files directly from a route on your application, you can use the [`send_from_directory`](https://flask.palletsprojects.com/en/2.2.x/api/#flask.send_from_directory) method:
 
@@ -432,7 +432,7 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 
 #### Other issues
 
-- **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden as you type. The characters are being recorded, however, so type your password as usual and press **Enter** when done.
+- **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden when you type. The characters are being recorded, however, so type your password as usual and press **Enter** when done.
 
 - **Commands in the SSH session appear to be cut off**: The editor may not be word-wrapping commands, but they should still run correctly.
 
