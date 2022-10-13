@@ -55,6 +55,8 @@ The following table shows features and corresponding SKUs.
 
 ## Region Availability 
 
+DDoS IP Protection is available in the following regions.
+
 | Region               | Availability |  
 |----------------------|--------------|
 | West Central US      | Yes          |
