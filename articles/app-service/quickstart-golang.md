@@ -21,7 +21,7 @@ To complete this quickstart, you need:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
 - [Go 1.18](https://go.dev/dl/) or higher installed locally.
 
-## 1 - Sample Application
+## 1 - Sample application
 
 First, create a folder for your project.
 
