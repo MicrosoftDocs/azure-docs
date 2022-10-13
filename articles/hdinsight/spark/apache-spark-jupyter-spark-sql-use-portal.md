@@ -43,9 +43,10 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
     |Resource group | From the drop-down list, select your existing resource group, or select **Create new**.|
     |Cluster name | Enter a globally unique name.|
     |Region   | From the drop-down list, select a region where the cluster is created. |
+    |Availability zone |Optional - specify an availability zone in which to deploy your cluster|
     |Cluster type| Select cluster type to open a list. From the list, select **Spark**.|
     |Cluster version|This field will auto-populate with the default version once the cluster type has been selected.|
-    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to log in in to the Jupyter Notebook later in the quickstart. |
+    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to log in to the Jupyter Notebook later in the quickstart. |
     |Cluster login password| Enter the cluster login password. |
     |Secure Shell (SSH) username| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
     
