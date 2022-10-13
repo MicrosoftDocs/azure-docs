@@ -15,7 +15,7 @@ Azure Data Lake Analytics is an on-demand analytics job service that simplifies 
 
 ## Azure Data Lake analytics recent update information
 
-Azure Data Lake analytics service is updated on an aperiodic basis for certain purpose. We continue to provide the support for this service with component update, component beta preview and so on.
+Azure Data Lake analytics service is updated on an a periodic basis. We continue to provide the support for this service with component update, component beta preview and so on.
 
 - For recent update general information, refer to [What's new in Data Lake Analytics?](data-lake-analytics-whats-new.md).
 - For each update details, refer to [Azure Data Lake analytics release note](https://github.com/Azure/AzureDataLake/tree/master/docs/Release_Notes).
@@ -42,7 +42,7 @@ Data Lake Analytics is a cost-effective solution for running big data workloads.
 
 ## Works with all your Azure data
   
-Data Lake Analytics works with **Azure Data Lake Storage Gen1** for the highest performance, throughput, and parallelization and works with Azure Storage blobs, Azure SQL Database, Azure Synapse Analytics.
+Data Lake Analytics works with **Azure Data Lake Storage Gen1** for the highest performance, throughput, and parallelization, and works with Azure Storage blobs, Azure SQL Database, Azure Synapse Analytics.
 
    > [!NOTE]
    > Data Lake Analytics doesn't work with Azure Data Lake Storage Gen2 yet until further notice.
