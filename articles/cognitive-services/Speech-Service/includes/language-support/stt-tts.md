@@ -111,7 +111,7 @@ ms.author: eur
 | `lt-LT` | Lithuanian (Lithuania)  | `lt-LT` | Plain text<br/><br/>Pronunciation | `lt-LT-LeonasNeural` (Male)<br/>`lt-LT-OnaNeural` (Female) | Not supported | 
 | `lv-LV` | Latvian (Latvia)  | `lv-LV` | Plain text<br/><br/>Pronunciation | `lv-LV-EveritaNeural` (Female)<br/>`lv-LV-NilsNeural` (Male) | Not supported | 
 | `mk-MK` | Macedonian (Republic of North Macedonia)  | `mk-MK` | Plain text | `mk-MK-AleksandarNeural` (Male)<br/>`mk-MK-MarijaNeural` (Female) | Not supported | 
-| `ml-IN` | Malayalam (India)  | Not supported |Not supported |`ml-IN-MidhunNeural` (Male)<br/>`ml-IN-SobhanaNeural` (Female) | Not supported | 
+| `ml-IN` | Malayalam (India) | `ml-IN` | Plain text | `ml-IN-MidhunNeural` (Male)<br/>`ml-IN-SobhanaNeural` (Female) | Not supported | 
 | `mn-MN` | Mongolian (Mongolia)  | `mn-MN` | Plain text | `mn-MN-BataaNeural` (Male)<br/>`mn-MN-YesuiNeural` (Female) | Not supported | 
 | `mr-IN` | Marathi (India)  | `mr-IN` | Plain text | `mr-IN-AarohiNeural`<sup>4,5,6</sup> (Female)<br/>`mr-IN-ManoharNeural`<sup>4,5,6</sup> (Male) | Not supported | 
 | `ms-MY` | Malay (Malaysia)  | `ms-MY` | Plain text | `ms-MY-OsmanNeural`<sup>4,5,6</sup> (Male)<br/>`ms-MY-YasminNeural`<sup>4,5,6</sup> (Female) | Custom Neural Voice Pro | 
