@@ -16,8 +16,8 @@ Use the following table to identify and resolve issues when configuring the Azur
 | Error code | Probable cause | Suggested remediation |
 |------------|----------------|-----------------------|
 | AZCM0000 | The action was successful | N/A |
-| AZCM0001 | An unknown error occurred | Contact Microsoft Support for assistance |
-| AZCM0011 | The user canceled the action (CTRL+C) | Retry the previous command |
+| AZCM0001 | An unknown error occurred | Contact Microsoft Support for assistance. |
+| AZCM0011 | The user canceled the action (CTRL+C) | Retry the previous command. |
 | AZCM0012 | The access token is invalid | If authenticating via access token, obtain a new token and try again. If authenticating via service principal or device logins, contact Microsoft Support for assistance. |
 | AZCM0016 | Missing a mandatory parameter | Review the error message in the output to identify which parameters are missing. For the complete syntax of the command, run `azcmagent <command> --help`. |
 | AZCM0018 | The command was executed without administrative privileges | Retry the command in an elevated user context (administrator/root). |
@@ -34,9 +34,9 @@ Use the following table to identify and resolve issues when configuring the Azur
 | AZCM0068 | Subscription name was provided, and an error occurred while looking up the corresponding subscription GUID. | Retry the command with the subscription GUID instead of subscription name. |
 | AZCM0061<br>AZCM0064<br>AZCM0065<br>AZCM0066<br>AZCM0070<br> | The agent service is not responding or unavailable | Verify the command is run in an elevated user context (administrator/root). Ensure that the HIMDS service is running (start or restart HIMDS as needed) then try the command again. |
 | AZCM0081 | An error occurred while downloading the Azure Active Directory managed identity certificate | If this message is encountered while attempting to connect the server to Azure, the agent won't be able to communicate with the Azure Arc service. Delete the resource in Azure and try connecting again. |
-| AZCM0101 | The command was not parsed successfully | Run `azcmagent <command> --help` to review the command syntax |
+| AZCM0101 | The command was not parsed successfully | Run `azcmagent <command> --help` to review the command syntax. |
 | AZCM0102 | An error occurred while retrieving the computer hostname | Retry the command and specify a resource name (with parameter --resource-name or –n). Use only alphanumeric characters, hyphens and/or underscores; note that resource name cannot end with a hyphen or underscore. |
-| AZCM0103 | An error occurred while generating RSA keys | Contact Microsoft Support for assistance |
+| AZCM0103 | An error occurred while generating RSA keys | Contact Microsoft Support for assistance. |
 | AZCM0105 | An error occurred while downloading the Azure Active Directory managed identify certificate | Delete the resource created in Azure and try again. |
 | AZCM0147-<br>AZCM0152 | An error occurred while installing Azcmagent on Windows | Review the error message in the output for more specific information. |
 | AZCM0127-<br>AZCM0146 | An error occurred while installing Azcmagent on Linux | Review the error message in the output for more specific information. |
