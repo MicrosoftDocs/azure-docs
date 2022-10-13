@@ -8,7 +8,7 @@ ms.date: 10/10/2022
 
 # Sustainable software engineering practices in Azure Kubernetes Service (AKS)
 
-The sustainable software engineering principles are a set of competencies to help you define, build, and run applications sustainably. The overall goal is to reduce the carbon footprint in every aspect of your application. [The Principles of Sustainable Software Engineering][principles-sse] has an overview of the principles of sustainable software engineering.
+ The [Principles of Sustainable Software Engineering][principles-overview] are a core set of competencies to help you define, build, and run applications sustainably. The overall goal is to reduce the carbon footprint in every aspect of your application.
 
 Sustainable software engineering is a shift in priorities and focus. In many cases, the way most software is designed and run highlights fast performance and low latency. Meanwhile, sustainable software engineering focuses on reducing as much carbon emission as possible. Consider:
 
