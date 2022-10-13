@@ -33,7 +33,8 @@ In this tutorial, you learn how to:
 2. After deploying your project from Language Studio, click on “Get Prediction URL”. 
 3. Get your Site URL from the hostname of Prediction URL and your Account key which would be the Ocp-Apim-Subscription-Key.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of how to obtain the prediction URL and subscription key displayed.]( ../media/power-virtual-agents/get-prediction-url.png) ]( ../media/power-virtual-agents/get-prediction-url.png#lightbox)
 
 4. Create a Custom Question Answering connector: Follow the [connector documentation](https://learn.microsoft.com/connectors/languagequestionansw/) to create a connection to Question Answering.
 5. Use this tutorial to create a Bot with Power Virtual Agents instead of creating a bot from Language Studio.
@@ -57,18 +58,23 @@ This section creates the fallback topic conversation flow.
 
 The new fallback action might already have conversation flow elements. Delete the **Escalate** item by selecting the **Options** menu.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of how to delete existing conversation flow elements.]( ../media/power-virtual-agents/pva-delete-action.png) ]( ../media/power-virtual-agents/pva-delete-action.png#lightbox)
 
 Below the *Message* node, select the (**+**) icon, then select **Call an action**.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of how select the Call an action feature.]( ../media/power-virtual-agents/pva-trigger-action-for-power-automate.png) ]( ../media/power-virtual-agents/pva-trigger-action-for-power-automate.png#lightbox)
 
 Select **Create a flow**. This takes you to the Power Automate portal.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of where to find the Create a flow action]( ../media/power-virtual-agents/pva-create-flow.png) ]( ../media/power-virtual-agents/pva-create-flow.png#lightbox)
 
 Power Automate opens a new template as shown below.
 
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the default Power Automate template.]( ../media/power-virtual-agents/pva-power-automate-actions.png) ]( ../media/power-virtual-agents/pva-power-automate-actions.png#lightbox)
 **Do not use the template shown above.**
 
 Instead you need to follow the steps below that creates a Power Automate flow. This flow:
@@ -77,37 +83,43 @@ Instead you need to follow the steps below that creates a Power Automate flow. T
 
 click on **Create** in the left panel, then click "OK" to leave the page.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Create action in the left panel and a confirmation message for navigating away from the page.]( ../media/power-virtual-agents/power-automate-create-new.png) ]( ../media/power-virtual-agents/power-automate-create-new.png#lightbox)
 
 Select "Instant Cloud flow"
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Instant cloud flow selection box.]( ../media/power-virtual-agents/create-instant-cloud-flow.png) ]( ../media/power-virtual-agents/create-instant-cloud-flow.png#lightbox)
 
 For testing this connector, you can click on “When PowerVirtual Agents calls a flow” and click on **Create**.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the When Power Virtual Agents calls a flow selection in the Choose how to trigger this flow list.]( ../media/power-virtual-agents/create-pva-trigger.png) ]( ../media/power-virtual-agents/create-pva-trigger.png#lightbox)
 
-Click on "New Step" and search for "Power Virtual Agents". Choose "Add and input" and select text. Next, provide the keyword and the value.
+Click on "New Step" and search for "Power Virtual Agents". Choose "Add an input" and select text. Next, provide the keyword and the value.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Add an input option.]( ../media/power-virtual-agents/flow-step-1.png) ]( ../media/power-virtual-agents/flow-step-1.png#lightbox)
 
 Click on "New Step" and search "Language - Question Answering" and choose "Generate answer from Project" from the three actions.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Generate answer from Project selection in the Action list.]( ../media/power-virtual-agents/flow-step-2.png) ]( ../media/power-virtual-agents/flow-step-2.png#lightbox)
 
 This option helps in answering the specified question using your project. Type in the project name, deployment name and API version and select the question from the previous step.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of fields for the Generate answer from Project action.]( ../media/power-virtual-agents/flow-step-3.png) ]( ../media/power-virtual-agents/flow-step-3.png#lightbox)
 
 Click on "New Step" and search for "Initialize variable". Choose a name for your variable, and select the "String" type.
 
 IMAGE
 
-Click on "New Step" again, and search for "Apply to each", then select the output from the previous steps and add an action of "Set variable" and select the connector action. ????????????????
+Click on "New Step" again, and search for "Apply to each", then select the output from the previous steps and add an action of "Set variable" and select the connector action.
 
 IMAGE
 
-Click on "New Step" and search for "Return value(s) to Power Virtual Agents" and type in a keyword, then choose the previous variable name in the answer. ????????
+Click on "New Step" and search for "Return value(s) to Power Virtual Agents" and type in a keyword, then choose the previous variable name in the answer.
 
 IMAGE
 
