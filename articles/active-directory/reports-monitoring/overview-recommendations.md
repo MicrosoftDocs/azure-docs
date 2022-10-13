@@ -54,6 +54,7 @@ The **Status** of a recommendation can be updated manually or automatically. If 
 ![Screenshot of the Mark as options.](./media/overview-recommendations/recommendations-object.png)
 
 - Mark a recommendation as **Completed** if all impacted resources have been addressed.
+    - Active resources may still appear in the list of resources for manually completed recommendations. If the resource is completed, the service will update the status the next time the service runs. 
     - If the service identifies an active resource for a manually completed recommendation the next time the service runs, the recommendation will automatically change back to **Active**.
 - Mark a recommendation as **Dismissed** if you think the recommendation is irrelevant or the data is wrong.
     - Azure AD will ask for a reason why you dismissed the recommendation so we can improve the service.
@@ -105,7 +106,7 @@ To enable the Azure AD recommendations preview:
 
 1. Go to **Azure Active Directory** > **Preview features** and enable **Azure AD recommendations.**
    - Recommendations may take a few minutes to sync.  
-   - While anyone can enable the preview feature, you'll need a [specific role](overview-recommendations.md/#what-you-should-know) to view or update a recommendation. 
+   - While anyone can enable the preview feature, you'll need a [specific role](overview-recommendations.md#what-you-should-know) to view or update a recommendation. 
 
     ![Screenshot of the Enable Azure AD recommendations option](./media/overview-recommendations/enable-azure-ad-recommendations.png)
 
