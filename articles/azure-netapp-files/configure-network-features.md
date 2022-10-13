@@ -107,3 +107,4 @@ This section shows you how to set the Network Features option.
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md) 
+* [Configure Virtual WAN for Azure NetApp Files](configure-vwan.md)
