@@ -1,11 +1,12 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+title: Microsoft Purview metamodel
+description: The Microsoft Purview metamodel helps you represent a business perspective of your data— how it’s grouped into data domains, used in business processes, organized into systems, and more.  
+author: evangelinew
+ms.author: evwhite
+ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 10/13/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
@@ -25,7 +26,9 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. Should NOT begin with a verb.
 -->
 
-# [H1 heading here]
+# Microsoft Purview metamodel
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
