@@ -14,7 +14,7 @@ In this quickstart, you use the Azure portal to create an Apache Spark cluster i
 
 For in-depth explanations of available configurations, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For more information regarding the use of the portal to create clusters, see [Create clusters in the portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
+If you're using multiple clusters together, you may want to create a virtual network; if you're using a Spark cluster may also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
 > [!IMPORTANT]  
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
@@ -43,9 +43,9 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
     |Resource group | From the drop-down list, select your existing resource group, or select **Create new**.|
     |Cluster name | Enter a globally unique name.|
     |Region   | From the drop-down list, select a region where the cluster is created. |
-    |Cluster type| Select Select cluster type to open a list. From the list, select **Spark**.|
+    |Cluster type| Select cluster type to open a list. From the list, select **Spark**.|
     |Cluster version|This field will auto-populate with the default version once the cluster type has been selected.|
-    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to login in to the Jupyter Notebook later in the quickstart. |
+    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to log in in to the Jupyter Notebook later in the quickstart. |
     |Cluster login password| Enter the cluster login password. |
     |Secure Shell (SSH) username| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
     
@@ -62,7 +62,7 @@ Select **Next: Storage >>** to continue to the **Storage** page.
     |Primary storage account|Use the auto-populated value.|
     |Container|Use the auto-populated value.|
 
-    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png " alt-text="Screenshot shows Create H D Insight cluster with the Storage tab selected." border="true":::
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png " alt-text="Screenshot shows Create HDInsight cluster with the Storage tab selected." border="true":::
 
     Select **Review + create** to continue.
 
