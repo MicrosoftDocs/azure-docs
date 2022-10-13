@@ -8,13 +8,14 @@ ms.date: 10/01/2022
 
 # Configure Basic Logs in Azure Monitor
 
-Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-plans) to *Basic Logs* lets you save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. This article describes how to configure Basic Logs for a particular table in your Log Analytics workspace.
+Setting a table's [log data plan](log-analytics-workspace-overview.md#log-data-plans) to *Basic Logs* lets you save on the cost of storing high-volume verbose logs you use for debugging, troubleshooting, and auditing, but not for analytics and alerts. This article describes how to configure Basic Logs for a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
-> You can switch a table's plan once a week. The Basic Logs feature is not available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+> You can switch a table's plan once a week. The Basic Logs feature isn't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Which tables support Basic Logs?
-By default, all tables in your Log Analytics are Analytics tables, and available for query and alerts. 
+
+By default, all tables in your Log Analytics are Analytics tables, and available for query and alerts.
 You can currently configure the following tables for Basic Logs:
 
 - All custom tables created with or migrated to the [Data Collection Rule (DCR)-based logs ingestion API.](logs-ingestion-api-overview.md) 
@@ -33,17 +34,17 @@ To configure a table for Basic Logs or Analytics Logs in the Azure portal:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.
 
-    The **Tables** screen lists all of the tables in the workspace.
+    The **Tables** screen lists all the tables in the workspace.
 
 1. Select the context menu for the table you want to configure and select **Manage table**.
 
-    :::image type="content" source="media/basic-logs-configure/log-analytics-table-configuration.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+    :::image type="content" source="media/basic-logs-configure/log-analytics-table-configuration.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot that shows the Manage table button for one of the tables in a workspace.":::
 
 1. From the **Table plan** dropdown on the table configuration screen, select **Basic** or **Analytics**.
 
     The **Table plan** dropdown is enabled only for [tables that support Basic Logs](#which-tables-support-basic-logs).
 
-    :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot showing the Table plan dropdown on the table configuration screen."::: 
+    :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot that shows the Table plan dropdown on the table configuration screen.":::
 
 1. Select **Save**.
 
@@ -54,6 +55,7 @@ To configure a table for Basic Logs or Analytics Logs, call the **Tables - Updat
 ```http
 PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-12-01-preview
 ```
+
 > [!IMPORTANT]
 > Use the Bearer token for authentication. Read more about [using Bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
 
@@ -67,7 +69,7 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 
 This example configures the `ContainerLogV2` table for Basic Logs.
 
-Container Insights uses ContainerLog by default. To switch to using ContainerLogV2 for Container Insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic Logs.
+Container Insights uses `ContainerLog` by default. To switch to using `ContainerLogV2` for Container Insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic Logs.
 
 **Sample request**
 
@@ -97,7 +99,7 @@ Use this request body to change to Analytics Logs:
 
 **Sample response**
 
-This is the response for a table changed to Basic Logs.
+This sample is the response for a table changed to Basic Logs:
 
 Status code: 200
 
@@ -133,27 +135,28 @@ For example:
     ```azurecli
     az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Analytics
     ```
-   
+
 ---
 
 ## Check table configuration
+
 # [Portal](#tab/portal-2)
 
-To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-table-configuration). 
+To check table configuration in the Azure portal, you can open the table configuration screen, as described in [Set table configuration](#set-table-configuration).
 
-Alternatively: 
+Alternatively:
 
 1. From the **Azure Monitor** menu, select **Logs** and select your workspace for the [scope](scope.md). See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
-1. Open the **Tables** tab, which lists all tables in the workspace. 
+1. Open the **Tables** tab, which lists all tables in the workspace.
 
-    Basic Logs tables have a unique icon: 
+    Basic Logs tables have a unique icon:
     
-    :::image type="content" source="media/basic-logs-configure/table-icon.png" alt-text="Screenshot of the Basic Logs table icon in the table list." lightbox="media/basic-logs-configure/table-icon.png":::
+    :::image type="content" source="media/basic-logs-configure/table-icon.png" alt-text="Screenshot that shows the Basic Logs table icon in the table list." lightbox="media/basic-logs-configure/table-icon.png":::
 
     You can also hover over a table name for the table information view, which indicates whether the table is configured as Basic Logs:
 
-    :::image type="content" source="media/basic-logs-configure/table-info.png" alt-text="Screenshot of the Basic Logs table indicator in the table details." lightbox="media/basic-logs-configure/table-info.png":::    
- 
+    :::image type="content" source="media/basic-logs-configure/table-info.png" alt-text="Screenshot that shows the Basic Logs table indicator in the table details." lightbox="media/basic-logs-configure/table-info.png":::
+
 # [API](#tab/api-2)
 
 To check the configuration of a table, call the **Tables - Get** API:
@@ -162,24 +165,24 @@ To check the configuration of a table, call the **Tables - Get** API:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
 ```
 
-**Response Body**
+**Response body**
 
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Either "Analytics" or "Basic". |
-|properties.retentionInDays | integer  | The table's data retention in days. In _Basic Logs_, the value is 8 days, fixed. In _Analytics Logs_, the value is between 7 and 730.| 
-|properties.totalRetentionInDays | integer  | The table's data retention including Archive period|
+|properties.retentionInDays | integer  | The table's data retention in days. In _Basic Logs_, the value is 8 days, fixed. In _Analytics Logs_, the value is between 7 and 730.|
+|properties.totalRetentionInDays | integer  | The table's data retention including Archive period.|
 |properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
-|properties.lastPlanModifiedDate|String|Last time when plan was set for this table. Null if no change was ever done from the default settings (read-only) 
+|properties.lastPlanModifiedDate|String|Last time when the plan was set for this table. Null if no change was ever done from the default settings (read-only).
 
-**Sample Request**
+**Sample request**
 
 ```http
 GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
 
-**Sample Response**
+**Sample response**
  
 Status code: 200
 ```http
@@ -214,9 +217,9 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 Analytics tables retain data based on a [retention and archive policy](data-retention-archive.md) you set.
 
-Basic Logs tables retain data for eight days. When you change an existing table's plan to Basic Logs, Azure archives data that is more than eight days old but still within the table's original retention period.
+Basic Logs tables retain data for eight days. When you change an existing table's plan to Basic Logs, Azure archives data that's more than eight days old but still within the table's original retention period.
 
 ## Next steps
 
-- [Learn more about the different log plans.](log-analytics-workspace-overview.md#log-data-plans)
-- [Query data in Basic Logs.](basic-logs-query.md)
+- [Learn more about the different log plans](log-analytics-workspace-overview.md#log-data-plans)
+- [Query data in Basic Logs](basic-logs-query.md)
