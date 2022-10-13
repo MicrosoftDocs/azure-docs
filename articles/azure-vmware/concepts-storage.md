@@ -70,7 +70,7 @@ Now that you've covered Azure VMware Solution storage concepts, you may want to 
 
 - [Scale clusters in the private cloud][tutorial-scale-private-cloud] - You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis.
 
-- [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp Files to migrate and run the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. Azure NetApp Files volumes can be attached to virtual machines and can also be connected as data stores directly to Azure VMware Solution. This functionality is in preview.
+- [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp Files to migrate and run the most demanding enterprise file-workloads in the cloud: databases, and general purpose computing applications, with no code changes. Azure NetApp Files volumes can be attached to virtual machines, and as [datastores](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts) to extend the vSAN datastore capacity without adding more nodes.
 
 - [vSphere role-based access control for Azure VMware Solution](concepts-identity.md) - You use vCenter Server to manage VM workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter Server and restricted administrator rights for NSX-T Manager.
 
