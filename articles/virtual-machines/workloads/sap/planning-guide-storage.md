@@ -186,7 +186,7 @@ Azure Premium SSD v2 storage is a new version of premium storage that got introd
 
 This type of storage is targeting DBMS workloads, storage traffic that requires submillisecond latency, and SLAs on IOPS and throughput. The Premium SSD v2 disks are delivered with a default set of 3,000 IOPS and 125 MBps throughput. And the possibility to add more IOPS and throughput to individual disks. The pricing of the storage is structured in a way that adding more throughput or IOPS isn't influencing the price majorly. Nevertheless, we leave it up to you to decide how the storage configuration for Premium SSD v2 will look like. For a base start, read [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md).
 
-For the actual regions, this new block storage type is available and the actual restrictions read the document [Premium SSD v2](../../disks-types.md#premium-ssd-v2-preview).
+For the actual regions, this new block storage type is available and the actual restrictions read the document [Premium SSD v2](../../disks-types.md#premium-ssd-v2).
 
 The capability matrix for SAP workload looks like:
 
