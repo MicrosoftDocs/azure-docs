@@ -236,7 +236,7 @@ To deploy the IoT Edge hub module and configure it with routes to handle incomin
 
 1. In the Azure portal, navigate to your IoT hub.
 
-2. Go to **IoT Edge** and select your IoT Edge device that you want to use as a gateway.
+2. Go to **Devices** under the **Device management** menu and select your IoT Edge device that you want to use as a gateway.
 
 3. Select **Set Modules**.
 

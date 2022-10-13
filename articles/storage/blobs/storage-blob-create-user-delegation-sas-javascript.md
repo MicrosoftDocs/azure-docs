@@ -3,12 +3,13 @@ title: Create user delegation SAS tokens - JavaScript
 titleSuffix: Azure Storage
 description: Create and use user delegation SAS tokens in a JavaScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
 services: storage
-author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/15/2022
-ms.author: normesta
+
 ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js
 

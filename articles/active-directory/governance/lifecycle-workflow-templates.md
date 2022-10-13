@@ -69,7 +69,7 @@ The default specific parameters for the **Onboard new hire employee** template a
 |---------|---------|---------|
 |Category     |  Joiner       |  ❌       |
 |Trigger Type     | Trigger and Scope Based        |  ❌       |
-|Days from event     | 0        | ✔️        |
+|Days from event     | 0        | ❌        |
 |Event timing     | On        |  ❌       |
 |Event User attribute     | EmployeeHireDate        |   ❌      |
 |Scope type     | Rule based        | ❌        |

@@ -291,7 +291,7 @@ Use these steps to verify that your IoT Edge runtime is running.
 
    To troubleshoot your IoT Edge device configuration, see [Troubleshoot your IoT Edge device](../iot-edge/troubleshoot.md?view=iotedge-2020-11&tabs=linux&preserve-view=true).
 
-   <!-- Cannot get the link to render properly for version at https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2020-11 -->
+   <!-- Cannot get the link to render properly for version at https://learn.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2020-11 -->
 
 ## Update the IoT Edge runtime
 
