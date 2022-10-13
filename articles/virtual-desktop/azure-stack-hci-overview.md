@@ -39,7 +39,7 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 - Simplify your VDI deployment and management compared to traditional on-premises VDI solutions by using the Azure portal.
 
-- Add new session hosts to an existing host pool that was created either manually or using the custom template.
+- Use [RDP Shortpath](rdp-shortpath.md?tabs=managed-networks) and [Azure Marketplace integration](/marketplace/azure-marketplace-overview).
 
 ## Supported platforms
 
@@ -70,7 +70,7 @@ Azure Virtual Desktop for Azure Stack HCI doesn't guarantee that all data is sto
 
 The following issues affect the preview version of Azure Virtual Desktop for Azure Stack HCI:
 
-- Templates may show failures in certain cases at the domain-join step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+- Templates may show failures in certain cases at the domain-joining step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
