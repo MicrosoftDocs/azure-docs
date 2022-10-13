@@ -230,7 +230,7 @@ The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by 
 Since we’ve released the Microsoft Cloud Security Benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
 
 ### What standards are supported in the compliance dashboard?
-By default, the regulatory compliance dashboard shows you the Microsoft Cloud Security Benchmark. The Microsoft Cloud Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Microsoft Cloud Security Benchmark introduction](../security/benchmarks/introduction.md).
+By default, the regulatory compliance dashboard shows you the Microsoft Cloud Security Benchmark. The Microsoft Cloud Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security, and compliance best practices based on common compliance frameworks. Learn more in the [Microsoft Cloud Security Benchmark introduction](/security/benchmark/azure/introduction).
 
 To track your compliance with any other standard, you'll need to explicitly add them to your dashboard.
  

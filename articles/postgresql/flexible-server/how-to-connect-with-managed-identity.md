@@ -10,7 +10,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.date: 09/26/2022
 ---
 
-# Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server
+# Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 

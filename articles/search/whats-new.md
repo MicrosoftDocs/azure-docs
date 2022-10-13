@@ -7,16 +7,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/03/2022
+ms.date: 10/12/2022
 ms.custom: references_regions 
 ---
 
 # What's new in Azure Cognitive Search
 
-Learn about the latest updates to Azure Cognitive Search. The following links supplement this article:
+Learn about the latest updates to Azure Cognitive Search functionality.
 
-* [**Previous versions**](/previous-versions/azure/search/) is an archive of feature announcements from 2019 and 2020.
-* [**Preview features**](search-api-preview.md) are announced here in "What's New", mixed in with announcements about general availability or feature retirement. If you need to quickly determine the status of a particular feature, visit the preview features page to see if it's listed.
+> [!NOTE]
+> Looking for preview feature status? Preview features are announced in this what's new article, but we also maintain a [preview features list](search-api-preview.md) so that you can find them all in one place.
 
 ## June 2022
 
@@ -37,7 +37,7 @@ Learn about the latest updates to Azure Cognitive Search. The following links su
 |------------------------------------|--------------|---------------|
 | [Index aliases](search-how-to-alias.md) | An index alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. This gives you added flexibility if you ever need to change which index your application is pointing to. Instead of updating the references to the index name in your application, you can just update the mapping for your alias. | Public preview REST APIs (no portal support at this time).|
 
-## 2021 Archive
+## 2021 announcements
 
 | Month | Feature | Description |
 |-------|---------|-------------|
@@ -61,6 +61,10 @@ Learn about the latest updates to Azure Cognitive Search. The following links su
 | February | [Availability Zones](search-performance-optimization.md#availability-zones) | Search services with two or more replicas in certain regions, as listed in [Scale for performance](search-performance-optimization.md#availability-zones), gain resiliency by having replicas in two or more distinct physical locations.  The region and date of search service creation determine availability.  |
 | February | [Azure CLI](/cli/azure/search) </br>[Azure PowerShell](/powershell/module/az.search/) | New revisions now provide the full range of operations in the Management REST API 2020-08-01, including support for IP firewall rules and private endpoint. Generally available. |
 | January | [Solution accelerator for Azure Cognitive Search and QnA Maker](https://github.com/Azure-Samples/search-qna-maker-accelerator) | Pulls questions and answers out of the document and suggest the most relevant answers. A live demo app can be found at [https://aka.ms/qnaWithAzureSearchDemo](https://aka.ms/qnaWithAzureSearchDemo). This feature is an open-source project (no SLA). |
+
+## 2019 and 2020 announcements
+
+For feature announcements from 2019 and 2020, see the content archive, [**Previous versions**](/previous-versions/azure/search/) on the Microsoft Learn website.
 
 <a name="new-service-name"></a>
 
