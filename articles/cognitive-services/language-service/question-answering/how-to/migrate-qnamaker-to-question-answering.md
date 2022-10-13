@@ -74,7 +74,7 @@ When you are looking at migrating to Question Answering, please consider the fol
 |------|--------------------------------|------------------------------------------|-|-----------------------------------------|-----------------------------------|
 |High  |5                               |5(P1)                                     |8M|9x3(S2)                                  |More expensive                     |
 |High  |100                             |100(P1)                                   |6M|9x3(S2)                                  |Less expensive                     |
-|Medium|10                              |10(S1)                                    |4x3(S1)                                  |Less expensive                     |
+|Medium|10                              |10(S1)                                    |800K|4x3(S1)                                  |Less expensive                     |
 |Low   |4                               |4(B1)                                     |100K|3x3(S1)                                  |Less expensive                     |
  Summary : Customers should save cost across the most common configurations as seen in the relative cost column.
 
