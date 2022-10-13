@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/10/2022
+ms.date: 10/13/2022
 ms.author: mbullwin
 ms.custom: devx-track-js
 ---
@@ -122,7 +122,7 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
 Create a file named `index.js` and replace with the following code:
 
 ```javascript
-/const { AnomalyDetectorClient, KnownTimeGranularity } = require("@azure/ai-anomaly-detector");
+const { AnomalyDetectorClient, KnownTimeGranularity } = require("@azure/ai-anomaly-detector");
 const { AzureKeyCredential } = require("@azure/core-auth");
 
 const fs = require("fs");
