@@ -33,7 +33,7 @@ Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-
 
 ## Which Form Recognizer model should I use?
 
-This section will help you decide which Form Recognizer v3.0 supported model you should use for your application:
+This section will help you decide which **Form Recognizer v3.0** supported model you should use for your application:
 
 | Type of document | Data to extract |Document format | Your best solution |
 | -----------------|-------------------| ----------|-------------------|
@@ -55,7 +55,10 @@ This section will help you decide which Form Recognizer v3.0 supported model you
 
 ## Form Recognizer models and development options
 
-The following models  and development options are supported by the Form Recognizer service v3.0. You can Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse the API references.
+> [!NOTE]
+>The following models  and development options are supported by the Form Recognizer service v3.0.
+
+You can Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse the API references.
 
 | Model | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
@@ -98,13 +101,18 @@ This section will help you decide which Form Recognizer v2.1 supported model you
 |**Business card**|You want to extract key information such as first name, last name, company name, email address, and phone number from business cards.</li></ul>|The business card document is in English or Japanese text. | [**Business card model**](concept-business-card.md)|
 |**Mixed-type document(s)**| You want to extract key-value pairs, selection marks, tables, signature fields, and selected regions not extracted by prebuilt or general document models.| You have various documents with structured, semi-structured, and/or unstructured elements.| [**Custom model**](concept-custom.md)|
 
+## Form Recognizer models and development options
+
  >[!TIP]
  >
  > * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio](https://formrecognizer.appliedai.azure.com/studio).
  > * The v3.0 Studio supports any model trained with v2.1 labeled data.
  > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
 
-The following models are supported by Form Recognizer v2.1. Use the links in the table to learn more about each model and browse the API references.
+> [!NOTE]
+> The following models  and development options are supported by the Form Recognizer service v2.1.
+
+Use the links in the table to learn more about each model and browse the API references:
 
 | Model| Description | Development options |
 |----------|--------------|-------------------------|
