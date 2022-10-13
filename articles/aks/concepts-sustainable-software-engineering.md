@@ -183,6 +183,16 @@ _Servish mesh operates by deploying additional containers for communication (sid
 
 <br/>
 
+ **Assess for Resilience and Performance** 
+
+_To be able to scale down your workloads, or schedule them to SPOT nodes, your workloads need to tolerate interruptions and failures. Load testing and chaos engineering can significantly help improve resiliency of your workloads to handle interruptions and failures gracefully and with less wasted resources._
+
+:heavy_check_mark: Use [load testing](/azure/load-testing/tutorial-identify-performance-regression-with-cicd) to assess performance of your workloads during high spikes.
+
+<br/>
+
+:heavy_check_mark: Use [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering) resilience of your workloads to failures and interruptions.
+
 **Turn off workloads outside of business hours** 
 
 _Reduce energy waste and optimize costs_
@@ -191,16 +201,6 @@ _Reduce energy waste and optimize costs_
 
 <br/>
 
-
- **Assess for Resilience and Performance** 
-
-_To be able to scale down your workloads, or schedule them to SPOT nodes, your workloads need to tolerate interruptions and failures. Load Testing and Chaos engineering can significantly help improve resiliency of your workloads to handle interruptions and failures gracefully and with less wasted resources._
-
-:heavy_check_mark: Use [load testing](/azure/load-testing/tutorial-identify-performance-regression-with-cicd) to assess performance of your workloads during high spikes.
-
-:heavy_check_mark: Use [chaos engineering](/azure/architecture/framework/resiliency/chaos-engineering) resilience of your workloads to failures and interruptions.
-
-<br/>
 
 **Optimize log collection for workloads** 
 
