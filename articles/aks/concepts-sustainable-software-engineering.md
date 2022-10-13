@@ -57,7 +57,7 @@ Read more about [the shared responsibility model for sustainability](/framework/
 
 &nbsp;&nbsp;&nbsp; There are two main approaches to hardware efficiency:
  - For end-user devices, it's extending the lifespan of the hardware.
- - For cloud computing, it's increasing the utilization of the device.
+ - For cloud computing, it's increasing the utilization of the resource.
 
  **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
@@ -70,24 +70,24 @@ Sustainable guidance in the Well Architected Framework series is composed of arc
 
  -  Sustainability considerations for your AKS workloads (or applications), **should cover the All Key Sustainability Design Areas**
 
- -  In practice, you should consider the hollistic lifecycle of your application, as Business requiements shape Workload design, which will inform cluster design
+ -  In practice, you should consider the hollistic lifecycle of your application, as business requirements shape workload design, which informs cluster design.
  
- - The following tables maps sustainability design areas, with sustainability design considerations for AKS workloads and clusters.
+ - The following table maps sustainability design areas with sustainability design considerations for AKS workloads and clusters.
   
 |Design area|Scope for AKS|
 |---|---|
 |[Application design](/azure/architecture/framework/sustainability/sustainability-application-design.md)|**workloads**: Modernize workloads to allow independent optimization of their logical components|
 |[Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md)|**AKS cluster is the Platform**: Design cluster for energy and hardware efficiency|
-|[Testing](/azure/architecture/framework/sustainability/sustainability-testing.md)|**cluster and workloads**: Optimize Testing procedures for Cluster & workload development lifecycle|
+|[Testing](/azure/architecture/framework/sustainability/sustainability-testing.md)|**cluster and workloads**: Optimize testing procedures for cluster and workload development lifecycle development lifecycle|
 |[_Operational procedures_](/azure/architecture/framework/sustainability/sustainability-operational-procedures.md)|Implement sustainability operations (not a technical consideration) |
-|[Storage](/azure/architecture/framework/sustainability/sustainability-storage.md)|**cluster and workloads**: Consider _Stateless Vs Stateful Application_ Design ; Plan for storage classes & Backup retention policies.|
+|[Storage](/azure/architecture/framework/sustainability/sustainability-storage.md)|**cluster and workloads**: Consider Stateless Vs Stateful Application Design; Plan for storage class and backup retention policies.|
 |[Network and connectivity](/azure/architecture/framework/sustainability/sustainability-networking.md)|**cluster and workloads**: Optimize network traffic for workloads and clusters|
-|[Security](/azure/architecture/framework/sustainability/sustainability-security.md)| **cluster and workloads**: Implement Security controls and Optimize log collection for Monitoring & SIEM.|
+|[Security](/azure/architecture/framework/sustainability/sustainability-security.md)| **cluster and workloads**: Implement security controls and optimize log collection for monitoring and SEIM.|
 
 
 ## Sustainability checklist for AKS workloads
 
-The following checklist provides recommendations for designing sustainable workloads, hosted on AKS. 
+The following checklist provides recommendations for designing sustainable workloads hosted on AKS. 
 
 > [!IMPORTANT]
 > As your complete architecture would typically include several Azure services or even 3rd party integrations, your workload design considerations should refer to [Sustainability Design areas](/azure/architecture/framework/sustainability/sustainability-application-design.md), for a comprehensive approach.
@@ -113,7 +113,7 @@ _Monolithic applications usually scale as a unit, leaving little room to scale o
 
 <br/>
 
-**Design for Event Driven scaling** 
+**Design for event-driven scaling** 
 
 _Instead of building "alwaysOn" worklaods, that scale based on CPU & RAM utilization; build event driven workloads that scale based on relevant business metrics (HTTP requests, queue length, Cloud Event, etc.), and could scale back to 0 when there is no demand_.
 
@@ -133,7 +133,7 @@ _One approach to lowering your carbon footprint is increasing the utilization of
 
 <br/>
 
-**Aim for Stateless Design** 
+**Aim for stateless design** 
 
 _Removing state from the design reduces the in-memory or on-disk data required by the workload to function_.
 
@@ -151,7 +151,7 @@ _From both an embodied carbon angle and an energy proportionality angle, it's be
 
 <br/>
 
-**Set Retention Policies for storage and backups** 
+**Set retention policies for storage and backups** 
 
 _From an embodied carbon perspective, it's better to have an automated mechanism to delete unused storage resources, so that hardware is used efficiently, and the storage layer is optimised for the task._
 
@@ -202,11 +202,11 @@ _Load Testing and Chaos engineering can significantly help improve reliability a
 
 <br/>
 
-**Optimize the collection of logs** 
+**Optimize log collection for workloads** 
 
 _Storing all logs from all possible sources (workloads, services, diagnostics and platform activity) can considerably increase storage and network traffic, which would impact higher costs and carbon emissions._
  
-:heavy_check_mark: Make sure you are logging and retaining only data that is relevant to your needs.
+:heavy_check_mark: Make sure you are collecting and retaining only the log data necessary to support your requirements.
 
 :heavy_check_mark: [configure data collection rules for AKS Container Insights](/azure/azure-monitor/containers/container-insights-agent-config#data-collection-settings).
 
@@ -214,7 +214,7 @@ _Storing all logs from all possible sources (workloads, services, diagnostics an
 
 <br/>
 
-**Monitor & Optimize**
+**Monitor and optimize**
 
 _Continuously monitor your workloads capacity usage over time, to optimize their hosting platform (AKS nodes)._
 
@@ -230,9 +230,9 @@ _Continuously monitor your workloads capacity usage over time, to optimize their
 The following checklist provides recommendations for designing energy and hardware efficient AKS clusters, that operate in a sustainable way.
 <br/>
 
-**Choose the right Region**
+**Chose the best Azure region**
 
-_When choosing the region to deploy your worklods to, evaluate Carbon efficiency in your decision criteria._
+_When choosing the Azure region to deploy your worklods to, evaluate Carbon efficiency in your decision criteria._
 
 :heavy_check_mark: Evaluate deploying to Regions powered by renewable and low-carbon energy sources.
 
@@ -242,7 +242,7 @@ _When choosing the region to deploy your worklods to, evaluate Carbon efficiency
 
 <br/>
 
-**Enable Cluster and node auto-updates** 
+**Enable cluster and node auto-updates** 
 
 _Running on outdated software can result in running a suboptimal workload with unnecessary performance issues. New software tends to be more efficient in general._
 
@@ -253,7 +253,7 @@ _Running on outdated software can result in running a suboptimal workload with u
 <br/>
 
 
-**Maximize Node resource utilization** 
+**Maximize node resource utilization** 
 
 _One approach to lowering your carbon footprint is increasing the utilization of your compute resources._
 
@@ -269,11 +269,11 @@ _One approach to lowering your carbon footprint is increasing the utilization of
 
 <br/>
  
-**Utilize Node auto-scaling and bursting capabilities** 
+**Utilize node auto-scaling and bursting capabilities** 
 
 _Oversized compute nodes have usually "unused" or "underused" capacity ; ultimately leading to a waste of energy and increased costs._
 
-:heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
+:heavy_check_mark: Use [Cluster Auto-scaler](/azure/aks/cluster-autoscaler) to scale your cluster based on demand.
 
 :heavy_check_mark: Leverage [Scaling **User node pools** to 0 when there is no demand](/azure/aks/scale-cluster#scale-user-node-pools-to-0).
 
@@ -283,7 +283,7 @@ _Oversized compute nodes have usually "unused" or "underused" capacity ; ultimat
 
 <br/>
 
- **Use Energy Efficient Hardware** 
+ **Use energy efficient hardware** 
 
 _The Arm-based VMs represent a cost-effective and power-efficient option that doesn't compromise on the required performance._
 
@@ -291,15 +291,15 @@ _The Arm-based VMs represent a cost-effective and power-efficient option that do
 
 <br/>
 
-**Use SPOT Nodes where possible** 
+**Use SPOT nodes where possible** 
 
 _Think about the unused capacity in Azure data centers. Utilizing the otherwise wasted capacity—at significantly reduced prices—the workload contributes to a more sustainable platform design._
 
-:heavy_check_mark: Use [SPOT Node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
+:heavy_check_mark: Use [SPOT node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure datacenters and save you computing costs.
 
 <br/>
 
-**Reduce Network travel between nodes** 
+**Reduce network travel between nodes** 
 
 _By reducing data travel distance between resources, you can reduce carbon emissions and electricity consumption of networking devices._
 
@@ -317,7 +317,7 @@ _Reduce energy waste and optimize costs_.
 
 <br/>
 
-**turnoff nodepools outside regular business hours** 
+**Turn off node pools outside of regular business hours** 
 
 _Operating idle workloads will waste energy and contributes to an added carbon emission._
 
@@ -325,7 +325,7 @@ _Operating idle workloads will waste energy and contributes to an added carbon e
 
 <br/>
 
-**Optimize the collection of logs of clusters** 
+**Optimize log collection for clusters** 
 
 _Storing all logs from all possible sources (workloads, services, diagnostics and platform activity) can considerably increase storage and network traffic, which would impact higher costs and carbon emissions._
  
@@ -335,7 +335,7 @@ _Storing all logs from all possible sources (workloads, services, diagnostics an
 
 <br/>
 
-**Monitor & Optimize**
+**Monitor and optimize**
 
 _Continuously monitor your nodes capacity utilization over time, to optimize their sizing._
 
@@ -345,7 +345,7 @@ _Continuously monitor your nodes capacity utilization over time, to optimize the
 
 <br/>
 
-**Consider Carbon Awareness for your workload orchestration**
+**Consider carbon awareness for workload orchestration**
 
 :heavy_check_mark: Plan your deployments to maximize compute utilization for batch workloads, during low carbon periods (at night for instance, where usage tension on power is usually lower).
 
