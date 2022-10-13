@@ -144,7 +144,7 @@ After the zone-redundant plan is created and deployed, any function app hosted o
 
 ### Migrate your function app to a zone-redundant plan
 
-Azure Function Apps currently doesn't support in-place migration of existing function apps instances. For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support, see Migrate App Service to availability zone support](../reliability/migrate-functions.md).
+Azure Function Apps currently doesn't support in-place migration of existing function apps instances. For information on how to migrate the public multi-tenant Premium plan from non-availability zone to availability zone support, see [Migrate App Service to availability zone support](../reliability/migrate-functions.md).
 
 ### Zone down experience
 
