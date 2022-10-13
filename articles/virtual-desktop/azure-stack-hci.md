@@ -21,19 +21,19 @@ With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virt
 
 In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the following things:
 
-- An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md). 
+- An Azure subscription for Azure Virtual Desktop session host pool creation with all required admin permissions. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
-- An [Azure Stack HCI cluster registered with Azure](https://learn.microsoft.com/azure-stack/hci/deploy/register-with-azure) in the same subscription.
+- An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure) in the same subscription.
 
-- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+- Azure Arc VM management should be set up on the Azure Stack HCI cluster. For more information, see [VM provisioning through Azure portal on Azure Stack HCI (preview)](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
-- [An on-premises Active Directory (AD) synced with Azure Active Directory](ttps://learn.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad.md). The AD domain should resolve using DNS. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md#network).
+- [An on-premises Active Directory (AD) synced with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad). The AD domain should resolve using DNS. For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md#network).
 
 - A stable connection to Azure from your on-premises network.
 
 - Access from your on-premises network to all the required URLs listed in Azure Virtual Desktop's [required URL list](safe-url-list.md) for virtual machines.
 
-- There should be at least one Windows OS image available on the cluster. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](https://learn.microsoft.com/en-us/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli) and [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/).
+- There should be at least one Windows OS image available on the cluster. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli) and [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/).
 
 ## Set up and configuration
 
@@ -56,7 +56,7 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 
 1. Select the correct subscription under **Project details**.
 
-1. Select either **Create new** to create a new resource group or select an existing resource group from the drop-down menu. 
+1. Select either **Create new** to create a new resource group or select an existing resource group from the drop-down menu.
 
 1. Select the Azure region for the host pool that’s right for you and your customers.
 
@@ -96,7 +96,7 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 1. Select the **Validation Environment** - it's **false** by default.
 
 > [!NOTE]
-> For more session host configurations, use the Full Configuration [(CreateHciHostpoolTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/CreateHciHostpoolTemplate.json) template, which offers all the features that can be used to deploy Azure Virtual Desktop on Azure Stack HCI. 
+> For more session host configurations, use the Full Configuration [(CreateHciHostpoolTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/CreateHciHostpoolTemplate.json) template, which offers all the features that can be used to deploy Azure Virtual Desktop on Azure Stack HCI.
 
 ## Optional configuration
 
@@ -108,7 +108,7 @@ You can add new session hosts to an existing host pool that was created either m
 
 For more session host configurations, use the **Full Configuration** [(AddHciVirtualMachinesTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/AddHciVirtualMachinesTemplate.json) template, which offers all the features that can be used to deploy Azure Virtual Desktop on Azure Stack HCI. Learn more at [RDS-Templates](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/Readme.md).
 
-For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](ttps://learn.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
 
 ### Create a profile container
 

@@ -43,7 +43,7 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 ## Supported platforms
 
-Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clients](https://learn.microsoft.com/en-us/azure/virtual-desktop/user-documentation/) as Azure Virtual Desktop, and supports the following x64 operating system images:
+Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clients](user-documentation.md) as Azure Virtual Desktop, and supports the following x64 operating system images:
 
 - Windows 11 Enterprise multi-session
 - Windows 11 Enterprise
@@ -64,13 +64,13 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 ## Data storage
 
-Azure Virtual Desktop for Azure Stack HCI doesn't guarantee that all data is stored on-premises. You can choose to store user data on-premise by locating session host virtual machines (VMs) and associated services such as file servers on-premises. However, some customer data, diagnostic data, and service-generated data are still stored in Azure. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](/azure/virtual-desktop/data-locations).
+Azure Virtual Desktop for Azure Stack HCI doesn't guarantee that all data is stored on-premises. You can choose to store user data on-premise by locating session host virtual machines (VMs) and associated services such as file servers on-premises. However, some customer data, diagnostic data, and service-generated data are still stored in Azure. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 ## Known issues and limitations
 
 The following issues affect the preview version of Azure Virtual Desktop for Azure Stack HCI:
 
-- Templates may show failures in certain cases at the domain-join step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+- Templates may show failures in certain cases at the domain-join step. To proceed, you can manually join the session hosts to the domain. For more information, see [VM provisioning through Azure portal on Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 
 - Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
     
@@ -87,7 +87,7 @@ The following issues affect the preview version of Azure Virtual Desktop for Azu
 
 - Session hosts on Azure Stack HCI don't support certain cloud-only Azure services.
 
-- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](ttps://learn.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
+- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
 
 ## Next steps
 
