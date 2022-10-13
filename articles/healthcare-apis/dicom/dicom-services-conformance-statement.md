@@ -15,7 +15,7 @@ ms.author: mmitrik
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
 * [Studies Service](#studies-service)
-    * [Store (STOW-RS)](#store-stow-rs)dic'dicom-services-c
+    * [Store (STOW-RS)](#store-stow-rs)
     * [Retrieve (WADO-RS)](#retrieve-wado-rs)
     * [Search (QIDO-RS)](#search-qido-rs)
     * [Delete](#delete)
@@ -30,7 +30,7 @@ The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standa
 Additionally, the following non-standard API(s) are supported:
 
 * [Change Feed](dicom-change-feed-overview.md)
-* [Extended Query Tags](dicom-extended-query-tags-overview)
+* [Extended Query Tags](dicom-extended-query-tags-overview.md)
 
 All paths below include an implicit base URL of the server, such as `https://localhost:63838` when running locally.
 

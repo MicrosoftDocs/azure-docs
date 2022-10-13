@@ -15,10 +15,10 @@ This tutorial provides an overview of how to use DICOMweb&trade; Standard APIs w
 
 The DICOM service supports a subset of DICOMweb&trade; Standard that includes:
 
-* [Store (STOW-RS)](dicom-services-conformance-statement#store-stow-rs)
-* [Retrieve (WADO-RS)](dicom-services-conformance-statement#retrieve-wado-rs)
-* [Search (QIDO-RS)](dicom-services-conformance-statement#search-qido-rs)
-* [Delete](dicom-services-conformance-statement#delete)
+* [Store (STOW-RS)](dicom-services-conformance-statement.md#store-stow-rs)
+* [Retrieve (WADO-RS)](dicom-services-conformance-statement.md#retrieve-wado-rs)
+* [Search (QIDO-RS)](dicom-services-conformance-statement.mf#search-qido-rs)
+* [Delete](dicom-services-conformance-statement.md#delete)
 
 Additionally, the following non-standard API(s) are supported:
 
