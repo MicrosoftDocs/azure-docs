@@ -85,12 +85,14 @@ The following steps are performed by the service provider in the service provide
 
 Pick a name for your multi-tenant application in *Tenant1*, and create the multi-tenant application in the Azure portal.
 
-The name that you provide for the multi-tenant application is used by the customer to identify the application in *Tenant2*. Copy the application ID (or client ID) of the app, the object ID of the app, and also the tenant ID for the app. You'll need these values in the following steps.
+The name that you provide for the multi-tenant application is used by the customer to identify the application in *Tenant2*. ???Copy the application ID (or client ID) of the app, the object ID of the app, and also the tenant ID for the app. You'll need these values in the following steps.???
 
 ```azurecli
 $multiTenantAppName="<multi-tenant-app>"
 $multiTenantApp = New-AzADApplication -DisplayName $multiTenantAppName `
     -SignInAudience AzureADMultipleOrgs
+
+$multiTenantApp.Id
 ```
 
 #### The service provider creates a user-assigned managed identity
@@ -114,7 +116,7 @@ New-AzResourceGroup -Location $isvLocation -ResourceGroupName $isvRgName
 # Create the new user-assigned managed identity.
 $userIdentity = New-AzUserAssignedIdentity -Name $userIdentityName `
     -ResourceGroupName $isvRgName `
-    -Location $location `
+    -Location $isvLocation `
     -SubscriptionId $isvSubscriptionId
 ```
 
@@ -172,17 +174,16 @@ Sign in to the ISV's tenant, and then create a user-assigned managed identity to
 ```azurecli
 isvSubscriptionId="<isv-subscription-id>"
 isvRgName="<isv-resource-group>"
+isvLocation="<location>"
 userIdentityName="<user-assigned-managed-identity>"
-location="<location>"
 
-az group create --location $location \
+az group create --location $isvLocation \
     --resource-group $isvRgName \
     --subscription $isvSubscriptionId
-echo "Created a new resource group with name = $isvRgName, location = $location in subscriptionId = $isvSubscriptionId"
 
 principalId=$(az identity create --name $userIdentityName \
     --resource-group $isvRgName \
-    --location $location \
+    --location $isvLocation \
     --subscription $isvSubscriptionId \
     --query principalId \
     --out tsv)
@@ -293,7 +294,7 @@ To use Azure PowerShell to configure the client's tenant, install the latest [Az
 
 #### The customer installs the service provider application in the customer tenant
 
-Once you receive the application ID of the service provider's multi-tenant application, install the application in your tenant *Tenant2*. Installing the application creates a service principal in your tenant.
+Once you receive the application ID of the service provider's multi-tenant application, install the application in your tenant *Tenant2* by creating a service principal.
 
 Execute the following commands in the tenant where you plan to create the key vault.
 
@@ -301,18 +302,18 @@ Execute the following commands in the tenant where you plan to create the key va
 $customerTenantId="<customer-tenant-id>"
 $customerRgName="<customer-resource-group>"
 $customerSubscriptionId="<customer-subscription-id>"
+$customerLocation="<location>"
 $currentUserObjectId="<user-object-id>"
-$multiTenantAppId="<multi-tenant-app-id>"
+$multiTenantAppId="<multi-tenant-app-id>" #Value from Tenant1 
 $kvName="<key-vault>"
 $keyName="<key-name>"
-$location="<location>"
 
 # Sign in to Azure in the customer's tenant.
 Connect-AzAccount -Tenant $customerTenantId
 # Set the context to the customer's subscription.
 Set-AzContext -Subscription $customerSubscriptionId
 # Create a resource group in the customer's subscription.
-New-AzResourceGroup -Location $location -ResourceGroupName $customerRgName
+New-AzResourceGroup -Location $customerLocation -ResourceGroupName $customerRgName
 
 # Create the service principal with the registered app's application ID (client ID).
 $servicePrincipal = New-AzADServicePrincipal -ApplicationId $multiTenantAppId
@@ -323,7 +324,7 @@ $servicePrincipal = New-AzADServicePrincipal -ApplicationId $multiTenantAppId
 To create the key vault, the customer's account must be assigned the **Key Vault Contributor** role or another role that permits creation of a key vault.
 
 ```azurepowershell
-New-AzKeyVault -Location $location `
+New-AzKeyVault -Location $customerLocation `
     -Name $kvName `
     -ResourceGroupName $customerRgName `
     -SubscriptionId $customerSubscriptionId `
