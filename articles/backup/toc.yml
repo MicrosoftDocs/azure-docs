@@ -128,8 +128,12 @@
     href: monitoring-and-alerts-overview.md
   - name: Security
     items:
+    - name: Enhanced soft delete
+      href: backup-azure-enhanced-soft-delete-about.md
     - name: Multi-user authorization
       href: multi-user-authorization-concept.md
+    - name: Immutable vault
+      href: backup-azure-immutable-vault-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -590,8 +594,10 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Multi-user authorization using Resource Guard
+    - name: Configure Multi-user authorization using Resource Guard
       href: multi-user-authorization.md
+    - name: Manage Immutable vaults
+      href: backup-azure-immutable-vault-how-to-manage.md
     - name: Soft delete
       items:
       - name: Overview
@@ -600,6 +606,8 @@
         href: soft-delete-virtual-machines.md
       - name: For SQL Server and SAP HANA in Azure VMs
         href: soft-delete-sql-saphana-in-azure-vm.md
+    - name: Configure and manage enhanced soft delete
+      href: backup-azure-enhanced-soft-delete-configure-manage.md 
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection

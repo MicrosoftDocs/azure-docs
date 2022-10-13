@@ -53,6 +53,32 @@ The following table shows features and corresponding SKUs.
 >[!Note]
 >At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
 
+## Region Availability 
+
+DDoS IP Protection is available in the following regions.
+
+| Region               | Availability |  
+|----------------------|--------------|
+| West Central US      | Yes          |
+| North Central US     | Yes          |
+| West US              | Yes          |
+| West Central US      | Yes          |
+| Australia Central    | Yes          |
+| UAE Central          | Yes          |
+| Korea Central        | Yes          |
+| Japan East           | Yes          |
+| West india           | Yes          |
+| Germany West Central | Yes          |
+| Switzerland North    | Yes          |
+| France South         | Yes          |
+| Norway East          | Yes          |
+| Jioindia Central     | Yes          |
+| Sweden Central       | Yes          |
+| Qatar Central        | Yes          |
+| West US 3            | Yes          |
+| Australia Central 2  | Yes          |
+| Germany North        | Yes          |
+
 ## Next steps
 
 * [Quickstart: Create an Azure DDoS Protection Plan](manage-ddos-protection.md)

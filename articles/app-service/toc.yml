@@ -24,7 +24,9 @@
     - name: Ruby
       href: quickstart-ruby.md
     - name: WordPress
-      href: quickstart-wordpress.md      
+      href: quickstart-wordpress.md
+    - name: Go (experimental)
+      href: quickstart-golang.md      
     - name: Static HTML site
       href: quickstart-html.md
     - name: ARM template
