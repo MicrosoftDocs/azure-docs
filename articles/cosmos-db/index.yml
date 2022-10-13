@@ -9,13 +9,13 @@ metadata:
   description: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open-source APIs for MongoDB and Cassandra.
   services: service
   ms.service: cosmos-db
+  ms.custom: ignite-2022
   ms.topic: landing-page
   ms.collection: collection
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: mjbrown
   ms.date: 05/24/2022
-
 highlightedContent:
   items:
     - title: NoSQL vs relational databases
@@ -29,7 +29,7 @@ highlightedContent:
       url: choose-api.md
     - title: Create an Azure Cosmos DB account
       itemType: how-to-guide
-      url: create-cosmosdb-resources-portal.md
+      url: nosql/quickstart-portal.md
     - title: Explore Azure Cosmos DB
       itemType: learn
       url: /training/modules/explore-azure-cosmos-db/
@@ -69,27 +69,17 @@ additionalContent:
             url: configure-synapse-link.md
     - title: APIs
       items:
-        - title: SQL/Core API
+        - title: NoSQL
           links:
             - text: SQL queries
-              url: sql/sql-query-getting-started.md  
+              url: nosql/query/getting-started.md  
             - text: Stored procedures, triggers, UDFs
-              url: sql/how-to-write-stored-procedures-triggers-udfs.md  
+              url: nosql/how-to-write-stored-procedures-triggers-udfs.md  
             - text: Model document data
-              url: sql/modeling-data.md  
+              url: nosql/modeling-data.md  
             - text: See more >            
-              url: sql/index.yml
-        - title: Cassandra API
-          links:
-            - text: Wire protocol support
-              url: cassandra/cassandra-support.md
-            - text: Partitioning
-              url: cassandra/cassandra-partitioning.md
-            - text: Secondary indexing
-              url: cassandra/secondary-indexing.md  
-            - text: See more >            
-              url: cassandra/index.yml
-        - title: MongoDB API
+              url: nosql/index.yml
+        - title: MongoDB
           links:
             - text: Supported features and syntax
               url: mongodb/feature-support-42.md
@@ -99,47 +89,67 @@ additionalContent:
               url: mongodb/custom-commands.md  
             - text: See more >            
               url: mongodb/index.yml
-        - title: Gremlin API
+        - title: Apache Cassandra
           links:
             - text: Wire protocol support
-              url: graph/gremlin-support.md
+              url: cassandra/support.md
+            - text: Partitioning
+              url: cassandra/partitioning.md
+            - text: Secondary indexing
+              url: cassandra/secondary-indexing.md  
+            - text: See more >            
+              url: cassandra/index.yml
+        - title: Apache Gremlin
+          links:
+            - text: Wire protocol support
+              url: gremlin/support.md
             - text: Graph data modeling
-              url: graph/graph-modeling.md
+              url: gremlin/modeling.md
             - text: Import graph data
-              url: graph/bulk-executor-graph-dotnet.md  
+              url: gremlin/bulk-executor-dotnet.md  
             - text: See more >            
               url: graph/index.yml
-        - title: Table API
+        - title: Table
           links:
-            - text: Build apps with Table API
-              url: table/table-support.md
+            - text: Build apps with API for Table
+              url: table/support.md
             - text: Find request unit charge
               url: table/find-request-unit-charge.md
             - text: FAQ
               url: table/table-api-faq.yml  
             - text: See more >            
               url: table/index.yml
+        - title: PostgreSQL
+          links: 
+            - text: Connect and run SQL commands using Python
+              url: postgresql/quickstart-app-stacks-python.md
+            - text: Distribute and modify tables
+              url: postgresql/howto-modify-distributed-tables.md
+            - text: Design a multi-tenant database
+              url: postgresql/tutorial-design-database-multi-tenant.md
+            - text: See more >            
+              url: postgresql/index.yml
     - title: Data Migration
       items:
       - title: Migration options
         links:
-          - text: Data migration tool – SQL API
+          - text: Data migration tool – API for NoSQL
             url: import-data.md
-          - text: CQL shell, Spark – Cassandra API
+          - text: CQL shell, Spark – API for Cassandra
             url: cassandra/migrate-data.md
-          - text: Azure Database Migration Service – MongoDB API
+          - text: Azure Database Migration Service – API for MongoDB
             url: ../dms/tutorial-mongodb-cosmos-db.md
-          - text: AzCopy, Data migration tool – Table API
-            url: table/table-import.md                         
+          - text: AzCopy, Data migration tool – API for Table
+            url: table/import.md                         
       - title: Migration guides
         links:
-          - text: Oracle DB to Cosmos DB SQL API using Striim
+          - text: Oracle DB to Azure Cosmos DB API for NoSQL using Striim
             url: cosmosdb-sql-api-migrate-data-striim.md
-          - text: Oracle DB to Cosmos DB Cassandra API using Striim
+          - text: Oracle DB to Azure Cosmos DB API for Cassandra using Striim
             url: cassandra/migrate-data-striim.md                                        
-          - text: Oracle DB to Cosmos DB Cassandra API using Arcion
+          - text: Oracle DB to Azure Cosmos DB API for Cassandra using Arcion
             url: cassandra/oracle-migrate-cosmos-db-arcion.md 
-          - text: Apache Cassandra to Cosmos DB using Arcion
+          - text: Apache Cassandra to Azure Cosmos DB using Arcion
             url: cassandra/migrate-data-arcion.md 
           - text: Migrate 100's TBs of data
-            url: migrate-cosmosdb-data.md 
+            url: migrate.md 

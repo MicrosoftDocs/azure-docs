@@ -99,7 +99,7 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 
 ### Unicode support for certificate passphrases
 
-Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md#about-certificates)
+Unicode characters are now supported when working with sensor certificate passphrases. For more information, see [About certificates](how-to-deploy-certificates.md).
 
 ## April 2021
 

@@ -18,6 +18,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 - October 2022
   - [Enhanced soft delete for Azure Backup (preview)](#enhanced-soft-delete-for-azure-backup-preview)
+  - [Immutable vault for Azure Backup (in preview)](#immutable-vault-for-azure-backup-in-preview)
+  - [SAP HANA instance snapshot backup support (preview)](#sap-hana-instance-snapshot-backup-support-preview)
+  - [SAP HANA System Replication database backup support (preview)](#sap-hana-system-replication-database-backup-support-preview)
 - September 2022
   - [Built-in Azure Monitor alerting for Azure Backup is now generally available](#built-in-azure-monitor-alerting-for-azure-backup-is-now-generally-available)
 - June 2022
@@ -54,6 +57,28 @@ You can also customize soft delete retention period (for which soft deleted data
 
 For more information, see [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
 
+## Immutable vault for Azure Backup (in preview)
+
+Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
+
+For more information, see the [concept of Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-concept.md).
+
+## SAP HANA instance snapshot backup support (preview)
+
+Azure Backup now supports SAP HANA instance snapshot backup that provides a cost-effective backup solution using Managed disk incremental snapshots. Because instant backup uses snapshot, the effect on the database is minimum. 
+
+You can now take an instant snapshot of the entire HANA instance and backup logs for all databases, with a single solution. It also enables you to instantly restore the entire instance with point-in-time recovery using logs over the snapshot.
+
+For more information, see [Back up databases' instance snapshots (preview)](sap-hana-database-about.md#back-up-database-instance-snapshots-preview).
+
+## SAP HANA System Replication database backup support (preview)
+
+Azure Backup now supports backup of HANA database with HANA System Replication. Now, the log backups from the new primary node are accepted immediately; thus provides continuous database automatic protection,
+
+This eliminates the need of manual intervention to continue backups on the new primary node during a failover. With the elimination of the need to trigger full backups for every failover, you can save costs and reduce time for continue protection
+
+For more information, see [Back up a HANA system with replication enabled (preview)](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled-preview).
+
 ## Built-in Azure Monitor alerting for Azure Backup is now generally available
 
 Azure Backup now offers a new and improved alerting solution via Azure Monitor. This solution provides multiple benefits, such as:
@@ -66,7 +91,6 @@ Azure Backup now offers a new and improved alerting solution via Azure Monitor. 
 If you're currently using the [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
 
 For more information, see [Switch to Azure Monitor based alerts for Azure Backup](move-to-azure-monitor-alerts.md).
-
 
 ## Multi-user authorization using Resource Guard is now generally available
  
