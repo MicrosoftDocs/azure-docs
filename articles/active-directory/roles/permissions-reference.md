@@ -302,7 +302,7 @@ Assign the Authentication Administrator role to users who need to do the followi
 - Set or reset any authentication method (including passwords) for non-administrators and some roles. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Who can reset passwords](#who-can-reset-passwords).
 - Require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in.
 - Perform sensitive actions for some users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
-- Create and manage support tickets in Azure and the Microsoft 365 admin center
+- Create and manage support tickets in Azure and the Microsoft 365 admin center.
 
 Users with this role **cannot** do the following:
 
@@ -349,8 +349,8 @@ Assign the Authentication Policy Administrator role to users who need to do the 
 
 - Configure the authentication methods policy, tenant-wide MFA settings, and password protection policy that determine which methods each user can register and use.
 - Manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list.
-- Create and manage verifiable credentials
-- Create and manage Azure support tickets
+- Create and manage verifiable credentials.
+- Create and manage Azure support tickets.
 
 Users with this role **cannot** do the following:
 
@@ -1771,7 +1771,7 @@ Assign the Privileged Authentication Administrator role to users who need to do 
 - Delete or restore any users, including Global Administrators. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
 - Force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke **remember MFA on the device**, prompting for MFA on the next sign-in of all users.
 - Update sensitive properties for all users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
-- Create and manage support tickets in Azure and the Microsoft 365 admin center
+- Create and manage support tickets in Azure and the Microsoft 365 admin center.
 
 [!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
