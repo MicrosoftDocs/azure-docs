@@ -52,15 +52,15 @@ Let's create a logic app and add an Event Grid trigger that monitors the resourc
    - A plan type of *Consumption*
 
      >[!NOTE] 
-     > The *Consumption* plan type is the option that enables the Logic Apps Designer in the UI. If you choose *Standard* (the default), then you must create a new workflow in order for the Logic Apps Designer to become available.
+     > The *Consumption* plan type is the option that enables the **Logic app designer** in the UI. If you choose *Standard* (the default), then you must create a new workflow in order for the **Logic app designer** to become available.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/new-logic-app.png" alt-text="Screenshot of how to create a logic app in the Azure portal." lightbox="media/iot-hub-how-to-order-connection-state-events/new-logic-app.png":::
 
 1. Select **Review + Create** to review your configuration, then select **Create** to create the logic app.
 
-1. You've now created an Azure resource for your logic app. After Azure deploys your logic app, select **Go to resource**. Logic Apps Designer shows you templates for common patterns so you can get started faster.
+1. You've now created an Azure resource for your logic app. After Azure deploys your logic app, select **Go to resource**. **Logic app designer** shows you templates for common patterns so you can get started faster.
  
-1. In the Logic Apps Designer, scroll until you see the **Templates** section, then choose **Blank Logic App** so that you can build your logic app from scratch.
+1. In the **Logic app designer**, scroll until you see the **Templates** section, then choose **Blank Logic App** so that you can build your logic app from scratch.
 
 ### Select a trigger
 
@@ -105,11 +105,9 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png" alt-text="Screenshot of the sample JSON payload pasted into the text box in Azure." lightbox="media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png":::
 
-5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section.
-
 ### Create a condition
 
-In your logic app workflow, conditions help run specific actions after passing that specific condition. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database.
+Conditions help run specific actions after passing that specific condition. For this article, the condition is to check whether **eventType** is either device connected or device disconnected. The action executed when that **eventType** is true is the creation of a document in Azure Cosmos DB. This condition is created in the **Logic app designer**.
 
 1. Select **+ New step**, then the **Built-in** tab, then find and select the control called **Condition**. 
 
@@ -122,20 +120,20 @@ In your logic app workflow, conditions help run specific actions after passing t
    * This second row is similar to the first row, except we look for disconnection events.
 
      Use **eventType**, **is equal to**, and **Microsoft.Devices.DeviceDisconnected** for the row values.
+     
+     Add a checkmark in front of each row, as shown.
 
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg" alt-text="Screenshot of the full For Each condition." lightbox="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg":::
+     :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg" alt-text="Screenshot of the full For Each condition." lightbox="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg":::
 
 1. In the **if true** dialog, click on **Add an action**.
   
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/action-if-true.png" alt-text="Screenshot of the 'If true' box in Azure." lightbox="media/iot-hub-how-to-order-connection-state-events/action-if-true.png":::
 
-1. Search for Cosmos DB and select **Azure Cosmos DB — Execute stored procedure (V3)**
+1. Search for Cosmos DB and select **Azure Cosmos DB — Create or update document (V3)**
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png" alt-text="Screenshot of the search for Azure Cosmos DB." lightbox="media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png":::
 
-1. Fill in **cosmosdb-connection** for the **Connection Name** and choose an [authentication type](/azure/connectors/connectors-create-api-cosmos-db?tabs=consumption.md#connect-to-azure-cosmos-db), then select **Create**. 
-
-1. You see the **Execute stored procedure (V3)** panel. Enter the values for the fields:
+1. You see the **Create or update document (V3)** panel. Enter these values for the fields:
 
    **Azure Cosmos DB account name**: {Add your account name}
    
@@ -239,7 +237,7 @@ You have now run a sample application to collect sensor data and send it to your
 
 ### Observe events in Cosmos DB
 
-You can see results of the executed stored procedure in your Cosmos DB document. Here's what it looks like. Each row contains the latest device connection state per device.
+You can see results of the executed stored procedure in your Cosmos DB document. The query **SELECT * FROM d** shows the document. Each row contains the latest device connection state per device.
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
