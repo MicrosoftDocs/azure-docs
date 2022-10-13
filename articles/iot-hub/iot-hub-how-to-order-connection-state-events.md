@@ -12,9 +12,18 @@ ms.author: asrastog
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
-Azure Event Grid helps you build event-based applications and easily integrate IoT events in your business solutions. This article walks you through a setup, which can be used to track and store the latest device connection state in Cosmos DB. We'll use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. We're going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB.
+[Azure Event Grid](/azure/event-grid/overview) helps you build event-based applications and easily integrates IoT events in your business solutions. This article walks you through a setup using Cosmos DB, Logic App, IoT Hub Events, and a simulated Raspberry Pi to track, collect, and store connection and disconnection events of a device.
 
-The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This sequence is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
+From the moment your device runs, an order of operations activates:
+
+1. The Pi device, using your IoT hub device key, is started and then stopped
+1. An IoT Hub event captures the device activity, then sends an HTTP request to your Logic App
+1. The Logic App processes the HTTP request with a condition you set (to track the connections and disconnections of your device)
+1. The Logic App tracks and stores the latest device connection state in Cosmos DB
+
+A sequence number is used in the *Device Connected* and *Device Disconnected* to track and order events. 
+
+The sequence number is a string representation of a hexadecimal number. You can use a string comparison to identify the larger number. If you're converting the string to hexadecimal, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than past events. This sequence is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn't support the ordering of events.
 
 ## Prerequisites
 
@@ -23,107 +32,6 @@ The sequence number is a string representation of a hexadecimal number. You can 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
 * An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) for a walkthrough.
-
-## Create a stored procedure
-
-Let's create a stored procedure and configure it to compare sequence numbers of incoming events and to record the latest event per device in the database.
-
-1. In your Cosmos DB SQL API, select **Data Explorer** > **Items** > **New Stored Procedure**.
-
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png" alt-text="Screenshot of how to create a new stored procedure in the Azure portal." lightbox="media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png":::
-
-2. Enter **LatestDeviceConnectionState** for the stored procedure ID and paste the following in the **Stored Procedure body**. This code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number.
-
-    ```javascript
-    // SAMPLE STORED PROCEDURE
-    function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
-      var collection = getContext().getCollection();
-      var response = {};
-
-      var docLink = getDocumentLink(deviceId, moduleId);
-
-      var isAccepted = collection.readDocument(docLink, function(err, doc) {
-        if (err) {
-          console.log('Cannot find device ' + docLink + ' - ');
-          createDocument();
-        } else {
-          console.log('Document Found - ');
-          replaceDocument(doc);
-        }
-      });
-
-      function replaceDocument(document) {
-        console.log(
-          'Old Seq :' +
-            document.sequenceNumber +
-            ' New Seq: ' +
-            sequenceNumber +
-            ' - '
-        );
-        if (sequenceNumber > document.sequenceNumber) {
-          document.connectionState = connectionState;
-          document.connectionStateUpdatedTime = connectionStateUpdatedTime;
-          document.sequenceNumber = sequenceNumber;
-
-          console.log('replace doc - ');
-
-          isAccepted = collection.replaceDocument(docLink, document, function(
-            err,
-            updated
-          ) {
-            if (err) {
-              getContext()
-                .getResponse()
-                .setBody(err);
-            } else {
-              getContext()
-                .getResponse()
-                .setBody(updated);
-            }
-          });
-        } else {
-          getContext()
-            .getResponse()
-            .setBody('Old Event - current: ' + document.sequenceNumber + ' Incoming: ' + sequenceNumber);
-        }
-      }
-      function createDocument() {
-        document = {
-          id: deviceId + '-' + moduleId,
-          deviceId: deviceId,
-          moduleId: moduleId,
-          hubName: hubName,
-          connectionState: connectionState,
-          connectionStateUpdatedTime: connectionStateUpdatedTime,
-          sequenceNumber: sequenceNumber
-        };
-        console.log('Add new device - ' + collection.getAltLink());
-        isAccepted = collection.createDocument(
-          collection.getAltLink(),
-          document,
-          function(err, doc) {
-            if (err) {
-              getContext()
-                .getResponse()
-                .setBody(err);
-            } else {
-              getContext()
-                .getResponse()
-                .setBody(doc);
-            }
-          }
-        );
-      }
-
-      function getDocumentLink(deviceId, moduleId) {
-        return collection.getAltLink() + '/docs/' + deviceId + '-' + moduleId;
-      }
-    }
-    ```
-
-3. Save the stored procedure:
-
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png" alt-text="Screenshot of how to save a stored procedure in a Cosmos DB service in the Azure portal." lightbox="media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png":::
 
 ## Create a logic app
 
@@ -169,7 +77,9 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/sample-payload.png" alt-text="Screenshot of how to use a sample payload to generate a schema." lightbox="media/iot-hub-how-to-order-connection-state-events/sample-payload.png":::
 
 
-4. Paste the following sample JSON code into the text box, then select **Done**:
+4. Paste the following sample JSON code into the text box, then select **Done**. 
+   
+   This JSON is only used as a template, so the exact values aren't important.
 
    ```json
    [{
@@ -205,23 +115,27 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 1. Select inside the **Choose a value** box and a pop up appears, showing the **Dynamic content** — the fields that can be selected. 
 
-   * Choose **eventType**. The popup closes and you see **Body** is placed in **Select an output from previous steps**, automatically. Select **Condition** to reopen it.
-   * Change **is equal to** to **ends with**.
-   * Type in **nected** as the value to end with. This is a search term that will include both "connected" and "disconnected" when parsed.
+   * Choose **eventType**. The popup closes and you see **Body** is placed in **Select an output from previous steps**, automatically. Select **Condition** to reopen your conditional statement.
+   * Keep the **is equal to** value.
+   * Type in **Microsoft.Devices.DeviceConnected** as the last value of that row. 
+   * Select **+ Add** to add another row.
+   * This second row is similar to the first row, except we look for disconnection events.
 
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/condition-detail.png" alt-text="Screenshot of the full For Each condition." lightbox="media/iot-hub-how-to-order-connection-state-events/condition-detail.png":::
+     Use **eventType**, **is equal to**, and **Microsoft.Devices.DeviceDisconnected** for the row values.
+
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg" alt-text="Screenshot of the full For Each condition." lightbox="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg":::
 
 1. In the **if true** dialog, click on **Add an action**.
   
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/action-if-true.png" alt-text="Screenshot of the 'If true' box in Azure." lightbox="media/iot-hub-how-to-order-connection-state-events/action-if-true.png":::
 
-1. Search for Cosmos DB and select **Azure Cosmos DB — Execute stored procedure (V2)**
+1. Search for Cosmos DB and select **Azure Cosmos DB — Execute stored procedure (V3)**
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png" alt-text="Screenshot of the search for Azure Cosmos DB." lightbox="media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png":::
 
 1. Fill in **cosmosdb-connection** for the **Connection Name** and choose an [authentication type](/azure/connectors/connectors-create-api-cosmos-db?tabs=consumption.md#connect-to-azure-cosmos-db), then select **Create**. 
 
-1. You see the **Execute stored procedure (V2)** panel. Enter the values for the fields:
+1. You see the **Execute stored procedure (V3)** panel. Enter the values for the fields:
 
    **Azure Cosmos DB account name**: {Add your account name}
    
@@ -229,15 +143,9 @@ In your logic app workflow, conditions help run specific actions after passing t
 
    **Collection ID**: Items
 
-   **Sproc ID**: LatestDeviceConnectionState
+   **Document**: Choose `Current item` from the dynamic content parameter list
 
-1. For the final field, select **Add new parameter**. In the dropdown that appears, check the boxes next to **Partition key value** and **Parameters for the stored procedure**, then click anywhere else on the screen to process your entry; it adds a field for **Partition key value** and a field for **Parameters for the stored procedure**.
-
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.jpg" alt-text="Screenshot shows an Execute stored procedure (V2) item with 'Add new parameter' selected." lightbox="media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.jpg":::
-
-1. Now enter the partition key value and parameters as shown. Add the dash, brackets, double-quotes, and commas around your values. You may have to select **Add dynamic content** to get these valid values.
-
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.jpg" alt-text="Screenshot shows an 'Execute stored procedure' item with parameters entered." lightbox="media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.jpg":::
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logic-app-create-or-update-doc.jpg" alt-text="Screenshot shows an Execute stored procedure (V3) item with 'Add new parameter' selected." lightbox="media/iot-hub-how-to-order-connection-state-events/logic-app-create-or-update-doc.jpg":::
 
 1. Save your logic app.
 
@@ -245,11 +153,11 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 Before you leave the Logic Apps Designer, copy the URL that your logic app is listening to for a trigger. You use this URL to configure Event Grid.
 
-1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it.
+1. Expand the **When a HTTP request is received** trigger configuration box by selecting it.
 
 1. Copy the value of **HTTP POST URL** by selecting the copy button next to it.
 
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/copy-url.png" alt-text="Screenshot of where to find the HTTP URL to copy." lightbox="media/iot-hub-how-to-order-connection-state-events/copy-url.png":::
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/copy-url.jpg" alt-text="Screenshot of where to find the HTTP URL to copy." lightbox="media/iot-hub-how-to-order-connection-state-events/copy-url.jpg":::
 
 1. Save this URL so that you can use it in the next section.
 
@@ -285,7 +193,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
    Select **Create** to save the event subscription.
 
-## Observe events
+## Run device and observe events
 
 Now that your event subscription is set up, let's test by connecting a device.
 
