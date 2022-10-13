@@ -27,8 +27,8 @@ The following diagram depicts how Event Grid events are delivered to a webhook i
 
 There are two subsections in this section. Read through both the scenarios or the one that you're interested in. 
 
-- [Configure the event subscription by using an Azure AD **user**](#configure-the-event-subscription-by-using-azure-ad-user)
-- [Configure the event subscription by using an Azure AD **application**](#configure-the-event-subscription-by-using-azure-ad-application) 
+- [Configure the event subscription by using an Azure AD **user**](#configure-the-event-subscription-by-using-an-azure-ad-user)
+- [Configure the event subscription by using an Azure AD **application**](#configure-the-event-subscription-by-using-an-azure-ad-application) 
 
 
 ### Configure the event subscription by using an Azure AD user
@@ -79,7 +79,7 @@ This section shows how to configure the event subscription by using an Azure AD 
     
             ![Secure Webhook action](./media/secure-webhook-delivery/aad-configuration.png)
 
-### Configure the event subscription by using Azure AD application
+### Configure the event subscription by using an Azure AD application
 
 This section shows how to configure the event subscription by using an Azure AD application. 
 
