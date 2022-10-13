@@ -174,7 +174,7 @@ New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -Volu
 Replace `$volumeName` with the name you'd like the volume to use, then run the following script:
 
 ```azurecli
-az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --size-gib 2000
+az elastic-san volume create --elastic-san-name $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --size-gib 2000
 ```
 ---
 
