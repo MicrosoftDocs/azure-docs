@@ -57,7 +57,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
 
 	> [!NOTE]
-	> If you don't have an Azure AD app already created, then have a [JWT type Azure AD app]((https://marketplace.zoom.us/docs/guides/build/jwt-app/)) created.
+	> If you don't have an Azure AD app already created, then have a [JWT type Azure AD app](https://marketplace.zoom.us/docs/guides/build/jwt-app) created.
 
 4. Select **App Credentials** in the left navigation pane.
 
