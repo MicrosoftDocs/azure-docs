@@ -169,7 +169,7 @@ TLS/SSL certificates expire and must be renewed. Typically this happens every ye
 1. Update your AzureML extension with the az-k8s extension update command and specifying the new certificate files. 
 
    <!--Update sslSecret-->
-   If you used Kubernetes Secret to configure TLS/SSL before, you need to first update the Kubernetes Secret with new `cert.pem` and `key.pem` configuration in your Kubernetes cluster, and then run extension update command to update the certificate,
+   If you used a Kubernetes Secret to configure TLS/SSL before, you need to first update the Kubernetes Secret with new `cert.pem` and `key.pem` configuration in your Kubernetes cluster, and then run the extension update command to update the certificate:
 
    ```azurecli
       az k8s-extension update --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config inferenceRouterServiceType=LoadBalancer sslSecret=<Kubernetes secret name> sslCname=<ssl cname> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
