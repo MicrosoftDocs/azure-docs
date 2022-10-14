@@ -141,7 +141,7 @@ You can follow following steps to update DNS record for your custom domain name:
     
    :::image type="content" source="media/how-to-secure-kubernetes-online-endpoint/get-IPaddress-from-AKSui.png" alt-text="Screenshot of adding new extension to the Arc-enabled Kubernetes cluster from Azure portal.":::
 
-   In addition, you can run Kubernetes command `kubectl describe svc azureml-fe -n azureml` in your cluster to get the IP address from the **LoadBalancer Ingress** parameter in the output.
+   In addition, you can run this Kubernetes command `kubectl describe svc azureml-fe -n azureml` in your cluster to get the IP address from the **LoadBalancer Ingress** parameter in the output.
 
    > [!NOTE]
    > For Kubernetes clusters that using either `nodePort` or `clusterIP` as Inference Router Service, you need to set up your own load balancing solution and TLS/SSL termination for `azureml-fe`, and get the IP address of the `azureml-fe` service in cluster scope.
