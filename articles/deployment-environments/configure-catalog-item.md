@@ -18,7 +18,7 @@ In Azure Deployment Environments Preview service, you can use a [Catalog](concep
 
 The IaC template will contain the environment definition and the manifest file will be used to provide metadata about the template. The catalog items that you provide in the catalog will be used by your development teams to deploy environments in Azure.
 
-We offer an example [Sample Catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can attach as-is, or you can fork and customize the catalog items. You can attach your private repo to use your own catalog items.
+We offer an example [Catalog](https://aka.ms/deployment-environments/Environments) that you can attach as-is, or you can fork and customize the catalog items. You can attach your private repo to use your own catalog items.
 
 After you [attach a catalog](how-to-configure-catalog.md) to your dev center, the service will scan through the specified folder path to identify folders containing an ARM template and the associated manifest file. The specified folder path should be a folder that contains sub-folders with the catalog item files.
 
