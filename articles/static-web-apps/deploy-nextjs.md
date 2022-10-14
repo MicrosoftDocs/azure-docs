@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 10/11/2022
+ms.date: 10/12/2022
 ms.author: cshoe
 ms.custom: devx-track-js, engagement-fy23
 ---
@@ -26,33 +26,33 @@ Rather than using the Next.js CLI to create your app, you can use a starter repo
 
 To begin, create a new repository under your GitHub account from a template repository.
 
-1. Go to [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate).
-2. Name the repository **nextjs-starter**.
-3. Clone the new repo to your machine. Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your account name.
+1. Go to [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
+1. Name the repository **nextjs-starter**
+1. Next, clone the new repo to your machine. Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your account name.
 
     ```bash
     git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nextjs-starter
     ```
 
-4. Go to the newly cloned Next.js app.
+1. Go to the newly cloned Next.js app.
 
    ```bash
    cd nextjs-starter
    ```
 
-5. Install dependencies.
+1. Install dependencies.
 
     ```bash
     npm install
     ```
 
-6. Start Next.js app in development.
+1. Start Next.js app in development.
 
     ```bash
     npm run dev
     ```
 
-7. Go to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser.
+1. Go to `http://localhost:3000` to open the app, where you should see the following website open in your preferred browser:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Start Next.js app":::
 
@@ -100,17 +100,17 @@ The following steps show how to link your app to Azure Static Web Apps. Once in 
 
 ## 3. Review and create
 
-1. Select the **Review + Create** button to verify the details are all correct.
+1. Select **Review + Create** to verify the details are all correct.
 
 1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
 1. Once the deployment completes select, **Go to resource**.
 
-2. On the _Overview_ window, select the *URL* link to open your deployed app.
+1. On the _Overview_ window, select the *URL* link to open your deployed application.
 
 If the website doesn't load immediately, then the build is still running. Once the workflow is complete, you can refresh the browser to view your web app.
 
-To check the status of the Actions workflow, go to the *Actions* dashboard for your repository:
+To check the status of the Actions workflow, go to the Actions dashboard for your repository:
 
 ```url
 https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
@@ -129,10 +129,10 @@ Return to the terminal and run the following command `git pull origin main`.
 If you're not going to continue to use this app, you can delete the Azure Static Web Apps instance through the following steps.
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Search for **my-nextjs-group** from the top search bar.
-3. Select on the group name.
-4. Select on the **Delete** button.
-5. Select **Yes** to confirm the delete action.
+1. Search for **my-nextjs-group** from the top search bar.
+1. Select on the group name.
+1. Select **Delete**.
+1. Select **Yes** to confirm the delete action.
 
 ## Next steps
 

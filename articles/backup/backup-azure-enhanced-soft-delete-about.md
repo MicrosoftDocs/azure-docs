@@ -52,6 +52,15 @@ The key benefits of enhanced soft delete are:
 - **Soft delete and reregistration of backup containers**: You can now unregister the backup containers (which you can soft delete) if you've deleted all backup items in the container. You can now register such soft deleted containers to other vaults. This is applicable for applicable workloads only, including SQL in Azure VM backup, SAP HANA in Azure VM backup and backup of on-premises servers.
 - **Soft delete across workloads**: Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, Disk and VM snapshot backups.
 
+## Supported regions
+
+Enhanced soft delete is currently available in the following regions: West Central US, Australia East, and North Europe.
+
+## Supported scenarios
+
+- Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
+- All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
+
 ## States of soft delete settings
 
 The following table lists the soft delete properties for vaults:
@@ -87,12 +96,6 @@ For example, you've deleted backups for one of the instances in the vault that h
 - Standard rates (similar rates apply when the instance is in *stop protection with retain data* state) are applicable for the first *36* days (*50* days of data retained in soft deleted state minus *14* days of default soft delete retention).
 
 - No charges for the last *6* days of soft delete retention.
-
-## Supported scenarios
-
-- Enhanced soft delete is currently available in the following regions: West Central US, Australia East, North Europe.
-- It's supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
-- All existing Recovery Services vaults in the preview regions are upgraded with an option to use enhanced soft delete.
 
 ## Next steps
 

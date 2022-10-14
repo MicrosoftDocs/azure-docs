@@ -69,8 +69,10 @@ landingContent:
             url: backup-azure-security-feature-cloud.md
           - text: Enhanced soft delete for Azure Backup (preview)
             url: backup-azure-enhanced-soft-delete-about.md
-          - text: Multi-user authorization (MUA)
-            url: multi-user-authorization.md
+          - text: Multi-user authorization (MUA) for Recovery Services vault
+            url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
+          - text: Multi-user authorization (MUA) for Backup vault
+            url: ./multi-user-authorization-concept.md?tabs=backup-vault
           - text: Immutable vault (preview)
             url: backup-azure-immutable-vault-concept.md
   # Card
