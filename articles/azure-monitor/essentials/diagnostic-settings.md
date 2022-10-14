@@ -13,7 +13,14 @@ ms.reviewer: lualderm
 
 This article provides details on creating and configuring diagnostic settings to send Azure platform metrics and logs to different destinations.
 
-[Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
+The following video walks through routing resource platform logs with diagnostic settings. The video was done at an earlier time. Information on these newer features is included in this article. Be aware of the following changes:
+
+ - There are now four destinations. You can send platform metrics and logs to certain Azure Monitor partners.
+ - A new feature called category groups was introduced in November 2021.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
+
+## Overview
 
 [Platform logs](./platform-logs-overview.md) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on:
 
@@ -27,68 +34,36 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.
 
-The following video walks you through routing resource platform logs with diagnostic settings. The video was done at an earlier time. Be aware of the following changes:
-
- - There are now four destinations. You can send platform metrics and logs to certain Azure Monitor partners.
- - A new feature called category groups was introduced in November 2021.
-
-Information on these newer features is included in this article.
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
-
 ## Sources
 
-Here are the source options.
+The following sections describe the 
 
-### Metrics
+| Source | Description |
+|:---|:---|
+| [Resource logs](resource-logs.md) | Resource logs provide insight into operations that were performed within an Azure resource. You must create a diagnostic setting to collect resource logs. You can select specific categories you want to route individually or choose a [category group](#category-groups). |
+| [Platform metrics](./metrics-supported.md) | Platform metrics are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration. Diagnostic settings are only required for platform metrics if you also want to send them to another destination. The **AllMetrics** setting routes a resource's platform metrics to other destinations. This option might not be present for all resource providers.  
+| [Azure activity log](activity-log.md) | The activity log uses a diagnostic setting but has its own user interface because it applies to the whole subscription rather than individual resources. The destination information listed here still applies. For more information, see . |
 
-The **AllMetrics** setting routes a resource's platform metrics to other destinations. This option might not be present for all resource providers.  
-
-### Resource logs
-
-With logs, you can select the log categories you want to route individually or choose a category group.
-
-> [!NOTE]
-> Category groups don't apply to metrics. Not all resources have category groups available.
+### Category groups
 
 You can use *category groups* to dynamically collect resource logs based on predefined groupings instead of selecting individual log categories. Microsoft defines the groupings to help monitor specific use cases across all Azure services.
 
+> [!NOTE]
+> Not all resources have category groups available. Category groups don't apply to metrics. 
+ 
 Over time, the categories in the group might be updated as new logs are rolled out or as assessments change. When log categories are added or removed from a category group, your log collection is modified automatically without you having to update your diagnostic settings.
 
-When you use category groups, you:
+When you use category groups, you can no longer:
 
-- No longer can individually select resource logs based on individual category types.
-- No longer can apply retention settings to logs sent to Azure Storage.
+- individually select resource logs based on individual category types.
+- apply retention settings to logs sent to Azure Storage.
 
 Currently, there are two category groups:
 
 - **All**: Every resource log offered by the resource.
 - **Audit**: All resource logs that record customer interactions with data or the settings of the service.
 
-### Activity log
-
-See the [Activity log settings](#activity-log-settings) section.
-
-## Destinations
-
-Platform logs and metrics can be sent to the destinations listed in the following table.
-
-| Destination | Description |
-|:---|:---|
-| [Log Analytics workspace](../logs/workspace-design.md) | Metrics are converted to log form. This option might not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.
-| [Azure Storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to a Storage account is useful for audit, static analysis, or backup. Compared to using Azure Monitor Logs or a Log Analytics workspace, Storage is less expensive, and logs can be kept there indefinitely.  | 
-| [Azure Event Hubs](../../event-hubs/index.yml) | When you send logs and metrics to Event Hubs, you can stream data to external systems such as third-party SIEMs and other Log Analytics solutions.  |
-| [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations can be made between Azure Monitor and other non-Microsoft monitoring platforms. Integration is useful when you're already using one of the partners.  |
-
-## Activity log settings
-
-The activity log uses a diagnostic setting but has its own user interface because it applies to the whole subscription rather than individual resources. The destination information listed here still applies. For more information, see [Azure activity log](activity-log.md).
-
-## Requirements and limitations
-
-This section discusses requirements and limitations.
-
-### Metrics as a source
+### Metrics limitations
 
 There are certain limitations with exporting metrics:
 
@@ -96,6 +71,17 @@ There are certain limitations with exporting metrics:
 - **Not all metrics are exportable with diagnostic settings:** Because of internal limitations, not all metrics are exportable to Azure Monitor Logs or Log Analytics. For more information, see the **Exportable** column in the [list of supported metrics](./metrics-supported.md).
 
 To get around these limitations for specific metrics, you can manually extract them by using the [Metrics REST API](/rest/api/monitor/metrics/list). Then you can import them into Azure Monitor Logs by using the [Azure Monitor Data Collector API](../logs/data-collector-api.md).
+
+## Destinations
+
+Each of the [source](#sources) can be sent to the destinations in the following table.
+
+| Destination | Description |
+|:---|:---|
+| [Log Analytics workspace](../logs/workspace-design.md) | Metrics are converted to log form. This option might not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.
+| [Azure Storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to a Storage account is useful for audit, static analysis, or backup. Compared to using Azure Monitor Logs or a Log Analytics workspace, Storage is less expensive, and logs can be kept there indefinitely.  | 
+| [Azure Event Hubs](../../event-hubs/index.yml) | When you send logs and metrics to Event Hubs, you can stream data to external systems such as third-party SIEMs and other Log Analytics solutions.  |
+| [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations can be made between Azure Monitor and other non-Microsoft monitoring platforms. Integration is useful when you're already using one of the partners.  |
 
 ### Destination limitations
 
@@ -109,6 +95,17 @@ The following table provides unique requirements for each destination including 
 | Storage account | It is not recommended to use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you're archiving the activity log and resource logs together, you might choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Azure Blob Storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in Event Hubs so that the Azure Monitor diagnostic settings service is granted access to your Event Hubs resources.|
 | Partner integrations | The solutions vary by partner. Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.
+
+
+
+## Controlling costs
+
+There is a cost for collecting data in a Log Analytics workspace, so you should only collect the categories you require for each service. The data volume for resource logs varies significantly between services, 
+
+You might also not want to collect platform metrics from Azure resources because this data is already being collected in Metrics. Only configure your diagnostic data to collect metrics if you need metric data in the workspace for more complex analysis with log queries.
+
+Diagnostic settings don't allow granular filtering of resource logs. You might require certain logs in a particular category but not others. Or you may want to remove unneeded columns from the data. In these cases, use [transformations](essentials/data-collection-transformations.md) on the workspace to filter logs that you don't require. 
+
 
 ## Create diagnostic settings
 

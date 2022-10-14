@@ -34,6 +34,9 @@ Each data source that you collect may have a different method for filtering out 
 
 The following table lists the different data sources on a VM and how to filter the data they collect.
 
+> [!NOTE]
+> Azure tables here refers to tables that are created and maintained by Microsoft and documented in the [Azure Monitor reference](/azure/azure-monitor/reference/). Custom tables are created by custom applications and have a suffix of *_CL* in their name.
+
 ### Agent Monitor agent
 
 | Target | Description | Filtering method |
