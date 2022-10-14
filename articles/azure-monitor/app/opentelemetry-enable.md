@@ -1090,7 +1090,43 @@ input()
 
 #### [.NET](#tab/net)
 
-Placeholder
+```csharp
+using System.Diagnostics.Metrics;
+using Azure.Monitor.OpenTelemetry.Exporter;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+
+public class Program
+{
+    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main()
+    {
+        using var meterProvider = Sdk.CreateMeterProviderBuilder()
+            .AddMeter("OTel.AzureMonitor.Demo")
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = "<Your Connection String>";
+            })
+            .Build();
+
+        var process = Process.GetCurrentProcess();
+        
+        ObservableGauge<int> myOservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
+
+        System.Console.WriteLine("Press Enter key to exit.");
+        System.Console.ReadLine();
+    }
+    
+    private static IEnumerable<Measurement<int>> GetThreadState(Process process)
+    {
+        foreach (ProcessThread thread in process.Threads)
+        {
+            yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
+        }
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
