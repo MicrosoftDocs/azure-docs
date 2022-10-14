@@ -216,7 +216,7 @@ cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 
 As with CQLSH, connecting from an application using one of the supported [Apache Cassandra client drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html) requires SSL to be enabled, and SSL certificate verification to be disabled. The latter is recommended because certificate verification will not work unless you either store and validate against locally held copies of our certificates, or map I.P addresses of your cluster nodes to the appropriate domain. If you have an internal policy which mandates that you do SSL certificate verification for any application, you can facilitate this by either:
 
-- Storing our certificates locally and verifying against them. Our certificates are signed with Digicert - see https://docs.microsoft.com/azure/active-directory/fundamentals/certificate-authorities. You would need to ensure that you keep this up-to-date. 
+- Storing our certificates locally and verifying against them. Our certificates are signed with Digicert - see [here](/azure/active-directory/fundamentals/certificate-authorities). You would need to ensure that you keep this up-to-date. 
 - Adding entries like `10.0.1.5 host1.managedcassandra.cosmos.azure.com` in your hosts file for each node. If taking this approach, you would also need to add new entries whenever scaling up nodes. 
 
 See samples for connecting to Azure Managed Instance for Apache Cassandra using [Java](https://github.com/Azure-Samples/azure-cassandra-mi-java-v4-getting-started) and [.NET](https://github.com/Azure-Samples/azure-cassandra-mi-dotnet-core-getting-started). 
