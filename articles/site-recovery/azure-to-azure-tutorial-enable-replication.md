@@ -2,7 +2,7 @@
 title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
-ms.date: 04/29/2022
+ms.date: 08/22/2022
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
 ---
@@ -133,49 +133,65 @@ In the vault settings, select **Enable Site Recovery**.
 
 ## Enable replication
 
-Select the source settings, and enable VM replication.
+Select the source settings and enable VM replication.
 
 ### Select source settings
 
 1. In the vault > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
 
-    ![Selection to enable replication for Azure VMs](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
+    ![Screenshot showing selection to enable replication for Azure VMs.](./media/azure-to-azure-tutorial-enable-replication/enable-replication.png)
 
-2. In **Source**> **Source location**, select the source Azure region in which VMs are currently running.
-3. In **Azure virtual machine deployment model**, leave the default **Resource Manager** setting.
-4. In **Source subscription**, select the subscription in which VMs are running. You can select any subscription that's in the same Azure Active Directory (AD) tenant as the vault.
-5. In **Source resource group**, select the resource group containing the VMs.
-6. In **Disaster recovery between availability zones**, leave the default **No** setting.
+2. In the **Enable replication** page, under **Source** tab, do the following:
+    - **Region**: Select the source Azure region in which VMs are currently running.
+    - **Subscription**: Select the subscription in which VMs are running. You can select any subscription that's in the same Azure Active Directory (Azure AD) tenant as the vault.
+    - **Resource group**: Select the desired resource group from the drop-down.
+    - **Virtual machine deployment model**: Retain the default **Resource Manager** setting.
+    - **Disaster recovery between availability zones**: Retain the default **No** setting.
+        
+         :::image type="Set up source" source="./media/azure-to-azure-tutorial-enable-replication/source.png" alt-text="Screenshot showing how to set up source.":::
 
-     ![Set up source](./media/azure-to-azure-tutorial-enable-replication/source.png)
-
-7. Select **Next**.
+3. Select **Next**.
 
 ### Select the VMs
 
 Site Recovery retrieves the VMs associated with the selected subscription/resource group.
 
-1. In **Virtual Machines**, select the VMs you want to enable for disaster recovery.
+1. In **Virtual machines**, select the VMs you want to enable for disaster recovery. You can select up to 10 VMs.
 
-     ![Page to select VMs for replication](./media/azure-to-azure-tutorial-enable-replication/select-vm.png)
+     :::image type="Virtual machine selection" source="./media/azure-to-azure-tutorial-enable-replication/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
 
 2. Select **Next**.
 
 ### Review replication settings
 
 1. In **Replication settings**, review the settings. Site Recovery creates default settings/policy for the target region. For the purposes of this tutorial, we use the default settings.
-2. Select **Enable replication**.
 
-    ![Page to customize settings and enable replication](./media/azure-to-azure-tutorial-enable-replication/enable-vm-replication.png)   
+2. Select **Next**.
+  
+    :::image type="enable replication" source="./media/azure-to-azure-tutorial-enable-replication/enable-vm-replication.png" alt-text="Screenshot to customize settings and enable replication.":::
 
-3. Track replication progress in the notifications.
+### Manage
 
-     ![Track progress in notifications](./media/azure-to-azure-tutorial-enable-replication/notification.png)
-    ![Track successful replication notification](./media/azure-to-azure-tutorial-enable-replication/notification-success.png)
+1. In **Manage**, do the following:
+    1. Under **Replication policy**,
+       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention.
+       - **Replication group**: Create replication group to replicate VMs together to generate Multi-VM consistent recovery points. Note that enabling multi-VM consistency can impact workload performance and should only be used if machines are running the same workload and you need consistency across multiple machines.
+    1. Under **Extension settings**, 
+       - Select **Update settings** and **Automation account**.
 
-4. The VMs you enable appear on the vault > **Replicated items** page.
+     :::image type="manage" source="./media/azure-to-azure-tutorial-enable-replication/manage.png" alt-text="Screenshot showing manage tab.":::
 
-    ![VM on the Replicated Items page](./media/azure-to-azure-tutorial-enable-replication/replicated-items.png)
+1. Select **Next**.
+
+### Review
+
+In **Review**, review the VM settings and select **Enable replication**.
+
+:::image type="vm settings" source="./media/azure-to-azure-tutorial-enable-replication/review.png" alt-text="Screenshot showing vm settings.":::
+
+The VMs you enable appear on the vault > **Replicated items** page.
+
+![Screenshot of VM on the Replicated Items page](./media/azure-to-azure-tutorial-enable-replication/replicated-items.png)
 
 
 ## Next steps

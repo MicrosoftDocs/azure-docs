@@ -1,5 +1,5 @@
 {
-    "redirections": [
+  "redirections": [
     {
         "source_path_from_root": "/articles/purview/scan-sqlresource-firewall.md",
         "redirect_url": "/azure/purview/register-scan-azure-sql-database",
@@ -46,13 +46,33 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/how-to-access-policies-storage.md",
-        "redirect_url": "/azure/purview/tutorial-data-owner-policies-storage",
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-storage.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-storage",
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/tutorial-access-policies-resource-group.md",
-        "redirect_url": "/azure/purview/tutorial-data-owner-policies-resource-group",
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-resource-group.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-resource-group",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-arc-sql-server.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-arc-sql-server",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policies-azure-sql-db.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-azure-sql-db",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-data-owner-policy-authoring-generic.md",
+        "redirect_url": "/azure/purview/how-to-policies-data-owner-authoring-generic",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-data-owner-policies.md",
+        "redirect_url": "/azure/purview/concept-policies-data-owner",
         "redirect_document_id": true
       },
       {
@@ -146,11 +166,6 @@
         "redirect_document_id": true
       },
       {
-        "source_path_from_root": "/articles/purview/tutorial-data-owner-policies-resource-group.md",
-        "redirect_url": "/azure/purview/how-to-data-owner-policies-resource-group",
-        "redirect_document_id": true
-      },
-      {
         "source_path_from_root": "/articles/purview/how-to-enable-data-use-governance.md",
         "redirect_url": "/azure/purview/how-to-enable-data-use-management",
         "redirect_document_id": true
@@ -164,6 +179,51 @@
         "source_path_from_root": "/articles/purview/register-scan-azure-sql-database-managed-instance.md",
         "redirect_url": "/azure/purview/register-scan-azure-sql-managed-instance",
         "redirect_document_id": true
-      }     
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-dotnet.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-dotnet",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-portal-faq.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-portal-faq",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-azure-purview-python.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-python",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-catalog-powershell.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-powershell",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/create-catalog-portal.md",
+        "redirect_url": "/azure/purview/create-microsoft-purview-portal",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/quickstart-ARM-create-azure-purview.md",
+        "redirect_url": "/azure/purview/quickstart-ARM-create-microsoft-purview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/use-azure-purview-studio.md",
+        "redirect_url": "/azure/purview/use-microsoft-purview-governance-portal",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/quickstart-bicep-create-azure-purview.md",
+        "redirect_url": "/azure/purview/quickstart-bicep-create-microsoft-purview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/reference-azure-purview-glossary.md",
+        "redirect_url": "/azure/purview/reference-microsoft-purview-glossary",
+        "redirect_document_id": true
+      }
 ]
 }

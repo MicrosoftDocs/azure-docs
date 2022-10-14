@@ -26,7 +26,7 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 
 ### Spatial Analysis container requirements
 
-To run the Spatial Analysis container, you need a compute device with an NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We'll refer to this device as the host computer.
+To run the Spatial Analysis container, you need a compute device with an NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), A2, 1080Ti, or 2080Ti). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We'll refer to this device as the host computer.
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -39,7 +39,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 4 GB of system RAM
 * 4 GB of GPU RAM
 * 8 core CPU
-* One NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti)
+* One NVIDIA CUDA Compute Capable GPU 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), A2, 1080Ti, or 2080Ti)
 * 20 GB of HDD space
 
 #### Recommended hardware
@@ -47,7 +47,7 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 * 32 GB of system RAM
 * 16 GB of GPU RAM
 * 8 core CPU
-* Two NVIDIA CUDA Compute Capable GPUs 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), 1080Ti, or 2080Ti)
+* Two NVIDIA CUDA Compute Capable GPUs 6.0 or higher (for example, [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/), A2, 1080Ti, or 2080Ti)
 * 50 GB of SSD space
 
 In this article, you'll download and install the following software packages. The host computer must be able to run the following (see below for instructions):
@@ -165,7 +165,7 @@ Use the following bash script to install the required Nvidia graphics drivers, a
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
 sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
 sudo apt-get update
 sudo apt-get -y install cuda
@@ -299,7 +299,7 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
 ```
 
 Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
@@ -461,7 +461,7 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
 ```
 
 Next, register the VM as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device).
@@ -503,8 +503,6 @@ The following table shows the various Environment Variables used by the IoT Edge
 | BILLING | your Endpoint URI| Collect this value from Azure portal from your Computer Vision resource. You can find it in the **Key and endpoint** section for your resource.|
 | EULA | accept | This value needs to be set to *accept* for the container to run |
 | DISPLAY | :1 | This value needs to be same as the output of `echo $DISPLAY` on the host computer. Azure Stack Edge devices do not have a display. This setting is not applicable|
-| ARCHON_GRAPH_READY_TIMEOUT | 600 | Add this environment variable if your GPU is **not** T4 or  NVIDIA 2080 Ti|
-| ORT_TENSORRT_ENGINE_CACHE_ENABLE | 0 | Add this environment variable if your GPU is **not** T4 or  NVIDIA 2080 Ti|
 | KEY_ENV | ASE Encryption key | Add this environment variable if Video_URL is an obfuscated string |
 | IV_ENV | Initialization vector | Add this environment variable if Video_URL is an obfuscated string|
 

@@ -53,7 +53,7 @@ landingContent:
           - text: Route custom events to a web endpoint
             url: custom-event-quickstart-portal.md
           - text: Send events from a private container registry
-            url: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+            url: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
   # Card
   - title: Tutorials
     linkLists:
@@ -68,7 +68,7 @@ landingContent:
           - text: Email when IoT Hub device is added
             url: publish-iot-hub-events-to-logic-apps.md
           - text: Respond to Service Bus events
-            url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+            url: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=/azure/event-grid/toc.json
           - text: Stream data from Event Hubs
             url: event-grid-event-hubs-integration.md
           - text: Route Media Services events
@@ -81,13 +81,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Explore Azure Event Grid
-            url: /learn/modules/azure-event-grid/
+            url: /training/modules/azure-event-grid/
           - text: React to state changes in your Azure services by using Event Grid
-            url: /learn/modules/react-to-state-changes-using-event-grid/
+            url: /training/modules/react-to-state-changes-using-event-grid/
           - text: Choose a messaging model in Azure to loosely connect your services
-            url: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            url: /training/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
           - text: Trigger an Azure Event Grid workflow from an IoT device
-            url: /learn/modules/trigger-azure-event-grid-workflow-iot-device/
+            url: /training/modules/trigger-azure-event-grid-workflow-iot-device/
 
   # Card
   - title: Advanced concepts
@@ -144,4 +144,3 @@ landingContent:
         links:
           - text: Install Event Grid extension
             url: ./kubernetes/install-k8s-extension.md
-

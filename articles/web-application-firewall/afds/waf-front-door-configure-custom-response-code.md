@@ -5,10 +5,10 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 08/16/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
-
+zone_pivot_groups: front-door-tiers
 ---
 
 # Configure a custom response for Azure Web Application Firewall (WAF)
@@ -25,8 +25,17 @@ In the above example, we kept the response code as 403, and configured a short "
 
 :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Custom response example":::
 
-"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontdoorAccessLog` and
-`FrontdoorWebApplicationFirewallLog` logs.
+::: zone pivot="front-door-standard-premium"
+
+"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontdoorAccessLog` and `FrontdoorWebApplicationFirewallLog` logs.
+
+::: zone-end
 
 ## Configure custom response status code and message use PowerShell
 

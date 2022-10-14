@@ -52,7 +52,7 @@ Before any resource management request can be executed by Resource Manager, a se
 
 * **Valid user check** - The user requesting to manage the resource must have an account in the Azure AD tenant associated with the subscription of the managed resource.
 
-* **User permission check** - Permissions are assigned to users using [role-based access control (RBAC)](/azure/role-based-access-control/overview). An RBAC role specifies a set of permissions a user may take on a specific resource. RBAC helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+* **User permission check** - Permissions are assigned to users using [role-based access control (RBAC)](../../role-based-access-control/overview.md). An RBAC role specifies a set of permissions a user may take on a specific resource. RBAC helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 * **Azure policy check** - [Azure policies](../../governance/policy/overview.md) specify the operations allowed or explicitly denied for a specific resource. For example, a policy can specify that users are only allowed (or not allowed) to deploy a specific type of virtual machine.
 
@@ -310,14 +310,14 @@ When a requirement exists to deploy IaaS workloads to Azure that require identit
 
 ![Diagram that shows Azure AD authentication to Azure VMs.](media/secure-with-azure-ad-resource-management/sign-into-vm.png)
 
-**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../../virtual-machines/linux/login-using-aad.md).
+**Supported operating systems**: Signing into virtual machines in Azure using Azure AD authentication is currently supported in Windows and Linux. For more specifics on supported operating systems, refer to the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad).
 
 **Credentials**: One of the key benefits of signing into virtual machines in Azure using Azure AD authentication is the ability to use the same federated or managed Azure AD credentials that you normally use for access to Azure AD services for sign-in to the virtual machine.
 
 >[!NOTE]
 >The Azure AD tenant that is used for sign-in in this scenario is the Azure AD tenant that is associated with the subscription that the virtual machine has been provisioned into. This Azure AD tenant can be one that has identities synchronized from on-premises AD DS. Organizations should make an informed choice that aligns with their isolation principals when choosing which subscription and Azure AD tenant they wish to use for sign-in to these servers.
 
-**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](../../virtual-machines/linux/login-using-aad.md) for more information.
+**Network Requirements**: These virtual machines will need to access Azure AD for authentication so you must ensure that the virtual machines network configuration permits outbound access to Azure AD endpoints on 443. See the documentation for [Windows](../devices/howto-vm-sign-in-azure-ad-windows.md) and [Linux](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad) for more information.
 
 **Role-based Access Control (RBAC)**: Two RBAC roles are available to provide the appropriate level of access to these virtual machines. These RBAC roles can be configured via the Azure AD Portal or via the Azure Cloud Shell Experience. For more information, see [Configure role assignments for the VM](../devices/howto-vm-sign-in-azure-ad-windows.md).
 
@@ -332,7 +332,7 @@ Conditional Access: A key benefit of using Azure AD for signing into Azure virtu
 
 **Challenges**: The list below highlights key challenges with using this option for identity isolation.
 
-* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](/azure/automation/update-management/overview) to manage patching and updates of these servers.
+* No central management or configuration of servers. For example, there's no Group Policy that can be applied to a group of servers. Organizations should consider deploying [Update Management in Azure](../../automation/update-management/overview.md) to manage patching and updates of these servers.
 
 * Not suitable for multi-tiered applications that have requirements to authenticate with on-premises mechanisms such as Windows Integrated Authentication across these servers or services. If this is a requirement for the organization, then it's recommended that you explore the Standalone Active Directory Domain Services, or the Azure Active Directory Domain Services scenarios described in this section.
 

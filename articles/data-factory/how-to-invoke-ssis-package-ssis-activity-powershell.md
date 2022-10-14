@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.date: 08/09/2022
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory with PowerShell

@@ -15,13 +15,15 @@ After you buy an Azure Database for PostgreSQL Single server reserved capacity, 
 
 ## How reservation discount is applied
 
-A reservation discount is ***use-it-or-lose-it***. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.</br>
+A reservation discount is ***use-it-or-lose-it***. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+
 ## Discount applied to Azure Database for PostgreSQL Single server
 
-The Azure Database for PostgreSQL Single server reserved capacity discount is applied to running your PostgreSQL Single server on an hourly basis. The reservation that you buy is matched to the compute usage emitted by the running Azure Database for PostgreSQL Single server. For PostgreSQL Single servers that don't run the full hour, the reservation is automatically applied to other Azure Database for PostgreSQL Single server matching the reservation attributes. The discount can apply to Azure Database for PostgreSQL Single servers that are running concurrently. If you don't have an PostgreSQL Single server that run for the full hour that matches the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
+The Azure Database for PostgreSQL Single server reserved capacity discount is applied to running your PostgreSQL Single server on an hourly basis. The reservation that you buy is matched to the compute usage emitted by the running Azure Database for PostgreSQL Single server. For PostgreSQL Single servers that don't run the full hour, the reservation is automatically applied to other Azure Database for PostgreSQL Single server matching the reservation attributes. The discount can apply to Azure Database for PostgreSQL Single servers that are running concurrently. If you don't have a PostgreSQL Single server that run for the full hour that matches the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 The following examples show how the Azure Database for PostgreSQL Single server reserved capacity discount applies depending on the number of cores you bought, and when they're running.
 

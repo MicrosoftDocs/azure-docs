@@ -140,8 +140,6 @@ After deployment finishes, you can view your real-time endpoint by going to the 
 
 1. To test your endpoint, go to the **Test** tab. From here, you can enter test data and select **Test** verify the output of your endpoint.
 
-For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md).
-
 ## Update the real-time endpoint
 
 You can update the online endpoint with new model trained in the designer. On the online endpoint detail page, find your previous training pipeline job and inference pipeline job.

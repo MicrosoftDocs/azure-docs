@@ -118,7 +118,7 @@ $dataFactory.GlobalParameters = $newGlobalParameters
 
 Write-Host "Updating" $newGlobalParameters.Count "global parameters."
 
-Set-AzDataFactoryV2 -InputObject $dataFactory -Force
+Set-AzDataFactoryV2 -InputObject $dataFactory -Force -PublicNetworkAccess $dataFactory.PublicNetworkAccess
 ```
 
 ## Next steps

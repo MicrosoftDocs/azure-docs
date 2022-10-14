@@ -39,7 +39,7 @@ Complete the previous tutorials:
 
 ## Verify VM properties
 
-Before you run a test failover, verify the VM properties, and make sure that the  [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
+Before you run a test failover, verify the VM properties, and make sure that the  [VMware vSphere VM](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
 
 1. In **Protected Items**, click **Replicated Items** > and the VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the

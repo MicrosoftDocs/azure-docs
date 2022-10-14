@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 07/28/2022
+ms.date: 09/20/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -118,7 +118,7 @@ A batch Document Translation request is submitted to your Translator service end
 
 ### HTTP headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|
@@ -195,7 +195,7 @@ The following headers are included with each Document Translator API request:
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://myblob.blob.core.windows.net/source",
+                "sourceUrl": "https://myblob.blob.core.windows.net/source"
              },
             "targets": [
                 {
@@ -454,7 +454,6 @@ payload= {
                 "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
                 "storageSource": "AzureBlob",
                 "language": "en"
-                }
             },
             "targets": [
                 {

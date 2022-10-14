@@ -10,12 +10,12 @@ author: blackmist
 ms.reviewer: nibaccam
 ms.date: 11/15/2021
 ms.topic: how-to
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, ignite-2022
 ---
 
 # Set up no-code AutoML training with the studio UI 
 
-In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio).
 
 Automated machine learning, AutoML, is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about how Azure Machine Learning implements automated machine learning](concept-automated-ml.md).
  
@@ -47,7 +47,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. Select **+ New automated ML job** and populate the form.
 
-1. Select a data asset from your storage container, or create a new data asset. Data asset can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [data asset creation](how-to-create-register-data-assets.md).  
+1. Select a data asset from your storage container, or create a new data asset. Data asset can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [data asset creation](how-to-create-data-assets.md).  
 
     >[!Important]
     > Requirements for training data:
@@ -80,7 +80,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](how-to-connect-data-ui.md#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
@@ -107,7 +107,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Select **Create**. Creation of a new compute can take a few minutes.
 
     >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](how-to-connect-data-ui.md#profile) for more details).
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](v1/how-to-connect-data-ui.md#profile) for more details).
 
     Select **Next**.
 
@@ -214,7 +214,7 @@ If you specified a test dataset or opted for a train/test split during your expe
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Computer vision tasks](how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML jobs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
@@ -243,7 +243,7 @@ The model test job generates the predictions.csv file that's stored in the defau
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Computer vision tasks](how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
@@ -333,6 +333,6 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* [Learn how to consume a web service](how-to-consume-web-service.md).
+* [Learn how to consume a web service](v1/how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

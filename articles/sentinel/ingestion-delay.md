@@ -11,7 +11,7 @@ ms.author: bagol
 
 While Microsoft Sentinel can ingest data from [various sources](connect-data-sources.md), ingestion time for each data source may differ in different circumstances.
 
-This article describes how to ingestion delay might impact your scheduled analytics rules and how you can fix them to cover these gaps.
+This article describes how ingestion delay might impact your scheduled analytics rules and how you can fix them to cover these gaps.
 
 ## Why delay is significant
 

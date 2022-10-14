@@ -19,13 +19,16 @@ ms.custom: devx-track-azurepowershell
 
 You have the following options:
 
-* For certain situations, you can [add custom HTML](#how-do-i-add-custom-html-to-my-developer-portal) to add functionality to the portal.
+* For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) .
+
+* For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal.
+
+* [Self-host the developer portal](developer-portal-self-host.md), only if you need to make modifications to the core of the developer portal codebase.
 
 * Open a feature request in the [GitHub repository](https://github.com/Azure/api-management-developer-portal).
 
-* [Implement the missing functionality yourself](developer-portal-implement-widgets.md). 
+Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.
 
-Learn more about developer portal [extensibility](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 
 ## Can I have multiple developer portals in one API Management service?
 
@@ -196,36 +199,14 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 > [!NOTE]
 > The token must be URL-encoded.
 
-## How do I add custom HTML to my developer portal?
-
-The managed developer portal includes a **Custom HTML code** widget that enables you to insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
-  
-1. In the administrative interface for the developer portal, go to the page or section where you want to insert the widget. 
-1. Select the grey "plus" (**+**) icon that appears when you hover the pointer over the page.
-1. In the **Add widget** window, select **Custom HTML code**.
-    
-    :::image type="content" source="media/developer-portal-faq/add-custom-html-code-widget.png" alt-text="Add widget for custom HTML code":::
-1. Select the "pencil" icon to customize the widget.
-1. Enter a **Width** and **Height** (in pixels) for the widget.
-1. To inherit styles from the developer portal (recommended), select **Apply developer portal styling**.
-    > [!NOTE]
-    > If this setting isn't selected, the embedded elements will be plain HTML controls, without the styles of the developer portal.
-   
-    :::image type="content" source="media/developer-portal-faq/configure-html-custom-code.png" alt-text="Configure HTML custom code":::
-1. Replace the sample **HTML code** with your custom content.
-1. When configuration is complete, close the window.
-1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
-
-> [!NOTE]
-> Microsoft does not support the HTML code you add in the Custom HTML Code widget.
 
 ## Next steps
 
 Learn more about the developer portal:
 
 - [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Extend](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.
 - [Set up self-hosted version of the portal](developer-portal-self-host.md)
-- [Implement your own widget](developer-portal-implement-widgets.md)
 
 Browse other resources:
 

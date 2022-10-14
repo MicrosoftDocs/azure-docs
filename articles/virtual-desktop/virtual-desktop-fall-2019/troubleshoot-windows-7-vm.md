@@ -3,16 +3,16 @@ title: Windows 7 virtual machines Azure Virtual Desktop (classic) - Azure
 description: How to resolve issues for Windows 7 virtual machines (VMs) in a Azure Virtual Desktop (classic) environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 08/08/2022
 ms.author: helohr
 manager: femila
 ---
 # Troubleshoot Windows 7 virtual machines in Azure Virtual Desktop (classic)
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
-
 Use this article to troubleshoot issues you're having when configuring the Azure Virtual Desktop session host virtual machines (VMs).
+
+> [!IMPORTANT]
+> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](../prerequisites.md#operating-systems-and-licenses).
 
 ## Known issues
 

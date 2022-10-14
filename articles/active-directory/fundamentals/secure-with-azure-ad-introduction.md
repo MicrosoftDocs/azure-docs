@@ -102,7 +102,7 @@ Having a set of directory objects in the Azure AD tenant boundary engenders the 
 
 ## Administrative units for role management
 
-Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](/azure/active-directory/roles/permissions-reference) role to regional support specialists, so they can manage users only in the region that they support. An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only:
+Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](../roles/permissions-reference.md) role to regional support specialists, so they can manage users only in the region that they support. An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only:
 
 * Users
 
@@ -114,7 +114,7 @@ In the following diagram, administrative units are used to segment the Azure AD 
 
 ![Diagram that shows Azure AD Administrative units.](media/secure-with-azure-ad-introduction/administrative-units.png)
 
-For more information on administrative units, see [Administrative units in Azure Active Directory](/azure/active-directory/roles/administrative-units).
+For more information on administrative units, see [Administrative units in Azure Active Directory](../roles/administrative-units.md).
 
 ### Common reasons for resource isolation
 
@@ -155,7 +155,7 @@ Configuration settings in Azure AD can impact any resource in the Azure AD tenan
   * Bypass security requirements
 
 >[!NOTE]
->Using [Named Locations](/azure/active-directory/conditional-access/location-condition) can present some challenges to your [zero-trust journey](https://www.microsoft.com/security/business/zero-trust). Verify that using Named Locations fits into your security strategy and principles.
+>Using [Named Locations](../conditional-access/location-condition.md) can present some challenges to your [zero-trust journey](https://www.microsoft.com/security/business/zero-trust). Verify that using Named Locations fits into your security strategy and principles.
 Allowed authentication methods: Global administrators set the authentication methods allowed for the tenant.
 
 * **Self-service options**. Global Administrators set self-service options such as self-service-password reset and create Microsoft 365 groups at the tenant level.
@@ -259,7 +259,7 @@ Who should have the ability to administer the environment and its resources? The
 
 Given the interdependence between an Azure AD tenant and its resources, it's critical to understand the security and operational risks of compromise or error. If you're operating in a federated environment with synchronized accounts, an on-premises compromise can lead to an Azure AD compromise.
 
-* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the impact of compromised non-privileged identities is largely contained, compromised administrators can have broad impact. For example, if an Azure AD global administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](/security/compass/privileged-access-access-model) and ensure that you follow principles of least privilege for [Azure AD Administrator Roles](/azure/active-directory/roles/delegate-by-task). Similarly, ensure that you create CA policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](/security/compass/privileged-access-strategy).
+* **Identity compromise** - Within the boundary of a tenant, any identity can be assigned any role, given the one providing access has sufficient privileges. While the impact of compromised non-privileged identities is largely contained, compromised administrators can have broad impact. For example, if an Azure AD global administrator account is compromised, Azure resources can become compromised. To mitigate risk of identity compromise, or bad actors, implement [tiered administration](/security/compass/privileged-access-access-model) and ensure that you follow principles of least privilege for [Azure AD Administrator Roles](../roles/delegate-by-task.md). Similarly, ensure that you create CA policies that specifically exclude test accounts and test service principals from accessing resources outside of the test applications. For more information on privileged access strategy, see [Privileged access: Strategy](/security/compass/privileged-access-strategy).
 
 * **Federated environment compromise**
 

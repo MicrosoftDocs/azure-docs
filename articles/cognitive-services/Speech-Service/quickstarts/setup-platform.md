@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/10/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
 zone_pivot_groups: programming-languages-speech-sdk

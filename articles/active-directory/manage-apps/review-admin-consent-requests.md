@@ -49,6 +49,10 @@ To review the admin consent requests and take action:
    - **Deny the request**. To deny a request, you must provide a justification that will be provided to all requestors. Once a request is denied, all requestors are notified that they have been denied access to the application. Denying a request won't prevent users from requesting admin consent to the application again in the future.  
    - **Block the request**. To block a request, you must provide a justification that will be provided to all requestors. Once a request is blocked, all requestors are notified they've been denied access to the application. Blocking a request creates a service principal object for the application in your tenant in a disabled state. Users won't be able to request admin consent to the application in the future.
 
+## Review admin consent requests using Microsoft Graph
+
+To review the admin consent requests programmatically, use the [appConsentRequest resource type](/graph/api/resources/appconsentrequest) and [userConsentRequest resource type](/graph/api/resources/userconsentrequest) and their associated methods in Microsoft Graph. You cannot approve or deny consent requests using Microsoft Graph.
+
 ## Next steps
 - [Review permissions granted to apps](manage-application-permissions.md)
 - [Grant tenant-wide admin consent](grant-admin-consent.md)

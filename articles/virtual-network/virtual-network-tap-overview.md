@@ -52,7 +52,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 ### Security analytics, network/application performance management
 
-- [Awake Security](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Awake Security](https://www.arista.com/partner/technology-partners)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)

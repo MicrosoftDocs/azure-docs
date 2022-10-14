@@ -1,7 +1,7 @@
 ---
-title: 'Use batch endpoints for batch scoring using Python SDK v2 (preview)'
+title: 'Use batch endpoints for batch scoring using Python SDK v2'
 titleSuffix: Azure Machine Learning
-description: In this article, learn how to create a batch endpoint to continuously batch score large data using Python SDK v2 (preview).
+description: In this article, learn how to create a batch endpoint to continuously batch score large data using Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -10,18 +10,13 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: larryfr
 ms.date: 05/25/2022
-ms.custom: how-to, devplatv2, sdkv2
+ms.custom: how-to, devplatv2, sdkv2, ignite-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Use batch endpoints for batch scoring using Python SDK v2 (preview)
+# Use batch endpoints for batch scoring using Python SDK v2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to use batch endpoints to do batch scoring using Python SDK v2. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
@@ -202,7 +197,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
-* `name` - Name of the endpoint
+* `endpoint_name` - Name of the endpoint
 * `input` - Path where input data is present
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
@@ -240,6 +235,12 @@ Delete endpoint
 
 ```python
 ml_client.batch_endpoints.begin_delete(name=batch_endpoint_name)
+```
+
+Delete compute: optional, as you may choose to reuse your compute cluster with later deployments.
+
+```python
+ml_client.compute.begin_delete(name=compute_name)
 ```
 
 ## Next steps

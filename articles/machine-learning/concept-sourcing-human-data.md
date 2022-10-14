@@ -10,6 +10,9 @@ ms.custom: responsible-ml
 ---
 # What is "human data" and why is it important to source responsibly?
 
+[!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+
 Human data is data collected directly from, or about, people. Human data may include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs, or political affiliations. 
 
 Collecting this data can be important to building AI systems that work for all users. But certain practices should be avoided, especially ones that can cause physical and psychological harm to data contributors.
@@ -232,7 +235,7 @@ For more information on how to work with your data:
 - [Secure data access in Azure Machine Learning](concept-data.md)
 - [Data ingestion options for Azure Machine Learning workflows](concept-data-ingestion.md)
 - [Optimize data processing with Azure Machine Learning](concept-optimize-data-processing.md)
-- [Use differential privacy in Azure Machine Learning](how-to-differential-privacy.md)
+- [Use differential privacy with Azure Machine Learning SDK](v1/how-to-differential-privacy.md)
 
 Follow these how-to guides to work with your data after you've collected it:
 

@@ -4,8 +4,9 @@ description: This article describes managed identities for Azure Stream Analytic
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 08/10/2022
 ---
 
 # Managed identities for Azure Stream Analytics
@@ -46,8 +47,8 @@ Below is a table that shows Azure Stream Analytics inputs and outputs that suppo
 |                 | Table Storage                 | No                                                                     | No                                       |
 |                 | Service Bus Topic             | Yes                                                                    | Yes                                      |
 |                 | Service Bus Queue             | Yes                                                                    | Yes                                      |
-|                 | Cosmos DB                     | Yes                                                                    | Yes                                      |
-|                 | Power BI                      | Yes                                                                    | No                                       |
+|                 | Azure Cosmos DB                     | Yes                                                                    | Yes                                      |
+|                 | Power BI                      | No                                                                     | Yes                                      |
 |                 | Data Lake Storage Gen1        | Yes                                                                    | Yes                                      |
 |                 | Azure Functions               | No                                                                     | No                                       |
 |                 | Azure Database for PostgreSQL | No                                                                     | No                                       |

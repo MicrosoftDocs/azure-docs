@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 4/5/2022
 ---
 
-# Support requirements and considerations
+# Support requirements and considerations for Private endpoint connectivity (Preview)
 
 The article series describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) and [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tools to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.  
 

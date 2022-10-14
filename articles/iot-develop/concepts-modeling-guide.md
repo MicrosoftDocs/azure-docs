@@ -22,7 +22,7 @@ At the core of IoT Plug and Play, is a device _model_ that describes a device's 
 
 To learn more about how IoT Plug and Play uses device models, see [IoT Plug and Play device developer guide](concepts-developer-guide-device.md) and [IoT Plug and Play service developer guide](concepts-developer-guide-service.md).
 
-To define a model, you use the Digital Twins Definition Language (DTDL). DTDL uses a JSON variant called [JSON-LD](https://json-ld.org/). The following snippet shows the model for a thermostat device that:
+To define a model, you use the Digital Twins Definition Language (DTDL) V2. DTDL uses a JSON variant called [JSON-LD](https://json-ld.org/). The following snippet shows the model for a thermostat device that:
 
 - Has a unique model ID: `dtmi:com:example:Thermostat;1`.
 - Sends temperature telemetry.

@@ -4,10 +4,10 @@ description: In this tutorial, you learn how to issue verifiable credentials by 
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 08/26/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -40,89 +40,91 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- [ngrok](https://ngrok.com/) (free).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization,read this [FAQ](verifiable-credentials-faq.md#i-cannot-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
-  - Android version 6.2108.5654 or later installed.
-  - iOS version 6.5.82 or later installed.
+  - Android version 6.2206.3973 or later installed.
+  - iOS version 6.6.2 or later installed.
 
 ## Create the verified credential expert card in Azure
 
 In this step, you create the verified credential expert card by using Microsoft Entra Verified ID. After you create the credential, your Azure AD tenant can issue it to users who initiate the process.
 
-1. Using the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then select **Verifiable Credentials (Preview)**.
+1. Using the [Azure portal](https://portal.azure.com/), search for **Verified ID** and select it.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create credential** should appear. Alternatively, you can select **Credentials** in the left hand menu and select **+ Add a credential**.
-1. In **Create a new credential**, do the following:
+1. In **Create credential**, select **Custom Credential** and click **Next**:
 
     1. For **Credential name**, enter **VerifiedCredentialExpert**. This name is used in the portal to identify your verifiable credentials. It's included as part of the verifiable credentials contract.
 
     1. Copy the following JSON and paste it in the  **Display definition** textbox
-    ```json
-    {
-        "locale": "en-US",
-        "card": {
-          "title": "Verified Credential Expert",
-          "issuedBy": "Microsoft",
-          "backgroundColor": "#000000",
-          "textColor": "#ffffff",
-          "logo": {
-            "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
-            "description": "Verified Credential Expert Logo"
-          },
-          "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
-        },
-        "consent": {
-          "title": "Do you want to get your Verified Credential?",
-          "instructions": "Sign in with your account to get your card."
-        },
-        "claims": [
-          {
-            "claim": "vc.credentialSubject.firstName",
-            "label": "First name",
-            "type": "String"
-          },
-          {
-            "claim": "vc.credentialSubject.lastName",
-            "label": "Last name",
-            "type": "String"
-          }
-        ]
-    }
-    ```
-
-    1. Copy the following JSON and paste it in the  **Rules definition** textbox
-    ```JSON
-    {
-      "attestations": {
-        "idTokenHints": [
-          {
-            "mapping": [
+    
+        ```json
+        {
+            "locale": "en-US",
+            "card": {
+              "title": "Verified Credential Expert",
+              "issuedBy": "Microsoft",
+              "backgroundColor": "#000000",
+              "textColor": "#ffffff",
+              "logo": {
+                "uri": "https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png",
+                "description": "Verified Credential Expert Logo"
+              },
+              "description": "Use your verified credential to prove to anyone that you know all about verifiable credentials."
+            },
+            "consent": {
+              "title": "Do you want to get your Verified Credential?",
+              "instructions": "Sign in with your account to get your card."
+            },
+            "claims": [
               {
-                "outputClaim": "firstName",
-                "required": true,
-                "inputClaim": "$.given_name",
-                "indexed": false
+                "claim": "vc.credentialSubject.firstName",
+                "label": "First name",
+                "type": "String"
               },
               {
-                "outputClaim": "lastName",
-                "required": true,
-                "inputClaim": "$.family_name",
-                "indexed": false
+                "claim": "vc.credentialSubject.lastName",
+                "label": "Last name",
+                "type": "String"
               }
-            ],
-            "required": false
-          }
-        ],
-        "validityInterval": 2592000,
-        "vc": {
-          "type": [
-            "VerifiedCredentialExpert"
-          ]
+            ]
         }
-      }
-    }
-    ```
+        ```
 
-    1. Select **Create**.    
+    1. Copy the following JSON and paste it in the  **Rules definition** textbox
+    
+        ```JSON
+        {
+          "attestations": {
+            "idTokenHints": [
+              {
+                "mapping": [
+                  {
+                    "outputClaim": "firstName",
+                    "required": true,
+                    "inputClaim": "$.given_name",
+                    "indexed": false
+                  },
+                  {
+                    "outputClaim": "lastName",
+                    "required": true,
+                    "inputClaim": "$.family_name",
+                    "indexed": false
+                  }
+                ],
+                "required": false
+              }
+            ]
+          },
+          "validityInterval": 2592000,
+          "vc": {
+            "type": [
+              "VerifiedCredentialExpert"
+            ]
+          }
+        }
+        ```
+
+    1. Select **Create**.
 
 The following screenshot demonstrates how to create a new credential:
 
@@ -132,7 +134,7 @@ The following screenshot demonstrates how to create a new credential:
 
 Now that you have a new credential, you're going to gather some information about your environment and the credential that you created. You use these pieces of information when you set up your sample application.
 
-1. In Verifiable Credentials, select **Issue credential** and switch to **Custom issue**. 
+1. In Verifiable Credentials, select **Issue credential**. 
 
     ![Screenshot that shows how to select the newly created verified credential.](media/verifiable-credentials-configure-issuer/issue-credential-custom-view.png)
 
@@ -141,6 +143,9 @@ Now that you have a new credential, you're going to gather some information abou
 1. Copy the **manifest** URL. It's the URL that Authenticator evaluates before it displays to the user verifiable credential issuance requirements. Record it for later use.
 
 1. Copy your **Tenant ID**, and record it for later. The Tenant ID is the guid in the manifest URL highlighted in red above.
+
+    >[!NOTE]
+    > When setting up access policies for Azure Key Vault, you must add the access policies for both **Verifiable Credentials Service Request** and **Verifiable Credentials Service**.
 
 ## Download the sample code
 
@@ -208,7 +213,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
     "CertificateName": "[Or instead of client secret: Enter here the name of a certificate (from the user cert store) as registered with your application]",
     "IssuerAuthority": "did:web:example.com...",
     "VerifierAuthority": "did:web:example.com...",
-    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert"
   }
 }
 ```
@@ -319,8 +324,8 @@ public async Task<ActionResult> issuanceRequest()
     ...
 
     // Here you could change the payload manifest and change the first name and last name.
-    payload["issuance"]["claims"]["given_name"] = "Megan";
-    payload["issuance"]["claims"]["family_name"] = "Bowen";
+    payload["claims"]["given_name"] = "Megan";
+    payload["claims"]["family_name"] = "Bowen";
     ...
 }
   ```
