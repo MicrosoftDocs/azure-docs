@@ -251,7 +251,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 * **Test Groups**: You can add one or more Test Groups to a Connection Monitor. These test groups can consist of multiple Azure or Non-Azure endpoints.
     * For selected Azure VMs or Azure virtual machine scale sets and Non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the Network Performance Monitor solution for Non-Azure endpoints will be auto enablement once the creation of Connection Monitor begins.
     * In case the virtual machine scale set selected is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with the virtual machine scale set as endpoints. In case the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
-    * In the scenario mentioned above, the user can consent to auto upgradation of the virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for virtual machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
+    * In the scenario mentioned above, user can consent to auto upgradation of the virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for virtual machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
 
    :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up a test groups and consent for auto-upgradation of VMSS in Connection Monitor.":::
 
@@ -275,7 +275,7 @@ In the Azure portal, to create alerts for a connection monitor, you specify valu
 
 :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement-create.png" alt-text="Screenshot that shows the Create alert tab in Connection Monitor.":::
 
-Once all the steps are completed, the process will proceed with the unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by the creation of Connection Monitor. 
+Once all the steps are completed, the process will proceed with the unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by creation of Connection Monitor. 
 Once the creation process is successful, it will take ~ 5 mins for the connection monitor to show up on the dashboard.  
 
 ## Virtual machine scale set  coverage
