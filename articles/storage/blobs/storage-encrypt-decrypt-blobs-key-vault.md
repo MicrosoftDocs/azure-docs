@@ -22,7 +22,10 @@ Azure Key Vault is a cloud solution for managing secrets, keys, and certificates
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up an Azure Key Vault
+> * Add a key in Azure Key Vault
+> * Configure client-side encryption options through Key Vault
+> * Create a blob service client object with client-side encryption enabled
+> * Encrypt a blob during upload and decrypt on download
 
 ## Prerequisites
 
@@ -42,7 +45,7 @@ Here is a brief description of how client-side encryption works:
 3. The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vault. The Storage client itself never has access to the KEK. It just invokes the key wrapping algorithm that is provided by Key Vault. Customers can choose to use custom providers for key wrapping/unwrapping if they want.
 4. The encrypted data is then uploaded to the Azure Storage service.
 
-## Set up your Azure Key Vault
+## Add a key in Azure Key Vault
 
 In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial [Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app](../../key-vault/secrets/quick-create-net.md):
 
@@ -55,11 +58,36 @@ Make note of the ClientID and ClientSecret that were generated when registering 
 
 Create both keys in the key vault. We assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1.
 
-## Create a console application with packages and AppSettings
+## Set up your project
 
-In Visual Studio, create a new console application.
+1. In a console window (such as PowerShell or Bash), use the `dotnet new` command to create a new console app with the name *BlobEncryptionKeyVault*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
-Add necessary nuget packages in the Package Manager Console.
+   ```dotnetcli
+   dotnet new console -n BlobEncryptionKeyVault
+   ```
+
+1. Switch to the newly created *BlobEncryptionKeyVault* directory.
+
+   ```console
+   cd BlobEncryptionKeyVault
+   ```
+
+1. Open the project in your desired code editor. To open the project in:
+    * Visual Studio, locate and double-click the `BlobEncryptionKeyVault.csproj` file.
+    * Visual Studio Code, run the following command:
+
+    ```bash
+    code .
+    ```
+---
+
+To interact with Azure services in this example, install the following client libraries using `dotnet add package`.
+
+```dotnetcli
+dotnet add package Azure.Storage.Blobs
+dotnet add package Azure.Identity
+dotnet add package Azure.Security.KeyVault.Keys.Cryptography;
+```
 
 ```powershell
 Install-Package Microsoft.Azure.ConfigurationManager
