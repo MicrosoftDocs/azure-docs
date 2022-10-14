@@ -198,7 +198,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     SUCCESS: WiFi initialized
     
     Connecting WiFi
-    	Connecting to SSID 'husky-guest'
+    	Connecting to SSID
     	Attempt 1...
     SUCCESS: WiFi connected
     
@@ -210,7 +210,6 @@ You can use the **Termite** app to monitor communication and confirm that your d
     
     Initializing DNS client
     	DNS address: 192.168.0.1
-    	DNS address: 205.171.3.65
     SUCCESS: DNS client initialized
     
     Initializing SNTP time sync
