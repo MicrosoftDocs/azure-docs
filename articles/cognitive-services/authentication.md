@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 09/01/2022
 ms.author: pafarley
 ---
 
@@ -176,6 +176,12 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ```
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
+## Use Azure key vault to securely access credentials
+
+You can [use Azure Key Vault](./use-key-vault.md) to securely develop Cognitive Services applications. Key Vault enables you to store your authentication credentials in the cloud, and reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application.
+
+Authentication is done via Azure Active Directory. Authorization may be done via Azure role-based access control (Azure RBAC) or Key Vault access policy. Azure RBAC can be used for both management of the vaults and access data stored in a vault, while key vault access policy can only be used when attempting to access data stored in a vault.
 
 ## See also
 

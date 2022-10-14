@@ -8,20 +8,19 @@ ms.reviewer: mmcc
 
 # Usage analysis with Application Insights
 
-Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Application Insights](./app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
-
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later? [Application Insights](./app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data-driven decisions about your next development cycles.
 
 ## Send telemetry from your app
 
-The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
+The best experience is obtained by installing Application Insights both in your app server code and in your webpages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
 1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md), or [other](./platforms.md) app.
 
-    * *Don't want to install server code? Just [create an Azure Application Insights resource](./create-new-resource.md).*
+    * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
 
-2. **Web page code:** Add the following script to your web page before the closing ``</head>``. Replace instrumentation key with the appropriate value for your Application Insights resource:
+1. **Webpage code:** Add the following script to your webpage before the closing ``</head>``. Replace the instrumentation key with the appropriate value for your Application Insights resource.
     
-    The current Snippet (listed below) is version "5", the version is encoded in the snippet as sv:"#" and the [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+    The current snippet is version 5 and is listed here. The version is encoded in the snippet as sv:"#". The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
     ```html
     <script type="text/javascript">
@@ -31,59 +30,60 @@ The best experience is obtained by installing Application Insights both in your 
     // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
     // useXhr: 1, // Use XHR instead of fetch to report failures (if available),
     crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
-    // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+    // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- as they won't get called)
     cfg: { // Application Insights Configuration
       instrumentationKey:"INSTRUMENTATION_KEY"
     }});
     </script>
     ```
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+   [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
+   To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
-3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
+1. **Mobile app code:** Use the App Center SDK to collect events from your app. Then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
 
-4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview pane in Application Insights.
+1. **Get telemetry:** Run your project in debug mode for a few minutes. Then look for results in the **Overview** pane in Application Insights.
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
 ## Explore usage demographics and statistics
-Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
 
-The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
+Find out when people use your app and what pages they're most interested in. You can also find out where your users are located and what browsers and operating systems they use.
 
-:::image type="content" source="./media/usage-overview/users.png" alt-text="Screen capture shows the Users tab with a bar chart." lightbox="./media/usage-overview/users.png":::
+The **Users** and **Sessions** reports filter your data by pages or custom events. The reports segment the data by properties such as location, environment, and page. You can also add your own filters.
 
-Insights on the right point out interesting patterns in the set of data.  
+:::image type="content" source="./media/usage-overview/users.png" alt-text="Screenshot that shows the Users tab with a bar chart." lightbox="./media/usage-overview/users.png":::
 
-* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.
-* The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user, terminated by a period of inactivity of more than half an hour.
+Insights on the right point out interesting patterns in the set of data.
 
-[More about the Users, Sessions, and Events tools](usage-segmentation.md)  
+* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, they'll be counted more than once.
+* The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user. It's terminated by a period of inactivity of more than half an hour.
 
-## Retention - how many users come back?
+For more information about the Users, Sessions, and Events tools, see [Users, sessions, and events analysis in Application Insights](usage-segmentation.md).
 
-Retention helps you understand how often your users return to use their app, based on cohorts of users that performed some business action during a certain time bucket. 
+## Retention: How many users come back?
 
-- Understand what specific features cause users to come back more than others 
-- Form hypotheses based on real user data 
-- Determine whether retention is a problem in your product 
+Retention helps you understand how often your users return to use their app, based on cohorts of users that performed some business action during a certain time bucket. You can:
 
-:::image type="content" source="./media/usage-overview/retention.png" alt-text="Screen capture shows the Retention workbook which displays information about how often users return to use their app." lightbox="./media/usage-overview/retention.png":::
+- Understand what specific features cause users to come back more than others.
+- Form hypotheses based on real user data.
+- Determine whether retention is a problem in your product.
 
-The retention controls on top allow you to define specific events and time range to calculate retention. The graph in the middle gives a visual representation of the overall retention percentage by the time range specified. The graph on the bottom represents individual retention in a given time period. This level of detail allows you to understand what your users are doing and what might affect returning users on a more detailed granularity.  
+:::image type="content" source="./media/usage-overview/retention.png" alt-text="Screenshot that shows the Retention workbook, which displays information about how often users return to use their app." lightbox="./media/usage-overview/retention.png":::
 
-[More about the Retention workbook](usage-retention.md)
+You can use the retention controls on top to define specific events and time ranges to calculate retention. The graph in the middle gives a visual representation of the overall retention percentage by the time range specified. The graph on the bottom represents individual retention in a specific time period. This level of detail allows you to understand what your users are doing and what might affect returning users on a more detailed granularity.
+
+For more information about the Retention workbook, see [User retention analysis for web applications with Application Insights](usage-retention.md).
 
 ## Custom business events
 
-To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game.
+To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions, such as selecting specific buttons, to more significant business events, such as making a purchase or winning a game.
 
-You can also use the [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md) to collect custom events.
+You can also use the [Click Analytics Auto-collection plug-in](javascript-click-analytics-plugin.md) to collect custom events.
 
-Although in some cases, page views can represent useful events, it isn't true in general. A user can open a product page without buying the product. 
+In some cases, page views can represent useful events, but it isn't true in general. A user can open a product page without buying the product.
 
-With specific business events, you can chart your users' progress through your site. Find out their preferences for different options, and where they drop out or have difficulties. With this knowledge, you can make informed decisions about the priorities in your development backlog.
+With specific business events, you can chart your users' progress through your site. You can find out their preferences for different options and where they drop out or have difficulties. With this knowledge, you can make informed decisions about the priorities in your development backlog.
 
 Events can be logged from the client side of the app:
 
@@ -91,7 +91,7 @@ Events can be logged from the client side of the app:
       appInsights.trackEvent({name: "incrementCount"});
 ```
 
-Or from the server side:
+Or events can be logged from the server side:
 
 ```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -102,7 +102,7 @@ Or from the server side:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. A standard set of properties is also attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
+You can attach property values to these events so that you can filter or split the events when you inspect them in the portal. A standard set of properties is also attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
 
 Learn more about [custom events](./api-custom-events-metrics.md#trackevent) and [properties](./api-custom-events-metrics.md#properties).
 
@@ -110,20 +110,21 @@ Learn more about [custom events](./api-custom-events-metrics.md#trackevent) and 
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
 
-:::image type="content" source="./media/usage-overview/events.png" alt-text="Screen capture shows the Events tab filtered by AnalyticsItemsOperation and split by AppID." lightbox="./media/usage-overview/events.png":::
+:::image type="content" source="./media/usage-overview/events.png" alt-text="Screenshot that shows the Events tab filtered by AnalyticsItemsOperation and split by AppID." lightbox="./media/usage-overview/events.png":::
   
 ## Design the telemetry with the app
 
-When you're designing each feature of your app, consider how you're going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
+When you design each feature of your app, consider how you're going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
 
-## A | B Testing
-If you don't know which variant of a feature will be more successful, release both of them, making each accessible to different users. Measure the success of each, and then move to a unified version.
+## A | B testing
 
-For this technique, you attach distinct property values to all the telemetry that is sent by each version of your app. You can do that by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends - not just your custom messages, but the standard telemetry as well.
+If you don't know which variant of a feature will be more successful, release both and make each variant accessible to different users. Measure the success of each variant, and then move to a unified version.
 
-In the Application Insights portal, filter and split your data on the property values, so as to compare the different versions.
+For this technique, you attach distinct property values to all the telemetry that's sent by each version of your app. You can do that step by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends. That means the properties are added to your custom messages and the standard telemetry.
 
-To do this, [set up a telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
+In the Application Insights portal, filter and split your data on the property values so that you can compare the different versions.
+
+To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
 **ASP.NET apps**
 
@@ -144,7 +145,7 @@ To do this, [set up a telemetry initializer](./api-filtering-sampling.md#addmodi
     }
 ```
 
-In the web app initializer such as Global.asax.cs:
+In the web app initializer, such as Global.asax.cs:
 
 ```csharp
 
@@ -159,9 +160,9 @@ In the web app initializer such as Global.asax.cs:
 **ASP.NET Core apps**
 
 > [!NOTE]
-> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+> Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications.
 
-For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown here. This step is done in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -173,7 +174,8 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ## Next steps
-   - [Users, Sessions, Events](usage-segmentation.md)
+
+   - [Users, sessions, and events](usage-segmentation.md)
    - [Funnels](usage-funnels.md)
    - [Retention](usage-retention.md)
    - [User Flows](usage-flows.md)

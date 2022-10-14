@@ -90,12 +90,11 @@ Here's an example that uses [cmdlet names)] to [task]. It includes commands that
 ## Additional Resources
 <!--At a minimum, include a link back to the migration task list article. Use the formats shown below. See create-links-markdown.md for more info -->
 <!--use this format for links to other articles, such as the migration task list. -->
-[Manage Availability](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Manage Availability](../articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json)
 
-<!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
+<!--To link to an ACOM page outside the `/documentation/` subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
 [Virtual machines documentation](/previous-versions/azure/jj156003(v=azure.100))
-

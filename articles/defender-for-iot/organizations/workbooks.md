@@ -2,10 +2,13 @@
 title: Use Azure Monitor workbooks in Microsoft Defender for IoT
 description: Learn how to view and create Azure Monitor workbooks for Defender for IoT data.
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 09/04/2022
 ---
 
 # Use Azure Monitor workbooks in Microsoft Defender for IoT
+
+> [!IMPORTANT]
+> The **Azure Monitor workbooks** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Resource Graph subscriptions and are available directly in Microsoft Defender for IoT.
 
@@ -24,7 +27,7 @@ To view out-of-the-box workbooks created by Microsoft, or other workbooks alread
 
 1. In the Azure portal, go to **Defender for IoT** and select **Workbooks** on the left.
 
-    :::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page." lightbox="media/release-notes/workbooks.png":::
+    :::image type="content" source="media/workbooks/workbooks.png" alt-text="Screenshot of the Workbooks page." lightbox="media/release-notes/workbooks.png":::
 
 1. Modify your filtering options if needed, and select a workbook to open it.
 
@@ -33,7 +36,7 @@ Defender for IoT provides the following workbooks out-of-the-box:
 - **Sensor health**. Displays data about your sensor health, such as the sensor console software versions installed on your sensors.
 - **Alerts**. Displays data about alerts occurring on your sensors, including alerts by sensor, alert types, recent alerts generated, and more.
 - **Devices**. Displays data about your device inventory, including devices by vendor, subtype, and new devices identified.
-
+- **Vulnerabilities**. Displays data about the Vulnerabilities detected in OT devices across your network. Select an item in the **Device vulnerabilities**, **Vulnerable devices**, or **Vulnerable components** tables to view related information in the tables on the right.
 
 ## Create custom workbooks
 

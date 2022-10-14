@@ -3042,7 +3042,7 @@ ticks('<timestamp>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Integer | The number of ticks since the specified timestamp |
+| <*ticks-number*> | Integer | The number of ticks that have elapsed since 12:00:00 midnight, January 1, 0001 in the Gregorian calendar since the input timestamp |
 ||||
 
 <a name="toLower"></a>
@@ -3456,6 +3456,9 @@ Following on Example 3, this example finds the value in the
 `xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
 
 And returns this result: `"Paris"`
+  
+> [!NOTE]
+> One can add comments to data flow expressions, but not in pipeline expressions.
 
 ## Next steps
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

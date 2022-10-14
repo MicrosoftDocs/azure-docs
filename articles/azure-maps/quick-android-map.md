@@ -4,7 +4,7 @@ titleSuffix:  Microsoft Azure Maps
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 02/09/2022
+ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -120,7 +120,17 @@ The next step in building your application is to install the Azure Maps Android 
 
    :::image type="content" source="./media/quick-android-map/project-settings-file.png" alt-text="A screenshot of the project settings file in Android Studio.":::
 
-3. Open the application **build.gradle** file and do the following:
+3. Open the project's **gradle.properties** file, verify that `android.useAndroidX` and `android.enableJetifier` are both set to `true`.
+   
+   If the **gradle.properties** file does not include `android.useAndroidX` and `android.enableJetifier`, add the next two lines to the end of the file:
+   
+   ```gradle
+   android.useAndroidX=true
+   android.enableJetifier=true
+   ```
+   
+
+4. Open the application **build.gradle** file and do the following:
 
     1. Verify your project's **minSdk** is **21** or higher.
 
@@ -143,7 +153,7 @@ The next step in building your application is to install the Azure Maps Android 
 
       :::image type="content" source="./media/quick-android-map/build-gradle-file.png" alt-text="A screenshot showing the application build dot gradle file in Android Studio.":::
 
-4. Add a map fragment to the main activity:
+5. Add a map fragment to the main activity:
 
     ```xml
     <com.azure.android.maps.control.MapControl
@@ -159,7 +169,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 ::: zone pivot="programming-language-java-android"
 
-5. In the **MainActivity.java** file you'll need to:
+6. In the **MainActivity.java** file you'll need to:
 
     * Add imports for the Azure Maps SDK.
     * Set your Azure Maps authentication information.
@@ -267,7 +277,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 ::: zone pivot="programming-language-kotlin"
 
-5. In the **MainActivity.kt** file you'll need to:
+7. In the **MainActivity.kt** file you'll need to:
 
     * add imports for the Azure Maps SDK
     * set your Azure Maps authentication information
@@ -373,7 +383,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 ::: zone-end
 
-6. Select the run button from the toolbar, as shown in the following image (or press `Control` + `R` on a Mac), to build your application.
+8. Select the run button from the toolbar, as shown in the following image (or press `Control` + `R` on a Mac), to build your application.
 
     :::image type="content" source="media/quick-android-map/run-app.png" alt-text="A screenshot showing the run button in Android Studio.":::
 

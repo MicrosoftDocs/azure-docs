@@ -30,7 +30,7 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 ### Prerequisites
 
 * A working Azure AD tenant with Azure AD Premium or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An account with Conditional Access administrator privileges.
+* An account with Conditional Access Administrator privileges.
 * A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 

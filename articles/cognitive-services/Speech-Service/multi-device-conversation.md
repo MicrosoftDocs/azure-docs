@@ -36,10 +36,10 @@ Whereas [Conversation Transcription](conversation-transcription.md) works on a s
 ## Key features
 
 - **Real-time transcription:** Everyone will receive a transcript of the conversation, so they can follow along the text in real-time or save it for later.
-- **Real-time translation:** With more than 70 [supported languages](language-support.md#text-languages) for text translation, users can translate the conversation to their preferred language(s).
+- **Real-time translation:** With more than 70 [supported languages](language-support.md) for text translation, users can translate the conversation to their preferred languages.
 - **Readable transcripts:** The transcription and translation are easy to follow, with punctuation and sentence breaks.
-- **Voice or text input:** Each user can speak or type on their own device, depending on the language support capabilities enabled for the participant's chosen language. Please refer to [Language support](language-support.md#speech-to-text).
-- **Message relay:** The multi-device conversation service will distribute messages sent by one client to all the others, in the language(s) of their choice.
+- **Voice or text input:** Each user can speak or type on their own device, depending on the language support capabilities enabled for the participant's chosen language. Please refer to [Language support](language-support.md).
+- **Message relay:** The multi-device conversation service will distribute messages sent by one client to all the others, in the languages of their choice.
 - **Message identification:** Every message that users receive in the conversation will be tagged with the nickname of the user who sent it.
 
 ## Use cases

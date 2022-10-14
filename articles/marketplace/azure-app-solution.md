@@ -6,7 +6,7 @@ ms.author: macerr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/05/2021
+ms.date: 9/14/2022
 ---
 
 # Configure a solution template plan

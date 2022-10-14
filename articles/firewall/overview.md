@@ -6,8 +6,8 @@ ms.author: victorh
 ms.service: firewall
 services: firewall
 ms.topic: overview
-ms.custom: mvc, contperf-fy21q1
-ms.date: 06/17/2022
+ms.custom: mvc, contperf-fy21q1, references_regions
+ms.date: 10/13/2022
 
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -18,7 +18,8 @@ ms.date: 06/17/2022
 
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-Azure Firewall is offered in two SKUs: Standard and Premium.
+Azure Firewall is offered in three SKUs: Standard, Premium, and Basic.
+
 
 ## Azure Firewall Standard
 
@@ -38,6 +39,68 @@ To learn about Firewall Standard features, see [Azure Firewall Standard features
 
 To learn about Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
+## Azure Firewall Basic (preview)
+
+> [!IMPORTANT]
+> Azure Firewall Basic is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Azure Firewall Basic is intended for small and medium size (SMB) customers to secure their Azure cloud 
+environments. It provides the essential protection SMB customers need at an affordable price point.
+
+:::image type="content" source="media/overview/firewall-basic-diagram.png" alt-text="Diagram showing Firewall Basic.":::
+
+Azure Firewall Basic is similar to Firewall Standard, but has the following limitations:
+
+- Supports Threat Intel *alert mode* only.
+- Fixed scale unit to run the service on two virtual machine backend instances.
+- Recommended for environments with maximum throughput of 250 Mbps. The throughput may increase for feature general availability (GA).
+
+### Supported regions
+
+Azure Firewall Basic is available in the following regions during the preview:
+
+- East US
+- East US 2
+- West US
+- West US 2
+- West US 3
+- Central US
+- North Central US
+- South Central US
+- West Central US
+- East US 2 EUAP
+- Central US EUAP
+- North Europe
+- West Europe
+- East Asia
+- Southeast Asia
+- Japan East
+- Japan West
+- Australia East
+- Australia Southeast
+- Australia Central
+- Brazil South
+- South India
+- Central India
+- West India
+- Canada Central
+- Canada East
+- UK South
+- UK West
+- Korea Central
+- Korea South
+- France Central
+- South Africa North
+- UAE North
+- Switzerland North
+- Germany West Central
+- Norway East
+- Jio India West
+- Sweden Central
+- Qatar Central
+
+To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic (preview) and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
 
 ## Azure Firewall Manager
 
@@ -131,4 +194,4 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 - [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
-- [Learn module: Introduction to Azure Firewall](/learn/modules/introduction-azure-firewall/)
+- [Learn module: Introduction to Azure Firewall](/training/modules/introduction-azure-firewall/)

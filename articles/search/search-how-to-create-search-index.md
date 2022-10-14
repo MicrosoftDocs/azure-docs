@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 09/15/2022
 ---
 
 # Create an index in Azure Cognitive Search
@@ -91,7 +91,9 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 ### [**REST**](#tab/index-rest)
 
-[**Create Index (REST)**](/rest/api/searchservice/create-index) is used to create an index. Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a search index client. Using either tool, you can connect to your search service and send requests:
+[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as a search index client. Using either tool, you can connect to your search service and send requests. 
+
+The following links show you how to set up the request:
 
 + [Create a search index using REST and Postman](search-get-started-rest.md)
 + [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)

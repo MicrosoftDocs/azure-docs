@@ -5,6 +5,7 @@ services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 10/28/2021
 ms.author: marhamil
@@ -20,11 +21,11 @@ Using the resources and libraries described in this article, you can embed conti
 
 ## Features and benefits
 
-Cognitive Services for big data can use resources from any [supported region](https://azure.microsoft.comglobal-infrastructure/services/?products=cognitive-services), as well as [containerized Cognitive Services](../cognitive-services-container-support.md). Containers support low or no connectivity deployments with ultra-low latency responses. Containerized Cognitive Services can be run locally, directly on the worker nodes of your Spark cluster, or on an external orchestrator like Kubernetes.
+Cognitive Services for big data can use resources from any [supported region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services), as well as [containerized Cognitive Services](../cognitive-services-container-support.md). Containers support low or no connectivity deployments with ultra-low latency responses. Containerized Cognitive Services can be run locally, directly on the worker nodes of your Spark cluster, or on an external orchestrator like Kubernetes.
 
 ## Supported services
 
-[Cognitive Services](../index.yml), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. With Cognitive Services you can make your applications see, hear, speak, understand, and reason. To use Cognitive Services, your application must send data to the service over the network. Once received, the service sends an intelligent response in return. The following Cognitive Services resources are available for big data workloads:
+[Cognitive Services](../index.yml), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. With Cognitive Services you can make your applications see, hear, speak, and understand. To use Cognitive Services, your application must send data to the service over the network. Once received, the service sends an intelligent response in return. The following Cognitive Services resources are available for big data workloads:
 
 ### Vision
 
@@ -140,7 +141,7 @@ Cognitive Services for big data is an example of how we can integrate intelligen
 
 - [The Azure Cognitive Services on Spark: Clusters with Embedded Intelligent Services](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Spark Summit Keynote: Scalable AI for Good](https://databricks.com/session_eu19/scalable-ai-for-good)
-- [Cognitive Services for big data in Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Cognitive Services for big data in Azure Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
 - [Lightning Talk on Large Scale Intelligent Microservices](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## Next steps

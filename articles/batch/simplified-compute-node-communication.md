@@ -16,13 +16,13 @@ This document describes forthcoming changes with how the Azure Batch service com
 > Support for simplified compute node communication in Azure Batch is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Opting in isn't required at this time. However, in the future, using simplified compute node communication will be required for all Batch accounts. At that time, an official retirement notice will be provided, with an opportunity to migrate your Batch pools before that happens.
+Opting in isn't required at this time. However, in the future, using simplified compute node communication will be required and defaulted for all Batch accounts.
 
 ## Supported regions
 
 Simplified compute node communication in Azure Batch is currently available for the following regions:
 
-- Public: Central US EUAP, East US 2 EUAP, West Central US, North Central US, South Central US, East US, East US 2, West US 2, West US, Central US, West US 3, East Asia, South East Asia, Australia East, Australia Southeast, Brazil Southeast, Brazil South, Canada Central, Canada East, North Europe, West Europe, Central India, Japan East, Japan West, Korea Central, Korea South, Switzerland North, UK West, UK South, UAE North, France Central, Germany West Central, Norway East, South Africa North.
+- Public: Central US EUAP, East US 2 EUAP, West Central US, North Central US, South Central US, East US, East US 2, West US 2, West US, Central US, West US 3, East Asia, South East Asia, Australia East, Australia Southeast, Brazil Southeast, Brazil South, Canada Central, Canada East, North Europe, West Europe, Central India, South India, Japan East, Japan West, Korea Central, Korea South, Sweden Central, Sweden South, Switzerland North, Switzerland West, UK West, UK South, UAE North, France Central, Germany West Central, Norway East, South Africa North.
 
 - Government: USGov Arizona, USGov Virginia, USGov Texas.
 

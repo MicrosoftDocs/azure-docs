@@ -17,7 +17,7 @@ In this article, you'll use the Azure portal to:
 > [!NOTE]
 > You can enable the Application Insights Profiler for Azure Functions apps on the **App Service** plan. 
 
-## Pre-requisites
+## Prerequisites
 
 - [An Azure Functions app](../../azure-functions/functions-create-function-app-portal.md). Verify your Functions app is on the **App Service** plan. 
      

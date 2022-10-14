@@ -1,14 +1,17 @@
 ---
 title: Troubleshooting Azure SQL Edge deployments
 description: Learn about possible errors when deploying Azure SQL Edge
-keywords: SQL Edge, troubleshooting, deployment errors
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: troubleshooting
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/22/2020
+keywords:
+  - SQL Edge
+  - troubleshooting
+  - deployment errors
+services: sql-edge
 ---
 
 # Troubleshooting Azure SQL Edge deployments 

@@ -61,8 +61,6 @@ Access all Git operations from the terminal. All Git files and folders will be s
 > [!NOTE]
 > Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
 
-Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
-
 ## Install packages
 
  Install packages from a terminal window. Install Python packages into the **Python 3.8 - AzureML** environment.  Install R packages into the **R** environment.
