@@ -82,9 +82,11 @@ Before going into the details, we're presenting the summary and recommendations 
 | DBMS log volume non-HANA non-M/Mv2 VM families | Not supported | restricted suitable (non-prod) | Suitable for up to medium workload | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
-<sup>2</sup> Using ANF requires /hana/data and /hana/log to be on ANF 
-<sup>3</sup> So far tested on SLES only
+^(1)  With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
+
+^(2)  Using ANF requires /hana/data and /hana/log to be on ANF
+
+^(3)  So far tested on SLES only
 
 Characteristics you can expect from the different storage types list like:
 
@@ -101,9 +103,11 @@ Characteristics you can expect from the different storage types list like:
 | Geo redundancy | Not for managed disks | Not for managed disks | No | No | No | Possible | No |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
-<sup>2</sup> Costs depend on provisioned IOPS and throughput
-<sup>3</sup> Creation of different ANF capacity pools doesn't guarantee deployment of capacity pools onto different storage units
+^(1) With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
+
+^(2) Costs depend on provisioned IOPS and throughput
+
+^(3)  Creation of different ANF capacity pools doesn't guarantee deployment of capacity pools onto different storage units
 
 
 > [!IMPORTANT]
