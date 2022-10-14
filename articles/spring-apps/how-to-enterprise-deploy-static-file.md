@@ -17,7 +17,7 @@ ms.custom: event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier. The static files are served by web servers like Nginx or Apache HTTP Server
+This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier. The static files are served by web servers like Nginx or Apache HTTP Server.
 
 ## Overview
 Azure Spring Apps allows you to deploy static files using the popular NGINX or HTTPD web servers:
@@ -83,12 +83,12 @@ The [Paketo samples](https://github.com/paketo-buildpacks/samples/tree/main/web-
 ## Configure auto-generated server configuration file
 You can use environment variables to tweak the automatically-generated server configuration file. Supported environment variables:
 
-|Environment Variable|Description|
-|--------------------|-----------|
-|BP_WEB_SERVER|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server. <br> It's required when using automatically-generated server configuration file.|
-|BP_WEB_SERVER_ROOT|Defaults to public, set the location of the static files with either an absolute file path or a file path relative to /workspace.|
-|BP_WEB_SERVER_ENABLE_PUSH_STATE|Enable push state routing for your application. Regardless of the route that is requested, index.html will always be served. It's useful for single-page web applications.|
-|BP_WEB_SERVER_FORCE_HTTPS|Enforce HTTPS for server connections by redirecting all requests to use the HTTPS protocol.|
+|Environment Variable|Supported Value|Description|
+|--------------------|---------------|-----------|
+|BP_WEB_SERVER|nginx or httpd|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server. <br> It's required when using automatically-generated server configuration file.|
+|BP_WEB_SERVER_ROOT|an absolute file path or a file path relative to /workspace|Defaults to public, set the root directory for the static files.|
+|BP_WEB_SERVER_ENABLE_PUSH_STATE|true or false|Enable push state routing for your application. Regardless of the route that is requested, index.html will always be served. It's useful for single-page web applications.|
+|BP_WEB_SERVER_FORCE_HTTPS|true or false|Enforce HTTPS for server connections by redirecting all requests to use the HTTPS protocol.|
 
 ## Customized server configuration file restriction
 You can configure web server by providing a customized server configuration file. Your configuration file must conform to the following restrictions:
