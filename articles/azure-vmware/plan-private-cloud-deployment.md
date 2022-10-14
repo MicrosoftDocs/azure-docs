@@ -70,7 +70,7 @@ Before requesting a host quota, make sure you've identified the Azure subscripti
 
 After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts.
 
-- [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
+- [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-and-mca-customers)
 - [CSP customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
 
 
