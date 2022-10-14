@@ -2,19 +2,24 @@
 title: How to manage the Container insights agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Container insights.
 ms.topic: conceptual
-ms.date: 08/29/2022
-ms.reviewer: viviandiec
+ms.date: 07/21/2020
+ms.reviewer: aul
 ---
 
 # How to manage the Container insights agent
 
 Container insights uses a containerized version of the Log Analytics agent for Linux. After initial deployment, there are routine or optional tasks you may need to perform during its lifecycle. This article details on how to manually upgrade the agent and disable collection of environmental variables from a particular container. 
 
+
+>[!NOTE]
+>The Container Insights agent name has changed from  OMSAgent to Azure Monitor Agent, along with a few other resoruce names. This doc reflects the new name. Please update your commands, alerts and scripts referencing the old name. Read more about the name change in [our blog post](https://techcommunity.microsoft.com/t5/azure-monitor-status-archive/name-update-for-agent-and-associated-resources-in-azure-monitor/ba-p/3576810). 
+>
+
 ## How to upgrade the Container insights agent
 
-Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md), the agent is not managed, and you need to manually upgrade the agent.
+Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift version 3.x. For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md) and Azure Red Hat OpenShift version 4.x, the agent is not managed, and you need to manually upgrade the agent.
 
-If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+If the agent upgrade fails for a cluster hosted on AKS or Azure Red Hat OpenShift version 3.x, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 ### Upgrade agent on AKS cluster
 
@@ -28,7 +33,7 @@ To install the new version of the agent, follow the steps described in the [enab
 
 After you've re-enabled monitoring, it might take about 15 minutes before you can view updated health metrics for the cluster. To verify the agent upgraded successfully, you can either:
 
-* Run the command: `kubectl get pod <omsagent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output.
+* Run the command: `kubectl get pod <ama-logs-agent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for Azure Monitor Agent in the *Containers* section of the output.
 * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
 The version of the agent shown should match the latest version listed on the [Release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) page.
@@ -59,6 +64,20 @@ If the Log Analytics workspace is in Azure US Government, run the following comm
 $ helm upgrade --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
+### Upgrade agent on Azure Red Hat OpenShift v4
+
+Perform the following steps to upgrade the agent on a Kubernetes cluster running on Azure Red Hat OpenShift version 4.x. 
+
+>[!NOTE]
+>Azure Red Hat OpenShift version 4.x only supports running in the Azure commercial cloud.
+>
+
+```console
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
+```
+
 ## How to disable environment variable collection on a container
 
 Container insights collects environmental variables from the containers running in a pod and presents them in the property pane of the selected container in the **Containers** view. You can control this behavior by disabling collection for a specific container either during deployment of the Kubernetes cluster, or after by setting the environment variable *AZMON_COLLECT_ENV*. This feature is available from the agent version – ciprod11292018 and higher.  
@@ -70,7 +89,13 @@ To disable collection of environmental variables on a new or existing container,
   value: "False"  
 ```
 
-Run the following command to apply the change to Kubernetes clusters: `kubectl apply -f  <path to yaml file>`.
+Run the following command to apply the change to Kubernetes clusters other than Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. To edit ConfigMap and apply this change for Azure Red Hat OpenShift clusters, run the command:
+
+```bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
+
+This opens your default text editor. After setting the variable, save the file in the editor.
 
 To verify the configuration change took effect, select a container in the **Containers** view in Container insights, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV=FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.
 
