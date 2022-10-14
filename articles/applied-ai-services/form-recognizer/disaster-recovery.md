@@ -11,6 +11,7 @@ ms.date: 10/14/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD033 -->
 
 # Back up and recover your Form Recognizer models
 
@@ -115,7 +116,7 @@ Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 
 |Error|Resolution|
 |:--|:--|
-| 400 / Bad Request with `"code:" "1002"` | Indicates validation error or badly formed copy request. Common issues include: a) Invalid or modified `copyAuthorization` payload. b) Expired value for `expirationDateTimeTicks` token (`copyAuhtorization` payload is valid for 24 hours). c) Invalid or unsupported `targetResourceRegion`. d) Invalid or malformed `targetResourceId` string.
+| 400 / Bad Request with `"code:" "1002"` | Indicates validation error or badly formed copy request. Common issues include: a) Invalid or modified `copyAuthorization` payload. b) Expired value for `expirationDateTimeTicks` token (`copyAuthorization` payload is valid for 24 hours). c) Invalid or unsupported `targetResourceRegion`. d) Invalid or malformed `targetResourceId` string.
 |"errors":[{"code":"AuthorizationError",<br>"message":"Authorization failure due to <br>missing or invalid authorization claims."}]   | Occurs when the `copyAuthorization` payload or content is modified from what was returned by the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
 |"errors":[{"code":"AuthorizationError",<br>"message":"Couldn't retrieve authorization <br>metadata. If this issue persists use a different <br>target model to copy into."}] | Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds won't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
 |"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request isn't allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
@@ -205,10 +206,6 @@ You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/d
 ### Track the target model ID
 
 If the operation was successful, the document model can be accessed using [**getModel**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel)(get a single model) or [**GetModels**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels)(get a list of models) APIs.
-
-## Next steps
-
-In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
 
 * [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 
@@ -326,9 +323,21 @@ curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecogniz
 curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.1/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}"
 ```
 
+::: moniker-end
+
 ## Next steps
 
+::: moniker range="form-recog-3.0.0"
+
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
+
+* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
+
 * [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
 
 ::: moniker-end

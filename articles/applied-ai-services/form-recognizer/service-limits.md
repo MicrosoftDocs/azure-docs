@@ -15,8 +15,9 @@ recommendations: false
 ---
 
 # Form Recognizer service quotas and limits
+<!-- markdownlint-disable MD033 -->
 
-[!INCLUDE [applies to v3.0 and v2.1](../includes/applies-to-v3-0-and-v2-1.md)]
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
