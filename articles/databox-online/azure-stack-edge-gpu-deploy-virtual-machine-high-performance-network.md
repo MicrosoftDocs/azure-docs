@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 10/14/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -31,6 +31,68 @@ To run low latency and high throughput network applications on the HPN VMs deplo
 The high-level summary of the HPN deployment workflow is as follows:
 
 ### [2210 and higher](#tab/2210)
+
+1. Enable a network interface for compute on your Azure Stack Edge device. This step creates a virtual switch on the specified network interface.
+1. Enable cloud management of VMs from the Azure portal.
+1. Upload a VHD to an Azure Storage account by using Azure Storage Explorer. 
+1. Use the uploaded VHD to download the VHD onto the device, and create a VM image from the VHD. 
+1. Use the resources created in the previous steps:
+    1. VM image that you created.
+    1. Virtual switch associated with the network interface on which you enabled compute.
+    1. Subnet associated with the virtual switch.
+
+    And create or specify the following resources inline:
+    1. VM name, choose a supported HPN VM size, sign-in credentials for the VM. 
+    1. Create new data disks or attach existing data disks.
+    1. Configure static or dynamic IP for the VM. If you're providing a static IP, choose from a free IP in the subnet range of the network interface enabled for compute.
+
+    Use the preceding resources to create an HPN VM.
+
+## Prerequisites
+
+Before you begin to create and manage VMs on your device via the Azure portal, make sure that:
+
+- You've completed the network settings on your Azure Stack Edge Pro GPU device as described in [Step 1: Configure an Azure Stack Edge Pro GPU device](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+
+    1. You've enabled a network interface for compute. This network interface IP is used to create a virtual switch for the VM deployment. In the local UI of your device, go to **Compute**. Select the network interface that you'll use to create a virtual switch.
+
+        > [!IMPORTANT] 
+        > You can configure only one port for compute.
+
+    1. Enable compute on the network interface. Azure Stack Edge Pro GPU creates and manages a virtual switch corresponding to that network interface.
+
+-  You have access to a Windows or Linux VHD that you'll use to create the VM image for the VM you intend to create.
+
+## Deploy a VM
+
+Follow these steps to create an HPN VM on your device.
+
+1. In the Azure portal of your Azure Stack Edge resource, [Add a VM image](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm-image). You'll use this VM image to create a VM in the next step. You can choose either Gen1 or Gen2 for the VM.
+
+1. Follow all the steps in [Add a VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm) with this configuration requirement. 
+
+    On the Basics tab, select a VM size from [DSv2 or F-series supported for HPN](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+
+    ![Screenshot showing the Basics tab in the Add Virtual Machine wizard for Azure Stack Edge. The Basics tab and the Next: Disks button are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-1.png)
+
+1. Finish the remaining steps in the VM creation. The VM will take approximately 30 minutes to be created. 
+
+    ![Screenshot showing the Review + Create tab in the Add Virtual Machine wizard for Azure Stack Edge. The Create button is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-2.png)
+
+1. After the VM is successfully created, you'll see your new VM on the **Overview** pane. Select the newly created VM to go to **Virtual machines**.
+
+    ![Screenshot showing the Virtual Machines pane of an Azure Stack Edge device. The Virtual Machines label and a virtual machine entry are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-3.png)
+
+    Select the VM to see the details.
+
+    ![Screenshot that shows the Details tab on the Overview pane for a virtual machine in Azure Stack Edge. The VM size and the IP Address in Networking are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-4.png)
+
+    You'll use the IP address for the network interface to connect to the VM.
+
+    > [!NOTE]
+    > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with `FabricVmPlacementErrorInsufficientNumaNodeCapacity` error.
+
+### [2209 and lower](#tab/2209)
 
 1. Enable a network interface for compute on your Azure Stack Edge device. This step creates a virtual switch on the specified network interface.
 1. Enable cloud management of VMs from the Azure portal.
@@ -82,7 +144,6 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
 
        > [!NOTE] 
-       > - In builds 2210 and higher, `Get-HcsNumaSpanning` will stop/move VMs internally. It will set the minrootConfig without changing the Numa spanning setting. This command will still trigger reboot, and you will see the VM stopped/moved. `Set-HcsNumaSpanning -Enable $true/$false`, will set the numa spanning setting. This is a disruptive command that will trigger reboot for all nodes. You will see the VM migration/VM stopped while this command is taking place.
        > - In builds 2209 and lower, you must stop all VMs before running this command. This command will set the minrootConfig and NumaSpanning flags. If the minRootConfig is all root, enable NumaSpanning. Otherwise, disable NumaSpanning.
     
     1. Get the `hostname` for your device. This should return a string corresponding to the device hostname.
@@ -97,7 +158,6 @@ In addition to the above prerequisites that are used for VM creation, you'll als
        ```
 
        > [!NOTE] 
-       > - All new builds 2210 and higher include a Numa Lp config of 4+4 minroot, or eight minroot in one numa node system, and NumaSpanning is enabled. You don't have to run `Set-HcsNumaLpMapping` to deploy HPN VM. Instead, all new devices on build 2210 or higher can deploy HPN VM directly.
        > - Devices that are updated to 2210 will keep their minroot configuration from before upgrade.
 
        Here's an example output:
@@ -189,10 +249,6 @@ Follow these steps to create an HPN VM on your device.
 
     > [!NOTE]
     > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with `FabricVmPlacementErrorInsufficientNumaNodeCapacity` error.
-
-### [2209 and lower](#tab/2209)
-
- - 2209 and lower...
 
 ---
 
