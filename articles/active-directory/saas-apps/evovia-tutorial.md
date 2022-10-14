@@ -118,7 +118,8 @@ To configure single sign-on on **Evovia** side, you need to send the **App Feder
 
 ### Create Evovia test user
 
-In this section, you create a user called Britta Simon in Evovia. Work with [Evovia support team](mailto:support@evovia.com) to add the users in the Evovia platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Evovia. The user in Evovia should have same username as the User name / User principal name in Azure AD.
+Work with [Evovia support team](mailto:support@evovia.com) to add the users in the Evovia platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
