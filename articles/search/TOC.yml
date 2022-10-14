@@ -91,7 +91,7 @@
       href: search-howto-index-encrypted-blobs.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Index large data
+  - name: Index at scale (Apache Spark)
     href: search-synapseml-cognitive-services.md
   - name: Enrich with AI (skills)
     items:
