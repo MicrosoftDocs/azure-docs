@@ -7,12 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 10/14/2022
 ---
 
 # Relevance and scoring in Azure Cognitive Search
 
-This article describes relevance and the scoring algorithms used to compute search scores in Azure Cognitive Search. A relevance score applies to matches returned in [full text search](search-lucene-query-architecture.md), where the most relevant matches appear first. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
+This article explains the relevance and the scoring algorithms used to compute search scores in Azure Cognitive Search. A relevance score is computed for each match found in a [full text search](search-lucene-query-architecture.md), where the strongest matches are assigned higher search scores. 
+
+Relevance applies to full text search only. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries are not scored or ranked for relevance.
 
 In Azure Cognitive Search, you can tune search relevance and boost search scores through these mechanisms:
 

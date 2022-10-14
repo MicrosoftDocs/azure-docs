@@ -7,17 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 10/14/2022
 ---
 
-# Configure the scoring algorithm in Azure Cognitive Search
+# Configure the similarity scoring algorithm in Azure Cognitive Search
 
-Depending on the age of your search service, Azure Cognitive Search supports two [scoring algorithms](index-similarity-and-scoring.md) for assigning relevance to results in a full text search query:
+In this article, you'll learn how to configure the similarity scoring algorithm used by Azure Cognitive Search.
+
+Depending on the age of your search service, Azure Cognitive Search supports two [similarity scoring algorithms](index-similarity-and-scoring.md) for assigning relevance to results in a full text search query:
 
 + An *Okapi BM25* algorithm, used in all search services created after July 15, 2020
 + A *classic similarity* algorithm, used by all search services created before July 15, 2020
 
-BM25 ranking is the default because it tends to produce search rankings that align better with user expectations. It includes [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. For search services created after July 2020, BM25 is the sole scoring algorithm. If you try to set "similarity" to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
+BM25 ranking is the default because it tends to produce search rankings that align better with user expectations. It includes [parameters](#set-bm25-parameters) for tuning results based on factors such as document size. For search services created after July 2020, BM25 is the only scoring algorithm. If you try to set "similarity" to ClassicSimilarity on a new service, an HTTP 400 error will be returned because that algorithm is not supported by the service.
 
 For older services, classic similarity remains the default algorithm. Older services can [upgrade to BM25](#enable-bm25-scoring-on-older-services) on a per-index basis. When switching from classic to BM25, you can expect to see some differences how search results are ordered.
 
@@ -38,7 +40,7 @@ PUT [service-name].search.windows.net/indexes/[index-name]?api-version=2020-06-3
 
 Because Cognitive Search won't allow updates to a live index, you'll need to take the index offline so that the parameters can be added. Indexing and query requests will fail while the index is offline. The duration of the outage is the amount of time it takes to update the index, usually no more than several seconds. When the update is complete, the index comes back automatically. To take the index offline, append the "allowIndexDowntime=true" URI parameter on the request that sets the "similarity" property.
 
-### BM25 property reference
+### BM25 property descriptions
 
 | Property | Type | Description |
 |----------|------|-------------|

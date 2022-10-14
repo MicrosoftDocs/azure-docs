@@ -1,5 +1,5 @@
 ---
-title: Add scoring profiles to boost search scores
+title: Add scoring profiles
 titleSuffix: Azure Cognitive Search
 description: Boost search relevance scores for Azure Cognitive Search results by adding scoring profiles to a search index.
 
@@ -7,11 +7,15 @@ manager: nitinme
 author: shmed
 ms.author: ramero
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2022
 ---
 
-# Add scoring profiles to a search index
+# Add scoring profiles to boost search scores in Azure Cognitive Search
+
+In this article, you'll learn how to create a scoring profile that can boost search scores using business logic or other criteria that you provide.
+
+## What is a scoring profile?
 
 For full text search queries, the search engine computes a search score for each matching document, which allows results to be ranked from high to low. Azure Cognitive Search uses a default scoring algorithm to compute an initial score, but you can customize the calculation through a *scoring profile*.
 
@@ -21,7 +25,7 @@ Unfamiliar with relevance concepts? The following video segment fast-forwards to
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
 
-## What is a scoring profile?
+### Scoring profile definition
 
 A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters. The purpose of a scoring profile is to boost or amplify matching documents based on criteria you provide. 
 
@@ -81,79 +85,6 @@ Scores are computed for full text search queries for the purpose of ranking the 
 You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting results that are more meaningful to your users or the business is often the deciding factor in adoption of scoring profiles.
 
 Relevancy-based ordering in a search page is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles can be used to drive the ‘relevance’ option. The definition of relevance is user-defined, predicated on business objectives and the type of search experience you want to deliver.  
-
-<a name="bkmk_ex"></a>
-
-## Extended example
-
-The following example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set. 
-
-The `boostGenre` profile uses weighted text fields, boosting matches found in albumTitle, genre, and artistName fields. The fields are boosted 1.5, 5, and 2 respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogenous (as is the case with 'genre' in the musicstoreindex), you might need a larger variance in the relative weights. For example, in the musicstoreindex, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
-
-```json
-{  
-  "name": "musicstoreindex",  
-  "fields": [  
-    { "name": "key", "type": "Edm.String", "key": true },  
-    { "name": "albumTitle", "type": "Edm.String" },  
-    { "name": "albumUrl", "type": "Edm.String", "filterable": false },  
-    { "name": "genre", "type": "Edm.String" },  
-    { "name": "genreDescription", "type": "Edm.String", "filterable": false },  
-    { "name": "artistName", "type": "Edm.String" },  
-    { "name": "orderableOnline", "type": "Edm.Boolean" },  
-    { "name": "rating", "type": "Edm.Int32" },  
-    { "name": "tags", "type": "Collection(Edm.String)" },  
-    { "name": "price", "type": "Edm.Double", "filterable": false },  
-    { "name": "margin", "type": "Edm.Int32", "retrievable": false },  
-    { "name": "inventory", "type": "Edm.Int32" },  
-    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }  
-  ],  
-  "scoringProfiles": [  
-    {  
-      "name": "boostGenre",  
-      "text": {  
-        "weights": {  
-          "albumTitle": 1.5,  
-          "genre": 5,  
-          "artistName": 2  
-        }  
-      }  
-    },  
-    {  
-      "name": "newAndHighlyRated",  
-      "functions": [  
-        {  
-          "type": "freshness",  
-          "fieldName": "lastUpdated",  
-          "boost": 10,  
-          "interpolation": "quadratic",  
-          "freshness": {  
-            "boostingDuration": "P365D"  
-          }  
-        },  
-        {
-          "type": "magnitude",  
-          "fieldName": "rating",  
-          "boost": 10,  
-          "interpolation": "linear",  
-          "magnitude": {  
-            "boostingRangeStart": 1,  
-            "boostingRangeEnd": 5,  
-            "constantBoostBeyondRange": false  
-          }  
-        }  
-      ]  
-    }  
-  ],  
-  "suggesters": [  
-    {  
-      "name": "sg",  
-      "searchMode": "analyzingInfixMatching",  
-      "sourceFields": [ "albumTitle", "artistName" ]  
-    }  
-  ]   
-}  
-```  
 
 ## Steps for adding a scoring profile
 
@@ -329,6 +260,79 @@ The following table provides several examples.
 |30 days, 5 hours, 10 minutes, and 6.334 seconds|"P30DT5H10M6.334S"|  
 
 For more examples, see [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
+
+<a name="bkmk_ex"></a>
+
+## Extended example
+
+The following example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set. 
+
+The `boostGenre` profile uses weighted text fields, boosting matches found in albumTitle, genre, and artistName fields. The fields are boosted 1.5, 5, and 2 respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogenous (as is the case with 'genre' in the musicstoreindex), you might need a larger variance in the relative weights. For example, in the musicstoreindex, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+
+```json
+{  
+  "name": "musicstoreindex",  
+  "fields": [  
+    { "name": "key", "type": "Edm.String", "key": true },  
+    { "name": "albumTitle", "type": "Edm.String" },  
+    { "name": "albumUrl", "type": "Edm.String", "filterable": false },  
+    { "name": "genre", "type": "Edm.String" },  
+    { "name": "genreDescription", "type": "Edm.String", "filterable": false },  
+    { "name": "artistName", "type": "Edm.String" },  
+    { "name": "orderableOnline", "type": "Edm.Boolean" },  
+    { "name": "rating", "type": "Edm.Int32" },  
+    { "name": "tags", "type": "Collection(Edm.String)" },  
+    { "name": "price", "type": "Edm.Double", "filterable": false },  
+    { "name": "margin", "type": "Edm.Int32", "retrievable": false },  
+    { "name": "inventory", "type": "Edm.Int32" },  
+    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }  
+  ],  
+  "scoringProfiles": [  
+    {  
+      "name": "boostGenre",  
+      "text": {  
+        "weights": {  
+          "albumTitle": 1.5,  
+          "genre": 5,  
+          "artistName": 2  
+        }  
+      }  
+    },  
+    {  
+      "name": "newAndHighlyRated",  
+      "functions": [  
+        {  
+          "type": "freshness",  
+          "fieldName": "lastUpdated",  
+          "boost": 10,  
+          "interpolation": "quadratic",  
+          "freshness": {  
+            "boostingDuration": "P365D"  
+          }  
+        },  
+        {
+          "type": "magnitude",  
+          "fieldName": "rating",  
+          "boost": 10,  
+          "interpolation": "linear",  
+          "magnitude": {  
+            "boostingRangeStart": 1,  
+            "boostingRangeEnd": 5,  
+            "constantBoostBeyondRange": false  
+          }  
+        }  
+      ]  
+    }  
+  ],  
+  "suggesters": [  
+    {  
+      "name": "sg",  
+      "searchMode": "analyzingInfixMatching",  
+      "sourceFields": [ "albumTitle", "artistName" ]  
+    }  
+  ]   
+}  
+```  
 
 ## See also
 
