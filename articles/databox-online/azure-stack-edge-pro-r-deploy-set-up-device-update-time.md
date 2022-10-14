@@ -62,7 +62,7 @@ Follow these steps to configure device related settings:
 
     5. After the settings are applied, select **Next: Update server**.
 
-        ![Local web UI "Device" page 3](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-4.png)
+        ![Local web UI "Device" page 3](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-6.png)
 
 ## Configure update
 
@@ -70,7 +70,7 @@ Follow these steps to configure device related settings:
 
     - You can get the updates directly from the **Microsoft Update server**.
 
-        ![Local web UI "Update Server" page](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-4.png)
+        ![Local web UI "Update Server" page](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-7.png)
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
         
