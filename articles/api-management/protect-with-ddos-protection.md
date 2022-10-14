@@ -51,7 +51,7 @@ To enable DDoS Protection on the virtual network used for your API Management in
 
     :::image type="content" source="media/protect-with-ddos-protection/enable-ddos-protection.png" alt-text="Screenshot of enabling a DDoS Protection plan on a VNet in the Azure portal.":::
 
-To enable DDoS protection on the IP address, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell.md#enable-ddos-ip-protection-for-a-public-ip-address).
+To enable DDoS protection on the IP address, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
 
 ## Next steps
 
