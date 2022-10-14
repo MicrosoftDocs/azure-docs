@@ -146,7 +146,7 @@ The facility area can be between 4 and 4,000 Sq Km.
 - Each facility has one or more levels, which are defined in the file *levels.goejson*.
   - Each level must be inside the facility.
 - Each [level][level] contain [units][unit], [structures][structure], [verticalPenetrations][verticalPenetration] and [openings][opening]. All of the items defined in the level must be contained within the Level geometry.
-  - `unit` can consist of an array of items such as hallways, offices and courtyards, which are defined by [area][areaElement], [line][lineElement] or[point][pointElement] elements. Units are defined in the file *unit.goejson*.
+  - `unit` can consist of an array of items such as hallways, offices and courtyards, which are defined by [area][areaElement], [line][lineElement] or [point][pointElement] elements. Units are defined in the file *unit.goejson*.
           - All `unit` elements must be contained within their level and intersect with their respective units.
   - `structure` defines physical, non-overlapping areas that can't be navigated through. Structures are defined in the file *structure.goejson*.
   - `verticalPenetration` represents a method of navigating vertically between levels, such as stairs and elevators and are defined in the file *verticalPenetration.geojson*.
