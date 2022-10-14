@@ -196,7 +196,7 @@ Resource selectors have the following properties:
 
   - `kind`: The property of a selector that describes what characteristic will narrow down the set of evaluated resources. Each kind can only be used once in a single resource selector. Allowed values are:
 
-    - `resourceLocation`: This is used to select resources based on their type. Can be used in up to 10 resource selectors. Cannot be used in the same resource selector as `resourceWithoutLocation`.
+    - `resourceLocation`: This is used to select resources based on their type. Cannot be used in the same resource selector as `resourceWithoutLocation`.
 
     - `resourceType`: This is used to select resources based on their type.
 
@@ -206,7 +206,7 @@ Resource selectors have the following properties:
 
   - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`. Can contain up to 50 values.
   
-A **resource selector** can contain multiple **selectors**. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, multiple **resource selectors** can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
+A **resource selector** can contain multiple **selectors**. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, up to 10 **resource selectors** can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
 
 ## Overrides (preview)
 
