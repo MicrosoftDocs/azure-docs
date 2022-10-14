@@ -101,7 +101,7 @@ metadata:
 type: Opaque
 ```
 
-More information you can find [here](reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl).
+For more information on configuring [an sslSecret](reference-kubernetes.md#sample-yaml-definition-of-kubernetes-secret-for-tlsssl).
 
 After that, you can specify the sslSecret to be the name of this Kubernetes secret as CLI command follow (assuming you are using AKS), 
 
