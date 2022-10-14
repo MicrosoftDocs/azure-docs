@@ -991,7 +991,40 @@ input()
 
 #### [.NET](#tab/net)
 
-Placeholder
+```csharp
+using System.Diagnostics.Metrics;
+using Azure.Monitor.OpenTelemetry.Exporter;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+public class Program
+{
+    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main()
+    {
+        using var meterProvider = Sdk.CreateMeterProviderBuilder()
+            .AddMeter("OTel.AzureMonitor.Demo")
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = "<Your Connection String>";
+            })
+            .Build();
+
+        Counter<long> MyFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
+
+        MyFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
+        MyFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
+        MyFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
+        MyFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
+        MyFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
+        MyFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
+
+        System.Console.WriteLine("Press Enter key to exit.");
+        System.Console.ReadLine();
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
