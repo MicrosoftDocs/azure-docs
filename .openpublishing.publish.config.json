@@ -951,6 +951,6 @@
     "articles/applied-ai-services/.openpublishing.archived.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
     ".openpublishing.redirection.baremetal-infrastructure.json",
-    ".openpublishing.redirection.iot-dps.json"
+    "articles/iot-dps/.openpublishing.redirection.iot-dps.json"
   ]
 }
