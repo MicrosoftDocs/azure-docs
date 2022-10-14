@@ -21,9 +21,11 @@ From the moment your device runs, an order of operations activates:
 1. The Logic App processes the HTTP request with a condition you set (to track the connections and disconnections of your device)
 1. The Logic App tracks and stores the latest device connection state in Cosmos DB
 
+<!--
 A sequence number is used in the *Device Connected* and *Device Disconnected* to track and order events. 
 
 The sequence number is a string representation of a hexadecimal number. You can use a string comparison to identify the larger number. If you're converting the string to hexadecimal, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than past events. This sequence is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn't support the ordering of events.
+-->
 
 ## Prerequisites
 
@@ -111,6 +113,8 @@ Conditions help run specific actions after passing that specific condition. For 
 
 1. Select **+ New step**, then the **Built-in** tab, then find and select the control called **Condition**. 
 
+1. In your condition, change **And** to **Or**, since we want to capture either connection events or disconnection events in a single parse.
+
 1. Select inside the **Choose a value** box and a pop up appears, showing the **Dynamic content** — the fields that can be selected. 
 
    * Choose **eventType**. The popup closes and you see **Body** is placed in **Select an output from previous steps**, automatically. Select **Condition** to reopen your conditional statement.
@@ -120,8 +124,6 @@ Conditions help run specific actions after passing that specific condition. For 
    * This second row is similar to the first row, except we look for disconnection events.
 
      Use **eventType**, **is equal to**, and **Microsoft.Devices.DeviceDisconnected** for the row values.
-     
-     Add a checkmark in front of each row, as shown.
 
      :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg" alt-text="Screenshot of the full For Each condition." lightbox="media/iot-hub-how-to-order-connection-state-events/condition-detail.jpg":::
 
@@ -189,7 +191,12 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
    :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/subscription-form.jpg" alt-text="Screenshot of the form to create an event subscription." lightbox="media/iot-hub-how-to-order-connection-state-events/subscription-form.jpg":::
 
-   Select **Create** to save the event subscription.
+   Select **Create** to save the event subscription. 
+
+   >[!IMPORTANT]
+   > Wait a few minutes for your event to process before running your device. Anytime Azure services are created or changed, initiating the next step in your pipeline too soon could result in unnecessary errors. For example, if your IoT hub is not in an active state, it won't be ready to receive events. Check your IoT hub **Overview** page to see if your IoT hub is in an active state or not. If it's not, you'll see a warning at the top of the page.
+   >
+   > :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/iot-hub-not-active.jpg" alt-text="Screenshot of an IoT Hub error that says it's not in an active state." lightbox="media/iot-hub-how-to-order-connection-state-events/iot-hub-not-active.jpg":::
 
 ## Run device and observe events
 
@@ -205,11 +212,11 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 1. Select **Save**.
 
-   ![Devices added to hub](./media/iot-hub-how-to-order-connection-state-events/add-iot-device.jpg)
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/add-iot-device.jpg" alt-text="Screenshot of location of the Add Device button." lightbox="media/iot-hub-how-to-order-connection-state-events/add-iot-device.jpg":::
 
 1. Click on the device again; now the connection strings and keys will be filled in. Copy and save the **Primary Connection String** for later use.
 
-   ![ConnectionString for device](./media/iot-hub-how-to-order-connection-state-events/device-conn-string.jpg)
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/device-conn-string.jpg" alt-text="Screenshot of location of the Primary Connection String for your device." lightbox="media/iot-hub-how-to-order-connection-state-events/device-conn-string.jpg":::
 
 ### Start Raspberry Pi simulator
 
@@ -223,23 +230,28 @@ This sample app will trigger a device connected event.
 
 1. In the coding area, replace the placeholder in Line 15 with your Azure IoT Hub device connection string that you saved at the end of the previous section.
 
-   ![Paste in device connection string](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/raspconnstring.png" alt-text="Screenshot of where to add your primary connection string in the Raspberry Pi script." lightbox="media/iot-hub-how-to-order-connection-state-events/raspconnstring.png":::
 
-2. Run the application by selecting **Run**.
+1. Run the application by selecting **Run**.
 
-You see something similar to the following output that shows the sensor data and the messages that are sent to your IoT hub.
+   You see something similar to the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
-   ![Running the application](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/raspmsg.png" alt-text="Screenshot of what to expect in your output console when you run the Raspberry Pi." lightbox="media/iot-hub-how-to-order-connection-state-events/raspmsg.png":::
 
-   Select **Stop** to stop the simulator and trigger a **Device Disconnected** event.
+1. You can check your Logic App **Overview** page to check if your logic is being triggered. It'll say **Succeeded** or **Failed**. Checking here let's you know your logic app state if troubleshooting is needed. Expect a 15-30 second delay from when your trigger runs. If you need to troubleshoot your logic app, view this [Troubleshoot errors](/azure/logic-apps/logic-apps-diagnosing-failures?tabs=consumption) article.
 
-You have now run a sample application to collect sensor data and send it to your IoT hub.
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg" alt-text="Screenshot of the status updates on your logic app Overview page." lightbox="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg":::
+
+1. Select **Stop** to stop the simulator, which triggers a **Device Disconnected** event. This event will log on the Logic App **Overview** page, just as the connection event logged there.
+
+You have now run a sample application to collect connection and disconnection events of your device, which go to your IoT hub.
 
 ### Observe events in Azure Cosmos DB
 
-You can see results of the executed stored procedure in your Cosmos DB document. The query **SELECT * FROM d** shows the document. Each row contains the latest device connection state per device.
+You can see results of the executed logic app in your Cosmos DB document. The document appears in your **Items** collection when you refresh the page. Each row contains the latest device connection state per device.
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg" alt-text="Screenshot of the status updates on your logic app Overview page." lightbox="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg":::
 
 ## Use the Azure CLI
 
