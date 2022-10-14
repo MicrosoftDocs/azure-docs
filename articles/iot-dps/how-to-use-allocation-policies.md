@@ -91,7 +91,7 @@ In either case, the following conditions apply:
 
 For both individual enrollments and enrollment groups, you can specify an allocation policy and the linked IoT hubs to apply it to when you create or update an enrollment.
 
-## Use Azure CLI to manage enrollment allocation policy and IoT hubs
+### Use Azure CLI to manage enrollment allocation policy and IoT hubs
 
 Use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create), [az iot dps enrollment update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-update), [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-create), [az iot dps enrollment-group update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-update)  Azure CLI commands to create or update individual enrollments or enrollment groups.
 
@@ -107,7 +107,7 @@ The following command updates the same enrollment group to use the *Lowest laten
 az iot dps enrollment-group update --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup --allocation-policy geolatency --iot-hubs "MyExampleHub.azure-devices.net MyExampleHub-2.azure-devices.net"
 ```
 
-## Use Azure portal to manage enrollment allocation policy and IoT hubs
+### Use Azure portal to manage enrollment allocation policy and IoT hubs
 
 To set allocation policy and select IoT hubs on an enrollment in Azure portal:
 
