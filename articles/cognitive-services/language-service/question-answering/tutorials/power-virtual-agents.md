@@ -113,19 +113,23 @@ This option helps in answering the specified question using your project. Type i
 
 Click on "New Step" and search for "Initialize variable". Choose a name for your variable, and select the "String" type.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Initialize variable action fields.]( ../media/power-virtual-agents/flow-step-4.png) ]( ../media/power-virtual-agents/flow-step-4.png#lightbox)
 
 Click on "New Step" again, and search for "Apply to each", then select the output from the previous steps and add an action of "Set variable" and select the connector action.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Set variable action within the Apply to each step.]( ../media/power-virtual-agents/flow-step-5.png) ]( ../media/power-virtual-agents/flow-step-5.png#lightbox)
 
 Click on "New Step" and search for "Return value(s) to Power Virtual Agents" and type in a keyword, then choose the previous variable name in the answer.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Return value(s) to Power Virtual Agents step, containing the previous variable.]( ../media/power-virtual-agents/flow-step-6.png) ]( ../media/power-virtual-agents/flow-step-6.png#lightbox)
 
 The list of completed steps should look like this.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the full list of completed steps within Power Virtual Agents.]( ../media/power-virtual-agents/flow-step-7.png) ]( ../media/power-virtual-agents/flow-step-7.png#lightbox)
 
 Select **Save** to save the flow.
 
@@ -152,18 +156,21 @@ For the bot to find and connect to the flow, the flow must be included in a Powe
 2. To insert a new step in the flow, above the **Message** action box, select the plus (+) icon. Then select **Call an action**.
 3. From the **Flow** pop-up window, select the new flow named **Generate answers using Question Answering Project...**. The new action appears in the flow.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the Call an action using the Generate answers using Question Answering Project flow.]( ../media/power-virtual-agents/flow-step-8.png) ]( ../media/power-virtual-agents/flow-step-8.png#lightbox)
 
 4. To correctly set the input variable to the QnA Maker action, select **Select a variable**, then select **bot.UnrecognizedTriggerPhrase**.
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the selected bot.UnrecognizedTriggerPhrase variable within the action call.]( ../media/power-virtual-agents/flow-step-9.png) ]( ../media/power-virtual-agents/flow-step-9.png#lightbox)
 
 5. To correctly set the output variable to the Question Answering action, in the **Message** action, select **UnrecognizedTriggerPhrase**, then select the icon to insert a variable, {x}, then select **FinalAnswer**.
 6. From the context toolbar, select **Save**, to save the authoring canvas details for the topic.
 
 Here's what the final bot canvas looks like:
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the completed bot canvas.]( ../media/power-virtual-agents/flow-step-10.png) ]( ../media/power-virtual-agents/flow-step-10.png#lightbox)
 
 ## Test the bot
 
@@ -181,7 +188,8 @@ As you design your bot in Power Virtual Agents, you can use the [Test bot pane](
 |5                 |Yes                                                                |In reply to "Can I help with anything else?"                                                                                                                                     |
 |6                 |How can I improve the throughput performance for query predictions?|This question triggers the fallback action, which sends the text to your knowledge base to answer. Then the answer is shown. the green check marks for the individual actions indicate success for each action.|
 
-IMAGE
+> [!div class="mx-imgBorder"]
+> [ ![Screenshot of the completd test bot running alongside the tutorial flow.]( ../media/power-virtual-agents/flow-step-11.png) ]( ../media/power-virtual-agents/flow-step-11.png#lightbox)
 
 ## Publish your bot
 
