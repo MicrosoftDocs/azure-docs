@@ -326,7 +326,6 @@ See the following sample YAML files for each NLP task.
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-
 See the sample notebooks for detailed code examples for each NLP task. 
 
 * [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-text-classification-multiclass-task-sentiment.ipynb)
