@@ -11,7 +11,7 @@
 ---    
 - Only supported for data disks.
 - If a disk is 4 TiB or less, you can't expand it beyond 4 TiB without deallocating the VM. If a disk is already greater than 4 TiB, you can expand it without deallocating the VM.
-- Not supported for Ultra disks or Premium SSD v2 (preview) disks.
+- Not supported for Ultra disks or Premium SSD v2 disks.
 - Not supported for shared disks.
 - Install and use either:
     - The [latest Azure CLI](/cli/azure/install-azure-cli)
