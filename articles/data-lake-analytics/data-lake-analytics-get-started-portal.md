@@ -20,7 +20,7 @@ Before you begin this tutorial, you must have an **Azure subscription**. If you 
 
 ## Create a Data Lake Analytics account
 
-Now, you will create a Data Lake Analytics and an Azure Data Lake Storage Gen1 account at the same time.  This step is simple and only takes about 60 seconds to finish.
+Now, you'll create a Data Lake Analytics and an Azure Data Lake Storage Gen1 account at the same time.  This step is simple and only takes about 60 seconds to finish.
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**, and in the search at the top of the page enter **Data Lake Analytics**.
@@ -36,7 +36,7 @@ Now, you will create a Data Lake Analytics and an Azure Data Lake Storage Gen1 a
 
 ## Your first U-SQL script
 
-The following text is a very simple U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Storage Gen1 account as a file called `/data.csv`.
+The following text is a simple U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Storage Gen1 account as a file called `/data.csv`.
 
 ```usql
 @a  = 
