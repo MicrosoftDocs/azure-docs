@@ -17,9 +17,6 @@ Azure Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional an
 
 Using [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, Azure Synapse Link enables no Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against your operational data at scale. Business analysts, data engineers, and data scientists can now use Synapse Spark or Synapse SQL interchangeably to run near real time business intelligence, analytics, and machine learning pipelines. You can achieve this without impacting the performance of your transactional workloads on Azure Cosmos DB.
 
-> [!NOTE]
-> Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, check the [configuration documentation](configure-synapse-link.md).
-
 The following image shows the Azure Synapse Link integration with Azure Cosmos DB and Azure Synapse Analytics: 
 
 :::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Architecture diagram for Azure Synapse Analytics integration with Azure Cosmos DB" border="false":::
@@ -113,7 +110,7 @@ Synapse Link isn't recommended if you're looking for traditional data warehouse 
 
 ## Limitations
 
-* Azure Synapse Link for Azure Cosmos DB is not supported for API for Gremlin, Cassandra, and Table. It is supported for API for NoSQL and MongoDB.
+* Azure Synapse Link for Azure Cosmos DB is not supported for Cassandra, and Table APIs. It is supported for API for NoSQL and MongoDB. And it is in preview for Gremlin API.
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 
