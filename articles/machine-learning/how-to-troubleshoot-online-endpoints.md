@@ -45,7 +45,7 @@ Local deployment is deploying a model to a local Docker environment. Local deplo
 
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. 
 
-# [Azure CLI](#tab/cli)
+## [Azure CLI](#tab/cli)
 
 To use local deployment, add `--local` to the appropriate CLI command:
 
@@ -53,7 +53,7 @@ To use local deployment, add `--local` to the appropriate CLI command:
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
 
-# [Python SDK](#tab/python)
+## [Python SDK](#tab/python)
 
 To use local deployment, add  `local=True` parameter in the command:
 
@@ -178,11 +178,27 @@ Below is a list of common deployment errors that are reported as part of the dep
 
 ### ERROR: ImageBuildFailure
 
-This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location is returned as part of the error. For example, 'The build log is available in the workspace blob store "storage-account-name" under the path "/azureml/ImageLogs/your-image-id/build.log"'. In this case, "azureml" is the name of the blob container in the storage account.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, "The build log is available in the workspace blob store '[storage-account-name]' under the path '/azureml/ImageLogs/your-image-id/build.log'". In this case, "azureml" is the name of the blob container in the storage account.
 
-If no obvious error is found in the build log, and the last line is `Installing pip dependencies: ...working...`, then the error may be caused by a dependency. Pinning version dependencies in your conda file could fix this problem.
+Below is a list of common image build failure scenarios:
 
-We also recommend using a [local deployment](#deploy-locally) to test and debug your models locally before deploying in the cloud.
+* [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
+* [Generic or unknown failure](#generic-image-build-failure)
+
+#### Container registry authorization failure
+
+If the error message mentions `"container registry authorization failure"`, that means the container registry could not be accessed with the current credentials.
+This can be caused by desynchronization of a workspace resource's keys and it takes some time to automatically synchronize.
+However, you can [manually call for a synchronization of keys](https://learn.microsoft.com/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
+
+Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network been set up properly.
+
+#### Generic image build failure
+
+As stated above, you can check the build log for more information on the failure.
+If no obvious error is found in the build log and the last line is `Installing pip dependencies: ...working...`, then the error may be caused by a dependency. Pinning version dependencies in your conda file can fix this problem.
+
+We also recommend [deploying locally](#deploy-locally) to test and debug your models locally before deploying to the cloud.
 
 ### ERROR: OutOfQuota
 
@@ -231,13 +247,13 @@ If your container could not start, this means scoring could not happen. It might
 
 To get the exact reason for an error, run: 
 
-# [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
-# [Python SDK](#tab/python)
+#### [Python SDK](#tab/python)
 
 ```python
 ml_client.online_deployments.get_logs(
@@ -295,13 +311,13 @@ Make sure the model is registered to the same workspace as the deployment. Use t
 
 - For example: 
   
-  # [Azure CLI](#tab/cli)
+  #### [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml model show --name <model-name> --version <version>
   ```
  
-  # [Python SDK](#tab/python)
+  #### [Python SDK](#tab/python)
 
   ```python
   ml_client.models.get(name="<model-name>", version=<version>)
@@ -321,13 +337,13 @@ You can also check if the blobs are present in the workspace storage account.
   
 - If the blob is present, you can use this command to obtain the logs from the storage initializer:
 
-  # [Azure CLI](#tab/cli)
+  #### [Azure CLI](#tab/cli)
 
   ```azurecli
   az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> –-container storage-initializer`
   ```
 
-  # [Python SDK](#tab/python)
+  #### [Python SDK](#tab/python)
 
   ```python
   ml_client.online_deployments.get_logs(
