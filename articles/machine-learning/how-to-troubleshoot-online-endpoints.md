@@ -56,7 +56,7 @@ To use local deployment, add `--local` to the appropriate CLI command:
 ```azurecli
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
-For more, see [Deploy locally in Deploy and score a machine learning model(CLI)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 # [Python SDK](#tab/python)
 
@@ -68,7 +68,7 @@ ml_client.begin_create_or_update(online_deployment, local=True)
 
 * `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
 
-For more, see [Deploy locally in Deploy and score a machine learning model(SDK)](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
+For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
 
 ---
 
