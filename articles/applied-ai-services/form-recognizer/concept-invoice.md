@@ -102,7 +102,6 @@ See how data, including customer information, vendor details, and line items, is
 | PaymentTerm | String | The terms of payment for the invoice | |
 | SubTotal | Number | Subtotal field identified on this invoice | Integer |
 | TotalTax | Number | Total tax field identified on this invoice | Integer |
-| TotalVAT | Number | Total VAT field identified on this invoice | Integer |
 | InvoiceTotal | Number (USD) | Total new charges associated with this invoice | Integer |
 | AmountDue |  Number (USD) | Total Amount Due to the vendor | Integer |
 | ServiceAddress | String | Explicit service address or property address for the customer | |
@@ -128,7 +127,6 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
-| VAT | Number | Stands for Value added tax. VAT is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
