@@ -79,7 +79,7 @@ If there were issues with the deployment, see [Troubleshoot common Azure deploym
 
 ## Clean up resources
 
-You can delete Azure resources by using complete deployment mode. To delete a flow logs resource, specify a deployment in the complete mode without including the resource you want to delete. Read more about [complete deployment mode](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
+You can delete Azure resources by using complete deployment mode. To delete a flow logs resource, specify a deployment in complete mode without including the resource you want to delete. Read more about [complete deployment mode](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
 
 You also can disable an NSG flow log in the Azure portal:
 
