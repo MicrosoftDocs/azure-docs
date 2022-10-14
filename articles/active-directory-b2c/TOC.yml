@@ -492,6 +492,8 @@
       href: custom-policies-series-overview.md
     - name: Create Hello World custom policies
       href: custom-policies-series-hello-world.md
+    - name: Collect user input using custom policy
+      href: custom-policies-series-collect-user-input.md
     - name: Install XML extensions
       href: custom-policies-series-install-xml-extensions.md
   - name: Identity verification and proofing

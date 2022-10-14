@@ -79,14 +79,12 @@ While you can use pre-made [custom policy starter pack](/tutorial-create-user-fl
     ```xml
       <ClaimsSchema>
         <ClaimType Id="objectId">
-            <DisplayName>subject Object ID</DisplayName>
+            <DisplayName>unique object Id for subject of the claims being returned</DisplayName>
             <DataType>string</DataType>
-            <UserHelpText>Object identifier (ID) of the subject object in Azure AD.</UserHelpText>
-        </ClaimType>
+        </ClaimType>        
         <ClaimType Id="message">
-            <UserHelpText>The message</UserHelpText>
+            <DisplayName>Will hold Hello World message</DisplayName>
             <DataType>string</DataType>
-            <UserHelpText>It holds the Hello World message</UserHelpText>
         </ClaimType>
       </ClaimsSchema>
     ``` 
@@ -114,11 +112,184 @@ While you can use pre-made [custom policy starter pack](/tutorial-create-user-fl
             </TechnicalProfile>
           </TechnicalProfiles>
         </ClaimsProvider>
+
+        <ClaimsProvider>
+          <!-- The technical profile(s) defined in this section is required by the framework to be included in all custom policies. -->
+          <DisplayName>Trustframework Policy Engine TechnicalProfiles</DisplayName>
+          <TechnicalProfiles>
+            <TechnicalProfile Id="TpEngine_c3bd4fe2-1775-4013-b91d-35f16d377d13">
+              <DisplayName>Trustframework Policy Engine Default Technical Profile</DisplayName>
+              <Protocol Name="None" />
+              <Metadata>
+                <Item Key="url">{service:te}</Item>
+              </Metadata>
+            </TechnicalProfile>
+          </TechnicalProfiles>
+        </ClaimsProvider>
     ```
     
-    We've declared a JWT Token Issuer. In the `CryptographicKeys` section, if you used different names to configure the signing and encryption keys in [step 1](), make sure you update the value of `StorageReferenceId`.  
+    We've declared a JWT Token Issuer. In the `CryptographicKeys` section, if you used different names to configure the signing and encryption keys in [step 1](#step-1---configure-the-signing-and-encryption-keys), make sure you use the correct value for the `StorageReferenceId`.  
 
 1. In the `UserJourneys` section of the `ContosoCustomPolicy.XML` file, add the following code:
 
-## Step 3 - Upload and test custom policy
+    ```xml
+      <UserJourney Id="HelloWorldJourney">
+        <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+      </UserJourney>
+    ```
+    
+    We've added a [UserJourney](userjourneys.md). The user journey specifies the business logic the end user goes through as Azure AD B2C processes a request. 
+
+1.  In the `RelyingParty` section of the `ContosoCustomPolicy.XML` file, add the following code:
+
+    ```xml
+      <DefaultUserJourney ReferenceId="HelloWorldJourney"/>
+      <TechnicalProfile Id="HelloWorldPolicyProfile">
+        <DisplayName>Hello World Policy Profile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" DefaultValue="abcd-1234-efgh-5678-ijkl-etc."/>
+          <OutputClaim ClaimTypeReferenceId="message" DefaultValue="Hello World!"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    ```
+
+    The [RelyingParty] section is the entry point to your policy. It specifies the [UserJourney](userjourneys.md) to execute and the claims to include in the token that is returned when the policy runs.  
+
+Once you complete [step 2](#step-2---build-the-custom-policy-file), the `ContosoCustomPolicy.XML` file should look similar to the following code: 
+
+```xml
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="Contosob2c2233.onmicrosoft.com" PolicyId="B2C_1A_ContosoCustomPolicy" PublicPolicyUri="http://Contosob2c2233.onmicrosoft.com/B2C_1A_ContosoCustomPolicy">
+        <BuildingBlocks>
+            <ClaimsSchema>
+            <ClaimType Id="objectId">
+                <DisplayName>unique object Id for subject of the claims being returned</DisplayName>
+                <DataType>string</DataType>
+            </ClaimType>        
+            <ClaimType Id="message">
+                <DisplayName>Will hold Hello World message</DisplayName>
+                <DataType>string</DataType>
+            </ClaimType>
+            </ClaimsSchema>
+        </BuildingBlocks>
+        <ClaimsProviders><!--Claims Providers Here-->
+            <ClaimsProvider>
+                <DisplayName>Token Issuer</DisplayName>
+                <TechnicalProfiles>
+                    <TechnicalProfile Id="JwtIssuer">
+                        <DisplayName>JWT Issuer</DisplayName>
+                        <Protocol Name="None"/>
+                        <OutputTokenFormat>JWT</OutputTokenFormat>
+                        <Metadata>
+                            <Item Key="client_id">{service:te}</Item>
+                            <Item Key="issuer_refresh_token_user_identity_claim_type">objectId</Item>
+                            <Item Key="SendTokenResponseBodyWithJsonNumbers">true</Item>
+                        </Metadata>
+                        <CryptographicKeys>
+                            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer"/>
+                            <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_TokenEncryptionKeyContainer"/>
+                        </CryptographicKeys>
+                    </TechnicalProfile>
+                </TechnicalProfiles>
+            </ClaimsProvider>
+    
+            <ClaimsProvider>
+            <DisplayName>Trustframework Policy Engine TechnicalProfiles</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="TpEngine_c3bd4fe2-1775-4013-b91d-35f16d377d13">
+                <DisplayName>Trustframework Policy Engine Default Technical Profile</DisplayName>
+                <Protocol Name="None" />
+                <Metadata>
+                    <Item Key="url">{service:te}</Item>
+                </Metadata>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+            </ClaimsProvider>
+        </ClaimsProviders>
+      <UserJourneys>
+        <UserJourney Id="HelloWorldJourney">
+          <OrchestrationSteps>
+            <OrchestrationStep Order="1" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+          </OrchestrationSteps>
+        </UserJourney>
+      </UserJourneys>
+        <RelyingParty><!-- 
+                Relying Party Here that's your policy’s entry point
+                Specify the User Journey to execute 
+                Specify the claims to include in the token that is returned when the policy runs
+            -->
+            <DefaultUserJourney ReferenceId="HelloWorldJourney"/>
+            <TechnicalProfile Id="HelloWorldPolicyProfile">
+                <DisplayName>Hello World Policy Profile</DisplayName>
+                <Protocol Name="OpenIdConnect"/>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" DefaultValue="abcd-1234-efgh-5678-ijkl-etc."/>
+                    <OutputClaim ClaimTypeReferenceId="message" DefaultValue="Hello World!"/>
+                </OutputClaims>
+                <SubjectNamingInfo ClaimType="sub"/>
+            </TechnicalProfile>
+        </RelyingParty>
+    </TrustFrameworkPolicy>
+```
+    
+## Step 3 - Upload custom policy file
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. In the left menu, under **Policies**, select **Identity Experience Framework**.
+1. Select **Upload custom policy**, browse select and then upload the `ContosoCustomPolicy.XML` file. 
+
+
+After you upload the file, Azure AD B2C adds the prefix `B2C_1A_`, so the names looks similar to **B2C_1A_CONTOSOCUSTOMPOLICY**.
+
+
+## Step 4 - Test the custom policy
+
+1. Under **Custom policies**, select **B2C_1A_CONTOSOCUSTOMPOLICY**.
+1. For **Select application** on the overview page of the custom policy, select the web application such as *webapp1* that you previously registered. Make sure that the **Select reply URL** value is set to`https://jwt.ms`.
+1. Select **Run now** button.
+
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JSON snippet: 
+
+```json
+    {
+      "typ": "JWT",
+      "alg": "RS256",
+      "kid": "pxLOMWFg...."
+    }.{
+      ...
+      "sub": "abcd-1234-efgh-5678-ijkl-etc.",
+      ...
+      "acr": "b2c_1a_contosocustompolicy",
+      ...
+      "message": "Hello World!"
+    }.[Signature]
+``` 
+
+Notice the `message` and `sub` claims, which we set as [output claims](relyingparty.md#outputclaims) in the [RelyingParty] section. 
+
+## Next steps
+
+In this article, you learned and used four sections of an Azure AD B2C custom policy. These sections are added as child elements the `TrustFrameworkPolicy` root element: 
+
+> [!div class="checklist"]
+> - BuildingBlocks 
+> - ClaimsProviders 
+> - UserJourneys 
+> - RelyingParty 
+
+Next, learn:  
+
+- How to [collect and use user inputs by using custom policy](custom-policies-series-collect-user-input.md)
+
+- About custom policy [claim overview](custom-policy-overview.md#claims). 
+
+- How to [declare a custom policy claim](claimsschema.md). 
+
+- About custom policy [claims data type](claimsschema.md#datatype). 
 
