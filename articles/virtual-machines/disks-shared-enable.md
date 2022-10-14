@@ -186,8 +186,6 @@ Replace the values in this Azure Resource Manager template with your own, before
 To deploy a managed disk with the shared disk feature enabled, change the `maxShares` parameter to a value greater than 1. This makes the disk shareable across multiple VMs.
 
 > [!IMPORTANT]
-> Host caching isn't supported for shared disks.
-> 
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
 # [Portal](#tab/azure-portal)
@@ -305,6 +303,8 @@ az disk update --name mySharedDisk --max-shares 5
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!NOTE]
+> Host caching isn't supported for shared disks.
+> 
 > If you are deploying an ultra disk, make sure it matches the necessary requirements. See [Using Azure ultra disks](disks-enable-ultra-ssd.md) for details.
 
 ```azurepowershell-interactive
