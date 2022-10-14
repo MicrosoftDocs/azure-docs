@@ -1660,7 +1660,7 @@
       - name: OpenText Directory Services
         href: opentext-directory-services-tutorial.md
       - name: OpenText XM Fax and XM SendSecure
-        href: opentextfax-tutorial.md
+        href: opentext-fax-tutorial.md
       - name: OpsGenie
         href: opsgenie-tutorial.md
       - name: Optimizely
