@@ -76,7 +76,7 @@ Remove-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName
+az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName
 ```
 ---
 
@@ -91,7 +91,7 @@ Remove-AzElasticSanVolumeGroup -ResourceGroupName $resourceGroupName -ElasticSan
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san delete -e $sanName -g $resourceGroupName -n $volumeGroupName
+az elastic-san volume-group delete -e $sanName -g $resourceGroupName -n $volumeGroupName
 ```
 ---
 
