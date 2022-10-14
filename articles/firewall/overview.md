@@ -6,8 +6,8 @@ ms.author: victorh
 ms.service: firewall
 services: firewall
 ms.topic: overview
-ms.custom: mvc, contperf-fy21q1
-ms.date: 09/26/2022
+ms.custom: mvc, contperf-fy21q1, references_regions
+ms.date: 10/13/2022
 
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -55,6 +55,50 @@ Azure Firewall Basic is similar to Firewall Standard, but has the following limi
 - Supports Threat Intel *alert mode* only.
 - Fixed scale unit to run the service on two virtual machine backend instances.
 - Recommended for environments with maximum throughput of 250 Mbps. The throughput may increase for feature general availability (GA).
+
+### Supported regions
+
+Azure Firewall Basic is available in the following regions during the preview:
+
+- East US
+- East US 2
+- West US
+- West US 2
+- West US 3
+- Central US
+- North Central US
+- South Central US
+- West Central US
+- East US 2 EUAP
+- Central US EUAP
+- North Europe
+- West Europe
+- East Asia
+- Southeast Asia
+- Japan East
+- Japan West
+- Australia East
+- Australia Southeast
+- Australia Central
+- Brazil South
+- South India
+- Central India
+- West India
+- Canada Central
+- Canada East
+- UK South
+- UK West
+- Korea Central
+- Korea South
+- France Central
+- South Africa North
+- UAE North
+- Switzerland North
+- Germany West Central
+- Norway East
+- Jio India West
+- Sweden Central
+- Qatar Central
 
 To deploy a Basic Firewall, see [Deploy and configure Azure Firewall Basic (preview) and policy using the Azure portal](deploy-firewall-basic-portal-policy.md).
 

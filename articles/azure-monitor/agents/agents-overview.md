@@ -182,22 +182,18 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux 8.5                                               | X<sup>3</sup> |   |   |
-| AlmaLinux 8                                                 | X | X |   |
+| AlmaLinux 8                                                 | X<sup>3</sup> | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X | X |   |
 | CentOS Linux 7                                              | X<sup>3</sup> | X | X |
 | CentOS Linux 6                                              |   | X |   |
-| CentOS Linux 6.5+                                           |   | X | X |
-| CBL-Mariner 2.0                                             | X |   |   |
+| CBL-Mariner 2.0                                             | X<sup>3</sup> |   |   |
 | Debian 11                                                   | X<sup>3</sup> |   |   |
 | Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
-| Debian 7                                                    |   |   | X |
 | OpenSUSE 15                                                 | X |   |   |
-| OpenSUSE 13.1+                                              |   |   | X |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |

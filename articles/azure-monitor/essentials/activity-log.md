@@ -23,7 +23,8 @@ For more functionality, create a diagnostic setting to send the activity log to 
 For details on how to create a diagnostic setting, see [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md).
 
 > [!NOTE]
-> Entries in the activity log are system generated and can't be changed or deleted.
+> * Entries in the Activity Log are system generated and can't be changed or deleted.
+> * Entries in the Activity Log are representing control plane changes like a virtual machine restart, any non related entries should be written into [Azure Resource Logs](https://learn.microsoft.com/azure/azure-monitor/essentials/resource-logs)
 
 ## Retention period
 
@@ -202,7 +203,7 @@ Log profiles are the legacy method for sending the activity log to storage or ev
 
 #### [PowerShell](#tab/powershell)
 
-If a log profile already exists, you first must remove the existing log profile and then create a new one.
+If a log profile already exists, you first must remove the existing log profile, and then create a new one.
 
 1. Use `Get-AzLogProfile` to identify if a log profile exists. If a log profile exists, note the `Name` property.
 
@@ -252,7 +253,7 @@ This sample PowerShell script creates a log profile that writes the activity log
 
 #### [CLI](#tab/cli)
 
-If a log profile already exists, you first must remove the existing log profile and then create a log profile.
+If a log profile already exists, you first must remove the existing log profile, and then create a log profile.
 
 1. Use `az monitor log-profiles list` to identify if a log profile exists.
 1. Use `az monitor log-profiles delete --name "<log profile name>` to remove the log profile by using the value from the `name` property.

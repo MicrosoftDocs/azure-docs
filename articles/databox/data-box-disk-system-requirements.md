@@ -40,7 +40,7 @@ Here is a list of the supported operating systems for the disk unlock and data c
 | **Operating system** | **Tested versions** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows (64-bit) |7, 8, 10 |
+| Windows (64-bit) |7, 8, 10, 11 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## Other required software for Windows clients
