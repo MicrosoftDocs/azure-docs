@@ -160,7 +160,7 @@ Budget integration with action groups works for action groups that have enabled 
 
 ## View budgets in the Azure mobile app
 
-You can view budgets for your subscriptions and resource groups from the **Cost Management** card in the Azure mobile app.
+You can view budgets for your subscriptions and resource groups from the **Cost Management** card in the [Azure app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/).
 
 1. Navigate to any subscription or resource group.
 1. Find the **Cost Management** card and tap **More**.
@@ -169,7 +169,7 @@ You can view budgets for your subscriptions and resource groups from the **Cost 
 > [!NOTE]
 > Currently, the Azure mobile app only supports the subscription and resource group scopes for budgets.
 
-:::image type="content" source="./media/tutorial-acm-create-budgets/azure-app-budgets.png" alt-text="Screenshot showing budgets in the [Azure app](https://azure.microsoft.com/get-started/azure-portal/mobile-app/)." lightbox="./media/tutorial-acm-create-budgets/azure-app-budgets.png" :::
+:::image type="content" source="./media/tutorial-acm-create-budgets/azure-app-budgets.png" alt-text="Screenshot showing budgets in the Azure app." lightbox="./media/tutorial-acm-create-budgets/azure-app-budgets.png" :::
 
 ## Create and edit budgets with PowerShell
 
