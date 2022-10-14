@@ -75,7 +75,7 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 
 |Step|Setting|Value|
 |---|---|---|
-| 1 | Select a version of the **Ubuntu Server** |                                                                     |
+| 1 | Select a version of **Ubuntu Server** |                                                                     |
 | 3 | Name                                  | myVm2                                                                   |
 | 3 | Authentication type                   | Paste your SSH public key or select **Password** and enter a password. |
 | 3 | Resource group                        | Select **Use existing** and select **myResourceGroup**.                 |
@@ -128,7 +128,7 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 
 Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. A generated alert can automatically run one or more actions, such as to notify someone or start another process. When setting an alert rule, the resource that you target determines the list of available metrics that you can use to generate alerts.
 
-1. In the Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
+1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
 2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set the **Resource type** to filter down to the Connection Monitor that you want to use.
 
     ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
