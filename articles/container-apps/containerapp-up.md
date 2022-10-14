@@ -60,7 +60,6 @@ For more information about the az containerapp up command, see [az containerapp 
 
 1. Now that the current extension or module is installed, register the `Microsoft.App` namespace.
 
-# [Bash](#tab/bash)
     
     ```azurecli
     az provider register --namespace Microsoft.App
@@ -68,7 +67,6 @@ For more information about the az containerapp up command, see [az containerapp 
 
 1. Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you haven't used it before.
 
-    # [Bash](#tab/bash)
     
     ```azurecli
     az provider register --namespace Microsoft.OperationalInsights
@@ -85,7 +83,6 @@ In this example, the `az containerapp up` command will:
 1. Create and deploy a container app pulling the image from a public registry.
 1. Sets ingress to external with a target port to the specified value.
 
-```azurecli
 
 ```azurecli
 az containerapp up \
