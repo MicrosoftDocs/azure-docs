@@ -381,23 +381,37 @@ Add this code to the end of the `Main` method:
 
 This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-To run the code, navigate to the directory containing the `pom.xml` file and compile the project by using the following `mvn` command:
+Follow steps to compile, package, and run the code
 
-```console
-mvn compile
-```
-
-Next, build the package:
-
-```console
-mvn package
-```
-
-Run the following `mvn` command to execute the app:
-
-```console
-mvn exec:java -D exec.mainClass=com.blobs.quickstart.App -D exec.cleanupDaemonThreads=false
-```
+1. Navigate to the directory containing the `pom.xml` file and compile the project by using the following `mvn` command:
+    ```console
+    mvn compile
+    ```
+1. Package the compiled code in its distributable format:
+    ```console
+    mvn package
+    ```
+1. Run the following `mvn` command to execute the app:
+    ```console
+    mvn exec:java -D exec.mainClass=com.blobs.quickstart.App -D exec.cleanupDaemonThreads=false
+    ```
+    To simplify the run step, you can add `exec-maven-plugin` to `pom.xml` and configure as shown below:
+    ```xml
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>1.4.0</version>
+      <configuration>
+        <mainClass>com.blobs.quickstart.App</mainClass>
+        <cleanupDaemonThreads>false</cleanupDaemonThreads>
+      </configuration>
+    </plugin>
+    ```
+    With this configuration, you can execute the app with this command:
+    ```console
+    mvn exec:java
+    ```
+    
 
 The output of the app is similar to the following example (UUID values omitted for readability):
 
