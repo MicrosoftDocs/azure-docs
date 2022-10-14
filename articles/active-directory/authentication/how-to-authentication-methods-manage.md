@@ -71,7 +71,7 @@ If the user can't register Microsoft Authenticator based on either of those poli
 - **Mobile app code**
 - **Mobile phone**
 
-The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. This means that by default, a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies don't allow phone calls. 
+The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. As a result, a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies don't allow phone calls. 
 
 ## Migration between policies
 
