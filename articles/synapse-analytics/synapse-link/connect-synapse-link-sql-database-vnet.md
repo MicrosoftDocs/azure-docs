@@ -20,7 +20,7 @@ This article is a guide for configuring Azure Synapse Link for Azure SQL Databas
 
 ## Create a managed workspace virtual network without data exfiltration
 
-In this section, you create an Azure Synapse workspace with a managed virtual network enabled. You'll enable **managed virtual network**, and then select **No** to allow outbound traffic from the workspace to any target. For an overview, see [Azure Synapse Analytics managed virtual network](../security/synapse-workspace-managed-vnet.md).
+In this section, you create an Azure Synapse workspace with a managed virtual network enabled. For **Managed virtual network**, you'll select **Enable**, and for **Allow outbound data traffic only to approved targets**, you'll select **No**. For an overview, see [Azure Synapse Analytics managed virtual network](../security/synapse-workspace-managed-vnet.md).
 
 :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-allow-outbound-traffic.png" alt-text="Screenshot that shows how to create an Azure Synapse workspace that allows outbound traffic.":::
 
@@ -48,7 +48,7 @@ In this section, you create an Azure Synapse workspace with a managed virtual ne
 
 ## Create a managed workspace virtual network with data exfiltration
 
-In this section, you create an Azure Synapse workspace with managed virtual network enabled. You'll enable **managed virtual network** and select **Yes** to limit outbound traffic from the managed workspace virtual network to targets through managed private endpoints. For an overview, see [Azure Synapse Analytics managed virtual network](../security/synapse-workspace-managed-vnet.md).
+In this section, you create an Azure Synapse workspace with managed virtual network enabled. You'll enable **Managed virtual network**, and you'll select **Yes** to limit outbound traffic from the managed workspace virtual network to targets through managed private endpoints. For an overview, see [Azure Synapse Analytics managed virtual network](../security/synapse-workspace-managed-vnet.md).
 
 :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-disallow-outbound-traffic.png" alt-text="Screenshot that shows how to create an Azure Synapse workspace that disallows outbound traffic.":::
 
@@ -66,7 +66,7 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
 1. Create a linked service that connects to your Azure SQL database with a managed private endpoint enabled.
 
-   a. Create a linked service connecting to your Azure SQL database.
+   a. Create a linked service that connects to your Azure SQL database.
    
       :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe.png" alt-text="Screenshot of a new Azure SQL database linked service private endpoint.":::
 
