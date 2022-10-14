@@ -102,9 +102,7 @@ Characteristics you can expect from the different storage types list like:
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
-
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
-
 <sup>3</sup> Creation of different ANF capacity pools doesn't guarantee deployment of capacity pools onto different storage units
 
 
