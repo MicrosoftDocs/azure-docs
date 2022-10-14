@@ -31,7 +31,7 @@ TLS and SSL both rely on *digital certificates*, which help with encryption and 
 
 This is the general process to secure an online endpoint:
 
-1. Get a domain name.
+1. Get a [domain name.](#get-a-domain-name)
 
 1. Get a digital certificate.
 
