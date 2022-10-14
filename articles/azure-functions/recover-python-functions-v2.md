@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Python function apps using the V2 programming model in Azure Functions
+title: Troubleshooting V2 Python Azure Function Applications
 description: Learn about known issues and workarounds when creating Python function apps using the V2 programming model in Azure functions.
 
 ms.topic: article
