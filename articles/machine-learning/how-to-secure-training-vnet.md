@@ -122,7 +122,7 @@ In this article you learn how to secure the following training compute resources
     > [!IMPORTANT]
     > On October TBD, the public preview for no public IP configuration for compute cluster and compute instance moved to a new architecture. This new architecture removes limitations, such as the requirement for inbound access from the Azure Batch management and Azure Machine Learning services. However, the new architecture requires you to opt-in. Before opting in to this preview, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
     >
-    > Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription.
+    > Use the form at [https://forms.office.com/r/0Rw6mXTT07](https://forms.office.com/r/0Rw6mXTT07) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription.
 
     > [!TIP]
     > If you have existing compute instances configured for no public IP, you will need to delete and recreate them after your subscription has been allowlisted to take advantage of the new architecture. For existing compute clusters configured for no public IP, once the cluster has been reduced to 0 nodes (requires the minimum nodes to be configured as 0), it will take advantage of the new architecture the next time nodes are allocated after the subscription is allowlisted.
