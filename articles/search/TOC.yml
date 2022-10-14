@@ -91,7 +91,7 @@
       href: search-howto-index-encrypted-blobs.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Enrich with SynapseML
+  - name: Index at scale (Apache Spark)
     href: search-synapseml-cognitive-services.md
   - name: Enrich with AI (skills)
     items:
@@ -143,8 +143,11 @@
       href: search-query-overview.md
     - name: Relevance scoring
       href: index-similarity-and-scoring.md
+<<<<<<< HEAD
     - name: Semantic ranking
       href: semantic-ranking.md 
+=======
+>>>>>>> a09eed52f182f7472e59eaff50f6d1dd8ba95571
   - name: Indexing
     items:
     - name: Search indexes
