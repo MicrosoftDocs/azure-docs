@@ -129,6 +129,10 @@ To validate your Private Link for Azure Virtual Desktop and make sure it's worki
    - Make sure your clients can't connect to Azure Virtual Desktop and your session hosts from public routes.
    - Make sure the session hosts can't connect to Azure Virtual Desktop from public routes.
 
+## Removing a private endpoint
+
+A private endpoint to the global sub-resource of any workspace controls the shared fully-qualified domain name (FQDN) for initial feed discovery. This control enables feed discovery for all workspaces. Because the workspace connected to the private endpoint is so important, deleting it will cause all feed discovery processes to stop working. Instead of deleting the workspace, you should create an unused placeholder workspace to terminate the global endpoint.
+
 ## Next steps
 
 - Learn more about how Private Link for Azure Virtual Desktop at [Use Private Link with Azure Virtual Desktop](private-link-overview.md).
