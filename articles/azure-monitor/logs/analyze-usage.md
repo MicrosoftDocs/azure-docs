@@ -231,7 +231,7 @@ There are two approaches to investigating the amount of data collected for Appli
 
 
 > [!NOTE]
-> Queries against Application Insights table except `SystemEvents` will work for both a workspace-based and classic Application Insights resource, since [backwards compatibility](../app/convert-classic-resource.md#understanding-log-queries) allows you to continue to use [legacy table names](../app/apm-tables.md). For a workspace-based resource, open **Logs** from the **Log Analytics workspace** menu. For a classic resource, open **Logs** from the **Application Insights** menu.
+> Queries against Application Insights table except `SystemEvents` will work for both a workspace-based and classic Application Insights resource, since [backwards compatibility](../app/convert-classic-resource.md#understand-log-queries) allows you to continue to use [legacy table names](../app/apm-tables.md). For a workspace-based resource, open **Logs** from the **Log Analytics workspace** menu. For a classic resource, open **Logs** from the **Application Insights** menu.
 
 **Dependency operations generate the most data volume in the last 30 days (workspace-based or classic)**
 

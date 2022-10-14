@@ -550,6 +550,8 @@
         href: consent2go-tutorial.md
       - name: Contentful
         href: contentful-tutorial.md
+      - name: Contentkalender
+        href: contentkalender-tutorial.md
       - name: Contentsquare SSO
         href: contentsquare-sso-tutorial.md
       - name: ContractSafe Saml2 SSO
@@ -1381,7 +1383,7 @@
         href: lecorpio-tutorial.md
       - name: Lenses.io
         href: lensesio-tutorial.md
-      - name: Lesson.ly
+      - name: Lessonly
         href: lessonly-tutorial.md
       - name: Lexonis TalentScape
         href: lexonis-talentscape-tutorial.md
@@ -1519,7 +1521,7 @@
         href: momenta-tutorial.md
       - name: monday.com
         href: mondaycom-tutorial.md
-      - name: MongoDB Cloud
+      - name: MongoDB Atlas - SSO
         href: mongodb-cloud-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
@@ -1566,7 +1568,7 @@
       - name: NAVEX One
         href: navex-one-tutorial.md
       - name: NAVEX IRM (Lockpath/Keylight)
-        href: keylight-tutorial.md
+        href: navex-irm-keylight-lockpath-tutorial.md
       - name: NegometrixPortal Single Sign On (SSO)
         href: negometrixportal-tutorial.md
       - name: NEOGOV
@@ -1659,6 +1661,8 @@
         href: openlearning-tutorial.md
       - name: OpenText Directory Services
         href: opentext-directory-services-tutorial.md
+      - name: OpenText XM Fax and XM SendSecure
+        href: opentext-fax-tutorial.md
       - name: OpsGenie
         href: opsgenie-tutorial.md
       - name: Optimizely
