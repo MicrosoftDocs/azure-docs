@@ -123,19 +123,19 @@ This section walks through enabling Container insights metric alert (preview) fr
 
 3. From the command bar, select **Recommended alerts**.
 
-    ![Screenshot showing the Recommended alerts option in Container insights](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![Screenshot showing the Recommended alerts option in Container insights.](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. The **Recommended alerts** property pane automatically displays on the right side of the page. By default, all alert rules in the list are disabled. After selecting **Enable**, the alert rule is created and the rule name updates to include a link to the alert resource.
 
-    ![Screenshot showing the Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
+    ![Screenshot showing the Recommended alerts properties pane.](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
     After selecting the **Enable/Disable** toggle to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
-    ![Screenshot showing the option to enable an alert rule](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
+    ![Screenshot showing the option to enable an alert rule.](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
 5. Alert rules are not associated with an [action group](../alerts/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** and on the **Action Groups** page, specify an existing or create an action group by selecting **Add** or **Create**.
 
-    ![Screenshot showing the option to select an action group](./media/container-insights-metric-alerts/select-action-group.png)
+    ![Screenshot showing the option to select an action group.](./media/container-insights-metric-alerts/select-action-group.png)
 
 ### Enable with a Resource Manager template
 
