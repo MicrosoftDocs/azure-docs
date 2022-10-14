@@ -100,7 +100,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
 
 Geo-primary URLs (preview)
-Once the caches are linked, URLs are generated that always point to the geo-primary cache. If a failover is initiated from the geo-primary to the geo-secondary, the URL remains the same and the underlying DNS record is updated automatically to point to the new geo-primary.
+Once the caches are linked, URLs are generated that always point to the geo-primary cache. If a failover is initiated from the geo-primary to the geo-secondary, the URL remains the same, and the underlying DNS record is updated automatically to point to the new geo-primary.
 
 <!-- need image -->
 
@@ -127,7 +127,7 @@ This causes the following steps to be taken:
 1. DNS records are updated to redirect the geo-primary URLs to the new geo-primary.
 1. The old geo-primary cache is demoted to secondary, and attempts to form a link to the new geo-primary cache.
 
-The geo-failover process take a few minutes to complete.
+The geo-failover process takes a few minutes to complete.
 
 ### Settings to check before initiating geo-failover
 
@@ -135,18 +135,18 @@ When the failover is initiated, the geo-primary and geo-secondary caches will sw
 
 Be sure to check the following items:
 
-- If you’re using a firewall in either cache, make sure that the firewall settings are similar so that there will not be connection issues. 
+- If you’re using a firewall in either cache, make sure that the firewall settings are similar so you have no connection issues.
 - Make sure both caches are using the same port and TLS/SSL settings
-- The geo-primary and geo-secondary caches have different access keys. In the event of a failover being triggered, make sure your application can update the access key it is using to match the new geo-primary.
+- The geo-primary and geo-secondary caches have different access keys. In the event of a failover being triggered, make sure your application can update the access key it's using to match the new geo-primary.
 
 ### Failover with minimal data loss
 
-Geo-failover events can introduce data inconsistencies during the transition, especially if the client maintains a connection to the old geo-primary during the failover process. It is possible to minimize data loss in a planned geo-failover event using the following tips:
+Geo-failover events can introduce data inconsistencies during the transition, especially if the client maintains a connection to the old geo-primary during the failover process. It's possible to minimize data loss in a planned geo-failover event using the following tips:
 
 - Check the geo-replication data sync offset metric. The metric is emitted by the current geo-primary cache. This metric indicates how much data has yet to be replicated to the geo-primary. If possible, only initiate failover if the metric indicates fewer than 14 bytes remain to be written.
-- Run the CLIENT PAUSE command in the current geo-primary before initiating failover. This blocks any new write requests and instead returns timeout failures to the Azure Cache for Redis client. The CLIENT PAUSE command requires providing a timeout period in milliseconds. Make sure a long enough timeout period is provided to allow the failover to occur. Setting this to around 30 minutes (1800000 milliseconds) is a good place to start. You can always lower this number as needed. 
+- Run the `CLIENT PAUSE` command in the current geo-primary before initiating failover. Running `CLIENT PAUSE` blocks any new write requests and instead returns timeout failures to the Azure Cache for Redis client. The `CLIENT PAUSE` command requires providing a timeout period in milliseconds. Make sure a long enough timeout period is provided to allow the failover to occur. Setting this to around 30 minutes (1,800,000 milliseconds) is a good place to start. You can always lower this number as needed. 
 
-There is no need to run the CLIENT UNPAUSE command as the new geo-primary does retain the client pause.
+There's no need to run the CLIENT UNPAUSE command as the new geo-primary does retain the client pause.
 
 ## Remove a geo-replication link
 
@@ -164,7 +164,7 @@ There is no need to run the CLIENT UNPAUSE command as the new geo-primary does r
 
 - [Can I use geo-replication with a Standard or Basic tier cache?](#can-i-use-geo-replication-with-a-standard-or-basic-tier-cache)
 - [Is my cache available for use during the linking or unlinking process?](#is-my-cache-available-for-use-during-the-linking-or-unlinking-process)
-<!-- - start here -->
+- Can I track the health of the geo-replication link?
 - [Can I link more than two caches together?](#can-i-link-more-than-two-caches-together)
 - [Can I link two caches from different Azure subscriptions?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [Can I link two caches with different sizes?](#can-i-link-two-caches-with-different-sizes)
@@ -177,18 +177,29 @@ There is no need to run the CLIENT UNPAUSE command as the new geo-primary does r
 - [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
+<!-- Remove this question? -->
 - [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 - [Can I configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### Can I use geo-replication with a Standard or Basic tier cache?
 
-No, geo-replication is only available for Premium tier caches.
+No, passive geo-replication is only available in the Premium tier. A more advanced version of geo-replication called, _active geo-replication_, is available in the Enterprise and Enterprise Flash tier.
 
 ### Is my cache available for use during the linking or unlinking process?
 
 - The primary linked cache remains available until the linking process completes.
 - The secondary linked cache isn't available until the linking process completes.
 - Both caches remain available until the unlinking process completes.
+
+### Can I track the health of the geo-replication link?
+
+Yes, there are several metrics available to help track the status of the geo-replication. These metrics are available in the Azure portal.
+
+- **Geo Replication Healthy** shows the status of the geo-replication link. The link will show up as unhealthy if either the geo-primary or geo-secondary caches are down. This is typically due to standard patching operations, but it could also indicate a failure situation.
+- **Geo Replication Connectivity Lag** shows the time since the last successful data synchronization between geo-primary and geo-secondary.
+- **Geo Replication Data Sync Offset** shows the amount of data that has yet to be synchronized to the geo-secondary cache.
+- **Geo Replication Fully Sync Event Started** indicates that a full synchronization action has been initiated between the geo-primary and geo-secondary caches. This occurs if standard replication can't keep up with the number of new writes.
+- **Geo Replication Full Sync Event Finished** indicates that a full synchronization action has been completed.
 
 ### Can I link more than two caches together?
 
@@ -200,7 +211,7 @@ No, both caches must be in the same Azure subscription.
 
 ### Can I link two caches with different sizes?
 
-Yes, as long as the secondary linked cache is larger than the primary linked cache.
+Yes, as long as the secondary linked cache is larger than the primary linked cache. However, you can't use the failover feature if the caches are different sizes.
 
 ### Can I use geo-replication with clustering enabled?
 
@@ -225,7 +236,7 @@ Replication is continuous and asynchronous. It doesn't happen on a specific sche
 
 ### How long does geo-replication replication take?
 
-Replication is incremental, asynchronous, and continuous and the time taken isn't much different from the latency across regions. Under certain circumstances, the secondary cache can be required to do a full sync of the data from the primary. The replication time in this case depends on many factors like: load on the primary cache, available network bandwidth, and inter-region latency. We have found replication time for a full 53-GB geo-replicated pair can be anywhere between 5 to 10 minutes.
+Replication is incremental, asynchronous, and continuous and the time taken isn't much different from the latency across regions. Under certain circumstances, the secondary cache can be required to do a full sync of the data from the primary. The replication time in this case depends on many factors like: load on the primary cache, available network bandwidth, and inter-region latency. We have found replication time for a full 53-GB geo-replicated pair can be anywhere between 5 to 10 minutes. You can track the amount of data that has yet to be replicated using the `Geo Replication Data Sync Offset` metric in Azure monitor.
 
 ### Is the replication recovery point guaranteed?
 
@@ -249,6 +260,9 @@ Geo-replicated caches and their resource groups can't be deleted while linked un
 
 In general, it's recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, it's recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
 
+<!-- I want to double-check that this should be removed here and in the question section. -->
+
+<!-- 
 ### How does failing over to the secondary linked cache work?
 
 Automatic failover across Azure regions isn't supported for geo-replicated caches. In a disaster-recovery scenario, customers should bring up the entire application stack in a coordinated manner in their backup region. Letting individual application components decide when to switch to their backups on their own can negatively affect performance. 
@@ -256,6 +270,8 @@ Automatic failover across Azure regions isn't supported for geo-replicated cache
 One of the key benefits of Redis is that it's a very low-latency store. If the customer's main application is in a different region than its cache, the added round-trip time would have a noticeable effect on performance. For this reason, we avoid failing over automatically because of transient availability issues.
 
 To start a customer-initiated failover, first unlink the caches. Then, change your Redis client to use the connection endpoint of the (formerly linked) secondary cache. When the two caches are unlinked, the secondary cache becomes a regular read-write cache again and accepts requests directly from Redis clients.
+
+ -->
 
 ### Can I configure a firewall with geo-replication?
 
