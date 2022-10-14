@@ -64,11 +64,9 @@ Learn more at [Deploy MLflow models to Azure Machine Learning](how-to-deploy-mlf
 
 ## Training MLflow projects (preview)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 You can submit training jobs to Azure Machine Learning by using [MLflow projects](https://www.mlflow.org/docs/latest/projects.html) (preview). You can submit jobs locally with Azure Machine Learning tracking or migrate your jobs to the cloud via [Azure Machine Learning compute](./how-to-create-attach-compute-cluster.md).
 
-Learn more at [Train machine learning models with MLflow projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
+Learn more at [Train machine learning models with MLflow projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
 
 ## MLflow SDK, Azure Machine Learning v2, and Azure Machine Learning studio capabilities
 
