@@ -1,9 +1,9 @@
 ---
-title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
-description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
+title: Overview of Azure IoT Hub Device Provisioning Service
+description: Describes production scale device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
 author: kgremban
 ms.author: kgremban
-ms.date: 11/22/2021
+ms.date: 10/14/2022
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
@@ -14,6 +14,20 @@ ms.custom:  [amqp, mqtt]
 # What is Azure IoT Hub Device Provisioning Service?
 
 Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. DPS enables the provisioning of millions of devices in a secure and scalable manner.
+
+Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following diagram describes what goes on behind the scenes to get a device provisioned. The first step is manual, all of the following steps are automated.
+
+:::image type="content" source="./media/about-iot-dps/dps-provisioning-flow.png" alt-text="Diagram that shows how the device, Device Provisioning Service, and IoT Hub work together.":::
+
+Before the device provisioning flow begins, there are two manual steps to prepare. On the device side, the device manufacturer prepares the device for provisioning by preconfiguring it with its authentication credentials and assigned Device Provisioning Service ID and endpoint. On the cloud side, you or the device manufacturer prepares the Device Provisioning Service instance with individual enrollments and enrollments groups that identify valid devices and define how they should be provisioned.
+
+Once the device and cloud are set up for provisioning, the following steps kick off automatically as soon as the device powers on for the first time:
+
+1. When the device first powers on it connects to the DPS endpoint and presents it authentication credentials.
+1. The DPS instance checks the identity of the device against its enrollment list. Once the device identity is verifies, DPS assigns the device to an IoT hub and registers it in the hub.
+1. The DPS instance receives the device ID and registration information from the assigned hub and passes that information back to the device.
+1. The device uses its registration information to connect directly to its assigned IoT hub and authenticate.
+1. Once authenticated, the device and IoT hub begin communicating directly. The DPS instance has no further role as an intermediary unless the device needs to reprovision.
 
 ## When to use Device Provisioning Service
 
@@ -27,22 +41,7 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
 
-Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
-
-## Behind the scenes
-
-All the scenarios listed in the previous section can be done using DPS for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. The following section describes what goes on behind the scenes to get a device provisioned. The first step is manual, all of the following steps are automated.
-
-![Basic provisioning flow](./media/about-iot-dps/dps-provisioning-flow.png)
-
-1. Device manufacturer adds the device registration information to the enrollment list in the Azure portal.
-2. Device contacts the DPS endpoint set at the factory. The device passes the identifying information to DPS to prove its identity.
-3. DPS validates the identity of the device by validating the registration ID and key against the enrollment list entry using either a nonce challenge ([Trusted Platform Module](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) or standard X.509 verification (X.509).
-4. DPS registers the device with an IoT hub and populates the device's [desired twin state](../iot-hub/iot-hub-devguide-device-twins.md).
-5. The IoT hub returns device ID information to DPS.
-6. DPS returns the IoT hub connection information to the device. The device can now start sending data directly to the IoT hub.
-7. The device connects to IoT hub.
-8. The device gets the desired state from its device twin in IoT hub.
+Provisioning of nested IoT Edge devices (parent/child hierarchies) is not currently supported by DPS.
 
 ## Provisioning process
 
