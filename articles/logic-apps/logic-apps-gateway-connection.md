@@ -68,32 +68,32 @@ You can also create [custom connectors](../logic-apps/custom-connector-overview.
 
 After you install the gateway on a local computer, create the Azure resource for your gateway.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with the same Azure account that was used to install the gateway.
+1. Sign in to the [Azure portal](https://portal.azure.com) with the same Azure account that you used to install the gateway.
 
-1. In the Azure portal search box, enter "on-premises data gateway", and select **On-premises Data Gateways**.
+1. In the Azure portal search box, enter **on-premises data gateway**, and then select **On-premises data gateways**.
 
-   ![Find "On-premises data gateway"](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
+   :::image type="content" source="./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png" alt-text="Screenshot of the Azure portal. In the search box, 'on-premises data gateway' is selected. In the results, 'On-premises data gateways' is selected.":::
 
-1. Under **On-premises Data Gateways**, select **Add**.
+1. Under **On-premises data gateways**, select **Create**.
 
-   ![Add new Azure resource for data gateway](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
+   :::image type="content" source="./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png" alt-text="Screenshot of the Azure portal. On the 'On-premises data gateways page,' the 'Create' button is selected.":::
 
-1. Under **Create connection gateway**, provide this information for your gateway resource. When you're done, select **Create**.
+1. Under **Create a gateway**, provide this information for your gateway resource. When you're done, select **Review + create**.
 
    | Property | Description |
    |----------|-------------|
-   | **Resource Name** | Provide a name for your gateway resource that contains only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), or periods (`.`). |
-   | **Subscription** | Select the Azure subscription for the Azure account that was used for the gateway installation. The default subscription is based on the Azure account that you used to sign in. |
-   | **Resource group** | The [Azure resource group](../azure-resource-manager/management/overview.md) that you want to use |
-   | **Location** | The same region or location that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). Otherwise, your gateway installation won't appear in the **Installation Name** list. Your logic app location can differ from your gateway resource location. |
+   | **Subscription** | Select the Azure subscription for the Azure account that you used for the gateway installation. The default subscription is based on the Azure account that you used to sign in. |
+   | **Resource group** | Select the [Azure resource group](../azure-resource-manager/management/overview.md) that you want to use. |
+   | **Name** | Enter a name for your gateway resource that contains only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), or periods (`.`). |
+   | **Region** | Select the same region or location that you selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). Otherwise, your gateway installation won't appear in the **Installation Name** list. Your logic app location can differ from your gateway resource location. |
    | **Installation Name** | Select a gateway installation, which appears in the list only when these conditions are met: <p><p>- The gateway installation uses the same region as the gateway resource that you want to create. <br>- The gateway installation isn't linked to another Azure gateway resource. <br>- The gateway installation is linked to the same Azure account that you're using to create the gateway resource. <br>- Your Azure account belongs to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is the same account that you used for the gateway installation. <p><p>For more information, see the [Frequently asked questions](#faq) section. |
    |||
 
-   Here is an example that shows a gateway installation that's in the same region as your gateway resource and is linked to the same Azure account:
+   Here's an example that shows a gateway installation that's in the same region as your gateway resource and is linked to the same Azure account:
 
-   ![Provide details to create data gateway resource](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
+   :::image type="content" source="./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png" alt-text="Screenshot of the Azure portal 'Create a gateway' page. The 'Name,' 'Region,' and other boxes have values. The 'Review + create' button is selected.":::
 
-<a name="connect-logic-app-gateway"></a>
+1. Review the values that you entered, and then select **Create**.
 
 ## Connect to on-premises data
 
