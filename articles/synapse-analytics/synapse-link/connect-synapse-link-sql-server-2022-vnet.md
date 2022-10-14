@@ -36,7 +36,7 @@ In this section, you create an Azure Synapse workspace with a managed virtual ne
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="Screenshot that shows how to enable interactive authoring.":::
 
-1. From the **Integrate** pane, create a link connection to replicate data from your SQL Server 2022 instance to the Azure Synapse SQL pool.
+1. On the **Integrate** pane, create a link connection to replicate data from your SQL Server 2022 instance to the Azure Synapse SQL pool.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="Screenshot that shows how to create a link to an Azure Synapse SQL pool.":::
 
@@ -83,11 +83,11 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
    
      :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe2.png" alt-text="Screenshot of a new Azure SQL Server 2022 database linked service private endpoint 2.":::
 
-   * Go to the Azure portal for your Azure Data Lake Storage Gen2 storage as a landing zone, and then approve the private endpoint connections.
+   c. Go to the Azure portal for your Azure Data Lake Storage Gen2 storage as a landing zone, and then approve the private endpoint connections.
    
      :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe3.png" alt-text="Screenshot of a new Azure SQL Server 2022 database linked service private endpoint 3.":::
 
-   * Complete the creation of the linked service for Azure Data Lake Storage Gen2 storage.
+   d. Complete the creation of the linked service for Azure Data Lake Storage Gen2 storage.
    
      :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe4.png" alt-text="Screenshot of new sql db linked service pe4.":::
 		 
