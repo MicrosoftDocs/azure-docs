@@ -17,9 +17,9 @@ ms.subservice: B2C
 
 # Write your first custom policy - Hello World! 
 
-In your applications you use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use custom policies. 
+In your applications, you use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use custom policies. 
 
-While you can use pre-made [custom policy starter pack](/tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how custom policy are built from scratch. In this articles, you'll learn how to create your first custom policy from scratch. 
+While you can use pre-made [custom policy starter pack](/tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how a custom policy is built from scratch. In this article, you'll learn how to create your first custom policy from scratch. 
 
 ## Prerequisites 
 
@@ -72,7 +72,7 @@ While you can use pre-made [custom policy starter pack](/tutorial-create-user-fl
         </TrustFrameworkPolicy>
 
     ```
-    Replace `yourtenant` with the sub-domain name of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
+    Replace `yourtenant` with the subdomain name of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 1. To declare a claim, add the following code in `BuildingBlocks` section of the `ContosoCustomPolicy.XML` file: 
 
