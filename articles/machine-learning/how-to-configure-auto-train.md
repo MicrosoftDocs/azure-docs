@@ -180,7 +180,7 @@ Automated ML supports tabular data based tasks (classification, regression, fore
 
 Automated machine learning tries different models and algorithms during the automation and tuning process. As a user, there's no need for you to specify the algorithm. 
 
-The task method determines the list of algorithms/models, to apply. Use the `allowed_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
+The task method determines the list of algorithms/models, to apply. Use the `allowed_training_algorithms` or `blocked_training_algorithms` parameters in the `set_training()` setter function to further modify iterations with the available models to include or exclude. 
 
 In the following list of links you can explore the supported algorithms per machine learning task listed below.
 
