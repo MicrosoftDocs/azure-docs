@@ -29,29 +29,8 @@ The right level of logging can be set using wal_level parameter in the Server Pa
 * **Replica** - More verbose than **Minimal**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This value is the default on most servers.
 * **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical replication to work. Read replicas also work at this setting.
 
-
 > [!NOTE]
 > When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
-
-## Prepare the primary server
-
-1. In the Azure portal, select an existing Azure Database for PostgreSQL server to use as a primary.
-
-2. From the server's menu, select **Replication**. If wal_level is set to at least **Replica**, you can create read replicas.
-
-3. If Azure replication support is not set to at least **Replica**, set it. Select **Save**.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/wal_level.png" alt-text="Azure Database for PostgreSQL - Replication - Set replica and save":::
-
-4. Restart the server to apply the change by selecting **Yes**.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
-
-5. You will receive two Azure portal notifications once the operation is complete. There is one notification for updating the server parameter. There is another notification for the server restart that follows immediately.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/success-notifications.png" alt-text="Success notifications":::
-
-6. Refresh the Azure portal page to update the Replication toolbar. You can now create read replicas for this server.
 
 ## Create a read replica
 
@@ -59,24 +38,22 @@ To create a read replica, follow these steps:
 
 1. Select an existing Azure Database for PostgreSQL server to use as the primary server.
 
-2. On the server sidebar, under **SETTINGS**, select **Replication**.
+2. On the server sidebar, under **Settings**, select **Replication**.
 
 3. Select **Add Replica**.
 
    :::image type="content" source="./media/how-to-read-replicas-portal/add-replica.png" alt-text="Add a replica":::
 
-4. Enter a name for the read replica.
+4. Enter the Basics form with the following information.
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/name-replica.png" alt-text="Name the replica":::
-
-5. Select a location for the replica. The default location is the same as the primary server's.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/location-replica.png" alt-text="Select a location":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Enter the Basics information":::
 
    > [!NOTE]
    > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
 
-6. Select **OK** to confirm the creation of the replica.
+6. Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
+    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Modify firewall rules":::
+   
 
 After the read replica is created, it can be viewed from the **Replication** window:
 
