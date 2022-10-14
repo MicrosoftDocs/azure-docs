@@ -3,7 +3,7 @@ title: Azure Virtual Desktop for Azure Stack HCI (preview) overview
 description: Overview of Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 10/14/2022
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
@@ -39,7 +39,10 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 - Simplify your VDI deployment and management compared to traditional on-premises VDI solutions by using the Azure portal.
 
-- Use [RDP Shortpath](rdp-shortpath.md?tabs=managed-networks) and [Azure Marketplace integration](/marketplace/azure-marketplace-overview).
+- Achieve best performance by leveraging [RDP Shortpath](rdp-shortpath.md?tabs=managed-networks) for low-latency user access.
+
+- Deploy the latest fully-patched images quickly and easily using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli).
+
 
 ## Supported platforms
 

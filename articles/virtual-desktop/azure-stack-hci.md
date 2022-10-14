@@ -3,7 +3,7 @@ title: Set up Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
 description: How to set up Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: how-to
-ms.date: 10/13/2022
+ms.date: 10/14/2022
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
@@ -63,6 +63,9 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 1. Enter a unique name for your host pool.
 
 1. In **Location**, enter a region where Host Pool, Workspace, and VMs machines will be created. The metadata for these objects is stored in the geography associated with the region. *Example: East US*.
+
+    > [!NOTE]
+    > This location must match the Azure region you selected in step 8 above.
 
 1. In **Custom Location Id**, enter the resource ID of the deployment target for creating VMs, which is associated with an Azure Stack HCI cluster.  
 *Example: /subscriptions/My_subscriptionID/resourcegroups/Contoso-rg/providers/microsoft.extendedlocation/customlocations/Contoso-CL*.
