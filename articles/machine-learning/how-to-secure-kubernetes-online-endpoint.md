@@ -37,7 +37,7 @@ This is the general process to secure an online endpoint:
 
 1. Configure TLS/SSL in AzureML Extension.
 
-1. Update your DNS with FQDN to point to the online endpoint.
+1. [Update your DNS with FQDN to point to the online endpoint.](#update-your-dns-with-fqdn)
 
 > [!IMPORTANT]
 > You need to purchase your own certificate to get a domain name or TLS/SSL certificate, and then configure them in AzureML Extension. For more detailed information, see the following sections of this article.
