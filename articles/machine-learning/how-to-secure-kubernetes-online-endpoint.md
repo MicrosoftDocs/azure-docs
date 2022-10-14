@@ -70,7 +70,7 @@ For more information on how to configure IP banding with FQDN, see the [Update y
 
 ## Configure TLS/SSL in AzureML Extension
 
-For Kubernetes online endpoint which is set to use inference HTTPS for secure connections, you can enable TLS termination with deployment configuration settings when you [deploy the AzureML extension](how-to-deploy-managed-online-endpoints.md) in an Kubernetes cluster. 
+For a Kubernetes online endpoint which is set to use inference HTTPS for secure connections, you can enable TLS termination with deployment configuration settings when you [deploy the AzureML extension](how-to-deploy-managed-online-endpoints.md) in an Kubernetes cluster. 
 
 At AzureML extension deployment time, the config `allowInsecureConnections` by default will be `False`, and you would need to specify either `sslSecret` config setting or combination of `sslKeyPemFile` and `sslCertPemFile` config-protected settings to ensure successful extension deployment, otherwise you can set `allowInsecureConnections=True` to support HTTP and disable TLS termination.
 
