@@ -4,7 +4,7 @@ description: Application performance monitoring for Java applications running in
 ms.topic: conceptual
 ms.date: 07/22/2022
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-2022
 ms.reviewer: mmcc
 ---
 
@@ -205,7 +205,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 * [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
 * [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
-[//]: # "Cosmos 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
+[//]: # "Azure Cosmos DB 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
 
 [//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
 [//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
@@ -540,6 +540,8 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

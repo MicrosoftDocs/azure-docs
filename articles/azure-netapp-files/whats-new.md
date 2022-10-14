@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/10/2022
+ms.date: 10/13/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -25,6 +25,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) (preview)
 
     You can now configure Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#non-browsable-share) or [dual-protocol](create-volumes-dual-protocol.md#non-browsable-share) volumes as non-browsable. This new feature prevents the Windows client from browsing the share, and the share does not show up in the Windows File Explorer. This new capability provides an additional layer of security by not displaying shares that are configured as non-browsable. Users who have access to the share will maintain access. 
+
+## October 2022
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
+
+    The application volume group for SAP HANA feature is now generally available. You no longer need to register the feature to use it. 
 
 ## August 2022
 
