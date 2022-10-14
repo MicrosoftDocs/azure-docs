@@ -337,6 +337,8 @@ https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/au
 
 ## Model sweeping and hyperparameter tuning (preview) 
 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 AutoML NLP allows you to provide a list of models and combinations of hyperparameters, via the hyperparameter search space in the config. Hyperdrive generates several child runs, each of which is a fine-tuning run for a given NLP model and set of hyperparameter values that were chosen and swept over based on the provided search space.
 
 ## Supported model algorithms  
