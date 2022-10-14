@@ -214,6 +214,7 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
 public class SpeechSynthesis {
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     private static String speechKey = System.getenv("SPEECH_KEY");
     private static String speechRegion = System.getenv("SPEECH_REGION");
 

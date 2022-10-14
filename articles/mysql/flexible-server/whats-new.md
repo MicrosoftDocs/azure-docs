@@ -30,7 +30,20 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Autoscale IOPS in Azure Database for MySQL - Flexible Server**
 
-  You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs. With this feature you pay only for the IO you use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Auto scale IO eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL customers. [Learn more](./concepts-service-tiers-storage.md)
+  You can now scale IOPS on demand without having to pre-provision a certain amount of IOPS. With this feature, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs. With this feature you, pay only for the IO you use and no longer need to provision and pay for resources they aren’t fully using, saving both time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload at any time. Auto scale IO eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL customers. [Learn more](./concepts-service-tiers-storage.md)
+
+- **Perform Major version upgrade with minimal efforts for Azure Database for MySQL - Flexible Server (Preview)**
+
+  The major version upgrade feature allows you to perform in-place upgrades of existing instances of Azure Database for MySQL - Flexible Server from MySQL 5.7 to MySQL 8.0 with the click of a button, without any data movement or the need to make any application connection string changes. Take advantage of this functionality to efficiently perform major version upgrades on your instances of Azure Database for MySQL - Flexible Server and leverage the latest that MySQL 8.0 has to offer. Learn [more](./how-to-upgrade.md).
+
+- **MySQL extension for Azure Data Studio (Preview)**
+
+  When you’re working with multiple databases across data platforms and cloud deployment models, being able to perform the most common tasks on all your databases using a single tool enhances your productivity several fold. With the MySQL extension for Azure Data Studio, you can now connect to and modify MySQL databases along with your other databases, taking advantage of the modern editor experience and capabilities in Azure Data Studio, such as IntelliSense, code snippets, source control integration, native Jupyter Notebooks, an integrated terminal, and more. Use this new tooling with any MySQL server hosted on-premises, on virtual machines, on managed MySQL in other clouds, and on Azure Database for MySQL – Flexible Server. Learn [more](/sql/azure-data-studio/quickstart-mysql).
+
+- **Known issues**
+
+  - Change of compute size is not currently permitted after the Major version upgrade of your Azure Database for MySQL - Flexible Server. It is recommended to change the compute size of your Azure Database for MySQL - Flexible Server before the major version upgrade from version 5.7 to version 8.0.
+
 
 ## September 2022
 
@@ -410,7 +423,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Support for Availability zone placement during server creation released**
 
-  Customers can now specify their preferred Availability zone at the time of server creation. This functionality allows customers to collocate their applications hosted on Azure VM, virtual machine scale set, or AKS and database in the same Availability zones to minimize database latency and improve performance. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server).
+  Customers can now specify their preferred Availability zone at the time of server creation. This functionality allows customers to collocate their applications hosted on Azure VM, Virtual Machine Scale Set, or AKS and database in the same Availability zones to minimize database latency and improve performance. [Learn more](quickstart-create-server-portal.md#create-an-azure-database-for-mysql-flexible-server).
 
 - **Performance fixes for issues when running flexible server in virtual network with private access**
 
