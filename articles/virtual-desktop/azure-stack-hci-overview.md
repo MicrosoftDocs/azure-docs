@@ -41,7 +41,7 @@ With Azure Virtual Desktop for Azure Stack HCI, you can:
 
 - Achieve best performance by leveraging [RDP Shortpath](rdp-shortpath.md?tabs=managed-networks) for low-latency user access.
 
-- Deploy the latest fully-patched images quickly and easily using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli).
+- Deploy the latest fully patched images quickly and easily using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli).
 
 
 ## Supported platforms
