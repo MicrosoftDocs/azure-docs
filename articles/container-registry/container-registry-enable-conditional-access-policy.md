@@ -30,19 +30,19 @@ The following steps will help create a Conditional Access policy for Azure Conta
 
 ## Disable authentication-as-arm in ACR - Azure CLI
 
-   Disabling `azureADAuthenticationAsArmPolicy` will force the registry to use ACR audience token. You can use Azure CLI version 2.40.0 or later, run `az --version` to find the version. 
+Disabling `azureADAuthenticationAsArmPolicy` will force the registry to use ACR audience token. You can use Azure CLI version 2.40.0 or later, run `az --version` to find the version. 
 
-   1. Run the command to show the current configuration of the registry's policy for authentication using ARM tokens with the registry. If the status is `enabled`, then both ACRs and ARM audience tokens can be used for authentication. If the status is `disabled` it means only ACR's audience tokens can be used for authentication.
+1. Run the command to show the current configuration of the registry's policy for authentication using ARM tokens with the registry. If the status is `enabled`, then both ACRs and ARM audience tokens can be used for authentication. If the status is `disabled` it means only ACR's audience tokens can be used for authentication.
 
-      ```azurecli-interactive
-      az acr config authentication-as-arm show -r <registry>
-      ```
+   ```azurecli-interactive
+   az acr config authentication-as-arm show -r <registry>
+   ```
 
-   1. Run the command to update the status of the registry's policy.
+1. Run the command to update the status of the registry's policy.
 
-      ```azurecli-interactive
-      az acr config authentication-as-arm update -r <registry> --status [enabled/disabled]
-     ```
+   ```azurecli-interactive
+   az acr config authentication-as-arm update -r <registry> --status [enabled/disabled]
+   ```
 
 ## Disable authentication-as-arm in the ACR - Azure portal
 
