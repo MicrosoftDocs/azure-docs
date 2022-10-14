@@ -3,16 +3,18 @@ title: Troubleshoot Python function apps using the V2 programming model in Azure
 description: Learn about known issues and workarounds when creating Python function apps using the V2 programming model in Azure functions.
 
 ms.topic: article
-ms.date: 10/204/2022
+ms.date: 10/20/2022
 ms.devlang: python
 ms.custom: devx-track-python
 ---
 
-# Known issues and their workarounds
+# V2 Programming Model: Known issues and their workarounds
 
+* Multiple Python workers are not supported in V2 at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the V2 model. 
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
 * [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-Azure-Storage-connection-named-Storage)
-* Multiple Python workers are not supported in V2 at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the V2 model. 
+* Facing an issue during deployment? On the Portal, navigate to Settings -> Configuration and ensure that the flag "AzureWebJobsFeatureFlags" is set to "EnableWorkerIndexing". If it is not found, add this flag to the function application.
+
 
 
 ## Troubleshoot "could not load file or assembly"
