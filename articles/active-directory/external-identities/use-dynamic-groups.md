@@ -39,7 +39,7 @@ You can create a group containing all users within a tenant using a membership r
    ```
 1. Select **OK**. The rule appears in the Rule syntax box:
 
-   :::image type="content" source="media/use-dynamic-groups/all-user-rule-syntax.png" alt-text="Screenshot of rule syntax for all users dynamic group.":::
+   :::image type="content" source="media/use-dynamic-groups/all-user-rule-syntax.png" alt-text="Screenshot of rule syntax for all users dynamic group." lightbox="media/use-dynamic-groups/all-user-rule-syntax.png":::
 
 1.  Select **Save**. The new dynamic group will now include B2B guest users and member users.
 
@@ -56,7 +56,7 @@ If you want your group to exclude guest users and include only members of your t
 
 The following image shows the rule syntax for a dynamic group modified to include members only and exclude guests.
 
-:::image type="content" source="media/use-dynamic-groups/all-member-user-rule-syntax.png" alt-text="Screenshot of rule syntax where user type equals member.":::
+:::image type="content" source="media/use-dynamic-groups/all-member-user-rule-syntax.png" alt-text="Screenshot of rule syntax where user type equals member." lightbox="media/use-dynamic-groups/all-member-user-rule-syntax.png":::
 
 ## Creating a group of guests only
 
@@ -68,7 +68,7 @@ You might also find it useful to create a new dynamic group that contains only g
 
 The following image shows the rule syntax for a dynamic group modified to include guests only and exclude member users.
 
-:::image type="content" source="media/use-dynamic-groups/all-guest-user-rule-syntax.png" alt-text="Screenshot of rule syntax where user type equals guest.":::
+:::image type="content" source="media/use-dynamic-groups/all-guest-user-rule-syntax.png" alt-text="Screenshot of rule syntax where user type equals guest." lightbox="media/use-dynamic-groups/all-guest-user-rule-syntax.png":::
 
 ## Next steps
 
