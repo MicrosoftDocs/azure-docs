@@ -18,7 +18,7 @@ Availability zones support for Azure Functions is available on Premium (Elastic 
 
 ## Overview
 
-An [availability zone](../reliability/az-overview.md#availability-zones) is a high-availability offering that protects your applications and data from datacenter failures. Availability zones are unique physical locations within an Azure region. Each zone comprises one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. You can build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating into other zones.
+An [availability zone](../reliability/az-service-support.md) is a high-availability offering that protects your applications and data from datacenter failures. Availability zones are unique physical locations within an Azure region. Each zone comprises one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. You can build high-availability into your application architecture by co-locating your compute, storage, networking, and data resources within a zone and replicating into other zones.
 
 A zone redundant function app automatically distributes the instances your app runs on between the availability zones in the region. For apps running in a zone-redundant Premium plan, even as the app scales in and out, the instances the app is running on are still evenly distributed between availability zones.
 

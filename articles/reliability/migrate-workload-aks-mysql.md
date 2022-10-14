@@ -27,7 +27,7 @@ This migration guidance focuses mainly on the infrastructure and availability co
 
 To provide full workload support for availability zones, each service dependency in the workload must support availability zones. 
 
-There are two approaches types of availability zone supported services: [zonal or zone-redundant](az-region.md#highly-available-services). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We'll indicate which services zonal and zone-redundant resources n the recommendations below.  We'll also indicate which services are global and regional.
+There are two approaches types of availability zone supported services: [zonal or zone-redundant](az-service-support.md#azure-services-with-availability-zone-support). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We'll indicate which services zonal and zone-redundant resources n the recommendations below.  We'll also indicate which services are global and regional.
 
 The AKS and MySQL workload architecture consists of the following component dependencies:
 
@@ -157,9 +157,5 @@ For your application tier, please review the business continuity and disaster re
 ## Next Steps
 
 Learn more about:
-
 > [!div class="nextstepaction"]
-> [Regions and Availability Zones in Azure](az-overview.md)
-
-> [!div class="nextstepaction"]
-> [Azure Services that support Availability Zones](az-region.md)
+> [Azure Services that support Availability Zones](az-service-support.md#azure-services-with-availability-zone-support))

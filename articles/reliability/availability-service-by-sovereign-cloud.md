@@ -26,7 +26,7 @@ This section outlines variations and considerations when using Azure Bot Service
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
 |Azure Machine learning| See [Azure Machine Learning feature availability across US Gov cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md#azure-china-21vianet). | |
-| Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds?tabs=c-sharp.md#azure-china)  ||
+| Cognitive Services: Speech| See [Cognitive Services: US Gov Sovereign Cloud - Speech service](../cognitive-services/speech-service/sovereign-clouds.md?tabs=c-sharp.md#azure-china)  ||
 
 ### Media
 
@@ -130,7 +130,7 @@ This section outlines variations and considerations when using Management and Go
 | Automation| <li>Automation analytics solution |  
 | Azure Advisor| <!-- move content--> Content is large enough to have its own page in product TOC. See [Azure Advisor](/azure/azure-government/compare-azure-government-global-azure#azure-advisor) |  |
 | Azure Lighthouse)| <li>Managed Service offers published to Azure Marketplace<li>Delegation of subscriptions across a national cloud and the Azure public cloud, or across two separate national clouds, isn't supported<li>Privileged Identity Management (PIM) feature isn't enabled, for example, just-in-time (JIT) / eligible authorization capability |  
-| Azure Monitor| <!-- move content--> There is information on [this page]((../azure-government/compare-azure-government-global-azure.md#azure-monitor)) that should be put entirely on the product pages: For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md). |  
+| Azure Monitor| <!-- move content--> There is information on [this page](/azure/azure-government/compare-azure-government-global-azure#azure-monitor)) that should be put entirely on the product pages: For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md). |  
 | [Application Insights](../azure-government/compare-azure-government-global-azure.md#application-insights)|  <!-- move content-->  Content needs to be moved to its own page. |  
 
 ### Cost Management and Billing
