@@ -1,7 +1,7 @@
 ---
-title: Index large data on Spark
+title: 'Tutorial: Index large data on Spark'
 titleSuffix: Azure Cognitive Search
-description: Add full text search to big data on Apache Spark that's been loaded and transformed through the open-source library, SynapseML. You'll load invoice files into data frames, apply machine learning through SynapseML, then send it into a generated search index.
+description: Add full text search to big data on Apache Spark that's been loaded and transformed through the open-source library, SynapseML. You'll load invoices into data frames, apply machine learning, then send output to a generated search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,18 +13,18 @@ ms.date: 10/13/2022
 
 # Tutorial: Index large data from an Apache Spark cluster using SynapseML
 
-In this Azure Cognitive Search tutorial, learn how to index and query large data hosted in a Spark cluster. You'll set up a Jupyter Notebook that includes the following actions:
+In this Azure Cognitive Search tutorial, learn how to index and query large data loaded from a Spark cluster. You'll set up a Jupyter Notebook that performs the following actions:
 
 > [!div class="checklist"]
 > + Load various forms (invoices) into a data frame in an Apache Spark session
 > + Analyze them to determine their features
 > + Assemble the resulting output into a tabular data structure
-> + Write the output to a search index in Azure Cognitive Search
+> + Write the output to a search index hosted in Azure Cognitive Search
 > + Explore and query over the content you created
 
-This tutorial uses [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/), an open source library that supports massively parallel machine learning over big data. 
+This tutorial takes a dependency on [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/), an open source library that supports massively parallel machine learning over big data. 
 
-In SynapseML, support for search indexing and machine learning is exposed is through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this exercise, we'll use a transformer that calls Cognitive Search for indexing, and another transformer that calls Cognitive Services for AI enrichment.
+In SynapseML, support for search indexing and machine learning is exposed through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this exercise, we'll use a transformer that calls Cognitive Search for indexing, and another transformer that calls Cognitive Services for AI enrichment.
 
 Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this tutorial shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or other constraints associated with those objects.
 
@@ -93,7 +93,7 @@ In this section, you'll create a cluster, install the `synapseml` library, and c
 
 Paste the following code into the first cell of your notebook. Replace the placeholders with endpoints and access keys for each resource. No other modifications are required, so run the code when you're ready.
 
-This code imports packages and sets up access to the Azure resources used in this workflow.
+This code imports multiple packages and sets up access to the Azure resources used in this workflow.
 
 ```python
 import os
