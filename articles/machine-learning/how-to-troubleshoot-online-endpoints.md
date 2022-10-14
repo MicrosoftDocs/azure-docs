@@ -457,15 +457,15 @@ To increase the number of instances, you could calculate the required replicas f
 ```python
 from math import ceil
 # target requests per second
-target_qps = 20
+target_rps = 20
 # time to process the request (in seconds)
 request_process_time = 10
 # Maximum concurrent requests per instance
 max_concurrent_requests_per_instance = 1
-# The target CPU usage of the model container. 70% in this example
+# The CPU usage of the model container. 70% in this example
 target_utilization = .7
 
-concurrent_requests = target_qps * request_process_time / target_utilization
+concurrent_requests = target_rps * request_process_time / target_utilization
 
 # Number of instance count
 instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance)
