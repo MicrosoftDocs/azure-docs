@@ -462,7 +462,7 @@ target_rps = 20
 request_process_time = 10
 # Maximum concurrent requests per instance
 max_concurrent_requests_per_instance = 1
-# The CPU usage of the model container. 70% in this example
+# The target CPU usage of the model container. 70% in this example
 target_utilization = .7
 
 concurrent_requests = target_rps * request_process_time / target_utilization
