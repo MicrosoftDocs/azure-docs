@@ -89,11 +89,11 @@ If a backup item/container is in soft deleted state, you can register it to a va
 
 ## Pricing
 
-Soft deleted data involves no retention cost for the default duration of *14* days. For soft deleted data retention more than the default period, it incurs regular backup charges.
+Soft deleted data involves no retention cost for the default duration of *14* days. For soft deleted data retention *>14* days, it incurs regular backup charges. The default period applies to the *last 14 days* of the continuous retention duration set in the soft delete configuration, after which backups get permanently deleted.
 
 For example, you've deleted backups for one of the instances in the vault that has soft delete retention of *60* days. If you want to recover the soft deleted data after *50* days of deletion, the pricing is:
 
-- Standard rates (similar rates apply when the instance is in *stop protection with retain data* state) are applicable for the first *36* days (*50* days of data retained in soft deleted state minus *14* days of default soft delete retention).
+- Standard rates (similar rates apply when the instance is in *stop protection with retain data* state) are applicable for the first *46* days (*60* days of data retained in soft deleted state minus *14* days of default soft delete retention).
 
 - No charges for the last *6* days of soft delete retention.
 
