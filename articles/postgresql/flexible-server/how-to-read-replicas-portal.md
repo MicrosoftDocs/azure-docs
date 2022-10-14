@@ -53,6 +53,12 @@ To create a read replica, follow these steps:
 
 6. Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
     :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Modify firewall rules":::
+7. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to add tags or change data encryption method.
+8. Review the information in the final confirmation window. When you're ready, select **Create**.
+    :::image type="content" source="./media/how-to-read-replicas-portal/review.png" alt-text="Review the information in the final confirmation window":::
+
+
+
    
 
 After the read replica is created, it can be viewed from the **Replication** window:
