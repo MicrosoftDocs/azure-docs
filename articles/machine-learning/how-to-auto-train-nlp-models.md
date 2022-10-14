@@ -196,7 +196,6 @@ For CLI v2 AutoML jobs you configure your experiment in a YAML file like the fol
 
 
 For AutoML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
-
 ```Python
 # general job parameters
 compute_name = "gpu-cluster"
