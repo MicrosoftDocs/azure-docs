@@ -74,9 +74,17 @@ The SFTP connector has different versions, based on [logic app type and host env
   > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
   > this connector's ISE-labeled version requires chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
-  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45-MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50-MB chunk size. In different scenario, if your logic app workflow is timing out, for example, when using 15-MB chunks, you can try reducing the size to 5 MB.
+  You can override this adaptive behavior when you specify a constant chunk size to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45-MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50-MB chunk size. In different scenario, if your logic app workflow is timing out, for example, when using 15-MB chunks, you can try reducing the size to 5 MB.
 
   Chunk size is associated with a connection. This attribute means you can use the same connection for both actions that support chunking and actions that don't support chunking. In this case, the chunk size for actions that support chunking ranges from 5 MB to 50 MB.
+
+  To override the default adaptive behavior that chunking uses on an SFTP-SSH action, you can specify a constant chunk size from 5 MB to 50 MB.
+
+  1. On the designer, in the SFTP-SSH action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
+
+  1. Under **Content Transfer**, in the **Chunk size** property, enter an integer value from `5` to `50`.
+
+  1. After you finish, select **Done**.
 
 * SFTP-SSH triggers don't support message chunking. When triggers request file content, they select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
@@ -231,28 +239,6 @@ Before you can use an SFTP action, your workflow must already start with a trigg
 ---
 
 For example, the action named **Get file content using path** gets the content from a file on an SFTP server by specifying the file path. You can use the trigger from the previous example and a condition that the file content must meet. If the condition is true, a subsequent action can get the content.
-
-<a name="change-chunk-size"></a>
-
-## Override chunk size
-
-To override the default adaptive behavior that chunking uses on an SFTP-SSH action, you can specify a constant chunk size from 5 MB to 50 MB.
-
-### [Consumption](#tab/consumption)
-
-1. On the designer, in the SFTP-SSH action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
-
-1. Under **Content Transfer**, in the **Chunk size** property, enter an integer value from `5` to `50`.
-
-1. After you finish, select **Done**.
-
-### [Standard](#tab/standard)
-
-1. In the action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
-
-1. Under **Content Transfer**, in the **Chunk size** property, enter an integer value from `5` to `50`.
-
-1. After you finish, select **Done**.
 
 ---
 
