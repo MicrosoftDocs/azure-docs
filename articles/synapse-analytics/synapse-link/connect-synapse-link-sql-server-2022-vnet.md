@@ -67,11 +67,11 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
 1. Create a linked service that connects to your SQL Server 2022 instance. 
 
-   To learn how, see the "Create a linked service for your source SQL Server 2022 database" section of [Get started with Azure Synapse Link for SQL Server 2022 (preview)](connect-synapse-link-sql-server-2022.md#create-linked-service-for-your-source-sql-server-2022).
+   To learn how, see the "Create a linked service for your source SQL Server 2022 database" section of [Get started with Azure Synapse Link for SQL Server 2022 (preview)](connect-synapse-link-sql-server-2022.md#create-a-linked-service-for-your-source-sql-server-2022-database).
 
 1. Add a role assignment to ensure that you've granted your Azure Synapse workspace managed identity permissions to your Azure Data Lake Storage Gen2 storage account that's used as the landing zone. 
 
-   To learn how, see the "Create a linked service to connect to your landing zone on Azure Data Lake Storage Gen2" section of [Get started with Azure Synapse Link for SQL Server 2022 (preview)](connect-synapse-link-sql-server-2022.md#create-linked-service-to-connect-to-your-landing-zone-on-azure-data-lake-storage-gen2).
+   To learn how, see the "Create a linked service to connect to your landing zone on Azure Data Lake Storage Gen2" section of [Get started with Azure Synapse Link for SQL Server 2022 (preview)](connect-synapse-link-sql-server-2022.md#create-a-linked-service-to-connect-to-your-landing-zone-on-azure-data-lake-storage-gen2).
 
 1. Create a linked service that connects to your Azure Data Lake Storage Gen2 storage (landing zone) with managed private endpoint enabled.
 
@@ -95,7 +95,7 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="Screenshot that shows how to create a link.":::
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sql-server.png" alt-text="Screenshot that shows how to create a link.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sql-server.png" alt-text="Screenshot that shows how to create a link from the SQL Server 2022 instance.":::
 
 1. Start your link connection
 
