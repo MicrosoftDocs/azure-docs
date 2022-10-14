@@ -102,3 +102,5 @@ landingContent:
         links:
           - text: Set up Private Links
             url: how-to-set-up-private-links.md
+          - text: Set up Customer managed encryption keys (CMEK)
+            url: how-to-manage-data-security-and-encryption.md

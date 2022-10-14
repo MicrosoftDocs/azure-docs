@@ -20,6 +20,51 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## September 2022
+
+### Azure Health Data Services 
+
+#### **Bug Fixes**
+
+| Bug Fix |Related information |
+| :------------------- | :--------------- |
+| Querying with :not operator was returning more results than expected | The issue is now fixed and querying with :not operator should provide correct results. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2785). |
+
+#### **Known Issues**
+
+| Known Issue | Description |
+| :------------------------ | :------------------------------- |
+| Using [token type](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.hl7.org%2Ffhir%2Fsearch.html%23token&data=05%7C01%7CKetki.Sheth%40microsoft.com%7C7ec4c7dad9b940b74a8508da60395511%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637928096596122743%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=VmAG2iHUyxtNZI88HqKeSSwFV28zFSs2qgkAQRPnZ%2Bw%3D&reserved=0) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations  | No workaround. |
+
+### FHIR Service 
+
+#### **Bug Fixes**
+
+| Bug Fix |Related information |
+| :------------------- | :--------------- |
+| Error message is provided for failure in export resulting from long time span  |  With failure in export job due to a long time span, customer will see `RequestEntityTooLarge` HTTP status code. For more information, see [#2790](https://github.com/microsoft/fhir-server/pull/2790).|
+|In a query sort, functionality throws an error when chained search is performed with same field value.  | Sort functionality returns a response. For more information, see [#2794](https://github.com/microsoft/fhir-server/pull/2794). 
+| Server doesn't indicate `_text` not supported | When passed as URL parameter,`_text` returns an error in response when using the `Prefer` heading with `value handling=strict`. For more information, see [#2779](https://github.com/microsoft/fhir-server/pull/2779). |
+| Verbose error message is not provided for invalid resource type  | Verbose error message is added when resource type is invalid or empty for `_include` and `_revinclude` searches. For more information, see [#2776](https://github.com/microsoft/fhir-server/pull/2776).
+
+### DICOM service
+
+#### **Features**
+
+| Enhancements/Improvements | Related information |
+| :------------------------ | :------------------------------- |
+| Export is GA |The export feature for the DICOM service is now generally available. Export enables a user-supplied list of studies, series, and/or instances to be exported in bulk to an Azure Storage account. Learn more about the [export feature](https://github.com/microsoft/dicom-server/blob/main/docs/how-to-guides/export-data.md).  |
+|Improved deployment performance  |Performance improvements have cut the time to deploy new instances of the DICOM service by more than 55% at the 50th percentile.    |
+| Reduced strictness when validating STOW requests |Some customers have run into issues storing DICOM files that do not perfectly conform to the specification.  To enable those files to be stored in the DICOM service, we have reduced the strictness of the validation performed on STOW. <p>The service will now accept the following: <p><ul><li>DICOM UIDs that contain trailing whitespace <li>IS, DS, SV, and UV VRs that are not valid numbers<li>Invalid private creator tags |
+
+### Toolkit and Samples Open Source
+
+#### **Features**
+
+| Enhancements/Improvements | Related information |
+| :------------------------ | :------------------------------- |
+| Azure Health Data Services Toolkit  | The [Azure Health Data Services Toolkit](https://github.com/microsoft/azure-health-data-services-toolkit) is now in the public preview. The toolkit is open-source and allows to easily customize and extend the functionality of their Azure Health Data Services implementations.  |
+
 ## August 2022
 
 ### FHIR service

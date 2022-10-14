@@ -154,7 +154,7 @@ dependencies:
 
 Submit the local run and ensure you set the parameter `backend = "azureml" `. With this setting, you can submit runs locally and get the added support of automatic output tracking, log files, snapshots, and printed errors in your workspace.
 
-View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+View your runs and metrics in the [Azure Machine Learning studio](https://ml.azure.com).
 
 ```python
 local_env_run = mlflow.projects.run(uri=".", 
@@ -198,7 +198,7 @@ dependencies:
 
 Submit the mlflow project run and ensure you set the parameter `backend = "azureml" `. With this setting, you can submit your run to your remote compute and get the added support of automatic output tracking, log files, snapshots, and printed errors in your workspace.
 
-View your runs and metrics in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+View your runs and metrics in the [Azure Machine Learning studio](https://ml.azure.com).
 
 ```python
 remote_mlflow_run = mlflow.projects.run(uri=".", 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 09/23/2022
 ms.author: alexwolf
 ms.subservice: common
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2022
 ---
 
 # Configure passwordless connections between multiple Azure apps and services
@@ -272,7 +272,7 @@ BlobServiceClient blobServiceClient2 = new BlobServiceClient(
 // Get the second user-assigned managed identity ID to connect to shared databases
 var clientIDdatabases = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases");
 
-// Create a Cosmos DB client
+// Create an Azure Cosmos DB client
 CosmosClient client = new CosmosClient(
     accountEndpoint: Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
     new DefaultAzureCredential()
@@ -355,7 +355,7 @@ class Demo {
         // Get the second user-assigned managed identity ID to connect to shared databases
         String clientIdDatabase = System.getenv("Managed_Identity_Client_ID_Databases");
 
-        // Create a Cosmos DB client
+        // Create an Azure Cosmos DB client
         CosmosClient cosmosClient = new CosmosClientBuilder()
             .endpoint("https://<cosmos-db-account>.documents.azure.com:443/")
             .credential(new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdDatabase).build())
