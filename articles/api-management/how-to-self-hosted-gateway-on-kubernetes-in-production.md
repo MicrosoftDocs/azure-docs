@@ -126,16 +126,6 @@ The self-hosted gateway sends telemetry to [Azure Monitor](api-management-howto-
 When [connectivity to Azure](self-hosted-gateway-overview.md#connectivity-to-azure) is temporarily lost, the flow of telemetry to Azure is interrupted and the data is lost for the duration of the outage.
 Consider [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure the ability to observe API traffic and prevent telemetry loss during Azure connectivity outages.
 
-## High availability
-The self-hosted gateway is a crucial component in the infrastructure and has to be highly available. However, failure will and can happen.
-
-Consider protecting the self-hosted gateway against [disruption](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/).
-
-> [!TIP]
-> When installing with Helm, easily enable high available scheduling by enabling the `highAvailability.enabled` configuration option.
-> 
-> Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
-
 ## HTTP(S) proxy
 
 The self-hosted gateway provides support for HTTP(S) proxy by using the traditional `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
@@ -149,6 +139,16 @@ Starting with version 2.1.5 or above, the self-hosted gateway provides observabi
 
 > [!Warning]
 > Ensure that the [infrastructure requirements](self-hosted-gateway-overview.md#fqdn-dependencies) have been met and that the self-hosted gateway can still connect to them or certain functionality will not work properly.
+
+## High availability
+The self-hosted gateway is a crucial component in the infrastructure and has to be highly available. However, failure will and can happen.
+
+Consider protecting the self-hosted gateway against [disruption](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/).
+
+> [!TIP]
+> When installing with Helm, easily enable high available scheduling by enabling the `highAvailability.enabled` configuration option.
+> 
+> Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
 ### Protecting against node failure
 To prevent being affected due to data center or node failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
