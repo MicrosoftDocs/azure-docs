@@ -95,7 +95,7 @@ To generate a new workspace access key:
 
 1. Open the [Playwright portal](https://dashboard.playwright-ppe.io/) and sign in with your Azure credentials.
 
-1. Access the **Settings > Access key** menu in the top-right of the screen.
+1. Access the **Menu > Manage Access keys** menu in the top-right of the screen.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/access-key-menu.png" alt-text="Screenshot that shows the Access Key menu in the Playwright portal.":::
 
