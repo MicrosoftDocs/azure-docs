@@ -26,7 +26,7 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 * The [SMB Continuous Availability](#continuous-availability) feature is currently in preview. You must submit a waitlist request before you can use this feature.
-* The [non-browsable shares](#non-browseable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
+* The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
 
 1. Register the feature: 
 
@@ -124,7 +124,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         This feature will hide directories and files created under a share from users who do not have access permissions to the files or folders under the share. Users will still be able to view the share.
 
-    * <a name="non-browseable-share"></a> You can enable the **non-browsable-share feature.**
+    * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
         This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
 
