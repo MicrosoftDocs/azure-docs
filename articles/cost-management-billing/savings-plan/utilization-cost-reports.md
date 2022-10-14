@@ -44,7 +44,7 @@ Here's a comparison of the two data sets:
 | --- | --- | --- |
 | Savings plan purchases | Available in the view.<br><br>To get the data, filter on ChargeType = `Purchase`.<br><br>Refer to `BenefitID` or `BenefitName` to know which savings plan the charge is for. | Not applicable to the view.<br><br>Purchase costs aren't provided in amortized data. |
 | `EffectivePrice` | The value is zero for usage that gets savings plan discount. | The value is per-hour prorated cost of the savings plan for usage that has the savings plan discount. |
-| Unused benefit (provides the number of hours the savings plan wasn't used in a day and the monetary value of the waste) | Not applicable in the view. | Available in the view.<br><br>To get the data, filter on ChargeType = `UnusedSavingsPlan`.<br><br>Refer to `BenefitID` or `BenefitName` to know which savings plan was underutilized. Indicates how much of the savings plan was wasted for the day. |
+| Unused Savings Plan (provides the number of hours the savings plan wasn't used in a day and the monetary value of the waste) | Not applicable in the view. | Available in the view.<br><br>To get the data, filter on ChargeType = `UnusedSavingsPlan`.<br><br>Refer to `BenefitID` or `BenefitName` to know which savings plan was underutilized. Indicates how much of the savings plan was wasted for the day. |
 | UnitPrice (price of the resource from your price sheet) | Available | Available |
 
 ## Get Azure consumption and savings plan cost data using API
