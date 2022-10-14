@@ -25,13 +25,13 @@ Azure Active Directory (Azure AD) provides several authentication methods to sup
 
 The Authentication methods policy is the recommended way to manage authentication methods, including modern methods like passwordless authentication. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can edit this policy to enable authentication methods for specific users and groups. 
 
-Each method also has configuration parameters to control how that method can be used. These parameters help administrators customize the sign-in experience for their organization. 
+Each method also has configuration parameters to control how that method can be used. These parameters help administrators customize the sign-in experience for their organization. For example, if you enable **Phone call**, you can also specify whether an office phone can be used in addition to a mobile phone.
 
 <!---they will add ability to specify roles in addition to users and groups. Also, they will add ability to exclude, just like CA.--->
 
-For example, if you enable **Phone call**, you can also specify whether an office phone can be used in addition to a mobile phone. 
+ 
 
-Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can set extra parameters like sign-in location, or the application that requires the sign-in. These options provide more context for users when they sign-in and help prevent accidental MFA approvals.
+Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can set extra parameters like sign-in location, or the app name. These options provide more context for users when they sign-in, and help prevent accidental MFA approvals.
 
 To manage the Authentication methods policy, click **Security** > **Authentication methods** > **Policies**.
 
@@ -41,18 +41,16 @@ To manage the Authentication methods policy, click **Security** > **Authenticati
 
 Two other policies, located in **Multifactor authentication** settings and **Password reset** settings, provide a legacy way to manage some authentication methods for all users in the tenant. You can't control who uses an enabled authentication method, or how the method can be used. A [Global Administrator](../roles/permissions-reference.md#global-administrator) is needed to manage these policies. 
 
-To manage these MFA methods across the tenant, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
+>[!NOTE]
+>OATH tokens and security questions can be enabled only for all users in the tenant by using these legacy policies. 
+
+To manage MFA methods for all users in the tenant, click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
 To manage authentication methods for self-service password reset (SSPR) across the tenant, click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice call or SMS to be sent to a mobile phone. The **Office phone** option allows only voice call. 
 
-The other policies have separate controls for voice call and SMS. This difference can affect sign-in behavior for users whose 
-
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
-
->[!NOTE]
->OATH tokens and security questions can be enabled only for all users in the tenant by using these policies. 
 
 ## How policies work together
 
