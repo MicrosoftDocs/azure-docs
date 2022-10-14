@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/11/2022
+ms.date: 10/14/2022
 
 ms.author: justinha
 author: justinha
@@ -71,11 +71,11 @@ If the user can't register Microsoft Authenticator based on either of those poli
 - **Mobile app code**
 - **Mobile phone**
 
-The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. This means that a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies do not allow phone calls. 
+The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. This means that by default, a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies do not allow phone calls. 
 
 ## Migration between policies
 
-The Authentication methods policy provides a migration path toward unified administration of all three policies. This migration gives organizations a way to centralize management of authentication methods in a single place.
+The Authentication methods policy provides a migration path toward unified administration of all three policies. Migration has three settings to let customers move at their own pace, and avoid problems with sign-in or SSPR during the transition. After migration is complete, you'll have centralized control over authentication methods for both sign-in and SSPR in a single place.
 
 To view the migration options, open the Authentication methods policy and click **Manage migration**.
 
@@ -91,7 +91,7 @@ The following table describes each option.
 
 You can toggle between settings. If you roll back to Pre-migration, you need to specify a reason.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of reasons for rollback.":::
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
 
 
 ## Next steps
