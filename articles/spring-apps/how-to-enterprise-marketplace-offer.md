@@ -57,7 +57,7 @@ To see the Enterprise Tier creation page, select **Subscribe**
 
 ## Supported geographic locations
 
-The Azure Spring Apps Enterprise Tier with VMware Tanzu offering can be purchased in the following geographic locations, based on your billing address. For more information, see the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) page.
+The Azure Spring Apps Enterprise Tier offering can be purchased in the following geographic locations based on your billing address. For more information, see the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) page.
 
 The following table lists each supported geographic location and its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
 
