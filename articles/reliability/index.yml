@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure service reliability documentation?
-summary: Azure service reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+title: Azure reliability documentation
+summary: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
 
 metadata:
-  title: Azure Services Reliability Documentation
-  description: Azure service reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+  title: Azure Reliability Documentation
+  description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
   ms.topic: landing-page
   ms.author: anaharris
   author: anaharris-ms
@@ -14,18 +14,22 @@ metadata:
 
 landingContent: 
   # Card
-  - title: About Azure service reliability documentation?
+  - title: About Azure reliability documentation?
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Azure service reliability documentation??
+          - text: What is the Azure reliability documentation??
             url: overview-reliability.md
   # Card
   - title: Reliability guides
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure Functions
+          - text: Azure Batch
+            url: reliability-batch.md
+          - text: Azure Cache for Redis
+            url: reliability-cache.md
+          - text: Azure Functions 
             url: reliability-functions.md
   # Card
   - title: Availability zone guides

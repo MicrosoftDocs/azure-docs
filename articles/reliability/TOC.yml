@@ -4,52 +4,56 @@
   href: overview-reliability.md
 - name: Business continuity management program
   href: business-continuity-management-program.md
-- name: Azure Batch
-  href: reliability-batch.md
-- name: Azure Cache for Redis
-  href: reliability-cache.md
-- name: Azure Functions 
-  href: reliability-functions.md
+- name: Reliability by service
+  items:
+  - name: Azure Batch
+    href: reliability-batch.md
+  - name: Azure Cache for Redis
+    href: reliability-cache.md
+  - name: Azure Functions 
+    href: reliability-functions.md
 - name: Availability zone support
   items:
   - name: Availability zone service and regional support
     href: az-service-support.md
   - name: Cross-region replication
     href: cross-region-replication-azure.md
-  - name: Migration guides
+  - name: Migrate to availability zone support
     items:
     - name: Overview
       href: az-migration-overview.md
-    - name: API Management
-      href: migrate-api-mgt.md
-    - name: App Configuration
-      href: migrate-app-configuration.md
-    - name: App Service Environment
-      href: migrate-app-service-environment.md
-    - name: App Service
-      href: migrate-app-service.md
-    - name: Application Gateway
-      href: migrate-app-gateway-v2.md
-    - name: Azure Functions
-      href: migrate-functions.md
-    - name: Cache for Redis
-      href: migrate-cache-redis.md
-    - name: Cognitive Search
-      href: migrate-search-service.md
-    - name: Container instances
-      href: migrate-container-instances.md
-    - name: Load Balancer 
-      href: migrate-load-balancer.md
-    - name: Log Analytics workspaces
-      href: migrate-monitor-log-analytics.md
-    - name: Recovery Services vault
-      href: migrate-recovery-services-vault.md
-    - name: Storage accounts
-      href: migrate-storage.md
-    - name: Virtual Machines and virtual machine scale sets
-      href: migrate-vm.md
-    - name: Workload - Azure Kubernetes and MySQL
-      href: migrate-workload-aks-mysql.md
+    - name: Guides
+      items:
+      - name: API Management
+        href: migrate-api-mgt.md
+      - name: App Configuration
+        href: migrate-app-configuration.md
+      - name: App Service Environment
+        href: migrate-app-service-environment.md
+      - name: App Service
+        href: migrate-app-service.md
+      - name: Application Gateway
+        href: migrate-app-gateway-v2.md
+      - name: Azure Functions
+        href: migrate-functions.md
+      - name: Cache for Redis
+        href: migrate-cache-redis.md
+      - name: Cognitive Search
+        href: migrate-search-service.md
+      - name: Container instances
+        href: migrate-container-instances.md
+      - name: Load Balancer 
+        href: migrate-load-balancer.md
+      - name: Log Analytics workspaces
+        href: migrate-monitor-log-analytics.md
+      - name: Recovery Services vault
+        href: migrate-recovery-services-vault.md
+      - name: Storage accounts
+        href: migrate-storage.md
+      - name: Virtual Machines and virtual machine scale sets
+        href: migrate-vm.md
+      - name: Workload - Azure Kubernetes and MySQL
+        href: migrate-workload-aks-mysql.md
   - name: Quickstart guides
     items:
     - name: Virtual machines
