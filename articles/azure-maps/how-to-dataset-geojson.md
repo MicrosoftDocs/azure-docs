@@ -105,9 +105,9 @@ To create a tileset:
 https://us.atlas.microsoft.com/tilesets?api-version=2022-09-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
 ```
 
-## Append Scenarios
+## Add data to an existing dataset
 
-Data can be appended to an existing dataset by providing the `datasetId` parameter to the [dataset create API][Dataset Create 2022-09-01-preview] along with the unique identifier of the data you wish to add. This creates a new dataset consisting of the data from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
+Data can be added to an existing dataset by providing the `datasetId` parameter to the [dataset create API][Dataset Create 2022-09-01-preview] along with the unique identifier of the data you wish to add. This creates a new dataset consisting of the data from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
 
 1. In this append scenario, the ontology of the source dataset is taken to create the new dataset.  
 
@@ -145,9 +145,9 @@ The facility area can be between 4 and 4,000 Sq Km.
 - The top level element is [facility][facility], which defines each building in the file *facility.geojson*.
 - Each facility has one or more levels, which are defined in the file *levels.goejson*.
   - Each level must be inside the facility.
-- Each [level][level] contain [units][unit], [structures][structure], [verticalPenetrations][verticalPenetration] and [openings][opening]. All of the items defined in the level must be contained within the Level geometry.
+- Each [level][level] contain [units][unit], [structures][structure], [verticalPenetrations][verticalPenetration] and [openings][opening]. All of the items defined in the level must be fully contained within the Level geometry.
   - `unit` can consist of an array of items such as hallways, offices and courtyards, which are defined by [area][areaElement], [line][lineElement] or [point][pointElement] elements. Units are defined in the file *unit.goejson*.
-          - All `unit` elements must be contained within their level and intersect with their respective units.
+          - All `unit` elements must be fully contained within their level and intersect with their respective units.
   - `structure` defines physical, non-overlapping areas that can't be navigated through. Structures are defined in the file *structure.goejson*.
   - `verticalPenetration` represents a method of navigating vertically between levels, such as stairs and elevators and are defined in the file *verticalPenetration.geojson*.
     - verticalPenetrations can't intersect with other verticalPenetrations.
