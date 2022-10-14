@@ -1,6 +1,6 @@
 ---
 title: How to manage authentication methods - Azure Active Directory
-description: Learn about the Authentication methods policy and different ways to manage authentication methods.
+description: Learn about the authentication methods policy and different ways to manage authentication methods.
 
 services: active-directory
 ms.service: active-directory
@@ -71,7 +71,9 @@ If the user can't register Microsoft Authenticator based on either of those poli
 - **Mobile app code**
 - **Mobile phone**
 
-The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. As a result, a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies don't allow phone calls. 
+For users who are enabled for **Mobile phone** for SSPR, the independent control between policies can impact sign-in behavior. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enables both options. As a result, anyone who uses **Mobile phone** for SSPR can also use voice call for sign-in, even if the other policies don't allow phone calls. 
+
+Similarly, let's suppose you enable **Phone call** for a group. After you enable it, you find that even users who aren't group members can sign-in with their phones. In this case, it's likely those users are enabled for **Mobile phone** for SSPR or **Notification through mobile app** for MFA.  
 
 ## Migration between policies
 
