@@ -8,7 +8,7 @@ author: shmed
 ms.author: ramero
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 10/14/2022
 ---
 
 # Add scoring profiles to boost search scores in Azure Cognitive Search
