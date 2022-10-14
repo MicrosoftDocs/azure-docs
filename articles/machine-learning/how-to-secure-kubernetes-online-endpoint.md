@@ -77,7 +77,7 @@ At AzureML extension deployment time, the config `allowInsecureConnections` by d
 > [!NOTE]
 > To support HTTPS online endpoint, `allowInsecureConnections` must be set to `False`.
 
-To enable HTTPS endpoint for real-time inference, you need to provide both PEM-encoded TLS/SSL certificate and key. There are two ways to specify the certificate and key at AzureML extension deployment time:
+To enable an HTTPS endpoint for real-time inference, you need to provide both PEM-encoded TLS/SSL certificate and key. There are two ways to specify the certificate and key at AzureML extension deployment time:
 1. Specify `sslSecret` config setting.
 1. Specify combination of `sslCertPemFile` and `slKeyPemFile` config-protected settings.
 
