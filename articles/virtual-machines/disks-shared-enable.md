@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 10/14/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -40,6 +40,9 @@ Shared disks support several operating systems. See the [Windows](./disks-shared
 [!INCLUDE [virtual-machines-disks-shared-sizes](../../includes/virtual-machines-disks-shared-sizes.md)]
 
 ## Deploy shared disks
+
+> [!IMPORTANT]
+> Host caching isn't supported for shared disks.
 
 ### Deploy a premium SSD as a shared disk
 
