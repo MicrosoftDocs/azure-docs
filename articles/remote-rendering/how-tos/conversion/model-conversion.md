@@ -35,6 +35,7 @@ There are minor differences between the formats with regard to material property
 
   In case any other properties exist, they're ignored during ingestion.
 * **E57** : E57 contains two types of data: `data3d` and `image2d`. The conversion service only loads the `data3d` part of the file, while the `image2d` part of the file is being ignored.
+* **LAS**, **LAZ** : In case color data is not present, the intensity attribute is used as color.
 
 ## The conversion process
 
