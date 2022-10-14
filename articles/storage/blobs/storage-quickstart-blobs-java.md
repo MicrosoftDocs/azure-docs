@@ -217,7 +217,7 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
 
-:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-java/main/sdk/identity/azure-identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
+:::image type="content" source="./media/storage-quickstart-blobs-java/defaultazurecredential-flow-java.png" alt-text="A diagram of the credential flow.":::
 
 For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
@@ -274,7 +274,7 @@ You can authorize access to data in your storage account using the following ste
 
 4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
 
-    :::image type="content" source="./media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
+    :::image type="content" source="./media/storage-quickstart-blobs-java/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
     > [!NOTE]
     > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
