@@ -245,7 +245,6 @@ featurization:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-
 You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
 ```python
