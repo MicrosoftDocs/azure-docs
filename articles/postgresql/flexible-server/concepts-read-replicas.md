@@ -153,10 +153,10 @@ This section summarizes considerations about the read replica feature.
 
 Read replicas and [logical decoding](concepts-logical.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
 
-To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
+The right level of logging can be set using wal_level parameter in the Server Parameter pane. Azure Database for PostgreSQL allows wal_level to take two out of three values:
 
-* **Minimal** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
-* **Replica** - More verbose than **Minimal**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Minimal** - Puts the least information in the WAL. This value is not available on Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Minimal**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This value is the default on most servers.
 * **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical replication to work. Read replicas also work at this setting.
 
 ### New replicas
