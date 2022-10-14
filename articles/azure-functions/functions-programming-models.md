@@ -9,7 +9,7 @@ ms.custom: devx-track-python, devdivchpfy22
 
 # New Programming Models in Azure Functions
 
-Azure Functions will be releasing new programming models for certain development languages, with the goal of driving fewer Functions specific concepts and more language centric principles. 
+Azure Functions will be releasing new programming models for certain development languages, with the goal of prioritizing language centric development principles within the development experience. 
 
 The goal is to create an experience that can help customers be more productive from day one.
 
@@ -23,11 +23,6 @@ The V2 programming model is now in Public Preview.
 [Get Started using VS Code](create-first-function-vs-code-python-v2.md)
 [Get Started using Core Tools](create-first-function-cli-python-v2.md)
 [Known Issues and Troubleshooting](recover-python-functions-v2.md)
-
-# [Node](#tab/node)
-
-
-# [Powershell](#tab/Powershell)
 
 
 ---
