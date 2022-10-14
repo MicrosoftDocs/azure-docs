@@ -773,7 +773,7 @@
       - name: Envoy
         href: envoy-tutorial.md
       - name: e2open CM-Global
-        href: eopencm-tutorial.md
+        href: eopen-cm-tutorial.md
       - name: E2open LSP
         href: e2open-lsp-tutorial.md
       - name: EPHOTO DAM
