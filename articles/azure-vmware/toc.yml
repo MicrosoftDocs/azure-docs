@@ -28,7 +28,7 @@
     href: tutorial-configure-networking.md
   - name: 4 - Access a private cloud
     href: tutorial-access-private-cloud.md
-  - name: 5 - Create an NSX-T network segment
+  - name: 5 - Create an NSX-T Data Center network segment
     href: tutorial-nsx-t-network-segment.md
   - name: 6 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
@@ -72,8 +72,8 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics
       href: configure-alerts-for-azure-vmware-solution.md
-    - name: Attach disk pools to Azure VMware Solution hosts
-      href: attach-disk-pools-to-azure-vmware-solution-hosts.md
+    - name: Configure customer-managed key encryption at rest
+      href: configure-customer-managed-keys.md
     - name: Manage and protect VMs on Azure NetApp Files
       items: 
       - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
@@ -122,8 +122,6 @@
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
-    - name: Enable public internet access
-      href: enable-public-internet-access.md
   - name: Configure networking
     items:
     - name: Configure DHCP server or relay

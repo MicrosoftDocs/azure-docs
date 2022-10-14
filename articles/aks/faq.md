@@ -216,7 +216,7 @@ No, AKS is a managed service, and manipulation of the IaaS resources isn't suppo
 
 ## Does AKS store any customer data outside of the cluster's region?
 
-The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo.
+No, all data is stored in the cluster's region.
 
 ## Are AKS images required to run as root?
 
