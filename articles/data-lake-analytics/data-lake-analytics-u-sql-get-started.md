@@ -1,10 +1,10 @@
 ---
 title: Get started with U-SQL language in Azure Data Lake Analytics
 description: Learn the basics of the U-SQL language in Azure Data Lake Analytics. Write your first query using variables to extra data from files, transform the rowset, and aggregate data.
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 06/23/2017
+ms.date: 10/14/2022
 ---
 # Get started with U-SQL in Azure Data Lake Analytics
 
@@ -185,7 +185,7 @@ U-SQL gives you the familiar ORDER BY, GROUP BY, and aggregations.
 
 The following query finds the total duration per region, and then displays the top five durations in order.
 
-U-SQL rowsets do not preserve their order for the next query. Thus, to order an output, you need to add ORDER BY to the OUTPUT statement:
+U-SQL rowsets don't preserve their order for the next query. Thus, to order an output, you need to add ORDER BY to the OUTPUT statement:
 
 ```usql
 DECLARE @outpref string = "/output/Searchlog-aggregation";
