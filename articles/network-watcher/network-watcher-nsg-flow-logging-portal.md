@@ -30,6 +30,7 @@ In this tutorial, you learn how to:
 > * Enable a traffic flow log for an NSG, using Network Watcher's NSG flow log capability
 > * Download logged data
 > * View logged data
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

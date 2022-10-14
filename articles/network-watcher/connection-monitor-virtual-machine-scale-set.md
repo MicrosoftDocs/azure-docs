@@ -20,7 +20,7 @@ ms.custom: mvc
 # Tutorial: Monitor network communication between two virtual machine scale sets using the Azure portal
 
 > [!NOTE]
-> This tutorial cover Connection Monitor. Try the new and improved [Connection Monitor](connection-monitor-overview.md) to experience enhanced connectivity monitoring
+> This tutorial covers Connection Monitor. Try the new and improved [Connection Monitor](connection-monitor-overview.md) to experience enhanced connectivity monitoring
 
 > [!IMPORTANT]
 > Starting 1 July 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate from Connection Monitor (classic) to the new Connection Monitor](migrate-to-connection-monitor-from-connection-monitor-classic.md) in Azure Network Watcher before 29 February 2024.
