@@ -29,6 +29,8 @@ Various high availability options are available in the Standard, Premium, and En
 
 Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash**
 
+Recommended for: **High availability**
+
 Azure Cache for Redis has a high availability architecture that ensures your managed instance is functioning, even when outages affect the underlying virtual machines (VMs). Whether the outage is planned or unplanned outages, Azure Cache for Redis delivers much greater percentage availability rates than what's attainable by hosting Redis on a single VM.
 
 An Azure Cache for Redis in the applicable tiers runs on a pair of Redis servers by default. The two servers are hosted on dedicated VMs. Open-source Redis allows only one server to handle data write requests.
@@ -61,6 +63,8 @@ Also, Azure Cache for Redis provides more replica nodes in the Premium tier. A [
 
 Applicable tiers: **Premium**, **Enterprise**, **Enterprise Flash**
 
+Recommended for: **High availability**, **Disaster recovery - intra region**
+
 Azure Cache for Redis supports zone redundant configurations in the Premium and Enterprise tiers. A zone redundant cache can place its nodes across different Azure Availability Zones in the same region. It eliminates data center or AZ outage as a single point of failure and increases the overall availability of your cache.
 See this article for information on how to set it up.
 
@@ -76,6 +80,8 @@ The following diagram illustrates the zone redundant configuration for the Premi
 
 Azure Cache for Redis distributes nodes in a zone redundant cache in a round-robin manner over the selected Availability Zones. It also determines which node will serve as the primary initially.
 
+#### Zone Down Experience
+
 A zone redundant cache provides automatic failover. When the current primary node is unavailable, one of the replicas will take over. Your application may experience higher cache response time if the new primary node is located in a different AZ. Availability Zones are geographically separated. Switching from one AZ to another alters the physical distance between where your application and cache are hosted. This change impacts round-trip network latencies from your application to the cache. The extra latency is expected to fall within an acceptable range for most applications. We recommend you test your application to ensure it does well with a zone-redundant cache.
 
 ### Enterprise and Enterprise Flash tiers
@@ -87,11 +93,47 @@ A cache in either Enterprise tier runs on a Redis Enterprise _cluster_. It alway
 
 The Enterprise cluster divides Azure Cache for Redis data into partitions internally. Each partition has a _primary_ and at least one _replica_. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 
+#### Zone Down Experience
+
 When a data node becomes unavailable or a network split happens, a failover similar to the one described in [Standard replication](#standard-replication-for-high-availability) takes place. The Enterprise cluster uses a quorum-based model to determine which surviving nodes participate in a new quorum. It also promotes replica partitions within these nodes to primaries as needed.
+
+### Regional availability
+
+Zone-redundant Premium tier caches are available in the following regions:
+
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+|---|---|---|---|---|
+| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
+| Canada Central | Germany West Central | | | Central India |
+| Central US | North Europe | | | Japan East |
+| East US | Norway East | | | Korea Central |
+| East US 2 | UK South | | | Southeast Asia |
+| South Central US | West Europe | | | East Asia |
+| US Gov Virginia | Sweden Central | | | China North 3 |
+| West US 2 | Switzerland North | | | |
+| West US 3 | | | | |
+
+Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions: 
+
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+|---|---|---|---|---|
+| Canada Central | North Europe | | | Australia East |
+| Central US* | UK South | | | Central India |
+| East US | West Europe | | | Southeast Asia |
+| East US 2 | | | | |
+| South Central US | | | | |
+| West US 2 | | | | |
+
+\* Enterprise Flash tier not available in this region. 
+
+#### Availability zone redeployment and migration
+Currently, the only way to convert your cache from a non-AZ configuration to an AZ configuration is to redeploy the cache. To learn how to redeploy your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](https://learn.microsoft.com/azure/availability-zones/migrate-cache-redis)
 
 ## Persistence
 
 Applicable tiers: **Premium**, **Enterprise (preview)**, **Enterprise Flash (preview)**
+
+Recommended for: **Data durability**
 
 Because your cache data is stored in memory, a rare and unplanned failure of multiple nodes can cause all the data to be dropped. To avoid losing data completely, [Redis persistence](https://redis.io/topics/persistence) allows you to take periodic snapshots of in-memory data, and store it to your storage account. If you experience a failure across multiple nodes causing data loss, your cache loads the snapshot from storage account. For more information, see [Configure data persistence for a Premium Azure Cache for Redis instance](cache-how-to-premium-persistence.md).
 
@@ -103,17 +145,21 @@ Consider choosing a geo-redundant storage account to ensure high availability of
 
 Applicable tiers: **Premium**, **Enterprise**, **Enterprise Flash**
 
+Recommended for: **Disaster recovery**
+
 Azure cache for Redis supports the option to import and export Redis Database (RDB) files to provide data portability. It allows you to import data into Azure Cache for Redis or export data from Azure Cache for Redis by using an RDB snapshot. The RDB snapshot from a premium cache is exported to a blob in an Azure Storage Account. You can create a script to trigger export periodically to your storage account. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
 ### Storage account for export
 
 Consider choosing a geo-redundant storage account to ensure high availability of your exported data. For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## Geo-replication
+## Passive Geo-replication
 
 Applicable tiers: **Premium**
 
-[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is designed mainly for disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache.
+Recommmended for: **Disaster recovery - single region**
+
+[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is designed mainly for cross-region disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache.
 For more information on how to set it up, see [Configure geo-replication for Premium Azure Cache for Redis instances](./cache-how-to-geo-replication.md).
 
 If the region hosting the primary cache goes down, you’ll need to start the failover by: first, unlinking the secondary cache, and then, updating your application to point to the secondary cache for reads and writes.
@@ -122,7 +168,9 @@ If the region hosting the primary cache goes down, you’ll need to start the fa
 
 Applicable tiers: **Enterprise**, **Enterprise Flash**
 
-The Enterprise tiers support a more advanced form of geo-replication called [active geo-replication](cache-how-to-active-geo-replication.md). The Azure Cache for Redis Enterprise software uses conflict-free replicated data types to support writes to multiple cache instances, merges changes, and resolves conflicts. You can join up to five Enterprise tier cache instances in different Azure regions to form a geo-replication group.
+Recommmended for: **High Availability**, **Disaster recovery - multi-region**
+
+The Enterprise tiers support a more advanced form of geo-replication called [active geo-replication](cache-how-to-active-geo-replication.md) that offers both higher availability and cross-region disaster recovery across multiple regions. The Azure Cache for Redis Enterprise software uses conflict-free replicated data types to support writes to multiple cache instances, merges changes, and resolves conflicts. You can join up to five Enterprise tier cache instances in different Azure regions to form a geo-replication group.
 
 An application using such a cache can read and write to any of the geo-distributed cache instances through their corresponding endpoints. The application should use what is the closest to each application instance, giving you the lowest latency. For more information, see [Configure active geo-replication for Enterprise Azure Cache for Redis instances](cache-how-to-active-geo-replication.md).
 
