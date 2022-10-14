@@ -55,7 +55,7 @@ When you look up the price list for Azure managed disks, then it becomes apparen
 - You try to simplify your storage architecture by using a single disk for **/hana/data** and **/hana/log** and pay for more IOPS and throughput as needed to achieve the levels we recommend below. With the awareness that a single disk has a throughput level of 1,200 MBps and 80,000 IOPS.
 - You want to benefit of the 3,000 IOPS and 125MBps that come for free with each disk. To do so, you would build multiple smaller disks that sum up to the capacity you need and then build a striped volume with a logical volume manager across these multiple disks. Striping across multiple disks would give you the possibility to reduce the IOPS and throughput cost factors. But would result in some more efforts in automating deployments and operating such solutions.
 
-Since we don't want to define which direction you should go, we are leaving the decision to you on whether to take the single disk approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1,200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are extremely critical and demand high throughput for the **/hana/data** volume
+Since we don't want to define which direction you should go, we're leaving the decision to you on whether to take the single disk approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1,200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are extremely critical and demand high throughput for the **/hana/data** volume
 
 **Recommendation: The recommended configurations with Azure premium storage for production scenarios look like:**
 
@@ -68,13 +68,13 @@ Configuration for SAP **/hana/data** volume:
 | E32ds_v4 | 256 GiB | 768 MBps | 51,200|  304 GB | 425 MBps | 3,000 | 
 | E32ds_v5 | 256 GiB | 865 MBps | 51,200|  304 GB | 425 MBps | 3,000 | 
 | E48ds_v4 | 384 GiB | 1,152 MBps | 76,800 |  464 GB |425 MBps | 3,000  | 
-| E48ds_v4 | 384 GiB | 1,315 MBps | 76,800 |  464 MGB |425 MBps | 3,000  | 
+| E48ds_v4 | 384 GiB | 1,315 MBps | 76,800 |  464 GB |425 MBps | 3,000  | 
 | E64ds_v4 | 504 GiB | 1,200 MBps | 80,000 |  608 GB | 425 MBps | 3,000 |  
 | E64(d)s_v5 | 512 GiB | 1,735 MBps | 80,000 |  608 GB| 425 MBps | 3,000 |
 | E96(d)s_v5 | 672 GiB | 2,600 MBps | 80,000 |  800 GB | 425 MBps | 3,000 | 
 | M32ts | 192 GiB | 500 MBps | 20,000 | 224 GB | 425 MBps | 3,000| 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 304 GB | 425 MBps | 3,000 | 
-| M64ls | 512 GiB | 1,000 MBps | 40,000 | 608 GB | 425 MB | 3,000 | 
+| M64ls | 512 GiB | 1,000 MBps | 40,000 | 608 GB | 425 MBps | 3,000 | 
 | M32dms_v2, M32ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
 | M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 680 MBps | 5,000 | 
 | M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 |  
@@ -84,7 +84,7 @@ Configuration for SAP **/hana/data** volume:
 | M192ims, M192idms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4912 GB | 800 MBps | 12,000 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 3424 GB | 1,000 MBps| 15,000 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 6,848 GB | 1,000 MBps | 15,000 | 
-| M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 MGB | 1,200 MBps| 17,000 | 
+| M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 GB | 1,200 MBps| 17,000 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 13,680 GB | 1,200 MBps| 25,000 | 
 
 
