@@ -3,7 +3,7 @@ title: Introduction to Device Update for Azure IoT Hub
 description: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices.
 author: vimeht
 ms.author: vimeht
-ms.date: 10/04/2022
+ms.date: 10/14/2022
 ms.topic: overview
 ms.service: iot-hub-device-update
 ---
@@ -25,7 +25,7 @@ To realize the full benefits of IoT-enabled digital transformation, customers ne
 Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). This integration makes it easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/services/rtos/) (real-time operating system)—and is extensible via open source. We're codeveloping Device Update for IoT Hub offerings with our semiconductor partners, including STMicroelectronics, NXP, Renesas, and Microchip. See the [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn how to configure, build, and deploy the over-the-air updates to MCU class devices.
 
 Both a Device Update agent simulator binary and Raspberry Pi reference Yocto images are provided.
-A Device Update agent is provided for Ubuntu Server 18.04 amd64 platform. Device Update for IoT Hub also provides open-source code if you aren't
+Device Update agents are built and provided for Ubuntu Server 18.04, Ubuntu Server 20.04, and Debian 10. Device Update for IoT Hub also provides open-source code if you aren't
 running one of the above platforms. You can port the agent to the distribution you're running.
 
 Device Update for IoT Hub also supports updating Azure IoT Edge devices.
@@ -46,14 +46,26 @@ There's no one right answer, and you might choose differently based on your spec
 
 Device Update for IoT Hub provides powerful and flexible features, including:
 
-* An update management experience that is integrated with Azure IoT Hub.
-* Gradual update rollout through device grouping and update scheduling controls.
-* Programmatic APIs to enable automation and custom portal experiences.
-* At-a-glance update compliance and status views across heterogenous device fleets.
-* Support for resilient device updates (A/B) to deliver seamless rollback.
-* Subscription and role-based access controls available through the Azure portal.
+* Management and reporting tools.
+
+  * An update management experience that is integrated with Azure IoT Hub.
+  * Programmatic APIs to enable automation and custom portal experiences.
+  * Subscription- and role-based access controls available through the Azure portal.
+  * At-a-glance update compliance and status views across heterogenous device fleets.
+  * Azure CLI support for creating and managing Device Update resources, groups, and deployments from the command line.
+
+* Detailed control over the update deployment process.
+
+  * Gradual update rollout through device grouping and update scheduling controls.
+  * Support for resilient device updates (A/B) to deliver seamless rollback.
+  * Automatic rollback to a defined fallback version for managed devices that meet the rollback criteria.
+  * Delta updates (public preview) that allow you to generate smaller updates that represent only the changes between the current image and target image, which can reduce bandwidth for downloading updates to devices.
+
+* Troubleshooting features to help you diagnose and repair devices, including agent check and device sync.
+
 * On-premises content cache and nested edge support to enable updating cloud disconnected devices.
-* Detailed update management and reporting tools.
+
+* Automatic grouping of devices based on their compatibility properties and device twin tags.
 
 With Device Update for IoT Hub management and deployment controls, users can maximize productivity and save valuable time. Device Update for IoT Hub includes the ability to group devices and specify to which devices an update should be deployed. Users also can view the status of deployments and make sure each device successfully applies updates.
 
@@ -63,7 +75,7 @@ When an update failure happens, Device Update for IoT Hub helps users to identif
 
 Microsoft Azure supports more than a billion IoT devices around the world—a number that’s growing rapidly by the day. Device Update for IoT Hub builds upon this experience and the proven reliability demonstrated by the Windows Update platform, so devices can be seamlessly updated on a global scale.
 
-Device Update for IoT Hub uses comprehensive cloud-to-edge security developed for Microsoft Azure, so customers don’t need to spend time figuring out how to build it themselves from the ground up.
+Device Update for IoT Hub uses comprehensive cloud-to-edge security developed for Microsoft Azure, so customers don’t need to spend time figuring out how to build it themselves from the ground up. For more information, see [Device Update security model](device-update-security.md).
 
 ## Device Update workflows
 
