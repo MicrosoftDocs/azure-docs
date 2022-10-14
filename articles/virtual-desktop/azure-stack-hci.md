@@ -86,7 +86,7 @@ Follow the steps below for a simplified process of setting up Azure Virtual Desk
 
 1. Enter a prefix for the VMs for **Vm Name Prefix**.
 
-1. Enter the **Image Id** of the image to be used. This can be a custom image or a Azure marketplace image.  *Example:  /subscriptions/My_subscriptionID/resourceGroups/Contoso-rg/providers/microsoft.azurestackhci/marketplacegalleryimages/Contoso-Win11image*.
+1. Enter the **Image Id** of the image to be used. This can be a custom image or an Azure Marketplace image.  *Example:  /subscriptions/My_subscriptionID/resourceGroups/Contoso-rg/providers/microsoft.azurestackhci/marketplacegalleryimages/Contoso-Win11image*.
 
 1. Enter the **Virtual Network Id** of the virtual network. *Example: /subscriptions/My_subscriptionID/resourceGroups/Contoso-rg/providers/Microsoft.AzureStackHCI/virtualnetworks/Contoso-virtualnetwork*.
 
