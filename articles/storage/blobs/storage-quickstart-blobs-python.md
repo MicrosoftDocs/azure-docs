@@ -99,7 +99,7 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for Python. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
-The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
+The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
 :::image type="content" source="./media/storage-quickstart-blobs-python/defaultazurecredential-flow-python.png"alt-text="A diagram of the credential flow.":::
 
@@ -151,7 +151,7 @@ You can authorize access to data in your storage account using the following ste
 
 3. Add this code inside the `try` block. When the code runs on your local workstation, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio Code.
 
-    :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_CreateServiceClientDAC":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_CreateServiceClientDAC":::
 
 4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
 
