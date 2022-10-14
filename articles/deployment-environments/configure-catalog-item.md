@@ -59,9 +59,8 @@ Provide a new catalog item to your development team as follows:
             name: WebApp
             version: 1.0.0
             description: Deploys an Azure Web App without a data store
-            engine:
-              type: ARM
-              templatePath: azuredeploy.json
+            runner: ARM
+            templatePath: azuredeploy.json
          ```     
         
         >[!NOTE]
