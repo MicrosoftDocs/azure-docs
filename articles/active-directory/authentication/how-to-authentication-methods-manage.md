@@ -1,6 +1,6 @@
 ---
 title: How to manage authentication methods - Azure Active Directory
-description: Learn about the Authentication methods policy and different ways to manage authentication methods.
+description: Learn about the authentication methods policy and different ways to manage authentication methods.
 
 services: active-directory
 ms.service: active-directory
