@@ -11,14 +11,14 @@ ms.author: cshoe
 
 # Custom environment DNS Suffix in Azure Container Apps
 
-By default, an Azure Container Apps environment is provided a DNS suffix in the format `<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`. Each container app in the environment is generated a domain name based on this DNS suffix. You can configure a custom DNS suffix for your environment.
+By default, an Azure Container Apps environment provides a DNS suffix in the format `<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`. Each container app in the environment generates a domain name based on this DNS suffix. You can configure a custom DNS suffix for your environment.
 
 > [!NOTE]
 > To configure a custom domain for individual container apps, see [Custom domain names and certificates in Azure Container Apps](custom-domains-certificates.md).
 
 ## Add a custom domain and certificate
 
-1. Navigate to your Container Apps environment in the [Azure portal](https://portal.azure.com)
+1. Go to your Container Apps environment in the [Azure portal](https://portal.azure.com)
 
 1. Under the *Settings* section, select **Custom DNS suffix**.
 
@@ -26,7 +26,7 @@ By default, an Azure Container Apps environment is provided a DNS suffix in the 
 
     For example, if you enter `example.com`, the container app domain names will be in the format `<APP_NAME>.example.com`.
 
-1. In a new browser window, navigate to your domain provider's website and add the DNS records shown in the *Domain validation* section to your domain.
+1. In a new browser window, go to your domain provider's website and add the DNS records shown in the *Domain validation* section to your domain.
 
     | Record type | Description |
     | -- | -- |
