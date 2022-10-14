@@ -3,7 +3,7 @@ title: Use Azure Private Link with Azure Virtual Desktop preview - Azure
 description: Learn how Azure Private Link (preview) can help you keep network traffic private.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 10/24/2022
 ms.author: helohr
 manager: femila
 ---

@@ -3,7 +3,7 @@ title: Set up Private Link for Azure Virtual Desktop preview - Azure
 description: How to set up Private Link for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/08/2022
+ms.date: 10/24/2022
 ms.author: helohr
 manager: femila
 ---
@@ -24,6 +24,14 @@ In order to use Private Link in your Azure Virtual Desktop deployment, you'll ne
 - An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and workspaces.
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
+In addition, you'll also need the resources listed in the following table:
+
+| Resource type | Target sub-resource | Quantity |
+|--|--|
+| Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
+| Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
+| Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
+
 ## Set up Private Link in the Azure portal
 
 To configure Private Link in the Azure portal:
@@ -34,32 +42,38 @@ To configure Private Link in the Azure portal:
 
 1. Go to **Host pools**, then select the name of the host pool you want to use.
 
-1. After you've opened the host pool, go to **Networking** > **Private Endpoints**.
+   >[!TIP]
+   >You can also start setting up by going to **Private Link Center** > **Private Endpoints** > **Add a private endpoint**.
+
+1. After you've opened the host pool, go to **Networking** > **Private Endpoint connections**.
 
 1. Select **Add a private endpoint**.
 
-1. In the **Basics** tab, use the drop-down menus to select the **Subscription** and **Resource group** you want to use.
+1. In the **Basics** tab, either use the drop-down menus to select the **Subscription** and **Resource group** you want to use or create a new resource group.
 
 1. Next, enter a name for your new private endpoint. The network interface name will fill automatically.
 
-1. Select the **region** your private endpoint will be located in. It should be in the same location as your session host and the VNet you plan to use.
+1. Select the **region** your private endpoint will be located in. You must choose the same location as your session host and the virtual network (VNet) you plan to use.
 
 1. When you're done, select **Next: Resource >**.
 
 1. In the **Resource** tab, select the target sub-resource you want to use from the drop-down menu. <!--will this change based on configuration or is it automatically "connection" every time?-->
 
-1. Select **Next: Virtual Network >**.
+1.  Select **Next: Virtual Network >**.
 
 1. In the **Virtual Network** tab, make sure the values in the **Virtual Network** and **subnet** fields are correct.
 
-1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses. <!--What's the difference between these two and why should I choose each?-->
+1. In the **Private IP configuration** field, choose whether you want to dynamically or statically allocate IP addresses from the subnet you selected in the previous step. <!--What's the difference between these two and why should I choose each?-->
+    
+    - If you choose to statically allocate IP addresses, you'll need to fill in the **Name** and **Private IP** for each listed member.
 
-1. Next, select an existing security group or create a new one.
-    - If you're creating a new security group, select **Create new**, enter its name, then select it from the drop-down menu once you've finished creating it.
+1. Next, select an existing application security group or create a new one.
+    
+    - If you're creating a new application security group, select **Create new**, then enter a name for the new security group.
 
 1. When you're finished, select **Next: DNS >**.
 
-1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** to integrate with an Azure private DNS zone. <!--what does yes or no in this context mean & why would you choose one or the other?-->
+1. In the **DNS** tab, in the **Integrate with private DNS zone** field, select **Yes** if you want to integrate with an Azure private DNS zone. Learn more about integration at [Azure Private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 1. When you're done, select **Next: Tags >**.
 
@@ -67,9 +81,7 @@ To configure Private Link in the Azure portal:
 
 1. Review the details of your private endpoint. If everything looks good, select **Create** and wait for the deployment to finish.
 
-1. Repeat this process to create an endpoint to connect in the opposite direction between the VNet and the session host where your resources are connected.
-
-<!--Do we need to create processes for in-Azure Virtual Desktop and outside of Azure Virtual Desktop at the same time like this, or can we create one and then go back to do the other?-->
+2. Now, repeat the process to create private endpoints for your resources. Return to step 3, but select **Workspaces** instead of host pools and select the name of the workspace you want to use, then follow the rest of the steps until the end. Repeat until you've made private endpoints for all of your resources.
 
 >[!NOTE]
 >You'll need to repeat this process to create a private endpoint for every resource you want to put into Private Link.
@@ -100,9 +112,9 @@ To control public traffic:
 
 ## Network security groups
 
-Follow the directions in [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md) to set up a network security group (NSG). You can use this NSG to block the **WindowsVirtualDesktop** server tag. If you block this server tag, all service traffic will use private routes only.
+Follow the directions in [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md) to set up a network security group (NSG). You can use this NSG to block the **WindowsVirtualDesktop** service tag. If you block this service tag, all service traffic will use private routes only.
 
-When you set up your NSG, you must configure it to allow the URLs in the [required URL list](safe-url-list.md). Make sure to include the URLs for Azure Monitor.
+When you set up your NSG, you must configure it to allow both the URLs in the [required URL list](safe-url-list.md) and your private endpoints. Make sure to include the URLs for Azure Monitor.
 
 ## Validate your Private Link deployment
 
