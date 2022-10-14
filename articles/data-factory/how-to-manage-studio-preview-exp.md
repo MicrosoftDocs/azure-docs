@@ -59,7 +59,7 @@ There are two ways to enable preview experiences.
 
    [**Monitoring experimental view**](#monitoring-experimental-view)
    * [Simplified default monitoring view](#simplified-default-monitoring-view)
-   * [Error message relocation to Status](#error-message-relocation-to-status)
+   * [Error message relocation to Status column](#error-message-relocation-to-status-column)
 
 ### Dataflow data-first experimental view
 
@@ -220,7 +220,7 @@ Add columns by clicking **Add column** or remove columns by clicking the trashca
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-22.png" alt-text="Screenshot of the Add column button and trashcan icon to edit column view.":::
 
-#### Error message relocation to Status
+#### Error message relocation to Status column
 
 Error messages have now been relocated to the **Status** column. This will allow you to easily view errors when you see a **Failed** pipeline run. 
 
