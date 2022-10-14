@@ -782,8 +782,8 @@ Example query:
 
 The response will be an array of `0...N` DICOM datasets with the following attributes returned:
 
-* All attributes in [DICOM PS 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1 or 2
-* All attributes in [DICOM PS 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1C for which the conditional requirements are met
+* All attributes in [DICOM PowerShell 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1 or 2
+* All attributes in [DICOM PowerShell 3.4 Table CC.2.5-3](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3) with a Return Key Type of 1C for which the conditional requirements are met
 * All other Workitem attributes passed as match parameters
 * All other Workitem attributes passed as includefield parameter values
 
