@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/13/2022
+ms.date: 10/14/2022
 ms.author: aahi
 ms.custom: language-service-custom-clu
 ---
@@ -112,13 +112,13 @@ If you're [importing a project](../how-to/create-project.md#import-project) into
 |`synonyms`|`[]`|Array containing all the synonyms|synonym|
 | `language` | `{LANGUAGE-CODE}` |  A string specifying the language code for the utterances, synonyms, and regular expressions used in your project. If your project is a  multilingual project, choose the [language code](../language-support.md) of the majority of the utterances. |`en-us`|
 | `intents` | `[]` | Array containing all the intents you have in the project. These are the intents that will be classified from your utterances.| `[]` |
-| `entities` | `[]` | Array containing all the entities in your project. These are the entities that will be extracted from your utterances. Every entity can have additional oiptional components defined with them: list, prebuilts, or regex. | `[]` |
+| `entities` | `[]` | Array containing all the entities in your project. These are the entities that will be extracted from your utterances. Every entity can have additional optional components defined with them: list, prebuilt, or regex. | `[]` |
 | `dataset` | `{DATASET}` |  The test set to which this utterance will go to when split before training. Learn more about data splitting [here](../how-to/train-model.md#data-splitting) . Possible values for this field are `Train` and `Test`.      |`Train`|
 | `category` | ` ` |  The type of entity associated with the span of text specified. | `Entity1`|
 | `offset` | ` ` |  The inclusive character position of the start of the entity.      |`5`|
 | `length` | ` ` |  The character length of the entity.      |`5`|
 | `listKey`| ` ` | A normalized value for the list of synonyms to map back to in prediction. | `Microsoft` |
-| `values`| `{VALUES-FOR-LIST}` | A list of comma separated strings that will be exact matched for extraction and map to the list key. | `"msft", "microsoft", "MS"` |
+| `values`| `{VALUES-FOR-LIST}` | A list of comma separated strings that will be matched exactly for extraction and map to the list key. | `"msft", "microsoft", "MS"` |
 | `regexKey`| `{REGEX-PATTERN}` | A regular expression. | `ProductPattern1` |
 | `regexPattern`| `{REGEX-PATTERN}` | A regular expression. | `^pre` |
 | `prebuilts`| `{PREBUILT-COMPONENTS}` | The prebuilt components that can extract common types. You can find the list of prebuilts you can add [here](../prebuilt-component-reference.md). | `Quantity.Number` |

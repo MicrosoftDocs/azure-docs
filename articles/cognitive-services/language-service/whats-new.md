@@ -37,10 +37,10 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 * [Regular expressions](./conversational-language-understanding/concepts/entity-components.md#regex-component) in conversational language understanding and [required components](./conversational-language-understanding/concepts/entity-components.md#required-components), offering an additional ability to influence entity predictions.
 * [Entity resolution](./named-entity-recognition/concepts/entity-resolutions.md) in named entity recognition
 * New region support for:
-    * [Conversational language understanding](./conversational-language-understanding/service-limits.md#regional-availability.md)
-    * [Orchestration workflow](./orchestration-workflow/service-limits.md#regional-availability.md)
-    * [Custom text classification](./custom-text-classification/service-limits.md#regional-availability.md) 
-    * [Custom named entity recognition](./custom-named-entity-recognition/service-limits.md#regional-availability.md)
+    * [Conversational language understanding](./conversational-language-understanding/service-limits.md#regional-availability)
+    * [Orchestration workflow](./orchestration-workflow/service-limits.md#regional-availability)
+    * [Custom text classification](./custom-text-classification/service-limits.md#regional-availability) 
+    * [Custom named entity recognition](./custom-named-entity-recognition/service-limits.md#regional-availability)
 
 ## September 2022
 
