@@ -3,7 +3,7 @@ title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/14/2022
 ms.author: helohr
 manager: femila
 ---
@@ -58,11 +58,11 @@ The Remote Desktop WebRTC Redirector Service is required to run Teams on Azure V
 
 1. Sign in to a session host as a local administrator.
 
-2. Download the [Remote Desktop WebRTC Redirector Service installer](https://aka.ms/msrdcwebrtcsvc/msi).
+1. Download the [Remote Desktop WebRTC Redirector Service installer](https://aka.ms/msrdcwebrtcsvc/msi).
 
-3. Open the file that you downloaded to start the setup process.
+1. Open the file that you downloaded to start the setup process.
 
-4. Follow the prompts. Once it's completed, select **Finish**.
+1. Follow the prompts. Once it's completed, select **Finish**.
 
 You can find more information about the latest version of the WebSocket service at [What's new in the Remote Desktop WebRTC Redirector Service](whats-new-webrtc.md).
 
@@ -72,9 +72,9 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
-2. Run the following commands to install the MSI to the host VM:
+1. Run one of the following commands to install the MSI to the host VM:
 
-    - Per-machine installation
+    - For per-machine installation, run this command:
 
         ```powershell
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
@@ -102,7 +102,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
         ```
 
-        This process is the default installation process, which installs Teams to the **%AppData%** user folder.
+        This process installs Teams to the **%AppData%** user folder.
         
         >[!NOTE]
         >Per-user installation only works on personal host pools. If your deployment uses pooled host pools, we recommend using per-machine installation instead.
@@ -113,13 +113,13 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 1. Quit and restart the Teams application.
 
-2. Select your user profile image, then select **About**.
+1. Select your user profile image, then select **About**.
 
-3. Select **Version**.
+1. Select **Version**.
 
       If media optimizations loaded, the banner will show you **Azure Virtual Desktop Media optimized**. If the banner shows you **Azure Virtual Desktop Media not connected**, quit the Teams app and try again.
 
-4. Select your user profile image, then select **Settings**.
+1. Select your user profile image, then select **Settings**.
 
       If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions - Microphone** the setting **"Allow apps to access your microphone"** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
 
