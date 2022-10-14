@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 09/12/2022
+  ms.date: 10/07/2022
   ms.author: victorh
 
 title: Azure Firewall FAQ
@@ -268,3 +268,6 @@ sections:
 
       - question: Is there a way to automatically backup Azure Firewall and policies?
         answer: Yes. For more information, see [Backup Azure Firewall and Azure Firewall Policy with Logic Apps](https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928).
+
+      - question: Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?
+        answer: No, currently Azure Firewall in secured virtual hubs (vWAN) is not supported in Qatar.

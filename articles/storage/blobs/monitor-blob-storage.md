@@ -327,6 +327,9 @@ The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of pl
 
 Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
+> [!NOTE]
+> Azure Monitor currently filters out logs that describe activity in the `insights-` container. You can track activities in that container by using storage analytics (classic logs).
+
 ### Log anonymous requests
 
  The following types of anonymous requests are logged:

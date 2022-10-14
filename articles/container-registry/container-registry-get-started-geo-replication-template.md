@@ -4,7 +4,7 @@ description: Learn how to create a geo-replicated Azure container registry by us
 services: azure-resource-manager
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 08/15/2022
+ms.date: 10/11/2022
 ms.topic: quickstart
 ms.service: container-registry
 ms.custom: subject-armqs, mode-arm
