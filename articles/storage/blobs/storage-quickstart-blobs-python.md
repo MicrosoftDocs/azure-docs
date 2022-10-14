@@ -19,9 +19,9 @@ Get started with the Azure Blob Storage client library for Python to manage blob
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Azure Storage account - [create a storage account](../common/storage-account-create.md).
-- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure Storage account - [create a storage account](../common/storage-account-create.md)
+- [Python](https://www.python.org/downloads/) 2.7 or 3.6+
 
 ## Setting up
 
@@ -45,26 +45,18 @@ Create a Python application named *blob-quickstart*.
 
 ### Install the packages
 
-From the project directory, install the Azure Blob Storage client library for Python package by using the `pip install` command.
+From the project directory, install packages for the Azure Blob Storage and Azure Identity client libraries using the `pip install` command. The **azure-identity** package is needed for passwordless connections to Azure services.
 
 ```console
-pip install azure-storage-blob
-```
-
-This command installs the Azure Blob Storage for Python package and the libraries on which it depends. In this case, the only dependency is the Azure Core library for Python.
-
-If you are using the recommended approach for passwordless connections to Azure services, install the Azure Identity client library.
-
-```console
-pip install azure-identity
+pip install azure-storage-blob azure-identity
 ```
 
 ### Set up the app framework
 
 From the project directory, follow steps to create the basic structure of the app:
 
-1. Open a new text file in your code editor
-1. Add `import` statements, create the structure for the program, and include basic exception handling, as shown below
+1. Open a new text file in your code editor.
+1. Add `import` statements, create the structure for the program, and include basic exception handling, as shown below.
 1. Save the new file as *blob-quickstart.py* in the *blob-quickstart* directory.
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/app_framework.py":::
 
