@@ -157,7 +157,7 @@ While you can use pre-made [custom policy starter pack](/tutorial-create-user-fl
 
     The [RelyingParty] section is the entry point to your policy. It specifies the [UserJourney](userjourneys.md) to execute and the claims to include in the token that is returned when the policy runs.  
 
-Once you complete [step 2](#step-2---build-the-custom-policy-file), the `ContosoCustomPolicy.XML` file should look similar to the following code: 
+After you complete [step 2](#step-2---build-the-custom-policy-file), the `ContosoCustomPolicy.XML` file should look similar to the following code: 
 
 ```xml
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
