@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 04/29/2022
+ms.date: 10/14/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022,sdkv2
 ---
@@ -62,6 +62,8 @@ In this article, you'll learn to:
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
+* An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
+
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
 ## Prepare your system
@@ -92,7 +94,7 @@ For Unix, run this command:
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
 > [!NOTE]
-> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 
+> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
 
 # [Python](#tab/python)
 
@@ -108,7 +110,18 @@ cd azureml-examples/sdk/python/endpoints/online/managed
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
 
-The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. It contains the same content as this article, although the order of the codes may be slightly different.
+The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. While the notebook begins with the steps for creating an endpoint and a blue deployment, this article assumes that your endpoint and deployment already exist, as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
+
+### Set an endpoint name
+
+To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
+
+For Unix, run this command:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
+
+> [!NOTE]
+> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
 
 ### Connect to Azure Machine Learning workspace
 
@@ -127,29 +140,14 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
    
     [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=workspace_handle)]
 
----
 
-## -----------------------------------------------------------------
-<!-- * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+## Confirm your existing deployment
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md) and you have an existing endpoint and deployment.
 
-* You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
+# [Azure CLI](#tab/azure-cli)
 
-* You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
-
-* If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
-
-   ```azurecli
-   az account set --subscription <subscription id>
-   az configure --defaults workspace=<azureml workspace name> group=<resource group> -->
-   ```
-
-
-
-## Confirm your existing deployment is created
-
-You can view the status of your existing endpoint and deployment by running: 
+You can view the status of your existing endpoint and deployment by running:
 
 ```azurecli
 az ml online-endpoint show --name $ENDPOINT_NAME 
@@ -157,9 +155,25 @@ az ml online-endpoint show --name $ENDPOINT_NAME
 az ml online-deployment show --name blue --endpoint $ENDPOINT_NAME 
 ```
 
-You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment called `blue`. 
+You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment called `blue`.
+
+# [Python](#tab/python)
+
+## Test the endpoint with sample data
+
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+
+* `endpoint_name` - Name of the endpoint
+* `request_file` - File with request data
+* `deployment_name` - Name of the specific deployment to test in an endpoint
+
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_deployment)]
 
 ## Scale your existing deployment to handle more traffic
+
+# [Azure CLI](#tab/azure-cli)
 
 In the deployment described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md), you set the `instance_count` to the value `1` in the deployment yaml file. You can scale out using the `update` command:
 
@@ -168,7 +182,19 @@ In the deployment described in [Deploy and score a machine learning model with a
 > [!Note]
 > Notice that in the above command we use `--set` to override the deployment configuration. Alternatively you can update the yaml file and pass it as an input to the `update` command using the `--file` input.
 
+# [Python](#tab/python)
+
+Using the `MLClient` created earlier, we'll get a handle to the deployment. The deployment can be scaled by increasing or decreasing the `instance_count`.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=scale_deployment)]
+
+### Get endpoint details
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=get_endpoint_details)]
+
 ## Deploy a new model, but send it no traffic yet
+
+# [Azure CLI](#tab/azure-cli)
 
 Create a new deployment named `green`: 
 
@@ -188,7 +214,24 @@ If you want to use a REST client to invoke the deployment directly without going
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_green_using_curl" :::
 
+# [Python](#tab/python)
+
+Create a new deployment named green:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_new_deloyment)]
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_new_deloyment)]
+
+### Test the new deployment
+
+Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_new_deployment)]
+
+
 ## Test the deployment with mirrored traffic (preview)
+
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -221,8 +264,41 @@ After testing, you can set the mirror traffic to zero to disable mirroring:
 ```azurecli
 az ml online-endpoint update --name $ENDPOINT_NAME --mirror-traffic "green=0"
 ```
+# [Python](#tab/python)
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the blue deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors.
+
+> [!WARNING]
+> Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
+
+The following command mirrors 10% of the traffic to the `green` deployment:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=new_deployment_traffic)]
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=several_tests_to_mirror_traffic)]
+
+> [!IMPORTANT]
+> Mirroring has the following limitations:
+> * You can only mirror traffic to one deployment.
+> * Mirrored traffic is not currently supported with K8s.
+> * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
+>
+> Also note the following behavior:
+> * A deployment can only be set to live or mirror traffic, not both.
+> * You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
+> * You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to endpoint without specifying the deployment. 
+
+:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
+
+After testing, you can set the mirror traffic to zero to disable mirroring:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=disable_traffic_mirroring)]
 
 ## Test the new deployment with a small percentage of live traffic
+
+# [Azure CLI](#tab/azure-cli)
 
 Once you've tested your `green` deployment, allocate a small percentage of traffic to it:
 
@@ -232,24 +308,59 @@ Now, your `green` deployment will receive 10% of requests.
 
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
 
+# [Python](#tab/python)
+
+Once you've tested your green deployment, allocate a small percentage of traffic to it:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=allocate_some_traffic)]
+
+Now, your green deployment will receive 10% of requests.
+    
+:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
+
 ## Send all traffic to your new deployment
+
+# [Azure CLI](#tab/azure-cli)
 
 Once you're satisfied that your `green` deployment is fully satisfactory, switch all traffic to it.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
 
+# [Python](#tab/python)
+
+Once you're satisfied that your green deployment is fully satisfactory, switch all traffic to it.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=allocate_all_traffic)]
+
 ## Remove the old deployment
+
+# [Azure CLI](#tab/azure-cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
 
+# [Python](#tab/python)
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=remove_old_deployment)]
+
+
 ## Delete the endpoint and deployment
+
+# [Azure CLI](#tab/azure-cli)
 
 If you aren't going use the deployment, you should delete it with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
 
+# [Python](#tab/python)
+
+If you aren't going use the deployment, you should delete it with:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=delete_endpoint)]
+
+
 
 ## Next steps
+- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [Create and use online endpoints  in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
