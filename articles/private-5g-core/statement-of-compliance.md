@@ -22,9 +22,7 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
 
 - TS 23.003: Numbering, addressing and identification.
 - TS 23.501: System architecture for the 5G System (5GS).
-- TS 23.502: Procedures for the 5G System (5GS). Includes the sections:
-  - 4.9.1.2: Xn based inter NG-RAN handover.
-  - 4.9.1.3: Inter NG-RAN node N2 based handover.
+- TS 23.502: Procedures for the 5G System (5GS).
 
 ### 4G system
 
