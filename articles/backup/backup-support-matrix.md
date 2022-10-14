@@ -166,9 +166,9 @@ The resource health check functions in following conditions:
 | **Supported Regions** | East US, East US 2, Central US, South Central US, North Central US, West Central US, West US, West US 2, West US 3, Canada East, Canada Central, North Europe, West Europe, UK West, UK South, France Central, France South, Sweden Central, Sweden South, East Asia, South East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia Central, Australia Central 2, Australia South East, South Africa North, South Africa West, UAE North, UAE Central, Brazil South East, Brazil South, Switzerland North, Switzerland West, Norway East, Norway West, Germany North, Germany West Central, West India, Central India, South India, Jio India West, Jio India Central. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
-## Zone-redundant storage support for Recovery Services vault
+## Zone-redundant storage support
 
-Azure Backup now supports zone-redundant storage (ZRS) from Recovery Services vault.
+Azure Backup now supports zone-redundant storage (ZRS).
 
 ### Supported regions
 
@@ -176,7 +176,7 @@ Azure Backup support for ZRS is available in the following regions: UK South, So
 
 ### Supported scenarios
 
-Here's the list of scenarios supported even if gets zone is unavailable:
+Here's the list of scenarios supported even if zone gets unavailable:
 
 - Create/List/Update Policy
 - List backup jobs
@@ -187,15 +187,15 @@ Here's the list of scenarios supported even if gets zone is unavailable:
 
 ### Supported operations
 
-The following table lists the workload specific operations supported even if gets zone is unavailable:
+The following table lists the workload specific operations supported even if zone gets unavailable:
 
 | Protected workload | Supported Operations |
 | --- | --- |
-| **IAAS VM** | Backups are successful, if the protected VM is in an active zone. <br><br> Original location recovery (OLR) is successful, if the protected VM is in an active zone. <br><br> Alternate location restores (ALR) to an active zone is successful. |
+| **IAAS VM** | - Backups are successful, if the protected VM is in an active zone. <br><br> - Original location recovery (OLR) is successful, if the protected VM is in an active zone. <br><br> - Alternate location restores (ALR) to an active zone is successful. |
 | **SQL/ SAP HANA database in Azure VM** | - Backups are successful, if the protected workload is in an active zone. <br><br> - Original location recovery (OLR) is successful, if the protected workload is in an active zone. <br><br> - Alternate location restores (ALR) to an active zone is successful. |
 | **Azure Files** | Backups, OLR, and ALR are successful, if the protected file share is in a ZRS account. |
-| **Blob** | Backups are successful, if the protected disk is in an active zone. <br><br> Restore to an active zone are successful. |
-| **Disk** | Backups are successful, if the protected disk is in an active zone. <br><br> Restore to an active zone are successful. |
+| **Blob** | Recovery is successful, if the protected storage account is in ZRS. |
+| **Disk** | - Backups are successful, if the protected disk is in an active zone. <br><br> - Restore to an active zone is successful. |
 | **MARS** | Backups and restores are successful. |
 
 ## Next steps
