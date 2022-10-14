@@ -500,42 +500,16 @@ Dependencies
 ### Metrics
 
 #### [.NET](#tab/net)
-The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry MeterProvider. This code must be in the application startup. For .NET Core, it's done typically in the ConfigureServices method of the application Startup class. For .NET applications, it's done typically in Global.asax.cs.
 
-```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-using OpenTelemetry.Trace;
-public class Program
-{
-    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
-
-    public static void Main()
-    {
-        using var meterProvider = Sdk.CreateMeterProviderBuilder()
-            .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
-            .Build();
-
-        Counter<long> MyFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
-
-        MyFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
-        MyFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
-        MyFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
-        MyFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
-        MyFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
-        MyFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
-
-        System.Console.WriteLine("Press Enter key to exit.");
-        System.Console.ReadLine();
-    }
-}
-```
+- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
+  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
+- [ASP.NET
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
+- [HTTP
+  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
+- [Runtime](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.Runtime-1.0.0/src/OpenTelemetry.Instrumentation.Runtime/README.md) version: [1.0.0](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime/1.0.0)
 
 #### [Node.js](#tab/nodejs)
 
