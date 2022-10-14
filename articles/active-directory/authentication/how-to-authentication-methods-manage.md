@@ -84,10 +84,10 @@ The following table describes each option.
 | Option | Description |
 |:-------|:------------|
 | Pre-migration | The Authentication methods policy is used only for authentication.<br>Legacy policy settings are respected.      |
-| Migration in progress | The Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are respected.     |
-| Migration complete | Only the Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are ignored.  |
+| Migration in Progress | The Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are respected.     |
+| Migration Complete | Only the Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are ignored.  |
 
-All tenants are set to Pre-migration by default. At any time, you can toggle between settings. If you roll back to Pre-migration, you need to specify a reason.
+All tenants are set to Pre-migration by default. At any time, you can change to another option. If you choose to roll back to Pre-migration afterward, you need to specify a reason.
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/reason.png" alt-text="Screenshot of reasons for rollback.":::
 
