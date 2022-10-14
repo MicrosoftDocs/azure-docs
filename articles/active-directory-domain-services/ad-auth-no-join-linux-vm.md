@@ -55,10 +55,13 @@ Review the information that you provided, and if everything is correct, click Fi
 
 ## Linux VM Configuration
 
+> [!NOTE]
+> You must run these command with sudo permission
+
 On your Linux VM, install the following packages: *sssd sssd-tools sssd-ldap openldap-client*:
 
 ```console
-yum install -y sssd sssd-tools sssd-ldap openldap-client
+yum install -y sssd sssd-tools sssd-ldap openldap-clients
 ```
 
 After the installation check if LDAP search works. In order to check it try an LDAP search following the example below:
@@ -66,7 +69,7 @@ After the installation check if LDAP search works. In order to check it try an L
 ```console
 ldapsearch -H ldap://<ip-domain-controller>:389 -x \
         -D CN=ReadOnlyUser,CN=Users,DC=cetesting,DC=it -w Read0nlyuserpassword \
-        -b CN=Users,DC=cetesting,DC=it
+        -b CN=Users,DC=<domain>,DC=<extension>
 ```
 
 If the LDAP query works fine, you will obtain an output with some information like follow:
@@ -110,6 +113,14 @@ dSCorePropagationData: 16010101000000.0Z
 ## Create sssd.conf file
 
 Create */etc/sssd/sssd.conf* with a content like the following. Remember to update the *ldap_uri*, *ldap_search_base* and *ldap_default_bind_dn*.
+
+Command for file creation:
+
+```console
+vi /etc/sssd/sssd.conf
+```
+
+Example sssd.conf:
 
 ```bash
 [sssd]
@@ -174,19 +185,19 @@ The password will be placed automatically in the configuration file.
 Start the sssd service:
 
 ```console
-[root@centos8 ~]service sssd start
+service sssd start
 ```
 
 Now configure the service with the *authconfig* tool:
 
 ```console
-[root@centos8 ~]authconfig --enablesssd --enablesssdauth --enablemkhomedir --updateall
+authconfig --enablesssd --enablesssdauth --enablemkhomedir --updateall
 ```
 
 At this point restart the service:
 
 ```console
-[root@centos8 ~]systemctl restart sssd
+systemctl restart sssd
 ```
 
 ## Test the configuration
