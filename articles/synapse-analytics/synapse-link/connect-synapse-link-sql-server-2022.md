@@ -53,7 +53,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 ## Create a linked service for your source SQL Server 2022 database
 
-1. Open the **Manage** hub, and go to **Linked services**.
+1. Select the **Manage** hub button, and then select **Linked services**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-navigation.png" alt-text="Go to linked services from Synapse Studio.":::
 
@@ -79,7 +79,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
      :::image type="content" source="../media/connect-synapse-link-sql-server-2022/input-name-integration-runtime.png" alt-text="Screenshot that shows where to enter a name for the self-hosted integration runtime.":::
 
-   d. Now a self-hosted integration runtime is available in your Azure Synapse workspace. Follow the prompts to download, install, and use the key to register your integration runtime agent on your Windows machine, which has direct access to your SQL Server 2022 instance. For more information, see [Create a self-hosted integration runtime - Azure Data Factory and Azure Synapse](../../data-factory/create-self-hosted-integration-runtime.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#install-and-register-a-self-hosted-ir-from-microsoft-download-center).
+     A self-hosted integration runtime is now available in your Azure Synapse workspace. 
+   
+   d. Follow the prompts to download, install, and use the key to register your integration runtime agent on your Windows machine, which has direct access to your SQL Server 2022 instance. For more information, see [Create a self-hosted integration runtime - Azure Data Factory and Azure Synapse](../../data-factory/create-self-hosted-integration-runtime.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics#install-and-register-a-self-hosted-ir-from-microsoft-download-center).
 
      :::image type="content" source="../media/connect-synapse-link-sql-server-2022/set-up-integration-runtime.png" alt-text="Screenshot that shows where to download, install, and register the integration runtime.":::
 
@@ -178,7 +180,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    d. Enter your Azure Data Lake Storage Gen2 **container name or container/folder name** as a landing zone folder path for staging the data. The container must be created first.
 
-   e. Input your Azure Data Lake Storage Gen2 shared access signature token. The token is required for the SQL change feed to access the landing zone. If your Azure Data Lake Storage Gen2 account doesn't have a shared access signature token, you can create one by selecting **Generate token**.
+   e. Enter your Azure Data Lake Storage Gen2 shared access signature token. The token is required for the SQL change feed to access the landing zone. If your Azure Data Lake Storage Gen2 account doesn't have a shared access signature token, you can create one by selecting **Generate token**.
 
    f. Select **OK**.
 
@@ -235,7 +237,7 @@ To add or remove tables in Synapse Studio, do the following:
 
 1. Do either of the following:
 
-   * To add a table, select **New**.
+   * To add a table, select **New table**.
    * To remove a table, select the trash can icon next to it.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of the link connection pane for adding or removing tables.":::
