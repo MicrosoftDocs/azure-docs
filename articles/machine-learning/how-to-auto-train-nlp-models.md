@@ -13,14 +13,13 @@ ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
-# Set up AutoML to train a natural language processing model (preview)
+# Set up AutoML to train a natural language processing model 
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
 > * [v1](./v1/how-to-auto-train-nlp-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-nlp-models.md)
  
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 or the Azure Machine Learning CLI v2. 
 
@@ -49,7 +48,6 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
@@ -197,7 +195,6 @@ For CLI v2 AutoML jobs you configure your experiment in a YAML file like the fol
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 For AutoML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
 
@@ -250,7 +247,6 @@ featurization:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
@@ -273,7 +269,6 @@ You can also run your NLP experiments with distributed training on an Azure ML c
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment setup. Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
 
@@ -303,7 +298,6 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 With the `MLClient` created earlier, you can run this `CommandJob` in the workspace.
 
@@ -335,7 +329,6 @@ See the following sample YAML files for each NLP task.
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 See the sample notebooks for detailed code examples for each NLP task. 
 
