@@ -291,19 +291,23 @@ It can take several hours for changes to a managed identity's group or role memb
 
 You recently added or updated a role assignment at management group scope, but the changes are not being detected.
 
-**Cause 1**
+**Cause**
 
 Azure Resource Manager sometimes caches configurations and data to improve performance. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
-**Solution 1**
+**Solution**
 
 If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
 
-**Cause 2**
+### Symptom - Role assignments for management group changes are not being detected
 
-You added a role assignment at management group scope and then you created a new child management group. Azure Resource Manager sometimes caches configurations and data to improve performance. It can take up to 10 minutes for the role assignment for the child management group to take effect.
+You created a new child management group and the role assignment on the parent management group is not being detected for the child management group.
 
-**Solution 2**
+**Cause**
+
+Azure Resource Manager sometimes caches configurations and data to improve performance. It can take up to 10 minutes for the role assignment for the child management group to take effect.
+
+**Solution**
 
 If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
