@@ -42,7 +42,7 @@ Azure Health Data Services includes support for the MedTech service. The MedTech
 
 **FHIR service**
 
-Azure Health Data Services includes support for FHIR service. The FHIR service enables enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. For more information about MedTech, see [Overview of FHIR](../healthcare-apis/fhir/overview.md).
+Azure Health Data Services includes support for FHIR service. The FHIR service enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. For more information about MedTech, see [Overview of FHIR](../healthcare-apis/fhir/overview.md).
 
 For the secure exchange of FHIR data, Azure Health Data Services offers a few incremental capabilities that aren't available in Azure API for FHIR.
  
