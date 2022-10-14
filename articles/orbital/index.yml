@@ -70,7 +70,11 @@ landingContent:
           - text: Geospatial reference architecture
             url: geospatial-reference-architecture.md
           - text: Spaceborne data analysis with Azure Synapse Analytics
-            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics  
+            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics 
+          - text: Organize spaceborne geospatial data with STAC
+            url: organize-stac-data.md
+          - text: SAR reference architecture
+            url: sar-reference-architecture.md   
       - linkListType: tutorial
         links:
           - text: Schedule a contact with NASA's AQUA public satellite

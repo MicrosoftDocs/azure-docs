@@ -61,6 +61,8 @@
     href: concepts-iot-device-types.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
+  - name: IoT device selection list
+    href: iot-device-selection.md
   - name: Device models
     items:
     - name: Modeling guide
@@ -122,7 +124,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
     - name: C (Device)
-      href: /azure/iot-hub/iot-c-sdk-ref/
+      href: https://github.com/Azure/azure-iot-sdk-c/
     - name: Embedded C (Device)
       href: https://azure.github.io/azure-sdk-for-c/
     - name: Azure RTOS Middleware (Device)

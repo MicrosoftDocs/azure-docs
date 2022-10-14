@@ -13,6 +13,8 @@ tags: connectors
 
 # Connect to an IBM MQ server from a workflow in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 The MQ connector helps you connect your logic app workflows to an IBM MQ server that's either on premises or in Azure. You can then have your workflows receive and send messages stored in your MQ server. This article provides a get started guide to using the MQ connector by showing how to connect to your MQ server and add an MQ action to your workflow. For example, you can start by browsing a single message in a queue and then try other actions.
 
 This connector includes a Microsoft MQ client that communicates with a remote MQ server across a TCP/IP network. You can connect to the following IBM WebSphere MQ versions:

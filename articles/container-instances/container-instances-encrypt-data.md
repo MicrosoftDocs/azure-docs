@@ -17,8 +17,6 @@ When running Azure Container Instances (ACI) resources in the cloud, the ACI ser
 
 Data in ACI is encrypted and decrypted using 256-bit AES encryption. It is enabled for all ACI deployments, and you don't need to modify your deployment or containers to take advantage of this encryption. This includes metadata about the deployment, environment variables, keys being passed into your containers, and logs persisted after your containers are stopped so you can still see them. Encryption does not affect your container group performance, and there is no additional cost for encryption.
 
-## Encryption key management
-
 You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption with your own keys. The following table compares these options: 
 
 |    |    Microsoft-managed keys     |     Customer-managed keys     |
@@ -28,16 +26,12 @@ You can rely on Microsoft-managed keys for the encryption of your container data
 |    **Key rotation responsibility**    |    Microsoft    |    Customer    |
 |    **Key access**    |    Microsoft only    |    Microsoft, Customer    |
 
-The rest of the document covers the steps required to encrypt your ACI deployment data with your key (customer-managed key). 
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
 This article reviews two flows for encrypting data with a customer-managed key:
 * Encrypt data with a customer-managed key stored in a standard Azure Key Vault
 * Encrypt data with a customer-managed key stored in a network-protected Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
 
 ## Encrypt data with a customer-managed key stored in a standard Azure Key Vault
-
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 ### Create Service Principal for ACI
 
 The first step is to ensure that your [Azure tenant](../active-directory/develop/quickstart-create-new-tenant.md) has a service principal assigned for granting permissions to the Azure Container Instances service. 
@@ -258,7 +252,6 @@ For the properties of your key vault, use the following guidelines:
 
 > [!IMPORTANT]
 > When using customer-managed keys to encrypt an ACI deployment template, it is recommended that the following two properties be set on the key vault, Soft Delete and Do Not Purge. These properties are not enabled by default, but can be enabled using either PowerShell or Azure CLI on a new or existing key vault.
-
 ### Generate a new key 
 
 Once your key vault is created, navigate to the resource in Azure portal. On the left navigation menu of the resource blade, under Settings, click **Keys**. On the view for "Keys," click "Generate/Import" to generate a new key. Use any unique Name for this key, and any other preferences based on your requirements. Make sure to capture key name and version for subsequent steps.
@@ -305,7 +298,7 @@ az keyvault update \
     --resource-group myResourceGroup \
     --default-action Deny
  ```   
- 
+
 ```azurecli-interactive
 az keyvault update \
     --name mykeyvault \
@@ -317,7 +310,6 @@ az keyvault update \
 
 > [!IMPORTANT]
 > Encrypting deployment data with a customer-managed key is available in the 2022-09-01 API version or newer. The 2022-09-01 API version is only available via ARM or REST. If you have any issues with this, please reach out to Azure Support.
-
 Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
 * Under `resources`, set `apiVersion` to `2022-09-01`.
 * Under the container group properties section of the deployment template, add an `encryptionProperties`, which contains the following values:

@@ -299,8 +299,8 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     ```
 
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
-    1. From line 9, remove `(Connect-AzAccount -Identity)`,
-    1. Replace it with `(Connect-AzAccount -Identity -AccountId <ClientId>)`, and
+    1. From line 9, remove `Connect-AzAccount -Identity`,
+    1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
     1. Enter the Client ID you obtained earlier.
 
 1. Select **Save**, then **Publish**, and then **Yes** when prompted.

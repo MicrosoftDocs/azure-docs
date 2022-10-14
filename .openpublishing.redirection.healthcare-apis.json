@@ -491,6 +491,41 @@
         "source_path_from_root": "/articles/healthcare-apis/fhir/bulk-importing-fhir-data.md",
         "redirect_url": "/azure/healthcare-apis/fhir/configure-import-data",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-azure-resource-manager-template-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-data-flow.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-fhir-portal-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-mapping-templates.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-metrics-diagnostics-export.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-metrics-display.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-troubleshoot-guide.md",
+        "redirect_url": "/azure/healthcare-apis/iot/iot-connector-overview",
+        "redirect_document_id": false
     }
   ]
 }

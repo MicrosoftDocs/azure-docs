@@ -82,7 +82,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     > [!TIP]
     > * AzureContainerRegistry.region is only needed for custom Docker images. Including small modifications (such as additional packages) to base images provided by Microsoft.
     > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
-    > * AzureKeyVault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+    > * AzureKeyVault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
     > * For entries that contain `region`, replace with the Azure region that you're using. For example, `AzureContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
@@ -114,7 +114,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
 
-### Kubernetes Compute
+## Kubernetes Compute
 
 [Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
 
@@ -136,6 +136,15 @@ Besides above requirements, the following outbound URLs are also required for Az
 > `<region>` is the lowcase full spelling of Azure Region, for example, eastus, southeastasia.
 >
 > `<your AML workspace ID>` can be found in Azure portal - your Machine Learning resource page - Properties - Workspace ID.
+
+### In-cluster communication requirements
+
+To install AzureMl extension at Kubernetes compute, all AzureML related components are deployed in `azureml` namespace. Following in-cluster communication are needed to ensure the ML workloads work well in cluster.
+- The components in  `azureml` namespace should be able to communicate with Kubernetes API server.
+- The components in  `azureml` namespace should be able to communicate with each other.
+- The components in  `azureml` namespace should be able to communicate with `kube-dns` and `konnectivity-agent` in `kube-system` namespace.
+- If the cluster is used for real-time inferencing, `azureml-fe-xxx` PODs should be able to communicate with the deployed model PODs on 5001 port in other namespace. `azureml-fe-xxx` PODs should open 11001, 12001, 12101, 12201, 20000, 8000, 8001, 9001 ports for internal communication.
+- If the cluster is used for real-time inferencing, the deployed model PODs should be able to communicate with `amlarc-identity-proxy-xxx` PODs on 9999 port.
 
 
 
@@ -305,7 +314,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 **Azure Machine Learning compute instance and compute cluster hosts**
 
 > [!TIP]
-> * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+> * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
 > * Ports 8787 and 18881 for __compute instance__ are only needed when your Azure Machine workspace has a private endpoint.
 > * In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
 > * Websocket communication must be allowed to the compute instance. If you block websocket traffic, Jupyter notebooks won't work correctly.

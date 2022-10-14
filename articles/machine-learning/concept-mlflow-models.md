@@ -26,8 +26,6 @@ Any file generated (and captured) from an experiment's run or job is an artifact
 
 You may have been logging artifacts already:
 
-# [Using MLflow SDK](#tab/mlflow)
-
 ```python
 filename = 'model.pkl'
 with open(filename, 'wb') as f:
@@ -35,32 +33,6 @@ with open(filename, 'wb') as f:
 
 mlflow.log_artifact(filename)
 ```
-
-# [Using Azure ML SDK v1](#tab/sdkv1)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-filename = 'model.pkl'
-with open(filename, 'wb') as f:
-  pickle.dump(model, f)
-
-mlflow.log_file(filename)
-```
-
-# [Using the outputs folder](#tab/outputs)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-os.mkdirs("outputs", exists_ok=True)
-
-filename = 'outputs/model.pkl'
-with open(filename, 'wb') as f:
-  pickle.dump(model, f)
-```
-
----
 
 ### Models
 
@@ -73,33 +45,13 @@ In Azure Machine Learning, logging models has the following advantages:
 > * Models can be used as pipelines inputs directly.
 > * You can use the [Responsible AI dashbord (preview)](how-to-responsible-ai-dashboard.md).
 
-Models can get logged by:
-
-# [Using MLflow SDK](#tab/mlflow)
+Models can get logged by using MLflow SDK:
 
 ```python
 import mlflow
 mlflow..sklearn.log_model(sklearn_estimator, "classifier")
 ```
 
-# [Using Azure ML SDK v1](#tab/sdkv1)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-> [!IMPORTANT]
-> Azure ML SDK v1 doesn't have the *model* concept.
-
-# [Using the outputs folder](#tab/outputs)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-os.mkdirs("outputs/classifier", exists_ok=True)
-
-mlflow.sklearn.save_model(sklearn_estimator, "outputs/classifier")
-```
-
----
 
 ## The MLmodel format
 
