@@ -75,8 +75,7 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 Scores are computed for full text search queries for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
-> [!TIP]
-> You can use the [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
+You can use the [featuresMode (preview)](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
 
 ## When to add scoring logic
 
