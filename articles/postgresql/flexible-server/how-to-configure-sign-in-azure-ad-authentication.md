@@ -26,7 +26,7 @@ Only Azure AD administrator users can create/enable users for Azure AD-based aut
 
 ## Prerequisites
 
-The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by tenant administrator or a user with tenant admin rights and this is one time activity per tenant.
+The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by `tenant administrator`or a user with tenant admin rights and this is one time activity per tenant.
 
 Install AzureAD PowerShell: AzureAD Module
 
