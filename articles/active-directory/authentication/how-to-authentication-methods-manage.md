@@ -79,7 +79,7 @@ The Authentication methods policy provides a migration path toward unified admin
 
 To view the migration options, open the Authentication methods policy and click **Manage migration**.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of password reset settings.":::
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of migration options.":::
 
 The following table describes each option.
 
@@ -89,6 +89,9 @@ The following table describes each option.
 | Migration in progress | The Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are respected.     |
 | Migration complete | Only the Authentication methods policy is used for authentication and SSPR.<br>Legacy policy settings are ignored.  |
 
+You can toggle between settings. If you roll back to Pre-migration, you need to specify a reason.
+
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of reasons for rollback.":::
 
 
 ## Next steps
