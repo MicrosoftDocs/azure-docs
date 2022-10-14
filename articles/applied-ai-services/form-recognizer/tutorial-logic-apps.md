@@ -16,7 +16,7 @@ recommendations: false
 
 # Tutorial: Use Azure Logic Apps with Form Recognizer
 
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
 
 > [!IMPORTANT]
 >

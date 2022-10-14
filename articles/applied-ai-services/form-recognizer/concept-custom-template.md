@@ -15,7 +15,7 @@ recommendations: false
 
 # Form Recognizer custom template model
 
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
 Custom template (formerly custom form) is an easy-to-train model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
 

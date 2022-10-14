@@ -16,7 +16,8 @@ recommendations: false
 
 # Form Recognizer custom neural model
 
-[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+
 
 Custom neural models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
