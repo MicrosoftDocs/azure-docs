@@ -57,7 +57,7 @@ OUTPUT @a
 
 ## Read data from a file
 
-The following U-SQL script is simple and lets us explore many aspects the U-SQL language.
+Now that we have some data, let's read it from the file we created.
 
 ```usql
 @searchlog =
@@ -126,7 +126,7 @@ OUTPUT @searchlog
 
 ## Transform rowsets
 
-Use **SELECT** to transform rowsets:
+Use **SELECT** to transform rowsets. This script will select the columns Start, Region, and Duration, and will write those rows to a file when Region has a value of "en-gb":
 
 ```usql
 @searchlog =
@@ -150,7 +150,7 @@ OUTPUT @rs1
 
 The WHERE clause uses a [C# Boolean expression](/dotnet/csharp/language-reference/operators/index). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
 
-The following script uses the DateTime.Parse() method and a conjunction.
+The following script uses the DateTime.Parse() method and a conjunction. columns Start, Region, and Duration, where Region has a value of "en-gb". Then it checks for values of the Duration column between certain dates and writes those values to a file:
 
 ```usql
 @searchlog =
@@ -250,7 +250,7 @@ OUTPUT @res
     USING Outputters.Csv();
 ```
 
-For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions](/u-sql/built-in-functions)
+For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions.](/u-sql/built-in-functions)
 
 ## Next steps
 
