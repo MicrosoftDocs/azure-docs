@@ -486,6 +486,14 @@
     items:
     - name: Azure AD B2C partner gallery
       href: partner-gallery.md
+  - name: Custom policies guide series
+    items:
+    - name: Overview 
+      href: custom-policies-series-overview.md
+    - name: Create Hello World custom policies
+      href: custom-policies-series-hello-world.md
+    - name: Install XML extensions
+      href: custom-policies-series-install-xml-extensions.md
   - name: Identity verification and proofing
     items: 
     - name: Identity verification and proofing partners
