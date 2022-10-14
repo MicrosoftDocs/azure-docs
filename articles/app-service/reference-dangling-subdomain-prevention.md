@@ -29,7 +29,7 @@ After the reservation expires, the DNS is free to be claimed by any subscription
 
 #### Example scenario
 
-Subscription 'A' and subscription 'B' are the only subscriptions belonging to tenant 'AB'. Subscription 'A' contains an App Service app 'test' with DNS name 'test'.azurewebsites.net'. Upon deletion of the app, a reservation is taken on DNS name 'test.cloudapp.net'.
+Subscription 'A' and subscription 'B' are the only subscriptions belonging to tenant 'AB'. Subscription 'A' contains an App Service app 'test' with DNS name 'test'.azurewebsites.net'. Upon deletion of the app, a reservation is taken on DNS name 'test.azurewebsites.net'.
 
 During the reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.azurewebsites.net' by creating a classic cloud service named 'test'. No other subscriptions will be allowed to claim it. After the reservation period is complete, any subscription in Azure can now claim 'test.azurewebsites.net'.
 
@@ -38,6 +38,6 @@ During the reservation period, only subscription 'A' or subscription 'B' will be
 
 When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT record with the Domain Verification ID. When such a TXT record exists, no other Azure Subscription can validate the Custom Domain or take it over.
 
-These records don't prevent someone from creating the Azure App Service with the same name that's in your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
+These records prevent the creation of another App Service app using the same name from your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
 
 DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation. Be aware that the DNS records take time to propagate.
