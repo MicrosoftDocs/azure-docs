@@ -2,11 +2,11 @@
 title: 'Azure Monitor best practices: Cost management'
 description: Guidance and recommendations for reducing your cost for Azure Monitor.
 ms.topic: conceptual
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.date: 03/31/2022
 ms.reviewer: bwren
-
 ---
 
 # Azure Monitor best practices: Cost optimization
@@ -99,7 +99,6 @@ See [Understand monitoring costs for Container insights](containers/container-in
 | Pre-aggregate metrics from any calls to TrackMetric. | If you put calls to TrackMetric in your application, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Alternatively, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). |
 | Limit the use of custom metrics. | The Application Insights option to [Enable alerting on custom metric dimensions](app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can increase costs. Using this option can result in the creation of more pre-aggregation metrics. |
 | Ensure use of updated SDKs. | Earlier versions of the ASP.NET Core SDK and Worker Service SDK [collect many counters by default](app/eventcounters.md#default-counters-collected), which were collected as custom metrics. Use later versions to specify [only required counters](app/eventcounters.md#customizing-counters-to-be-collected). |
-
 
 
 

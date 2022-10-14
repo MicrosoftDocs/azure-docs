@@ -137,8 +137,8 @@ Your app would then use the claims challenge to acquire a new access token for t
 ```javascript
 const tokenRequest = {
     claims: window.atob(claimsChallenge), // decode the base64 string
-    scopes: ['User.Read']
-    account: msalInstance.getActiveAccount();
+    scopes: ['User.Read'],
+    account: msalInstance.getActiveAccount()
 };
 
 let tokenResponse;
@@ -173,8 +173,9 @@ You can test your application by signing in a user and then using the Azure port
 
 ## Code samples
 
-- [React single-page application using MSAL React to sign-in users against Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
-- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+- [Enable your Angular single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your React single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ## Next steps
 
