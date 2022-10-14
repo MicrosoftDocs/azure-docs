@@ -18,18 +18,18 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to view the Azure Spring Apps Enterprise Tier with VMware Tanzu offering through Azure Marketplace. You can redirect to the Azure Spring Apps Enterprise tier creation page from Azure Marketplace.
 
-Azure Spring Apps Enterprise Tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from commercial Tanzu components, such as VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, and VMware Tanzu® Service Registry, and access to Spring experts.
+Azure Spring Apps Enterprise Tier is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from commercial Tanzu components, such as VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, and access to Spring experts.
 
-You can obtain and pay for a license to Tanzu components through an [Azure Marketplace offering](https://aka.ms/ascmpoffer). Azure Spring Apps manages the license acquisition so you won't have to do it yourself.
+You can obtain and pay for a license to Tanzu components through an [Azure Marketplace offering](https://aka.ms/ascmpoffer). Azure Spring Apps manages the license acquisition so you don't have to do it yourself.
 
 ## Prerequisites
 
 To purchase in the Azure Marketplace, you must meet the following prerequisites:
 
-- Your Azure subscription is registered to the `Microsoft.SaaS` resource provider. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
-- Your Azure subscription has an [associated payment method](/marketplace/azure-marketplace-overview#purchasing-requirements). Azure credits or free MSDN subscriptions aren't supported.
-- Your Azure subscription belongs to a billing account in a [Marketplace-supported geographic location](#supported-geographic-locations).
-- Your organization allows [Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
+- Your Azure subscription must be registered to the `Microsoft.SaaS` resource provider. For more information. see the [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) section of [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+- Your Azure subscription must have an associated payment method. Azure credits or free MSDN subscriptions aren't supported. For more information, see the [Purchasing requirements](../marketplace/azure-marketplace-overview.md#purchasing-requirements) section of [What is Azure Marketplace?](../marketplace/azure-marketplace-overview.md). 
+- Your Azure subscription must belong to a billing account in a supported geographic location. For more information, see the [Supported geographic locations](#supported-geographic-locations) section of this article.
+- Your organization must allow [Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 - Your organization allows acquiring any Azure Marketplace software application listed in [Purchase policy management](/marketplace/azure-purchasing-invoicing#purchase-policy-management).
 - You need to accept the legal terms and privacy statements during provisioning enterprise tier on Azure portal or use below CLI command to do it ahead.
 
