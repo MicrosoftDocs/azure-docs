@@ -63,7 +63,7 @@ CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
 ORDER (Col_C, Col_B, Col_A);
 ```
 
-The performance of query 1 and query 2 can benefit most from ordered CCI than the other queries as they reference all the ordered CCI columns.
+The performance of query 1 and query 2 can benefit more from ordered CCI than the other queries, as they reference all the ordered CCI columns.
 
 ```sql
 -- Query #1:
@@ -85,11 +85,11 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 The performance of data loading into an ordered CCI table is similar to a partitioned table.  Loading data into an ordered CCI table can take longer than a non-ordered CCI table because of the data sorting operation, however queries can run faster afterwards with ordered CCI.
 
-Here is an example performance comparison of loading data into tables with different schemas.
+Here's an example performance comparison of loading data into tables with different schemas.
 
 :::image type="content" source="./media/performance-tuning-ordered-cci/cci-data-loading-performance.png" alt-text="Bar graph that shows the performance comparison of loading data into tables with different schemas.":::
 
-Here is an example query performance comparison between CCI and ordered CCI.
+Here's an example query performance comparison between CCI and ordered CCI.
 
 :::image type="content" source="./media/performance-tuning-ordered-cci/occi_query_performance.png" alt-text="Bar graph comparing performance during data_loading. An ordered clustered columnstore index has lower duration.":::
 
@@ -99,7 +99,7 @@ The number of overlapping segments depends on the size of data to sort, the avai
 
 - Use `xlargerc` resource class on a higher DWU to allow more memory for data sorting before the index builder compresses the data into segments.  Once in an index segment, the physical location of the data cannot be changed.  There's no data sorting within a segment or across segments.
 
-- Create ordered CCI with `OPTION (MAXDOP = 1)`.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands does not support the MAXDOP option. For example:
+- Create ordered CCI with `OPTION (MAXDOP = 1)`.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands doesn't support the MAXDOP option. For example:
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
@@ -109,7 +109,7 @@ OPTION (MAXDOP 1);
 
 - Pre-sort the data by the sort key(s) before loading them into tables.
 
-Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations. The ordered CCI table is created in a DWU1000c database via CTAS from a 20-GB heap table using MAXDOP 1 and `xlargerc`.  The CCI is ordered on a BIGINT column with no duplicates.
+Here's an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations. The ordered CCI table is created in a DWU1000c database via CTAS from a 20-GB heap table using MAXDOP 1 and `xlargerc`.  The CCI is ordered on a BIGINT column with no duplicates.
 
 :::image type="content" source="./media/performance-tuning-ordered-cci/perfect-sorting-example.png" alt-text="A screenshot of text data showing no segment overlapping.":::
 
