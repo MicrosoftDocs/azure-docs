@@ -48,7 +48,6 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
