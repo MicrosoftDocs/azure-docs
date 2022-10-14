@@ -56,20 +56,22 @@ To manage authentication methods for self-service password reset (SSPR) across t
 
 Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. By default, each policy respects the settings in the other policies. A user who is enabled for an authentication method in _any_ policy can register and use that method. 
 
-Let's walk through an example where a user wants to register Microsoft Authenticator. The registration process first checks Authentication methods policy. If the user is enabled for Microsoft Authenticator, or they belong to a group that is enabled for it, they can register it. 
+Let's walk through an example where a user who belongs to the Accounting group wants to register Microsoft Authenticator. The registration process first checks Authentication methods policy. If the user or the accounting group is enabled for Microsoft Authenticator, they can register it. 
 
-If not, the registration process checks **Multifactor Authentication**. Any user can register Microsoft Authenticator if one of these settings is enabled for MFA:
+If not, the registration process checks **Multifactor Authentication**. In that policy, any user can register Microsoft Authenticator if one of these settings is enabled for MFA:
+
+<!---Michael, can you corrects these and SSPR settings?--->
 
 - **Notification through mobile app** 
 - **Verification code from mobile app or hardware token**
 
-If the user can't register Microsoft Authenticator based on either of those policies, the registration process checks which authentication methods are enabled for **Password reset**. Any user can register Microsoft Authenticator if any of these settings are enabled for SSPR:
+If the user can't register Microsoft Authenticator based on either of those policies, the registration process checks which authentication methods are enabled for **Password reset**. In that policy too, any user can register Microsoft Authenticator if any of these settings are enabled for SSPR:
 
 - **Mobile app notification**
 - **Mobile app code**
 - **Mobile phone**
 
-The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. This means that by default, a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies do not allow phone calls. 
+The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. This means that by default, a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies don't allow phone calls. 
 
 ## Migration between policies
 
