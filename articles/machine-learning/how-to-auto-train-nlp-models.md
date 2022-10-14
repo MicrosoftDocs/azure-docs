@@ -13,14 +13,13 @@ ms.date: 03/15/2022
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
 
-# Set up AutoML to train a natural language processing model (preview)
+# Set up AutoML to train a natural language processing model 
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the developer platform of Azure Machine Learning  you are using:"]
 > * [v1](./v1/how-to-auto-train-nlp-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-nlp-models.md)
  
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, you learn how to train natural language processing (NLP) models with [automated ML](concept-automated-ml.md) in Azure Machine Learning. You can create NLP models with automated ML via the Azure Machine Learning Python SDK v2 or the Azure Machine Learning CLI v2. 
 
@@ -49,8 +48,6 @@ You can seamlessly integrate with the [Azure Machine Learning data labeling](how
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 * Azure subscription. If you don't have an Azure subscription, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An Azure Machine Learning workspace with a GPU training compute. To create the workspace, see [Create workspace resources](quickstart-create-resources.md). See [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) for more details of GPU instances provided by Azure.
@@ -77,9 +74,9 @@ Determine what NLP task you want to accomplish. Currently, automated ML supports
 
 Task |AutoML job syntax| Description 
 ----|----|---
-Multi-class text classification | CLI v2: `text_classification`  <br> SDK v2 (preview): `text_classification()`| There are multiple possible classes and each sample can be classified as exactly one class. The task is to predict the correct class for each sample. <br> <br> For example, classifying a movie script as "Comedy" or "Romantic". 
-Multi-label text classification |  CLI v2: `text_classification_multilabel`  <br> SDK v2 (preview): `text_classification_multilabel()`| There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample<br> <br> For example, classifying a movie script as "Comedy", or "Romantic", or "Comedy and Romantic". 
-Named Entity Recognition (NER)|  CLI v2:`text_ner` <br> SDK v2 (preview): `text_ner()`| There are multiple possible tags for tokens in sequences. The task is to predict the tags for all the tokens for each sequence. <br> <br> For example, extracting domain-specific entities from unstructured text, such as contracts or financial documents.
+Multi-class text classification | CLI v2: `text_classification`  <br> SDK v2: `text_classification()`| There are multiple possible classes and each sample can be classified as exactly one class. The task is to predict the correct class for each sample. <br> <br> For example, classifying a movie script as "Comedy" or "Romantic". 
+Multi-label text classification |  CLI v2: `text_classification_multilabel`  <br> SDK v2: `text_classification_multilabel()`| There are multiple possible classes and each sample can be assigned any number of classes. The task is to predict all the classes for each sample<br> <br> For example, classifying a movie script as "Comedy", or "Romantic", or "Comedy and Romantic". 
+Named Entity Recognition (NER)|  CLI v2:`text_ner` <br> SDK v2: `text_ner()`| There are multiple possible tags for tokens in sequences. The task is to predict the tags for all the tokens for each sequence. <br> <br> For example, extracting domain-specific entities from unstructured text, such as contracts or financial documents.
 
 ## Thresholding
 
@@ -197,10 +194,8 @@ For CLI v2 AutoML jobs you configure your experiment in a YAML file like the fol
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 For AutoML jobs via the SDK, you configure the job with the specific NLP task function. The following example demonstrates the configuration for `text_classification`.
-
 ```Python
 # general job parameters
 compute_name = "gpu-cluster"
@@ -250,8 +245,6 @@ featurization:
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 You can specify your dataset language with the `set_featurization()` method. BERT is also used in the featurization process of automated ML experiment training, learn more about [BERT integration and featurization in automated ML](how-to-configure-auto-features.md#bert-integration-in-automated-ml).
 
 ```python
@@ -273,7 +266,6 @@ You can also run your NLP experiments with distributed training on an Azure ML c
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 This is handled automatically by automated ML when the parameters `max_concurrent_iterations = number_of_vms` and `enable_distributed_dnn_training = True` are provided in your `AutoMLConfig` during experiment setup. Doing so, schedules distributed training of the NLP models and automatically scales to every GPU on your virtual machine or cluster of virtual machines. The max number of virtual machines allowed is 32. The training is scheduled with number of virtual machines that is in powers of two.
 
@@ -303,7 +295,6 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 With the `MLClient` created earlier, you can run this `CommandJob` in the workspace.
 
@@ -335,8 +326,6 @@ See the following sample YAML files for each NLP task.
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 See the sample notebooks for detailed code examples for each NLP task. 
 
 * [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-text-classification-multiclass-task-sentiment.ipynb)
@@ -347,6 +336,8 @@ https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/au
 ---
 
 ## Model sweeping and hyperparameter tuning (preview) 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 AutoML NLP allows you to provide a list of models and combinations of hyperparameters, via the hyperparameter search space in the config. Hyperdrive generates several child runs, each of which is a fine-tuning run for a given NLP model and set of hyperparameter values that were chosen and swept over based on the provided search space.
 
@@ -432,8 +423,6 @@ search_space:
 # [Python SDK](#tab/python)
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 You can set the limits for your model sweeping job: 
 

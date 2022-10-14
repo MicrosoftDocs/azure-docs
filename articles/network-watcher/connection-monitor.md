@@ -75,9 +75,9 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 
 |Step|Setting|Value|
 |---|---|---|
-| 1 | Select a version of **Ubuntu Server** |                                                                         |
+| 1 | Select a version of **Ubuntu Server** |                                                                     |
 | 3 | Name                                  | myVm2                                                                   |
-| 3 | Authentication type                   | Paste your SSH public key or select **Password**, and enter a password. |
+| 3 | Authentication type                   | Paste your SSH public key or select **Password** and enter a password. |
 | 3 | Resource group                        | Select **Use existing** and select **myResourceGroup**.                 |
 | 6 | Extensions                            | **Network Watcher Agent for Linux**                                             |
 
@@ -129,13 +129,13 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. A generated alert can automatically run one or more actions, such as to notify someone or start another process. When setting an alert rule, the resource that you target determines the list of available metrics that you can use to generate alerts.
 
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
-2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Connection Monitor that you want to use.
+2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set the **Resource type** to filter down to the Connection Monitor that you want to use.
 
     ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
-1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
+1. Once you have selected a resource to target, select **Add criteria**. The Network Watcher has [metrics on which you can create alerts](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
 
     ![alert page with signals selected](./media/connection-monitor/set-alert-signals.png)
-1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.
+1. Fill out the alert details like alert rule name, description, and severity. You can also add an action group to the alert to automate and customize the alert response.
 
 ## View a problem
 
@@ -156,7 +156,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
     | Priority                | 100            |
     | Name                    | DenySshInbound |
 
-5. Since connection monitor probes at 60-second intervals, wait a few minutes and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and then select the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
+5. Since connection monitor probes at 60-second intervals, wait a few minutes, and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and then select the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
 
     ![Monitor details fault](./media/connection-monitor/vm-monitor-fault.png)
 

@@ -82,9 +82,11 @@ Before going into the details, we're presenting the summary and recommendations 
 | DBMS log volume non-HANA non-M/Mv2 VM families | Not supported | restricted suitable (non-prod) | Suitable for up to medium workload | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux | Not supported |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
-<sup>2</sup> Using ANF requires /hana/data and /hana/log to be on ANF 
-<sup>3</sup> So far tested on SLES only
+<sup>1</sup>  With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
+
+<sup>2</sup>  Using ANF requires /hana/data and /hana/log to be on ANF
+
+<sup>3</sup>  So far tested on SLES only
 
 Characteristics you can expect from the different storage types list like:
 
@@ -105,7 +107,7 @@ Characteristics you can expect from the different storage types list like:
 
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
 
-<sup>3</sup> Creation of different ANF capacity pools doesn't guarantee deployment of capacity pools onto different storage units
+<sup>3</sup>  Creation of different ANF capacity pools doesn't guarantee deployment of capacity pools onto different storage units
 
 
 > [!IMPORTANT]
@@ -123,8 +125,8 @@ This type of storage is targeting DBMS workloads, storage traffic that requires 
 
 - The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
 - The IOPS per GiB aren't tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
-- The I/O throughput for this storage isn't linear with the size of the disk category. For smaller disks, like the category between 65 GiB and 128 GiB capacity, the throughput is around 780KB per GiB. Whereas for the extreme large disks like a 32,767 GiB disk, the throughput is around 28KB per GiB
-- The IOPS and throughput SLAs cannot be changed without changing the capacity of the disk
+- The I/O throughput for this storage isn't linear with the size of the disk category. For smaller disks, like the category between 65 GiB and 128 GiB capacity, the throughput is around 780 KB per GiB. Whereas for the extreme large disks like a 32,767 GiB disk, the throughput is around 28 KB per GiB
+- The IOPS and throughput SLAs can't be changed without changing the capacity of the disk
 
 
 The capability matrix for SAP workload looks like:
@@ -186,7 +188,7 @@ Azure Premium SSD v2 storage is a new version of premium storage that got introd
 
 This type of storage is targeting DBMS workloads, storage traffic that requires submillisecond latency, and SLAs on IOPS and throughput. The Premium SSD v2 disks are delivered with a default set of 3,000 IOPS and 125 MBps throughput. And the possibility to add more IOPS and throughput to individual disks. The pricing of the storage is structured in a way that adding more throughput or IOPS isn't influencing the price majorly. Nevertheless, we leave it up to you to decide how the storage configuration for Premium SSD v2 will look like. For a base start, read [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md).
 
-For the actual regions, this new block storage type is available and the actual restrictions read the document [Premium SSD v2](../../disks-types.md#premium-ssd-v2-preview).
+For the actual regions, this new block storage type is available and the actual restrictions read the document [Premium SSD v2](../../disks-types.md#premium-ssd-v2).
 
 The capability matrix for SAP workload looks like:
 
@@ -254,7 +256,7 @@ The capability matrix for SAP workload looks like:
 | Costs | Higher than Premium storage | - |
 
 
-**Summary:** Azure ultra disks are a suitable storage with low submillisecond latency for all kinds of SAP workload. So far, Ultra disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). Ultra disk isn't supporting storage snapshots. In opposite to all other storage, Ultra disk cannot be used for the base VHD disk. Ultra disk is ideal for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS.
+**Summary:** Azure ultra disks are a suitable storage with low submillisecond latency for all kinds of SAP workload. So far, Ultra disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). Ultra disk isn't supporting storage snapshots. In opposite to all other storage, Ultra disk can't be used for the base VHD disk. Ultra disk is ideal for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS.
 
 
 ## Azure NetApp files (ANF)
@@ -320,7 +322,7 @@ Other built-in functionality of ANF storage:
 **Summary**: Azure NetApp Files is a HANA certified low latency storage that allows to deploy NFS and SMB volumes or shares. The storage comes with three different service levels that provide different throughput  and IOPS in a linear manner per GiB capacity of the volume. The ANF storage is enabling to deploy SAP HANA scale-out scenarios with a standby node. The storage is suitable for providing file shares as needed for /sapmnt or SAP global transport directory. ANF storage come with functionality availability that is available as native NetApp functionality.  
 
 ## Azure Premium Files
-[Azure Premium Files](../../../storage/files/storage-files-planning.md) is a shared storage that offers SMB and NFS for a moderate price and sufficient latency to handle shares of the SAP application layer. On top, Azure premium Files offers synchronous zonal replication of the shares with an automatism that in case one replica fails, another replica in another zone can take over. In opposite to Azure NetApp Files, there are no performance tiers. There also is no need for a capacity pool. Charging is based on the real provisioned capacity of the different shares. Azure Premium Files have not been tested as DBMS storage for SAP workload at all. But instead the usage scenario for SAP workload focused on all types of SMB and NFS shares as they're used on the SAP application layer. Azure Premium Files is also suited for the usage for **/hana/shared**. 
+[Azure Premium Files](../../../storage/files/storage-files-planning.md) is a shared storage that offers SMB and NFS for a moderate price and sufficient latency to handle shares of the SAP application layer. On top, Azure premium Files offers synchronous zonal replication of the shares with an automatism that in case one replica fails, another replica in another zone can take over. In opposite to Azure NetApp Files, there are no performance tiers. There also is no need for a capacity pool. Charging is based on the real provisioned capacity of the different shares. Azure Premium Files haven't been tested as DBMS storage for SAP workload at all. But instead the usage scenario for SAP workload focused on all types of SMB and NFS shares as they're used on the SAP application layer. Azure Premium Files is also suited for the usage for **/hana/shared**. 
 
 > [!NOTE]
 > So far no SAP DBMS workloads are supported on shared volumes based on Azure Premium Files.

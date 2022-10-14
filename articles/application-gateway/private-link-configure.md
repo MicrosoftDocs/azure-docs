@@ -51,7 +51,7 @@ The Private link configuration defines the infrastructure used by Application Ga
    - **Frontend IP Configuration**: The frontend IP address that private link should forward traffic to on Application Gateway.
    - **Private IP address settings**: specify at least one IP address
 1. Select **Add**.
-1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, you will require this if setting up a Private Endpoint within a diffrerent Azure AD tenant
+1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, you will require this if setting up a Private Endpoint within a different Azure AD tenant
 
 **Configure Private Endpoint**
 
@@ -69,7 +69,7 @@ A private endpoint is a network interface that uses a private IP address from th
 > If the public or private IP configuration resource is missing when trying to select a _Target sub-resource_ on the _Resource_ tab of private endpoint creation, please ensure a listener is actively utilizing the respected frontend IP configuration. Frontend IP configurations without an associated listener will not be shown as a _Target sub-resource_.
 
 > [!Note]
-> If you are setting up the **Private Endpoint** from within another tenant, you will need to utilise the Azure Application Gateway Resource ID, along with sub-resource as either _appGwPublicFrontendIp_ or _appGwPrivateFrontendIp_, depending upon your Azure Application Gateway Private Link Frontend IP Configuration.
+> If you are provisioning a **Private Endpoint** from within another tenant, you will need to utilize the Azure Application Gateway Resource ID, along with sub-resource to your frontend configuration. For example, if the frontend configuration of the gateway was named _PrivateFrontendIp_, the resource ID would be as follows: _/subscriptions/xxxx-xxxx-xxxx-xxxx-xxxx/resourceGroups/resourceGroupname/providers/Microsoft.Network/applicationGateways/appgwname/frontendIPConfigurations/PrivateFrontendIp_.
 
 # [Azure PowerShell](#tab/powershell)
 
