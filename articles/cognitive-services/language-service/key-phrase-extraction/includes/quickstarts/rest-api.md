@@ -14,6 +14,8 @@ ms.custom: ignite-fall-2021
 
 Use this quickstart to send key phrase extraction requests using the REST API. In the following example, you will use cURL to identify key words and phrases found in text.
 
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
+
 
 ## Prerequisites
 

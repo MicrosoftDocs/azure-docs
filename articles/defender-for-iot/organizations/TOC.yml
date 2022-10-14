@@ -6,7 +6,11 @@
   - name: About Defender for IoT
     href: overview.md
   - name: What's new?
-    href: release-notes.md
+    items:
+    - name: Whats new in Defender for IoT
+      href: release-notes.md
+    - name: Microsoft Sentinel solution release notes
+      href: release-notes-sentinel.md
 - name: Quickstarts
   expanded: false
   items:
@@ -19,8 +23,12 @@
     href: tutorial-onboarding.md
   - name: Set up Enterprise IoT network security
     href: tutorial-getting-started-eiot-sensor.md
-  - name: Detect threats with Microsoft Sentinel
-    href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+  - name: Integrate with Microsoft Sentinel
+    items: 
+    - name: Connect Defender for IoT data to Microsoft Sentinel
+      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: ../../sentinel/iot-advanced-threat-monitoring.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:
     - name: System architecture
@@ -102,11 +110,11 @@
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
       href: how-to-analyze-programming-details-changes.md
-  - name: Integrate with OT security partners
+  - name: Integrate with security partners
     items:
-    - name: Overview
+    - name: Integration catalog
       href: integrate-overview.md
-    - name: ClearPass
+    - name: Aruba ClearPass
       href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
@@ -114,20 +122,24 @@
       href: tutorial-forescout.md
     - name: Fortinet
       href: tutorial-fortinet.md
+    - name: IBM Qradar
+      href: tutorial-qradar.md
     - name: LogRhythm
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
     - name: Palo Alto
       href: tutorial-palo-alto.md
-    - name: Qradar
-      href: tutorial-qradar.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
     - name: Splunk
       href: tutorial-splunk.md
     - name: ServiceNow
-      href: tutorial-servicenow.md
+      items:
+      - name: ServiceNow integrations
+        href: tutorial-servicenow.md
+      - name: Legacy integration
+        href: integrations/service-now-legacy.md
   - name: System deployment
     items:
     - name: Manage plans on Azure subscriptions
@@ -154,6 +166,10 @@
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Add support for proprietary protocols
         href: resources-manage-proprietary-protocols.md
+    - name: Enterprise IoT system setup
+      items:
+      - name: Extra deployment steps and samples
+        href: extra-deploy-enterprise-iot.md
   - name: System maintenance
     items:
     - name: Manage sensors from the Azure portal
@@ -215,8 +231,6 @@
         href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
 - name: Reference
   items:
-  - name: Alert reference
-    href: alert-engine-messages.md
   - name: OT monitoring appliances
     items:
     - name: Overview
@@ -229,12 +243,12 @@
       items:
       - name: HPE ProLiant DL20/DL20 Plus (4SFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
+        href: appliance-catalog/dell-edge-5200.md
     - name: Production line
       items:
       - name: HPE ProLiant DL20/DL20 Plus (NHP 2LFF)
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
-      - name: Dell Edge 5200 (Rugged MIL-STD-810G)
-        href: appliance-catalog/dell-edge-5200.md
       - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances
@@ -255,19 +269,30 @@
         href: appliance-catalog/hpe-edgeline-el300.md
       - name: Neousys Nuvo-500LP (SMB rugged)
         href: appliance-catalog/neousys-nuvo-5006lp.md
+  - name: Alert reference
+    href: alert-engine-messages.md
+  - name: Sensor health message reference
+    href: sensor-health-messages.md
   - name: Defender for IoT APIs
     href: references-work-with-defender-for-iot-apis.md
   - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
-  - name: Frequently asked questions - service
-    displayName: FAQ, regulation, internet, connection, hardware, appliances, ports, logs 
-    href: resources-frequently-asked-questions.md
+  - name: Frequently asked questions
+    items:
+    - name: General FAQ
+      href: faqs-general.md
+    - name: OT networks FAQ
+      href: faqs-ot.md
+    - name: Enterprise IoT networks FAQ
+      href: faqs-eiot.md
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
   - name: OT network pre-deployment checklist
     href: pre-deployment-checklist.md
+  - name: Custom columns sample script
+    href: custom-columns-sample-script.md
   - name: Microsoft Defender for IoT ninja training
     href: resources-training-sessions.md
   - name: Regional availability

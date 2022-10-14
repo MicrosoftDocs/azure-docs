@@ -2,8 +2,8 @@
 title: Microsoft Defender for Containers feature availability
 description: Learn about the availability of Microsoft Defender for Cloud containers features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 08/01/2022
-ms.custom: references_regions
+ms.date: 08/10/2022
+ms.custom: references_regions, ignite-2022
 ---
 
 # Defender for Containers feature availability
@@ -53,7 +53,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
@@ -75,7 +75,7 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment | Registry scan | - | - | - | - | - |
+| Vulnerability Assessment | Registry scan | ECR | Preview | - | Agentless | Defender for Containers |
 | Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | EKS | Preview | - | Azure Policy extension | Defender for Containers |
@@ -98,27 +98,10 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
-
-### Supported host operating systems
-
-Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
-
-- Amazon Linux 2
-- CentOS 8
-- Debian 10
-- Debian 11
-- Google Container-Optimized OS 
-- Red Hat Enterprise Linux 8
-- Ubuntu 16.04 
-- Ubuntu 18.04
-- Ubuntu 20.04
-- Ubuntu 22.04
-
-Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 
 ### Network restrictions
 
@@ -164,27 +147,10 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
-
-### Supported host operating systems
-
-Defender for Containers relies on the **Defender extension** for several features. The Defender extension is supported on the following host operating systems:
-
-- Amazon Linux 2
-- CentOS 8
-- Debian 10
-- Debian 11
-- Google Container-Optimized OS 
-- Red Hat Enterprise Linux 8
-- Ubuntu 16.04 
-- Ubuntu 18.04
-- Ubuntu 20.04
-- Ubuntu 22.04
-
-Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, will only get partial coverage. Check out the [Supported features by environment](#supported-features-by-environment) for more information.
 
 ### Network restrictions
 
@@ -225,7 +191,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote3"></a>3</sup> VA can detect vulnerabilities for these [language specific packages](#registries-and-images-1).
 
-<sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems-2).
+<sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems).
 
 
 ## Additional information
@@ -246,7 +212,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote1"></a>1</sup> Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters should be supported, but only the specified clusters have been tested.
 
-<sup><a name="footnote2"></a>2</sup>To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for you should onboard to [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
+<sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you will need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
 > [!NOTE]
 > For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
@@ -260,6 +226,8 @@ Defender for Containers relies on the **Defender extension** for several feature
 - Debian 10
 - Debian 11
 - Google Container-Optimized OS 
+- Mariner 1.0 
+- Mariner 2.0 
 - Red Hat Enterprise Linux 8
 - Ubuntu 16.04 
 - Ubuntu 18.04
@@ -288,6 +256,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 ## Next steps
     
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).

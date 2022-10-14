@@ -1,13 +1,12 @@
 ---
-title: Install .NET on Azure Cloud Services (classic) roles | Microsoft Docs
-description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
+title: Install .NET on Azure Cloud Services (classic) roles
+description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
 ---
 
 # Install .NET on Azure Cloud Services (classic) roles
@@ -19,7 +18,7 @@ This article describes how to install versions of .NET Framework that don't come
 For example, you can install .NET Framework 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET Framework 4.6. (The Guest OS family 5 does come with .NET Framework 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->The Azure SDK 2.9 contains a restriction on deploying .NET Framework 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available on the [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
+>The Azure SDK 2.9 contains a restriction on deploying .NET Framework 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available in the [`azure-cloud-services-files` GitHub repo](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
 
 To install .NET on your web and worker roles, include the .NET web installer as part of your cloud service project. Start the installer as part of the role's startup tasks. 
 
@@ -236,6 +235,3 @@ When you deploy your cloud service, the startup tasks install the .NET Framework
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
-
-
-

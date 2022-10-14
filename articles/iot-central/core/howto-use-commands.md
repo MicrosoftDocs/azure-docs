@@ -24,6 +24,8 @@ A device can:
 
 By default, commands expect a device to be connected and fail if the device can't be reached. If you select the **Queue if offline** option in the device template UI a command can be queued until a device comes online. These *offline commands* are described in a separate section later in this article.
 
+To learn how to manage commands by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md)
+
 ## Define your commands
 
 Standard commands are sent to a device to instruct the device to do something. A command can include parameters with additional information. For example, a command to open a valve on a device could have a parameter that specifies how much to open the valve. Commands can also receive a return value when the device completes the command. For example, a command that asks a device to run some diagnostics could receive a diagnostics report as a return value.
@@ -97,7 +99,7 @@ The following snippet shows the JSON representation of the command in the device
 ```
 
 > [!TIP]
-> You can export a device model from the device template page.
+> You can export a device model or interface from the device template page.
 
 You can relate this command definition to the screenshot of the UI using the following fields:
 
@@ -203,10 +205,6 @@ The call to `onDeviceMethod` sets up the `commandHandler` method. This command h
 1. Calls `sendCommandResponse` to send the response back to IoT Central. This response includes the `202` response code to indicate pending results.
 1. Completes the long-running operation.
 1. Uses a reported property with the same name as the command to tell IoT Central that the command completed.
-
-The following screenshot shows how the command response displays in the IoT Central UI when it receives the 202 response code:
-
-:::image type="content" source="media/howto-use-commands/long-running-start.png" alt-text="Screenshot that shows immediate response from device":::
 
 The following screenshot shows the IoT Central UI when it receives the property update that indicates the command is complete:
 

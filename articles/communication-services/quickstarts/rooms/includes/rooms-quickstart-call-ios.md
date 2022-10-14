@@ -99,3 +99,19 @@ func setCallAndObserver(call:Call!, error:Error?) {
     }
 }
 ```
+
+To display the role of the local or remote call participants, subscribe to the handler below.
+
+```swift
+// Subscribe to changes for your role in a call
+public func call(_ call: Call, didChangeRole args: PropertyChangedEventArgs) {
+    // handle self-role change
+}
+
+// Subscribe to role changes for remote participants
+func remoteParticipant(_ remoteParticipant: RemoteParticipant, didChangeRole args: PropertyChangedEventArgs) {
+    // handle remote participant role change
+}
+```
+
+You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

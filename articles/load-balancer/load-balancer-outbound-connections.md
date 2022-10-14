@@ -101,7 +101,7 @@ If a port is used for inbound connections, it has a **listener** for inbound con
 
 By definition, every IP address has 65,535 ports. Each port can either be used for inbound or outbound connections for TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). When a public IP address is added as a frontend IP to a load balancer, 64,000 ports are eligible for SNAT. While all public IPs that are added as frontend IPs can be allocated, frontend IPs are consumed one at a time. For example, if two backend instances are allocated 64,000 ports each, with access to two frontend IPs, both backend instances will consume ports from the first frontend IP until all 64,000 ports have been exhausted.  
 
-A port used for a load balancing or inbound NAT rule consumes eight ports from the 64,000 ports. This usage reduces the number of ports eligible for SNAT. If a load-balancing or inbound NAT rule is in the same range of eight as another, it doesn't use extra ports. 
+Each port used in a load balancing or inbound NAT rule consumes a range of eight ports from the 64,000 available SNAT ports. This usage reduces the number of ports eligible for SNAT, if the same frontend IP is used for outbound connectivity. If ports used in load-balancing or inbound NAT rules are in the same block of eight ports as consumed by another rule, it wil not require extra ports.
 
 ### How does default SNAT work?
 

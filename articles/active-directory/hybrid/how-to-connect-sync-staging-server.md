@@ -4,7 +4,7 @@ description: This topic describes operational tasks for Azure AD Connect sync an
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -18,9 +18,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Staging server and disaster recovery
+
 With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment.
 
 ## Staging mode
+
 Staging mode can be used for several scenarios, including:
 
 * High availability.
@@ -41,6 +43,7 @@ A server in staging mode continues to receive changes from Active Directory and 
 For those of you with knowledge of older sync technologies, the staging mode is different since the server has its own SQL database. This architecture allows the staging mode server to be located in a different datacenter.
 
 ### Verify the configuration of a server
+
 To apply this method, follow these steps:
 
 1. [Prepare](#prepare)
@@ -50,14 +53,17 @@ To apply this method, follow these steps:
 5. [Switch active server](#switch-active-server)
 
 #### Prepare
+
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This mode allows you to run the sync engine manually.
    ![Screenshot shows the Ready to configure page in the Azure AD Connect dialog box.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Sign off/sign in and from the start menu select **Synchronization Service**.
 
 #### Configuration
+
 If you have made custom changes to the primary server and want to compare the configuration with the staging server, then use [Azure AD Connect configuration documenter](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### Import and Synchronize
+
 1. Select **Connectors**, and select the first Connector with the type **Active Directory Domain Services**. Click **Run**, select **Full import**, and **OK**. Do these steps for all Connectors of this type.
 2. Select the Connector with type **Azure Active Directory (Microsoft)**. Click **Run**, select **Full import**, and **OK**.
 3. Make sure the tab Connectors is still selected. For each Connector with type **Active Directory Domain Services**, click **Run**, select **Delta Synchronization**, and **OK**.
@@ -66,6 +72,7 @@ If you have made custom changes to the primary server and want to compare the co
 You have now staged export changes to Azure AD and on-premises AD (if you are using Exchange hybrid deployment). The next steps allow you to inspect what is about to change before you actually start the export to the directories.
 
 #### Verify
+
 1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`
    The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – Azure AD" for Azure AD.
@@ -74,11 +81,13 @@ You have a file in %temp% named export.csv that can be examined in Microsoft Exc
 4. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes that are about to be exported are expected.
 
 **Understanding the export.csv file**
+
 Most of the file is self-explanatory. Some abbreviations to understand the content:
 * OMODT – Object Modification Type. Indicates if the operation at an object level is an Add, Update, or Delete.
 * AMODT – Attribute Modification Type. Indicates if the operation at an attribute level is an Add, Update, or delete.
 
 **Retrieve common identifiers**
+
 The export.csv file contains all changes that are about to be exported. Each row corresponds to a change for an object in the connector space and the object is identified by the DN attribute. The DN attribute is a unique identifier assigned to an object in the connector space. When you have many rows/changes in the export.csv to analyze, it may be difficult for you to figure out which objects the changes are for based on the DN attribute alone. To simplify the process of analyzing the changes, use the `csanalyzer.ps1` PowerShell script. The script retrieves common identifiers (for example, displayName, userPrincipalName) of the objects. To use the script:
 1. Copy the PowerShell script from the section [CSAnalyzer](#appendix-csanalyzer) to a file named `csanalyzer.ps1`.
 2. Open a PowerShell window and browse to the folder where you created the PowerShell script.
@@ -86,11 +95,101 @@ The export.csv file contains all changes that are about to be exported. Each row
 4. You now have a file named **processedusers1.csv** that can be examined in Microsoft Excel. Note that the file provides a mapping from the DN attribute to common identifiers (for example, displayName and userPrincipalName). It currently does not include the actual attribute changes that are about to be exported.
 
 #### Switch active server
-1. On the currently active server, either turn off the server (DirSync/FIM/Azure AD Sync) so it is not exporting to Azure AD or set it in staging mode (Azure AD Connect).
-2. Run the installation wizard on the server in **staging mode** and disable **staging mode**.
-   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
+
+Azure AD Connect can be set up in an Active-Passive High Availability setup, where one server will actively push changes to the synced AD objects to Azure AD and the passive server will stage these changes in the event it will need to take over.
+
+>[!Note]
+>
+>You cannot set up Azure AD Connect in an Active-Active setup. It must be Active-Passive. Ensure that only 1 Azure AD Connect server is actively syncing changes.
+
+For more information on setting up an Azure AD Connect sync server in Staging Mode, see [staging mode](how-to-connect-sync-staging-server.md)
+
+You may need to perform a failover of the Sync Servers for several reasons, such as upgrading the version of Azure AD Connect, or receiving an alert that the health service of the Sync Service is not receiving up to date information. In these events you can attempt a failover of the Sync Servers by following the below steps.
+
+#### Prerequisites
+
+- One currently active Azure AD Connect Sync Server
+- One staging Azure AD Connect Sync Server
+
+#### Change currently Active Sync Server to staging mode
+
+We need to ensure that only one Sync Server is syncing changes at any given time throughout this process. If the currently Active Sync Server is reachable you can perform the below steps to move it to Staging Mode. If it is not reachable, ensure that the server or VM does not regain access unexpectedly either by shutting down the server or isolating it from outbound connections and proceed to the steps on how to change the currently Staging Sync Server to Active Mode.
+
+1. For the currently Active Azure AD Connect server, open the Azure AD Connect Console and click "Configure staging mode" then Next:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Staging Mode highlighted in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-menu.png)
+
+2. You will need to sign into Azure AD with Global Admin or Hybrid Identity Admin credentials:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Sign in prompt in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sign-in.png)
+
+3. Tick the box for Staging Mode and click Next:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Staging Mode configuration in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-staging-mode.png)
+
+4. The Azure AD Connect server will check for installed components and then prompt you whether you want to start the sync process:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Ready to Configure screen in the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-config.png)  
+
+Since the server will be in staging mode, it will not write changes to Azure AD, but retain any changes to the AD in its Connector Space, ready to write them.  
+It is recommended to leave the sync process on for the server in Staging Mode, so if it becomes active, it will quickly take over and won't have to do a large sync to catch up to the current state of the AD/Azure AD sync.
+
+5. After selecting whether to start or stop the sync process and clicking Configure, the Azure AD Connect server will configure itself into Staging Mode.  
+When this is completed, you will be prompted with a screen that confirms Staging Mode is enabled.  
+You can click Exit to finish this.
+
+6. You can confirm that the server is successfully in Staging Mode by opening the Synchronization Service console.  
+From here, there should be no more Export jobs since the change and Full & Delta Imports will be suffixed with "(Stage Only)" like below:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Sync Service console on the Active Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/active-server-sync-server-mgmr.png)
+
+#### Change current Staging Sync server to active mode
+
+At this point, all of our Azure AD Connect Sync Servers should be in Staging Mode and not exporting changes.
+We can now move our Staging Sync Server to Active mode and actively sync changes.
+
+1. Now move to the Azure AD Connect server that was originally in Staging Mode and open the Azure AD Connect console.  
+
+   Click on "Configure staging mode" and click Next:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Staging Mode highlighted in the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-menu.png)  
+
+   The message at the bottom of the Console indicates this server is in Staging Mode.
+
+2. Sign into Azure AD, then go to the Staging Mode screen.
+
+   Untick the box for Staging Mode and click Next  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Staging Mode configuration in the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-staging-mode.png)  
+
+   As per the warning on this page, it is important to ensure no other Azure AD Connect server is actively syncing.  
+
+   There should only be one active Azure AD Connect sync server at any time.
+
+3. When you are prompted to start the sync process, tick this box and click Configure:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Ready to Configure screen in the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-config.png)
+
+4. Once the process is finished you should get the below confirmation screen where you can click Exit to finish:  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Confirmation screen in the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-confirmation.png)
+
+5. You can again confirm that this is working by opening the Sync Service Console and checking if Export jobs are running:
+  
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot shows Sync Service console on the Staging Azure AD Connect dialog box.](media/how-to-connect-sync-staging-server/staging-server-sync-server-mgmr.png)
 
 ## Disaster recovery
+
 Part of the implementation design is to plan for what to do in case there is a disaster where you lose the sync server. There are different models to use and which one to use depends on several factors including:
 
 * What is your tolerance for not being able make changes to objects in Azure AD during the downtime?
@@ -106,24 +205,29 @@ Depending on the answers to these questions and your organization’s policy, on
 If you do not use the built-in SQL Express database, then you should also review the [SQL High Availability](#sql-high-availability) section.
 
 ### Rebuild when needed
+
 A viable strategy is to plan for a server rebuild when needed. Usually, installing the sync engine and do the initial import and sync can be completed within a few hours. If there isn’t a spare server available, it is possible to temporarily use a domain controller to host the sync engine.
 
 The sync engine server does not store any state about the objects so the database can be rebuilt from the data in Active Directory and Azure AD. The **sourceAnchor** attribute is used to join the objects from on-premises and the cloud. If you rebuild the server with existing objects on-premises and the cloud, then the sync engine matches those objects together again on reinstallation. The things you need to document and save are the configuration changes made to the server, such as filtering and synchronization rules. These custom configurations must be reapplied before you start synchronizing.
 
 ### Have a spare standby server - staging mode
+
 If you have a more complex environment, then having one or more standby servers is recommended. During installation, you can enable a server to be in **staging mode**.
 
 For more information, see [staging mode](#staging-mode).
 
 ### Use virtual machines
+
 A common and supported method is to run the sync engine in a virtual machine. In case the host has an issue, the image with the sync engine server can be migrated to another server.
 
 ### SQL High Availability
+
 If you are not using the SQL Server Express that comes with Azure AD Connect, then high availability for SQL Server should also be considered. The high availability solutions supported include SQL clustering and AOA (Always On Availability Groups). Unsupported solutions include mirroring.
 
 Support for SQL AOA was added to Azure AD Connect in version 1.1.524.0. You must enable SQL AOA before installing Azure AD Connect. During installation, Azure AD Connect detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, it is recommended that you set the RegisterAllProvidersIP property to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.
 
 ## Appendix CSAnalyzer
+
 See the section [verify](#verify) on how to use this script.
 
 ```powershell
@@ -273,6 +377,7 @@ else
 ```
 
 ## Next steps
+
 **Overview topics**  
 
 * [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)  

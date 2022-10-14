@@ -22,6 +22,14 @@ Learn more about [Azure Web App Extension for Application Insights](azure-web-ap
 
 ## Release notes
 
+### 2.8.44
+
+- .NET/.NET Core: Upgraded to [ApplicationInsights .NET SDK to 2.20.1-redfield](https://github.com/microsoft/ApplicationInsights-dotnet/tree/autoinstrumentation/2.20.1).
+
+### 2.8.43
+
+- Separate .NET/.NET Core, Java and Node.js package into different App Service Windows Site Extension. 
+
 ### 2.8.42
 
 - JAVA extension: Upgraded to [Java Agent 3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) from 2.5.1.

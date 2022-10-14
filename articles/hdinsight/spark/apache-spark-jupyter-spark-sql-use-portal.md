@@ -4,7 +4,7 @@ description: This quickstart shows how to use the Azure portal to create an Apac
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 04/01/2022
+ms.date: 10/13/2022
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster and query some data.
 ---
 
@@ -14,7 +14,7 @@ In this quickstart, you use the Azure portal to create an Apache Spark cluster i
 
 For in-depth explanations of available configurations, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For more information regarding the use of the portal to create clusters, see [Create clusters in the portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
+If you're using multiple clusters together, you may want to create a virtual network; if you're using a Spark cluster may also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
 > [!IMPORTANT]  
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
@@ -31,7 +31,7 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
 
 1. From the top menu, select **+ Create a resource**.
 
-    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-resource.png " alt-text="Azure portal create a resource" border="true":::urce" border="true":::
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-resource.png " alt-text="Screenshot of Azure portal how to create a resource" border="true":::
 
 1. Select **Analytics** > **Azure HDInsight** to go to the **Create HDInsight cluster** page.
 
@@ -43,15 +43,16 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
     |Resource group | From the drop-down list, select your existing resource group, or select **Create new**.|
     |Cluster name | Enter a globally unique name.|
     |Region   | From the drop-down list, select a region where the cluster is created. |
-    |Cluster type| Select Select cluster type to open a list. From the list, select **Spark**.|
+    |Availability zone |Optional - specify an availability zone in which to deploy your cluster|
+    |Cluster type| Select cluster type to open a list. From the list, select **Spark**.|
     |Cluster version|This field will auto-populate with the default version once the cluster type has been selected.|
-    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to login in to the Jupyter Notebook later in the quickstart. |
+    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to log in to the Jupyter Notebook later in the quickstart. |
     |Cluster login password| Enter the cluster login password. |
     |Secure Shell (SSH) username| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
+    
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png " alt-text="Screenshot shows Create HDInsight cluster with the Basics tab selected." border="true":::
 
-    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png " alt-text="Screenshot shows Create H D Insight cluster with the Basics tab selected." border="true":::
-
-    Select **Next: Storage >>** to continue to the **Storage** page.
+1. Select **Next: Storage >>** to continue to the **Storage** page.
 
 1. Under **Storage**, provide the following values:
 
@@ -62,7 +63,7 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
     |Primary storage account|Use the auto-populated value.|
     |Container|Use the auto-populated value.|
 
-    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png " alt-text="Screenshot shows Create H D Insight cluster with the Storage tab selected." border="true":::
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png " alt-text="Screenshot shows Create HDInsight cluster with the Storage tab selected." border="true":::
 
     Select **Review + create** to continue.
 
@@ -88,7 +89,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 1. Verify the kernel is ready. The kernel is ready when you see a hollow circle next to the kernel name in the notebook. Solid circle denotes that the kernel is busy.
 
-    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png " alt-text="Screenshot shows a Jupyter window with a PySpark indicator." border="true":::ark indicator." border="true":::
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png " alt-text="Screenshot shows a Jupyter window with a PySpark indicator." border="true":::
 
     When you start the notebook for the first time, the kernel performs some tasks in the background. Wait for the kernel to be ready.
 

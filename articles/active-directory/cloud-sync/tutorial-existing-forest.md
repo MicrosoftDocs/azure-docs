@@ -3,7 +3,7 @@ title: Tutorial - Integrate an existing forest and a new forest with a single Az
 description: Learn how to add cloud sync to an existing hybrid identity environment.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial

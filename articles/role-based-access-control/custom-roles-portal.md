@@ -4,7 +4,7 @@ description: Learn how to create Azure custom roles using the Azure portal and A
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity

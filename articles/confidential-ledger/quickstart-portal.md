@@ -25,15 +25,11 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. From the Azure portal menu, or from the Home page, select **Create a resource**.
 
-1. In the Search box, enter "confidential ledger".
-
-1. From the results list, choose **confidential ledger**.
-
-1. On the confidential ledger section, choose **Create**.
+1. In the Search box, enter "Confidential Ledger", select said application, and then choose **Create**.
 
 1. On the Create confidential ledger section, provide the following information:
-    - **Name**: Provide your confidential ledger a unique name.
-    - **Subscription**: Choose a subscription.
+    - **Name**: Provide a unique name.
+    - **Subscription**: Choose the desired subscription.
     - **Resource Group**: Select **Create new*** and enter a resource group name.
     - **Location**: In the pull-down menu, choose a location.
     - Leave the other options to their defaults.
@@ -42,7 +38,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. You must now add an Azure AD-based or certificate-based user to your confidential ledger with a role of "Administrator." In this quickstart, we'll add an Azure AD-based user. Select **+ Add AAD-Based User**.
 
-1. You must add an Azure AD-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane.
+1. You must add an Azure AD-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane. Your user profile may already be in the Azure AD-based user section, in which case you cannot add yourself again.
 
 1. In the **Ledger Role** drop-down field, select **Administrator**.
 

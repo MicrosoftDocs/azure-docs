@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Diagnostics Tool to troubleshoot 8000 series device issues
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

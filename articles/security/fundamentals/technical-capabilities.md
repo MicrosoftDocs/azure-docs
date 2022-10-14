@@ -328,7 +328,7 @@ With Azure Monitor, you can manage any instance in any cloud, including on-premi
 
 ### Azure Monitor logs
 
-[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Azure Monitor logs](/azure/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 ![Azure Monitor logs](./media/technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
@@ -438,4 +438,4 @@ Resource Manager provides several benefits:
 
 ## Next step
 
-The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of security recommendations you can use to help secure the services you use in Azure.
+The [Microsoft cloud security benchmark](/security/benchmark/azure) includes a collection of security recommendations you can use to help secure the services you use in Azure.

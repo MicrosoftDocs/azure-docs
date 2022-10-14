@@ -5,9 +5,8 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.reviewer: dseven
-ms.author: mikaelw
-author: matjazl
+ms.author: kesheth
+author: expekesheth
 ms.date: 06/03/2022
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Bicep file deployments
 description: Learn how to monitor and troubleshoot Bicep file deployments. Shows activity logs and deployment history.
-ms.date: 11/04/2021
+ms.date: 09/14/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -12,9 +12,9 @@ This quickstart describes how to troubleshoot Bicep file deployment errors. You'
 
 There are three types of errors that are related to a deployment:
 
-- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. Your editor can identify these errors.
+- **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. A code editor like Visual Studio Code can identify these errors.
 - **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
-- **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress.
+- **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress in your Azure environment.
 
 All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors are shown in the activity log but don't appear in your deployment history. A Bicep file with syntax errors doesn't compile into JSON and isn't shown in the activity log.
 
@@ -85,7 +85,7 @@ When you hover over `parameter`, you see an error message.
 
 :::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/declaration-not-recognized.png" alt-text="Screenshot of error message in Visual Studio Code.":::
 
-The message states: "This declaration type is not recognized. Specify a parameter, variable, resource, or output declaration." If you attempt to deploy this file, you'll get the same error message from the deployment command.
+The message states: _This declaration type is not recognized. Specify a parameter, variable, resource, or output declaration._ If you attempt to deploy this file, you'll get the same error message from the deployment command.
 
 If you look at the documentation for a [parameter declaration](../bicep/parameters.md), you'll see the keyword is actually `param`. When you change that syntax, the validation error disappears. The `@allowed` decorator was also marked as an error, but that error is also resolved by changing the parameter declaration. The decorator was marked as an error because it expects a parameter declaration after the decorator. This condition wasn't true when the declaration was incorrect.
 

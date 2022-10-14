@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/31/2022
+ms.date: 10/12/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -79,12 +79,15 @@ File scale targets apply to individual files stored in Azure file shares.
 |-|-|-|
 | Maximum file size | 4 TiB | 4 TiB |
 | Maximum concurrent request rate | 1,000 IOPS | Up to 8,000<sup>1</sup> |
-| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup>|
+| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
-| Maximum concurrent handles | 2,000 handles | 2,000 handles  |
+| Maximum concurrent handles per file, directory, and share root<sup>3</sup> | 2,000 handles | 2,000 handles  |
 
 <sup>1 Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
+
 <sup>2 Subject to machine network limits, available bandwidth, IO sizes, queue depth, and other factors. For details see [SMB Multichannel performance](./storage-files-smb-multichannel-performance.md).</sup>
+
+<sup>3 Azure Files supports 2,000 open handles per share, and in practice can go higher. However, if an application keeps an open handle on the root of the share, the share root limit will be reached before the per-file or per-directory limit is reached.</sup>
 
 ## Azure File Sync scale targets
 The following table indicates which target are soft, representing the Microsoft tested boundary, and hard, indicating an enforced maximum:

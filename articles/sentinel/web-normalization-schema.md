@@ -124,7 +124,7 @@ The following list mentions fields that have specific guidelines for Web Session
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes, refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.3`         |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.4`         |
 | **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event.  |
 
 
@@ -198,7 +198,7 @@ If the event is reported by one of the endpoints of the web session, it may incl
 
 ### Schema updates
 
-The Web Session schema relies on the Network Session schema. Therefore, [Network Session schema updates](network-normalization-schema.md#schema-updates) apply to the Web Session schema as well. The WebSession schema version has been updated to reflect this dependancy.
+The Web Session schema relies on the Network Session schema. Therefore, [Network Session schema updates](network-normalization-schema.md#schema-updates) apply to the Web Session schema as well. The WebSession schema version has been updated to reflect this dependency.
 
 ## Next steps
 

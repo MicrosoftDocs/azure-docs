@@ -16,7 +16,7 @@ author: msmbaldwin
 ---
 # What is Azure Key Vault Managed HSM?
 
-Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.
+Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. It is one of several [key management solutions in Azure](../../security/fundamentals/key-management.md).
 
 For pricing information, please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
@@ -52,9 +52,10 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 
 ### Import keys from your on-premises HSMs
 
-- Generate HSM-protected keys in your on-premise HSM and import them securely into Managed HSM.
+- Generate HSM-protected keys in your on-premises HSM and import them securely into Managed HSM.
 
 ## Next steps
+- [Key management in Azure](../../security/fundamentals/key-management.md)
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
 - [Managed HSM Status](https://azure.status.microsoft)

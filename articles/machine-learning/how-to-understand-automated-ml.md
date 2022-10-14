@@ -38,19 +38,17 @@ For example, automated ML generates the following charts based on experiment typ
 ## View job results
 
 After your automated ML experiment completes, a history of the jobs can be found via:
-  - A browser with [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md)
+  - A browser with [Azure Machine Learning studio](https://ml.azure.com)
   - A Jupyter notebook using the [JobDetails Jupyter widget](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
-1. In the left menu, select **Experiments**.
+1. In the left menu, select **Runs**.
 1. Select your experiment from the list of experiments.
 1. In the table at the bottom of the page, select an automated ML job.
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
 1. In the **Metrics** tab, use the checkboxes on the left to view metrics and charts.
-
-![Steps to view metrics in studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
 ## Classification metrics
 
@@ -204,7 +202,7 @@ spearman_correlation| Spearman correlation is a nonparametric measure of the mon
 
 ### Metric normalization
 
-Automated ML normalizes regression and forecasting metrics which enables comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
+Automated ML normalizes regression and forecasting metrics which enable comparison between models trained on data with different ranges. A model trained on a data with a larger range has higher error than the same model trained on data with a smaller range, unless that error is normalized.
 
 While there is no standard method of normalizing error metrics, automated ML takes the common approach of dividing the error by the range of the data: `normalized_error = error / (y_max - y_min)`
 

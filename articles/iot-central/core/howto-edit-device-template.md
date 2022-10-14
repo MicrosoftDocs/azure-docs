@@ -25,6 +25,8 @@ To help you avoid any unintended consequences from editing a device template, th
 
 To learn more about device templates and how to create one, see [What are device templates?](concepts-device-templates.md) and [Set up a device template](howto-set-up-template.md).
 
+To learn how to manage device templates by using the IoT Central REST API, see [How to use the IoT Central REST API to manage device templates.](../core/howto-manage-device-templates-with-rest-api.md)
+
 ## Modify a device template
 
 Additive changes, such as adding a capability or interface to a model are non-breaking changes. You can make additive changes to a model at any stage of the development life cycle.

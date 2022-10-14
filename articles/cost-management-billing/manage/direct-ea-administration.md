@@ -3,7 +3,7 @@ title: Azure portal administration for direct Enterprise Agreements
 description: This article explains the common tasks that a direct enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/03/2022
+ms.date: 08/29/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -15,6 +15,13 @@ ms.reviewer: sapnakeshari
 This article explains the common tasks that a direct Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer.
 
 Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. Indirect EAs are managed using the [Azure Enterprise portal](https://ea.azure.com/). For more information about managing indirect EAs, see [Azure EA portal administration](ea-portal-administration.md).
+
+> [!NOTE]
+> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+>
+> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
 
 ## Manage your enrollment
 
@@ -109,9 +116,9 @@ EA admins and department administrators use departments to organize and report o
 
 A department administrator can add new accounts to their departments. They can also remove accounts from their departments, but not from the enrollment.
 
-Check out the [EA admin manage departments](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
+Check out the [Manage departments in the Azure portal](https://www.youtube.com/watch?v=NUlRrJFF1_U) video.
 
->[!VIDEO https://www.youtube.com/embed/cxAtOSSE6UI]
+>[!VIDEO https://www.youtube.com/embed/vs3wIeRDK4Q]
 
 ### To create a department
 

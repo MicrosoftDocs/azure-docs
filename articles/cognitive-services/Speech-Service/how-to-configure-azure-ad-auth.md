@@ -167,13 +167,14 @@ $resourceId = resource.Id
 ***
 
 ## Create the Speech SDK configuration object
+
 With an Azure AD access token, you can now create a Speech SDK configuration object.
 
 The method of providing the token, and the method to construct the corresponding Speech SDK ```Config``` object varies by the object you'll be using.
 
-### SpeechRecognizer, IntentRecognizer, ConversationTranscriber, and SpeechSynthesizer
+### SpeechRecognizer, SpeechSynthesizer, IntentRecognizer, ConversationTranscriber, and SourceLanguageRecognizer
 
-For ```SpeechRecognizer```, ```IntentRecognizer```, ```ConversationTranscriber```, and ```SpeechSynthesizer``` objects, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechConfig``` object.
+For ```SpeechRecognizer```, ```SpeechSynthesizer```, ```IntentRecognizer```, ```ConversationTranscriber```, and ```SourceLanguageRecognizer``` objects, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechConfig``` object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#

@@ -131,6 +131,10 @@ In this section, you need to ensure that the traffic is routed through Azure Fir
 1. Verify that the VNet connection and the Branch connection private traffic is secured by Azure Firewall.
 1. Select **Save**.
 
+> [!NOTE]
+> If you want to inspect traffic destined to private endpoints using Azure Firewall in a secured virtual hub, see [Secure traffic destined to private endpoints in Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
+You need to add /32 prefix for each private endpoint in the **Private traffic prefixes** under Security configuration of your Azure Firewall manager for them to be inspected via Azure Firewall in secured virtual hub. If these /32 prefixes are not configured, traffic destined to private endpoints will bypass Azure Firewall.
+
 ## <a name="validate"></a>Validate
 
 Verify the setup of your secured hub.

@@ -32,7 +32,7 @@ The following table provides a list of high-level features and capabilities comp
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
-| Uptime SLA | [SLA](https://azure.microsoft.com/support/legal/sla/postgresql)| [SLA](https://azure.microsoft.com/support/legal/sla/postgresql) |
+| Uptime SLA | [99.99% SLA](https://azure.microsoft.com/support/legal/sla/postgresql)| [Up to 99.99% SLA](https://azure.microsoft.com/support/legal/sla/postgresql) |
 | **Connectivity** | | |
 | Username in connection string | `<user_name>@server_name`. For example, `pgadmusr@mypgServer` | Just username. For example, `pgadmusr` | 
 | lc_collate  | English_United States.1252 | en_US.utf8 |

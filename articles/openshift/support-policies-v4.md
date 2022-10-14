@@ -1,8 +1,8 @@
 ---
 title: Azure Red Hat OpenShift 4 cluster support policy
 description: Understand support policy requirements for Red Hat OpenShift 4
-author: rahulm23
-ms.author: rahulmehta
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
@@ -22,9 +22,10 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * The cluster must have a minimum of three worker nodes and three manager nodes.
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group is not supported.
 * Don't have taints that prevent OpenShift components to be scheduled.
-* Don't remove or modify the cluster Prometheus and Alertmanager services.
+* Don't remove or modify the cluster Prometheus service.
+* Don't remove or modify the cluster Alertmanager service or Default receiver. It *is* supported to create additional receivers to notify external systems.
 * Don't remove Service Alertmanager rules.
-* Security groups can't be modified. Any attempt to modify security groups will be reverted.
+* The ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
@@ -48,18 +49,20 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
-|Eiv3|Standard_E64i_v3|64|432|
+|Eiv3*|Standard_E64i_v3|64|432|
 |Eisv3|Standard_E64is_v3|64|432|
 |Eis4|Standard_E80is_v4|80|504|
 |Eids4|Standard_E80ids_v4|80|504|
-|Eiv5|Standard_E104i_v5|104|672|
+|Eiv5*|Standard_E104i_v5|104|672|
 |Eisv5|Standard_E104is_v5|104|672|
-|Eidv5|Standard_E104id_v5|104|672|
+|Eidv5*|Standard_E104id_v5|104|672|
 |Eidsv5|Standard_E104ids_v5|104|672|
 |Fsv2|Standard_F72s_v2|72|144|
-|G|Standard_G5|32|448|
+|G*|Standard_G5|32|448|
 |G|Standard_GS5|32|448|
 |Mms|Standard_M128ms|128|3892|
+
+\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
 
 ### General purpose
 
@@ -82,14 +85,16 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv3|Standard_E8s_v3|8|64|
 |Esv3|Standard_E16s_v3|16|128|
 |Esv3|Standard_E32s_v3|32|256|
-|Eiv3|Standard_E64i_v3|64|432|
+|Eiv3*|Standard_E64i_v3|64|432|
 |Eisv3|Standard_E64is_v3|64|432|
 |Eis4|Standard_E80is_v4|80|504|
 |Eids4|Standard_E80ids_v4|80|504|
-|Eiv5|Standard_E104i_v5|104|672|
+|Eiv5*|Standard_E104i_v5|104|672|
 |Eisv5|Standard_E104is_v5|104|672|
 |Eidv5|Standard_E104id_v5|104|672|
 |Eidsv5|Standard_E104ids_v5|104|672|
+
+\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead
 
 ### Compute optimized
 
@@ -108,7 +113,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Mms|Standard_M128ms|128|3892|
 
 ### Storage optimized
-
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
 |L4s|Standard_L4s|4|32|
@@ -121,9 +125,19 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |L48s_v2|Standard_L48s_v2|32|384|
 |L64s_v2|Standard_L48s_v2|64|512|
 
+### GPU workload
+|Series|Size|vCPU|Memory: GiB|
+|-|-|-|-|
+|NC4asT4v3|Standard_NC4as_T4_v3|4|28|
+|NC8asT4v3|Standard_NC8as_T4_v3|8|56|
+|NC16asT4v3|Standard_NC16as_T4_v3|16|110|
+|NC64asT4v3|Standard_NC64as_T4_v3|64|440|
+
 ### Memory and storage optimized
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
-|G|Standard_G5|32|448|
+|G*|Standard_G5|32|448|
 |G|Standard_GS5|32|448|
+
+\*Does not support Premium_LRS OS Disk, StandardSSD_LRS is used instead

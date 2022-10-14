@@ -1,22 +1,17 @@
 ---
-title: Custom Functions in the MedTech service - Azure Health Data Services
-description: This article describes how to use Custom Functions with MedTech service Device mappings templates.
+title: How to use custom functions with the MedTech service device mapping - Azure Health Data Services
+description: This article describes how to use custom functions with MedTech service device mapping.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 08/30/2022
 ms.author: jasteppe
 ---
 
-# How to use Custom Functions
+# How to use custom functions
 
-> [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
-
-This article describes how to use the MedTech service Customer Functions.
-
-Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many custom functions may also be used. This article describes MedTech service-specific custom functions for use with the Device mappings template during the normalization process.
+Many functions are available when using **JmesPath** as the expression language. Besides the functions available as part of the JmesPath specification, many more custom functions may also be used. This article describes the MedTech service-specific custom functions for use with the MedTech service [device mapping](how-to-use-device-mappings.md) during the device message [normalization](iot-data-flow.md#normalize) process.
 
 > [!TIP]
 > For more information on JmesPath functions, see the JmesPath [specification](https://jmespath.org/specification.html#built-in-functions).
@@ -191,9 +186,9 @@ Examples:
 
 ## Next steps
 
-In this article, you learned how to use the MedTech service Custom Functions. To learn how to use Custom Functions with Device mappings, see
+In this article, you learned how to use the MedTech service custom functions. To learn how to use custom functions with the MedTech service device mapping, see
 
 >[!div class="nextstepaction"]
->[How to use Device mappings](how-to-use-device-mappings.md)
+>[How to use device mappings](how-to-use-device-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

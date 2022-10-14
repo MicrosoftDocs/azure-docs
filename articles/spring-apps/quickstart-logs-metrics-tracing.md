@@ -18,18 +18,19 @@ zone_pivot_groups: programming-languages-spring-apps
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
+
 With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates Steeltoe [distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal.
 
 The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed Tracing with the sample app that you deployed in the preceding quickstarts.
 
 ## Prerequisites
 
-* Complete the previous quickstarts in this series:
+- Complete the previous quickstarts in this series:
 
-  * [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
-  * [Set up Azure Spring Apps configuration server](./quickstart-setup-config-server.md).
-  * [Build and deploy apps](./quickstart-deploy-apps.md).
-  * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
+  - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
+  - [Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps](./quickstart-setup-config-server.md).
+  - [Build and deploy apps to Azure Spring Apps](./quickstart-deploy-apps.md).
+  - [Set up a Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -43,7 +44,7 @@ You can use log streaming in the Azure CLI with the following command.
 az spring app logs -n solar-system-weather -f
 ```
 
-You will see output similar to the following example:
+You'll see output similar to the following example:
 
 ```output
 => ConnectionId:0HM2HOMHT82UK => RequestPath:/weatherforecast RequestId:0HM2HOMHT82UK:00000003, SpanId:|e8c1682e-46518cc0202c5fd9., TraceId:e8c1682e-46518cc0202c5fd9, ParentId: => Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController.Get (Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather)
@@ -70,7 +71,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 1. Edit the query to remove the Where clauses that limit the display to warning and error logs.
 
-1. Then select `Run`, and you will see logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
+1. Then select **Run**, and you'll see logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png" alt-text="Screenshot of a Logs Analytics query." lightbox="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png":::
 
@@ -100,26 +101,28 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png" alt-text="Screenshot of the Application map page." lightbox="media/quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png":::
 
-1. Select the link between **solar-system-weather** and **planet-weather-provider** to see more details like slowest calls by HTTP methods.
+1. Select the link between **solar-system-weather** and **planet-weather-provider** to see more details such as the slowest calls by HTTP methods.
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-call-steeltoe.png" alt-text="Screenshot of Application map details." lightbox="media/quickstart-logs-metrics-tracing/tracing-call-steeltoe.png":::
 
 1. Finally, select **Investigate Performance** to explore more powerful built-in performance analysis.
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png" alt-text="Screenshot of Performance page." lightbox="media/quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png":::
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
 With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal. The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed tracing with deployed PetClinic apps.
 
 ## Prerequisites
 
-Complete previous steps:
+- Complete the previous quickstarts in this series:
 
-* [Provision an instance of Azure Spring Apps](./quickstart-provision-service-instance.md)
-* [Set up the config server](./quickstart-setup-config-server.md). For enterprise tier, please follow [set up Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
-* [Build and deploy apps](./quickstart-deploy-apps.md).
-* [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
+  - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
+  - [Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps](./quickstart-setup-config-server.md).
+  - [Build and deploy apps to Azure Spring Apps](./quickstart-deploy-apps.md).
+  - [Set up a Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -135,7 +138,7 @@ You can use log streaming in the Azure CLI with the following command.
 az spring app logs -s <service instance name> -g <resource group name> -n gateway -f
 ```
 
-You will see logs like this:
+You'll see logs like this:
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png" alt-text="Screenshot of CLI log output." lightbox="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png":::
 
@@ -174,35 +177,34 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Logs opening page." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
 
-1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
+1. Then you'll see filtered logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query.png" alt-text="Screenshot of filtered logs." lightbox="media/quickstart-logs-metrics-tracing/logs-query.png":::
 
 ## Metrics
 
-Navigate to the `Application insights` blade. Then, navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, Spring modules, and dependencies.
+Navigate to the `Application insights` blade, and then navigate to the `Metrics` blade. You can see metrics contributed by Spring Boot apps, Spring modules, and dependencies.
 
-The following chart shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections`
- (JDBC Connections) and `http_client_requests`.
+The following chart shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections` (JDBC Connections), and `http_client_requests`.
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg" alt-text="Screenshot of gateway requests." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg":::
 
-Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback...
-The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.
-All those three REST controllers `OwnerResource`, `PetResource` and `VisitResource` have been instrumented by the `@Timed` Micrometer annotation at class level.
+Spring Boot registers several core metrics, including JVM, CPU, Tomcat, and Logback. The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC. All three REST controllers (`OwnerResource`, `PetResource`, and `VisitResource`) have been instrumented by the `@Timed` Micrometer annotation at the class level.
 
-* `customers-service` application has the following custom metrics enabled:
-  * @Timed: `petclinic.owner`
-  * @Timed: `petclinic.pet`
-* `visits-service` application has the following custom metrics enabled:
-  * @Timed: `petclinic.visit`
+The `customers-service` application has the following custom metrics enabled:
+
+  - @Timed: `petclinic.owner`
+  - @Timed: `petclinic.pet`
+
+The `visits-service` application has the following custom metrics enabled:
+
+  - @Timed: `petclinic.visit`
 
 You can see these custom metrics in the `Metrics` blade:
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg" alt-text="Screenshot of the Metrics blade with custom metrics." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-custom-metrics.jpg":::
 
-You can use the Availability Test feature in Application Insights and monitor
-the availability of applications:
+You can use the Availability Test feature in Application Insights and monitor the availability of applications:
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-availability.jpg" alt-text="Screenshot of the Availability Test feature." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-availability.jpg":::
 
@@ -262,5 +264,7 @@ az config set defaults.group=
 To explore more monitoring capabilities of Azure Spring Apps, see:
 
 > [!div class="nextstepaction"]
-> [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)>
+>
+> [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
+>
 > [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md)

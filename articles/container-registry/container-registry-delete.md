@@ -2,7 +2,9 @@
 title: Delete image resources
 description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
 ms.topic: article
-ms.date: 05/07/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Delete container images in Azure Container Registry
@@ -107,7 +109,7 @@ The following Azure CLI command lists all manifest digests in a repository older
 
 ```azurecli
 az acr manifest list-metadata --name <repositoryName> --registry <acrName> <repositoryName> \
-    --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+    --orderby time_asc -o tsv --query "[?lastUpdateTime < '2019-04-05'].[digest, lastUpdateTime]"
 ```
 
 After identifying stale manifest digests, you can run the following Bash script to delete manifest digests older than a specified timestamp. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
@@ -136,13 +138,13 @@ TIMESTAMP=2019-04-05
 if [ "$ENABLE_DELETE" = true ]
 then
     az acr manifest list-metadata --name $REPOSITORY --registry $REGISTRY \
-    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    --orderby time_asc --query "[?lastUpdateTime < '$TIMESTAMP'].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted."
     echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
-    az acr manifest list-metadata --name $REPOSITORY --repository $REGISTRY \
-   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
+    az acr manifest list-metadata --name $REPOSITORY --registry $REGISTRY \
+   --orderby time_asc --query "[?lastUpdateTime < '$TIMESTAMP'].[digest, lastUpdateTime]" -o tsv
 fi
 ```
 

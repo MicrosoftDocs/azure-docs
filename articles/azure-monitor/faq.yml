@@ -5,6 +5,7 @@ metadata:
   services: azure-monitor
   ms.topic: faq
   ms.service: azure-monitor
+  ms.custom: ignite-2022
   author: bwren
   ms.author: bwren
   ms.date: 06/23/2022
@@ -350,7 +351,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support private links?
         answer: |
-          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent).
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-azure-monitor-agent).
 
       - question: |
           Does AMA support AuditD logs on linux, or AUOMS?
@@ -819,7 +820,7 @@ sections:
           
           The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
           
-          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
+          Over time, we believe OpenTelemetry will enable Azure Monitor's customers to observe applications written in languages beyond our [supported languages](./app/platforms.md) and expand the number of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries) available to customers. In particular, the OpenTelemetry .NET SDK is more performant at scale than its predecessor the Application Insights SDK.
           
           Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
           
@@ -870,7 +871,7 @@ sections:
         answer: |
           Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn’t officially support an agent-based approach for application monitoring yet. In the meantime, the open source community has contributed an [OpenTelemetry-Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
           
-          We plan to support an agent-based approach in the future, though the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](https://review.docs.microsoft.com/azure/azure-monitor/app/platforms). 
+          We plan to support an agent-based approach in the future, though the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](./app/platforms.md). 
           
       - question: |
           What's the difference between OpenCensus and OpenTelemetry?
@@ -895,13 +896,9 @@ sections:
           The **Other processes** includes:
           
           - Self-managed or managed Kubernetes non-containerized processes
-          
           - Container Run-time processes
-          
           - Kubelet
-          
           - System processes running on your node
-          
           - Other non-Kubernetes workloads running on node hardware or VM
           
       - question: |

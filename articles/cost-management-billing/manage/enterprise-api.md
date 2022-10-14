@@ -1,6 +1,6 @@
 ---
-title: Azure Billing Enterprise APIs
-description: Learn about the Reporting APIs that enable Enterprise Azure customers to pull consumption data programmatically.
+title: Azure Enterprise Reporting APIs
+description: Learn about the Azure Enterprise Reporting APIs that enable customers to pull consumption data programmatically.
 author: bandersmsft
 ms.reviewer: adwise
 tags: billing
@@ -11,12 +11,12 @@ ms.date: 09/15/2021
 ms.author: banders
 
 ---
-# Overview of Reporting APIs for Enterprise customers
+# Overview of the Azure Enterprise Reporting APIs
 
 > [!Note]
-> Microsoft no longer updates the Azure Billing - Enterprise Reporting APIs. Instead, you should use [Azure Consumption](/rest/api/consumption) APIs.
+> Microsoft no longer updates the Azure Enterprise Reporting APIs. Instead, you should use Cost Management APIs. To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 
-The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated Azure Prepayment (previously called monetary commitment) and gain access to custom pricing for Azure resources.
+The Azure Enterprise Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated Azure Prepayment (previously called monetary commitment) and gain access to custom pricing for Azure resources.
 
 All date and time parameters required for APIs must be represented as combined Coordinated Universal Time (UTC) values. Values returned by APIs are shown in UTC format.
 
