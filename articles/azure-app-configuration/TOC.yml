@@ -138,7 +138,7 @@
     - name: Reliability
       items:
         - name: Availability zone support
-          href: ../availability-zones/migrate-app-configuration.md
+          href: ../reliability/migrate-app-configuration.md
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
     - name: Security

@@ -86,7 +86,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
     | Setting      | Suggested value  | Notes for Zone Redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Storage Account** | A [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements) | As mentioned above in the [requirements](#requirements) section, we strongly recommend using a zone-redundant storage account for your zone redundant function app. |
+    | **Storage Account** | A [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements) | As mentioned above in the [prerequisites](#prerequisites) section, we strongly recommend using a zone-redundant storage account for your zone redundant function app. |
     | **Plan Type** | Functions Premium | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. Information on zone redundancy on app service plans can be found [in this article](../reliability/migrate-app-service.md). |
     | **Zone Redundancy** | Enabled | This field populates the flag that determines if your app is zone redundant or not. You won't be able to select `Enabled` unless you have chosen a region supporting zone redundancy, as mentioned in step 2. |
 
