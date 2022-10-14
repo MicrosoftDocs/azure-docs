@@ -24,7 +24,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
     * __Storage Outbound__: This requirement comes from compute instance and compute cluster. A malicious agent can use this outbound rule to exfiltrate data by provisioning and saving data in their own storage account. You can remove data exfiltration risk by using an Azure Service Endpoint Policy and Azure Batch's simplified node communication architecture.
 
-    * __AzureFrontDoor.frontend outbound__: Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. To narrow down the list of possible outbound destinations to just those required by Azure ML, allowlist the following fully qualified domain names (FQDN) on your firewall.
+    * __AzureFrontDoor.frontend outbound__: Azure Front Door is required by the Azure Machine Learning studio UI and AutoML. To narrow down the list of possible outbound destinations to just the ones required by Azure ML, allowlist the following fully qualified domain names (FQDN) on your firewall.
 
         - `ml.azure.com`
         - `automlresources-prod.azureedge.net`
@@ -111,7 +111,11 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
         * __Resource__: The storage account.
     
         Select __Add__ to add the resource information.
-    1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add thee alias.
+    1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add the alias.
+    
+        > [!NOTE]
+        > The Azure CLI and Azure PowerShell do not provide support for adding an alias to the policy.
+
 1. Select __Review + Create__, and then select __Create__.
 
 
