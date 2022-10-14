@@ -67,6 +67,8 @@ While this hidden serialization magic is convenient, applications should take ex
 
 The .NET Standard and Java API variants only accept byte arrays, which means that the application must handle object serialization control. 
 
+If the payload of a message can't be deserialized, then it is recommended to [dead-letter the message](/azure/service-bus-messaging/service-bus-dead-letter-queues?source=recommendations#application-level-dead-lettering).
+
 ## Next steps
 
 To learn more about Service Bus messaging, see the following topics:

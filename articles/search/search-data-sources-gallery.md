@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 06/21/2022
+ms.date: 10/13/2022
 ---
 
 # Data sources gallery
@@ -764,6 +764,30 @@ Secure enterprise search connector for reliably indexing content from OpenText D
 
 ---
 
+### Drupal 
+
+by [Raytion](https://www.raytion.com/contact)
+
+Raytion's Drupal Connector indexes content from Drupal into Azure Cognitive Search to be able to access and explore all pages and attachments published by Drupal alongside content from other corporate systems in Azure Cognitive Search.
+
+[More details](https://www.raytion.com/connectors/raytion-drupal-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
 ### Egnyte
 
 by [BA Insight](https://www.bainsight.com/)
@@ -998,6 +1022,31 @@ Secure enterprise search connector for reliably indexing content from Google Dri
 :::column span="":::
 
 ---
+
+### Happeo 
+
+by [Raytion](https://www.raytion.com/contact)
+
+Raytion's Happeo Connector indexes content from Happeo into Azure Cognitive Search and keeps track of all changes, whether for your company-wide enterprise search platform or in vibrant social collaboration environments. It guarantees an updated Azure Cognitive index and advances knowledge sharing.
+
+[More details](https://www.raytion.com/connectors/raytion-happeo-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
 
 ### HP Consolidated Archive (EAS)
 
@@ -2680,6 +2729,30 @@ by [Raytion](https://www.raytion.com/contact)
 Secure enterprise search connector for reliably indexing content from Microsoft Yammer and intelligently searching it with Azure Cognitive Search. It robustly indexes channels, posts, replies, attachments, polls and announcements from Yammer in near real time. The connector fully supports Microsoft Yammer’s built-in user and group management and in particular federated authentication against Microsoft 365.
 
 [More details](https://www.raytion.com/connectors/raytion-yammer-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### Zendesk Guide 
+
+by [Raytion](https://www.raytion.com/contact)
+
+Raytion's Zendesk Guide Connector indexes content from Zendesk Guide into Azure Cognitive Search and keeps track of all changes, whether for your company-wide enterprise search platform or a knowledge search for customers or agents. It guarantees an updated Azure Cognitive index and advances knowledge sharing.
+
+[More details](https://www.raytion.com/connectors/raytion-zendesk-guide-connector)
 
 :::column-end:::
 :::row-end:::

@@ -244,7 +244,7 @@ You'll be able to add a column to the base table, but you won't be able to remov
 
 ### Can we create MV on existing base table?
 
-No. Materialized Views can't be created on a table that existed before the account was onboarded to support materialized views. Create new table after account is onboarded on which materialized views can be defined. MV on existing table is planned for the future.
+No. Materialized Views can't be created on a table that existed before the account was onboarded to support materialized views. You would need to create a new table with materialized views defined and move the existing data using [container copy jobs](../intra-account-container-copy.md). MV on existing table is planned for the future.
 
 ### What are the conditions on which records won't make it to MV and how to identify such records?
 
