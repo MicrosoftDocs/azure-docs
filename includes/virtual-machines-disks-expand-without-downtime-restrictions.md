@@ -9,6 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---    
+- Only available with particular VM SKUs.
 - Only supported for data disks.
 - If a disk is 4 TiB or less, you can't expand it beyond 4 TiB without deallocating the VM. If a disk is already greater than 4 TiB, you can expand it without deallocating the VM.
 - Not supported for Ultra disks or Premium SSD v2 disks.
@@ -18,7 +19,6 @@
     - The [latest Azure PowerShell module](/powershell/azure/install-az-ps)
     - The [Azure portal](https://portal.azure.com/)
     - Or an Azure Resource Manager template with an API version that's `2021-04-01` or newer.
-- Only available with particular VM SKUs.
 
 Use the following PowerShell script to determine which VM SKUs it's available with:
 
