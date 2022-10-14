@@ -57,10 +57,6 @@ To create a read replica, follow these steps:
 8. Review the information in the final confirmation window. When you're ready, select **Create**.
     :::image type="content" source="./media/how-to-read-replicas-portal/review.png" alt-text="Review the information in the final confirmation window":::
 
-
-
-   
-
 After the read replica is created, it can be viewed from the **Replication** window:
 
 :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="View the new replica in the Replication window":::
