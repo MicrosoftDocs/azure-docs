@@ -288,6 +288,8 @@ Application Insights can test your website at regular intervals to check that it
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/java-2x-troubleshoot).
 
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Next steps
 * [Monitor dependency calls](java-2x-agent.md)
 * [Monitor Unix performance counters](java-2x-collectd.md)

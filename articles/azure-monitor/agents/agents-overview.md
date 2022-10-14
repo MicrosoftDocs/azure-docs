@@ -56,7 +56,10 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | Text logs | Log Analytics workspace - custom table | Events sent to log file on agent machine |
     
     <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
-    <sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF). 
+    <sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
+
+    >[!NOTE]
+    >On rsyslog-based systems, Azure Monitor Linux Agent adds forwarding rules to the default ruleset defined in the rsyslog configuration. If multiple rulesets are used, inputs bound to non-default ruleset(s) are **not** forwarded to Azure Monitor Agent. For more information about multiple rulesets in rsyslog, see the [official documentation](https://www.rsyslog.com/doc/master/concepts/multi_ruleset.html).
 
 ## Supported services and features
 
@@ -179,22 +182,18 @@ The following tables list the operating systems that Azure Monitor Agent and the
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|:---:
-| AlmaLinux 8.5                                               | X<sup>3</sup> |   |   |
-| AlmaLinux 8                                                 | X | X |   |
+| AlmaLinux 8                                                 | X<sup>3</sup> | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X | X |   |
 | CentOS Linux 7                                              | X<sup>3</sup> | X | X |
 | CentOS Linux 6                                              |   | X |   |
-| CentOS Linux 6.5+                                           |   | X | X |
-| CBL-Mariner 2.0                                             | X |   |   |
+| CBL-Mariner 2.0                                             | X<sup>3</sup> |   |   |
 | Debian 11                                                   | X<sup>3</sup> |   |   |
 | Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
-| Debian 7                                                    |   |   | X |
 | OpenSUSE 15                                                 | X |   |   |
-| OpenSUSE 13.1+                                              |   |   | X |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
