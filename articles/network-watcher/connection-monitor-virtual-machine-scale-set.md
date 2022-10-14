@@ -69,7 +69,7 @@ First, create a public Standard Load Balancer by using the portal. The name and 
 1. After it passes validation, select **Create**. 
 
 
-## Create a virtual machine scale set
+## Create virtual machine scale set
 
 You can deploy a scale set with a Windows Server image or Linux images such as RHEL, CentOS, Ubuntu, or SLES.
 
