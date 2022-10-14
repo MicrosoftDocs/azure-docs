@@ -115,9 +115,11 @@ https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversio
 
 ## Geojson zip package requirements
 
-The GeoJSON zip package consists of one or more [RFC 7946][RFC 7946] compliant GeoJSON files, one for each feature class, all in the root directory (subdirectories aren't supported), compressed with standard Zip compression and named using the `.ZIP` file extension.
+The GeoJSON zip package consists of one or more [RFC 7946][RFC 7946] compliant GeoJSON files, one for each feature class, all in the root directory (subdirectories aren't supported), compressed with standard Zip compression and named using the `.ZIP` extension.
 
-Each feature class file must match its definition in the [Facility ontology 2.0][Facility ontology] and each feature must have a globally unique identifier. Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) and underscore (_) characters.
+Each feature class file must match its definition in the [Facility ontology 2.0][Facility ontology] and each feature must have a globally unique identifier. 
+
+Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) and underscore (_) characters.
 
 <!--
 1. The contents of each feature class file must match its definition in the [Facility-2.0 ontology][Facility-2.0 ontology].
