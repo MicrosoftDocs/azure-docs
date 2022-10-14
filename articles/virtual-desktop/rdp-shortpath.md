@@ -119,6 +119,10 @@ All connections begin by establishing a TCP-based [reverse connect transport](ne
 
 If your users have both RDP Shortpath for managed network and public networks available to them, then the first algorithm found will be used. Whichever connection gets established first is what the user will use for that session.
 
+The diagram below gives a high-level overview of the network connections used by Azure Virtual Desktop with RDP Shortpath for public networks and Azure AD-joined virtual machines. 
+
+:::image type="content" source="media/azure-virtual-desktop-rdpshortpath-public-connection" alt-text="Diagram of Azure Virtual Desktop RDP Shortpath for Public Network Connections" lightbox="media/azure-virtual-desktop-rdpshortpath-public-connection":::
+
 > [!IMPORTANT]
 > When using a TCP-based transport, outbound traffic from session host to client is through the Azure Virtual Desktop Gateway. With RDP Shortpath, outbound traffic is established directly between session host and client over the internet. This removes a hop which improves latency and end user experience. However, due to the changes in data flow between session host and client where the Gateway is no longer used, there will be standard [Azure egress network charges](https://azure.microsoft.com/pricing/details/bandwidth/) billed in addition per subscription for the internet bandwidth consumed. To learn more about estimating the bandwidth used by RDP, see [RDP bandwidth requirements](rdp-bandwidth.md).
 
