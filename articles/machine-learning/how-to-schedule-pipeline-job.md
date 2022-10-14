@@ -83,7 +83,7 @@ List continues below.
     - `weekdays` can be a string or list from `monday` to `sunday`.
     - If `schedule` is omitted, the job(s) will be triggered according to the logic of `start_time`, `frequency` and `interval`.
 
-- (Optional) `start_time` describes the start date and time with timezone. If `start_time` is omitted, start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.
+- (Optional) `start_time` describes the start date and time with timezone, in the format of `YYYY-MM-DDTHH:MM:SS`. If `start_time` is omitted, start_time will be equal to the job created time. If the start time is in the past, the first job will run at the next calculated run time.
 
 - (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until the schedule is manually disabled.  
 
@@ -138,7 +138,7 @@ List continues below.
     > [!IMPORTANT]
     > `DAYS` and `MONTH` are not supported. If you pass a value, it will be ignored and treat as `*`.
 
-- (Optional) `start_time` specifies the start date and time with timezone of the schedule. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, the `start_time` will be equal to schedule creation time. If the start time is in the past, the first job will run at the next calculated run time.
+- (Optional) `start_time` specifies the start date and time with timezone of the schedule in the format of `YYYY-MM-DDTHH:MM:SS`. `start_time: "2022-05-10T10:15:00-04:00"` means the schedule starts from 10:15:00AM on 2022-05-10 in UTC-4 timezone. If `start_time` is omitted, the `start_time` will be equal to schedule creation time. If the start time is in the past, the first job will run at the next calculated run time.
 
 - (Optional) `end_time` describes the end date and time with timezone. If `end_time` is omitted, the schedule will continue trigger jobs until the schedule is manually disabled.  
 
