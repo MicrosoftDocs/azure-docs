@@ -91,7 +91,7 @@ The schema is identical for converting triangular meshes and point clouds. Howev
 
 ## Settings for triangular meshes
 
-For converting a triangular mesh, for instance from an .fbx file, all parameters from the schema above do affect the outcome. The parameters are explained in detail now:
+When converting a triangular mesh, for instance from an .fbx file, all parameters from the schema above do affect the outcome. The parameters are explained in detail now:
 
 ### Geometry parameters
 
@@ -277,7 +277,7 @@ A simple way to test whether instancing information gets preserved during conver
 
 #### Example: Instancing setup in 3ds Max
 
-[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently with regard to instancing in the exported `.fbx` file.
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) has distinct object cloning modes called **`Copy`**, **`Instance`**, and **`Reference`** that behave differently regarding instancing in the exported `.fbx` file.
 
 ![Cloning in 3ds Max](./media/3dsmax-clone-object.png)
 
@@ -329,7 +329,7 @@ Because lighting is already baked into the textures, no dynamic lighting is need
 
 ### Use case: Visualization of compact machines, etc.
 
-In these use cases, the models often have very high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case don't apply here:
+In these use cases, the models often have high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case don't apply here:
 
 * Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to `dynamic`.
 * Ray casts are typically an integral part of the application, so collision meshes must be generated.
