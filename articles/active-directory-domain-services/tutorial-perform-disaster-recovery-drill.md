@@ -3,7 +3,7 @@ title: Tutorial - Perform a disaster recovery drill in Azure AD Domain Services 
 description: Learn how to perform a disaster recovery drill using replica sets in Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

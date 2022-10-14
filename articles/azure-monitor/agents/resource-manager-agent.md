@@ -16,20 +16,123 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Azure Monitor agent
 
-The samples in this section install the Azure Monitor agent on Windows and Linux virtual machines and Azure Arc-enabled servers. To configure data collection for these agents, you must also deploy [Resource Manager templates data collection rules and associations](./resource-manager-data-collection-rules.md).
+The samples in this section install the Azure Monitor agent on Windows and Linux virtual machines and Azure Arc-enabled servers. 
 
-## Permissions required
+###  Prerequisites
+
+To use the templates below, you'll need:
+- To [create a user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3) and [assign the user-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#user-assigned-managed-identity), or [enable a system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity). A managed identity is required for Azure Monitor agent to collect and publish data. User-assigned managed identities are _strongly recommended_ over system-assigned managed identities due to their ease of management at scale.
+- To configure data collection for Azure Monitor Agent, you must also deploy [Resource Manager template data collection rules and associations](./resource-manager-data-collection-rules.md).
+
+### Permissions required
 
 | Built-in Role | Scope(s) | Reason |
 |:---|:---|:---|
 | <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | To deploy agent extension |
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To deploy ARM templates |
 
-### Azure virtual machine
+### Azure Windows virtual machine
 
-The following sample installs the Azure Monitor agent on an Azure virtual machine.
+The following sample installs the Azure Monitor agent on an Azure Windows virtual machine. Use the appropriate template below based on your chosen authentication method.
 
-#### Template file
+#### User-assigned managed identity (recommended)
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param vmName string
+param location string
+param userAssignedManagedIdentity string
+
+resource windowsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
+  name: '${vmName}/AzureMonitorWindowsAgent'
+  location: location
+  properties: {
+    publisher: 'Microsoft.Azure.Monitor'
+    type: 'AzureMonitorWindowsAgent'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
+    settings: {
+      authentication: {
+        managedIdentity: {
+          identifier-name: 'mi_res_id'
+          identifier-value: userAssignedManagedIdentity
+        }
+      }
+    }
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "userAssignedManagedIdentity": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2021-11-01",
+      "name": "[format('{0}/AzureMonitorWindowsAgent', parameters('vmName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publisher": "Microsoft.Azure.Monitor",
+        "type": "AzureMonitorWindowsAgent",
+        "typeHandlerVersion": "1.0",
+        "settings": {
+          "authentication": {
+            "managedIdentity": {
+              "identifier-name": "mi_res_id",
+              "identifier-value": "[parameters('userAssignedManagedIdentity')]"
+            }
+          }
+        },
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": true
+      }
+    }
+  ]
+}
+```
+
+---
+
+##### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-windows-vm"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "userAssignedManagedIdentity": {
+      "value": "/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"
+    }
+  }
+}
+```
+
+#### System-assigned managed identity
+
+##### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -84,7 +187,7 @@ resource windowsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' 
 
 ---
 
-#### Parameter file
+##### Parameter file
 
 ```json
 {
@@ -101,11 +204,110 @@ resource windowsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' 
 }
 ```
 
-### Linux Azure virtual machine
+### Azure Linux virtual machine
 
-The following sample installs the Azure Monitor agent on a Linux Azure virtual machine.
+The following sample installs the Azure Monitor agent on an Azure Linux virtual machine. Use the appropriate template below based on your chosen authentication method.
 
-#### Template file
+#### User-assigned managed identity (recommended)
+
+##### Template file
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param vmName string
+param location string
+param userAssignedManagedIdentity string
+
+resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
+  name: '${vmName}/AzureMonitorLinuxAgent'
+  location: location
+  properties: {
+    publisher: 'Microsoft.Azure.Monitor'
+    type: 'AzureMonitorLinuxAgent'
+    typeHandlerVersion: '1.21'
+    autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
+    settings: {
+      authentication: {
+        managedIdentity: {
+          identifier-name: 'mi_res_id'
+          identifier-value: userAssignedManagedIdentity
+        }
+      }
+    }
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "userAssignedManagedIdentity": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2021-11-01",
+      "name": "[format('{0}/AzureMonitorLinuxAgent', parameters('vmName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publisher": "Microsoft.Azure.Monitor",
+        "type": "AzureMonitorLinuxAgent",
+        "typeHandlerVersion": "1.21",
+          "settings": {
+          "authentication": {
+            "managedIdentity": {
+              "identifier-name": "mi_res_id",
+              "identifier-value": "[parameters('userAssignedManagedIdentity')]"
+            }
+          }
+        },
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": true
+      }
+    }
+  ]
+}
+```
+
+---
+
+##### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-linux-vm"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "userAssignedManagedIdentity": {
+      "value": "/subscriptions/<my-subscription-id>/resourceGroups/<my-resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<my-user-assigned-identity>"
+    }
+  }
+}
+```
+
+#### System-assigned managed identity
+
+##### Template file
 
 # [Bicep](#tab/bicep)
 
@@ -119,7 +321,7 @@ resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = 
   properties: {
     publisher: 'Microsoft.Azure.Monitor'
     type: 'AzureMonitorLinuxAgent'
-    typeHandlerVersion: '1.5'
+    typeHandlerVersion: '1.21'
     autoUpgradeMinorVersion: true
     enableAutomaticUpgrade: true
   }
@@ -149,7 +351,7 @@ resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = 
       "properties": {
         "publisher": "Microsoft.Azure.Monitor",
         "type": "AzureMonitorLinuxAgent",
-        "typeHandlerVersion": "1.5",
+        "typeHandlerVersion": "1.21",
         "autoUpgradeMinorVersion": true,
         "enableAutomaticUpgrade": true
       }
@@ -160,7 +362,7 @@ resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = 
 
 ---
 
-#### Parameter file
+##### Parameter file
 
 ```json
 {
@@ -177,9 +379,9 @@ resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = 
 }
 ```
 
-### Azure Arc-enabled server
+### Azure Arc-enabled Windows server
 
-The following sample installs the Azure Monitor agent on an Azure Arc-enabled server.
+The following sample installs the Azure Monitor agent on an Azure Arc-enabled Windows server.
 
 #### Template file
 
@@ -249,9 +451,9 @@ resource windowsAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-pr
 }
 ```
 
-### Linux Azure Arc-enabled server
+### Azure Arc-enabled Linux server
 
-The following sample installs the Azure Monitor agent on a Linux Azure Arc-enabled server.
+The following sample installs the Azure Monitor agent on an Azure Arc-enabled Linux server.
 
 #### Template file
 
@@ -262,11 +464,11 @@ param vmName string
 param location string
 
 resource linuxAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-preview'= {
-  name: '${vmName}/AzureMonitorWindowsAgent'
+  name: '${vmName}/AzureMonitorLinuxAgent'
   location: location
   properties: {
     publisher: 'Microsoft.Azure.Monitor'
-    type: 'AzureMonitorWindowsAgent'
+    type: 'AzureMonitorLinuxAgent'
     autoUpgradeMinorVersion: true
   }
 }
@@ -290,11 +492,11 @@ resource linuxAgent 'Microsoft.HybridCompute/machines/extensions@2021-12-10-prev
     {
       "type": "Microsoft.HybridCompute/machines/extensions",
       "apiVersion": "2021-12-10-preview",
-      "name": "[format('{0}/AzureMonitorWindowsAgent', parameters('vmName'))]",
+      "name": "[format('{0}/AzureMonitorLinuxAgent', parameters('vmName'))]",
       "location": "[parameters('location')]",
       "properties": {
         "publisher": "Microsoft.Azure.Monitor",
-        "type": "AzureMonitorWindowsAgent",
+        "type": "AzureMonitorLinuxAgent",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -464,7 +666,7 @@ resource logAnalyticsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11
 
 ### Linux
 
-The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-linux.md).
+The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Linux](../../virtual-machines/extensions/oms-linux.md).
 
 #### Template file
 

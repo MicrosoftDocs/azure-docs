@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 08/20/2022
 ---
 
 # Test workflows with mock data in Azure Logic Apps (Preview)
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
 > This capability is in preview and is subject to the 

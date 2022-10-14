@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/27/2022
+ms.date: 08/16/2022
 ms.author: jeedes
 
 ---
@@ -36,7 +36,6 @@ For more information, see [Azure built-in roles](../roles/permissions-reference.
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LMS and Education Management System Leaf supports **SP** initiated SSO.
-* LMS and Education Management System Leaf supports **Just In Time** user provisioning.
 
 ## Add LMS and Education Management System Leaf from the gallery
 
@@ -48,6 +47,8 @@ To configure the integration of LMS and Education Management System Leaf into Az
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **LMS and Education Management System Leaf** in the search box.
 1. Select **LMS and Education Management System Leaf** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for LMS and Education Management System Leaf
 
@@ -81,10 +82,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.leaf-hrm.jp/loginusers/acs`   
 
     c. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.leaf-hrm.jp/`
+    `https://<SUBDOMAIN>.leaf-hrm.jp/loginusers/sso/1`
 
     > [!Note]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [LMS and Education Management System Leaf support team](mailto:leaf-jimukyoku@insource.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. Your LMS and Education Management System Leaf application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but LMS and Education Management System Leaf expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+
+	![image](common/default-attributes.png)
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -124,7 +129,30 @@ To configure single sign-on on **LMS and Education Management System Leaf** side
 
 ### Create LMS and Education Management System Leaf test user
 
-In this section, a user called B.Simon is created in LMS and Education Management System Leaf. LMS and Education Management System Leaf supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in LMS and Education Management System Leaf, a new one is created after authentication.
+1. Log in as the Leaf system administrator user. From the **User tab** of **Master Maintenance**, create a user with a login ID of `leaftest`.
+2. From the User tab of Master Maintenance, click the **SSO Information Bulk Registration** button.
+3. Click the **Registration CSV** button to download the registration CSV.
+4. Open the downloaded CSV, enter (Leaf) login ID, nameID format, authentication server, and save.
+
+    ![Screenshot for Registration CSV.](./media/lms-and-education-management-system-leaf-tutorial/create-test-user.png)
+
+    ![Screenshot for Name ID.](./media/lms-and-education-management-system-leaf-tutorial/name-identifier.png)
+
+    a. Please enter `leaftest` in the **(Leaf) Login ID** column.
+
+    b. In the Authentication Server column, enter the value corresponding to the Authentication Server in the above figure.
+
+    c. In the NameID format column, enter the value corresponding to **NameID format**.
+
+    d.Enter **leaftest@company。.extension** in the [NameID] column.
+
+5. Click the **Select File** button and select the CSV you edited earlier.
+6. Click the **Upload** button.
+
+> [!NOTE]
+> As a way to associate with Leaf, the login ID (user) on which Leaf is linked with the NameID (user) 
+and NameID format (format) on which IdP (authentication server) is specified.
+
 
 ## Test SSO 
 

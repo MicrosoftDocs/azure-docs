@@ -54,7 +54,9 @@ To load test a single web endpoint, use the quick test experience in the Azure p
 
 ### Create a test by using a JMeter script
 
-To reuse an existing JMeter test script, or for more advanced test scenarios, create a test by uploading a JMX file. For example, to [read data from a CSV input file](./how-to-read-csv-data.md), or to [configure JMeter user properties](./how-to-configure-user-properties.md).
+To reuse an existing JMeter test script, or for more advanced test scenarios, create a test by uploading a JMX file. For example, to [read data from a CSV input file](./how-to-read-csv-data.md), or to [configure JMeter user properties](./how-to-configure-user-properties.md). For more information, see [Create a load test by using an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
+
+If you're not familiar with creating a JMeter script, see [Getting started with Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html).
 
 1. In the [Azure portal](https://portal.azure.com), and go to your Azure Load Testing resource.
 
@@ -169,5 +171,4 @@ You can perform the following actions:
 ## Next steps
 
 - [Identify performance bottlenecks with Azure Load Testing in the Azure portal](./quickstart-create-and-run-load-test.md)
-- [Set up automated load testing with CI/CD in Azure Pipelines](./tutorial-cicd-azure-pipelines.md)
-- [Set up automated load testing with CI/CD in GitHub Actions](./tutorial-cicd-github-actions.md)
+- [Set up automated load testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md)

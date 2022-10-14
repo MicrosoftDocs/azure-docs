@@ -84,7 +84,7 @@ Below are the available types that can be used in static and dynamic replacers:
 | ---- | --------- |
 | string | A series of 1 or more Unicode characters including delimiters like spaces. |
 | int | A series of 1 or more 0-9 ASCII characters, it can be 0 prefixed (e.g. 0001). |
-| guid | A series of 32 or 8-4-4-4-12 string representation of an UUID as defineddefa in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| guid | A series of 32 or 8-4-4-4-12 string representation of an UUID as defined in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
 | date | A series of 6 or 8 0-9 ASCII characters with optionally separators: yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd, specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | time | A series of 4 or 6 0-9 ASCII characters with optionally separators: HHmm, HH:mm, HHmmss, HH:mm:ss specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | timestamp | A series of 12 or 14 0-9 ASCII characters with optionally separators: yyyy-mm-ddTHH:mm, yyyymmddhhmm, yyyy-mm-ddTHH:mm:ss, yyyymmddHHmmss specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |

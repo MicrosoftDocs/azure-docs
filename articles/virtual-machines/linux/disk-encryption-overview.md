@@ -70,6 +70,12 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS and data disk |
+| Oracle | Oracle Linux 8.5 (Public Preview) | 8.5 | Oracle:Oracle-Linux:ol85-lvm:latest | OS and data disk (see note below) |
+| Oracle | Oracle Linux 8.5 Gen 2 (Public Preview) | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.6 | 8.6 | RedHat:RHEL:8_6:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.6 Gen 2 | 8.5 | RedHat:RHEL:86-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.5 | 8.5 | RedHat:RHEL:8_5:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.5 Gen 2 | 8.5 | RedHat:RHEL:85-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.4 | 8.4 | RedHat:RHEL:8.4:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.3 | 8.3 | RedHat:RHEL:8.3:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:8.2.20200905 | OS and data disk (see note below) |

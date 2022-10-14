@@ -15,8 +15,7 @@ zone_pivot_groups: programming-languages-set-luis
 ---
 # Quickstart: Language Understanding (LUIS) client libraries and REST API
 
-> [!NOTE]
-> A newer version of Language Understanding capabilities are now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../language-service/index.yml). For language understanding capabilities within the Language Service, see [Conversational Language Understanding](../language-service/conversational-language-understanding/overview.md), [Custom Named Entity Recognition](../language-service/custom-named-entity-recognition/overview.md), and [Custom Classification](../language-service/custom-classification/overview.md).
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 Create and query an Azure LUIS artificial intelligence (AI) app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript. You can also use cURL to send requests using the REST API.
 

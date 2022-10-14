@@ -49,7 +49,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create a long-running serverless workflow
-            url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/
+            url: /training/modules/create-long-running-serverless-workflow-with-durable-functions/
       - linkListType: video
         links:
           - text: Watch how to get started

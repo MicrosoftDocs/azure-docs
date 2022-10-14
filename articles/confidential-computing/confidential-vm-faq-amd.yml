@@ -95,7 +95,7 @@ sections:
           Do I have to use the full-disk encryption scheme? Can I use a standard scheme instead?
         answer: |
           The optional full-disk encryption scheme is Azure's most secure and meets the [Confidential Computing principles](https://azure.microsoft.com/blog/azure-confidential-computing/). 
-          However, you can also use other [disk encryption schemes](../security/fundamentals/azure-disk-encryption-vms-vmss.md) along with or instead of full-disk encryption.
+          However, you can also use other [disk encryption schemes](../virtual-machines/disk-encryption-overview.md) along with or instead of full-disk encryption.
           If you use multiple disk encryption schemes, double encryption might negatively affect performance.
 
       - question: |

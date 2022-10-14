@@ -3,6 +3,7 @@ title: "Allow read access to blobs based on tags and custom security attributes 
 description: Allow read access to blobs based on tags and custom security attributes by using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
@@ -194,7 +195,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 ## Azure PowerShell
 
-You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/common/storage-auth-abac-powershell.md).
+You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/blobs/storage-auth-abac-powershell.md).
 
 ### Add a condition
 
@@ -271,7 +272,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 
 ## Azure CLI
 
-You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)](../storage/common/storage-auth-abac-cli.md).
+You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)](../storage/blobs/storage-auth-abac-cli.md).
 
 ### Add a condition
 
@@ -367,4 +368,4 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 - [What are custom security attributes in Azure AD? (Preview)](../active-directory/fundamentals/custom-security-attributes-overview.md)
 - [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json)

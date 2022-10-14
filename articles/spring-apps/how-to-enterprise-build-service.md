@@ -1,12 +1,12 @@
 ---
 title: How to Use Tanzu Build Service in Azure Spring Apps Enterprise Tier
 titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to Use Tanzu Build Service in Azure Spring Apps Enterprise Tier
+description: Learn how to Use Tanzu Build Service in Azure Spring Apps Enterprise Tier
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 09/23/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -23,11 +23,11 @@ In Azure Spring Apps, the existing Standard tier already supports compiling user
 
 ## Build Agent Pool
 
-Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after creating a new service instance of Azure Spring Apps using the **VMware Tanzu settings**.
+Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool when you create a new service instance of Azure Spring Apps using the **VMware Tanzu settings**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page with V M ware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Create page with VMware Tanzu settings highlighted and Allocated Resources dropdown showing." lightbox="media/how-to-enterprise-build-service/agent-pool.png":::
 
-The Build Agent Pool scale set sizes available are:
+The following Build Agent Pool scale set sizes are available:
 
 | Scale Set | CPU/Gi        |
 |-----------|---------------|
@@ -37,9 +37,9 @@ The Build Agent Pool scale set sizes available are:
 | S4        | 5 vCPU, 10 Gi |
 | S5        | 6 vCPU, 12 Gi |
 
-The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size.
+The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance. You can also update the configured agent pool size on the **Build Service** page after you've created the service instance.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Build Service page with 'General info' highlighted." lightbox="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Screenshot of Azure portal showing the Azure Spring Apps Build Service page with General info highlighted." lightbox="media/how-to-enterprise-build-service/agent-pool-size.png":::
 
 ## Default Builder and Tanzu Buildpacks
 
@@ -55,23 +55,21 @@ The following list shows the Tanzu Buildpacks available in Azure Spring Apps Ent
 - tanzu-buildpacks/nodejs
 - tanzu-buildpacks/python
 
-For details about Tanzu Buildpacks, see [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html).
-
 ## Build apps using a custom builder
 
 Besides the `default` builder, you can also create custom builders with the provided buildpacks.
 
 All the builders configured in a Spring Cloud Service instance are listed in the **Build Service** section under **VMware Tanzu components**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-list.png" alt-text="Screenshot of Azure portal showing Build Service page with list of configured builders." lightbox="media/enterprise/how-to-enterprise-build-service/builder-list.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/builder-list.png" alt-text="Screenshot of Azure portal showing the Build Service page with list of configured builders." lightbox="media/how-to-enterprise-build-service/builder-list.png":::
 
 Select **Add** to create a new builder. The image below shows the resources you should use to create the custom builder.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-create.png" alt-text="Screenshot of 'Add Builder' pane." lightbox="media/enterprise/how-to-enterprise-build-service/builder-create.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/builder-create.png" alt-text="Screenshot of Azure portal showing the Add Builder pane." lightbox="media/how-to-enterprise-build-service/builder-create.png":::
 
 You can also edit a custom builder when the builder isn't used in a deployment. You can update the buildpacks or the [OS Stack](https://docs.pivotal.io/tanzu-buildpacks/stacks.html), but the builder name is read only.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/builder-edit.png" alt-text="Screenshot of Azure portal showing Build Service page with builders list and context menu showing 'Edit Builder' command." lightbox="media/enterprise/how-to-enterprise-build-service/builder-edit.png":::
+:::image type="content" source="media/how-to-enterprise-build-service/builder-edit.png" alt-text="Screenshot of Azure portal showing the Build Service page with builders list and context menu showing the Edit Builder command." lightbox="media/how-to-enterprise-build-service/builder-edit.png":::
 
 You can delete any custom builder when the builder isn't used in a deployment, but the `default` builder is read only.
 
@@ -89,7 +87,7 @@ If the builder isn't specified, the `default` builder will be used. The builder 
 You can also configure the build environment and build resources by using the following command:
 
 ```azurecli
-az spring-cloud app deploy \
+az spring app deploy \
     --name <app-name> \
     --build-env <key1=value1>, <key2=value2> \
     --build-cpu <build-cpu-size> \
@@ -100,7 +98,9 @@ az spring-cloud app deploy \
 
 If you're using the `tanzu-buildpacks/java-azure` buildpack, we recommend that you set the `BP_JVM_VERSION` environment variable in the `build-env` argument.
 
-When you use a custom builder in an app deployment, the builder can't make edits and deletions. If you want to change the configuration, create a new builder and use the new builder to deploy the app. After you deploy the app with the new builder, the deployment is linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and make edits and deletions.
+When you use a custom builder in an app deployment, the builder can't make edits and deletions. If you want to change the configuration, create a new builder. Use the new builder to deploy the app.
+
+After you deploy the app with the new builder, the deployment is linked to the new builder. You can then migrate the deployments under the previous builder to the new builder, and make edits and deletions.
 
 ## Real-time build logs
 
@@ -136,6 +136,23 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
   - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
   - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
+Not all Tanzu Buildpacks support all service binding types. The following table shows the binding types that are supported by Tanzu Buildpacks and Tanzu Partner Buildpacks.
+
+|Buildpack|ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
+|---------|-------------------|--------|-----------|---------|----------|
+|Java  |✅|✅|✅|✅|✅|
+|Dotnet|❌|❌|❌|✅|❌|
+|Go    |❌|❌|❌|✅|❌|
+|Python|❌|❌|❌|❌|❌|
+|NodeJS|❌|✅|✅|✅|✅|
+
+To edit service bindings for the builder, select **Edit**. After a builder is bound to the service bindings, the service bindings are enabled for an app deployed with the builder.
+
+:::image type="content" source="media/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Edit binding link highlighted." lightbox="media/how-to-enterprise-build-service/edit-binding.png":::
+
+> [!NOTE]
+> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+
 ## Manage buildpack bindings
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
@@ -152,12 +169,28 @@ Follow these steps to view the current buildpack bindings:
 1. Open the [Azure portal](https://portal.azure.com/?AppPlatformExtension=entdf#home).
 1. Select **Build Service**.
 1. Select **Edit** under the **Bindings** column to view the bindings configured under a builder.
+  
+:::image type="content" source="media/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Edit binding link highlighted." lightbox="media/how-to-enterprise-build-service/edit-binding.png":::
+
+:::image type="content" source="media/how-to-enterprise-build-service/show-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit bindings for default builder pane.":::
+
+### Create a buildpack binding
+
+To create a buildpack binding, select **Unbound** on the **Edit Bindings** page, specify binding properties, and then select **Save**.
 
 ### Unbind a buildpack binding
 
-There are two ways to unbind a buildpack binding. You can either select the **Bound** hyperlink and then select **Unbind binding**, or select **Edit Binding** and then select **Unbind**.
+You can unbind a buildpack binding by using the **Unbind binding** command, or by editing binding properties.
 
-If you unbind a binding, the bind status will change from **Bound** to **Unbound**.
+To use the **Unbind binding** command, select the **Bound** hyperlink, and then select **Unbind binding**.
+
+:::image type="content" source="media/how-to-enterprise-build-service/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Unbind binding command.":::
+
+To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
+
+:::image type="content" source="media/how-to-enterprise-build-service/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing binding properties.":::
+
+When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 
 ### [Azure CLI](#tab/azure-cli)
 

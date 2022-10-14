@@ -5,9 +5,9 @@ description: Overview of the ADF SAP Knowledge Center and ADF SAP IP
 author: joshuha-msft
 ms.author: joowen
 ms.service: data-factory
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 08/11/0222
 ---
 
 # SAP knowledge center overview
@@ -18,10 +18,11 @@ Azure Data Factory and Azure Synapse Analytics pipelines provide a collection of
 
 ## SAP connectors
 
-Azure Data Factory and Synapse pipelines support extracting data from the following SAP connectors
+Azure Data Factory and Synapse pipelines support extracting data using the following SAP connectors
 
 - SAP Business Warehouse Open Hub
 - SAP Business Warehouse via MDX
+- SAP CDC
 - SAP Cloud for Customer
 - SAP ECC
 - SAP HANA
@@ -38,7 +39,6 @@ See [pipeline templates](solution-templates-introduction.md) for an overview of 
 Templates are offered for the following scenarios
 - Incrementally copy from SAP BW to ADLS Gen 2
 - Incrementally copy from SAP Table to Blob
-- Dynamically copy multiple tables from SAP ECC to ADLS Gen 2
 - Dynamically copy multiple tables from SAP HANA to ADLS Gen 2
 
 For a summary of the SAP specific templates and how to use them see [SAP templates](industry-sap-templates.md).

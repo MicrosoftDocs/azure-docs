@@ -162,14 +162,6 @@ sudo yum install servicefabricsdkcommon
 
 ---
 
-## Included packages
-The Service Fabric runtime that comes with the SDK installation includes the packages in the following table. 
-
- | | DotNetCore | Java | Python | NodeJS | 
---- | --- | --- | --- |---
-**Ubuntu** | 2.0.7 | AzulJDK 1.8 | Implicit from npm | latest |
-**RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
-
 ## Set up a local cluster
 1. Start a local Service Fabric cluster for development.
 

@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/29/2022
+ms.date: 08/12/2022
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -215,6 +215,14 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 - **Cause**: This error occurs when a data factory or a Synapse pipeline talks to the HTTP server, but the HTTP request operation fails.
 
 - **Recommendation**:  Check the HTTP status code in the error message, and fix the remote server issue.
+
+### Error code: HttpSourceUnsupportedStatusCode
+
+- **Message**: `Http source doesn't support HTTP Status Code '%code;'.`
+
+- **Cause**: This error happens when Azure Data Factory requests HTTP source but gets unexpected status code.
+
+- **Recommendation**: For more information about HTTP status code, see this [document](/troubleshoot/developer/webapps/iis/www-administration-management/http-status-code).
 
 ## Next steps
 

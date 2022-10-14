@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 08/02/2022
 ---
 
 # Copy data from Salesforce Marketing Cloud using Azure Data Factory or Synapse Analytics
@@ -229,6 +229,9 @@ To copy data from Salesforce Marketing Cloud, set the source type in the copy ac
     }
 ]
 ```
+
+>[!Note]
+> Contacts table is not supported.
 
 ## Lookup activity properties
 

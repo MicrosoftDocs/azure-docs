@@ -267,7 +267,7 @@ Use a stand to hold the script. Avoid angling the stand so that it can reflect s
 
 The person operating the recording equipment — the recording engineer — should be in a separate room from the talent, with some way to talk to the talent in the recording booth (a *talkback circuit*).
 
-The recording should contain as little noise as possible, with a goal of an 80-dB signal-to-noise ratio or better.
+The recording should contain as little noise as possible, with a goal of -80 dB.
 
 Listen closely to a recording of silence in your "booth," figure out where any noise is coming from, and eliminate the cause. Common sources of noise are air vents, fluorescent light ballasts, traffic on nearby roads, and equipment fans (even notebook PCs might have fans). Microphones and cables can pick up electrical noise from nearby AC wiring, usually a hum or buzz. A buzz can also be caused by a *ground loop*, which is caused by having equipment plugged into more than one electrical circuit.
 

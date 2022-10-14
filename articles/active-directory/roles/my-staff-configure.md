@@ -4,7 +4,7 @@ description:  Delegate user management using My Staff and administrative units
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
@@ -48,7 +48,7 @@ Once you have configured administrative units, you can apply this scope to your 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as a Global Administrator, User Administrator, or Group Administrator.
 
-1. Select **Azure Active Directory** > **User settings** > **User feature ** > **Manage user feature settings**.
+1. Select **Azure Active Directory** > **User settings** > **User feature** > **Manage user feature settings**.
 
 1. Under **Administrators can access My Staff**, you can choose to enable for all users, selected users, or no user access.
 

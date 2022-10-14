@@ -82,7 +82,7 @@ The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Exp
 
 ### Direct ingestion
 
-You can also opt to [ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This option is a good choice for direct-ingestion workloads. For more information about this process, continue through the rest of this section.
+You can also opt to [ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub), or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This option is a good choice for direct-ingestion workloads—however, you won't be able to leverage Azure Digital Twins' event-based architecture to update other twins, trigger downstream services, or emit notifications when twins change state. For more information about this process, continue through the rest of this section.
 
 #### Mapping data across Azure Data Explorer and Azure Digital Twins
 

@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Export/Copy snapshot as VHD to a storage 
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.devlang: azurecli
 ms.topic: sample

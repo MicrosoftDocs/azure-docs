@@ -1,5 +1,5 @@
 ---
-title: How to get facial pose events for lip-sync
+title: Get facial position with viseme
 titleSuffix: Azure Cognitive Services
 description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/23/2022
+ms.date: 09/16/2022
 ms.author: yulili
 ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: references_regions
@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial position with viseme
 
 > [!NOTE]
-> Viseme ID supports neural voices in [all viseme-supported locales](language-support.md#viseme). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales.
+> Viseme ID supports neural voices in [all viseme-supported locales](language-support.md?tabs=stt-tts). Scalable Vector Graphics (SVG) only supports neural voices in `en-US` locale, and blend shapes supports neural voices in `en-US` and `zh-CN` locales.
 
 A *viseme* is the visual description of a phoneme in spoken language. It defines the position of the face and mouth while a person is speaking. Each viseme depicts the key facial poses for a specific set of phonemes.
 
@@ -41,17 +41,40 @@ The overall workflow of viseme is depicted in the following flowchart:
 
 ![Diagram of the overall workflow of viseme.](media/text-to-speech/viseme-structure.png)
 
-You can request viseme output in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
-
 ## Viseme ID
 
-Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).
+Viseme ID refers to an integer number that specifies a viseme. We offer 22 different visemes, each depicting the mouth position for a specific set of phonemes. There's no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).
 
 Speech audio output can be accompanied by viseme IDs and `Audio offset`. The `Audio offset` indicates the offset timestamp that represents the start time of each viseme, in ticks (100 nanoseconds).
 
 ### Map phonemes to visemes
 
-Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
+Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes. The table below shows a mapping relationship between viseme IDs and mouth positions, listing typical IPA phonemes for each viseme ID.
+
+| Viseme ID | IPA | Mouth position|
+|---------------|---------------|---------------|
+|0|Silence|<img src="media/text-to-speech/viseme-id-0.jpg" width="200" height="200" alt="The mouth position when viseme ID is 0">|
+|1|`æ`, `ə`, `ʌ`| <img src="media/text-to-speech/viseme-id-1.jpg" width="200" height="200" alt="The mouth position when viseme ID is 1">|
+|2|`ɑ`|<img src="media/text-to-speech/viseme-id-2.jpg" width="200" height="200" alt="The mouth position when viseme ID is 2">|
+|3|`ɔ`|<img src="media/text-to-speech/viseme-id-3.jpg" width="200" height="200" alt="The mouth position when viseme ID is 3">|
+|4|`ɛ`, `ʊ`|<img src="media/text-to-speech/viseme-id-4.jpg" width="200" height="200" alt="The mouth position when viseme ID is 4">|
+|5|`ɝ`|<img src="media/text-to-speech/viseme-id-5.jpg" width="200" height="200" alt="The mouth position when viseme ID is 5">|
+|6|`j`, `i`, `ɪ` |<img src="media/text-to-speech/viseme-id-6.jpg" width="200" height="200" alt="The mouth position when viseme ID is 6">|
+|7|`w`, `u`|<img src="media/text-to-speech/viseme-id-7.jpg" width="200" height="200" alt="The mouth position when viseme ID is 7">|
+|8|`o`|<img src="media/text-to-speech/viseme-id-8.jpg" width="200" height="200" alt="The mouth position when viseme ID is 8">|
+|9|Not supported|<img src="media/text-to-speech/viseme-id-9.jpg" width="200" height="200" alt="The mouth position when viseme ID is 9">|
+|10|Not supported|<img src="media/text-to-speech/viseme-id-10.jpg" width="200" height="200" alt="The mouth position when viseme ID is 10">|
+|11|Not supported|<img src="media/text-to-speech/viseme-id-11.jpg" width="200" height="200" alt="The mouth position when viseme ID is 11">|
+|12|`h`|<img src="media/text-to-speech/viseme-id-12.jpg" width="200" height="200" alt="The mouth position when viseme ID is 12">|
+|13|`ɹ`|<img src="media/text-to-speech/viseme-id-13.jpg" width="200" height="200" alt="The mouth position when viseme ID is 13">|
+|14|`l`|<img src="media/text-to-speech/viseme-id-14.jpg" width="200" height="200" alt="The mouth position when viseme ID is 14">|
+|15|`s`, `z`|<img src="media/text-to-speech/viseme-id-15.jpg" width="200" height="200" alt="The mouth position when viseme ID is 15">|
+|16|`ʃ`, `tʃ`, `dʒ`, `ʒ`|<img src="media/text-to-speech/viseme-id-16.jpg" width="200" height="200" alt="The mouth position when viseme ID is 16">|
+|17|`ð`|<img src="media/text-to-speech/viseme-id-17.jpg" width="200" height="200" alt="The mouth position when viseme ID is 17">|
+|18|`f`, `v`|<img src="media/text-to-speech/viseme-id-18.jpg" width="200" height="200" alt="The mouth position when viseme ID is 18">|
+|19|`d`, `t`, `n`, `θ`|<img src="media/text-to-speech/viseme-id-19.jpg" width="200" height="200" alt="The mouth position when viseme ID is 19">|
+|20|`k`, `g`, `ŋ`|<img src="media/text-to-speech/viseme-id-20.jpg" width="200" height="200" alt="The mouth position when viseme ID is 20">|
+|21|`p`, `b`, `m`|<img src="media/text-to-speech/viseme-id-21.jpg" width="200" height="200" alt="The mouth position when viseme ID is 21">|
 
 ## 2D SVG animation
 
@@ -70,6 +93,9 @@ The blend shapes JSON string is represented as a 2-dimensional matrix. Each row 
 ## Get viseme events with the Speech SDK
 
 To get viseme with your synthesized speech, subscribe to the `VisemeReceived` event in the Speech SDK.
+
+> [!NOTE]
+> To request SVG or blend shapes output, you should use the `mstts:viseme` element in SSML. For details, see [how to use viseme element in SSML](speech-synthesis-markup.md#viseme-element).
 
 The following snippet shows how to subscribe to the viseme event:
 

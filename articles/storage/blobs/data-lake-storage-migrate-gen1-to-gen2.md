@@ -35,7 +35,7 @@ To migrate from Gen1 to Gen2, we recommend the following approach.
 
 ### Step 1: Assess readiness
 
-1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture.
+1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); its benefits, costs, and general architecture.
 
 2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Gen1 with those of Gen2.
 

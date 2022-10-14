@@ -11,7 +11,7 @@ This article explains Azure functions language runtime support policy.
 
 ## Retirement process
 
-Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full support coverages for function apps, Azure Functions uses a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date.
+Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full-support coverages for function apps, Functions support aligns with end-of-life support for a given language. To achieve this, Functions implements a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date.
 
 ### Notification phase
 
@@ -19,13 +19,11 @@ We'll send notification emails to function app users about upcoming language ver
 
 ### Retirement phase
 
-Starting on the end-of-life date for a language version, you can no longer create new function apps targeting that language version.
-
-After the language end-of-life date, function apps that use retired language versions won't be eligible for new features, security patches, and performance optimizations. However, these function apps will continue to run on the platform.
+After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However your apps won't be eligible for new features, security patches, and performance optimizations until you upgrade them to a supported language version.
 
 > [!IMPORTANT]
 >You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
->If you're running functions apps using an unsupported language version, you'll be required to upgrade before receiving support for the function apps.
+>If you're running functions apps using an unsupported language version, you'll be required to upgrade before receiving support for your function app.
 
 
 ## Retirement policy exceptions
@@ -34,22 +32,16 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 
 |Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
-|.NET 5|8 May 2022|TBA|
-|Node 6|30 April 2019|28 February 2022|
-|Node 8|31 December 2019|28 February 2022|
-|Node 10|30 April 2021|30 September 2022|
-|Node 12|30 Apr 2022|TBA|
-|PowerShell Core 6| 4 September 2020|30 September 2022|
+|Node 12|30 Apr 2022|13 December 2022|
 |Python 3.6 |23 December 2021|30 September 2022|
-
 
 ## Language version support timeline
 
 To learn more about specific language version support policy timeline, visit the following external resources:
 * .NET - [dotnet.microsoft.com](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 * Node - [github.com](https://github.com/nodejs/Release#release-schedule)
-* Java - [azul.com](https://www.azul.com/products/azul-support-roadmap/)
-* PowerShell - [docs.microsoft.com](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)
+* Java - [Microsoft technical documentation](/azure/developer/java/fundamentals/java-support-on-azure)
+* PowerShell - [Microsoft technical documentation](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)
 * Python - [devguide.python.org](https://devguide.python.org/#status-of-python-branches)
 
 ## Configuring language versions

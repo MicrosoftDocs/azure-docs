@@ -19,8 +19,8 @@ Azure IoT Edge lets you deploy and manage business logic on the edge in the form
 
 * A **module image** is a package containing the software that defines a module.
 * A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime.
-* A **module identity** is a piece of information (including security credentials) stored in IoT Hub, that is associated to each module instance.
-* A **module twin** is a JSON document stored in IoT Hub, that contains state information for a module instance, including metadata, configurations, and conditions.
+* A **module identity** is a piece of information (including security credentials) stored in IoT Hub that is associated to each module instance.
+* A **module twin** is a JSON document stored in IoT Hub that contains state information for a module instance, including metadata, configurations, and conditions.
 
 ## Module images and instances
 
@@ -63,7 +63,6 @@ await client.OpenAsync();
 // Get the module twin
 Twin twin = await client.GetTwinAsync();
 ```
-
 ## Offline capabilities
 
 Azure IoT Edge modules can operate offline indefinitely after syncing with IoT Hub at least once. IoT Edge devices can also extend this offline capability to other IoT devices. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 08/08/2022
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -44,28 +44,14 @@ The SharePoint List Online connector uses service principal authentication to co
     - Application key
     - Tenant ID
 
-2. Grant SharePoint Online site permission to your registered application: 
+2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
 
     1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
         - App Domain: `localhost.com`
         - Redirect URL: `https://www.localhost.com`
-        - Permission Request XML   
-            For the site owner role, the Permission Request XML is:  
-
-            ```xml
-            <AppPermissionRequests>
-                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-            </AppPermissionRequests>
-            ```           
-            
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-owner.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site owner role.":::
-
-            > [!NOTE]
-            > You can find the site owner by going to the site home page -> select **Settings** in the top right corner -> select **Site permissions** and check who has the site owner role.   
-
-            For the site admin role, the Permission Request XML is:  
+        - Permission Request XML:  
 
             ```xml
             <AppPermissionRequests AllowAppOnlyPolicy="true">

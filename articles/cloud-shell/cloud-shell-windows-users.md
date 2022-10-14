@@ -3,17 +3,17 @@ title: Azure Cloud Shell for Windows users | Microsoft Docs
 description: Guide for users who are not familiar with Linux systems
 services: azure
 documentationcenter: ''
-author: maertendMSFT
+author: theJasonHelmick
 manager: hemantm
 tags: azure-resource-manager
- 
-ms.assetid: 
-ms.service: azure
+
+ms.assetid:
+ms.service: cloud-shell
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 08/03/2018
-ms.author: damaerte
+ms.date: 08/16/2022
+ms.author: jahelmic
 ---
 
 # PowerShell in Azure Cloud Shell for Windows users
@@ -33,7 +33,7 @@ PowerShell specific experiences, such as `tab-completing` cmdlet names, paramete
 
 Some existing PowerShell aliases have the same names as built-in Linux commands, such as `cat`,`ls`, `sort`, `sleep`, etc.
 In PowerShell Core 6, aliases that collide with built-in Linux commands have been removed.
-Below are the common aliases that have been removed as well as their equivalent commands:  
+Below are the common aliases that have been removed as well as their equivalent commands:
 
 |Removed Alias   |Equivalent Command   |
 |---|---|
@@ -63,6 +63,8 @@ mkdir (Split-Path $profile.CurrentUserAllHosts)
 
 Under `$HOME/.config/PowerShell`, you can create your profile files - `profile.ps1` and/or `Microsoft.PowerShell_profile.ps1`.
 
-## What's new in PowerShell Core 6
+## What's new in PowerShell
 
-For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](/powershell/scripting/whats-new/what-s-new-in-powershell-70) and the [Getting Started with PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog post.
+For more information about what is new in PowerShell, reference the
+[PowerShell What's New](/powershell/scripting/whats-new/overview) and
+[Discover PowerShell](/powershell/scripting/discover-powershell).

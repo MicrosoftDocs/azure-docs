@@ -10,14 +10,12 @@ ms.custom: fasttrack-edit
 
 # Microsoft Sentinel skill-up training 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article walks you through a level 400 training to help you skill up on Microsoft Sentinel. The training comprises 21 modules that present relevant product documentation, blog posts, and other resources. 
 
 The modules listed here are split into five parts following the life cycle of a Security Operation Center (SOC):
 
 [Part 1: Overview](#part-1-overview)
-- [Module 0: Other learning and support options ](#module-0-other-learning-and-support-options)
+- [Module 0: Other learning and support options](#module-0-other-learning-and-support-options)
 - [Module 1: Get started with Microsoft Sentinel](#module-1-get-started-with-microsoft-sentinel)
 - [Module 2: How is Microsoft Sentinel used?](#module-2-how-is-microsoft-sentinel-used)
 
@@ -55,8 +53,8 @@ The modules listed here are split into five parts following the life cycle of a 
 This skill-up training is a level-400 training that's based on the [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310). If you don't want to go as deep, or you have a specific issue to resolve, other resources might be more suitable:
 
 * Although the skill-up training is extensive, it naturally has to follow a script and can't expand on every topic. See the referenced documentation for information about each article.
-* You can now become certified with the new certification [SC-200: Microsoft Security Operations Analyst](/learn/certifications/exams/sc-200), which covers Microsoft Sentinel.  For a broader, higher-level view of the Microsoft Security suite, you might also want to consider [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/learn/certifications/exams/sc-900) or [AZ-500: Microsoft Azure Security Technologies](/learn/certifications/exams/az-500).
-* If you're already skilled up on Microsoft Sentinel, keep track of [what's new](whats-new.md) or join the [Private Preview](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier view into upcoming releases. 
+* You can now become certified with the new certification [SC-200: Microsoft Security Operations Analyst](/certifications/exams/sc-200), which covers Microsoft Sentinel.  For a broader, higher-level view of the Microsoft Security suite, you might also want to consider [SC-900: Microsoft Security, Compliance, and Identity Fundamentals](/certifications/exams/sc-900) or [AZ-500: Microsoft Azure Security Technologies](/certifications/exams/az-500).
+* If you're already skilled up on Microsoft Sentinel, keep track of [what's new](whats-new.md) or join the [Microsoft Cloud Security Private Community](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-kibZAPJAVBiU46J6wWF_5URDFSWUhYUldTWjdJNkFMVU1LTEU4VUZHMy4u) program for an earlier view into upcoming releases. 
 * Do you have a feature idea to share with us? Let us know on the [Microsoft Sentinel user voice page](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8).
 * Are you a premier customer? You might want the on-site or remote, four-day _Microsoft Sentinel Fundamentals Workshop_. Contact your Customer Success Account Manager for more details.
 * Do you have a specific issue? Ask (or answer others) on the [Microsoft Sentinel Tech Community](https://techcommunity.microsoft.com/t5/microsoft-sentinel/bd-p/MicrosoftSentinel). Or you can email your question or issue to us at <MicrosoftSentinel@microsoft.com>.
@@ -204,7 +202,7 @@ If you want to _retain data_ for more than two years or _reduce the retention co
 
 Want more in-depth information? View the ["Improving the breadth and coverage of threat hunting with ADX support, more entity types, and updated MITRE integration"](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity) webinar.
 
-If you prefer another long-term retention solution, see [Export from Microsoft Sentinel / Log Analytics workspace to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export.md) or [Move logs to long-term storage by using Azure Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The advantage of using Logic Apps is that it can export historical data.
+If you prefer another long-term retention solution, see [Export from Microsoft Sentinel / Log Analytics workspace to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export) or [Move logs to long-term storage by using Azure Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The advantage of using Logic Apps is that it can export historical data.
 
 Finally, you can set fine-grained retention periods by using [table-level retention settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). For more information, see [Configure data retention and archive policies in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-retention-archive.md).
 
@@ -241,7 +239,7 @@ After it's imported, [threat intelligence](understand-threat-intelligence.md) is
 
 * View and manage the imported threat intelligence in **Logs** in the new **Threat Intelligence** area of Microsoft Sentinel.
 
-* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-based-analytics) to generate security alerts and incidents by using your imported threat intelligence.
+* Use the [built-in threat intelligence analytics rule templates](understand-threat-intelligence.md#detect-threats-with-threat-indicator-analytics) to generate security alerts and incidents by using your imported threat intelligence.
 
 * [Visualize key information about your threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators) in Microsoft Sentinel by using the threat intelligence workbook.
 
@@ -259,9 +257,9 @@ Use watchlists to help you with following scenarios:
 
 * **Investigate threats and respond to incidents quickly**: Rapidly import IP addresses, file hashes, and other data from CSV files. After you import the data, use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and general queries.
 
-* **Import business data as a watchlist**: For example, import lists of users with privileged system access, or terminated employees. Then, use the watchlist to create allow lists and block lists to detect or prevent those users from logging in to the network.
+* **Import business data as a watchlist**: For example, import lists of users with privileged system access, or terminated employees. Then, use the watchlist to create allowlists and blocklists to detect or prevent those users from logging in to the network.
 
-* **Reduce alert fatigue**: Create allow lists to suppress alerts from a group of users, such as users from authorized IP addresses who perform tasks that would normally trigger the alert. Prevent benign events from becoming alerts.
+* **Reduce alert fatigue**: Create allowlists to suppress alerts from a group of users, such as users from authorized IP addresses who perform tasks that would normally trigger the alert. Prevent benign events from becoming alerts.
 
 * **Enrich event data**: Use watchlists to enrich your event data with name-value combinations that are derived from external data sources.
 
@@ -373,7 +371,7 @@ The next section on writing rules explains how to use KQL in the specific contex
 * [Must Learn KQL](https://aka.ms/MustLearnKQL): A 20-part KQL series that walks you through the basics of creating your first analytics rule (includes an assessment and certificate)
 
 * The Microsoft Sentinel KQL Lab: An interactive lab that teaches KQL with a focus on what you need for Microsoft Sentinel:
-    * [Learning module (SC-200 part 4)](/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
+    * [Learning module (SC-200 part 4)](/training/paths/sc-200-utilize-kql-for-azure-sentinel/)
     * [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp) or [lab URL](https://aka.ms/lademo)
     * A [Jupyter notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb) that lets you test the queries within the notebook
     * Learning webinar: [YouTube](https://youtu.be/EDCBLULjtCM) or [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmglwAjUjmYy2Qn5J-)
@@ -522,7 +520,7 @@ After you build your SOC, you need to start using it. The "day in an SOC analyst
 
 To help enable your teams to collaborate seamlessly across the organization  and with external stakeholders, see [Integrating with Microsoft Teams directly from Microsoft Sentinel](collaborate-in-microsoft-teams.md). And view the ["Decrease your SOC’s MTTR (Mean Time to Respond) by integrating Microsoft Sentinel with Microsoft Teams"](https://www.youtube.com/watch?v=0REgc2jB560&ab_channel=MicrosoftSecurityCommunity) webinar.
 
-You might also want to read the [documentation article on incident investigation](investigate-cases.md). As part of the investigation, you'll also use the [entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages) to get more information about entities that are related to your incident or identified as part of your investigation.
+You might also want to read the [documentation article on incident investigation](investigate-cases.md). As part of the investigation, you'll also use the [entity pages](entity-pages.md) to get more information about entities related to your incident or identified as part of your investigation.
 
 Incident investigation in Microsoft Sentinel extends beyond the core incident investigation functionality. You can build additional investigation tools by using workbooks and notebooks, Notebooks are discussed in the next section, [Module 17: Hunting](#module-17-hunting). You can also build more investigation tools or modify existing ones to your specific needs. Examples include: 
 

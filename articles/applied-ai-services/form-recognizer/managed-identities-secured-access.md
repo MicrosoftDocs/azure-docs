@@ -17,7 +17,7 @@ This how-to guide will walk you through the process of enabling secure connectio
 
 * Communication between a client application within a Virtual Network (VNET) and your Form Recognizer Resource.
 
-* Communication between Form Recognizer Studio or the sample labeling tool (FOTT) and your Form Recognizer resource.
+* Communication between Form Recognizer Studio and your Form Recognizer resource.
 
 * Communication between your Form Recognizer resource and a storage account (needed when training a custom model).
 

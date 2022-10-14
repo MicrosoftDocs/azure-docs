@@ -12,28 +12,50 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 07/29/2022
+ms.date: 10/13/2022
 ms.author: anfdocs
 ---
-
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## October 2022
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
+
+    The application volume group for SAP HANA feature is now generally available. You no longer need to register the feature to use it. 
+
+## August 2022
+
+* [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
+
+    Standard network features now includes Global VNet peering. You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
+    [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
+    
 ## July 2022
 
+* [Azure Application Consistent Snapshot Tool (AzAcSnap) 6](azacsnap-release-notes.md)
+    
+    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments. With AzAcSnap 6, there is a new [release model](azacsnap-release-notes.md). AzAcSnap 6 also introduces the following new capabilities:
+
+    Now generally available:
+    * Oracle Database support
+    * Backint integration to work with Azure Backup
+    * [RunBefore and RunAfter](azacsnap-cmd-ref-runbefore-runafter.md) CLI options to execute custom shell scripts and commands before or after taking storage snapshots
+
+    In preview: 
+    * Azure Key Vault to store Service Principal content
+    * Azure Managed Disk as an alternate storage back end
+
 * [Active Directory connection enhancement: Reset Active Directory computer account password](create-active-directory-connections.md#reset-active-directory) (Preview)
-    If you (accidentally) reset the password of the AD computer account on the AD server or the AD server is unreachable, you can now safely reset the computer account password to preserve connectivity to your volumes directly from the portal. 
 
 ## June 2022
 
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
 
-    Disaster Recovery to cloud is a resilient and cost-effective way of protecting the workloads against site outages and data corruption events like ransomware. Leveraging the VMware VAIO framework, on-premises VMware workloads can be replicated to Azure Blob storage and recovered with minimal or close to no data loss and near-zero Recovery Time Objective (RTO). JetStream DR can now seamlessly recover workloads replicated from on-premises to Azure VMware Solution to Azure NetApp Files. JetStream DR enables cost-effective disaster recovery by consuming minimal resources at the DR site and using cost-effective cloud storage. JetStream DR automates recovery to Azure NetApp Files datastores using Azure Blob Storage. It can recover independent VMs or groups of related VMs into the recovery site infrastructure according to runbook settings. It also provides point-in-time recovery for ransomware protection.
-
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) (Preview)
 
-    [Azure NetApp Files datastores for Azure VMware Solution](https://azure.microsoft.com/blog/power-your-file-storageintensive-workloads-with-azure-vmware-solution) is now in public preview. This new integration between Azure VMware Solution and Azure NetApp Files will enable you to [create datastores via the Azure VMware Solution resource provider with Azure NetApp Files NFS volumes](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and mount the datastores on your private cloud clusters of choice. Along with the integration of Azure disk pools for Azure VMware Solution, this will provide more choice to scale storage needs independently of compute resources. For your storage-intensive workloads running on Azure VMware Solution, the integration with Azure NetApp Files helps to easily scale storage capacity beyond the limits of the local instance storage for AVS provided by vSAN and lower your overall total cost of ownership for storage-intensive workloads.
+    [Azure NetApp Files datastores for Azure VMware Solution](https://azure.microsoft.com/blog/power-your-file-storageintensive-workloads-with-azure-vmware-solution) is now in public preview. This new integration between Azure VMware Solution and Azure NetApp Files will enable you to [create datastores via the Azure VMware Solution resource provider with Azure NetApp Files NFS volumes](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and mount the datastores on your private cloud clusters of choice. Along with the integration of Azure disk pools for Azure VMware Solution, this will provide more choice to scale storage needs independently of compute resources. For your storage-intensive workloads running on Azure VMware Solution, the integration with Azure NetApp Files helps to easily scale storage capacity beyond the limits of the local instance storage for Azure VMware Solution provided by vSAN and lower your overall total cost of ownership for storage-intensive workloads.
 
     Regional Coverage: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East US, France Central, Germany West Central, Japan West, North Central US, North Europe, South Central US, Southeast Asia, Switzerland West, UK South, UK West, West Europe, West US. Regional coverage will expand as the preview progresses.
 

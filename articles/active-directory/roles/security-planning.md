@@ -5,7 +5,7 @@ description: Ensure that your organization's administrative access and administr
 services: active-directory 
 keywords: 
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.author: rolyon
 ms.date: 04/19/2022
 ms.topic: conceptual

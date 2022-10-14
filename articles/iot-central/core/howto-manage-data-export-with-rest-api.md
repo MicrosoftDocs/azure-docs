@@ -21,6 +21,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage data export by using the IoT Central UI, see [Export IoT data to Blob Storage.](../core/howto-export-to-blob-storage.md)
+
 ## Data export
 
 You can use the IoT Central data export feature to stream telemetry, property changes, device connectivity events, device lifecycle events, and device template lifecycle events to destinations such as Azure Event Hubs, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
@@ -32,7 +34,7 @@ Each data export definition can send data to one or more destinations. Create th
 Use the following request to create or update a destination definition:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.2-preview
+PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
 ```
 
 * destinationId - Unique ID for the destination.
@@ -73,7 +75,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a destination from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.2-preview
+GET https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
 ```
 
 The response to this request looks like the following example:
@@ -94,7 +96,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of destinations from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/destinations?api-version=1.2-preview
+GET https://{subdomain}.{baseDomain}/api/dataExport/destinations?api-version=2022-06-30-preview
 ```
 
 The response to this request looks like the following example: 
@@ -129,10 +131,10 @@ The response to this request looks like the following example:
 ### Patch a destination
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.2-preview
+PATCH https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example which updates the `displayName` to a destination:
+You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `displayName` to a destination:
 
 ```json
 {
@@ -161,7 +163,7 @@ The response to this request looks like the following example:
 Use the following request to delete a destination:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.2-preview
+DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
 ```
 
 ### Create or update an export definition
@@ -169,7 +171,7 @@ DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destination
 Use the following request to create or update a data export definition:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.2-preview
+PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=2022-06-30-preview
 ```
 
 The following example shows a request body that creates an export definition for device telemetry:
@@ -231,7 +233,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of an export definition from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.2-preview
+GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=2022-06-30-preview
 ```
 
 The response to this request looks like the following example:
@@ -252,7 +254,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of export definitions from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=1.2-preview
+GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=2022-06-30-preview
 ```
 
 The response to this request looks like the following example: 
@@ -301,10 +303,10 @@ The response to this request looks like the following example:
 ### Patch an export definition
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=1.2-preview
+PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=2022-06-30-preview
 ```
 
-You can use this to perform an incremental update to an export. The sample request body looks like the following example which updates the `enrichments` to an export:
+You can use this to perform an incremental update to an export. The sample request body looks like the following example that updates the `enrichments` to an export:
 
 ```json
 {
@@ -351,7 +353,7 @@ The response to this request looks like the following example:
 Use the following request to delete an export definition:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.2-preview
+DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=2022-06-30-preview
 ```
 
 ## Next steps

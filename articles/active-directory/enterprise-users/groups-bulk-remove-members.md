@@ -4,7 +4,7 @@ description: Remove group members in bulk operations in the Azure admin center.
 services: active-directory 
 author: barclayn
 ms.author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.service: active-directory

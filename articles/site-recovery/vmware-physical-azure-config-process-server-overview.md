@@ -9,7 +9,7 @@ ms.date: 08/19/2021
 
 This article describes the configuration, process, and master target servers used by the [Site Recovery](site-recovery-overview.md) service to replicate VMware VMs and physical servers to Azure. This article is applicable to Classic releases.
 
-In Preview, to replicate VMs, you need to create and use an Azure Site Recovery replication server. For information about Azure Site Recovery replication server and its components, see [this article](vmware-azure-architecture-preview.md).
+In modernized architecture, to replicate VMs, you need to create and use an Azure Site Recovery replication server. For information about Azure Site Recovery replication server and its components, see [this article](vmware-azure-architecture-modernized.md).
 
 ## Configuration server
 

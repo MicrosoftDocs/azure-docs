@@ -24,7 +24,7 @@ Customer-managed keys (CMK), on the other hand, are those that can be read, crea
 
 A specific kind of customer-managed key is the "key encryption key" (KEK). A KEK is a master key, that controls access to one or more encryption keys that are themselves encrypted.   
 
-Customer-managed keys can be stored on-premise or, more commonly, in a cloud key management service.
+Customer-managed keys can be stored on-premises or, more commonly, in a cloud key management service.
 
 ## Azure key management services
 
