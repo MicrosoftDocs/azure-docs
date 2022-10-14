@@ -138,10 +138,10 @@ Read the license terms before you use a package. Your installation and use of a 
 ## Add a tag to your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. On the left pane, under **IoT Edge**, find your IoT Edge device and go to the device twin or module twin.
+1. On the left pane, under **Devices**, find your IoT Edge device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using Device identity with Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
-    
+
     ```JSON
         "tags": {
                 "ADUGroup": "<CustomTagValue>"
