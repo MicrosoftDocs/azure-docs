@@ -21,7 +21,7 @@ ms.custom: devx-track-azurepowershell
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in JSON format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-The detailed specification of all NSG flow log commands for various versions of AzPowerShell can be found [here](/powershell/module/az.network/#network-watcher)
+The detailed specification of all NSG flow logs commands for various versions of AzPowerShell can be found [here](/powershell/module/az.network/#network-watcher)
 
 > [!NOTE]
 > - The commands [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus) and [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) used in this doc, requires an additional "reader" permission in the resource group of the network watcher. Also, these commands are old and may soon be deprecated.
