@@ -71,18 +71,11 @@ If the provisioned range is being advertised to the Internet by another network,
 
 * Alternatively, the ranges can be commissioned first and then changed. This process won't work for all resource types with public IPs. In those cases, a new resource with the provisioned public IP must be created.
 
-### Use the regional commissioning feature
+### Use the regional commissioning feature (PowerShell only)
 
 When a custom IP prefix transitions to a fully **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network.  If the range is currently being advertised to the Internet from a location other than Microsoft at the same time, there is the potential for BGP routing instability or traffic loss.  In order to ease the transition for a range that is currently "live" outside of Azure, you can utilize a *regional commissioning* feature, which will put an onboarded range into a **CommissionedNoInternetAdvertise** state where it is only advertised from within a single Azure region.  This allows for testing of all the attached infrastructure from within this region before advertising this range to the Internet, and fits well with Method 1 in the section above.
 
-Use the following example CLI and PowerShell structures to put a custom IP prefix range into this state.
-
-```azurecli-interactive
-az network custom-ip prefix update
-(other arguments)
---state {commission}
---no-internet-advertise
- ```
+Use the following example PowerShell to put a custom IP prefix range into this state.
 
  ```azurepowershell-interactive
 Update-AzCustomIpPrefix 
@@ -183,12 +176,15 @@ Yes - there are multiple differences for provisioning and commissioning when usi
 
 When onboarding or removing a custom IP prefix from Azure, the **FailedReason** attribute of the resource will be updated. If the Azure portal is used, the message will be shown as a top-level banner. The following tables list the status messages when onboarding or removing a custom IP prefix.
 
+> [!NOTE]
+> If the FailedReason is OperationNotFailed -- then the custom IP prefix is in a stable state (e.g. Provisioned, Commissioned) with no apparent issues.
+
 #### Validation failures
 
 | Failure message | Explanation |
 | --------------- | ----------- |
 | CustomerSignatureNotVerified | The signed message cannot be verified against the authentication message using the Whois/RDAP record for the prefix. |
-| NotAuthorizedToAdvertiseThisPrefix </br> or </br> ASN8075NotAllowedToAdvertise | ASN8075 is not authorized to advertise this prefix. Make sure your route origin authorization (ROA) is submitted correctly. Verify ROA. |
+| NotAuthorizedToAdvertiseThisPrefix </br> or </br> ASN8075NotAllowedToAdvertise | ASN8075 is not authorized to advertise this prefix. Make sure your route origin authorization (ROA) is submitted correctly. |
 | PrefixRegisteredInAfricaAndSouthAmericaNotAllowedInOtherRegion | IP prefix is registered with AFRINIC or LACNIC. This prefix is not allowed to be used outside Africa/South America. |
 | NotFindRoutingRegistryToGetCertificate | Cannot find the public key for the IP prefix using the registration data access protocol (RDAP) of the regional internet registry (RIR). |
 | CIDRInAuthorizationMessageNotMatchCustomerIP | The CIDR in the authorization message does not match the submitted IP address. |

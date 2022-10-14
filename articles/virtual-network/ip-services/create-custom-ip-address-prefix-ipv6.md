@@ -1,7 +1,7 @@
 ---
 title: Create a custom IPv6 address prefix
 titleSuffix: Azure Virtual Network
-description: Learn about how to create a custom IPv6 address prefix
+description: Learn about how to create a custom IPv6 address prefix using Azure PowerShell
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
@@ -81,7 +81,7 @@ Similar to IPv4 custom IP prefixes, after the regional custom IP prefix is in a 
 
 When commissioning custom IPv6 prefixes, the global and regional prefixes are treated separately.  In other words, commissioning a regional custom IPv6 prefix is not connected to commissioning the global custom IPv6 prefix.
 
-**(INSERT DIAGRAM HERE)**
+:::image type="content" source="./media/create-custom-ip-address-prefix-ipv6/any-region-prefix.png" alt-text="Diagram of custom IPv6 prefix showing parent prefix and child prefixes across multiple regions":::
 
 The safest strategy for range migrations is as follows:
 1. Provision all required regional custom IPv6 prefixes in their respective regions.  Create public IPv6 prefixes and public IP addresses and attach to resources.
