@@ -1,27 +1,25 @@
-- name: Azure Service Reliability documentation
+- name: Azure reliability documentation
   href: index.yml
 - name: Overview
   href: overview-reliability.md
 - name: Business continuity management program
   href: business-continuity-management-program.md
-- name: Reliability support guides
-  items:
-  - name: Batch
-    href: reliability-batch.md
-  - name: Cache for Redis
-    href: reliability-cache.md
-  - name: Azure Functions 
-    href: reliability-functions.md
+- name: Azure Batch
+  href: reliability-batch.md
+- name: Azure Cache for Redis
+  href: reliability-cache.md
+- name: Azure Functions 
+  href: reliability-functions.md
 - name: Availability zone support
   items:
   - name: Availability zone service and regional support
     href: az-service-support.md
   - name: Cross-region replication
     href: cross-region-replication-azure.md
-  - name: Migration to availability zone support
-    href: az-migration-overview.md
   - name: Migration guides
     items:
+    - name: Overview
+      href: az-migration-overview.md
     - name: API Management
       href: migrate-api-mgt.md
     - name: App Configuration
@@ -52,8 +50,6 @@
       href: migrate-vm.md
     - name: Workload - Azure Kubernetes and MySQL
       href: migrate-workload-aks-mysql.md
-  - name: Terminology
-    href: glossary.md
   - name: Quickstart guides
     items:
     - name: Virtual machines
@@ -135,6 +131,8 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
+  - name: Terminology
+    href: glossary.md
 - name: Service availability
   items:
   - name: Availability of services by category
