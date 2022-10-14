@@ -15,7 +15,7 @@ ms.custom: migration
 
 # Upgrade deployment endpoints to SDK v2
 
-We newly introduced [online endpoints](concept-endpoints.md) and batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including AKS and Arch-enabled Kubernetes) in v2, and ACI and AKS webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
+We newly introduced [online endpoints](concept-endpoints.md) and batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including Azure Kubernetes Services and Arc-enabled Kubernetes) in v2, and Azure Container Instances (ACI) and Kubernetes Services (AKS) webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
 
 Examples in this article show how to:
 
