@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Test Power Virtual Agents, and receive an answer from your Question Answering project
 
 > [Note]
-> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure Cognitive Service for Language](https://learn.microsoft.com/azure/cognitive-services/language-service/). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
+> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
 
 ## Create and publish a project
 1. Follow the [quickstart](../quickstart/sdk.md?pivots=studio) to create a Question Answering project. Once you have deployed your project.
@@ -38,23 +38,23 @@ In this tutorial, you learn how to:
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of how to obtain the prediction URL and subscription key displayed.]( ../media/power-virtual-agents/get-prediction-url.png) ]( ../media/power-virtual-agents/get-prediction-url.png#lightbox)
 
-4. Create a Custom Question Answering connector: Follow the [connector documentation](https://learn.microsoft.com/connectors/languagequestionansw/) to create a connection to Question Answering.
+4. Create a Custom Question Answering connector: Follow the [connector documentation](/connectors/languagequestionansw/) to create a connection to Question Answering.
 5. Use this tutorial to create a Bot with Power Virtual Agents instead of creating a bot from Language Studio.
 
 ## Create a bot in Power Virtual Agents
 [Power Virtual Agents](https://powervirtualagents.microsoft.com/) allows teams to create powerful bots by using a guided, no-code graphical interface. You don't need data scientists or developers.
 
-Create a bot by following the steps in [Create and delete Power Virtual Agents bots](https://learn.microsoft.com/power-virtual-agents/authoring-first-bot).
+Create a bot by following the steps in [Create and delete Power Virtual Agents bots](/power-virtual-agents/authoring-first-bot).
 
 ## Create the system fallback topic
 In Power Virtual Agents, you create a bot with a series of topics (subject areas), in order to answer user questions by performing actions.
 
 Although the bot can connect to your project from any topic, this tutorial uses the system fallback topic. The fallback topic is used when the bot can't find an answer. The bot passes the user's text to Question Answering Query knowledgebase API, receives the answer from your project, and displays it to the user as a message.
 
-Create a fallback topic by following the steps in [Configure the system fallback topic in Power Virtual Agents](https://learn.microsoft.com/power-virtual-agents/authoring-system-fallback-topic).
+Create a fallback topic by following the steps in [Configure the system fallback topic in Power Virtual Agents](/power-virtual-agents/authoring-system-fallback-topic).
 
 ## Use the authoring canvas to add an action
-Use the Power Virtual Agents authoring canvas to connect the fallback topic to your project. The topic starts with the unrecognized user text. Add an action that passes that text to Question Answering, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](../../../QnAMaker/Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md#add-your-solutions-flow-to-power-virtual-agents.), later in this tutorial.
+Use the Power Virtual Agents authoring canvas to connect the fallback topic to your project. The topic starts with the unrecognized user text. Add an action that passes that text to Question Answering, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](../../../QnAMaker/Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md#add-your-solutions-flow-to-power-virtual-agents), later in this tutorial.
 
 This section creates the fallback topic conversation flow.
 
@@ -176,7 +176,7 @@ Here's what the final bot canvas looks like:
 
 ## Test the bot
 
-As you design your bot in Power Virtual Agents, you can use the [Test bot pane](https://learn.microsoft.com/power-virtual-agents/authoring-test-bot) to see how the bot leads a customer through the bot conversation.
+As you design your bot in Power Virtual Agents, you can use the [Test bot pane](/power-virtual-agents/authoring-test-bot) to see how the bot leads a customer through the bot conversation.
 
 1. In the test pane, toggle **Track between topics**. This allows you to watch the progression between topics, as well as within a single topic.
 2. Test the bot by entering the user text in the following order. The authoring canvas reports the successful steps with a green check mark.
@@ -197,13 +197,13 @@ As you design your bot in Power Virtual Agents, you can use the [Test bot pane](
 
 To make the bot available to all members of your organization, you need to publish it.
 
-Publish your bot by following the steps in [Publish your bot](https://learn.microsoft.com/power-virtual-agents/publication-fundamentals-publish-channels).
+Publish your bot by following the steps in [Publish your bot](/power-virtual-agents/publication-fundamentals-publish-channels).
 
 ## Share your bot
 
 To make your bot available to others, you first need to publish it to a channel. For this tutorial we'll use the demo website.
 
-Configure the demo website by following the steps in [Configure a chatbot for a live or demo website](https://learn.microsoft.com/power-virtual-agents/publication-connect-bot-to-web-channels).
+Configure the demo website by following the steps in [Configure a chatbot for a live or demo website](/power-virtual-agents/publication-connect-bot-to-web-channels).
 
 Then you can share your website URL with your school or organization members.
 
