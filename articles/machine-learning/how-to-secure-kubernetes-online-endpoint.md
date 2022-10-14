@@ -112,7 +112,7 @@ After that, you can specify the sslSecret to be the name of this Kubernetes secr
 
 ### Configure sslCertPemFile and sslKeyPemFile
 
-Besides, you can specify the `sslCertPemFile` config to be the path to TLS/SSL certificate file(PEM-encoded), and the `sslKeyPemFile` config to be the path to TLS/SSL key file (PEM-encoded).
+You can specify the `sslCertPemFile` config to be the path to TLS/SSL certificate file(PEM-encoded), and the `sslKeyPemFile` config to be the path to TLS/SSL key file (PEM-encoded).
 
 The following example (assuming you are using AKS) demonstrates how to use Azure CLI to specify .pem files to AzureML extension that uses a TLS/SSL certificate that you purchased:
 
