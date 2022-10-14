@@ -79,20 +79,37 @@ To use Azure PowerShell to configure the ISV's tenant, install the latest [Az](h
 
 ### The service provider configures identities
 
-The following steps are performed by the service provider in the service provider's tenant *Tenant1*.
+The following steps are performed by the service provider (ISV) in the service provider's tenant, *Tenant1*.
+
+#### The service provider signs into Azure
+
+In Azure PowerShell, sign in to the ISV's tenant and set the active subscription to the ISV's subscription.
+
+```azurepowershell
+$isvTenantId="<isv-tenant-id>"
+$isvSubscriptionId="<isv-subscription-id>"
+
+# Sign in to Azure in the ISV's tenant.
+Connect-AzAccount -Tenant $isvTenantId
+# Set the context to the ISV's subscription.
+Set-AzContext -Subscription $isvSubscriptionId
+```
 
 #### The service provider creates a new multi-tenant app registration
 
-Pick a name for your multi-tenant application in *Tenant1*, and create the multi-tenant application in the Azure portal.
+Pick a name for your multi-tenant registered application in *Tenant1*, and create the multi-tenant application in the Azure portal.
 
-The name that you provide for the multi-tenant application is used by the customer to identify the application in *Tenant2*. ???Copy the application ID (or client ID) of the app, the object ID of the app, and also the tenant ID for the app. You'll need these values in the following steps.???
+The name that you provide for the multi-tenant application is used by the customer to identify the application in *Tenant2*. Note the app's object ID and application ID. You'll need these values in subsequent steps.
 
-```azurecli
+```azurepowershell
 $multiTenantAppName="<multi-tenant-app>"
 $multiTenantApp = New-AzADApplication -DisplayName $multiTenantAppName `
     -SignInAudience AzureADMultipleOrgs
 
-$multiTenantApp.Id
+# Object ID for the new multi-tenant app
+$objectId = $multiTenantApp.Id
+# Application (client) ID for the multi-tenant app
+$appId = $multiTenantApp.AppId
 ```
 
 #### The service provider creates a user-assigned managed identity
@@ -100,16 +117,10 @@ $multiTenantApp.Id
 Sign in to the ISV's tenant, and then create a user-assigned managed identity to be used as a federated identity credential. To create a new user-assigned managed identity, you must be assigned a role that includes the **Microsoft.ManagedIdentity/userAssignedIdentities/write** action.
 
 ```azurepowershell
-$isvTenantId="<isv-tenant-id>"
-$isvSubscriptionId="<isv-subscription-id>"
 $isvRgName="<isv-resource-group>"
 $isvLocation="<location>"
 $userIdentityName="<user-assigned-managed-identity>"
 
-# Sign in to Azure in the ISV's tenant.
-Connect-AzAccount -Tenant $isvTenantId
-# Set the context to the ISV's subscription.
-Set-AzContext -Subscription $isvSubscriptionId
 # Create a new resource group in the ISV's subscription.
 New-AzResourceGroup -Location $isvLocation -ResourceGroupName $isvRgName
 
@@ -292,26 +303,31 @@ To use Azure PowerShell to configure the client's tenant, install the latest [Az
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
 
-#### The customer installs the service provider application in the customer tenant
+#### The customer signs into Azure
 
-Once you receive the application ID of the service provider's multi-tenant application, install the application in your tenant *Tenant2* by creating a service principal.
-
-Execute the following commands in the tenant where you plan to create the key vault.
+In Azure PowerShell, sign in to the customer's tenant and set the active subscription to the customer's subscription.
 
 ```azurepowershell
 $customerTenantId="<customer-tenant-id>"
-$customerRgName="<customer-resource-group>"
 $customerSubscriptionId="<customer-subscription-id>"
-$customerLocation="<location>"
-$currentUserObjectId="<user-object-id>"
-$multiTenantAppId="<multi-tenant-app-id>" #Value from Tenant1 
-$kvName="<key-vault>"
-$keyName="<key-name>"
 
 # Sign in to Azure in the customer's tenant.
 Connect-AzAccount -Tenant $customerTenantId
 # Set the context to the customer's subscription.
 Set-AzContext -Subscription $customerSubscriptionId
+```
+
+#### The customer installs the service provider application in the customer tenant
+
+Once you receive the application ID of the service provider's multi-tenant application, install the application in your tenant, *Tenant2*, by creating a service principal.
+
+Execute the following commands in the tenant where you plan to create the key vault.
+
+```azurepowershell
+$customerRgName="<customer-resource-group>"
+$customerLocation="<location>"
+$multiTenantAppId="<multi-tenant-app-id>" # appId value from Tenant1 
+
 # Create a resource group in the customer's subscription.
 New-AzResourceGroup -Location $customerLocation -ResourceGroupName $customerRgName
 
@@ -324,7 +340,9 @@ $servicePrincipal = New-AzADServicePrincipal -ApplicationId $multiTenantAppId
 To create the key vault, the customer's account must be assigned the **Key Vault Contributor** role or another role that permits creation of a key vault.
 
 ```azurepowershell
-New-AzKeyVault -Location $customerLocation `
+$kvName="<key-vault>"
+
+$kv = New-AzKeyVault -Location $customerLocation `
     -Name $kvName `
     -ResourceGroupName $customerRgName `
     -SubscriptionId $customerSubscriptionId `
@@ -334,11 +352,13 @@ New-AzKeyVault -Location $customerLocation `
 
 #### The customer assigns Key Vault Crypto Officer role to a user account
 
-This step ensures that you can create the key vault and encryption keys.
+Assign the **Key Vault Crypto Officer** role to a user account. This step ensures that the user can create the key vault and encryption keys. The example below assigns the role to the current signed-in user.  
 
 ```azurepowershell
+$currentUserObjectId = (Get-AzADUser -SignedIn).Id
+
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" `
-    -Scope $keyVault.ResourceId `
+    -Scope $kv.ResourceId `
     -ObjectId $currentUserObjectId
 ```
 
@@ -347,6 +367,8 @@ New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" `
 To create the encryption key, the user's account must be assigned the **Key Vault Crypto Officer** role or another role that permits creation of a key.
 
 ```azurepowershell
+$keyName="<key-name>"
+
 Add-AzKeyVaultKey -Name $keyName `
     -VaultName $kvName `
     -Destination software
@@ -358,7 +380,7 @@ Assign the Azure RBAC role **Key Vault Crypto Service Encryption User** to the s
 
 ```azurepowershell
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Service Encryption User" `
-    -Scope $keyVault.ResourceId `
+    -Scope $kv.ResourceId `
     -ObjectId $servicePrincipal.Id
 ```
 
