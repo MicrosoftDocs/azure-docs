@@ -162,10 +162,10 @@ The described approach is also applicable to write-back scenarios. For example, 
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/powerbi-flow-enabled-dashboard.png" alt-text="Screenshot that shows the flow-enabled Power BI service dashboard.":::
 
+The highlighted button triggers a flow that forwards the OData PATCH request to the SAP Gateway to change the business partner role.
+
 > [!NOTE]
 > Use the Azure API Management [policy for SAP](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) to handle the authentication and CSRF token outside of the flow.
-
-The highlighted button triggers a flow that forwards the OData PATCH request to the SAP Gateway to change the business partner role.
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/power-automate-powerbi-button-flow.png" alt-text="Screenshot that shows the flow on Power Automate requesting the business partner change on the SAP back end.":::
 
