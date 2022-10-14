@@ -29,12 +29,22 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
 ### 4G system
 
 - TS 23.002: Network architecture.
-- TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access. Includes the section:
-  - 5.5.1.1 X2-based handover.
+- TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access.
 - TS 29.272: Evolved Packet System (EPS); Mobility Management Entity (MME) and Serving GPRS Support Node (SGSN) related interfaces based on Diameter protocol.
 - TS 29.274: 3GPP Evolved Packet System (EPS); Evolved General Packet Radio Service (GPRS) Tunneling Protocol for Control plane (GTPv2-C); Stage 3.
 - TS 33.401: 3GPP System Architecture Evolution (SAE); Security architecture.
 - TS 36.413: Evolved Universal Terrestrial Radio Access Network (E-UTRAN); S1 Application Protocol (S1AP).
+
+### 5G handover procedures
+
+- TS 23.502: Procedures for the 5G System (5GS):
+  - 4.9.1.2: Xn based inter NG-RAN handover.
+  - 4.9.1.3: Inter NG-RAN node N2 based handover.
+
+### 4G handover procedures
+
+- TS 23.401: General Packet Radio Service (GPRS) enhancements for Evolved Universal Terrestrial Radio Access Network (E-UTRAN) access: 
+  - 5.5.1.1 X2-based handover.
 
 ### Policy and charging control (PCC) framework
 
