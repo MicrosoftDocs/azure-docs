@@ -50,9 +50,9 @@ You can't use spot VMs in Batch managed mode. Instead, switch to user subscripti
 
    See the [quickstart](./batch-account-create-portal.md) to create a new Batch account in user subscription pool allocation mode.
 
-- Are spot VMs available in Batch managed mode?
+- Are Spot VMs available in Batch managed pool allocation accounts?
 
-  No. In Batch accounts, spot VMs are available only in user subscription mode.
+  No. Spot VMs are available only in user subscription pool allocation Batch accounts.
   
 - Are spot instances available for `CloudServiceConfiguration` Pools?
 
