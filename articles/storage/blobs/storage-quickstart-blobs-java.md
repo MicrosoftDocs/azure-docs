@@ -407,7 +407,7 @@ Follow steps to compile, package, and run the code
       </configuration>
     </plugin>
     ```
-    With this configuration, you can execute the app with this command:
+    With this configuration, you can execute the app with the following command:
     ```console
     mvn exec:java
     ```
