@@ -136,7 +136,7 @@ Consider protecting the self-hosted gateway against [disruption](https://kuberne
 > 
 > Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
-## HTTP(S) Proxy
+## HTTP(S) proxy
 
 The self-hosted gateway provides support for HTTP(S) proxy by using the traditional `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
 
