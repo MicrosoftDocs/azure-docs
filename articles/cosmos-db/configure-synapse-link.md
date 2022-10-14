@@ -105,7 +105,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 * You won't be able to query analytical store of an existing container while Synapse Link is being enabled on that container. Your OLTP workload isn't impacted and you can keep on reading data normally. Data ingested after the start of the initial sync will be merged into analytical store by the regular analytical store auto-sync process.
 
 > [!NOTE]
-> Currently you can't enable Synapse Link for MongoDB API containers.
+> Currently you can't enable Synapse Link on your existing MongoDB API containers. Synapse Link can be enabled on newly created Mongo DB containers.
 
 
 ### Azure portal
