@@ -402,6 +402,7 @@ Some points to consider:
 *    You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
 *    The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
 *    If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
+*    Currently we don't delete any data from analytical store. If you set your ATTL to any positive integer, the data won't be included in your queries and you won't be billed for it. But if you change ATTL back to `-1`, all the data will show up again, you will start to be billed for all the data volume.
 
 How to enable analytical store on a container:
 
