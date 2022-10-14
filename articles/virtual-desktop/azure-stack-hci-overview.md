@@ -67,7 +67,7 @@ The following things affect how much it costs to run Azure Virtual Desktop for A
 
 ## Data storage
 
-Azure Virtual Desktop for Azure Stack HCI doesn't guarantee that all data is stored on-premises. You can choose to store user data on-premise by locating session host virtual machines (VMs) and associated services such as file servers on-premises. However, some customer data, diagnostic data, and service-generated data are still stored in Azure. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](data-locations.md).
+Azure Virtual Desktop for Azure Stack HCI doesn't guarantee that all data is stored on-premises. You can choose to store user data on-premises by locating session host virtual machines (VMs) and associated services such as file servers on-premises. However, some customer data, diagnostic data, and service-generated data are still stored in Azure. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 ## Known issues and limitations
 
