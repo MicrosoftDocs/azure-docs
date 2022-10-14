@@ -957,7 +957,39 @@ describes the instruments and provides examples of when you might use each one.
 
 #### [.NET](#tab/net)
 
-Placeholder
+```csharp
+using System.Diagnostics.Metrics;
+using Azure.Monitor.OpenTelemetry.Exporter;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+
+public class Program
+{
+    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main()
+    {
+        using var meterProvider = Sdk.CreateMeterProviderBuilder()
+            .AddMeter("OTel.AzureMonitor.Demo")
+            .AddAzureMonitorMetricExporter(o =>
+            {
+                o.ConnectionString = "<Your Connection String>";
+            })
+            .Build();
+
+        Histogram<long> myHistogram = meter.CreateHistogram<long>("MyHistogram");
+
+        var random = new Random();
+        for (int i = 0; i < 1000; i++)
+        {
+            myHistogram.Record(random.Next(1, 1000), new("tag1", "value1"), new("tag2", "value2"));
+        }
+
+        System.Console.WriteLine("Press Enter key to exit.");
+        System.Console.ReadLine();
+    }
+}
+```
 
 #### [Node.js](#tab/nodejs)
 
@@ -996,7 +1028,7 @@ using System.Diagnostics.Metrics;
 using Azure.Monitor.OpenTelemetry.Exporter;
 using OpenTelemetry;
 using OpenTelemetry.Metrics;
-using OpenTelemetry.Trace;
+
 public class Program
 {
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
@@ -1011,14 +1043,14 @@ public class Program
             })
             .Build();
 
-        Counter<long> MyFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
+        Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
 
-        MyFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
-        MyFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
-        MyFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
-        MyFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
-        MyFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
-        MyFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
+        myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
+        myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
+        myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
+        myFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
+        myFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
+        myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
 
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
