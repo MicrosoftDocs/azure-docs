@@ -58,9 +58,9 @@ These metrics are available for Azure Database for MySQL:
 
 |Metric display name|Metric|Unit|Description|
 |---|---|---|---|
-|Com_select|Com_select|Count|The total count of select statements that has been executed on your server in the selected time range.|
-|Com_update|Com_update|Count|The total count of update statements that has been executed on your server in the selected time range.|
-|Com_insert|Com_insert|Count|The total count of insert statements that has been executed on your server in the selected time range.|
+|Com_select|Com_select|Count|The total count of select statements that have been executed on your server in the selected time range.|
+|Com_update|Com_update|Count|The total count of update statements that have been executed on your server in the selected time range.|
+|Com_insert|Com_insert|Count|The total count of insert statements that have been executed on your server in the selected time range.|
 |Com_delete|Com_delete|Count|The total count of delete statements that have been executed on your server in the selected time range.|
 
 
@@ -69,10 +69,10 @@ These metrics are available for Azure Database for MySQL:
 |Metric display name|Metric|Unit|Description|
 |---|---|---|---|
 |Com_create_db|Com_create_db|Count|The total count of create database statements that have been executed on your server in the selected time range.|
-|Com_drop_db|Com_drop_db|Count|The total count of drop database statements that has been executed on your server in the selected time range.|
+|Com_drop_db|Com_drop_db|Count|The total count of drop database statements that have been executed on your server in the selected time range.|
 |Com_create_table|Com_create_table|Count|The total count of create table statements that have been executed on your server in the selected time range.|
-|Com_drop_table|Com_drop_table|Count|The total count of drop table statements that has been executed on your server in the selected time range.|
-|Com_Alter|Com_Alter|Count|The total count of alter table statements that has been executed on your server in the selected time range.|
+|Com_drop_table|Com_drop_table|Count|The total count of drop table statements that have been executed on your server in the selected time range.|
+|Com_Alter|Com_Alter|Count|The total count of alter table statements that have been executed on your server in the selected time range.|
 
 
 ### Innodb metrics
