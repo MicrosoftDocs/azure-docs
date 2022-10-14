@@ -14,10 +14,7 @@ ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell, ig
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
-> [!NOTE]
-> Synapse Link for API for Gremlin is now in preview. You can enable Synapse Link in your new or existing Graphs using Azure CLI.
-
-Azure Synapse Link is available for Azure Cosmos DB for NoSQL or MongoDB accounts. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
+Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos DB API for Mongo DB accounts. And it is in preview for Gremlin API, with activation via CLI commands. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
 * [Enable Azure Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
 * [Enable Azure Synapse Link for your containers](#update-analytical-ttl)
