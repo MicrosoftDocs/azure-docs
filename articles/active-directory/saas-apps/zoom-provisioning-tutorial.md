@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **ADMIN > Advanced > App Marketplace** in the left navigation pane.
 
-	![Screenshot of Zoom Integrations.](media/zoom-provisioning-tutorial/app-navigation.png)
+	![Screenshot of Zoom Integrations.](media/zoom-provisioning-tutorial/app-navigations.png)
 
 2. Navigate to **Manage** in the top-right corner of the page. 
 
