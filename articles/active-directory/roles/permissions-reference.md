@@ -297,19 +297,19 @@ For more information, see [Manage access to custom security attributes in Azure 
 
 ## Authentication Administrator
 
-Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication Administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Who can reset passwords](#who-can-reset-passwords).
+Assign the Authentication Administrator role to users who need to do the following:
 
-Authentication Administrators can update sensitive attributes for some users. For a list of the roles that an Authentication Administrator can update sensitive attributes, see [Who can update sensitive attributes](#who-can-update-sensitive-attributes).
+- Set or reset any authentication method (including passwords) for non-administrators and some roles. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Who can reset passwords](#who-can-reset-passwords).
+- Require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in.
+- Perform sensitive actions for some users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Create and manage support tickets in Azure and the Microsoft 365 admin center.
 
-The [Privileged Authentication Administrator](#privileged-authentication-administrator) role has permission to force re-registration and multifactor authentication for all users.
+Users with this role **cannot** do the following:
 
-The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
+- Cannot manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
 
-| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive attributes |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | Yes for some users (see above) |
-| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No | Yes for all users |
-| Authentication Policy Administrator | No |No | Yes | Yes | Yes | No |
+[!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -319,11 +319,6 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 >* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >* Administrators in other services outside of Azure AD like Exchange Online, Office 365 Security & Compliance Center, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-> [!IMPORTANT]
-> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
-
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -350,18 +345,20 @@ Users with this role can't change the credentials or reset MFA for members and o
 
 ## Authentication Policy Administrator
 
-Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list. Authentication Policy Administrators cannot update sensitive attributes for users.
+Assign the Authentication Policy Administrator role to users who need to do the following:
 
-The [Authentication Administrator](#authentication-administrator) and [Privileged Authentication Administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multifactor authentication for all users.
+- Configure the authentication methods policy, tenant-wide MFA settings, and password protection policy that determine which methods each user can register and use.
+- Manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list.
+- Create and manage verifiable credentials.
+- Create and manage Azure support tickets.
 
-| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive attributes |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | Yes for some users (see above) |
-| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No | Yes for all users |
-| Authentication Policy Administrator | No | No | Yes | Yes | Yes | No |
+Users with this role **cannot** do the following:
 
-> [!IMPORTANT]
-> This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens.
+- Cannot update sensitive properties. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Cannot delete or restore users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Cannot manage MFA settings in the legacy MFA management portal or Hardware OATH tokens.
+
+[!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1228,6 +1225,10 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 
 Users with this role can change passwords, invalidate refresh tokens, create and manage support requests with Microsoft for Azure and Microsoft 365 services, and monitor service health. Invalidating a refresh token forces the user to sign in again. Whether a Helpdesk Administrator can reset a user's password and invalidate refresh tokens depends on the role the user is assigned. For a list of the roles that a Helpdesk Administrator can reset passwords for and invalidate refresh tokens, see [Who can reset passwords](#who-can-reset-passwords).
 
+Users with this role **cannot** do the following:
+
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
+
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
 >
@@ -1236,8 +1237,6 @@ Users with this role can change passwords, invalidate refresh tokens, create and
 >- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units](administrative-units.md).
 
@@ -1686,7 +1685,9 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 
 Users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Whether a Password Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that a Password Administrator can reset passwords for, see [Who can reset passwords](#who-can-reset-passwords).
 
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
+Users with this role **cannot** do the following:
+
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1698,7 +1699,7 @@ Users with this role can't change the credentials or reset MFA for members and o
 
 Assign the Permissions Management Administrator role to users who need to do the following tasks:
 
-- Manage all aspects of Entry Permissions Management, when the service is present
+- Manage all aspects of Entra Permissions Management, when the service is present
 
 Learn more about Permissions Management roles and polices at [View information about roles/policies](../cloud-infrastructure-entitlement-management/how-to-view-role-policy.md).
 
@@ -1764,17 +1765,19 @@ Users with this role can register printers and manage printer status in the Micr
 
 ## Privileged Authentication Administrator
 
-Users with this role can set or reset any authentication method (including passwords) for any user, including Global Administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users. Privileged Authentication Administrators can update sensitive attributes for all users.
+Assign the Privileged Authentication Administrator role to users who need to do the following:
 
-The [Authentication Administrator](#authentication-administrator) role has permission to force re-registration and multifactor authentication for standard users and users with some admin roles.
+- Set or reset any authentication method (including passwords) for any user, including Global Administrators.
+- Delete or restore any users, including Global Administrators. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke **remember MFA on the device**, prompting for MFA on the next sign-in of all users.
+- Update sensitive properties for all users. For more information, see [Who can perform sensitive actions](#who-can-perform-sensitive-actions).
+- Create and manage support tickets in Azure and the Microsoft 365 admin center.
 
-The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+Users with this role **cannot** do the following:
 
-| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy | Update sensitive attributes |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | Yes for some users (see above) |
-| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No | Yes for all users |
-| Authentication Policy Administrator | No | No | Yes | Yes | Yes | No |
+- Cannot manage per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
+
+[!INCLUDE [authentication-table-include](./includes/authentication-table-include.md)]
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -1784,10 +1787,6 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 >* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-
-> [!IMPORTANT]
-> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD PowerShell module.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2207,15 +2206,30 @@ Users with this role can access tenant level aggregated data and associated insi
 
 ## User Administrator
 
-Users with this role can create users, and manage all aspects of users with some restrictions (see the table), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User Administrators don't have permission to manage some user properties for users in most administrator roles. Admins with this role do not have permissions to manage MFA or manage shared mailboxes. The roles that are exceptions to this restriction are listed in the following table.
+Assign the User Administrator role to users who need to do the following: 
 
-| User Administrator permission | Notes |
+| Permission | More information |
 | --- | --- |
-| Create users and groups<br/>Create and manage user views<br/>Manage Office support tickets<br/>Update password expiration policies |  |
-| Manage licenses<br/>Manage all user properties except User Principal Name | Applies to all users, including all admins |
-| Delete and restore<br/>Disable and enable<br/>Manage all user properties including User Principal Name<br/>Update (FIDO) device keys | Applies to users who are non-admins or in any of the following roles:<ul><li>Helpdesk Administrator</li><li>User with no role</li><li>User Administrator</li></ul> |
-| Invalidate refresh Tokens<br/>Reset password | For a list of the roles that a User Administrator can reset passwords for and invalidate refresh tokens, see [Who can reset passwords](#who-can-reset-passwords). |
-| Update sensitive attributes | For a list of the roles that a User Administrator can update sensitive attributes for, see [Who can update sensitive attributes](#who-can-update-sensitive-attributes). |
+| Create users |  |
+| Update most user properties for all users, including all administrators | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Update sensitive properties (including user principal name) for some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Disable or enable some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Delete or restore some users | [Who can perform sensitive actions](#who-can-perform-sensitive-actions) |
+| Create and manage user views |  |
+| Create and manage all groups |  |
+| Assign licenses for all users, including all administrators |  |
+| Reset passwords | [Who can reset passwords](#who-can-reset-passwords) |
+| Invalidate refresh tokens | [Who can reset passwords](#who-can-reset-passwords) |
+| Update (FIDO) device keys |  |
+| Update password expiration policies |  |
+| Create and manage support tickets in Azure and the Microsoft 365 admin center |  |
+| Monitor service health |  |
+
+Users with this role **cannot** do the following:
+
+- Cannot manage MFA.
+- Cannot change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
+- Cannot manage shared mailboxes.
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -2225,8 +2239,6 @@ Users with this role can create users, and manage all aspects of users with some
 >- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
-
-Users with this role can't change the credentials or reset MFA for members and owners of a [role-assignable group](groups-concept.md).
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2311,7 +2323,7 @@ Assign the Windows 365 Administrator role to users who need to do the following 
 - Create and manage security groups, but not role-assignable groups
 - View basic properties in the Microsoft 365 admin center
 - Read usage reports in the Microsoft 365 admin center
-- Create and manage support tickets in Azure AD and the Microsoft 365 admin center
+- Create and manage support tickets in Azure and the Microsoft 365 admin center
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2433,7 +2445,7 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecate
 
 ## Who can reset passwords
 
-In the following table, the columns list the roles that can reset passwords. The rows list the roles for which their password can be reset.
+In the following table, the columns list the roles that can reset passwords and invalidate refresh tokens. The rows list the roles for which their password can be reset.
 
 The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
@@ -2458,28 +2470,31 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 \* A Global Administrator cannot remove their own Global Administrator assignment. This is to prevent a situation where an organization has 0 Global Administrators.
 
 > [!NOTE]
-> The ability to reset a password includes the ability to update the following sensitive attributes required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
+> The ability to reset a password includes the ability to update the following sensitive properties required for [self-service password reset](../authentication/concept-sspr-howitworks.md):
 > - businessPhones
 > - mobilePhone
 > - otherMails
 
-## Who can update sensitive attributes
+## Who can perform sensitive actions
 
-Some administrators can update the following sensitive attributes for some users. All users can read these sensitive attributes.
+Some administrators can perform the following sensitive actions for some users. All users can read the sensitive properties.
 
-- accountEnabled
-- businessPhones
-- mobilePhone
-- onPremisesImmutableId
-- otherMails
-- passwordProfile
-- userPrincipalName
+| Sensitive action | Sensitive property name |
+| --- | --- |
+| Disable or enable users | `accountEnabled` |
+| Update business phone | `businessPhones` |
+| Update mobile phone | `mobilePhone` |
+| Update on-premises immutable ID | `onPremisesImmutableId` |
+| Update other emails | `otherMails` |
+| Update password profile | `passwordProfile` |
+| Update user principal name | `userPrincipalName` |
+| Delete or restore users | Not applicable |
 
-In the following table, the columns list the roles that can update the sensitive attributes. The rows list the roles for which their sensitive attributes can be updated.
+In the following table, the columns list the roles that can perform sensitive actions. The rows list the roles for which the sensitive action can be performed upon.
 
 The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
-Role that sensitive attributes can be updated | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
+Role that sensitive action can be performed upon | Auth Admin | User Admin | Privileged Auth Admin | Global Admin
 ------ | ------ | ------ | ------ | ------
 Auth Admin | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Directory Readers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:

@@ -42,7 +42,7 @@ The Log Analytics agent for Linux will only collect events with the facilities a
 
 ### Configure Syslog in the Azure portal
 
-Configure Syslog from the [Agent configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace. This configuration is delivered to the configuration file on each Linux agent.
+Configure Syslog from the [Agent configuration menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace. This configuration is delivered to the configuration file on each Linux agent.
 
 You can add a new facility by selecting **Add facility**. For each facility, only messages with the selected severities will be collected. Select the severities for the particular facility that you want to collect. You can't provide any other criteria to filter messages.
 
@@ -156,8 +156,8 @@ log { source(src); filter(f_user_oms); destination(d_oms); };
 
 The Log Analytics agent listens for Syslog messages on the local client on port 25224. When the agent is installed, a default Syslog configuration is applied and found in the following location:
 
-* Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
-* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
+* **Rsyslog**: `/etc/rsyslog.d/95-omsagent.conf`
+* **Syslog-ng**: `/etc/syslog-ng/syslog-ng.conf`
 
 You can change the port number by creating two configuration files: a FluentD config file and a rsyslog-or-syslog-ng file depending on the Syslog daemon you have installed.
 

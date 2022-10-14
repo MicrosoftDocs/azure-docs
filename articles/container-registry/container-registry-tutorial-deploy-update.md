@@ -2,7 +2,9 @@
 title: Tutorial - Push update to geo-replicated registry
 description: Push an updated Docker image to your geo-replicated Azure container registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
 ms.topic: tutorial
-ms.date: 04/30/2018
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: "seodec18, mvc"
 ---
 
