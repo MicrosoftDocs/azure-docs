@@ -29,7 +29,7 @@ For general considerations around stripe sizes when using LVM, HANA data volume 
 The major difference of Premium SSD v2 to the existing netWeaver and HANA certified storages can be listed like:
 
 - With Premium SSD v2, you pay the exact deployed capacity. Unlike with premium disk and Ultra disk, where brackets of sizes are being taken to determine the costs of capacity
-- Every Premium SSD v2 storage disk comes with 3,000 IOPS and 125MBps on throughput that is included in the capacity pricing
+- Every Premium SSD v2 storage disk comes with 3,000 IOPS and 125 MBps on throughput that is included in the capacity pricing
 - Extra IOPS and throughput on top of the default ones that come with each disk can be provisioned at any point in time and are charged separately
 - Changes to the provisioned IOPS and throughput can be executed once in 6 hours
 - Latency of Premium SSD v2 is lower than premium storage, but higher than Ultra disk. But is submilliseconds, so, that it passes the SAP HANA KPIs without the help of any other functionality, like Azure Write Accelerator
@@ -44,7 +44,7 @@ Not having Azure Write Accelerator support or support by other caches makes the 
 ## Production recommended storage solution based on Azure premium storage
 
 > [!NOTE]
-> The configurations we suggest below keep the HANA minimum KPIs, as we listed them in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) in mind. Our tests so far gave no indications that with the values listed, SAP HCMT tests would fail in throughput or latency. That stated, we did not test all possible combinations and possibilities around stripe sets stretched across multiple disks or different stripe sizes. Tests we condcuted with striped volumes across multiple disks were done with the stripe sizes we documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). 
+> The configurations suggested below keep the HANA minimum KPIs, as listed in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) in mind. Our tests so far gave no indications that with the values listed, SAP HCMT tests would fail in throughput or latency. That stated, not all variations possible and combinations around stripe sets stretched across multiple disks or different stripe sizes were tested. Tests condcuted with striped volumes across multiple disks were done with the stripe sizes documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). 
 
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Not having Azure Write Accelerator support or support by other caches makes the 
 
 When you look up the price list for Azure managed disks, then it becomes apparent that the cost scheme introduced with Premium SSD v2, gives you two general paths to pursue:
 
-- You try to simplify your storage architecture by using a single disk for **/hana/data** and **/hana/log** and pay for more IOPS and throughput as needed to achieve the levels we recommend below. With the awareness that a single disk has a throughput level of 1,200MBps and 80,000 IOPS.
+- You try to simplify your storage architecture by using a single disk for **/hana/data** and **/hana/log** and pay for more IOPS and throughput as needed to achieve the levels we recommend below. With the awareness that a single disk has a throughput level of 1,200 MBps and 80,000 IOPS.
 - You want to benefit of the 3,000 IOPS and 125MBps that come for free with each disk. To do so, you would build multiple smaller disks that sum up to the capacity you need and then build a striped volume with a logical volume manager across these multiple disks. Striping across multiple disks would give you the possibility to reduce the IOPS and throughput cost factors. But would result in some more efforts in automating deployments and operating such solutions.
 
 Since we don't want to define which direction you should go, we are leaving the decision to you on whether to take the single disk approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1,200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are extremely critical and demand high throughput for the **/hana/data** volume
@@ -119,7 +119,7 @@ For the **/hana/log** volume. the configuration would look like:
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase either IOPS, and/or throughput on the individual disks you're using. 
 
-A few examples on how combining multiple Premium SSD v2 disk with a stripe set could impact the requirement to provision more IOPS or throughput for **/hana/data** is displayed in this table:
+A few examples on how combining multiple Premium SSD v2 disks with a stripe set could impact the requirement to provision more IOPS or throughput for **/hana/data** is displayed in this table:
 
 | VM SKU | RAM | number of <br />disks | individual disk<br /> capacity | Proposed IOPS | Default IOPS provisioned | Extra IOPS <br />provisioned | Proposed throughput<br /> for volume | Default throughput provisioned | Extra throughput <br />provisioned |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
