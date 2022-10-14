@@ -172,7 +172,7 @@ Azure Backup now supports zone-redundant storage (ZRS).
 
 ### Supported regions
 
-- Azure Backup supports ZRS for all workloads, except Azure Disk, in the following regions: UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia, Switzerland North, Qatar, UAE North, and West US 3.
+- Azure Backup currently supports ZRS for all workloads, except Azure Disk, in the following regions: UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia, Switzerland North, Qatar, UAE North, and West US 3.
 
 - ZRS support for Azure Disk is generally available in the following regions:: UK South, Southeast Asia, Australia East, North Europe, Central US, South Central US, West Europe, West US 2, Japan East, East US, US Gov Virginia, Qatar, and West US 3.
 
