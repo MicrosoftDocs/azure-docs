@@ -16,8 +16,7 @@ ms.author: tommasosacco
 
 # AD Autentication without Domain Join Linux VM | Microsoft Docs
 
-Currently Linux distribution can work as member of Active Directory domains which gives them access to the AD authentication system. To take advantage of AD authentication in some cases we can avoid the AD join. To let users sign in on Azure Linux VM with Active Directory account you have different choices, one possibility is to Join in Active Directory the VM, another possibility is to base the authentication flow through LDAP to your Active Directory without Join the VM on AD.
-This article shows you how to authenticate with AD credential on your Linux system (CentosOS) based on LDAP.
+Currently Linux distribution can work as member of Active Directory domains which gives them access to the AD authentication system. To take advantage of AD authentication in some cases we can avoid the AD join. To let users sign in on Azure Linux VM with Active Directory account you have different choices, one possibility is to Join in Active Directory the VM, another possibility is to base the authentication flow through LDAP to your Active Directory without Join the VM on AD. This article shows you how to authenticate with AD credential on your Linux system (CentosOS) based on LDAP.
 
 ## Prerequisites
 
@@ -62,7 +61,7 @@ On your Linux VM install the following packages: *sssd sssd-tools sssd-ldap open
 yum install -y sssd sssd-tools sssd-ldap openldap-client
 ```
 
-Ensure LDAP search works. In order to check it try an ldap search following the example below:
+After the installation check if LDAP search works. In order to check it try an LDAP search following the example below:
 
 ```console
 ldapsearch -H ldap://<ip-domain-controller>:389 -x \
@@ -70,7 +69,7 @@ ldapsearch -H ldap://<ip-domain-controller>:389 -x \
         -b CN=Users,DC=cetesting,DC=it
 ```
 
-If the ldap query works fine you will obtain an output with some information like follow:
+If the LDAP query works fine you will obtain an output with some information like follow:
 
 ```console
 extended LDIF
@@ -106,7 +105,7 @@ dSCorePropagationData: 16010101000000.0Z
 ```
 
 > [!NOTE]
-> If your obtain an error the password used for the user is wrong. Ensure to use the correct password.
+> If your obtain an error the password used is wrong. Ensure to use the correct password.
 
 ## Create sssd.conf file
 
@@ -160,13 +159,15 @@ Set the permission to sssd.conf to 600 with the following command:
 chmod 600 /etc/sssd/sssd.conf
 ```
 
-After that create an obfuscated password for the Bind DN account:
+After that create an obfuscated password for the Bind DN account. You must insert the Domain password for ReadOnlyUser:
 
 ```console
 [root@centos8 ~]sss_obfuscate --domain default
 Enter password: Read0nly
 Re-enter password: Read0nly
 ```
+
+The password will be placed automatically in the configuration file.
 
 ## Configure the sssd service
 
@@ -190,7 +191,7 @@ At this point is important to restart the service:
 
 ## Test the configuration
 
-The Final step is to check that the flow works properly. To check this, try to login with one of your AD users in Active Directory. We tried with an user called *Francesca*. If the configuration is correct you will get the following result:
+The final step is to check that the flow works properly. To check this, try logging in with one of your AD users in Active Directory. We tried with a user called *Francesca*. If the configuration is correct, you will get the following result:
 
 ```console
 [root@centos8 ~]su - Francesca@cetesting.it
@@ -198,6 +199,7 @@ Last login: Wed Oct 12 15:13:39 UTC 2022 on pts/0
 [Francesca@Centos8 ~]$ exit
 
 ```
+Now you are ready to use AD authentication on your Linux VM.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
