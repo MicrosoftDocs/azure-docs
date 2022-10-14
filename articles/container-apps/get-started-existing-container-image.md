@@ -92,7 +92,7 @@ The example shown in this article demonstrates how to use a custom container ima
 
 # [Bash](#tab/bash)
 
-For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp?view=azure-cli-latest#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
 
 ```bash
 CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
