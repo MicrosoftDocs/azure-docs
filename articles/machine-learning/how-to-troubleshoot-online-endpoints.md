@@ -52,7 +52,6 @@ To use local deployment, add `--local` to the appropriate CLI command:
 ```azurecli
 az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
-For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 ## [Python SDK](#tab/python)
 
@@ -64,14 +63,14 @@ ml_client.begin_create_or_update(online_deployment, local=True)
 
 * `ml_client` is the instance for `MLCLient` class, and `online_deployment` is the instance for either `ManagedOnlineDeployment` class or `KubernetesOnlineDeployment` class.
 
-For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
-
 ---
 
 As a part of local deployment the following steps take place:
 
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
+
+For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
 
 
 
