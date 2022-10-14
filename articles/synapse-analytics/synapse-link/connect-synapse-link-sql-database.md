@@ -23,7 +23,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 * To get Azure Synapse Link for SQL, see [Create a new Azure Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse). The current tutorial is to create Azure Synapse Link for SQL in a public network. This article assumes that you selected **Disable Managed virtual network** and **Allow connections from all IP address** when you created an Azure Synapse workspace. If you want to configure Azure Synapse Link for Azure SQL Database with network security, also see [Configure Azure Synapse Link for Azure SQL Database with network security](connect-synapse-link-sql-database-vnet.md).
 
-* For database transaction unit (DTU)-based provisioning, make sure that your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
+* For database transaction unit (DTU)-based provisioning, make sure that your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned aren't supported.
 
 ## Configure your source Azure SQL database
 
@@ -37,9 +37,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png" alt-text="Screenshot that shows how to configure firewalls for your SQL database by using the Azure portal.":::
 
-1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the logical server. If you want to have your Azure Synapse workspace connect to your Azure SQL database by using a managed identity, set the Azure Active Directory admin permissions on the logical server, To have the privileges in step 6, use the same admin name to connect to the logical server with administrative privileges.
+1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the logical server. If you want to have your Azure Synapse workspace connect to your Azure SQL database by using a managed identity, set the Azure Active Directory admin permissions on the logical server. To apply the privileges in step 6, use the same admin name to connect to the logical server with administrative privileges.
 
-1. Expand **Databases**, right-click the database you've just created, and then select **New Query**.
+1. Expand **Databases**, right-click the database you've created, and then select **New Query**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/ssms-new-query.png" alt-text="Screenshot that shows how to select your database and create a new query.":::
 
