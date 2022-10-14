@@ -2,8 +2,11 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 10/14/2022
 ms.custom: references_regions 
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Support matrix for Azure Backup
@@ -34,7 +37,6 @@ The following table describes the features of Recovery Services vaults:
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
-**Zone-redundant storage (ZRS)** | Supported in preview in UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia and West US 3.
 **Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
 
 ## On-premises backup support
@@ -100,13 +102,13 @@ Azure Backup supports encryption for in-transit and at-rest data.
 
 ### Network traffic to Azure
 
-- Backup traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
+- The backup traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
 - Backup data is sent over a secure HTTPS link.
 
 ### Data security
 
 - Backup data is stored in the Recovery Services vault in encrypted form.
-- When data is backed up from on-premises servers with the MARS agent, data is encrypted with a passphrase before upload to Azure Backup and decrypted only after it's downloaded from Azure Backup.
+- When data is backed-up from on-premises servers with the MARS agent, data is encrypted with a passphrase before upload to the Azure Backup service and decrypted only after it's downloaded from Azure Backup.
 - When you're backing up Azure VMs, you need to set up encryption *within* the virtual machine.
 - Azure Backup supports Azure Disk Encryption, which uses BitLocker on Windows virtual machines and **dm-crypt** on Linux virtual machines.
 - On the back end, Azure Backup uses [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), which protects data at rest.
@@ -164,6 +166,39 @@ The resource health check functions in following conditions:
 | **Supported Regions** | East US, East US 2, Central US, South Central US, North Central US, West Central US, West US, West US 2, West US 3, Canada East, Canada Central, North Europe, West Europe, UK West, UK South, France Central, France South, Sweden Central, Sweden South, East Asia, South East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia Central, Australia Central 2, Australia South East, South Africa North, South Africa West, UAE North, UAE Central, Brazil South East, Brazil South, Switzerland North, Switzerland West, Norway East, Norway West, Germany North, Germany West Central, West India, Central India, South India, Jio India West, Jio India Central. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
+## Zone-redundant storage support
+
+Azure Backup now supports zone-redundant storage (ZRS).
+
+### Supported regions
+
+- Azure Backup currently supports ZRS for all workloads, except Azure Disk, in the following regions: UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia, Switzerland North, Qatar, UAE North, and West US 3.
+
+- ZRS support for Azure Disk is generally available in the following regions: UK South, Southeast Asia, Australia East, North Europe, Central US, South Central US, West Europe, West US 2, Japan East, East US, US Gov Virginia, Qatar, and West US 3.
+
+### Supported scenarios
+
+Here's the list of scenarios supported even if zone gets unavailable in the supported regions:
+
+- Create/List/Update Policy
+- List backup jobs
+- List of protected items
+- Update vault config
+- Create vault
+- Get vault credential file
+
+### Supported operations
+
+The following table lists the workload specific operations supported even if zone gets unavailable in the supported regions:
+
+| Protected workload | Supported Operations |
+| --- | --- |
+| **IAAS VM** | - Backups are successful, if the protected VM is in an active zone. <br><br> - Original location recovery (OLR) is successful, if the protected VM is in an active zone. <br><br> - Alternate location restores (ALR) to an active zone is successful. |
+| **SQL/ SAP HANA database in Azure VM** | - Backups are successful, if the protected workload is in an active zone. <br><br> - Original location recovery (OLR) is successful, if the protected workload is in an active zone. <br><br> - Alternate location restores (ALR) to an active zone is successful. |
+| **Azure Files** | Backups, OLR, and ALR are successful, if the protected file share is in a ZRS account. |
+| **Blob** | Recovery is successful, if the protected storage account is in ZRS. |
+| **Disk** | - Backups are successful, if the protected disk is in an active zone. <br><br> - Restore to an active zone is successful. |
+| **MARS** | Backups and restores are successful. |
 
 ## Next steps
 
