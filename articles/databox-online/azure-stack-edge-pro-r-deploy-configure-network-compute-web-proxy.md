@@ -160,7 +160,7 @@ Follow these steps to configure compute IPs for your Kubernetes workloads.
    > [!IMPORTANT]
    > We strongly recommend that you specify a minimum of one IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later.
 
-1. Select Apply.
+1. Select **Apply**.
 
      ![Screenshot of "Advanced networking" page in local UI with fully configured Add virtual switch blade for one node.](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/compute-virtual-switch-1.png)
 
