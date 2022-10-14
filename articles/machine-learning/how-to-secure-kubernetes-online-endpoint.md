@@ -33,7 +33,7 @@ This is the general process to secure an online endpoint:
 
 1. Get a [domain name.](#get-a-domain-name)
 
-1. Get a digital certificate.
+1. Get a [digital certificate.](#get-a-tls/ssl-certificate)
 
 1. Configure TLS/SSL in AzureML Extension.
 
