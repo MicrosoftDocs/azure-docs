@@ -32,18 +32,18 @@ If you don't provide the existing Container Apps environment, it will look for a
 
 If you need to customize the features in your Container App environment, you should use the `az containerapp environment create` command to create your environment.
 
-For more information about the az containerapp up command, see [az containerapp up](/cli/azure/containerapp?view=azure-cli-latest#az_containerapp_up).
+For more information about the az containerapp up command, see [az containerapp up](/cli/azure/containerapp#az_containerapp_up).
 
 ## Prerequisites
 
-1. An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-1. Install the Azure CLI.  See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-TODO:  Is this right?
-1. If installing from a local source, you'll need:
-    1. If using a Dockerfile, local Docker daemon running.  See [Install Docker](https://docs.docker.com/get-docker/).
-    1. local source code for the container app, with or without a Dockerfile.
-1. If deploying from GitHub, you'll need a GitHub repository.
-1. If installing from an image, you'll need an image in a registry in Azure Container Registry.
+| Requirement  | Instructions |
+|--|--|
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| GitHub Account | If you are going to use a GitHub repo you.  Sign up for [free](https://github.com/join). |
+| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+| Docker Desktop | If you are using local source with a Dockerfile, your file need to install Docker Desktop.  Docker provides installers that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). From your command prompt, type `docker` to ensure Docker is running. |
+|local source code | If you are going to use local source code, you need to have a local source code directory. |
+| Azure Container Registry | If you are going to use an existing image in Azure Container Registry, you need to have an existing registry.  If you don't have one, you can create one with the `az acr create` command. |
 
 ## Set up
 
