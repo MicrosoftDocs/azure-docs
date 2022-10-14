@@ -576,7 +576,7 @@ There are [four valid Workitem states](https://dicom.nema.org/medical/dicom/curr
 * `CANCELED`
 * `COMPLETED`
 
-This transaction will only succeed against Workitems in the `SCHEDULED`* state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
+This transaction will only succeed against Workitems in the `SCHEDULED` state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
 
 |Method	|Path|	Description|
 |:---|:---|:---|
@@ -660,7 +660,7 @@ Notes on dataset attributes:
 |Code	|Description|
 |:---|:---|
 |`200 (OK)`|	The Target Workitem was updated.|
-|`400 (Bad Request)`|	There was a problem with the request. For example: (1) the Target Workitem was in the **COMPLETED** or **CANCELED** state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset did not conform to the requirements.|
+|`400 (Bad Request)`|	There was a problem with the request. For example: (1) the Target Workitem was in the `COMPLETED` or `CANCELED` state. (2) the Transaction UID is missing. (3) the Transaction UID is incorrect. (4) the dataset did not conform to the requirements.|
 |`401 (Unauthorized)`|	The client is not authenticated.|
 | `403 (Forbidden)`              | The user is not authorized. |
 |`404 (Not Found)`|	The Target Workitem was not found.|
