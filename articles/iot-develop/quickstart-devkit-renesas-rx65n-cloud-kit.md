@@ -97,7 +97,7 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
     |Constant name|Value|
     |-------------|-----|
-    |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
+    |`WIFI_SSID` |{*Your Wi-Fi SSID*}|
     |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
     |`WIFI_MODE` |{*One of the enumerated Wi-Fi mode values in the file*}|
 
