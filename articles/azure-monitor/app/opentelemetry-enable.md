@@ -317,7 +317,7 @@ var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttr
 // Done setting role name and role instance
 
 // Set ResourceBuilder on the provider.
-using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .SetResourceBuilder(resourceBuilder)
     .AddSource("OTel.AzureMonitor.Demo")
     .AddAzureMonitorTraceExporter(o =>
@@ -395,7 +395,7 @@ dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
 ```
 
 ```csharp
-using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddSource("OTel.AzureMonitor.Demo")
     .SetSampler(new ApplicationInsightsSampler(0.4F))
     .AddAzureMonitorTraceExporter(o =>
