@@ -44,7 +44,7 @@ Organizations can choose to block access when risk is detected. Blocking sometim
    - Azure AD MFA can be triggered, allowing to user to prove it's them by using one of their registered authentication methods, resetting the sign-in risk. 
 
 > [!WARNING]
-> Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
+> Users must register for Azure AD MFA before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
 > 
 > Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password reset.
 
