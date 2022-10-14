@@ -32,8 +32,6 @@ Additionally, the following non-standard API(s) are supported:
 * [Change Feed](dicom-change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
 
-All paths below include an implicit base URL of the server, such as `https://localhost:63838` when running locally.
-
 The service uses REST API versioning. The version of the REST API must be explicitly specified as part of the base URL, as in the following example:
 
 `https://<service_url>/v<version>/studies`
@@ -320,7 +318,7 @@ The following parameters for each query are supported:
 
 | Key    | Support Value(s)    | Allowed Count | Description |
 | :----- | :----- | :------------ | :---------- |
-| `{attributeID}=` | {value}     | 0...N    | Search for attribute/ value matching in query. |
+| `{attributeID}=` | `{value}`     | 0...N    | Search for attribute/ value matching in query. |
 | `includefield=`  | `{attributeID}`<br/>`all`   | 0...N   | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided. Refer to [Search Response](#search-response) for more information about which attributes will be returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server will default to using `all`. |
 | `limit=`  | `{value}`  | 0..1   | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
 | `offset=`     | `{value}`  | 0..1  | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response will be returned. |
@@ -563,7 +561,7 @@ Notes on dataset attributes:
 
 #### Create Response Payload
 
-A success response will have no payload. The Location and Content-Location response headers will contain a URI reference to the created Workitem.
+A success response will have no payload. The `Location` and `Content-Location` response headers will contain a URI reference to the created Workitem.
 
 A failure response payload will contain a message describing the failure.
 
@@ -571,14 +569,14 @@ A failure response payload will contain a message describing the failure.
 
 This transaction enables the user to request cancellation of a non-owned Workitem.
 
-There are four valid Workitem states:
+There are [four valid Workitem states](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.1.1-1):
 
-* SCHEDULED
-* IN PROGRESS
-* CANCELED
-* COMPLETED
+* `SCHEDULED`
+* `IN PROGRESS`
+* `CANCELED`
+* `COMPLETED`
 
-This transaction will only succeed against Workitems in the **SCHEDULED** state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to **IN PROGRESS**. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are **IN PROGRESS** will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
+This transaction will only succeed against Workitems in the `SCHEDULED`* state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service does not implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
 
 |Method	|Path|	Description|
 |:---|:---|:---|
@@ -683,7 +681,7 @@ This transaction is used to change the state of a Workitem. It corresponds to th
 
 Refer to: https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_11.7
 
-If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the `Transaction UID (0008,1195)` attribute. This is necessary to preserve this attribute's role as an access lock, as described here.
+If the Workitem exists on the origin server, the Workitem shall be returned in an Acceptable Media Type. The returned Workitem shall not contain the Transaction UID (0008,1195) attribute. This is necessary to preserve this attribute's role as an access lock, as described here.
 
 |Method|	Path|	Description|
 |:---|:---|:---|
@@ -693,8 +691,8 @@ The `Accept` header is required, and must have the value `application/dicom+json
 
 The request payload shall contain the Change UPS State Data Elements. These data elements are:
 
-* **Transaction UID (0008, 1195)** The request payload shall include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the **IN PROGRESS** state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
-* **Procedure Step State (0074, 1000)** The legal values correspond to the requested state transition. They are: **IN PROGRESS**, **COMPLETED**, or **CANCELED**.
+* **Transaction UID (0008, 1195)** The request payload shall include a Transaction UID. The user agent creates the Transaction UID when requesting a transition to the `IN PROGRESS` state for a given Workitem. The user agent provides that Transaction UID in subsequent transactions with that Workitem.
+* **Procedure Step State (0074, 1000)** The legal values correspond to the requested state transition. They are: `IN PROGRESS`, `COMPLETED`, or `CANCELED`.
 
 #### Change Workitem State Response Status Codes
 
