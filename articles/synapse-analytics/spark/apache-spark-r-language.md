@@ -29,9 +29,9 @@ An Azure Synapse notebook is a web interface for you to create files that contai
 
 To get started with R in Synapse notebooks, you can change the primary language by setting the **language option** to *SparkR (R)*.
 
-   ![R Language Option.](./media/apache-spark-data-viz/r-language-option.png#lightbox)
+   ![Screenshot of the R language option.](./media/apache-spark-data-viz/r-language-option.png#lightbox)
 
-In addition, you can multiple languages in one notebook by specifying the language magic command at the beginning of a cell.
+In addition, you can use multiple languages in one notebook by specifying the language magic command at the beginning of a cell.
 
 ```r
 %%sparkr
@@ -68,8 +68,7 @@ For example, users can install an R library from CRAN and CRAN snapshots. In the
 install.packages("highcharter", repos = "https://cran.microsoft.com/snapshot/2021-07-16/")
 ```
 
-To learn more about how to manage session R libraries, you can visit the following article:
-    - [Manage R session packages](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview)
+To learn more about how to manage session R libraries, you can visit the following article: [manage R session packages](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview)
 
 ## Notebook Utilities
 
@@ -82,8 +81,7 @@ library(notebookutils)
 mssparkutils.fs.help()
 ```
 
-You can learn more about the supported MSSparkUtils commands by vising the following article:
-    - [Use Microsoft Spark Utilities](./microsoft-spark-utilities.md)
+You can learn more about the supported MSSparkUtils commands by visiting the following article: [use Microsoft Spark Utilities](./microsoft-spark-utilities.md)
 
 ## Use SparkR
 

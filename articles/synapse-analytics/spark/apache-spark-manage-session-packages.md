@@ -63,7 +63,7 @@ We recommend you to run the %%configure at the beginning of your notebook. You c
 
 Azure Synapse Analytics pools include many popular R libraries out-of-the-box. You can also install additional 3rd party libraries during your Apache Spark notebook session.
 
-Session-scoped R libraries allow you to customize the R environment for a specific notebook session. When you install an R session-scoped library, only the notebook associated with that notebook session will have access to the newly installed libraries. Other notebooks or sessions using the same Spark pool definition will not be impacted. In addition, session-scoped R libraries do not persist across sessions. These libraries will be installed at the start of each session when the related installation commands are executed. Last, session-scoped R libraries are automatically installed across both the driver and worker nodes
+Session-scoped R libraries allow you to customize the R environment for a specific notebook session. When you install an R session-scoped library, only the notebook associated with that notebook session will have access to the newly installed libraries. Other notebooks or sessions using the same Spark pool definition will not be impacted. In addition, session-scoped R libraries do not persist across sessions. These libraries will be installed at the start of each session when the installation commands are executed. Last, session-scoped R libraries are automatically installed across both the driver and worker nodes.
 
 ### Install a package
 

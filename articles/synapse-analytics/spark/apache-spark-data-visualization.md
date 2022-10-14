@@ -283,7 +283,7 @@ The R ecosystem offers multiple graphing libraries that come packed with many di
 
 The [ggplot2](https://ggplot2.tidyverse.org/) library is popular for data visualization and exploratory data analysis. 
 
-   ![ggplot2 graph example.](./media/apache-spark-data-viz/ggplot2.png#lightbox)
+   ![Screenshot of a ggplot2 graph example.](./media/apache-spark-data-viz/ggplot2.png#lightbox)
 
 ```r
 library(ggplot2)
@@ -314,7 +314,7 @@ install.packages("rbokeh")
 
 Once installed, you can leverage rBokeh to create interactive visualizations.
 
-   ![rBokeh graph example.](./media/apache-spark-data-viz/bokeh_plot.png#lightbox)
+   ![Screenshot of a rBokeh graph example.](./media/apache-spark-data-viz/bokeh_plot.png#lightbox)
 
 ```r
 library(rbokeh)
@@ -336,7 +336,7 @@ install.packages("plotly")
 
 Once installed, you can leverage Plotly to create interactive visualizations.
 
-   ![Plotly graph example.](./media/apache-spark-data-viz/plotly-r.png#lightbox)
+   ![Screenshot of a Plotly graph example.](./media/apache-spark-data-viz/plotly-r.png#lightbox)
 
 ```r
 library(plotly) 
@@ -360,7 +360,7 @@ install.packages("highcharter")
 
 Once installed, you can leverage Highcharter to create interactive visualizations.
 
-   ![Highcharter graph example.](./media/apache-spark-data-viz/highcharter.png#lightbox)
+   ![Screenshot of a Highcharter graph example.](./media/apache-spark-data-viz/highcharter.png#lightbox)
 
 ```r
 library(magrittr)
@@ -376,7 +376,7 @@ Azure Synapse Analytics integrates deeply with Power BI allowing data engineers 
 
 Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools and serverless SQL pool. Using the [shared metadata model](../metadata/overview.md),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to Power BI to easily query your synced Spark tables.
 
-
 ## Next steps
+
 - For more information on how to set up the Spark SQL DW Connector: [Synapse SQL connector](./spark/../synapse-spark-sql-pool-import-export.md)
 - View the default libraries: [Azure Synapse Analytics runtime](../spark/apache-spark-version-support.md)
