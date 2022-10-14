@@ -24,7 +24,7 @@ Only low-priority compute nodes in Batch are being retired. Spot compute nodes w
 
 ## Alternative: Use Azure Spot-based compute nodes in Batch pools
 
-As of December 2021, Azure Batch began offering Spot-based compute nodes in Batch. Like low-priority VMs, you can use spot instances to obtain spare capacity at a discounted price in exchange for the possibility that the VM will be preempted. If a preemption occurs, the spot compute node will be evicted and all work that wasn't saved on the compute node will be lost. Azure Batch will automatically attempt to seek back to the target preempted node count as specified on the pool.
+As of December 2021, Azure Batch began offering Spot-based compute nodes in Batch. Like low-priority VMs, you can use spot instances to obtain spare capacity at a discounted price in exchange for the possibility that the VM will be preempted. If a preemption occurs, the spot compute node will be evicted and all work that wasn't appropriately checkpointed will be lost. Note that checkpointing is optional and is up to the Batch end-user to implement. The running Batch task that was interrupted due to preemption will be automatically requeued for execution by a different compute node. Additionally, Azure Batch will automatically attempt to seek back to the target preempted node count as specified on the pool.
 
 See the [detailed breakdown](batch-spot-vms.md) between the low-priority and spot offering in Batch.
 
