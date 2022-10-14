@@ -2,21 +2,18 @@
 title: Automatic extension upgrade (preview) for Azure Arc-enabled servers
 description: Learn how to enable the automatic extension upgrades for your Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 10/14/2022
 ---
 
 # Automatic extension upgrade (preview) for Azure Arc-enabled servers
 
-Automatic extension upgrade (preview) is available for Azure Arc-enabled servers that have supported VM extensions installed. When automatic extension upgrade is enabled on a machine, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
+Automatic extension upgrade (preview) is available for Azure Arc-enabled servers that have supported VM extensions installed. Automatic extension upgrades reduce the amount of operational overhead for you by scheduling the installation of new extension versions when they become available. The Azure Connected Machine agent takes care of upgrading the extension (preserving its settings along the way) and automatically rolling back to the previous version if something goes wrong during the upgrade process.
 
- Automatic extension upgrade has the following features:
+Automatic extension upgrade has the following features:
 
-- You can opt in and out of automatic upgrades at any time.
+- You can opt in and out of automatic upgrades at any time. By default,all extensions are opted into automatic extension upgrades.
 - Each supported extension is enrolled individually, and you can choose which extensions to upgrade automatically.
-- Supported in all public cloud regions.
-
-> [!NOTE]
-> In this release, it is only possible to configure automatic extension upgrade with the Azure CLI and Azure PowerShell module.
+- Supported in all Azure Arc regions.
 
 ## How does automatic extension upgrade work?
 
@@ -57,19 +54,23 @@ Automatic extension upgrade supports the following extensions (and more are adde
 - Key Vault Extension - Linux only
 - Log Analytics agent (OMS agent) - Linux only
 
-## Enable automatic extension upgrade
+## Manage automatic extension upgrade
 
-Automatic extension upgrade is enabled by default when you install extensions on Azure Arc-enabled servers. To enable automatic extension upgrade for an existing extension, you can use Azure CLI or Azure PowerShell to set the `enableAutomaticUpgrade` property on the extension to `true`. You'll need to repeat this process for every extension where you'd like to enable automatic upgrades.
+Automatic extension upgrade is enabled by default when you install extensions on Azure Arc-enabled servers. To enable automatic upgrades for an existing extension, you can use Azure CLI or Azure PowerShell to set the `enableAutomaticUpgrade` property on the extension to `true`. You'll need to repeat this process for every extension where you'd like to enable or disable automatic upgrades.
 
-Use the [az connectedmachine extension update](/cli/azure/connectedmachine/extension) command to enable automatic upgrade on an extension:
+### [Azure portal](#tab/azure-portal)
 
-```azurecli
-az connectedmachine extension update \
-    --resource-group resourceGroupName \
-    --machine-name machineName \
-    --name DependencyAgentLinux \
-    --enable-auto-upgrade true
-```
+Use the following steps to configure automatic extension upgrades in using the Azure portal:
+
+1. Navigate to the [Azure portal](https://portal.azure.com) and type **Servers - Azure Arc** into the search bar.
+   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-search-arc-server.png" alt-text="Screenshot of Azure portal showing user typing in Servers - Azure Arc" border="true":::
+1. Select **Servers - Azure Arc** under the Services category, then select the individual server you wish to manage.
+1. In the navigation pane, select the **Extensions** tab to see a list of all extensions installed on the server.
+   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-navigation-extensions.png" alt-text="Screenshot of an Azure Arc-enabled server in the Azure portal showing where to navigate to extensions" border="true":::
+1. The **Automatic upgrade** column in the table shows whether upgrades are enabled, disabled, or not supported for each extension. Select the checkbox next to the extensions for which you want automatic upgrades enabled, then select **Enable automatic upgrade** to turn on the feature. Select **Disable automatic upgrade** to turn off the feature.
+   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-enable-auto-upgrade.png" alt-text="Screenshot of Azure portal showing how to select extensions and enable automatic upgrades" border="true":::
+
+### [Azure CLI](#tab/azure-cli)
 
 To check the status of automatic extension upgrade for all extensions on an Arc-enabled server, run the following command:
 
@@ -77,11 +78,19 @@ To check the status of automatic extension upgrade for all extensions on an Arc-
 az connectedmachine extension list --resource-group resourceGroupName --machine-name machineName --query "[].{Name:name, AutoUpgrade:properties.enableAutoUpgrade}" --output table
 ```
 
-To enable automatic extension upgrade for an extension using Azure PowerShell, use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet:
+Use the [az connectedmachine extension update](/cli/azure/connectedmachine/extension) command to configure automatic upgrade on an extension:
 
-```azurepowershell
-Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name DependencyAgentLinux -EnableAutomaticUpgrade
+```azurecli
+az connectedmachine extension update \
+    --resource-group resourceGroupName \
+    --machine-name machineName \
+    --name extensionName \
+    --enable-auto-upgrade true
 ```
+
+To disable automatic upgrades, set the `--enable-auto-upgrade` parameter to `false`.
+
+### [Azure PowerShell](#tab/azure-powershell)
 
 To check the status of automatic extension upgrade for all extensions on an Arc-enabled server, run the following command:
 
@@ -89,31 +98,25 @@ To check the status of automatic extension upgrade for all extensions on an Arc-
 Get-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName | Format-Table Name, EnableAutomaticUpgrade
 ```
 
+To enable automatic upgrades for an extension using Azure PowerShell, use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet:
+
+```azurepowershell
+Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name extensionName -EnableAutomaticUpgrade
+```
+
+To disable automatic upgrades, set `-EnableAutomaticUpgrade:$false` as shown in the example below:
+
+```azurepowershell
+Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name extensionName -EnableAutomaticUpgrade:$false
+```
+
+---
+
 ## Extension upgrades with multiple extensions
 
 A machine managed by Arc-enabled servers can have multiple extensions with automatic extension upgrade enabled. The same machine can also have other extensions without automatic extension upgrade enabled.
 
 If multiple extension upgrades are available for a machine, the upgrades may be batched together, but each extension upgrade is applied individually on a machine. A failure on one extension doesn't impact the other extension(s) to be upgraded. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second extension will still be upgraded.
-
-## Disable automatic extension upgrade
-
-To disable automatic extension upgrade for an extension, set the `enable-auto-upgrade` property to `false`.
-
-With Azure CLI, use the [az connectedmachine extension update](/cli/azure/connectedmachine/extension) command to disable automatic upgrade on an extension:
-
-```azurecli
-az connectedmachine extension update \
-    --resource-group resourceGroupName \
-    --machine-name machineName \
-    --name DependencyAgentLinux \
-    --enable-auto-upgrade false
-```
-
-With Azure PowerShell, use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet:
-
-```azurepowershell
-Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name DependencyAgentLinux -EnableAutomaticUpgrade:$false
-```
 
 ## Check automatic extension upgrade history
 
