@@ -15,7 +15,7 @@ ms.date: 10/14/2022
 
 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/#features) (ABS) is a cloud-native scalable, durable and secure storage service. These characteristics of ABS make it a good choice of storing and moving existing data into the cloud.
 
-[Migrate your on-premises data to cloud storage using AzCopy](../../storage/common/storage-use-azcopy-migrate-on-premises-data.md) and then use your storage account as a staging environment for loading data into your Azure Cosmos DB for PostgreSQL cluster using the pg_azure_storage extension.
+Learn how to use pg_azure_storage storage account to manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
 
 ## Steps to use ABS with Azure Cosmos DB for PostgreSQL
 
@@ -36,7 +36,7 @@ ms.date: 10/14/2022
 
 1. List public container contents
     
-    We can easily see what files are present in the `github` container of the `pgquickstart` Azure Blob Storage account by using the `azure_storage.blob_list(account, container)` function. This is possible because the container is public and allows anonymous access.
+    We can easily see what files are present in the `github` container of the `pgquickstart` Azure Blob Storage account by using the `azure_storage.blob_list(account, container)` function.
     
     ```sql
     SELECT path, bytes, pg_size_pretty(bytes), content_type FROM azure_storage.blob_list('pgquickstart','github');
@@ -98,7 +98,7 @@ ms.date: 10/14/2022
     (10 rows)
     ```
 
-    Trying to list containers that are set to Private or Blob access levels will result in errors.
+    Without an access key, we won't be allowed to list containers that are set to Private or Blob access levels.
 
     ```
     citus=> SELECT * FROM azure_storage.blob_list('mystorageaccount','privdatasets');
@@ -118,9 +118,7 @@ ms.date: 10/14/2022
     SELECT azure_storage.account_add('mystorageaccount', 'SECRET_ACCESS_KEY');
     ```
 
-    Adding an account access key, will allow you to list containers set to Private and Blob access levels for that storage.
-
-    This is true for the default `citus` user, which has the `azure_storage_admin` role granted to it. If you created new user accounts like `support` they will see not be allowed to access container contents by default.
+    Now you can list containers set to Private and Blob access levels for that storage but only as the `citus` user, which has the `azure_storage_admin` role granted to it. If you create a new user named `support`, it won't be allowed to access container contents by default.
 
     ```
     citus=> select * from azure_storage.blob_list('pgabs','dataverse');
@@ -206,7 +204,7 @@ ms.date: 10/14/2022
     
     Notice how the extension recognized that the URLs provided to the copy command are from Azure Blob Storage, the files we pointed were gzip compressed and that was also automatically handled for us.
 
-    The `COPY` command support additional parameters and formats. In the above example, the `csv` format and `gzip` compression was auto-selected based on the file extensions. You can however provide the format directly like in the regular copy command.
+    The `COPY` command supports more parameters and formats. In the above example, the format and compression were auto-selected based on the file extensions. You can however provide the format directly similar to the regular `COPY` command.
 
     ```sql
     COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz' WITH (FORMAT 'csv');
@@ -219,12 +217,12 @@ ms.date: 10/14/2022
     |csv|Comma-separated values format used by PostgreSQL COPY|
     |tsv|Tab-separated values, the default PostgreSQL COPY format|
     |binary|Binary PostgreSQL COPY format|
-    |text|A file containing a single text value (e.g. large JSON or XML)|
+    |text|A file containing a single text value (for example, large JSON or XML)|
     
 
 1. Accessing and importing file content using `blob_get`
 
-    The `COPY` command is very convenient but is limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
+    The `COPY` command is convenient but is limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
 
     ```sql
     SELECT * FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users) LIMIT 3;
@@ -256,11 +254,11 @@ ms.date: 10/14/2022
     INSERT 0 264308
     ```
 
-    With this, we filtered the data to accounts with a `gravatar_id` present and upper cased their logins on the fly.
+    In the above command, we filtered the data to accounts with a `gravatar_id` present and upper cased their logins on the fly.
 
 1. Options for `blob_get`
 
-    In some situations, you may need to control exactly what `blob_get` attempts to do. This is made possible by the `decoder`, `compression` and `options` parameters.
+    In some situations, you may need to control exactly what `blob_get` attempts to do by using the `decoder`, `compression` and `options` parameters.
 
     Decoder can be set to `auto` (default) or any of the following values:
 
@@ -269,12 +267,12 @@ ms.date: 10/14/2022
     |csv|Comma-separated values format used by PostgreSQL COPY|
     |tsv|Tab-separated values, the default PostgreSQL COPY format|
     |binary|Binary PostgreSQL COPY format|
-    |text|A file containing a single text value (e.g. large JSON or XML)|
+    |text|A file containing a single text value (for example, large JSON or XML)|
 
     `compression` can be either `auto` (default), `none` or `gzip`.
 
     Finally, the `options` parameter is of type `jsonb`. There are four utility functions that help building values for it.
-    Each utility function is designated for the decoder matching it's name.
+    Each utility function is designated for the decoder matching its name.
 
     |decoder|options function  |
     |-------|------------------|
@@ -283,7 +281,7 @@ ms.date: 10/14/2022
     |binary |`options_binary`  |
     |text   |`options_copy`    |
 
-    By looking at the function definitions you can see which parameters are supported by which decoder.
+    By looking at the function definitions, you can see which parameters are supported by which decoder.
 
     `options_csv_get` - delimiter, null_string, header, quote, escape, force_not_null, force_null, content_encoding
     `options_tsv` - delimiter, null_string, content_encoding
