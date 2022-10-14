@@ -27,7 +27,7 @@ You'll also need the following software installed on your computer.
 
 ## Getting Started Locally
 
-First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld/tree/main-azure). The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
+First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) and check out the `main-azure` branch. The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
 
 ```cli
 git clone -b main-azure https://github.com/microsoft/FluidHelloWorld.git
@@ -68,6 +68,7 @@ const serviceConfig = {
 
 > [!WARNING]
 > During development, you can use `InsecureTokenProvider` to generate and sign authentication tokens that the Azure Fluid Relay service will accept. However, as the name implies, this is insecure and should not be used in production environments. The Azure Fluid Relay resource creation process provides you with a secret key which can be used to sign secure requests. **To ensure that this secret doesn't get exposed, this should be replaced with another implementation of ITokenProvider that fetches the token from a secure, developer-provided backend service prior to releasing to production.**
+
 > One secure approach is outlined in ["How to: Write a TokenProvider with an Azure Function"](../how-tos/azure-function-token-provider.md).
 
 ### Build and run the client only

@@ -98,10 +98,7 @@ TokenProviders can be implemented in many ways, but must implement two separate 
 
 To ensure that the tenant secret key is kept secure, it's stored in a secure backend location and is only accessible from within the Azure Function. To retrieve tokens, you need to make a `GET` or `POST` request to your deployed Azure Function, providing the `tenantID` and `documentId`, and `userID`/`userName`. The Azure Function is responsible for the mapping between the tenant ID and a tenant key secret to appropriately generate and sign the token.
 
-The example implementation below handles making these requests to your Azure Function.
-It uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests.
-You can use other libraries or approaches to making an HTTP request from server code.
-This specific implementation is also provided for you as an export from the `@fluidframework/azure-client` package.
+The example implementation below handles making these requests to your Azure Function. It uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request from server code. This specific implementation is also provided for you as an export from the `@fluidframework/azure-client` package.
 
 ```typescript
 import { ITokenProvider, ITokenResponse } from "@fluidframework/routerlicious-driver";
