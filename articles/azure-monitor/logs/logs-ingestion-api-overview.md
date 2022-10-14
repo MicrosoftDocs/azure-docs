@@ -1,17 +1,17 @@
 ---
-title: Logs ingestion API in Azure Monitor (preview)
+title: Logs Ingestion API in Azure Monitor (preview)
 description: Send data to a Log Analytics workspace by using a REST API.
 ms.topic: conceptual
 ms.date: 06/27/2022
 
 ---
 
-# Logs ingestion API in Azure Monitor (preview)
+# Logs Ingestion API in Azure Monitor (preview)
 
-The Logs ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client. By using this API, you can send data from almost any source to [supported built-in tables](#supported-tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
+The Logs Ingestion API in Azure Monitor lets you send data to a Log Analytics workspace from any REST API client. By using this API, you can send data from almost any source to [supported built-in tables](#supported-tables) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
 
 > [!NOTE]
-> The Logs ingestion API was previously referred to as the custom logs API.
+> The Logs Ingestion API was previously referred to as the custom logs API.
 
 ## Basic operation
 
@@ -34,11 +34,11 @@ The following tables are supported.
 
 ### Custom tables
 
-The Logs ingestion API can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it.
+The Logs Ingestion API can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it.
 
 ### Built-in tables
 
-The Logs ingestion API can send data to the following built-in tables. Other tables might be added to this list as support for them is implemented:
+The Logs Ingestion API can send data to the following built-in tables. Other tables might be added to this list as support for them is implemented:
 
 - [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog)
 - [SecurityEvents](/azure/azure-monitor/reference/tables/securityevent)
@@ -69,7 +69,7 @@ The DCR must understand the structure of the input data and the structure of the
 
 ## Send data
 
-To send data to Azure Monitor with the Logs ingestion API, make a POST call to the DCE over HTTP. Details of the call are described in the following sections.
+To send data to Azure Monitor with the Logs Ingestion API, make a POST call to the DCE over HTTP. Details of the call are described in the following sections.
 
 ### Endpoint URI
 
@@ -86,7 +86,7 @@ The endpoint URI uses the following format, where the `Data Collection Endpoint`
 
 | Header | Required? | Value | Description |
 |:---|:---|:---|:---|
-| Authorization     | Yes | Bearer {Bearer token obtained through the Client Credentials Flow}  | |
+| Authorization     | Yes | Bearer (bearer token obtained through the client credentials flow)  | |
 | Content-Type      | Yes | `application/json` | |
 | Content-Encoding  | No  | `gzip` | Use the gzip compression scheme for performance optimization. |
 | x-ms-client-request-id | No | String-formatted GUID |  Request ID that can be used by Microsoft for any troubleshooting purposes.  |
@@ -101,7 +101,7 @@ For sample data and an API call using the logs ingestion API, see either [Send c
 
 ## Limits and restrictions
 
-For limits related to the Logs ingestion API, see [Azure Monitor service limits](../service-limits.md#logs-ingestion-api).
+For limits related to the Logs Ingestion API, see [Azure Monitor service limits](../service-limits.md#logs-ingestion-api).
 
 ## Next steps
 
