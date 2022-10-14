@@ -153,7 +153,7 @@ Once you've configured provisioning, use the following resources to monitor your
 
 ## Change log
 * 05/14/2020 - Support for UPDATE operations  added for emails[type eq "work"] attribute.
-* 10/20/2020 - Added support for two new roles "Licensed" and "On-Prem" to replace existing roles "Pro" and "Corp". Support for roles "Pro" and "Corp" will be removed in the future.
+* 10/20/2020 - Added support for two new roles "Licensed" and "on-premises" to replace existing roles "Pro" and "Corp". Support for roles "Pro" and "Corp" will be removed in the future.
 
 ## Additional resources
 
