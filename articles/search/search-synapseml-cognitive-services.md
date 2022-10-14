@@ -22,7 +22,7 @@ In this Azure Cognitive Search tutorial, learn how to index and query large data
 > + Write the output to a search index hosted in Azure Cognitive Search
 > + Explore and query over the content you created
 
-This tutorial takes a dependency on [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/), an open source library that supports massively parallel machine learning over big data. In SynapseML, search indexing and machine learning are exposed through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this exercise, you'll use a transformer that calls Cognitive Search for indexing, and another transformer that calls Cognitive Services for AI enrichment.
+This tutorial takes a dependency on [SynapseML](https://www.microsoft.com/research/blog/synapseml-a-simple-multilingual-and-massively-parallel-machine-learning-library/), an open source library that supports massively parallel machine learning over big data. In SynapseML, search indexing and machine learning are exposed through *transformers* that perform specialized tasks. Transformers tap into a wide range of AI capabilities. In this exercise, you'll use the **AzureSearchWriter** transformer that calls Cognitive Search for indexing, and other transformers that calls Cognitive Services for analysis and AI enrichment.
 
 Although Azure Cognitive Search has native [AI enrichment](cognitive-search-concept-intro.md), this tutorial shows you how to access AI capabilities outside of Cognitive Search. By using SynapseML instead of indexers or skills, you're not subject to data limits or other constraints associated with those objects.
 
