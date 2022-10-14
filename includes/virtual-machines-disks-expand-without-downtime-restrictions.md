@@ -17,7 +17,7 @@
     - The [latest Azure CLI](/cli/azure/install-azure-cli)
     - The [latest Azure PowerShell module](/powershell/azure/install-az-ps)
     - The [Azure portal](https://portal.azure.com/)
-    - Or an Azure Resource Manager template with an API version that's 2021-04-01 or newer.
+    - Or an Azure Resource Manager template with an API version that's `2021-04-01` or newer.
 - Only available with particular VM SKUs.
 
 Use the following PowerShell script to determine which VM SKUs it's available with:
