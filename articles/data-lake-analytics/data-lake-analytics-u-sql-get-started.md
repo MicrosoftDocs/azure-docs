@@ -18,9 +18,44 @@ U-SQL is a language that combines declarative SQL with imperative C# to let you 
 
 ## Prerequisites
 
-Before you go through the U-SQL samples in this document, read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). That tutorial explains the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
+Before you go through the U-SQL samples in this document, read and complete one of these two tutorials:
 
-## Your first U-SQL script
+* [Tutorial: Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md) - This tutorial will guide you through creating and ADLA account and getting started with USQL.
+* [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) - This tutorial explains the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
+
+## Let's create some data
+
+The following U-SQL script is simple and lets us create a sample data file that we can reference in our other U-SQL scripts. We'll discuss the key concepts that make this script go in the next section.
+
+```usql
+USE DATABASE master;
+USE SCHEMA dbo;
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            (399266, "2/15/2012 11:53:16 AM", "en-us", "microsoft", 73, "microsoft.com;xbox.com", "NULL"),
+			(382045, "2/15/2012 11:53:18 AM", "en-gb", "azure data lake analytics", 614, "microsoft.com;portal.azure.com", "portal.azure.com"),
+			(382045, "2/16/2012 11:53:20 AM", "en-gb", "usql", 74, "microsoft.com;github.com", "NULL"),
+			(106479, "2/16/2012 11:53:50 AM", "en-ca", "xbox", 24, "xbox.com;xbox.com/xbox360", "xbox.com/xbox360"),
+			(906441, "2/16/2012 11:54:01 AM", "en-us", "machine learning", 1213, "microsoft.com;github.com", "NULL"),
+			(304305, "2/16/2012 11:54:03 AM", "en-us", "outlook", 60, "microsoft.com;office.com;live.com","microsoft.com"),
+			(460748, "2/16/2012 11:54:04 AM", "en-us", "azure storage", 1270, "microsoft.com;portal.azure.com", "portal.azure.com"),
+			(354841, "2/16/2012 11:59:01 AM", "en-us", "azure", 610, "microsoft.com;portal.azure.com", "portal.azure.com"),
+			(354068, "2/16/2012 12:00:33 PM", "en-mx", "key vault", 422, "microsoft.com;portal.azure.com", "portal.azure.com"),
+			(347413, "2/16/2012 12:11:55 PM", "en-gr", "github", 305, "github.com", "NULL"),
+			(840614, "2/16/2012 12:13:56 PM", "en-us", "surface", 1220, "microsoft.com", "NULL"),
+			(656666, "2/16/2012 12:15:55 PM", "en-us", "visual studio", 691, "microsoft.com;code.visualstudio.com", "NULL"),
+			(951513, "2/16/2012 12:17:00 PM", "en-us", "power bi", 63, "microsoft.com;app.powerbi.com", "powerbi.com"),
+			(350350, "2/16/2012 12:18:17 PM", "en-us", "data factory", 30, "microsoft.com;portal.azure.com", "NULL"),
+			(641615, "2/16/2012 12:19:55 PM", "en-us", "event hubs", 119, "microsoft.com;portal.azure.com", "NULL")
+        ) AS 
+              D( UserId, Start, Region, Query, Duration, Urls, ClickedUrls );
+OUTPUT @a
+    TO "Samples/Data/SearchLog.tsv"
+    USING Outputters.Tsv();
+```
+
+## Read data from a file
 
 The following U-SQL script is simple and lets us explore many aspects the U-SQL language.
 
