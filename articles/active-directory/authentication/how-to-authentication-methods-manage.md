@@ -29,9 +29,9 @@ Each method also has configuration parameters to control how that method can be 
 
 <!---they will add ability to specify roles in addition to users and groups. Also, they will add ability to exclude, just like CA.--->
 
-For example, if you enable **Phone sign-in**, you can also specify whether an office phone can be used in addition to a mobile phone. 
+For example, if you enable **Phone call**, you can also specify whether an office phone can be used in addition to a mobile phone. 
 
-Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can configure parameters like adding location or the application that requires the sign-in. These options provide more context for users when they sign-in and help prevent accidental MFA approvals.
+Or let's say you want to enable passwordless authentication with Microsoft Authenticator. You can set extra parameters like sign-in location, or the application that requires the sign-in. These options provide more context for users when they sign-in and help prevent accidental MFA approvals.
 
 To manage the Authentication methods policy, click **Security** > **Authentication methods** > **Policies**.
 
@@ -45,7 +45,9 @@ To manage these MFA methods across the tenant, click **Security** > **Multifacto
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
-To manage authentication methods for self-service password reset (SSPR) across the tenant, click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice call or SMS to be sent to a mobile phone. The **Office phone** option allows only voice call.
+To manage authentication methods for self-service password reset (SSPR) across the tenant, click **Password reset** > **Authentication methods**. The **Mobile phone** option in this policy allows either voice call or SMS to be sent to a mobile phone. The **Office phone** option allows only voice call. 
+
+The other policies have separate controls for voice call and SMS. This difference can affect sign-in behavior for users whose 
 
 :::image type="content" border="true" source="./media/how-to-authentication-methods-manage/password-reset.png" alt-text="Screenshot of password reset settings.":::
 
@@ -54,9 +56,9 @@ To manage authentication methods for self-service password reset (SSPR) across t
 
 ## How policies work together
 
-Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. By default, each policy respects the settings in the other policies. A user who is enabled for an authentication method in _any_ policy can register that method. 
+Settings aren't synchronized between the policies, which allows administrators to manage each policy independently. By default, each policy respects the settings in the other policies. A user who is enabled for an authentication method in _any_ policy can register and use that method. 
 
-Let's walk through an example where a user wants to register Microsoft Authenticator. The registration process first checks Authentication methods policy. The user can register Microsoft Authenticator if they, or any group where they have membership, is enabled for it. 
+Let's walk through an example where a user wants to register Microsoft Authenticator. The registration process first checks Authentication methods policy. If the user is enabled for Microsoft Authenticator, or they belong to a group that is enabled for it, they can register it. 
 
 If not, the registration process checks **Multifactor Authentication**. Any user can register Microsoft Authenticator if one of these settings is enabled for MFA:
 
@@ -69,13 +71,15 @@ If the user can't register Microsoft Authenticator based on either of those poli
 - **Mobile app code**
 - **Mobile phone**
 
+The independent policy control can impact sign-in behavior for users who are enabled for **Mobile phone** for SSPR. Where the other policies have separate options for SMS and voice call, the **Mobile phone** for SSPR enabled both options. This means that a user who is enabled for **Mobile phone** for SSPR can register and use voice call even if the other policies do not allow phone calls. 
+
 ## Migration between policies
 
 The Authentication methods policy provides a migration path toward unified administration of all three policies. This migration gives organizations a way to centralize management of authentication methods in a single place.
 
 To view the migration options, open the Authentication methods policy and click **Manage migration**.
 
-
+:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of password reset settings.":::
 
 The following table describes each option.
 
