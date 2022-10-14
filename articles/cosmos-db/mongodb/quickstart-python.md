@@ -85,7 +85,7 @@ The following code prompts the user for the connection string. It's never a good
 CONNECTION_STRING = getpass.getpass(prompt='Enter your primary connection string: ') # Prompts user for connection string
 ```
 
-The following code creates a client connection your API for MongoDB and tests to make sure it's valid.
+The following code creates a client connection for your API to MongoDB and tests to make sure it's valid.
 
 ```python
 client = pymongo.MongoClient(CONNECTION_STRING)
