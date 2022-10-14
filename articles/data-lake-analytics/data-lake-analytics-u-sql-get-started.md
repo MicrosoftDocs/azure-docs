@@ -16,13 +16,6 @@ U-SQL is a language that combines declarative SQL with imperative C# to let you 
 * For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](/u-sql/).
 * To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-## Prerequisites
-
-Before you go through the U-SQL samples in this document, read and complete one of these two tutorials:
-
-* [Tutorial: Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md) - This tutorial will guide you through creating and ADLA account and getting started with USQL.
-* [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) - This tutorial explains the mechanics of using U-SQL with Azure Data Lake Tools for Visual Studio.
-
 ## Let's create some data
 
 The following U-SQL script is simple and lets us create a sample data file that we can reference in our other U-SQL scripts. We'll discuss the key concepts that make this script go in the next section.

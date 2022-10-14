@@ -14,7 +14,7 @@ This article describes how to use the Azure portal to create Azure Data Lake Ana
 
 ## Prerequisites
 
-Before you begin this tutorial, you must have an **Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+Before you begin this tutorial, you must have an **Azure subscription**. If you don't, you can follow this link to [get an Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create a Data Lake Analytics account
 
