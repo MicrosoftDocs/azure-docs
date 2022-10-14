@@ -13,21 +13,19 @@ ms.date: 10/14/2022
 
 # Add scoring profiles to boost search scores in Azure Cognitive Search
 
-In this article, you'll learn how to create a scoring profile that can boost search scores using business logic or other criteria that you provide.
+In this article, you can learn how to create a scoring profile for boosting search scores based on criteria that you provide. Criteria can be weighting a field, for example if a match found in a "tags" field is more relevant than a match found in "descriptions". Criteria can also be a function, such as the `distance` function that favors results that are within a specified distance of the current location. 
 
-## What is a scoring profile?
+Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
 
-For full text search queries, the search engine computes a search score for each matching document, which allows results to be ranked from high to low. Azure Cognitive Search uses a default scoring algorithm to compute an initial score, but you can customize the calculation through a *scoring profile*.
-
-Scoring profiles are embedded in index definitions and include properties for boosting the score of matches, where additional criteria found in the profile provides the boosting logic. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
-
-Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers basic concepts. You might also want to review [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
-
+> [!NOTE]
+> Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers basic concepts. You might also want to review [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
+>
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+>
 
-### Scoring profile definition
+## Scoring profile definition
 
-A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters. The purpose of a scoring profile is to boost or amplify matching documents based on criteria you provide. 
+A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters.
 
 The following definition shows a simple profile named 'geo'. This example boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within 10 kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
