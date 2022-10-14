@@ -52,7 +52,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
    ALTER ROLE [db_owner] ADD MEMBER <workspace name>;
    ```
 
-1. You can create a table with your own schema. The following code is just an example for a `CREATE TABLE` query. You can also insert some rows into this table to ensure that there's data to be replicated.
+1. You can create a table with your own schema. The following code is just an example of a `CREATE TABLE` query. You can also insert some rows into this table to ensure that there's data to be replicated.
 
    ```sql
    CREATE TABLE myTestTable1 (c1 int primary key, c2 int, c3 nvarchar(50)) 
@@ -160,13 +160,13 @@ Wait for a few minutes, and then check to ensure that the target database has th
 
 To add or remove tables in Synapse Studio, do the following:
 
-1. Open the **Integrate Hub**.
+1. Open the **Integrate** hub.
 
 1. Select the link connection that you want to edit, and then open it.  
 
 1. Do either of the following:
 
-   * To add a table, select **New**.
+   * To add a table, select **New table**.
    * To remove a table, select the trash can icon next to it.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-add-remove-tables.png" alt-text="Screenshot of the link connection pane for adding or removing tables.":::
@@ -187,11 +187,11 @@ To stop the Azure Synapse Link connection in Synapse Studio, do the following:
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/stop-link-connection.png" alt-text="Screenshot of the pane for stopping a link connection.":::
 
    > [!NOTE]
-   > If you restart a link connection after stopping it, it will start from a full initial load from your source database and incremental change feeds will follow.
+   > If you restart a link connection after stopping it, it will start from a full initial load from your source database, and incremental change feeds will follow.
 
 ## Next steps
 
-If you are using a database other than Azure SQL Database, see:
+If you're using a database other than an Azure SQL database, see:
 
 * [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
