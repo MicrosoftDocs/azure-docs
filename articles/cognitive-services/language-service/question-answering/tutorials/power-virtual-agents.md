@@ -10,6 +10,8 @@ ms.date: 10/11/2022
 ms.custom: language-service-question-answering
 ---
 
+# Add your Question Answering project to Power Virtual Agents
+
 Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.com/) bot to provide answers from your knowledge base. 
 
 > [Note]
@@ -26,10 +28,10 @@ In this tutorial, you learn how to:
 > * Test Power Virtual Agents, and receive an answer from your Question Answering project
 
 > [Note]
-> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure Cognitive Service for Language](../../../language-service/). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
+> The QnA Maker service is being retired on the 31st of March, 2025. A newer version of the question and answering capability is now available as part of [Azure Cognitive Service for Language](https://learn.microsoft.com/azure/cognitive-services/language-service/). For question answering capabilities within the Language Service, see [question answering](../overview.md). Starting 1st October, 2022 you won’t be able to create new QnA Maker resources. For information on migrating existing QnA Maker knowledge bases to question answering, consult the [migration guide](../how-to/migrate-qnamaker.md).
 
 ## Create and publish a project
-1. Follow the [quickstart](../quickstart/sdk?pivots=studio.md) to create a Question Answering project. Once you have deployed your project.
+1. Follow the [quickstart](../quickstart/sdk.md?pivots=studio) to create a Question Answering project. Once you have deployed your project.
 2. After deploying your project from Language Studio, click on “Get Prediction URL”. 
 3. Get your Site URL from the hostname of Prediction URL and your Account key which would be the Ocp-Apim-Subscription-Key.
 
@@ -52,7 +54,7 @@ Although the bot can connect to your project from any topic, this tutorial uses 
 Create a fallback topic by following the steps in [Configure the system fallback topic in Power Virtual Agents](https://learn.microsoft.com/power-virtual-agents/authoring-system-fallback-topic).
 
 ## Use the authoring canvas to add an action
-Use the Power Virtual Agents authoring canvas to connect the fallback topic to your project. The topic starts with the unrecognized user text. Add an action that passes that text to Question Answering, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](../../../QnAMaker/Tutorials/integrate-with-power-virtual-assistant-fallback-topic#add-your-solutions-flow-to-power-virtual-agents.md), later in this tutorial.
+Use the Power Virtual Agents authoring canvas to connect the fallback topic to your project. The topic starts with the unrecognized user text. Add an action that passes that text to Question Answering, and then shows the answer as a message. The last step of displaying an answer is handled as a [separate step](../../../QnAMaker/Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md#add-your-solutions-flow-to-power-virtual-agents.), later in this tutorial.
 
 This section creates the fallback topic conversation flow.
 
