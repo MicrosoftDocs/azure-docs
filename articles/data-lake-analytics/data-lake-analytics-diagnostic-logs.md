@@ -5,7 +5,7 @@ ms.service: data-lake-analytics
 
 
 ms.topic: how-to
-ms.date: 02/12/2018
+ms.date: 10/14/2022
 ---
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
