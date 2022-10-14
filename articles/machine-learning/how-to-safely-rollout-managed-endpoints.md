@@ -43,29 +43,13 @@ In this article, you'll learn to:
 * If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
 
    ```azurecli
-   az account set --subscription <subscription ID>
-   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
+   az account set --subscription <subscription id>
+   az configure --defaults workspace=<azureml workspace name> group=<resource group>
    ```
 
 * An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-* If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
-
-   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
-
-<!-- * (Recommended) Clone the samples repository and switch to the repository's `cli/` directory: 
-
-   ```azurecli
-   git clone https://github.com/Azure/azureml-examples
-   cd azureml-examples/cli
-   ```
-
-The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory. -->
-
-
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
-
-The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
 > [!IMPORTANT]
 > The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
@@ -95,7 +79,7 @@ cd cli
 ```
 
 > [!TIP]
-> Use `--depth 1` to clone only the latest commit to the repository. This reduces time to complete the operation.
+> Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
 
 The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
@@ -122,11 +106,28 @@ cd azureml-examples/sdk/python/endpoints/online/managed
 ```
 
 > [!TIP]
-> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+> Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
 
-The information in this article is based on the [online-endpoints-simple-deployment.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-simple-deployment.ipynb) notebook. It contains the same content as this article, although the order of the codes is slightly different.
+The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. It contains the same content as this article, although the order of the codes may be slightly different.
 
+### Connect to Azure Machine Learning workspace
 
+The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace where you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=import_libraries)]
+
+   
+1. Configure workspace details and get a handle to the workspace:
+
+    To connect to a workspace, we need identifier parameters — a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
+
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=workspace_details)]
+   
+    [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=workspace_handle)]
+
+---
 
 ## -----------------------------------------------------------------
 <!-- * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
