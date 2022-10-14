@@ -287,7 +287,7 @@ Next, learn:
 
 - How to [collect and use user inputs by using custom policy](custom-policies-series-collect-user-input.md)
 
-- About custom policy [claim overview](custom-policy-overview.md#claims). 
+- About custom policy [claims overview](custom-policy-overview.md#claims). 
 
 - How to [declare a custom policy claim](claimsschema.md). 
 
