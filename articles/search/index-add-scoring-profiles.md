@@ -11,16 +11,18 @@ ms.topic: how-to
 ms.date: 10/14/2022
 ---
 
-# Add scoring profiles to boost search scores in Azure Cognitive Search
+# Add scoring profiles to boost search scores
 
-In this article, you can learn how to create a scoring profile for boosting search scores based on criteria that you provide. Criteria can be weighting a field, for example if a match found in a "tags" field is more relevant than a match found in "descriptions". Criteria can also be a function, such as the `distance` function that favors results that are within a specified distance of the current location. 
+In this article, you'll learn how to define a scoring profile for boosting search scores based on criteria.
+
+Criteria can be a weighted field, such as when a match found in a "tags" field is more relevant than a match found in "descriptions". Criteria can also be a function, such as the `distance` function that favors results that are within a specified distance of the current location.
 
 Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
 
 > [!NOTE]
-> Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers basic concepts. You might also want to review [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
+> Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search. You can also visit [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
 >
-> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+> > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
 >
 
 ## Scoring profile definition
@@ -54,7 +56,7 @@ The following definition shows a simple profile named 'geo'. This example boosts
 ]
 ```  
 
-To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request.
+Parameters are specified on invocation. To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request.
 
 ```http
 POST /indexes/hotels/docs&api-version=2020-06-30
