@@ -37,9 +37,13 @@ But also, you can use Call Recording to record complex PSTN or VoIP inbound and 
 
 Regardless of how the call was established, by using Call Recording, you can produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage, where you can retrieve the files from and take them to a long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
-## Media output types
-Recorded media output is in MP4 Audio+Video format, which is the same format that Teams uses to record media.
-Call recording currently supports mixed audio+video MP4 and mixed audio MP3/WAV output formats in Public Preview. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording. 
+## Media output and Channel types supported
+Call Recording supports multiple media outputs and content types to address your business needs:
+
+###Video
+
+
+###Audio
 
 | Content Type | Content Format | Channel Type | Video | Audio |
 | :----------- | :------------- | :----------- | :---- | :--------------------------- |
