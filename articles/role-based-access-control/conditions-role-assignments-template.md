@@ -28,7 +28,7 @@ You must use the following versions:
 - `2020-03-01-preview` or later
 - `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
 - `2022-04-01` is the first stable version
-- 
+
 For more information about the prerequisites to add role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
 ## Add a condition
