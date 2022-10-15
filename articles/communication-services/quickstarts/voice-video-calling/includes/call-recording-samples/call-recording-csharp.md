@@ -30,7 +30,9 @@ Use this example to learn how to [Get serverCallId](../../get-server-call-id.md)
 > Unmixed audio is in Private Preview and is available in the US only. Make sure to provide the Call Recording team with your [immutable Azure resource ID](../../get-resource-id.md) to be allowlisted during the Unmixed audio **private preview** tests. Changes are expected based on feedback we receive during this stage.
 
 
+
 Let's get started with a few simple steps!
+
 
 
 ## 1. Create a Call Automation client
