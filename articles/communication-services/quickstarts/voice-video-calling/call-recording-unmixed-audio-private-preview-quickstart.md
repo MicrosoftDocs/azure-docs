@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Unmixed Audio Recording API quickstart 
 titleSuffix: An Azure Communication Services quickstart document
-description: 	Private Preview quickstart for Unmixed Audio Call Recording APIs
+description: quickstart for Unmixed Audio Call Recording APIs
 author: dbasantes
 services: azure-communication-services
 ms.author: bharat
