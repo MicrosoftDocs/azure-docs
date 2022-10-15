@@ -21,7 +21,7 @@ Call Recording APIs use exclusively the `serverCallId`to initiate recording. The
     1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
-- When using Calling Client SDK, you can retreive the `serverCallId` by using the `getServerCallId` method on the call. 
+- When using Calling Client SDK, you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
 Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK. 
 
 > [!NOTE]
