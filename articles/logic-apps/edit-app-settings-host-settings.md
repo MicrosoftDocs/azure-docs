@@ -283,9 +283,11 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.HttpWebhookOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.RequestTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for HTTP webhook triggers and actions. |
 
-<a name="built-in-blob-storage"></a>
+<a name="built-in-storage"></a>
 
 ### Built-in Azure Storage operations
+
+<a name="built-in-blob-storage"></a>
 
 #### Blob storage
 
@@ -295,6 +297,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.ContentStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
 | `Runtime.ContentStorage.RequestOptionsMaximumExecutionTime` | `00:02:00` <br>(2 min) | Sets the operation timeout value, including retries, for blob requests from the Azure Logic Apps runtime. |
 | `Runtime.ContentStorage.RequestOptionsServerTimeout` | `00:00:30` <br>(30 sec) | Sets the timeout value for blob requests from the Azure Logic Apps runtime. |
+
+<a name="built-in-table-queue-storage"></a>
 
 #### Table and queue storage
 
@@ -318,7 +322,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.FunctionOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for Azure Functions actions. |
 | `Runtime.Backend.FunctionOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for Azure Functions actions. |
 
-<a name="built-in-service-bus"></a>
+<a name="built-in-azure-service-bus"></a>
 
 ### Built-in Azure Service Bus operations
 
