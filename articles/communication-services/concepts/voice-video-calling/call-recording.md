@@ -20,7 +20,7 @@ ms.subservice: calling
 > [!NOTE]
 >  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
 
-Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause and resume recording. Whether it is a PSTN, WebRTC, or SIP call, these APIs can be accessed from server-side business logic or via events triggered by user actions. 
+Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from server-side business logic or via events triggered by user actions. 
 
 Depending on your business needs, you can use Call Recording for different Azure Communication Services calling implementations.
 For example, you can record 1:1 or 1:N scenarios for audio and video calls enabled by [Calling Client SDK](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features). 
@@ -35,10 +35,10 @@ But also, you can use Call Recording to record complex PSTN or VoIP inbound and 
 ![Call recording with call automation](../media/call-recording-with-call-automation.png)
 
 
-Regardless of how the call was established, by using Call Recording, you can produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage, where you can retrieve the files from and take them to a long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
+Regardless of how you established the call, Call Recording allows you to produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage. You can retrieve the files and take them to the long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
 ## Media output and Channel types supported
-Call Recording supports multiple media outputs and content types to address your business needs and use cases. You might use mixed formats for scenarios such as keeping records, meeting notes, coaching and training, or even compliance and adherence. Or, you can leverage unmixed formats to address quality assurance use cases or even more complex scenarios like advanced analytics or AI-based (Artificial Intelligence) sophisticated post-call processes.
+Call Recording supports multiple media outputs and content types to address your business needs and use cases. You might use mixed formats for scenarios such as keeping records, meeting notes, coaching and training, or even compliance and adherence. Or, you can use unmixed formats to address quality assurance use cases or even more complex scenarios like advanced analytics or AI-based (Artificial Intelligence) sophisticated post-call processes.
 
 ### Video
 
@@ -59,7 +59,7 @@ Call Recording supports multiple media outputs and content types to address your
 
 
 ## Call Recording APIs
-Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId` please check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 A `recordingId` is returned when recording is started, which is then used for follow-on operations like pause and resume.  
 
 
@@ -149,10 +149,10 @@ Regulations around the maintenance of personal data require the ability to expor
 
 ## Known Issues
 
-It is possible that when a call is created using Call Automation, you won't get a value in the `serverCallId`. If that's the case please get the `serverCallId` from the `CallConnected` event method described in [Get serverCallId](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call).
+It's possible that when a call is created using Call Automation, you won't get a value in the `serverCallId`. If that's the case, get the `serverCallId` from the `CallConnected` event method described in [Get serverCallId](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call).
 
 ## Next steps
-For more information see the following articles:
+For more information, see the following articles:
 
 - Learn more about Call recording, check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 - Learn more about [Call Automation](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp).
