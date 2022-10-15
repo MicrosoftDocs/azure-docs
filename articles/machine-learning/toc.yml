@@ -330,6 +330,9 @@
         - name: Secure inferencing environment
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
           href: how-to-secure-kubernetes-inferencing-environment.md
+        - name: Troubleshoot AzureML extension
+          displayName: AKS, Arc Kubernetes, AzureML extension, troubleshoot
+          href: how-to-troubleshoot-kubernetes-extension.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -346,6 +349,8 @@
     - name: Share components, environments, and models
       displayName: collaborate share
       href: how-to-share-models-pipelines-across-workspaces-with-registries.md
+    - name: Understand resources and assets
+      href: concept-azure-machine-learning-v2.md
     - name: Search for assets
       displayName: find, filter
       href: how-to-search-assets.md
@@ -427,6 +432,10 @@
               href: how-to-train-scikit-learn.md
             - name: TensorFlow
               href: how-to-train-tensorflow.md
+            - name: Keras
+              href: how-to-train-keras.md
+            - name: PyTorch
+              href: how-to-train-pytorch.md   
             - name: Use Key Vault when training
               displayName: secrets keyvault job
               href: how-to-use-secrets-in-runs.md

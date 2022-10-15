@@ -63,8 +63,6 @@ items:
       href: ./hdinsight-high-availability-components.md   
     - name: Apache Ambari in Azure HDInsight
       href: ./apache-ambari-usage.md  
-    - name: Machine learning in HDInsight
-      href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
       href: ./hdinsight-streaming-at-scale-overview.md  
     - name: Apache Hadoop architecture in HDInsight
