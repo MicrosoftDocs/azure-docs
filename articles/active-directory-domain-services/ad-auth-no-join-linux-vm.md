@@ -31,6 +31,9 @@ To complete the authentication flow we assume, you already have:
     - sssd-tools 
     - sssd-ldap
     - openldap-clients
+* An LDAPS Certificate correctly configured on the Linux VM.
+
+
 
 ## AD Configuration
 
@@ -51,7 +54,7 @@ To read Users in your Active Directory Domain Services create a ReadOnlyUser in 
 Review the information that you provided, and if everything is correct, click Finish.
 
 > [!NOTE]
-> For testing purpose we use LDAP over 389 port. In production environment ensure to use a Certificate for the Bind. The test environment for this docs is based on Windows Server 2016 Domain and Forest level on Windows Server 2019 OS.
+> The test environment is based on Windows Server 2016 Domain and Forest level on Windows Server 2019 Operating System. The client used is an Centos 8.5 System.
 
 ## Linux VM Configuration
 
@@ -67,7 +70,7 @@ yum install -y sssd sssd-tools sssd-ldap openldap-clients
 After the installation check if LDAP search works. In order to check it try an LDAP search following the example below:
 
 ```console
-ldapsearch -H ldap://<ip-domain-controller>:389 -x \
+ldapsearch -H ldaps://<ip-domain-controller-or-domain> -x \
         -D CN=ReadOnlyUser,CN=Users,DC=cetesting,DC=it -w Read0nlyuserpassword \
         -b CN=Users,DC=<domain>,DC=<extension>
 ```
@@ -136,12 +139,12 @@ full_name_format = %1$s
 [domain/default]
 id_provider = ldap
 cache_credentials = True
-ldap_uri = ldap://10.1.0.4:389
+ldap_uri = ldaps://cetesting.it
 ldap_search_base = CN=Users,DC=cetesting,DC=it
 ldap_schema = AD
 ldap_default_bind_dn = CN=ReadOnlyUser,CN=Users,DC=cetesting,DC=it
 ldap_default_authtok_type = obfuscated_password
-ldap_default_authtok = leave-empty-for-now
+ldap_default_authtok = generated_password
 
 # Obtain the CA root certificate for your LDAPS connection.
 ldap_tls_cacert = /etc/pki/tls/cacerts.pem
@@ -158,9 +161,18 @@ enumerate = True
 # Only needed if LDAP doesn't provide homeDirectory and loginShell attributes
 fallback_homedir = /home/%u
 default_shell = /bin/bash
+access_provider = permit
+sudo_provider = ldap
+auth_provider = ldap
+autofs_provider = ldap
+resolver_provider = ldap
+
 ```
 
 Save the file with *ESC + wq!* command.
+
+> [!NOTE]
+> If you don't have a valid TSL certificate under */etc/pki/tls/* called *cacerts.pem* the bind doesn't work
 
 ## Change permission for sssd.conf and create the obfuscated password
 
@@ -173,9 +185,7 @@ chmod 600 /etc/sssd/sssd.conf
 After that create an obfuscated password for the Bind DN account. You must insert the Domain password for ReadOnlyUser:
 
 ```console
-[root@centos8 ~]sss_obfuscate --domain default
-Enter password: Read0nly
-Re-enter password: Read0nly
+sss_obfuscate --domain default
 ```
 
 The password will be placed automatically in the configuration file.
