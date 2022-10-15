@@ -81,7 +81,9 @@ The [Paketo samples](https://github.com/paketo-buildpacks/samples/tree/main/web-
 - Serving static files with your own server configuration file. using either [HTTPD](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/httpd-sample) or [NGINX](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/nginx-sample)
 
 ## Configure auto-generated server configuration file
-You can use environment variables to tweak the automatically-generated server configuration file. Supported environment variables:
+You can use environment variables to tweak the automatically-generated server configuration file. 
+
+Supported environment variables:
 
 |Environment Variable|Supported Value|Description|
 |--------------------|---------------|-----------|
@@ -89,6 +91,11 @@ You can use environment variables to tweak the automatically-generated server co
 |BP_WEB_SERVER_ROOT|an absolute file path or a file path relative to /workspace|Defaults to public, set the root directory for the static files.|
 |BP_WEB_SERVER_ENABLE_PUSH_STATE|true or false|Enable push state routing for your application. Regardless of the route that is requested, index.html will always be served. It's useful for single-page web applications.|
 |BP_WEB_SERVER_FORCE_HTTPS|true or false|Enforce HTTPS for server connections by redirecting all requests to use the HTTPS protocol.|
+
+Unsupported environment variables:
+- BP_LIVE_RELOAD_ENABLED
+- BP_NGINX_VERSION
+- BP_HTTPD_VERSION
 
 ## Customized server configuration file restriction
 You can configure web server by providing a customized server configuration file. Your configuration file must conform to the following restrictions:
@@ -99,6 +106,13 @@ You can configure web server by providing a customized server configuration file
 |Log path|Config log path to the console| access_log /dev/stdout <br/> error_log stderr| ErrorLog /proc/self/fd/2|
 |File path with write permission|Web server is granted write permssion to directory /tmp, configure all the path requires write permission under directory /tmp | For example: <br/> client_body_temp_path /tmp/client_body_temp||
 |Maximum accepted body size of client request|Web server is behind the gateway, maximum accepted body size of client request is set to 500m in the gateway, the vaue for web server must be less than 500m | client_max_body_size should be less than 500m|LimitRequestBody should be less than 500m|
+
+## Buildpack bindings
+Supported [Buildpack bindings](how-to-enterprise-build-service.md#buildpack-bindings) 
+- Dynatrace
+
+Unsupported Buildpack bindings
+- htpasswd
 
 ## Common build error
 
