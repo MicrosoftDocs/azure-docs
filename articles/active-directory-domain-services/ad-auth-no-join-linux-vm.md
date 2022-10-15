@@ -32,6 +32,7 @@ To complete the authentication flow we assume, you already have:
     - sssd-ldap
     - openldap-clients
 * An LDAPS Certificate correctly configured on the Linux VM.
+* A CA Certificate correctly imported into Certificate Store of the Linux VM (the path varies depending on the Linux distro).
 
 
 
