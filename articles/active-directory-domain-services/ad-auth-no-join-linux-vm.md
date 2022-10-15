@@ -24,7 +24,7 @@ To complete the authentication flow we assume, you already have:
 
 * An Active Directory Domain Services already configured.
 * A Linux VM (for the test we use CentosOS based machine).
-* A network infrastructure that allows communication between Active Directory and the Linux VM
+* A network infrastructure that allows communication between Active Directory and the Linux VM.
 * A dedicated User Account for read AD objects.
 * The Linux VM need to have these packages installed:
     - sssd 
