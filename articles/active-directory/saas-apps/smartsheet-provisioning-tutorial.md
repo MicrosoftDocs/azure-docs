@@ -64,9 +64,7 @@ Before configuring Smartsheet for automatic user provisioning with Azure AD, you
 
 1. To add a new domain click on **Add Domain** and follow instructions.Once the domain is added make sure it gets verified as well.
 
-1. Generate the **Secret Token** required to configure automatic user provisioning with Azure AD by navigating to **Apps and Integrations**.
-
-	![Screenshot of the Smartsheet Admin page with the user avatar and the Apps & Integrations option called out.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+1. Generate the **Secret Token** required to configure automatic user provisioning with Azure AD by navigating **[Smartsheet portal](https://app.smartsheet.com/b/home)** and then navigating to **Account > Apps and Integrations**.
 
 1. Choose **API Access**. Click **Generate new access token**.
 
