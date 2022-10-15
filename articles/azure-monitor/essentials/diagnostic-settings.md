@@ -107,6 +107,8 @@ You might also not want to collect platform metrics from Azure resources because
 Diagnostic settings don't allow granular filtering of resource logs. You might require certain logs in a particular category but not others. Or you may want to remove unneeded columns from the data. In these cases, use [transformations](essentials/data-collection-transformations.md) on the workspace to filter logs that you don't require. 
 
 
+You can also use transformations to lower the storage requirements for records you want by removing columns without useful information. For example, you might have error events in a resource log that you want for alerting. But you might not require certain columns in those records that contain a large amount of data. You can create a transformation for the table that removes those columns.
+
 ## Create diagnostic settings
 
 You can create and edit diagnostic settings by using multiple methods.
