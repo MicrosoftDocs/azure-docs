@@ -34,8 +34,6 @@ To complete the authentication flow we assume, you already have:
 * An LDAPS Certificate correctly configured on the Linux VM.
 * A CA Certificate correctly imported into Certificate Store of the Linux VM (the path varies depending on the Linux distro).
 
-
-
 ## AD Configuration
 
 To read Users in your Active Directory Domain Services create a ReadOnlyUser in AD. For create a new user follow the steps below:
