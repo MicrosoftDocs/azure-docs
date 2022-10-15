@@ -108,7 +108,7 @@ var resumeRecording = await callAutomationClient.GetCallRecording().ResumeRecord
 
 ## 6.	Download recording File using 'DownloadToAsync' API
 
-Use an [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services) web hook or other triggered action to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services) web hook or other triggered action should be use to notify your services when the recorded media is ready for download.
 
 Below is an example of the event schema.
 
