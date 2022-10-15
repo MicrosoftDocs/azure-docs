@@ -14,12 +14,12 @@ ms.author: rolyon
 
 # Add Azure role assignment conditions using Azure Resource Manager templates (Preview)
 
-An [Azure role assignment condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add conditions for your role assignments using Azure Resource Manager templates.
-
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+An [Azure role assignment condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add conditions for your role assignments using Azure Resource Manager templates.
 
 ## Prerequisites
 
