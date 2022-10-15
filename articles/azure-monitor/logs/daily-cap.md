@@ -21,6 +21,11 @@ Data collection resumes at the reset time which is a different hour of the day f
 > [!NOTE]
 > The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it's still billed. See [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
 
+## When to use a daily cap
+Daily caps are typically used by organizations that are particularly cost conscious. They shouldn't be used as a method to reduce costs, but rather as a preventative measure to ensure that you don't exceed a particular budget. 
+
+When data collection stops, you effectively have no monitoring of features and resources relying on that workspace. Instead of relying on the daily cap alone, you can [create an alert rule](#alert-when-daily-cap-is-reached) to notify you when data collection reaches some level before the daily cap. Notification allows you to address any increases before data collection shuts down, or even to temporarily disable collection for less critical resources.
+
 ## Application Insights
 You shouldn't create a daily cap for workspace-based Application Insights resources but instead create a daily cap for their workspace. You do need to create a separate daily cap for any classic Application Insights resources since their data doesn't reside in a Log Analytics workspace. 
 
