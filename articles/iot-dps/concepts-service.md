@@ -36,13 +36,13 @@ Allocation policies determine how DPS assigns devices to an IoT hub. Each DPS in
 
 There are four supported allocation policies:
 
-* **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they are equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. The default allocation policy for a DPS instance. If you are provisioning devices to only one IoT hub, you can keep this policy.
+* **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they're equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. The default allocation policy for a DPS instance. If you're provisioning devices to only one IoT hub, you can keep this policy.
 
-* **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, the provisioning service hashes devices across those IoT hubs.
+* **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, DPS hashes devices across those IoT hubs.
 
-* **Static configuration via the enrollment list**: devices are provisioned to a single IoT hub specified on the enrollment. If this policy is the default for the DPS instance, enrollments must specify an IoT hub.
+* **Static configuration**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
 
-* **Custom (Use Azure Function)**: A [custom allocation policy](concepts-custom-allocation.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Cannot be set as the DPS instance default policy.
+* **Custom (Use Azure Function)**: A [custom allocation policy](concepts-custom-allocation.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Cannot be set as the DPS instance default policy.
 
 ## Enrollment
 

@@ -18,21 +18,21 @@ This article helps you understand how to use and manage DPS allocation policies.
 
 ## Understand allocation policies
 
-Allocation policies determine how DPS assigns devices to IoT hubs. Before an IoT hub can be used in an allocation policy, it must be linked to the DPS instance. Once an IoT hub is linked to DPS, it's eligible to participate in allocation. Whether it will participate in allocation depends on settings in the enrollment that a device is provisioning through.
+Allocation policies determine how DPS assigns devices to an IoT hub. Each DPS instance has a default allocation policy, but this policy can be overridden by an allocation policy set on an enrollment. Only IoT hubs that have been linked to the DPS instance can participate in allocation. Whether a linked IoT hub will participate in allocation depends on settings on the enrollment that a device provisions through.
 
 DPS supports four allocation policies:
 
-* **Evenly weighted distribution**: IoT hubs have devices provisioned to them based on their allocation weight setting. By default all linked IoT hubs have the same allocation weight setting, which means that IoT hubs are equally likely to have a device provisioned to them. However, you can adjust the allocation weight setting on a linked IoT hub to increase or decrease its likelihood of being assigned to provisioning devices. Evenly weighted distribution is the default allocation policy setting for DPS. If you're provisioning devices to only one IoT hub, you can keep this setting.
+* **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they're equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. *Evenly weighted distribution* is the default allocation policy for a DPS instance. If you're provisioning devices to only one IoT hub, you can keep this policy.
 
-* **Lowest latency**: devices are provisioned to the IoT hub with the lowest latency to the device. If multiple IoT hubs would provide the lowest latency, then DPS hashes devices across those hubs.
+* **Lowest latency**: devices are provisioned to the IoT hub with the lowest latency to the device. If multiple IoT hubs would provide the lowest latency, DPS hashes devices across those hubs.
 
-* **Static configuration (via enrollment list only)**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
+* **Static configuration**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
 
-* **Custom (Use Azure Function)**: Custom allocation policies give you more control over how devices are assigned to an IoT hub. You implement a custom allocation policy in a webhook hosted in Azure Functions. When a device registers, DPS calls your webhook and passes it information about the enrollment, including eligible IoT hubs. Your webhook returns the IoT hub the device should be assigned to and, optionally, an initial twin. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
+* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md). Cannot be set as the DPS instance default policy.
 
-There are two settings on a linked IoT hub that determine how it participates in allocation:
+There are two settings on a linked IoT hub that control how it participates in allocation:
 
-* **Allocation weight**: sets the weight that the IoT hub will have when participating in allocation policies that involve provisioning among multiple IoT hubs. It can be a value between one and 1000. The default is one.
+* **Allocation weight**: sets the weight that the IoT hub will have when participating in allocation policies that involve multiple IoT hubs. It can be a value between one and 1000. The default is one.
 
   * With the *Evenly weighted distribution* allocation policy, IoT hubs with higher allocation weight values have a greater likelihood of being selected compared to those with lower weight values.
 
@@ -44,13 +44,14 @@ There are two settings on a linked IoT hub that determine how it participates in
 
 To learn more about linking and managing IoT hubs in your DPS instance, see [Link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).
 
-Every DPS instance has a default allocation policy. Instead of using the default allocation policy, individual enrollments and enrollment groups can specify an allocation policy and one or more IoT hubs from the IoT hubs linked to the DPS instance that the policy should be applied to.
-
 When a device provisions through DPS, the service assigns it to an IoT hub according to the following guidelines:
 
 * If the enrollment specifies an allocation policy, use that policy; otherwise, use the default allocation policy for the DPS instance.
 
 * If the enrollment specifies one or more IoT hubs, apply the allocation policy across those IoT hubs; otherwise, apply the allocation policy across all of the IoT hubs linked to the DPS instance. Note that if the allocation policy is *Static configuration*, the enrollment *must* specify an IoT hub.
+
+> [!IMPORTANT]
+> When you change an allocation policy or the IoT hubs it applies to, the changes only affect subsequent device registrations. Devices already provisioned to an IoT hub won't be affected. If you want your changes to apply retroactively to these devices, you'll need to reprovision them. To learn more, see [How to reprovision devices](how-to-reprovision.md).
 
 ## Set the default allocation policy for the DPS instance
 
@@ -79,7 +80,7 @@ To set the default allocation policy for the DPS instance in Azure portal:
 
 DPS also supports setting the default allocation policy using the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
 
-## Set the allocation policy and IoT hubs for enrollments
+## Set allocation policy and IoT hubs for enrollments
 
 Individual enrollments and enrollment groups can specify an allocation policy and the linked IoT hubs that it should apply to. If no allocation policy is specified by the enrollment, then the default allocation policy for the DPS instance is used.
 

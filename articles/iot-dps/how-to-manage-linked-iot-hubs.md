@@ -16,9 +16,11 @@ Azure IoT Hub Device Provisioning Service (DPS) can provision devices across one
 
 ## Linked IoT hubs and allocation policies
 
-Allocation policies determine how DPS assigns devices to IoT hubs. Before an IoT hub can be used in an allocation policy, it must be linked to the DPS instance. Once an IoT hub is linked to DPS, it's eligible to participate in allocation. Whether it will participate in allocation depends on settings in the enrollment that a device is provisioning through.
+DPS can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to a DPS instance gives the service read/write permissions to the IoT hub's device registry. With these permissions, DPS can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your DPS instance.
 
-The following settings are important when working with linked IoT hubs:
+After an IoT hub is linked to DPS, it's eligible to participate in allocation. Whether and how it will participate in allocation depends on settings in the enrollment that a device provisions through and settings on the linked IoT hub itself.
+
+The following settings control how DPS uses linked IoT hubs:
 
 * **Connection string**: Sets the IoT Hub connection string that DPS uses to connect to the linked IoT hub. The connection string is based on one of the IoT hub's shared access policies. DPS needs the following permissions on the IoT hub: *RegistryWrite* and *ServiceConnect*. The connection string must be for a shared access policy that has these permissions. To learn more about IoT Hub shared access policies, see  [IoT Hub access control and permissions](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
