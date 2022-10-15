@@ -34,6 +34,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Learn more about [Call Recording](../../concepts/voice-video-calling/call-recording.md)
+- Learn more about [Call Automation](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/call-automation)
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
 - Learn about [Calling SDK capabilities](./getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
