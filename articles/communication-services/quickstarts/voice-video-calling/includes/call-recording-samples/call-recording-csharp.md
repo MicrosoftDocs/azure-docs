@@ -13,13 +13,13 @@ Before you start testing Call Recording, make sure to comply with the following 
 
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
-- Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services).
+- Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
 - Download the [.NET SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/overview/1.0.0-alpha.20221013.2)
 
 **IMPORTANT**:  
 Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
 - When using Call Automation, you have two options to get the `serverCallId`:
-    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
+    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
 - When using Calling Client SDK, you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
@@ -110,7 +110,7 @@ var resumeRecording = await callAutomationClient.GetCallRecording().ResumeRecord
 
 ## 6.	Download recording File using 'DownloadToAsync' API
 
-Use an [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
 Below is an example of the event schema.
 
