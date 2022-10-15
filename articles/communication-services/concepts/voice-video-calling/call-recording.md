@@ -59,17 +59,9 @@ Call Recording supports multiple media outputs and content types to address your
 
 
 ## Call Recording APIs
-Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use the `serverCallId` to initiate recording. To learn how to get the `serverCallId` please go to our Call Recording Quickstart, section [Get serverCallId]().
+Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId` please check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+A `recordingId` is returned when recording is started, which is then used for follow-on operations like pause and resume.  
 
-When using Call Automation SDK, you have two options to get the `serverCallId`:
-1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
-2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
-
-When using Calling Client SDK, you can retreive the `serverCallId` by using the `getServerCallId` method on the call. 
-Learn how to [Get serverCallId](../../quickstarts/voice-video-calling/get-server-call-id.md) from the Calling Client SDK. 
-
-In both cases, a `recordingId` is returned when recording is started, which is then used for follow-on operations like pause and resume.  
- 
 
 | Operation                            | Operates On            | Comments                       |
 | :-------------------- | :--------------------- | :----------------------------- |
