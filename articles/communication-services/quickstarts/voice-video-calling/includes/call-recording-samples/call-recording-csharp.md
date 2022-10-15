@@ -80,11 +80,11 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
 Response<RecordingStateResult> response = await callAutomationClient.getCallRecording()
 .StartRecordingAsync(recordingOptions);
 ```
-The `StartRecordingAsync` API response contains the `RecordingId` of the recording session.
+The `StartRecordingAsync` API response contains the `recordingId` of the recording session.
 
 ## 3.	Stop recording session using 'StopRecordingAsync' API
 
-Use the `RecordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startRecordingWithResponse`.
 
 ```csharp
 var stopRecording = await callAutomationClient.GetCallRecording().StopRecordingAsync(recording.Value.RecordingId);
@@ -92,7 +92,7 @@ var stopRecording = await callAutomationClient.GetCallRecording().StopRecordingA
 
 ## 4.	Pause recording session using 'PauseRecordingAsync' API
 
-Use the `RecordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startRecordingWithResponse`.
 
 ```csharp
 var pauseRecording = await callAutomationClient.GetCallRecording ().PauseRecordingAsync(recording.Value.RecordingId);
@@ -100,7 +100,7 @@ var pauseRecording = await callAutomationClient.GetCallRecording ().PauseRecordi
 
 ## 5.	Resume recording session using 'ResumeRecordingAsync' API
 
-Use the `RecordingId` received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startRecordingWithResponse`.
 
 ```csharp
 var resumeRecording = await callAutomationClient.GetCallRecording().ResumeRecordingAsync(recording.Value.RecordingId);
