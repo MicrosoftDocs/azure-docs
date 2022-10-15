@@ -42,25 +42,21 @@ Call Recording supports multiple media outputs and content types to address your
 
 ### Video
 
-| Content Type | Content Format | Channel Type | Video | Audio |
+| Channel Type | Content Format | Resolution | Sampling Rate | Output | Description |
+| :----------- | :------------- | :----------- | :---- | :--------------------------- | :------------ |
+| mixed | mp4 | 1920x1080, eight (8) FPS (frames per second) | 16 kHz | single file, single channel | mixed audio+video of all participants in a default tile arrangement |
 
 ### Audio
 
-| Content Type | Content Format | Channel Type | Video | Audio |
-| :----------- | :------------- | :----------- | :---- | :--------------------------- |
-| audio + video | mp4 | mixed | 1920x1080 eight (8) FPS video of all participants in default tile arrangement | 16 kHz mp4 mixed audio of all participants |
-| audio| mp3/wav | mixed | N/A | 16 kHz mp3/wav mixed audio of all participants |
-| audio| wav | unmixed | N/A | 16 kHz wav, 0-5 channels, 1 for each participant |
-
-## Channel types
 > [!NOTE]
 > **Unmixed audio** is in **Private Preview**.
 
-| Channel type              | Content format               | Output                                                                                | Scenario                                                | Release Stage |
-|---------------------|-----------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------|----------------|
-| Mixed audio+video   | Mp4                         | Single file, single channel                                                           | keeping records and meeting notes, coaching and training | Public Preview |
-| Mixed audio    | Mp3 (lossy)/ wav (lossless) | Single file, single channel                                                           | compliance & adherence, coaching and training            | Public Preview |
-| **Unmixed audio**  | wav                     | Single file, up to 5 wav channels | quality assurance, advance analytics                            | **Private Preview** |
+| Channel Type | Content Format | Sampling Rate | Output | Description |
+| :----------- | :------------- | :----------- | :---- | :---------------- | 
+| mixed | mp3 & wav | 16 kHz | single file, single channel | mixed audio of all participants |
+| unmixed | wav | 16 kHz | single file, up to 5 wav channels | unmixed audio, one participant per channel, up to five channels |
+
+
 
 ## Call Recording APIs
 Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use the `serverCallId` to initiate recording. To learn how to get the `serverCallId` please go to our Call Recording Quickstart, section [Get serverCallId]().
