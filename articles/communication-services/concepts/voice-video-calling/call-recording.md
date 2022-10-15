@@ -152,6 +152,6 @@ Regulations around the maintenance of personal data require the ability to expor
 It is possible that when a call is created using Call Automation, you won't get a value in the `serverCallId`. If that's the case please get the `serverCallId` from the `CallConnected` event method described in [Get serverCallId](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call).
 
 ## Next steps
-Check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md) to learn more.
+Learn more about Call recording, check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
 
-Learn more about [Call Automation APIs](./call-automation-apis.md).
+Learn more about [Call Automation](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp).
