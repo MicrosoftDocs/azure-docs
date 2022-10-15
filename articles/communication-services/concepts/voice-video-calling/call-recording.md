@@ -38,12 +38,13 @@ But also, you can use Call Recording to record complex PSTN or VoIP inbound and 
 Regardless of how the call was established, by using Call Recording, you can produce mixed or unmixed media files that are stored for 48 hours on a built-in temporary storage, where you can retrieve the files from and take them to a long-term storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
 ## Media output and Channel types supported
-Call Recording supports multiple media outputs and content types to address your business needs:
+Call Recording supports multiple media outputs and content types to address your business needs and use cases. You might use mixed formats for scenarios such as keeping records, meeting notes, coaching and training, or even compliance and adherence. Or, you can leverage unmixed formats to address quality assurance use cases or even more complex scenarios like advanced analytics or AI-based (Artificial Intelligence) sophisticated post-call processes.
 
-###Video
+### Video
 
+| Content Type | Content Format | Channel Type | Video | Audio |
 
-###Audio
+### Audio
 
 | Content Type | Content Format | Channel Type | Video | Audio |
 | :----------- | :------------- | :----------- | :---- | :--------------------------- |
