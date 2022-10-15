@@ -79,8 +79,8 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Determine user connection quality
-        href: connection-quality-monitoring.md
+      - name: User connection quality
+        href: connection-latency.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Identity and access management
@@ -311,6 +311,8 @@
     href: drain-mode.md
   - name: Network connectivity
     items:
+    - name: Determine user connection quality
+      href: connection-quality-monitoring.md
     - name: Check access to required URLs
       href: required-url-check-tool.md
     - name: Configure RDP Shortpath

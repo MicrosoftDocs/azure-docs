@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Virtual Desktop user connection quality data tables (preview) - Azure
+title: Collect and query Azure Virtual Desktop connection quality data (preview) - Azure
 description: How to set up and query the connection quality data table for Azure Virtual Desktop to diagnose connection issues.
 author: Heidilohr
 ms.topic: how-to
@@ -7,17 +7,22 @@ ms.date: 09/26/2022
 ms.author: helohr
 manager: femila
 ---
-# Monitor connection quality (preview)
+# Collect and query connection quality data (preview)
 
 >[!IMPORTANT]
 >The Connection Graphics Data Logs are currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Collect connection quality data
+## Prerequisites
 
-To start collecting connection quality data, you’ll need to make sure you have diagnostics and the **Network Data Logs** and **Connection Graphics Data Logs Preview** tables enabled in your Azure Virtual Desktop host pools.
+To start collecting connection quality data, you’ll need to do the following things:
+
+- Set up a Log Analytics workspace.
+- Enable the **Network Data Logs** and **Connection Graphics Data Logs Preview** tables in your Azure Virtual Desktop host pools.
 
 >[!NOTE]
 >Normal storage charges for Log Analytics will apply. Learn more at [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
+
+## Configure diagnostics settings
 
 To check and modify your diagnostics settings in the Azure portal:
 
@@ -35,9 +40,7 @@ To check and modify your diagnostics settings in the Azure portal:
 
 7. Repeat this process for all other host pools you want to measure.
 
-8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
-   
-   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+8. To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
 
 ## Sample queries for Azure Log Analytics: network data
 
