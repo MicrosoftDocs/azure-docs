@@ -1,6 +1,6 @@
 ---
-title: Azure Communication Services Call Recording API quickstart 
-titleSuffix: An Azure Communication Services quickstart document
+title: Azure Communication Services Call Recording refreshed API quickstart 
+titleSuffix: An Azure Communication Services document
 description: Public Preview quickstart for Call Recording APIs
 author: dbasantes
 services: azure-communication-services
