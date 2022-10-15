@@ -15,7 +15,7 @@ ms.author: bharat
 
 Before you start testing Unmixed Audio recording, make sure you complete the following steps:
 
-- You need a Call in place whether is using Calling Client SDK or Call Automation before you start recording. Please review their quickstatrs and make sure you follow all their pre-requisites. 
+- You need a Call in place whether is using Calling Client SDK or Call Automation before you start recording. Review their quickstarts and make sure you follow all their pre-requisites. 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 - Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-communication-services).
