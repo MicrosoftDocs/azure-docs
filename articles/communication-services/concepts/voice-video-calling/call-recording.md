@@ -20,9 +20,13 @@ ms.subservice: calling
 > [!NOTE]
 >  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
 
-Call Recording provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in MP4 Audio+Video format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. Call Recording supports all Azure Communication Services data regions.
+Call Recording enables you to record multiple scenarios available in Azure Communication Services. From  
+
+provides a set of APIs to start, stop, pause and resume recording. These APIs can be accessed from server-side business logic or via events triggered by user actions. Recorded media output is in MP4 Audio+Video format, which is the same format that Teams uses to record media. Notifications related to media and metadata are emitted via Event Grid. Recordings are stored for 48 hours on built-in temporary storage for retrieval and movement to a long-term storage solution of choice. Call Recording supports all Azure Communication Services data regions.
 
 ![Call recording concept diagram](../media/call-recording-conceptual-diagram.png)
+
+![Call recording with call automation](../media/call-recording-with-call-automation.png)
 
 ## Media output types
 Call recording currently supports mixed audio+video MP4 and mixed audio MP3/WAV output formats in Public Preview. The mixed audio+video output media matches meeting recordings produced via Microsoft Teams recording. 
