@@ -404,7 +404,7 @@ items:
                   href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/blobs/toc.json
                 - name: Configure keys for an existing account
                   href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/blobs/toc.json
-              - name: Configure keys and storage account in a different tenant
+              - name: Configure keys and storage account in different tenants
                 items:
                 - name: Configure customer-managed keys for a new account
                   href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json
