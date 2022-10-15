@@ -25,30 +25,30 @@ Use this article to learn which natural languages are supported by the NER featu
 
 |Language             |Language code|Supports resolution|Notes  |
 |---------------------|-------------|-----|------------------|
-|Arabic*              |`ar`         |     |                  |
+|Arabic             |`ar`         |     |                  |
 |Chinese-Simplified   |`zh-hans`    |✓    |`zh` also accepted|
-|Chinese-Traditional* |`zh-hant`    |     |                  |
-|Czech*               |`cs`         |     |                  |
-|Danish*              |`da`         |     |                  |
-|Dutch*               |`nl`         |✓    |                  |
+|Chinese-Traditional |`zh-hant`    |     |                  |
+|Czech               |`cs`         |     |                  |
+|Danish              |`da`         |     |                  |
+|Dutch               |`nl`         |✓    |                  |
 |English              |`en`         |✓    |                  |
-|Finnish*             |`fi`         |     |                  |
+|Finnish             |`fi`         |     |                  |
 |French               |`fr`         |✓    |                  |
 |German               |`de`         |✓    |                  |
 |Hebrew               |`he`         |     |                  |
 |Hindi                |`hi`         |✓    |                  |
-|Hungarian*           |`hu`         |     |                  |
+|Hungarian           |`hu`         |     |                  |
 |Italian              |`it`         |✓    |                  |
 |Japanese             |`ja`         |✓    |                  |
 |Korean               |`ko`         |     |                  |
-|Norwegian  (Bokmål)* |`no`         |     |`nb` also accepted|
-|Polish*              |`pl`         |     |                  |
+|Norwegian  (Bokmål) |`no`         |     |`nb` also accepted|
+|Polish              |`pl`         |     |                  |
 |Portuguese (Brazil)  |`pt-BR`      |✓    |                  |
 |Portuguese (Portugal)|`pt-PT`      |     |`pt` also accepted|
-|Russian*             |`ru`         |     |                  |
+|Russian             |`ru`         |     |                  |
 |Spanish              |`es`         |✓    |                  |
-|Swedish*             |`sv`         |     |                  |
-|Turkish*             |`tr`         |✓    |                  |
+|Swedish             |`sv`         |     |                  |
+|Turkish             |`tr`         |✓    |                  |
 
 
 ## Next steps
