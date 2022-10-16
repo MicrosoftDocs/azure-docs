@@ -272,8 +272,11 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    # [Azure ML CLI](#tab/cli)
    
    ```bash
-   INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:imagenet-sample-unlabeled@latest)
+   JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:imagenet-sample-unlabeled@latest | jq -r '.name')
    ```
+   
+   > [!NOTE]
+   > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
    # [Azure ML SDK for Python](#tab/sdk)
    
@@ -294,12 +297,8 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    # [Azure ML CLI](#tab/cli)
    
    ```bash
-   JOB_NAME = $($INVOKE_RESPONSE | jq -r '.name')
    az ml job show --name $JOB_NAME
    ```
-   
-   > [!NOTE]
-   > The utility `jq` may not be installed on every installation. You can get installation instructions in [this link](https://stedolan.github.io/jq/download/).
    
    # [Azure ML SDK for Python](#tab/sdk)
    
