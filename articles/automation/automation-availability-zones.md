@@ -32,7 +32,7 @@ In the event when a zone is down, there's no action required by you to recover f
 
 ## Supported regions with availability zones
 
-See [Regions and Availability Zones in Azure](/global-infrastructure/geographies/#geographies) for the Azure regions that have availability zones. 
+See [Regions and Availability Zones in Azure](../availability-zones/az-overview) for the Azure regions that have availability zones. 
 Automation accounts currently support the following regions in preview: 
  
 - China North 3
