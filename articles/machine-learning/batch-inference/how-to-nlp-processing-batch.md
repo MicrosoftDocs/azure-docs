@@ -1,5 +1,5 @@
 ---
-title: "Using batch deployments for NLP processing"
+title: "NLP tasks with batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text and output results.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Using batch deployments for NLP processing
+# NLP tasks with batch deployments
 
 [!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
