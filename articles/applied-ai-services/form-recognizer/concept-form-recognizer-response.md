@@ -50,7 +50,7 @@ Spans specify the logical position of each element in the overall reading order,
 
 Bounding regions describe the visual position of each element in the file.  As an element may not be visually contiguous (ex. entities) or may cross pages (ex. tables), the position of most elements are described via an array of bounding regions, where each region specifies the page number (1-indexed) and bounding polygon.  The bounding polygon is described as a sequence of points, clockwise from the left relative to the natural orientation of the element.  For quadrilaterals, this would be the top-left, top-right, bottom-right, and bottom-left corners.  Each point is represented by its x, y coordinate in the page unit specified by the unit property.  In general, unit of measure for images is pixels while PDFs use inches.
 
-:::image type="content" source="media/bounding-region.png" alt-text="Bounding regions":::
+:::image type="content" source="media/bounding-regions.png" alt-text="Bounding regions":::
 
 > [!NOTE]
 > Current Form Recognizer only returns 4-vertex quadrilaterals as bounding polygons.  Future versions may return different number of points to describe more complex shapes, such as curved lines or non-rectangular images. Bounding regions applied only to rendered files, if the file is not rendered, bounding regions are not returned. Currently files of docx/xlsx/pptx/html format are not rendered.
@@ -75,17 +75,17 @@ A selection mark is a content element that represents a visual glyph indicating 
 
 A line is an ordered sequence of consecutive content elements separated by a visual space, or ones that are immediately adjacent for languages without space delimiters between words.  Content elements in the same horizontal plane (ex. row) but separated by more than a single visual space will generally be split into multiple lines.  While this sometimes splits semantically contiguous content into separate lines, it enables the representation of textual content split into multiple columns or cells.  Lines in vertical writing will be detected in the vertical direction.
 
+#### Paragraph
+
+A paragraph is an ordered sequence of lines that form a logical unit.  Typically, the lines share common alignment and spacing between lines.  Paragraphs are often delimited by indentation, additional spacing, or bullets/numbering.  Content can only be assigned to a single paragraph.
+Select paragraphs may also be associated a with functional role in the document.  Currently supported roles include page header, page footer, page number, title, section heading, and footnote.
+
 #### Page
 
 A page is a grouping of content that typically corresponds to one side of a sheet of paper.  For rendered pages, it is characterized by width and height in the specified unit.  In general, images use pixel while PDFs use inch.  The angle property describes the overall text angle in degrees for pages that may be rotated.
 
 > [!NOTE]
 > For spreadsheets (ex. xslx), each sheet is mapped to a page.  For presentations (ex. pptx), each slide is mapped to a page.  For file formats without a native concept of pages without rendering (ex. html, docx), the main content of the file is considered a single page.
-
-#### Paragraph
-
-A paragraph is an ordered sequence of lines that form a logical unit.  Typically, the lines share common alignment and spacing between lines.  Paragraphs are often delimited by indentation, additional spacing, or bullets/numbering.  Content can only be assigned to a single paragraph.
-Select paragraphs may also be associated a with functional role in the document.  Currently supported roles include page header, page footer, page number, title, section heading, and footnote.
 
 #### Table
 
