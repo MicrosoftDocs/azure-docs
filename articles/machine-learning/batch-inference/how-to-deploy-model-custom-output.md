@@ -1,5 +1,5 @@
 ---
-title: "Authentication on batch endpoints"
+title: "Customize outputs in batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how authentication works on Batch Endpoints.
 services: machine-learning
@@ -29,11 +29,17 @@ In any of those cases, Batch Deployments allow you to take control of the output
 
 [!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
-[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
-
 * A model registered in the workspace. In this tutorial, we'll use an MLflow model. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 * You must have an endpoint already created. If you don't, follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `heart-classifier-batch`.
 * You must have a compute created where to deploy the deployment. If you don't, follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
+
+## About this sample
+
+This example shows how you can deploy a model to perform batch inference and customize how your predictions are written in the output. This example uses an MLflow model based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence).
+
+The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
+
+[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
 ## Creating a batch deployment with a custom output
 
@@ -148,7 +154,7 @@ Follow the next steps to create a deployment using the previous scoring script:
       conda_file: ./heart-classifier-mlflow/environment/conda.yaml
    code_configuration:
      code: ./heart-classifier-custom/code/
-     scoring_script: batch_driver.py
+     scoring_script: batch_driver_parquet.py
    compute: azureml:cpu-cluster
    resources:
      instance_count: 2
