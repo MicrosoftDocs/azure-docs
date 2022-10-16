@@ -38,7 +38,7 @@ Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web
 
 We recommend to using a `Managed Identity` for authentication and interaction with batch endpoints in this scenario. 
 
-1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
 1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
