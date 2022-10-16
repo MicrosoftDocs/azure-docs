@@ -292,7 +292,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
 ## Analyzing the outputs
 
-The job generates a named output called `score` where all the generated files are placed. Since we wrote into the directory directly, one file per each input file, then we can expect to have the same amount of files. In this particular example we decided to name the output files the same as the inputs, but they will have a parquet extension.
+The job generates a named output called `score` where all the generated files are placed. Since we wrote into the directory directly, one file per each input file, then we can expect to have the same number of files. In this particular example we decided to name the output files the same as the inputs, but they will have a parquet extension.
 
 > [!NOTE]
 > Notice that a file `predictions.csv` is also included in the output folder. This file contains the summary of the processed files.
