@@ -37,7 +37,7 @@ A sample of this model is provided in the repository in the path `azureml-exampl
 
 ## Image classification with batch deployments
 
-In this example, we are going to learn how to deploy a deep learning model that can classify a given image according the [taxonomy of ImageNet](https://image-net.org/). 
+In this example, we are going to learn how to deploy a deep learning model that can classify a given image according to the [taxonomy of ImageNet](https://image-net.org/). 
 
 ### Registering the model
 
