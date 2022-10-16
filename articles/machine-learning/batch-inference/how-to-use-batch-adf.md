@@ -102,7 +102,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 When calling Azure Machine Learning batch deployments consider the following limitations:
 
 * __Data inputs__:
-   * Only Azure Machine Learning data stores or Azure Storage Accounts are supported as inputs. If you input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
+   * Only Azure Machine Learning data stores or Azure Storage Accounts are supported as inputs. If your input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
    * Ensure that the identity you are using to execute the endpoint either has access to the underlying data or the workspace contains the credentials to read it.
 * __Data outputs__:
    * Only registered Azure Machine Learning data stores are supported.
