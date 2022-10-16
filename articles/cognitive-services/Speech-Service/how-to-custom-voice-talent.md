@@ -19,7 +19,7 @@ A voice talent is an individual or target speaker whose voices are recorded and 
 Before you can train a neural voice, you must submit a recording of the voice talent's consent statement. The voice talent statement is a recording of the voice talent reading a statement that they consent to the usage of their speech data to train a custom voice model. The consent statement is also used to verify that the voice talent is the same person as the speaker in the training data. 
 
 > [!TIP]
-> Before you get started in Speech Studio, define your voice [persona and select a right voice talent](record-custom-voice-samples.md#choose-your-voice-talent).
+> Before you get started in Speech Studio, define your voice [persona and choose the right voice talent](record-custom-voice-samples.md#choose-your-voice-talent).
 
 You can find the verbal consent statement in multiple languages on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. Read more about the voice talent verification [here](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 

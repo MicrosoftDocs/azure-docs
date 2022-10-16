@@ -169,7 +169,8 @@ To copy your custom neural voice model to another project:
 
 1. Select **Submit** to copy the model.
 1. Select **View model** under the notification message for copy success. 
-1. On the **Train model** tab, select the newly copied model and then select **Deploy model**.
+
+Navigate to the project where you copied the model to [deploy the model copy](how-to-deploy-and-use-endpoint.md).
 
 ## Next steps
 

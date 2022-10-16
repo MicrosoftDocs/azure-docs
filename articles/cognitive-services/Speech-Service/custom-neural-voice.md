@@ -19,18 +19,16 @@ Custom Neural Voice (CNV) is a text-to-speech feature that lets you create a one
 > [!IMPORTANT]
 > Custom Neural Voice access is [limited](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
 
-Out of the box, [text-to-speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=stt-tts). The prebuilt neural voices work very well in most text-to-speech scenarios.
+Out of the box, [text-to-speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=stt-tts). The prebuilt neural voices work very well in most text-to-speech scenarios. 
 
 Custom Neural Voice is based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model. You can create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md?tabs=stt-tts) for Custom Neural Voice.
-
-> [!TIP]
-> Try [Custom Neural Voice (CNV) Lite](custom-neural-voice-lite.md) to demo and evaluate CNV before investing in professional recordings to create a higher-quality voice. 
-
-Custom Neural Voice can use text provided by the user to convert text into speech in real time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [web portal](https://speech.microsoft.com/audiocontentcreation).
 
 ## How does it work?
 
 To create a custom neural voice, use [Speech Studio](https://aka.ms/speechstudio/customvoice) to upload the recorded audio and corresponding scripts, train the model, and deploy the voice to a custom endpoint. 
+
+> [!TIP]
+> Try [Custom Neural Voice (CNV) Lite](custom-neural-voice-lite.md) to demo and evaluate CNV before investing in professional recordings to create a higher-quality voice. 
 
 Creating a great custom neural voice requires careful quality control in each step, from voice design and data preparation, to the deployment of the voice model to your system. 
 
@@ -44,12 +42,14 @@ Here's an overview of the steps to create a Custom Neural Voice in Speech Studio
 1. [Create a project](how-to-custom-voice.md) to contain your data, voice models, tests, and endpoints. Each project is specific to a country and language. 
 1. [Prepare the training data](how-to-custom-voice-prepare-data.md) in the right [format](how-to-custom-voice-training-data.md). It's a good idea to capture the audio recordings in a professional quality recording studio to achieve a high signal-to-noise ratio. The quality of the voice model depends heavily on your training data. Consistent volume, speaking rate, pitch, and consistency in expressive mannerisms of speech are required.
 1. [Train your voice model](how-to-custom-voice-create-voice.md). Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
-1. Test your voice. Prepare test scripts for your voice model that cover the different use cases for your apps. It’s a good idea to use scripts within and outside the training dataset, so you can test the quality more broadly for different content.
+1. [Test your voice](how-to-custom-voice-create-voice.md#test-your-voice-model). Prepare test scripts for your voice model that cover the different use cases for your apps. It’s a good idea to use scripts within and outside the training dataset, so you can test the quality more broadly for different content.
 1. [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md) in your apps.
 
-You can tune, adjust, and use your custom voice, similarly as you would use a prebuilt neural voice. The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, you can make several adjustments by using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the text-to-speech service to convert text into audio. The adjustments you can make include change of pitch, rate, intonation, and pronunciation correction. If the voice model is built with multiple styles, you can also use SSML to switch the styles.
+You can tune, adjust, and use your custom voice, similarly as you would use a prebuilt neural voice. Convert text into speech in real time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [Speech Studio](https://speech.microsoft.com/audiocontentcreation).
 
-## Custom Neural Voice components
+The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, you can make several adjustments by using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the text-to-speech service to convert text into audio. The adjustments you can make include change of pitch, rate, intonation, and pronunciation correction. If the voice model is built with multiple styles, you can also use SSML to switch the styles.
+
+## Components sequence
 
 Custom Neural Voice consists of three major components: the text analyzer, the neural acoustic
 model, and the neural vocoder. To generate natural synthetic speech from text, text is first input into the text analyzer, which provides output in the form of phoneme sequence. A *phoneme* is a basic unit of sound that distinguishes one word from another in a particular language. A sequence of phonemes defines the pronunciations of the words provided in the text.

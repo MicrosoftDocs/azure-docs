@@ -132,7 +132,7 @@ items:
       displayName: viseme, phoneme, phonetic
     - name: Custom Neural Voice
       items:
-        - name: What is custom neural voice?
+        - name: What is Custom Neural Voice?
           href: custom-neural-voice.md
         - name: Custom Neural Voice Lite
           href: custom-neural-voice-lite.md

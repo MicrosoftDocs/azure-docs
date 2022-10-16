@@ -78,9 +78,9 @@ To record and build a CNV Lite model, follow these steps:
 1. Read the Voice talent terms of use carefully. Select the checkbox to acknowledge the terms of use.
 1. Select **Accept**
 1. Press the microphone icon to start the noise check. This noise check will take only a few seconds, and you won't need to speak during it. 
-1. If noise was detected, you can select **Check again** to repeat the noise check. If no noise was detected, you can select **Done** to proceed to the next step. For the best results, go to a quiet area without background noise before recording your voice samples.
+1. If noise was detected, you can select **Check again** to repeat the noise check. If no noise was detected, you can select **Done** to proceed to the next step. 
     :::image type="content" source="media/custom-voice/lite/cnv-record-noise-check.png" alt-text="Screenshot of the noise check results when noise was detected.":::
-1. Review the recording tips and select **Got it**.
+1. Review the recording tips and select **Got it**. For the best results, go to a quiet area without background noise before recording your voice samples.
 1. Press the microphone icon to start recording.
     :::image type="content" source="media/custom-voice/lite/cnv-record-sample.png" alt-text="Screenshot of the record sample dashboard.":::
 1. Press the stop icon to stop recording.

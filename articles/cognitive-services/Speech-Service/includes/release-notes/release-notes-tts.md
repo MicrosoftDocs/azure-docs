@@ -171,7 +171,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### Custom Neural Voice
 
-* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../how-to-custom-voice-create-voice.md#resolve-data-issues-online).
+* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../how-to-custom-voice-prepare-data.md#resolve-data-issues-online).
 * Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
 
 #### Audio Content Creation tool

@@ -18,6 +18,10 @@ When you're ready to create a custom Text-to-Speech voice for your application, 
 
 All data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Speech service. To confirm that your data is correctly formatted, see [Training data types](how-to-custom-voice-training-data.md).
 
+> [!NOTE]
+> - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
+> - The maximum number of data files allowed to be imported per subscription is 500 .zip files for standard subscription (S0) users. Please see out [Speech service quotas and limits](speech-services-quotas-and-limits.md#custom-neural-voice) for more details.
+
 ## Upload your data
 
 When you're ready to upload your data, go to the **Prepare training data** tab to add your first training set and upload data. A *training set* is a set of audio utterances and their mapping scripts used for training a voice model. You can use a training set to organize your training data. The service checks data readiness per each training set. You can import multiple data to a training set.
@@ -37,12 +41,6 @@ To upload training data, follow these steps:
 > Duplicate IDs are not accepted. Utterances with the same ID will be removed.
 > 
 > Duplicate audio names are removed from the training. Make sure the data you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicates, they're rejected.
-
-
-
-> [!NOTE]
-> - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
-> - The maximum number of data files allowed to be imported per subscription is 500 .zip files for standard subscription (S0) users. Please see out [Speech service quotas and limits](speech-services-quotas-and-limits.md#custom-neural-voice) for more details.
 
 Data files are automatically validated when you select **Submit**. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. If there are any errors, fix them and submit again. 
 
