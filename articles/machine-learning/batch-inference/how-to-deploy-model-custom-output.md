@@ -58,6 +58,7 @@ model = ml_client.models.create_or_update(
      Model(path='resources/heart-classifier-mlflow', type=AssetTypes.MLFLOW_MODEL)
 )
 ```
+---
 
 ### Creating a scoring script
 
