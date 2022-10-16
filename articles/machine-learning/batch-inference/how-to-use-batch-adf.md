@@ -19,7 +19,7 @@ ms.custom: devplatv2
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. [Azure Data Factory](../../data-factory/introduction.md) is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
-Azure Data Factory allows the creation of pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints is an excellent candidate to become an step in such processing workflow. In this example, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
+Azure Data Factory allows the creation of pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints are an excellent candidate to become a step in such processing workflow. In this example, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
 
 ## Prerequisites
 
@@ -36,13 +36,13 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 
 Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
-We recommend to use a `Managed Identity` for authentication and interaction with batch endpoints in this scenario. 
+We recommend to using a `Managed Identity` for authentication and interaction with batch endpoints in this scenario. 
 
 1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
-1. Take note of the `client ID` and the `tenant id` too as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
-1. Grant access for the managed identity you just created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the managed identity will require:
+1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Grant access for the managed identity you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the managed identity will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores. 
@@ -57,7 +57,7 @@ The pipeline has the following activities:
 
 * __Authorize__: It's a Web Activity that uses the Managed Identity created in [Authentication for Batch Endpoints in Azure Data Factory](#authentication-for-batch-endpoints-in-azure-data-factory) to obtain an authorization token. This token will be used to invoke the endpoint later.
 * __Run Batch-Endpoint__: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
-* __Wait for job__: It's a loop activity that check the status of the created job and waits for it's completition, eithier as **Complated** or **Failed**. This activity, in turns, uses the following activities:
+* __Wait for job__: It's a loop activity that checks the status of the created job and waits for its completion, eithier as **Completed** or **Failed**. This activity, in turns, uses the following activities:
   * __Authorize Management__: It's a Web Activity that uses the Managed Identity created in [Authentication for Batch Endpoints in Azure Data Factory](#authentication-for-batch-endpoints-in-azure-data-factory) to obtain an authorization token to be used for job's status query.
   * __Check status__: It's a Web Activity that queries the status of the job resource that was returned as a response of the __Run Batch-Endpoint__ activity. 
   * __Wait__: It's a Wait Activity that controls the polling frequency of the job's status. We set a default of 120 (2 minutes).
@@ -71,18 +71,18 @@ The pipeline requires the following parameters to be configured:
 | `client_secret`       | The client secret of the Managed Identity used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 | `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
-| `poll_interval`       | The number of seconds to wait before checking the job status for completition. Defaults to `120`.  | `120` |
-| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Please ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
-| `endpoint_output_uri` | The endpoint's output data file. This must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs are supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+| `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
+| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
+| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
 
 > [!WARNING]
 > Remember that `endpoint_output_uri` should be the path to a file that doesn't exist yet. Otherwise, the job will fail with the error `the path already exists`.
 
 ## Steps
 
-To create this pipeline in your existing Azure Data Factory, follow this steps:
+To create this pipeline in your existing Azure Data Factory, follow these steps:
 
-1. Open Azure Data Factory Studio and under __Factory Resources__ clic the plus sign.
+1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 2. Select __Pipeline__ > __Import from pipeline template__
 3. You will be prompted to select a `zip` file. Uses [the following template]().
 4. A preview of the pipeline will show up in the portal. Clic __Use this template__.
@@ -92,13 +92,13 @@ To create this pipeline in your existing Azure Data Factory, follow this steps:
   :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="High level diagram of the pipeline we are creating.":::
 
 > [!WARNING]
-> Ensure that you batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
+> Ensure that your batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
 
 ## Considerations when reading and writing data
 
 When reading and writing data, take into account the following considerations:
 
-* Batch endpoint jobs don't explore nested folders and hence can't work with nested folder structures. If your data is distributed in multiple folders, please notice that you will have to flatten the structure.
+* Batch endpoint jobs don't explore nested folders and hence can't work with nested folder structures. If your data is distributed in multiple folders, notice that you will have to flatten the structure.
 * Make sure that your scoring script provided in the deployment can handle the data as it is expected to be fed into the job. If the model is MLflow, read the limitation in terms of the file type supported by the moment at [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-* Batch endpoints distribute and parallelize the work accross multiple workers at the file level. Make sure that each worker node has enough memory to load the entire data file at once and send it to the model. This is specialy true for tabular data.
+* Batch endpoints distribute and parallelize the work across multiple workers at the file level. Make sure that each worker node has enough memory to load the entire data file at once and send it to the model. Such is especially true for tabular data.
 * When estimating the memory consumption of your jobs, take into account the model memory footprint too. Some models, like transformers in NLP, don't have a liner relationship between the size of the inputs and the memory consumption. On those cases, you may want to consider further partitioning your data into multiple files to allow a greater degree of parallelization with smaller files.
