@@ -15,11 +15,13 @@ ms.custom: devplatv2
 
 # Using batch deployments for NLP processing
 
+[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
+
 Batch Endpoints can be used for processing tabular data, but also any other file type like text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
 * You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `text-summarization-batch`.
 * You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
@@ -29,7 +31,7 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 The model we are going to work with was built using the popular library transformers from HuggingFace along with [a pre-trained model from Facebook with the BART architecture](https://huggingface.co/facebook/bart-large-cnn). It was introduced in the paper [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation](https://arxiv.org/abs/1910.13461). This model has the following constrains that are important to keep in mind for deployment:
 
 * It can work with sequences up to 1024 tokens.
-* It is trained for summarization of text in english.
+* It is trained for summarization of text in English.
 * We are going to use TensorFlow as a backend.
 
 Due to the size of the model, it hasn't been included in this repository. Instead, you can generate a local copy using:
@@ -46,7 +48,7 @@ A local copy of the model will be placed at `bart-text-summarization/model`. We 
 
 ## NLP tasks with batch deployments
 
-In this example, we are going to learn how to deploy a deep learning model based on the BART architecture that can perform text summarization over text in english. The text will be placed in CSV files for convenience. 
+In this example, we are going to learn how to deploy a deep learning model based on the BART architecture that can perform text summarization over text in English. The text will be placed in CSV files for convenience. 
 
 ### Registering the model
 
@@ -68,9 +70,9 @@ model = ml_client.models.create_or_update(
 )
 ```
 
-### Creating an scoring script
+### Creating a scoring script
 
-We need to create an scoring script that can read the CSV files provided by the batch deployment and return the scores of the model with the summary. The following script does the following:
+We need to create a scoring script that can read the CSV files provided by the batch deployment and return the scores of the model with the summary. The following script does the following:
 
 > [!div class="checklist"]
 > * Indicates an `init` function that load the model using `transformers`. Notice that the tokenizer of the model is loaded separately to account for the limitation in the sequence lenghs of the model we are currently using.
@@ -224,11 +226,11 @@ As mentioned in some of the notes along this tutorial, processing text may have 
 
 ## Considerations for MLflow models that process text
 
-MLflow models in Batch Endpoints support reading CSVs as input data, which may contain long sequences of text. The same considerations mentioned above apply to MLflow models. However, since you are not required to provide an scoring script for your MLflow model deployment, some of the recommendation there may be harder to achieve. 
+MLflow models in Batch Endpoints support reading CSVs as input data, which may contain long sequences of text. The same considerations mentioned above apply to MLflow models. However, since you are not required to provide a scoring script for your MLflow model deployment, some of the recommendation there may be harder to achieve. 
 
-* For inputs that contain text, only `CSV` files are supported for MLflow deployments. You will need to author an scoring script if you need to process other file types like `TXT`, `PARQUET`, etc.
-* Batch Deployments distributes the work at the file level. That means that your MLflow model will be invoked with the content of an entire file. If you input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
-   * Customize how you model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](how-to-log-mlflow-models?tabs=wrapper.md#logging-custom-models).
-   * Author an scoring script and load your model using `mlflow.<flavor>.load_model()`. 
+* For inputs that contain text, only `CSV` files are supported for MLflow deployments. You will need to author a scoring script if you need to process other file types like `TXT`, `PARQUET`, etc.
+* Batch Deployments distributes the work at the file level. That means that your MLflow model will be invoked with the content of an entire file. If your input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
+   * Customize how your model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](how-to-log-mlflow-models?tabs=wrapper.md#logging-custom-models).
+   * Author a scoring script and load your model using `mlflow.<flavor>.load_model()`. 
 
 
