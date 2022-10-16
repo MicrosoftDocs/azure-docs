@@ -22,7 +22,7 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
 For no-code-deployment, Azure Machine Learning 
 
 * Provides a MLflow base image/curated environment that contains the required dependencies to run an Azure Machine Learning Batch job.
-* Creates a batch job pipeline with an scoring script for you that can be used to process data using parallelization.
+* Creates a batch job pipeline with a scoring script for you that can be used to process data using parallelization.
 
 > [!NOTE]
 > For more information about the supported file types in batch endpoints with MLflow, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
@@ -33,11 +33,11 @@ For no-code-deployment, Azure Machine Learning
 
 [!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
-* You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).
+* You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](../how-to-convert-custom-model-to-mlflow.md).
 
 ## About this example
 
-This example shows how you can deploy an MLflow model to a batch endpoint to perform batch predictions. This examples uses an MLflow model based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence).
+This example shows how you can deploy an MLflow model to a batch endpoint to perform batch predictions. This example uses an MLflow model based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence).
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
@@ -130,7 +130,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
        ml_client.begin_create_or_update(compute_cluster)
    ```
 
-1. Now it is time to create the batch endpoint and deploymnet. Let's start with the endpoint first. Endpoints only require a name and a description to be created:
+1. Now it is time to create the batch endpoint and deployment. Let's start with the endpoint first. Endpoints only require a name and a description to be created:
    
    # [Azure ML CLI](#tab/cli)
    
@@ -219,15 +219,15 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    ---
    
    > [!NOTE]
-   > `scoring_script` and `environment auto generation only supports `pyfunc` model flavor. To use a different flavor please see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+   > `scoring_script` and `environment auto generation only supports `pyfunc` model flavor. To use a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
 
 1. At this point, our batch endpoint is ready to be used. 
 
 ## Testing out the deployment
 
-For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accepts data that can be placed in multiple type of locations.
+For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in multiple type of locations.
 
-1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is you data is already registered as a data asset or you want to use a different input type.
+1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset or you want to use a different input type.
 
    # [Azure ML CLI](#tab/cli)
    
@@ -332,7 +332,7 @@ az ml job download --name $JOB_NAME --output-name score --download-path ./
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
 ```
 
-Once the file is downloaded, you can open it using your favorite tool. The following examples loads the predictions using `Pandas` dataframe.
+Once the file is downloaded, you can open it using your favorite tool. The following example loads the predictions using `Pandas` dataframe.
 
 ```python
 import pandas as pd
@@ -359,11 +359,11 @@ The output looks as follows:
 
 ## Considerations when deploying to batch inference
 
-Azure Machine Learning supports no-code deployment for batch inference in [managed endpoints](concept-endpoints.md). This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion.
+Azure Machine Learning supports no-code deployment for batch inference in [managed endpoints](../concept-endpoints.md). This represents a convenient way to deploy models that require processing of big amounts of data in a batch-fashion.
 
 ### How work is distributed on workers
 
-Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets](v1/how-to-create-register-datasets.md#filedataset) or [URI folders](reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
+Work is distributed at the file level, for both structured and unstructured data. As a consequence, only [file datasets](../v1/how-to-create-register-datasets.md#filedataset) or [URI folders](../reference-yaml-data.md) are supported for this feature. Each worker processes batches of `Mini batch size` files at a time. Further parallelism can be achieved if `Max concurrency per instance` is increased. 
 
 > [!WARNING]
 > Nested folder structures are not explored during inference. If you are partitioning your data using folders, make sure to flatten the structure beforehand.
@@ -373,7 +373,7 @@ Work is distributed at the file level, for both structured and unstructured data
 
 ### File's types support
 
-The following data types are supported for batch inference when deploying MLflow models without an environment and an scoring script:
+The following data types are supported for batch inference when deploying MLflow models without an environment and a scoring script:
 
 | File extension | Type returned as model's input | Signature requirement |
 | :- | :- | :- |
@@ -384,24 +384,24 @@ The following data types are supported for batch inference when deploying MLflow
 > Be advised that any unsupported file that may be present in the input data will make the job to fail. You will see an error entry as follows: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.parquet'. File type 'parquet' is not supported."*.
 
 > [!TIP]
-> If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with an scoring script as explained in [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+> If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with a scoring script as explained in [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
 
 ### Signature enforcement for MLflow models
 
-Input's data types are enforced by batch deployment jobs while reading the data using the available MLflow model signature. This means that your data input should comply with the types indicated in the model signature. If the data can't be parsed as expected, the job will fail with an error message similar to the following one: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.csv'. Exception:invalid literal for int() with base 10: 'value'"*.
+Input's data types are enforced by batch deployment jobs while reading the data using the available MLflow model signature. This means that your data input should comply with the types indicated in the model signature. If the data can't be parsed as expected, the job will fail with an error message similar to the following one: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.csv'. Exception: invalid literal for int() with base 10: 'value'"*.
 
 > [!TIP]
 > Signatures in MLflow models are optional but they are highly encouraged as they provide a convenient way to early detect data compatibility issues. For more information about how to log models with signatures read [Logging models with a custom signature, environment or samples](../how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
 
-You can inspect the model signature of your model by opening the `MLmodel` file associated with your MLflow model. For more details about how signatures work in MLflow see [Signatures in MLflow](../concept-mlflow-models#signatures).
+You can inspect the model signature of your model by opening the `MLmodel` file associated with your MLflow model. For more details about how signatures work in MLflow see [Signatures in MLflow](../concept-mlflow-models.md#signatures).
 
 ### Flavor support
 
-Batch deployments only support deploying MLflow models with a `pyfunc` flavor. If you need to deploy a different flavor, please see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+Batch deployments only support deploying MLflow models with a `pyfunc` flavor. If you need to deploy a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
 
 ## Using MLflow models with a scoring script
 
-MLflow models can be deployed to batch endpoints without indicating an scoring script in the deployment definition. However, you can opt-in to indicate this file (usually referred as the *batch driver*) to customize how inference is executed. 
+MLflow models can be deployed to batch endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate this file (usually referred as the *batch driver*) to customize how inference is executed. 
 
 You will typically select this workflow when: 
 > [!div class="checklist"]
@@ -423,7 +423,6 @@ def init():
 
     # AZUREML_MODEL_DIR is an environment variable created during deployment
     # It is the path to the model folder
-    # Please provide your model's folder name if there's one:
     model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
     model = mlflow.pyfunc.load(model_path)
 
