@@ -47,7 +47,7 @@ Batch Endpoint can only deploy registered models. In this case, we already have 
 
 ```bash
 MODEL_NAME='imagenet-classifier'
-az ml model create --name $$MODEL_NAME --type "custom_model" --path "imagenet-classifier/model"
+az ml model create --name $MODEL_NAME --type "custom_model" --path "imagenet-classifier/model"
 ```
 
 # [Azure ML SDK for Python](#tab/sdk)
@@ -231,7 +231,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    !unzip imagenet-1000.zip -d /tmp/imagenet-1000
    ```
 
-1. Now, let's create the data asset from the data just downloaded
+2. Now, let's create the data asset from the data just downloaded
 
    # [Azure ML CLI](#tab/cli)
    
@@ -267,12 +267,12 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    ml_client.data.create_or_update(imagenet_sample)
    ```
    
-1. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
+3. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
    # [Azure ML CLI](#tab/cli)
    
    ```bash
-   INVOKE_RESPONSE = az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:imagenet-sample-unlabeled@latest
+   INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:imagenet-sample-unlabeled@latest)
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
@@ -284,18 +284,17 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
       input=input,
    )
    ```
-   
    ---
    
    > [!TIP]
    > Notice how we are not indicating the deployment name in the invoke operation. That's because the endpoint automatically routes the job to the default deployment. Since our endpoint only has one deployment, then that one is the default one. You can target an specific deployment by indicating the argument/parameter `deployment_name`.
 
-1. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
+4. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
    # [Azure ML CLI](#tab/cli)
    
    ```bash
-   JOB_NAME = $INVOKE_RESPONSE | jq -r '.name'
+   JOB_NAME = $($INVOKE_RESPONSE | jq -r '.name')
    az ml job show --name $JOB_NAME
    ```
    
@@ -307,7 +306,8 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    ```python
    ml_client.jobs.get(job.name)
    ```
-1. Once the deployment is finished, we can download the predictions:
+
+5. Once the deployment is finished, we can download the predictions:
 
    # [Azure ML CLI](#tab/cli)
 
@@ -323,7 +323,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
    ```
 
-1. The output predictions will look like the following. Notice that the predictions have been combined with the labels for the convenience of the reader. To know more about how to achieve this see the associated notebook.
+6. The output predictions will look like the following. Notice that the predictions have been combined with the labels for the convenience of the reader. To know more about how to achieve this see the associated notebook.
 
     | class | probabilities | label |
     |-------|---------------| ------|
