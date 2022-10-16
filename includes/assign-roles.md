@@ -57,7 +57,7 @@ az role assignment create --assignee "<user@domain>" \
 
 ### [PowerShell](#tab/roles-powershell)
 
-To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource id using the `Get-AzResource` command.
+To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource ID using the `Get-AzResource` command.
 
 ```azurepowershell
 Get-AzResource -ResourceGroupName "<yourResourceGroupname>" -Name "<yourStorageAccountName>"
