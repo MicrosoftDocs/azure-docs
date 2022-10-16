@@ -89,7 +89,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
 6. Configure the parameters of the batch deployment you are using:
 
-  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="High level diagram of the pipeline we are creating.":::
+  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="Parameters expected for the resulting pipeline.":::
 
 > [!WARNING]
 > Ensure that your batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
