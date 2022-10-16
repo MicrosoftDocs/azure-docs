@@ -69,6 +69,7 @@ model = ml_client.models.create_or_update(
     Model(path='bart-text-summarization/model', type=AssetTypes.CUSTOM_MODEL)
 )
 ```
+---
 
 ### Creating a scoring script
 
