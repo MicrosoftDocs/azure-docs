@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Image processing tasks with batch deployments
 
-[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
 
 Batch Endpoints can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
