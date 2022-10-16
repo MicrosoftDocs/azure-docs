@@ -1,5 +1,5 @@
 ---
-title: "Using batch deployments for image file processing"
+title: "Image processing tasks with batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a model in batch endpoints that process images
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Using batch deployments for image file processing
+# Image processing tasks with batch deployments
 
 [!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
@@ -412,3 +412,8 @@ signature = ModelSignature(inputs=input_schema)
 ```
 
 For more information about how to use MLflow models in batch deployments read [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+
+## Next steps
+
+* [Using MLflow models in batch deployments](how-to-mlflow-batch.md)
+* [NLP tasks with batch deployments](how-to-nlp-processing-batch.md)
