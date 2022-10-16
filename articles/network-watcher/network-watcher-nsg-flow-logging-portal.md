@@ -185,7 +185,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
     "time": "2018-05-01T15:00:02.1713710Z",
     "systemId": "<Id>",
     "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
@@ -211,7 +211,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
     "time": "2018-11-13T12:00:35.3899262Z",
     "systemId": "<Id>",
     "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 2,
