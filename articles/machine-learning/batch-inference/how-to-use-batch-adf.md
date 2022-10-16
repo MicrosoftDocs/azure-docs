@@ -15,15 +15,13 @@ ms.custom: devplatv2
 
 # Invoking batch endpoints from Azure Data Factory
 
-[!INCLUDE [cli v2](../../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
 
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. [Azure Data Factory](../../data-factory/introduction.md) is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
 Azure Data Factory allows the creation of pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints are an excellent candidate to become a step in such processing workflow. In this example, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
 
 ## Prerequisites
-
-[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 * An Azure Data Factory resource created and configured. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](../../data-factory/quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
@@ -49,11 +47,13 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
 
 ## About the pipeline
 
-We are going to create a pipeline in Azure Data Factory that can invoke a given batch endpoint over some data. The pipeline will look as follows:
+We are going to create a pipeline in Azure Data Factory that can invoke a given batch endpoint over some data. The pipeline will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](../how-to-deploy-batch-with-rest.md). 
+
+The pipeline will look as follows:
 
 :::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="High level diagram of the pipeline we are creating.":::
 
-The pipeline has the following activities:
+It is composed of the following activities:
 
 * __Authorize__: It's a Web Activity that uses the Managed Identity created in [Authentication for Batch Endpoints in Azure Data Factory](#authentication-for-batch-endpoints-in-azure-data-factory) to obtain an authorization token. This token will be used to invoke the endpoint later.
 * __Run Batch-Endpoint__: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
@@ -84,7 +84,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 2. Select __Pipeline__ > __Import from pipeline template__
-3. You will be prompted to select a `zip` file. Uses [the following template]().
+3. You will be prompted to select a `zip` file. Uses [the following template](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint.zip).
 4. A preview of the pipeline will show up in the portal. Click __Use this template__.
 5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
 6. Configure the parameters of the batch deployment you are using:
@@ -93,6 +93,9 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 
 > [!WARNING]
 > Ensure that your batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
+
+> [!TIP]
+> For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../../data-factory/control-flow-execute-pipeline-activity.md).
 
 ## Considerations when reading and writing data
 
