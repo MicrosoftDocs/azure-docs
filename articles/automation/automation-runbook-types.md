@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/17/2021
+ms.date: 10/16/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -55,12 +55,13 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
 
-The PowerShell version is determined by the **Runtime version** specified (that is version 7.1 preview or 5.1). The Azure Automation service supports the latest PowerShell runtime.
+The PowerShell version is determined by the **Runtime version** specified (that is version 7.2 preview, 7.1 preview or 5.1). The Azure Automation service supports the latest PowerShell runtime.
  
-The same Azure sandbox and Hybrid Runbook Worker can execute **PowerShell 5.1** and **PowerShell 7.1** runbooks side by side.   
+The same Azure sandbox and Hybrid Runbook Worker can execute **PowerShell 5.1** and **PowerShell 7.1 (preview)** runbooks side by side.   
 
 > [!NOTE]
->  At the time of runbook execution, if you select **Runtime Version** as **7.1 (preview)**, PowerShell modules targeting 7.1 runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used.
+> - PowerShell 7.2 (preview) runtime version is currently supported in six regions for Cloud jobs only: West Central US, East US, South Africa North, Japan East, North Europe, Australia Southeast 
+>  - At the time of runbook execution, if you select **Runtime Version** as **7.1 (preview)**, PowerShell modules targeting 7.1 runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used. This applies for PowerShell 7.2 (preview) modules and runbooks. 
  
 Ensure that you select the right Runtime Version for modules.
 
@@ -69,7 +70,7 @@ For example : if you are executing a runbook for a SharePoint automation scenari
 :::image type="content" source="./media/automation-runbook-types/runbook-types.png" alt-text="runbook Types.":::
 
 
-Currently, PowerShell 5.1 and 7.1 (preview) are supported.
+Currently, PowerShell 5.1, PowerShell 7.1 (preview) and PowerShell 7.2 (preview) are supported.
 
 
 ### Advantages
@@ -120,12 +121,41 @@ The following are current known issues with PowerShell runbooks:
 - When you import a PowerShell 7.1 module that’s dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts was < 2.6.0.
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
 
+
+### Limitations - 7.2 (preview)
+
+- PowerShell 7.2 (preview) runtime version is currently supported in six regions for Cloud jobs only: West Central US, East US, South Africa North, Japan East, North Europe, and Australia Southeast.
+
+- Currently, only cloud jobs are supported for PowerShell 7.2 (preview) and Python 3.10 (preview) runtime versions. 
+
+- Custom packages for PowerShell 7.2 (preview) and Python 3.10 (preview) are only validated during job runtime. Job is expected to fail if the package is not compatible in the runtime or if required dependencies of packages are not imported into automation account. 
+
+- Logging job operations to the Log Analytics workspace through linked workspace or diagnostics settings are not supported. 
+
+- Currently, PowerShell 7.2 (preview) and Python 3.10 (preview) runbooks are only supported from Azure Portal. Rest API and PowerShell is not supported. 
+
+- Az module 8.3.0 is installed by default and cannot be managed at the automation account level. Use custom modules to override the Az module to the desired version.
+
+- The imported PowerShell 7.2 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
+
+- The imported Python 3.10 (preview) module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
+
+### Known Issues - 7.2 (preview)
+
+Runbook properties for managing Progress and Verbose logs might not work as expected. Instead use:
+ ```
+ $VerbosePreference = “Continue” 
+ 
+ $ProgressPreference = “Continue”
+
+ ```
+
 ## PowerShell Workflow runbooks
 
 PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md). You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation. 
 
 >[!NOTE]
-> PowerShell 7.1 does not support workflow runbooks.
+> PowerShell 7.1 (preview) and PowerShell 7.2 (preview) do not support Workflow runbooks.
 
 ### Advantages
 
@@ -144,12 +174,19 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 ## Python runbooks
 
-Python runbooks compile under Python 2 and Python 3. Python 3 runbooks are currently in preview. You can directly edit the code of the runbook using the text editor in the Azure portal. You can also use an offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+Python runbooks compile under Python 2, Python 3.8 (preview) and Python 3.10 (preview). You can directly edit the code of the runbook using the text editor in the Azure portal. You can also use an offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
-Python 3 runbooks are supported in the following Azure global infrastructures:
+Python 3.8 (preview) runbooks are supported in the following Azure global infrastructures:
 
 * Azure global
 * Azure Government
+* Python 3.10 (preview) runbooks are currently supported in six regions: 
+    - West Central US
+    - East US
+    - South Africa North
+    - Japan East
+    - North Europe
+    - Australia Southeast 
 
 ### Advantages
 
