@@ -416,7 +416,7 @@ You will typically select this workflow when:
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
 
-1. Create an scoring script:
+1. Create a scoring script:
 
    __batch_driver.py__
 
