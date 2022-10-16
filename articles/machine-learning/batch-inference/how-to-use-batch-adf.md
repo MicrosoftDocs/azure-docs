@@ -85,7 +85,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 2. Select __Pipeline__ > __Import from pipeline template__
 3. You will be prompted to select a `zip` file. Uses [the following template]().
-4. A preview of the pipeline will show up in the portal. Clic __Use this template__.
+4. A preview of the pipeline will show up in the portal. Click __Use this template__.
 5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
 6. Configure the parameters of the batch deployment you are using:
 
