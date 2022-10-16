@@ -34,7 +34,7 @@ To upload your own datasets in Speech Studio, follow these steps:
 1. Enter the dataset name and description, and then select **Next**.
 1. Review your settings, and then select **Save and close**.
 
-After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md)
+After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md).
 
 ::: zone-end
 
