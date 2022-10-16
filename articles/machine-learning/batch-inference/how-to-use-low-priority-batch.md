@@ -78,17 +78,19 @@ You can create a low priority Azure Machine Learning compute cluster as follows:
       description="Low priority compute cluster", 
       min_instances=0, 
       max_instances=2,
-      tier='LowPriority')
+      tier='LowPriority'
+   )
+    
    ml_client.begin_create_or_update(compute_cluster)
    ```
    
    ---
    
-Once you have a low priority compute created, you can create a new deployment under the recently created cluster. Updating the compute cluster for a given deployment is not supported by the moment so recreation is required:
+Once you have the new compute created, you can create or update your deployment to use the new cluster:
 
    # [Azure ML CLI](#tab/cli)
    
-   To create a new deployment under the new compute cluster, create a `YAML` configuration like the following:
+   To create or update a deployment under the new compute cluster, create a `YAML` configuration like the following:
    
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
@@ -118,7 +120,7 @@ Once you have a low priority compute created, you can create a new deployment un
    
    # [Azure ML SDK for Python](#tab/sdk)
    
-   To create a new deployment under the created endpoint, use the following script:
+   To create or update a deployment under the new compute cluster, use the following script:
    
    ```python
    deployment = BatchDeployment(
@@ -135,6 +137,7 @@ Once you have a low priority compute created, you can create a new deployment un
        retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
        logging_level="info",
    )
+   
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
    ---
