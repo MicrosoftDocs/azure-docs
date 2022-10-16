@@ -106,7 +106,7 @@ When calling Azure Machine Learning batch deployments consider the following lim
    * Ensure that the identity you are using to execute the endpoint either has access to the underlying data or the workspace contains the credentials to read it.
 * __Data outputs__:
    * Only registered Azure Machine Learning data stores are supported.
-   * Only Azure Blob Storage Accounts are supported for outputs. If you need to output the data to a different location/sink, use the Azure Data Factory Copy activity after the execution of the batch job.   
+   * Only Azure Blob Storage Accounts are supported for outputs. For instance, ADLS Gen2 isn't supported as output in batch deployment jobs. If you need to output the data to a different location/sink, use the Azure Data Factory Copy activity after the execution of the batch job.   
 
 ## Considerations when reading and writing data
 
