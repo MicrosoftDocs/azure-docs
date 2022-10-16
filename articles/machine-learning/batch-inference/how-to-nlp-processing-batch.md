@@ -95,6 +95,7 @@ def init():
     global tokenizer
 
     # AZUREML_MODEL_DIR is an environment variable created during deployment
+    # Change "model" to the name of the folder used by you model, or model file name.
     model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
 
     # load the model
@@ -125,9 +126,6 @@ def run(mini_batch):
 
 One the scoring script is created, it's time to create a batch deployment for it. Follow the following steps to create it:
 
-> [!NOTE]
-> This example assumes you have an endpoint created with the name `text-summarization-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
-
 1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so we can reutilize this environment. We are just going to add a couple of dependencies in a `conda.yml` file including the libraries `transformers` and `datasets`.
 
    # [Azure ML CLI](#tab/cli)
@@ -146,6 +144,9 @@ One the scoring script is created, it's time to create a batch deployment for it
    ```
 
 2. Now, let create the deployment.
+
+   > [!NOTE]
+   > This example assumes you have an endpoint created with the name `text-summarization-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
 
    # [Azure ML CLI](#tab/cli)
    
@@ -230,9 +231,9 @@ As mentioned in some of the notes along this tutorial, processing text may have 
 
 MLflow models in Batch Endpoints support reading CSVs as input data, which may contain long sequences of text. The same considerations mentioned above apply to MLflow models. However, since you are not required to provide a scoring script for your MLflow model deployment, some of the recommendation there may be harder to achieve. 
 
-* For inputs that contain text, only `CSV` files are supported for MLflow deployments. You will need to author a scoring script if you need to process other file types like `TXT`, `PARQUET`, etc.
-* Batch Deployments distributes the work at the file level. That means that your MLflow model will be invoked with the content of an entire file. If your input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
+* Only `CSV` files are supported for MLflow deployments processing text. You will need to author a scoring script if you need to process other file types like `TXT`, `PARQUET`, etc. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script) for details.
+* Batch deployments will call your MLflow model's predict function with the content of an entire file in as Pandas dataframe. If your input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
    * Customize how your model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](../how-to-log-mlflow-models.md?#logging-custom-models).
-   * Author a scoring script and load your model using `mlflow.<flavor>.load_model()`. 
+   * Author a scoring script and load your model using `mlflow.<flavor>.load_model()`. See [Using MLflow models with a scoring script](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script) for details.
 
 
