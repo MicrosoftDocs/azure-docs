@@ -58,6 +58,7 @@ model = ml_client.models.create_or_update(
     Model(path='imagenet-classifier/model', type=AssetTypes.CUSTOM_MODEL)
 )
 ```
+---
 
 ### Creating a scoring script
 
