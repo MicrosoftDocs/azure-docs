@@ -230,7 +230,7 @@ MLflow models in Batch Endpoints support reading CSVs as input data, which may c
 
 * For inputs that contain text, only `CSV` files are supported for MLflow deployments. You will need to author a scoring script if you need to process other file types like `TXT`, `PARQUET`, etc.
 * Batch Deployments distributes the work at the file level. That means that your MLflow model will be invoked with the content of an entire file. If your input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
-   * Customize how your model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](how-to-log-mlflow-models?tabs=wrapper.md#logging-custom-models).
+   * Customize how your model runs predictions and implement batching. To learn how to customize MLflow model's inference, see [Logging custom models](../how-to-log-mlflow-models.md?#logging-custom-models).
    * Author a scoring script and load your model using `mlflow.<flavor>.load_model()`. 
 
 
