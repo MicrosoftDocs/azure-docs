@@ -15,6 +15,8 @@ ms.custom: devplatv2
 
 # Customize outputs in batch deployments
 
+[!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
+
 Sometimes you need to execute inference having a higher control of what is being written as output of the batch job. Those cases include:
 
 > [!div class="checklist"]
