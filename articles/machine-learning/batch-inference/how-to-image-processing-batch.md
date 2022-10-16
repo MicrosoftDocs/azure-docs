@@ -30,7 +30,7 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 
 The model we are going to work with was built using TensorFlow along with the RestNet architecture ([Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027)). This model has the following constrains that are important to keep in mind for deployment:
 
-* In work with images of size 244x244 (tensors of `(224, 224, 3)`).
+* It works with images of size 244x244 (tensors of `(224, 224, 3)`).
 * It requires inputs to be scaled to the range `[0,1]`.
 
 A sample of this model is provided in the repository in the path `azureml-examples/sdk/python/endpoints/batch/imagenet-classifier`. 
@@ -45,7 +45,7 @@ Batch Endpoint can only deploy registered models. In this case, we already have 
    
 # [Azure ML CLI](#tab/cli)
 
-```bash
+```azurecli
 MODEL_NAME='imagenet-classifier'
 az ml model create --name $MODEL_NAME --type "custom_model" --path "imagenet-classifier/model"
 ```
@@ -77,10 +77,12 @@ __imagenet_scorer.py__
 ```python
 import os
 import numpy as np
+import pandas as pd
 import tensorflow as tf
 from os.path import basename
 from PIL import Image
 from tensorflow.keras.models import load_model
+
 
 def init():
     global model
@@ -96,7 +98,7 @@ def init():
     input_height = 244
 
 def run(mini_batch):
-    resultList = []
+    results = []
 
     for image in mini_batch:
         data = Image.open(image).resize((input_width, input_height)) # Read and resize the image
@@ -110,23 +112,20 @@ def run(mini_batch):
         pred_prob = tf.math.reduce_max(tf.math.softmax(pred, axis=-1)).numpy()
         pred_class = tf.math.argmax(pred, axis=-1).numpy()
 
-        resultList.append([basename(image), pred_class[0], pred_prob])
+        results.append([basename(image), pred_class[0], pred_prob])
 
-    return resultList
+    return pd.DataFrame(results)
 ```
 
 > [!TIP]
 > Although images are provided in mini-batches by the deployment, this scoring script processes one image at a time. This is a common pattern as trying to load the entire batch and send it to the model at once may result in high-memory pressure on the batch executor (OOM exeptions). However, there are certain cases where doing so enables high throughput in the scoring task. This is the case for instance of batch deployments over a GPU hardware where we want to achieve high GPU utilization. See [High throughput deployments](#high-throughput-deployments) for an example of a scoring script that takes advantage of it.
 
 > [!NOTE]
-> If you are trying to deploy a generative model, please read how to author a scoring script as explained at [Deployment of models that produces multiple files](how-to-deploy-model-custom-output.md)
+> If you are trying to deploy a generative model (one that generates files), please read how to author a scoring script as explained at [Deployment of models that produces multiple files](how-to-deploy-model-custom-output.md).
 
 ### Creating the deployment
 
 One the scoring script is created, it's time to create a batch deployment for it. Follow the following steps to create it:
-
-> [!NOTE]
-> This example assumes you have an endpoint created with the name `imagenet-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
 
 1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so we can reutilize this environment. We are just going to add a couple of dependencies in a `conda.yml` file.
 
@@ -146,6 +145,9 @@ One the scoring script is created, it's time to create a batch deployment for it
    ```
 
 1. Now, let create the deployment.
+
+   > [!NOTE]
+   > This example assumes you have an endpoint created with the name `imagenet-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
 
    # [Azure ML CLI](#tab/cli)
    
@@ -179,7 +181,7 @@ One the scoring script is created, it's time to create a batch deployment for it
   
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    az ml batch-endpoint create -f endpoint.yml
    ```
    
@@ -248,7 +250,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    
    Then, create the data asset:
    
-   ```bash
+   ```azurecli
    az ml data create -f imagenet-sample-unlabeled.yml
    ```
    
@@ -271,7 +273,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
    # [Azure ML CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:imagenet-sample-unlabeled@latest | jq -r '.name')
    ```
    
@@ -296,7 +298,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
    # [Azure ML CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az ml job show --name $JOB_NAME
    ```
    
@@ -312,7 +314,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
    To download the predictions, use the following command:
 
-   ```bash
+   ```azurecli
    az ml job download --name $JOB_NAME --output-name score --download-path ./
    ```
 
@@ -323,6 +325,13 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    ```
 
 6. The output predictions will look like the following. Notice that the predictions have been combined with the labels for the convenience of the reader. To know more about how to achieve this see the associated notebook.
+
+    ```python
+    import pandas as pd
+    score = pd.read_csv("named-outputs/score/predictions.csv", header=None,  names=['file', 'class', 'probabilities'], sep=' ')
+    score['label'] = score['class'].apply(lambda pred: imagenet_labels[pred])
+    score
+    ```
 
     | class | probabilities | label |
     |-------|---------------| ------|
