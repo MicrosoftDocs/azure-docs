@@ -15,11 +15,13 @@ ms.custom: devplatv2
 
 # Using batch deployments for image file processing
 
+[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
+
 Batch Endpoints can be used for processing tabular data, but also any other file type like images. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that classifies images according to the ImageNet taxonomy.
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
 * You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `imagenet-classifier-batch`.
 * You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
@@ -57,9 +59,9 @@ model = ml_client.models.create_or_update(
 )
 ```
 
-### Creating an scoring script
+### Creating a scoring script
 
-We need to create an scoring script that can read the images provided by the batch deployment and return the scores of the model. The following script does the following:
+We need to create a scoring script that can read the images provided by the batch deployment and return the scores of the model. The following script does the following:
 
 > [!div class="checklist"]
 > * Indicates an `init` function that load the model using `keras` module in `tensorflow`.
@@ -113,10 +115,10 @@ def run(mini_batch):
 ```
 
 > [!TIP]
-> Although images are provided in mini-batches by the deployment, this scoring script processes one image at a time. This is a common pattern as trying to load the entire batch and send it to the model at once may result in high-memory pressure on the batch executor (OOM exeptions). However, there are certain cases where doing so enables high throughput in the scoring task. This is the case for instance of batch deployments over a GPU hardware where we want to achieve high GPU utilization. See [High throughput deployments](#high-throughput-deployments) for an example of an scoring script that takes advantage of it.
+> Although images are provided in mini-batches by the deployment, this scoring script processes one image at a time. This is a common pattern as trying to load the entire batch and send it to the model at once may result in high-memory pressure on the batch executor (OOM exeptions). However, there are certain cases where doing so enables high throughput in the scoring task. This is the case for instance of batch deployments over a GPU hardware where we want to achieve high GPU utilization. See [High throughput deployments](#high-throughput-deployments) for an example of a scoring script that takes advantage of it.
 
 > [!NOTE]
-> If you are trying to deploy a generative model, please read how to author an scoring script as explained at [Deployment of models that produces multiple files](how-to-deploy-model-custom-output.md)
+> If you are trying to deploy a generative model, please read how to author a scoring script as explained at [Deployment of models that produces multiple files](how-to-deploy-model-custom-output.md)
 
 ### Creating the deployment
 
@@ -210,7 +212,7 @@ One the scoring script is created, it's time to create a batch deployment for it
 
 ## Testing out the deployment
 
-For testing our endpoint, we are going to use a sample of 1000 images from the original ImageNet dataset. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accepts data that can be placed in multiple type of locations.
+For testing our endpoint, we are going to use a sample of 1000 images from the original ImageNet dataset. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in multiple type of locations.
 
 1. Let's download the associated sample data:
 
@@ -332,7 +334,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
 
 ## High throughput deployments
 
-As mentioned before, the deployment we just created processes one image a time, even when the batch deployment is providing a batch of them. In most cases this is the best approach as it simplifies how the models executes and avoids any possible out-of-memory problems. However, in certain others we may want to saturate as much as possible the utilization of the underlying hardware. This is the case GPUs for instance.
+As mentioned before, the deployment we just created processes one image a time, even when the batch deployment is providing a batch of them. In most cases this is the best approach as it simplifies how the models execute and avoids any possible out-of-memory problems. However, in certain others we may want to saturate as much as possible the utilization of the underlying hardware. This is the case GPUs for instance.
 
 On those cases, we may want to perform inference on the entire batch of data. That implies loading the entire set of images to memory and sending them directly to the model. The following example uses `TensorFlow` to read batch of images and score them all at once. It also uses `TensorFlow` ops to do any data preprocessing so the entire pipeline will happen on the same device being used (CPU/GPU).
 
@@ -389,7 +391,7 @@ Remarks:
 
 ## Considerations for MLflow models processing images
 
-MLflow models in Batch Endpoints support reading images as input data. Remember that MLflow models don't require an scoring script. Have the following considerations when using them:
+MLflow models in Batch Endpoints support reading images as input data. Remember that MLflow models don't require a scoring script. Have the following considerations when using them:
 
 > [!div class="checklist"]
 > * Image files supported includes: `.png`, `.jpg`, `.jpeg`, `.tiff`, `.bmp` and `.gif`.
