@@ -332,6 +332,8 @@ az ml job download --name $JOB_NAME --output-name score --download-path ./
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
 ```
 
+---
+
 Once the file is downloaded, you can open it using your favorite tool. The following example loads the predictions using `Pandas` dataframe.
 
 ```python
