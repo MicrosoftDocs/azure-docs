@@ -15,7 +15,9 @@ ms.custom: devplatv2
 
 # Using low priority VMs with Batch Deployments
 
-Azure Batch Deployments supports low priority VMs to reduce the cost of batch inference workloads. Low priority VMs enables a large amount of compute power to be used for a very low cost. Low priority VMs take advantage of surplus capacity in Azure. When you specify low priority VMs in your pools, Azure can use this surplus, when available.
+[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
+
+Azure Batch Deployments supports low priority VMs to reduce the cost of batch inference workloads. Low priority VMs enable a large amount of compute power to be used for a low cost. Low priority VMs take advantage of surplus capacity in Azure. When you specify low priority VMs in your pools, Azure can use this surplus, when available.
 
 The tradeoff for using them is that those VMs may not always be available to be allocated, or may be preempted at any time, depending on available capacity. For this reason, they are most suitable for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
 
@@ -26,13 +28,13 @@ Low priority VMs are offered at a significantly reduced price compared with dedi
 Azure Machine Learning Batch Deployments provides several capabilities that make it easy to consume and benefit from low priority VMs:
 
 - Batch deployment jobs consume low priority VMs by running on Azure Machine Learning compute clusters created with low priority VMs. Once a deployment is associated with a low priority VMs' cluster, all the jobs produced by such deployment will use low priority VMs. Per-job configuration is not possible.
-- Batch deployment jobs automatically seek the target number of VMs in the available compute cluster based on the number of tasks to submit. If VMs are preempted or unavailable, batch deployment jobs attempts to replace the lost capacity by queuing the failed tasks to the cluster.
+- Batch deployment jobs automatically seek the target number of VMs in the available compute cluster based on the number of tasks to submit. If VMs are preempted or unavailable, batch deployment jobs attempt to replace the lost capacity by queuing the failed tasks to the cluster.
 - When a job is interrupted, it is resubmitted to run again. Rescheduling is done at job level, regardless of the progress. No checkpointing capability is provided.
 - Low priority VMs have a separate vCPU quota that differs from the one for dedicated VMs. Low-priority cores per region have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families. See [Azure Machine Learning compute quotas](how-to-manage-quotas.md#azure-machine-learning-compute).
 
 ## Considerations and use cases
 
-Many batch workloads are a good fit for low priority VMs. However, this may introduce further execution delays when deallocation of VMs occur. If there is flexibility in the time jobs have to complete, then potential drops in capacity can be tolerated at expenses of running with a lower cost.
+Many batch workloads are a good fit for low priority VMs. However, this may introduce further execution delays when deallocation of VMs occurs. If there is flexibility in the time jobs have to complete, then potential drops in capacity can be tolerated at expenses of running with a lower cost.
 
 ## Creating batch deployments with low priority VMs
 
