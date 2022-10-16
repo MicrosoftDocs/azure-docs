@@ -263,13 +263,16 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    ml_client.data.create_or_update(heart_dataset_unlabeled)
    ```
    
-1. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
+2. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
 
    # [Azure ML CLI](#tab/cli)
    
    ```bash
-   INVOKE_RESPONSE = az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest
+   JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name') 
    ```
+   
+   > [!NOTE]
+   > The utility `jq` may not be installed on every installation. You can get installation instructions in [this link](https://stedolan.github.io/jq/download/).
    
    # [Azure ML SDK for Python](#tab/sdk)
    
@@ -280,23 +283,18 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
       input=input,
    )
    ```
-   
    ---
    
    > [!TIP]
    > Notice how we are not indicating the deployment name in the invoke operation. That's because the endpoint automatically routes the job to the default deployment. Since our endpoint only has one deployment, then that one is the default one. You can target an specific deployment by indicating the argument/parameter `deployment_name`.
 
-1. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
+3. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
    # [Azure ML CLI](#tab/cli)
    
    ```bash
-   JOB_NAME = $INVOKE_RESPONSE | jq -r '.name'
    az ml job show --name $JOB_NAME
    ```
-   
-   > [!NOTE]
-   > The utility `jq` may not be installed on every installation. You can get installation instructions in [this link](https://stedolan.github.io/jq/download/).
    
    # [Azure ML SDK for Python](#tab/sdk)
    
@@ -331,7 +329,6 @@ az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```python
 ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
 ```
-
 ---
 
 Once the file is downloaded, you can open it using your favorite tool. The following example loads the predictions using `Pandas` dataframe.
