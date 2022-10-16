@@ -57,7 +57,7 @@ The pipeline has the following activities:
 
 * __Authorize__: It's a Web Activity that uses the Managed Identity created in [Authentication for Batch Endpoints in Azure Data Factory](#authentication-for-batch-endpoints-in-azure-data-factory) to obtain an authorization token. This token will be used to invoke the endpoint later.
 * __Run Batch-Endpoint__: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
-* __Wait for job__: It's a loop activity that checks the status of the created job and waits for its completion, eithier as **Completed** or **Failed**. This activity, in turns, uses the following activities:
+* __Wait for job__: It's a loop activity that checks the status of the created job and waits for its completion, either as **Completed** or **Failed**. This activity, in turns, uses the following activities:
   * __Authorize Management__: It's a Web Activity that uses the Managed Identity created in [Authentication for Batch Endpoints in Azure Data Factory](#authentication-for-batch-endpoints-in-azure-data-factory) to obtain an authorization token to be used for job's status query.
   * __Check status__: It's a Web Activity that queries the status of the job resource that was returned as a response of the __Run Batch-Endpoint__ activity. 
   * __Wait__: It's a Wait Activity that controls the polling frequency of the job's status. We set a default of 120 (2 minutes).
