@@ -23,7 +23,7 @@ Sometimes you need to execute inference having a higher control of what is being
 > * Your model is a generative model that can't write the output in a tabular format. For instance, models that produce images as outputs.
 > * Your model produces multiple tabular files instead of a single one. This is the case for instance of models that perform forecasting considering multiple scenarios.
 
-In any of those cases, Batch Deployments allow you to take control of the output of the jobs by allowing you to write directly to the output of the batch deployment job. In this tutorial, we will see how to deploy a model to perform batch inference and writes the outputs in `parquet` format by appending the predictions to the original input data.
+In any of those cases, Batch Deployments allow you to take control of the output of the jobs by allowing you to write directly to the output of the batch deployment job. In this tutorial, we'll see how to deploy a model to perform batch inference and writes the outputs in `parquet` format by appending the predictions to the original input data.
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ In any of those cases, Batch Deployments allow you to take control of the output
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
-* A model registered in the workspace. In this tutorial, we will use an MLflow model. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-* You must have an endpoint already created. If you don't please follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `heart-classifier-batch`.
-* You must have a compute created where to deploy the deployment. If you don't please follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
+* A model registered in the workspace. In this tutorial, we'll use an MLflow model. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+* You must have an endpoint already created. If you don't, follow the instructions at [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md). This example assumes the endpoint is named `heart-classifier-batch`.
+* You must have a compute created where to deploy the deployment. If you don't, follow the instructions at [Create compute](../how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
 
-## Creating a batch deployments with a custom output
+## Creating a batch deployment with a custom output
 
 In this example, we are going to create a deployment that can write directly to the output folder of the batch deployment job. The deployment will use this feature to write custom parquet files.
 
@@ -59,9 +59,9 @@ model = ml_client.models.create_or_update(
 )
 ```
 
-### Creating an scoring script
+### Creating a scoring script
 
-We need to create an scoring script that can read the input data provided by the batch deployment and return the scores of the model. On top of that, we are going to write directly to the output folder of the job. The following script does the following:
+We need to create a scoring script that can read the input data provided by the batch deployment and return the scores of the model. We are also going to write directly to the output folder of the job. In summary, the proposed scoring script does as follows:
 
 1. Reads the input data as CSV files.
 2. Runs an MLflow model `predict` function over the input data.
@@ -130,7 +130,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    )
    ```
 
-1. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, in this case we are going to indicate an scoring script since we want to customize how inference is executed.
+1. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, in this case we are going to indicate a scoring script since we want to customize how inference is executed.
 
    # [Azure ML CLI](#tab/cli)
    
@@ -205,9 +205,9 @@ Follow the next steps to create a deployment using the previous scoring script:
 
 ## Testing out the deployment
 
-For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accepts data that can be placed in multiple type of locations.
+For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in multiple type of locations.
 
-1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is you data is already registered as a data asset or you want to use a different input type.
+1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset or you want to use a different input type.
 
    # [Azure ML CLI](#tab/cli)
    
