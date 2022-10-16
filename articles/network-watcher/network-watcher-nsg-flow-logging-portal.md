@@ -5,7 +5,7 @@ services: network-watcher
 author: damendo
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 11/16/2021
+ms.date: 10/17/2022
 ms.author: damendo
 ms.custom: mvc
 # Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -31,9 +31,11 @@ In this tutorial, you learn how to:
 > * Download logged data
 > * View logged data
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription.
 
 ## Create a virtual machine
 
@@ -41,7 +43,7 @@ In this tutorial, you learn how to:
 
 2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
 
-3. In **Virtual machines**, select **+ Create** then **+ Virtual machine**.
+3. In **Virtual machines**, select **+ Create** then **+ Azure virtual machine**.
 
 4. Enter or select the following information in **Create a virtual machine**.
 
@@ -59,7 +61,6 @@ In this tutorial, you learn how to:
     | Azure Spot instance | Leave the default. |
     | Size | Select a size. |
     | **Administrator account** |   |
-    | Authentication type | Select **SSH public key**. |
     | Username | Enter a username. |
     | Password | Enter a password. |
     | Confirm password | Confirm password. |
@@ -101,6 +102,8 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 5. Confirm the status of the provider displayed is **Registered**. If the status is **Unregistered**, select the provider then select **Register**.
 
+    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/microsoft-insights-registered.png" alt-text="Screenshot of registering microsoft insights provider.":::
+
 ## Enable NSG flow log
 
 NSG flow log data is written to an Azure Storage account. Complete the following steps to create a storage account for the log data.
@@ -117,12 +120,12 @@ NSG flow log data is written to an Azure Storage account. Complete the following
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
-    | Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters in length, can only contain lowercase letters and numbers, and must be unique across all Azure Storage. |
-    | Region | Select **(US)East US**. |
+    | Storage account name | Enter a name for your storage account. </br> Must be 3-24 characters long, and can contain only lowercase letters and numbers, and must be unique across all Azure Storage. |
+    | Region | Select **(US) East US**. |
     | Performance | Leave the default of **Standard**. |
     | Redundancy | Leave the default of **Geo-redundant storage (GRS)**. |
 
-4. Select **Review + create**.
+4. Select **Review**.
 
 5. Select **Create**.
 
@@ -191,7 +194,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
                 "rule": "UserRule_default-allow-rdp",
                 "flows": [
                     {
-                        "mac": "000D3A170C69",
+                        "mac": "<macAddress>",
                         "flowTuples": [
                             "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
                         ]
@@ -206,9 +209,9 @@ The following example JSON displays data that you'll see in the PT1H.json file f
 ```json
 {
     "time": "2018-11-13T12:00:35.3899262Z",
-    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "systemId": "<Id>",
     "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 2,
@@ -217,7 +220,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
                 "rule": "DefaultRule_DenyAllInBound",
                 "flows": [
                     {
-                        "mac": "000D3AF87856",
+                        "mac": "<macAddress>",
                         "flowTuples": [
                             "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
                             "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
@@ -230,7 +233,7 @@ The following example JSON displays data that you'll see in the PT1H.json file f
                 "rule": "DefaultRule_AllowInternetOutBound",
                 "flows": [
                     {
-                        "mac": "000D3AF87856",
+                        "mac": "<macAddress>",
                         "flowTuples": [
                             "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
                             "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
