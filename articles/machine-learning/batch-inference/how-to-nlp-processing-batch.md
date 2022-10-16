@@ -58,7 +58,7 @@ Batch Endpoint can only deploy registered models. In this case, we need to publi
 
 ```bash
 MODEL_NAME='bart-text-summarization'
-az ml model create --name $$MODEL_NAME --type "custom_model" --path "bart-text-summarization/model"
+az ml model create --name $MODEL_NAME --type "custom_model" --path "bart-text-summarization/model"
 ```
 
 # [Azure ML SDK for Python](#tab/sdk)
@@ -145,7 +145,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    )
    ```
 
-1. Now, let create the deployment.
+2. Now, let create the deployment.
 
    # [Azure ML CLI](#tab/cli)
    
@@ -207,14 +207,15 @@ One the scoring script is created, it's time to create a batch deployment for it
        retry_settings=BatchRetrySettings(max_retries=3, timeout=3000),
        logging_level="info",
    )
-   ```
    
+   ml_client.batch_deployments.begin_create_or_update(deployment)
+   ```
    ---
    
    > [!IMPORTANT]
    > You will notice in this deployment a high value in `timeout` in the parameter `retry_settings`. The reason for it is due to the nature of the model we are running. This is a very expensive model and inference on a single row may take up to 60 seconds. The `timeout` parameters controls how much time the Batch Deployment should wait for the scoring script to finish processing each mini-batch. Since our model runs predictions row by row, processing a long file may take time. Also notice that the number of files per batch is set to 1 (`mini_batch_size=1`). This is again related to the nature of the work we are doing. Processing one file at a time per batch is expensive enough to justify it. You will notice this being a pattern in NLP processing.
 
-1. At this point, our batch endpoint is ready to be used. 
+3. At this point, our batch endpoint is ready to be used. 
 
 ## Considerations when deploying models that process text
 
