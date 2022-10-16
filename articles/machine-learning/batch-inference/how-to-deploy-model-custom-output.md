@@ -102,13 +102,16 @@ def run(mini_batch):
         data['prediction'] = pred
         
         output_file_name = Path(file_path).stem
-        output_file_path = os.path.join(output_path, output_file_name, '.parquet')
+        output_file_path = os.path.join(output_path, output_file_name + '.parquet')
         data.to_parquet(output_file_path)
+        
+     return mini_batch
 ```
 
 Remarks:
 * Notice how the environment variable `AZUREML_BI_OUTPUT_PATH` is used to get access to the output path of the deployment job. 
-* In this case, the `init()` function is populating a global variable called `output_path` that can be used later.
+* The `init()` function is populating a global variable called `output_path` that can be used later to know where to write.
+* The `run` method returns a list of the processed files. It is required for the `run` function to return a `list` or a `pandas.DataFrame` object.
 
 > [!WARNING]
 > Take into account that all the batch executors will have write access to this path at the same time. This means that you need to account for concurrency. In this case, we are ensuring each executor writes its own file by using the input file name as the name of the output folder.
@@ -284,3 +287,52 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    ```python
    ml_client.jobs.get(job.name)
    ```
+   
+## Analyzing the outputs
+
+The job generates a named output called `score` where all the generated files are placed. Since we wrote into the directory directly, one file per each input file, then we can expect to have the same amount of files. In this particular example we decided to name the output files the same as the inputs, but they will have a parquet extension.
+
+> [!NOTE]
+> Notice that a file `predictions.csv` is also included in the output folder. This file contains the summary of the processed files.
+
+You can download the results of the job by using the job name:
+
+# [Azure ML CLI](#tab/cli)
+
+To download the predictions, use the following command:
+
+```bash
+az ml job download --name $JOB_NAME --output-name score --download-path ./
+```
+
+# [Azure ML SDK for Python](#tab/sdk)
+
+```python
+ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
+```
+---
+
+Once the file is downloaded, you can open it using your favorite tool. The following example loads the predictions using `Pandas` dataframe.
+
+```python
+import pandas as pd
+import glob
+
+output_files = glob.glob("named-outputs/score/*.parquet")
+score = pd.concat((pd.read_parquet(f) for f in output_files))
+```
+
+The output looks as follows:
+
+| age |	sex |	... |	thal       |	prediction |
+|-----|------|-----|------------|--------------|
+| 63  |	1   |	... |	fixed      |	0          |
+| 67  |	1   |	... |	normal     |	1          |
+| 67  |	1   |	... |	reversible |	0          |
+| 37  |	1   |	... |	normal     |	0          |
+
+
+## Next steps
+
+* [Using batch deployments for image file processing](how-to-image-processing-batch.md)
+* [Using batch deployments for NLP processing](how-to-nlp-processing-batch.md)
