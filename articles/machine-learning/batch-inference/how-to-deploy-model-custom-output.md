@@ -86,7 +86,7 @@ def init():
     # Please provide your model's folder name if there's one:
     model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
     output_path = os.environ['AZUREML_BI_OUTPUT_PATH']
-    model = mlflow.pyfunc.load(model_path)
+    model = mlflow.pyfunc.load_model(model_path)
 
 def run(mini_batch):
     for file_path in mini_batch:        
@@ -96,7 +96,7 @@ def run(mini_batch):
         data['prediction'] = pred
         
         output_file_name = Path(file_path).stem
-        output_file_path = os.path.join(output_path, input_file_name, '.parquet')
+        output_file_path = os.path.join(output_path, output_file_name, '.parquet')
         data.to_parquet(output_file_path)
 ```
 
@@ -196,7 +196,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    ---
    
    > [!NOTE]
-   > Notice how both `scoring_script` and `environment` were indicated dispite of the model being MLflow.
+   > Notice how `scoring_script` and `environment` were indicated dispite of the model being MLflow.
 
    > [!IMPORTANT]
    > Notice that now `output_action` is set to `SUMMARY_ONLY`.
@@ -248,7 +248,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    # [Azure ML CLI](#tab/cli)
    
    ```bash
-   INVOKE_RESPONSE = az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest
+   INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest)
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
