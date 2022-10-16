@@ -15,32 +15,34 @@ ms.custom: devplatv2
 
 # Invoking batch endpoints from Azure Data Factory
 
+[!INCLUDE [cli v2](../../../includes/machine-learning-cli-v2.md)]
+
 Big data requires a service that can orchestrate and operationalize processes to refine these enormous stores of raw data into actionable business insights. [Azure Data Factory](../../data-factory/introduction.md) is a managed cloud service that's built for these complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 
 Azure Data Factory allows the creation of pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints is an excellent candidate to become an step in such processing workflow. In this example, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
 
 ## Prerequisites
 
-[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
+[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-* An Azure Data Factory resource created and configured. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](../../quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
+* An Azure Data Factory resource created and configured. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](../../data-factory/quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-   :::image type="content" source="./../../media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="./../../data-factory/media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 * Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
 ## Authentication for Batch Endpoints in Azure Data Factory
 
-Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke]() activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
+Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
 We recommend to use a `Managed Identity` for authentication and interaction with batch endpoints in this scenario. 
 
 1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).
+1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
-1. Take note of the `client ID` and the `tenant id` too as explained at [Get tenant and app ID values for signing in](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).
-1. Grant access for the managed identity you just created to your workspace as explained at [Grant access](https://docs.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal#grant-access). In this example the managed identity will require:
+1. Take note of the `client ID` and the `tenant id` too as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
+1. Grant access for the managed identity you just created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the managed identity will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores. 
@@ -49,7 +51,7 @@ We recommend to use a `Managed Identity` for authentication and interaction with
 
 We are going to create a pipeline in Azure Data Factory that can invoke a given batch endpoint over some data. The pipeline will look as follows:
 
-:::image type="content" source="./media/how-to-use-batch/pipeline-diagram.png" alt-text="High level diagram of the pipeline we are creating.":::
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="High level diagram of the pipeline we are creating.":::
 
 The pipeline has the following activities:
 
@@ -87,7 +89,7 @@ To create this pipeline in your existing Azure Data Factory, follow this steps:
 5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
 6. Configure the parameters of the batch deployment you are using:
 
-  :::image type="content" source="./media/how-to-use-batch/pipeline-params.png" alt-text="High level diagram of the pipeline we are creating.":::
+  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="High level diagram of the pipeline we are creating.":::
 
 > [!WARNING]
 > Ensure that you batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
