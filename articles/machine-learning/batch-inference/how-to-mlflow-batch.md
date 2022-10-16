@@ -15,7 +15,7 @@ ms.custom: devplatv2
 
 # Using MLflow models in batch deployments
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](../../../includes/machine-learning-dev-v2.md)]
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure ML for both batch inference using batch endpoints. Azure Machine Learning supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment.
 
@@ -29,9 +29,9 @@ For no-code-deployment, Azure Machine Learning
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
-[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
+[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
 * You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).
 
