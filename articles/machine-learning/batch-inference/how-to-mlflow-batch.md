@@ -31,8 +31,6 @@ For no-code-deployment, Azure Machine Learning
 
 [!INCLUDE [basic cli prereqs](../../../includes/machine-learning-cli-prereqs.md)]
 
-[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
-
 * You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](../how-to-convert-custom-model-to-mlflow.md).
 
 ## About this example
@@ -40,6 +38,8 @@ For no-code-deployment, Azure Machine Learning
 This example shows how you can deploy an MLflow model to a batch endpoint to perform batch predictions. This example uses an MLflow model based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence).
 
 The model has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
+
+[!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
 ## Steps
 
@@ -78,7 +78,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    ```
    
 
-1. Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
+2. Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    
    # [Azure ML CLI](#tab/cli)
    
@@ -96,7 +96,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    )
    ```
    
-1. Before moving any forward, we need to make sure the batch deployments we are about to create can run on some infrastructure (compute). Batch deployments can run on any Azure ML compute that already exists in the workspace. That means that multiple batch deployments can share the same compute infrastructure. In this example, we are going to work on an AzureML compute cluster called `cpu-cluster`. Let's verify the compute exists on the workspace or create it otherwise.
+3. Before moving any forward, we need to make sure the batch deployments we are about to create can run on some infrastructure (compute). Batch deployments can run on any Azure ML compute that already exists in the workspace. That means that multiple batch deployments can share the same compute infrastructure. In this example, we are going to work on an AzureML compute cluster called `cpu-cluster`. Let's verify the compute exists on the workspace or create it otherwise.
    
    # [Azure ML CLI](#tab/cli)
    
@@ -130,7 +130,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
        ml_client.begin_create_or_update(compute_cluster)
    ```
 
-1. Now it is time to create the batch endpoint and deployment. Let's start with the endpoint first. Endpoints only require a name and a description to be created:
+4. Now it is time to create the batch endpoint and deployment. Let's start with the endpoint first. Endpoints only require a name and a description to be created:
    
    # [Azure ML CLI](#tab/cli)
    
@@ -162,7 +162,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
    ```
 
-1. Now, let create the deployment. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, you can specify them if you want to customize how the deployment does inference.
+5. Now, let create the deployment. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, you can specify them if you want to customize how the deployment does inference.
 
    # [Azure ML CLI](#tab/cli)
    
@@ -171,7 +171,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    ```yaml
    $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
    endpoint_name: heart-classifier-batch
-   name: classifier-xgboost
+   name: classifier-xgboost-mlflow
    description: A heart condition classifier based on XGBoost
    model: azureml:heart-classifier@latest
    compute: azureml:cpu-cluster
@@ -200,7 +200,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    ```python
    deployment = BatchDeployment(
-       name="classifier-xgboost",
+       name="classifier-xgboost-mlflow",
        description="A heart condition classifier based on XGBoost",
        endpoint_name=endpoint.name,
        model=model,
@@ -215,13 +215,12 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    )
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
-   
    ---
    
    > [!NOTE]
-   > `scoring_script` and `environment auto generation only supports `pyfunc` model flavor. To use a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+   > `scoring_script` and `environment` auto generation only supports `pyfunc` model flavor. To use a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
 
-1. At this point, our batch endpoint is ready to be used. 
+6. At this point, our batch endpoint is ready to be used. 
 
 ## Testing out the deployment
 
@@ -410,32 +409,129 @@ You will typically select this workflow when:
 > * The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.
 > * You model can't process each file at once because of memory constrains and it needs to read it in chunks.
 
-Usually, the scoring script for a MLflow model will look as follows:
+> [!IMPORTANT]
+> If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
 
-```python
-import os
-import mlflow
-import pandas as pd
+### Steps
 
-def init():
-    global model
+Use the following steps to deploy an MLflow model with a custom scoring script.
 
-    # AZUREML_MODEL_DIR is an environment variable created during deployment
-    # It is the path to the model folder
-    model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
-    model = mlflow.pyfunc.load(model_path)
+1. Create an scoring script:
 
-def run(mini_batch):
-    print(f"run method start: {__file__}, run({len(mini_batch)} files)")
-    resultList = []
+   __batch_driver.py__
 
-    for file_path in mini_batch:        
-        data = pd.read_csv(file_path)
-        pred = model.predict(data)
-        
-        df = pd.DataFrame(pred, columns=['predictions'])
-        df['file'] = os.path.basename(file_path)
-        resultList.extend(df.values)
+   ```python
+   import os
+   import mlflow
+   import pandas as pd
 
-    return resultList
-```
+   def init():
+       global model
+
+       # AZUREML_MODEL_DIR is an environment variable created during deployment
+       # It is the path to the model folder
+       model_path = os.path.join(os.environ["AZUREML_MODEL_DIR"], "model")
+       model = mlflow.pyfunc.load(model_path)
+
+   def run(mini_batch):
+       resultList = []
+
+       for file_path in mini_batch:        
+           data = pd.read_csv(file_path)
+           pred = model.predict(data)
+
+           df = pd.DataFrame(pred, columns=['predictions'])
+           df['file'] = os.path.basename(file_path)
+           resultList.extend(df.values)
+
+       return resultList
+   ```
+
+1. Let's create an environment where the scoring script can be executed:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   Let's get a reference to the environment:
+   
+   ```python
+   environment = Environment(
+       conda_file="./heart-classifier-mlflow/environment/conda.yaml",
+       image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+   )
+   ```
+
+1. Let's create the deployment now:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
+   
+   ```yaml
+   $schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
+   endpoint_name: heart-classifier-batch
+   name: classifier-xgboost-custom
+   description: A heart condition classifier based on XGBoost
+   model: azureml:heart-classifier@latest
+   environment:
+      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest
+      conda_file: ./heart-classifier-mlflow/environment/conda.yaml
+   code_configuration:
+     code: ./heart-classifier-custom/code/
+     scoring_script: batch_driver.py
+   compute: azureml:cpu-cluster
+   resources:
+     instance_count: 2
+   max_concurrency_per_instance: 2
+   mini_batch_size: 2
+   output_action: append_row
+   output_file_name: predictions.csv
+   retry_settings:
+     max_retries: 3
+     timeout: 300
+   error_threshold: -1
+   logging_level: info
+   ```
+   
+   Then, create the deployment with the following command:
+   
+   ```bash
+   az ml batch-endpoint create -f endpoint.yml
+   ```
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   To create a new deployment under the created endpoint, use the following script:
+   
+   ```python
+   deployment = BatchDeployment(
+       name="classifier-xgboost-custom",
+       description="A heart condition classifier based on XGBoost",
+       endpoint_name=endpoint.name,
+       model=model,
+       environment=environment,
+       code_configuration=CodeConfiguration(
+           code="./heart-classifier-mlflow/code/",
+           scoring_script="batch_driver.py",
+       ),
+       compute=compute_name,
+       instance_count=2,
+       max_concurrency_per_instance=2,
+       mini_batch_size=2,
+       output_action=BatchDeploymentOutputAction.APPEND_ROW,
+       output_file_name="predictions.csv",
+       retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
+       logging_level="info",
+   )
+   ml_client.batch_deployments.begin_create_or_update(deployment)
+   ```
+   ---
+   
+1. At this point, our batch endpoint is ready to be used. 
+
+## Next steps
+
+* [Customize outputs in batch deployments](how-to-deploy-model-custom-output.md)
