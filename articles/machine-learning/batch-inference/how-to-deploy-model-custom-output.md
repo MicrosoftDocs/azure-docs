@@ -47,7 +47,7 @@ Batch Endpoint can only deploy registered models. In this case, we already have 
 
 ```bash
 MODEL_NAME='heart-classifier'
-az ml model create --name $$MODEL_NAME --type "mlflow_model" --path "resources/heart-classifier-mlflow"
+az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
 ```
 
 # [Azure ML SDK for Python](#tab/sdk)
@@ -55,7 +55,7 @@ az ml model create --name $$MODEL_NAME --type "mlflow_model" --path "resources/h
 ```python
 model_name = 'heart-classifier'
 model = ml_client.models.create_or_update(
-     Model(path='resources/heart-classifier-mlflow', type=AssetTypes.MLFLOW_MODEL)
+     Model(path='heart-classifier-mlflow/model', type=AssetTypes.MLFLOW_MODEL)
 )
 ```
 ---
@@ -126,12 +126,12 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    ```python
    environment = Environment(
-       conda_file="./heart-classifier-mlflow/model/conda.yaml",
+       conda_file="./heart-classifier-mlflow/environment/conda.yaml",
        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
    )
    ```
 
-1. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, in this case we are going to indicate a scoring script since we want to customize how inference is executed.
+2. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, in this case we are going to indicate a scoring script since we want to customize how inference is executed.
 
    # [Azure ML CLI](#tab/cli)
    
@@ -145,7 +145,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    model: azureml:heart-classifier@latest
    environment:
       image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest
-      conda_file: ./heart-classifier-mlflow/model/conda.yaml
+      conda_file: ./heart-classifier-mlflow/environment/conda.yaml
    code_configuration:
      code: ./heart-classifier-custom/code/
      scoring_script: batch_driver.py
@@ -193,7 +193,6 @@ Follow the next steps to create a deployment using the previous scoring script:
    )
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
-   
    ---
    
    > [!NOTE]
@@ -202,7 +201,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    > [!IMPORTANT]
    > Notice that now `output_action` is set to `SUMMARY_ONLY`.
 
-1. At this point, our batch endpoint is ready to be used. 
+3. At this point, our batch endpoint is ready to be used. 
 
 ## Testing out the deployment
 
