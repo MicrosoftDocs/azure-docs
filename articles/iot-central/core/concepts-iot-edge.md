@@ -154,7 +154,7 @@ The following screenshot shows this deployment manifest imported into IoT Centra
 
 If your application uses [organizations](howto-create-organizations.md), you can assign your deployment manifests to specific organizations. The previous screenshot shows the deployment manifest assigned to the **Store Manager / Americas** organization.
 
-To learn ho to use the **Edge manifests** page and assign deployment manifests to IoT Edge devices, see [Manage IoT Edge deployment manifests in your IoT Central application](howto-manage-deployment-manifests.md).
+To learn how to use the **Edge manifests** page and assign deployment manifests to IoT Edge devices, see [Manage IoT Edge deployment manifests in your IoT Central application](howto-manage-deployment-manifests.md).
 
 ### Manage an unassigned device
 

@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Manage IoT Edge deployment manifests in your IoT Central application
 
-Any IoT Edge device that connects to your IoT Central application requires a deployment manifest to specify the IoT Edge modules it should run. This article describes how you manage these deployment manifests in your IoT Central application.
+A deployment manifest lets you specify the modules the IoT Edge runtime should download and configure. An IoT Edge device can download a deployment manifest when it first connects to your IoT Central application. This article describes how you manage these deployment manifests in your IoT Central application.
 
 To learn more about IoT Edge and IoT Central, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
 
@@ -72,9 +72,7 @@ To completely replace the content of a deployment manifest:
 
 ## Manage IoT Edge devices
 
-When you add an IoT Edge device on the devices page, you can choose a deployment manifest for the device. On the **Create a new device** page, you can choose from the list of previously uploaded device manifests on the **Edge manifests** page. It's also possible to add a deployment manifest directly to a device after you create the device.
-
-All IoT Edge devices must have a deployment manifest. However, device templates are optional for IoT Edge devices.
+When you add an IoT Edge device on the devices page, you can choose a deployment manifest for the device. In the **Create a new device** dialog, you can choose from the list of previously uploaded device manifests on the **Edge manifests** page. It's also possible to add a deployment manifest directly to a device after you create the device.
 
 If you add an IoT Edge device that isn't assigned to a device template, the **Create a new device** dialog looks like the following screenshot:
 
