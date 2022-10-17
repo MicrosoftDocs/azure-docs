@@ -4,7 +4,7 @@ description: This article provides information on exclusion lists configuration 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/08/2022
+ms.date: 10/18/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -51,9 +51,9 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: Match all request fields that contain the specified selector value.
 - **Equals any**: Match all request fields. When you use the *Equals any* operator, the selector value is automatically set to _*_. For example, you can use the *Equals any* operator to configure an exclusion that applies to all request headers.
 
-Header and cookie names are case insensitive. <!-- TODO what about query string, POST arguments, JSON arguments? -->
+Header and cookie names are case insensitive. Query strings, POST arguments, and JSON arguments are case sensitive.
 
-If you create an exclusion with a match variable of *Request body POST args* and a selector to identify arguments named *FOO*, then you'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, you might still see a log entry including the matchVariableName `InitialBodyContents`. This log entry indicates a rule matched on the value of the POST parameter FOO, because POST parameter values are part of the initial request body contents before they're parsed into individual POST arguments. <!-- TODO does this apply to JSON too? -->
+Some of the managed rules evaluate the raw payload of the request body, before it's parsed into POST arguments or JSON arguments. So, in some situations you might see log entries with a matchVariableName of `InitialBodyContents`. For example, suppose you create an exclusion with a match variable of *Request body POST args* and a selector to identify and ignore POST arguments named *FOO*. You'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, if a POST argument named *FOO* contains text that triggers a rule, the log might show the detection in the initial body contents.
 
 ## <a name="define-exclusion-based-on-web-application-firewall-logs"></a> Define exclusion rules based on Web Application Firewall logs
 
