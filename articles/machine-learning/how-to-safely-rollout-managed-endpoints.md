@@ -66,6 +66,8 @@ In this article, you'll learn to:
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
+---
+
 ## Prepare your system
 
 # [Azure CLI](#tab/azure-cli)
@@ -139,6 +141,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
     [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=workspace_handle)]
 
+---
 
 ## Confirm your existing deployment
 
@@ -158,7 +161,7 @@ You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment cal
 
 # [Python](#tab/python)
 
-## Test the endpoint with sample data
+### Test the endpoint with sample data
 
 Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
@@ -169,6 +172,8 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
 We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_deployment)]
+
+---
 
 ## Scale your existing deployment to handle more traffic
 
@@ -191,11 +196,13 @@ Using the `MLClient` created earlier, we'll get a handle to the deployment. The 
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=get_endpoint_details)]
 
+---
+
 ## Deploy a new model, but send it no traffic yet
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a new deployment named `green`: 
+Create a new deployment named `green`:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
@@ -226,6 +233,8 @@ Create a new deployment named green:
 Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_new_deployment)]
+
+---
 
 ## Test the deployment with mirrored traffic (preview)
 
@@ -262,6 +271,7 @@ After testing, you can set the mirror traffic to zero to disable mirroring:
 ```azurecli
 az ml online-endpoint update --name $ENDPOINT_NAME --mirror-traffic "green=0"
 ```
+
 # [Python](#tab/python)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -294,6 +304,8 @@ After testing, you can set the mirror traffic to zero to disable mirroring:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=disable_traffic_mirroring)]
 
+---
+
 ## Test the new deployment with a small percentage of live traffic
 
 # [Azure CLI](#tab/azure-cli)
@@ -316,6 +328,8 @@ Now, your green deployment will receive 10% of requests.
 
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
 
+---
+
 ## Send all traffic to your new deployment
 
 # [Azure CLI](#tab/azure-cli)
@@ -330,6 +344,8 @@ Once you're satisfied that your green deployment is fully satisfactory, switch a
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=allocate_all_traffic)]
 
+---
+
 ## Remove the old deployment
 
 # [Azure CLI](#tab/azure-cli)
@@ -339,6 +355,8 @@ Once you're satisfied that your green deployment is fully satisfactory, switch a
 # [Python](#tab/python)
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=remove_old_deployment)]
+
+---
 
 ## Delete the endpoint and deployment
 
@@ -353,6 +371,8 @@ If you aren't going use the deployment, you should delete it with:
 If you aren't going use the deployment, you should delete it with:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=delete_endpoint)]
+
+---
 
 ## Next steps
 - [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
