@@ -52,6 +52,7 @@ Creator services create, store, and use various data types that are defined and 
 - Tileset
 - Custom styles
 - Feature stateset
+- Routeset Service
 
 ## Upload a Drawing package
 
@@ -76,6 +77,7 @@ Azure Maps Creator provides the following services that support map creation:
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
 - Custom styles. Use the [style service][style] or [visual style editor][style editor] to customize the visual elements of an indoor map.
 - [Feature State service](/rest/api/maps/v2/feature-state). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
+- [Routeset service][routeset]. Use the routeset service to create routeset data for [wayfinding](#wayfinding-service).
 
 ### Datasets
 
@@ -222,6 +224,10 @@ An application can use a feature stateset to dynamically render features in a fa
 >[!NOTE]
 >Like tilesets, changing a dataset doesn't affect the existing feature stateset, and deleting a feature stateset doesn't affect the dataset to which it's attached.
 
+### Routesets
+
+A [routeset][routeset] is a collection of indoor map data that’s generated from an existing dataset. Once the routeset is created, the [wayfinding](#wayfinding-service) service can generate paths from one point to another point within an Azure Maps-enabled facility.
+
 ## Using indoor maps
 
 ### Render V2-Get Map Tile API
@@ -245,6 +251,45 @@ The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This modu
 You can use the Indoor Maps module to create web applications that integrate indoor map data with other [Azure Maps services](./index.yml). The most common application setups include adding knowledge from other maps - such as road, imagery, weather, and transit - to indoor maps.
 
 The Indoor Maps module also supports dynamic map styling. For a step-by-step walkthrough to implement feature stateset dynamic styling in an application, see [Use the Indoor Map module](how-to-use-indoor-module.md).
+
+### Wayfinding service
+
+The Wayfinding service enables you to provide your customers with the shortest path between two points within a facility. Once you have imported you indoor map data and created your dataset, you can use that to create a routeset. The routeset provide the data required to generate paths between two points, taking into account the required width of openings and navigation between levels.
+
+#### Wayfinding paths
+
+When a wayfinding path is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg as are any stairs or elevators used to move between floors.
+
+For example, the first leg of the path might be from the starting location to the elevator on that floor. The next leg will be the elevator journey, and then the final leg will be the path from the elevator to the destination point on that floor. The estimated travel time is calculated and displayed next to the starting point for each leg.
+
+##### Wall layer
+
+For wayfinding to work, the imported package must contain a wall layer that’s specified in the manifest.json file. The Wayfinding service calculates the shortest path between two selected geospatial points in a facility. The services creates the path by navigating around walls and any other impermeable structures. Without the wall layer, it is not possible for the wayfinding service to properly navigate.
+
+##### isRouteble
+
+The `isRoutable` property of a [unit][unit] indicates whether that unit, such as an office or hallway, can be used as a source or destination point in a wayfinding path. If the `isRoutable` property of a unit is set to False, the user will not be able to select that unit as a start or end point.
+
+##### Vertical penetration
+
+If the selected beginning and end points are on different floor levels, the wayfaring services determines what [verticalPenetration][verticalPenetration] objects (stairs or elevators) are available as possible pathways for navigating vertically between levels.
+
+The Wayfinding service includes stairs or elevators in a route based on the value of the vertical penetration's `direction` property. Valid values:
+
+- lowToHigh. A `lowToHigh` value indicates that the vertical penetration object can only be used for going up from a lower level to a higher level.
+
+- highToLow. A `highToLow` value indicates that the vertical penetration object can only be used for going down from a higher level to a lower level.
+
+- both (default). The `both` value indicates that the vertical penetration object can be used in both directions.
+
+- closed. A `closed` value means that the vertical penetration object is not available. The object could could be an elevator that is restricted to service deliveries, or a stairwell under construction.
+
+Other factors that affect how to navigate between floors:
+
+- Whether or not the user has selected to avoid either stairs or elevators. The `avoidFeatures` value overrides all other considerations.
+- Whether or not the stairs or elevators facilitates the shortest path.
+
+For additional information on wayfinding, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
 
 ### Azure Maps integration
 
@@ -281,8 +326,11 @@ The following example shows how to update a dataset, create a new tileset, and d
 [basemap]: supported-map-styles.md
 [style]: /rest/api/maps/v20220901preview/style
 [tileset]: /rest/api/maps/v20220901preview/tileset
+[routeset]: /rest/api/maps/v20220901preview/routestset
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
 [map-config-api]: /rest/api/maps/v20220901preview/mapconfiguration
 [instantiate-indoor-manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+[unit]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
+[verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
