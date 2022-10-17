@@ -74,7 +74,7 @@ To learn more about how to manage session-scoped packages, see the following art
 
 - [Scala/Java session packages:](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
 
-- [R session packages:](./apache-spark-manage-session-packages.md##session-scoped-r-packages-preview) Within your session, you can install packages across all nodes within your Spark pool using `install.packages` or `devtools`.
+- [R session packages:](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview) Within your session, you can install packages across all nodes within your Spark pool using `install.packages` or `devtools`.
 
 ## Manage your packages outside Synapse Analytics UI
 
