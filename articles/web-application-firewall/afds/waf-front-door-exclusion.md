@@ -51,9 +51,15 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: Match all request fields that contain the specified selector value.
 - **Equals any**: Match all request fields. When you use the *Equals any* operator, the selector value is automatically set to _*_. For example, you can use the *Equals any* operator to configure an exclusion that applies to all request headers.
 
+### Case sensitivity
+
 Header and cookie names are case insensitive. Query strings, POST arguments, and JSON arguments are case sensitive.
 
-Some of the managed rules evaluate the raw payload of the request body, before it's parsed into POST arguments or JSON arguments. So, in some situations you might see log entries with a matchVariableName of `InitialBodyContents`. For example, suppose you create an exclusion with a match variable of *Request body POST args* and a selector to identify and ignore POST arguments named *FOO*. You'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, if a POST argument named *FOO* contains text that triggers a rule, the log might show the detection in the initial body contents.
+### Body contents inspection
+
+Some of the managed rules evaluate the raw payload of the request body, before it's parsed into POST arguments or JSON arguments. So, in some situations you might see log entries with a matchVariableName of `InitialBodyContents`.
+
+For example, suppose you create an exclusion with a match variable of *Request body POST args* and a selector to identify and ignore POST arguments named *FOO*. You'll no longer see any log entries with a matchVariableName of `PostParamValue:FOO`. However, if a POST argument named *FOO* contains text that triggers a rule, the log might show the detection in the initial body contents.
 
 ## <a name="define-exclusion-based-on-web-application-firewall-logs"></a> Define exclusion rules based on Web Application Firewall logs
 
@@ -96,9 +102,7 @@ If you determine that the request is legitimate, you could create an exclusion w
 
 ## Exclude other request attributes
 
-If your WAF log entry shows a matchVariableName that isn't in the table above, you can't create an exclusion.
-
-<!-- TODO example -->
+If your WAF log entry shows a matchVariableName that isn't in the table above, you can't create an exclusion. For example, you can't currently create exclusions for cookie names, header names, POST parameter names, or query parameter names.
 
 Instead, consider taking one of the following actions:
 
