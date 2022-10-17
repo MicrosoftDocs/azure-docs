@@ -344,7 +344,7 @@ Using the `MLClient` created earlier, we will get a handle to the endpoint. The 
 - `request_file` - File with request data
 - `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/custom-container).
+We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/custom-container).
 
 ```python
 # test the blue deployment with some sample data
