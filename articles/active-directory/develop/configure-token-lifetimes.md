@@ -16,9 +16,9 @@ ms.reviewer: ludwignick, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
 
-You can specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. Token lifetimes can be set for all apps or for a specific service principal in your organization. They can also be set for multi-organizations (multi-tenant application). For more information, refer to [configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
+In the following steps, you'll implement a common policy scenario that imposes new rules for token lifetime. It's possible to specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. This can be set for all apps in your organization or for a specific service principal. They can also be set for multi-organizations (multi-tenant application). 
 
-In the following steps, you'll implement a common policy scenario that can help you impose new rules for token lifetime. In the example, you'll learn how to create a policy that requires users to authenticate more frequently in your web app.
+For more information, see [configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
 
 ## Get started
 
@@ -32,7 +32,7 @@ Connect-AzureAD -Confirm
 
 ## Create a policy for web sign-in
 
-In this example, you create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens to the service principal of your web app.
+In the following steps, you'll create a policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access/ID tokens to the service principal of your web app.
 
 1. Create a token lifetime policy.
 
@@ -74,16 +74,16 @@ To see all policies that have been created in your organization, run the [Get-Az
 Get-AzureADPolicy -All $true
 ```
 
-To see which apps and service principals are linked to a specific policy you identified run the following [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet by replacing **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** with any of your policy IDs. Then you can decide whether to configure Conditional Access sign-in frequency or remain with the Azure AD defaults.
+To see which apps and service principals are linked to a specific policy that you identified, run the following [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet by replacing **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** with any of your policy IDs. Then you can decide whether to configure Conditional Access sign-in frequency or remain with the Azure AD defaults.
 
 ```powershell
 Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
 ```
 
-If your tenant has policies which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.
+If your tenant has policies, which define custom values for the refresh and session token configuration properties, Microsoft recommends you update those policies to values that reflect the defaults described above. If no changes are made, Azure AD will automatically honor the default values.
 
 ### Troubleshooting
-Some users have reported a `Get-AzureADPolicy : The term 'Get-AzureADPolicy' is not recognized` error after running the `Get-AzureADPolicy` cmdlet. As a workaround, run the following to uninstall/re-install the AzureAD module and then install the AzureADPreview module:
+Some users have reported a `Get-AzureADPolicy : The term 'Get-AzureADPolicy' is not recognized` error after running the `Get-AzureADPolicy` cmdlet. As a workaround, run the following to uninstall/re-install the AzureAD module, and then install the AzureADPreview module:
 
 ```powershell
 # Uninstall the AzureAD Module
