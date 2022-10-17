@@ -28,14 +28,16 @@ Microsoft Purview classifies data by using [RegEx](https://wikipedia.org/wiki/Re
 
 The City, Country, and Place filters have been prepared using best datasets available for preparing the data.
 
-## Machine Learning model based classifications
-## Person Name
+## Machine Learning based classifications
+## Person's Name
 
 Person Name machine learning model has been trained using global datasets of names in English language.
 
 > [!NOTE]
 > Microsoft Purview classifies full names stored in the same column as well as first/last names in separate columns.
 
+## Person's Address
+Person's address classification is used to detect full address stored in a single column containing the following elements: House number, Street Name, City, State, Country, Zip Code. Person's Address classifier uses machine learning model that is trained on the global addresses data set in English language.
 
 ## RegEx Classifications
 
