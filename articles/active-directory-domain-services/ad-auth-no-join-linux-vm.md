@@ -1,5 +1,5 @@
 ---
-title: AD Authentication without Domain Join Linux VM | Microsoft Docs
+title: AD Authentication without Domain Join Linux VM
 description: Learn how to configure AD User authentication on Linux VM without Active Directory Domain Services Join.
 services: active-directory-ds
 author: DevOpsStyle
@@ -14,7 +14,7 @@ ms.author: tommasosacco
 
 ---
 
-# AD Authentication without Domain Join Linux VM | Microsoft Docs
+# AD Authentication without Domain Join Linux VM
 
 Currently Linux distribution can work as member of Active Directory domains, which gives them access to the AD authentication system. To take advantage of AD authentication in some cases, we can avoid the AD join. To let users sign in on Azure Linux VM with Active Directory account you have different choices. One possibility is to Join in Active Directory the VM. Another possibility is to base the authentication flow through LDAP to your Active Directory without Join the VM on AD. This article shows you how to authenticate with AD credential on your Linux system (CentosOS) based on LDAP.
 
@@ -70,7 +70,7 @@ After the installation check if LDAP search works. In order to check it try an L
 
 ```console
 ldapsearch -H ldaps://<ip-domain-controller-or-domain> -x \
-        -D CN=ReadOnlyUser,CN=Users,DC=cetesting,DC=it -w Read0nlyuserpassword \
+        -D CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com -w Read0nlyuserpassword \
         -b CN=Users,DC=<domain>,DC=<extension>
 ```
 
@@ -80,17 +80,17 @@ If the LDAP query works fine, you will obtain an output with some information li
 extended LDIF
 
 LDAPv3
-base <CN=Users,DC=cetesting,DC=it> with scope subtree
+base <CN=Users,DC=contoso,DC=com> with scope subtree
 filter: (objectclass=*)
 requesting: ALL
 
-Users, cetesting.it
-dn: CN=Users,DC=cetesting,DC=it
+Users, contoso.com
+dn: CN=Users,DC=contoso,DC=com
 objectClass: top
 objectClass: container
 cn: Users
 description: Default container for upgraded user accounts
-distinguishedName: CN=Users,DC=cetesting,DC=it
+distinguishedName: CN=Users,DC=contoso,DC=com
 instanceType: 4
 whenCreated: 20220913115340.0Z
 whenChanged: 20220913115340.0Z
@@ -100,7 +100,7 @@ showInAdvancedViewOnly: FALSE
 name: Users
 objectGUID:: i9MABLytKUurB2uTe/dOzg==
 systemFlags: -1946157056
-objectCategory: CN=Container,CN=Schema,CN=Configuration,DC=cetesting,DC=it
+objectCategory: CN=Container,CN=Schema,CN=Configuration,DC=contoso,DC=com
 isCriticalSystemObject: TRUE
 dSCorePropagationData: 20220930113600.0Z
 dSCorePropagationData: 20220930113600.0Z
@@ -138,10 +138,10 @@ full_name_format = %1$s
 [domain/default]
 id_provider = ldap
 cache_credentials = True
-ldap_uri = ldaps://cetesting.it
-ldap_search_base = CN=Users,DC=cetesting,DC=it
+ldap_uri = ldaps://contoso.com
+ldap_search_base = CN=Users,DC=contoso,DC=com
 ldap_schema = AD
-ldap_default_bind_dn = CN=ReadOnlyUser,CN=Users,DC=cetesting,DC=it
+ldap_default_bind_dn = CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com
 ldap_default_authtok_type = obfuscated_password
 ldap_default_authtok = generated_password
 
@@ -214,7 +214,7 @@ systemctl restart sssd
 The final step is to check that the flow works properly. To check this, try logging in with one of your AD users in Active Directory. We tried with a user called *Francesca*. If the configuration is correct, you will get the following result:
 
 ```console
-[root@centos8 ~]su - Francesca@cetesting.it
+[root@centos8 ~]su - Francesca@contoso.com
 Last login: Wed Oct 12 15:13:39 UTC 2022 on pts/0
 [Francesca@Centos8 ~]$ exit
 
