@@ -33,7 +33,8 @@ The `<extensions-app-id>` is specific to your tenant. To find this identifier, n
 3. In the left menu, select **External Identities**.
 4. Select **Custom user attributes**. The available user attributes are listed.
 
-   ![Select user attributes for sign-up](media/user-flow-add-custom-attributes/user-attributes.png)
+   :::image type="content" source="media/user-flow-add-custom-attributes/user-attributes.png" alt-text="Screenshot of selecting custom user attributes for sign-up.":::
+
 
 5. To add an attribute, select **Add**.
 6. In the **Add an attribute** pane, enter the following values:
@@ -42,7 +43,7 @@ The `<extensions-app-id>` is specific to your tenant. To find this identifier, n
    - **Data Type** - Choose a data type (**String**, **Boolean**, or **Int**).
    - **Description** - Optionally, enter a description of the custom attribute for internal use. This description isn't visible to the user.
 
-   ![Add an attribute](media/user-flow-add-custom-attributes/add-an-attribute.png)
+      :::image type="content" source="media/user-flow-add-custom-attributes/add-an-attribute.png" alt-text="Screenshot of adding a custom attribute.":::
 
 7. Select **Create**.
 
