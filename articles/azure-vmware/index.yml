@@ -5,13 +5,12 @@ summary: Learn how to use Azure VMware Solution to deploy a VMware Software-Defi
 
 metadata:
   title: Azure VMware Solution documentation 
-  description: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure.
+  description: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
   author: suzizuber
   ms.author: v-szuber 
   ms.date: 10/17/2022 
-
 
 # card 1
 landingContent:
@@ -117,7 +116,6 @@ landingContent:
           url: configure-external-identity-source-nsx-t.md          
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
-
 
 # card 4
   - title: Extend Azure VMware Solution
@@ -268,8 +266,7 @@ landingContent:
             url: https://youtu.be/BoQYvqzb6Y8
           - text: Migration and capacity planning
             url: https://youtu.be/NoNG-hkksrA
-
-                            
+                           
 # Move resources (card 10)
   - title: Move Azure VMware Solution resources
     linkLists:
@@ -279,8 +276,6 @@ landingContent:
           url: move-ea-csp-subscriptions.md
         - text: Move Azure VMware Solution across regions
           url: move-azure-vmware-solution-across-regions.md
-
-
 
 # card 11
   - title: Troubleshooting
