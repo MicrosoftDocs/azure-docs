@@ -96,14 +96,24 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
 
 ## Configure the workflow parameters
 
-This Logic App will use parameters to store specific pieces of information that you will need to run the batch deployment. On the workflow designer, under the tool bar, select the option __Parameters__ and configure them as follows:
+This Logic App will use parameters to store specific pieces of information that you will need to run the batch deployment. 
 
-| Parameter             | Description  | Sample value |
-| --------------------- | -------------|------------- |
-| `tenant_id`           | Tenant ID where the endpoint is deployed  | `00000000-0000-0000-00000000` |
-| `client_id`           | The client ID of the Managed Identity used to invoke the endpoint  | `00000000-0000-0000-00000000` |
-| `client_secret`       | The client secret of the Managed Identity used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
-| `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
+1. On the workflow designer, under the tool bar, select the option __Parameters__ and configure them as follows:
+
+    :::image type="content" source="./media/how-to-use-event-grid-batch/parameters.png" alt-text="The parameters in designer.":::
+
+1.To create an parameter, use the __Add parameter__ option:
+
+    :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Adding a parameter to designer.":::
+    
+1. Create the following parameters:
+
+    | Parameter             | Description  | Sample value |
+    | --------------------- | -------------|------------- |
+    | `tenant_id`           | Tenant ID where the endpoint is deployed  | `00000000-0000-0000-00000000` |
+    | `client_id`           | The client ID of the Managed Identity used to invoke the endpoint  | `00000000-0000-0000-00000000` |
+    | `client_secret`       | The client secret of the Managed Identity used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
+    | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 
 ## Add the trigger
 
