@@ -10,11 +10,11 @@ ms.author: aapowell
 ms.custom: devx-track-js
 ---
 # Deploy Next.js websites on Azure Static Web Apps
-Next.js support on Azure Static Web Apps can be categorised as two deployment models, [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
+Next.js support on Azure Static Web Apps can be categorized as two deployment models, [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) Next.js applications, and _hybrid_ rendering, which covers [Server-Side Rendering](https://nextjs.org/docs/advanced-features/react-18/streaming) and [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration).
 
 ## Static HTML export
 
-You can deploy a Next.js static site using the [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export) feature of Next.js. This configuration generates static HTML files at build time which are cached and reused for all requests.
+You can deploy a Next.js static site using the [static HTML export](https://nextjs.org/docs/advanced-features/static-html-export) feature of Next.js. This configuration generates static HTML files during the build, which are cached and reused for all requests.
 
 To enable static export of a Next.js application, add `next export` the to `build` npm script in _package.json_.
 
@@ -72,9 +72,9 @@ During the preview, the following features of Static Web Apps are unsupported fo
 - APIs using Azure Functions, Azure AppService, Azure Container Apps or Azure API Management.
 - Deployment via the SWA CLI.
 
-- Static Web Apps provided Authentication and Authorizationl.
+- Static Web Apps provided Authentication and Authorization.
   - Instead, you can use the Next.js [Authentication](https://nextjs.org/docs/authentication) feature.
 - The `staticwebapps.config.json` file.
   - Features such as custom headers and routing can be controlled using the `next.config.js` file.
-- `skip_app_build` and `skip_api_build` cannot be used.
-- The maximum app size for the hybrid Next.js application is 100MB. Please consider using Static Next.js apps if your requirement is more than 100MB.
+- `skip_app_build` and `skip_api_build` can't be used.
+- The maximum app size for the hybrid Next.js application is 100 MB. Consider using Static HTML exported Next.js apps if your requirement is more than 100 MB.
