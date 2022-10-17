@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 10/17/2021
 ms.author: ryanwi
-ms.custom: aaddev, contperf-fy21q1
+ms.custom: aaddev, engagement-fy23
 ms.reviewer: ludwignick, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
