@@ -384,7 +384,8 @@ For information on standard attributes for resources, see [Resource Semantic Con
 
 ## Enable Sampling
 
-You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. [Learn More about sampling.](sampling.md#brief-summary)
+You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.75 means approximately 75% of your telemetry will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+
 
 #### [.NET](#tab/net)
 
@@ -423,7 +424,7 @@ from azure.monitor.opentelemetry.exporter import (
 )
 
 # Sampler expects a sample rate of between 0 and 1 inclusive
-# A rate of 0.75 means approximately 75% of your telemetry will be sent
+# 0.75 means approximately 75% of your telemetry is sent
 sampler = ApplicationInsightsSampler(0.75)
 trace.set_tracer_provider(TracerProvider(sampler=sampler))
 tracer = trace.get_tracer(__name__)
