@@ -3,7 +3,7 @@ title: Set up Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
 description: How to set up Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 10/17/2022
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
@@ -33,7 +33,7 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - Access from your on-premises network to all the required URLs listed in Azure Virtual Desktop's [required URL list](safe-url-list.md) for virtual machines.
 
-- There should be at least one Windows OS image available on the cluster. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli) and [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/).
+- There should be at least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace?tabs=azurecli), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account?tabs=azurecli), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share?tabs=azurecli).
 
 ## Set up and configuration
 
