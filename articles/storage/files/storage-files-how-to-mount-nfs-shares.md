@@ -56,7 +56,7 @@ You have now mounted your NFS share.
 
 ### Validate connectivity
 
-If your mount failed, it's possible that your private endpoint was not setup correctly or is inaccessible. For details on confirming connectivity, see the [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity) section of the networking endpoints article.
+If your mount failed, it's possible that your private endpoint was not set up correctly or is inaccessible. For details on confirming connectivity, see the [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity) section of the networking endpoints article.
 
 ## Next steps
 
