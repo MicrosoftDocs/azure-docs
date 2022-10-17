@@ -975,10 +975,10 @@ sections:
       - question: |
           How do I enable log collection for containers in the kube-system namespace through Helm?
         answer: |
-          The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
+          The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the Azure Monitor Agent. For more information, see the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
           
       - question: |
-          How do I update the omsagent to the latest released version?
+          How do I update the Azure Monitor Agent in Container Insights to the latest released version?
         answer: |
           To learn how to upgrade the agent, see [Agent management](containers/container-insights-manage-agent.md).
           
