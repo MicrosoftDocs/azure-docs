@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/07/2022
+ms.date: 10/17/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -43,7 +43,7 @@ Number matching is available for the following scenarios. When enabled, all scen
 >[!NOTE]
 >For passwordless users, enabling or disabling number matching has no impact because it's already part of the passwordless experience. 
 
-Number matching will be available in Azure Government two weeks after General Availability. Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
+Number matching is available for sign in for Azure Government. It is available for SSPR and combined registration two weeks after General Availability. Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
 
 ### Multifactor authentication
 
@@ -354,16 +354,15 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 ### Can I opt out of number matching?
 
-No.
+Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants by Feb 28, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
 
 ### What about my Apple Watch?
 
-Apple Watch will remain unsupported. We recommend you uninstall the Authenticator Apple Watch app because you will have to approve notifications on your phone. 
-
+Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you will have to approve notifications on your phone. 
 
 ### What happens if a user runs an older version of Microsoft Authenticator?
 
-If a user is running an older version of Microsoft Authenticator, authentication won't work. 
+If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.  
 
 ## Next steps
 
