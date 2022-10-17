@@ -1,26 +1,36 @@
 ---
 author: dbasantes
 ms.service: azure-communication-services
-ms.date: 09/07/2022
+ms.date: 10/14/2022
 ms.topic: include
-ms.custom: private_preview
-ms.author: bharat
+ms.custom: public_preview
 ---
-
-> [!NOTE]
-> Call Recording Unmixed audio is available in the US only and may change based on feedback we receive during the Private Preview stage.
-
 
 ## Prerequisites
 
-Before you start testing Unmixed Audio recording, make sure you complete the following steps:
+Before you start testing Call Recording, make sure to comply with the following prerequisites:
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- You need an Azure account with an active subscription.
+- Deploy a Communication Service resource. Record your resource **connection string**.
 - Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
-- Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/overview/1.0.0-alpha.20220829.1 )
-- This quickstart assumes you have some experience using the [Calling Client SDK](../../get-started-with-video-calling.md). **Important**: To fetch `serverCallId` from Calling SDK, refer to the [JavaScript](../../get-server-call-id.md) example.
-- Make sure to provide the Azure Communication Services Call Recording team with your [immutable Azure resource ID](../../get-resource-id.md) to be allowlisted during the **private preview** tests.
+- Download the [Java SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/overview/1.0.0-alpha.20221013.1)
+
+**IMPORTANT**:  
+Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
+- When using Call Automation, you have two options to get the `serverCallId`:
+    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
+    2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
+
+- When using Calling Client SDK, you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
+Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK. 
+
+> [!NOTE]
+> Unmixed audio is in Private Preview and is available in the US only. Make sure to provide the Call Recording team with your [immutable Azure resource ID](../../get-resource-id.md) to be allowlisted during the Unmixed audio **private preview** tests. Changes are expected based on feedback we receive during this stage.
+
+
+
+Let's get started with a few simple steps!
+
 
 
 ## 1. Create a Call Automation client
@@ -33,11 +43,11 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
             .buildClient();
 ```
 
-## 2. Start recording session with StartRecordingOptions using 'startRecordingWithResponse' server API
+## 2. Start recording session with StartRecordingOptions using 'startRecordingWithResponse' API
 
-Use the server call ID received during initiation of the call.
+Use the `serverCallId` received during initiation of the call.
 - RecordingContent is used to pass the recording content type. Use AUDIO
-- RecordingChannel is used to pass the recording channel type. Use UNMIXED.
+- RecordingChannel is used to pass the recording channel type. Use MIXED or UNMIXED.
 - RecordingFormat is used to pass the format of the recording. Use WAV.
 
 ```java
@@ -52,7 +62,7 @@ Response<StartCallRecordingResult> response = callAutomationClient.getCallRecord
 
 ```
 
-### 2.1. Specify a user on a channel 0 for unmixed audio recording
+### 2.1. For Unmixed only - Specify a user on a channel 0
 
 ```java
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
@@ -67,37 +77,37 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 .startRecordingWithResponse(recordingOptions, null);
 
 ```
-The `startRecordingWithResponse` API response contains the recording ID of the recording session.
+The `startRecordingWithResponse` API response contains the `recordingId` of the recording session.
 
-## 3.	Stop recording session using 'stopRecordingWithResponse' server API
+## 3.	Stop recording session using 'stopRecordingWithResponse' API
 
-Use the recording ID received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startRecordingWithResponse`.
 
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
                .stopRecordingWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 4.	Pause recording session using 'pauseRecordingWithResponse' server API
+## 4.	Pause recording session using 'pauseRecordingWithResponse' API
 
-Use the recording ID received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startRecordingWithResponse`.
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
               .pauseRecordingWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 5.	Resume recording session using 'resumeRecordingWithResponse' server API
+## 5.	Resume recording session using 'resumeRecordingWithResponse' API
 
-Use the recording ID received in response of `startRecordingWithResponse`.
+Use the `recordingId` received in response of `startRecordingWithResponse`.
 
 ```java
 Response<Void> response = callAutomationClient.getCallRecording()
                .resumeRecordingWithResponse(response.getValue().getRecordingId(), null);
 ```
 
-## 6.	Download recording File using 'downloadToWithResponse' server API
+## 6.	Download recording File using 'downloadToWithResponse' API
 
-Use an [Azure Event Grid](../../../../../event-grid/overview.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
 Below is an example of the event schema.
 
@@ -150,7 +160,7 @@ Response<Void> downloadResponse = callAutomationClient.getCallRecording().downlo
 ```
 The content location and document IDs for the recording files can be fetched from the `contentLocation` and `documentId` fields respectively, for each `recordingChunk`.
 
-## 7. Delete recording content using ‘deleteRecordingWithResponse’ server API.
+## 7. Delete recording content using ‘deleteRecordingWithResponse’ API.
 
 Use `deleteRecordingWithResponse` method of `CallRecording` class for deleting the recorded media. Following are the supported parameters for `deleteRecordingWithResponse` method:
 - `deleteLocation`: Azure Communication Services URL where the content to delete is located.
