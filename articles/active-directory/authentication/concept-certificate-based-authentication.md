@@ -70,7 +70,7 @@ The following scenarios aren't supported:
 - Only one CRL Distribution Point (CDP) for a trusted CA is supported.
 - The CDP can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
 - Configuring other certificate-to-user account bindings, such as using the **Subject**, **Subject + Issuer** or **Issuer + Serial Number**, aren’t available in this release.
-- Password as an authentication method cannot be disabled and the option to sign in using a password is displayed even with Azure AB CBA method available to the user.
+- Password as an authentication method cannot be disabled and the option to sign in using a password is displayed even with Azure AD CBA method available to the user.
 
 ## Out of Scope
 

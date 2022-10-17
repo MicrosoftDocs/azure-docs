@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 10/14/2022
 ---
 
 # How saving plan discount is applied
@@ -21,6 +21,12 @@ Each hour with savings plan, your eligible compute usage is discounted until you
 The benefit is first applied to the product that has the greatest savings plan discount when compared to the equivalent pay-as-you-go rate (see your price list for savings plan pricing). The application prioritization is done to ensure that you receive the maximum benefit from your savings plan investment. We multiply the savings plan rate to that product's usage and deduct the result from the savings plan commitment. The process repeats until the commitment is exhausted (or until there's no more usage to consume the benefit).
 
 A savings plan discount only applies to resources associated with Enterprise Agreement, Microsoft Partner Agreement, and Microsoft Customer Agreements. Resources that run in a subscription with other offer types don't receive the discount.
+
+## Benefit allocation window
+
+With an Azure savings plan, you get significant and flexible discounts off your pay-as-you-go rates in exchange for a one or three-year spend commitment. When you use an Azure resource, usage details are periodically reported to the Azure billing system. The billing system is tasked with quickly applying your savings plan in the most beneficial manner possible. The plan benefits are applied to usage that has the largest discount percentage first. For the application to be most effective, the billing system needs visibility to your usage in a timely manner.
+
+The Azure savings plan benefit application operates under a best fit benefit model. When your benefit application is evaluated for a given hour, the billing system incorporates usage arriving up to 48 hours after the given hour. During the sliding 48-hour window, you may see changes to charges, including the possibility of savings plan utilization that's greater than 100%. This situation happens because the system is constantly working to provide the best possible benefit application. Keep the 48-hour window in mind when you inspect your usage.
 
 ## When the savings plan term expires
 
