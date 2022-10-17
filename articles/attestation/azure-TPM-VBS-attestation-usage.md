@@ -31,11 +31,14 @@ Here is how you can setup an attestation endpoint using Portal
 <ul>
 <li> Prerequisite: Access to the AAD tenant and subscription under which you want to create the attestation endpoint.</li>
 <li> Create an endpoint under the desired resource group, with the desired name.
-<video controls><source src="./media/creatingtpmendpoint.mp4" type=video/mp4></video></li>
+<video controls><source src="./media/creatingtpmendpoint.mp4" type=video/mp4></video>
+</li>
 <li> Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
-<video controls><source src="./media/addroletoendpoint.mp4" type=video/mp4></video></li>
+<video controls><source src="./media/addroletoendpoint.mp4" type=video/mp4></video>
+</li>
 <li> Configure the endpoint with the required policy.
-<video controls><source src="./media/configurepolicy.mp4" type=video/mp4></video></li>
+<video controls><source src="./media/configurepolicy.mp4" type=video/mp4></video>
+</li>
 Sample policies can be found in the [Policy Samples](tpm-attestation-sample-policies.md) Section.</br>
 
 > [!NOTE]
