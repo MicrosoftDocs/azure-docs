@@ -327,7 +327,7 @@ sections:
       - question: |
           How many custom models can I compose into a single custom model?
         answer: |
-           With the [Model Compose](compose-custom-models-v2-1.md#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
+           With the [Model Compose](how-to-guides/compose-custom-models.md?view=form-recog-2.1.0&preserve-view=true#create-a-composed-model) operation, you can assign up to 200 models to a single model ID.
 
            - When you make the Analyze request with a composed modelID, Form Recognizer classifies the submitted form, chooses the best model, and returns the results.
 

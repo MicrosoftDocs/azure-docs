@@ -1775,6 +1775,17 @@ groups:
     title: Azure AD PowerShell
   - id: ms-powershell
     title: Microsoft Graph PowerShell
+## template without azure AD PowerShell
+- id: enterprise-apps-minus-aad-powershell
+  title: Manage Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph API
 ## Create service principal with appId
 - id: enterprise-apps-cli
   title: Enterprise apps
@@ -1902,3 +1913,12 @@ groups:
     title: Azure CLI
   - id: bicep
     title: Bicep
+# Owner: v-amallick
+- id: backup-vaults-recovery-services-vault-backup-vault
+  title: Vaults
+  prompt: Choose a vault
+  pivots:
+  - id: vaults-recovery-services-vault
+    title: Recovery Services vault
+  - id: vaults-backup-vault
+    title: Backup vault

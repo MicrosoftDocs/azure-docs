@@ -123,6 +123,7 @@ You can set an alert to fire after a certain number of violations within a set t
 
 1. Use the following configuration parameters:
 
+   + Set **Dimension Name** to **Transaction Type** and **Dimension Values** to **vaultoperation**.
    + Set **Threshold** to **Dynamic**. 
    + Set **Operator** to **Greater than**.
    + Set **Aggregation type** to **Average**.
