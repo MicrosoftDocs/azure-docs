@@ -53,8 +53,12 @@
       href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
-    - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
+    - name: Jupyter notebooks
+      items:
+        - name: Create notebook
+          href: tutorial-create-notebook.md
+        - name: Import notebooks from GitHub
+          href: tutorial-import-notebooks.md
 - name: Samples
   items:
     - name: .NET
@@ -684,7 +688,7 @@
         - name: Using Resource Manager templates
           href: manage-with-templates.md
           displayName: ARM
-        - name: Using Terraform 
+        - name: Using Terraform
           href: manage-with-terraform.md
           displayName: Terraform
         - name: Move between regions
