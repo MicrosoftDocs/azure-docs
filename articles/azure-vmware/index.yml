@@ -157,7 +157,9 @@ landingContent:
           - text: Configure storage policies
             url: configure-storage-policy.md
           - text: Create placement policy 
-            url: create-placement-policy.md          
+            url: create-placement-policy.md
+          - text: Deploy vSAN stretched clusters (Preview)
+            url: deploy-vsan-stretched-clusters.md
 
 # card 5
   - title: Azure native integration
@@ -182,7 +184,7 @@ landingContent:
             url: netapp-files-with-azure-vmware-solution.md
 
 # card 6 == backup and restore
-  - title: Backup with Azure Backup Server
+  - title: Protect with Azure Backup Server & third party solutions
     linkLists:
       - linkListType: how-to-guide
         links:
