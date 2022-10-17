@@ -507,7 +507,7 @@
               href: how-to-deploy-managed-online-endpoints.md
             - name: Safe rollout for online endpoints (CLI)
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Safe rollout for online endpoints (SDK preview)
+            - name: Safe rollout for online endpoints (SDK)
               href: how-to-safely-rollout-managed-endpoints-sdk-v2.md
             - name: Deployment scenarios
               items:
@@ -549,7 +549,7 @@
           items:
             - name: Batch scoring with batch endpoints (CLI)
               href: how-to-use-batch-endpoint.md
-            - name: Batch scoring with batch endpoints (SDK preview)
+            - name: Batch scoring with batch endpoints (SDK)
               href: how-to-use-batch-endpoint-sdk-v2.md
             - name: Batch endpoints in studio
               href: how-to-use-batch-endpoints-studio.md
