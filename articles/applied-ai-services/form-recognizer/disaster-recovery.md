@@ -187,7 +187,7 @@ The following code snippets use cURL to make API calls outlined in the steps abo
 
 ### Track copy operation progress
 
-You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetOperation) API to list all document model operations (succeeded, in-progress, failed ) associated with your Form Recognizer resource. Operation information only persists for 24 hours.Here is a list of the operations (operationId) that can be returned:
+You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetOperation) API to list all document model operations (succeeded, in-progress, failed) associated with your Form Recognizer resource. Operation information only persists for 24 hours. Here is a list of the operations (operationId) that can be returned:
 
 * documentModelBuild
 * documentModelCompose
