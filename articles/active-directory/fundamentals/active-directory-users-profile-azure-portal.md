@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 10/17/2022
 ms.author: sarahlipsey
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -50,17 +50,17 @@ If you selected the **Properties tab option**:
 ### Profile categories
 There are six categories of profile details you may be able to edit. 
 
-- **Identity:** Add or update other identity values for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. If you have two users with the same name, such as ‘Chris Green,’ you could use the Identity string to set their names to 'Chris B. Green' 'Chris R. Green.'
+- **Identity:** Add or update other identity values for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. If you have two users with the same name, such as ‘Chris Green,’ you could use the Identity string to set their names to 'Chris B. Green' and 'Chris R. Green.'
 
 - **Job information:** Add any job-related information, such as the user's job title, department, or manager.
 
 - **Contact info:** Add any relevant contact information for the user.
 
-- **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided.
+- **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided.*Minors* are 12 and under, *Not adult* are 13-18 years old, and *Adults* are 18 and over. The combination of age group and consent provided by parent options determine the Legal age group classification. The Legal age group classification may limit the user's access and authority.
 
 - **Settings:** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
 
-- **On-premises:** If the account was set up in Windows Server Active Directory, other details may be available.
+- **On-premises:** Accounts synced from Windows Server Active Directory include additional values not applicable to Azure AD accounts.
 
     >[!Note]
     >You must use Windows Server Active Directory to update the identity, contact info, or job info for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
