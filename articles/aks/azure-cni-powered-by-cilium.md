@@ -23,8 +23,8 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Available only for Linux and not for Windows.
 * Cilium L7 policy enforcement is disabled.
 * Hubble is disabled.
-* Kubernetes services with `internalTrafficPolicy=Local` are not supported.
-* Multiple Kubernetes services cannot use the same host port with different protocols (e.g. TCP or UDP).
+* Kubernetes services with `internalTrafficPolicy=Local` are not supported ([Cilium issue #17796](https://github.com/cilium/cilium/issues/17796)).
+* Multiple Kubernetes services cannot use the same host port with different protocols (e.g. TCP or UDP) ([Cilium issue #14287](https://github.com/cilium/cilium/issues/14287)).
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
 
 > [!NOTE]
