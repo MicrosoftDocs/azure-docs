@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/17/2022
 ms.author: ryanwi
-ms.custom: aaddev, engagement-fy23
+ms.custom: identityplatformtop40, contperf-fy21q2, engagement-fy23
 ms.reviewer: ludwignick, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
