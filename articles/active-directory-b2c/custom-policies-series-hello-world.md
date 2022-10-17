@@ -17,9 +17,9 @@ ms.subservice: B2C
 
 # Write your first custom policy - Hello World! 
 
-In your applications, you use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use custom policies. 
+In your applications, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you use custom policies. 
 
-While you can use pre-made [custom policy starter pack](/tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how a custom policy is built from scratch. In this article, you'll learn how to create your first custom policy from scratch. 
+While you can use pre-made custom policy *starter pack* to write custom policies, it's important for you understand how a custom policy is built. In this article, you'll learn how to create your first custom policy from scratch. 
 
 ## Prerequisites 
 
@@ -275,13 +275,14 @@ Notice the `message` and `sub` claims, which we set as [output claims](relyingpa
 
 ## Next steps
 
-In this article, you learned and used four sections of an Azure AD B2C custom policy. These sections are added as child elements the `TrustFrameworkPolicy` root element: 
+In this article, you learned and used four sections that are included in an Azure AD B2C custom policy. These sections are added as child elements the `TrustFrameworkPolicy` root element: 
 
 > [!div class="checklist"]
 > - BuildingBlocks 
 > - ClaimsProviders 
 > - UserJourneys 
 > - RelyingParty 
+
 
 Next, learn:  
 

@@ -23,6 +23,8 @@ User flows are already customizable such as [changing UI](customize-ui.md), [cus
 
 While you can use pre-made [custom policy starter pack](/tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack), it's important for you understand how custom policy are built from scratch. In this how-to guide series, you'll learn all you need to customize the behavior of your user experience by using custom policies. 
 
+This how-to guide series consists of multiple articles. We recommend that you start this series from the fist article. For each article, except the first one, you're expected to continue with the custom policy you built in the preceding article.
+
 
 |Article  |Description  |
 |---------|---------|
