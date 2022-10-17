@@ -52,7 +52,7 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
 
 ## Enabling data access
 
-We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. When reading data from cloud locations, batch deployments uses the identity of the compute to gain access instead of the identity used to submit the job. In order to ensure the identity of the compute does have read access to the underlying data, we will need to assign a User Identity to the it. Follow this steps to ensure data access:
+We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. When reading data from cloud locations, batch deployments use the identity of the compute to gain access instead of the identity used to submit the job. In order to ensure the identity of the compute does have read access to the underlying data, we will need to assign to it an user assigned managed identity. Follow these steps to ensure data access:
 
 1. Create a [Managed Identity resource](../../active-directory/managed-identities-azure-resources/overview.md):
 
