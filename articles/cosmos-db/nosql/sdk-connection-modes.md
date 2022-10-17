@@ -81,7 +81,7 @@ By default, connections are permanently maintained to benefit the performance of
 For further implementation details regarding a language see:
 
 * [.NET SDK implementation information](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/docs/SdkDesign.md)
-* [Java SDK direct mode information](performance-tips-java-sdk-v4.md#direct-connection)
+* [Java SDK direct mode information](tune-connection-configurations-java-sdk-v4.md#direct-connection-mode)
 
 ## Next steps
 

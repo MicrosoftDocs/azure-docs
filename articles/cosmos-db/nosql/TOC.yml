@@ -594,6 +594,8 @@
               href: best-practice-java.md
             - name: Performance tips for Java SDK v4
               href: performance-tips-java-sdk-v4.md
+            - name: Tune Connection Configurations for Java SDK v4
+              href: tune-connection-configurations-java-sdk-v4.md
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2

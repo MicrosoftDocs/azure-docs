@@ -1,13 +1,13 @@
 ---
 title: Tune Connection Configurations for Azure Cosmos DB Java SDK v4
 description: Learn how to tune connection configurations to improve Azure Cosmos DB database performance for Java SDK v4
-author: kuthapar
+author: kushagraThapar
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 04/22/2022
-ms.author: kuthapar
+ms.author: kushagraThapar
 ms.custom: devx-track-java, contperf-fy21q2, ignite-2022
 ---
 
@@ -38,7 +38,7 @@ To learn more about different connectivity options, see the [connectivity modes]
 
 ### Direct Connection mode
 
-Java SDK default connection mode is direct. Direct mode Azure Cosmos DB requests are made over TCP when using Azure Cosmos DB Java SDK v4. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance. The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. To learn more about architecture, see the [direct mode connection architecture](sdk-connection-modes.md#a-iddirect-modea-direct-mode-connection-architecture)
+Java SDK default connection mode is direct. Direct mode Azure Cosmos DB requests are made over TCP when using Azure Cosmos DB Java SDK v4. Internally Direct mode uses a special architecture to dynamically manage network resources and get the best performance. The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. To learn more about architecture, see the [direct mode connection architecture](sdk-connection-modes.md#direct-mode)
 
 You can configure the connection mode in the client builder using the *directMode()* method as shown below. To configure direct mode with default settings, call `directMode()` method without arguments. To customize direct mode connection settings, pass *DirectConnectionConfig* to `directMode()` API.
 
