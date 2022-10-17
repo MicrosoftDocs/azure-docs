@@ -14,6 +14,7 @@ manager: celestedg
 ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
+ms.custom: engagement-fy23
 ---
 
 # Create dynamic groups in Azure Active Directory B2B collaboration
