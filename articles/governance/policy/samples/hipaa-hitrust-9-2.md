@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for HIPAA HITRUST 9.2
 description: Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/03/2022
+ms.date: 10/10/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -6826,9 +6826,9 @@ This built-in initiative is deployed as part of the
 |[Conduct risk assessment and document its results](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1dbd51c2-2bd1-5e26-75ba-ed075d8f0d68) |CMA_C1542 - Conduct risk assessment and document its results |Manual, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1542.json) |
 |[Establish a risk management strategy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd36700f2-2f0d-7c2a-059c-bdadd1d79f70) |CMA_0258 - Establish a risk management strategy |Manual, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_0258.json) |
 
-### 10.01 Security Requirements of Information Systems
+### 03.01 Risk Management Program
 
-**ID**: 1780.10a1Organizational.1-10.a
+**ID**: 1737.03d2Organizational.5-03.d
 **Ownership**: Shared
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |

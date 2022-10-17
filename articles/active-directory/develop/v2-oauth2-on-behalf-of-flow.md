@@ -12,22 +12,22 @@ ms.topic: conceptual
 ms.date: 09/30/2022
 ms.author: ludwignick
 ms.reviewer: ludwignick
-ms.custom: aaddev  
+ms.custom: aaddev, engagement-fy23
 ---
 
 # Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow
 
-The OAuth 2.0 On-Behalf-Of flow (OBO) is most often used when an application invokes a service/web API that needs to call another service/web API. The OBO flow is focused on acting on another party's behalf, known as a delegated scenario. The goal is to propagate the delegated user identity and permissions through the request chain and when a situation like this arises, extra scrutiny is required.
+The on-behalf-of (OBO) flow describes the scenario of a web API using an identity other than its own to call another web API. Referred to as delegation in OAuth, the intent is to pass a user's identity and permissions through the request chain.
 
 For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform. It only uses delegated *scopes* and not application *roles*. *Roles* remain attached to the principal (the user) and never to the application operating on the user's behalf. This occurs to prevent the user gaining permission to resources they shouldn't have access to.
 
-This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). Also take a look at the [sample apps that use MSAL](sample-v2-code.md) for examples.
+This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). Also refer to the [sample apps that use MSAL](sample-v2-code.md) for examples.
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Client limitations
 
-The OBO flow only works for user principals and doesn't work for service principals. If a service principal requested an app-only token and sent it to an API, that API would then exchange a token that doesn't represent the original service principal. Instead, it must use the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) to get an app-only token. In the case of Single-page apps (SPAs), they should pass an access token to a middle-tier confidential client to perform OBO flows instead.
+If a service principal requested an app-only token and sent it to an API, that API would then exchange a token that doesn't represent the original service principal. This is because the OBO flow only works for user principals. Instead, it must use the [client credentials flow](v2-oauth2-client-creds-grant-flow.md) to get an app-only token. In the case of Single-page apps (SPAs), they should pass an access token to a middle-tier confidential client to perform OBO flows instead.
 
 If a client uses the implicit flow to get an id_token and also has wildcards in a reply URL, the id_token can't be used for an OBO flow. A wildcard is a URL that ends with a `*` character. For example, if `https://myapp.com/*` was the reply URL the id_token can't be used because it isn't specific enough to identify the client. This would prevent the token being issued. However, access tokens acquired through the implicit grant flow can be redeemed by a confidential client, even if the initiating client has a wildcard reply URL registered. This is because the confidential client can identify the client that acquired the access token. The confidential client can then use the access token to acquire a new access token for the downstream API.
 
@@ -70,7 +70,7 @@ When using a shared secret, a service-to-service access token request contains t
 | `grant_type` | Required | The type of  token request. For a request using a JWT, the value must be `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Required | The application (client) ID that [the Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page has assigned to your app. |
 | `client_secret` | Required | The client secret that you generated for your app in the Azure portal - App registrations page.  The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
-| `assertion` | Required | The access token that was sent to the middle-tier API.  This token must have an audience (`aud`) claim of the app making this OBO request (the app denoted by the `client-id` field). Applications can't redeem a token for a different app (for example, if a client sends an API a token meant for MS Graph, the API can't redeem it using OBO.  It should instead reject the token).  |
+| `assertion` | Required | The access token that was sent to the middle-tier API. This token must have an audience (`aud`) claim of the app making this OBO request (the app denoted by the `client-id` field). Applications can't redeem a token for a different app (for example, if a client sends an API a token meant for Microsoft Graph, the API can't redeem it using OBO. It should instead reject the token).  |
 | `scope` | Required | A space separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). |
 | `requested_token_use` | Required | Specifies how the request should be processed. In the OBO flow, the value must be set to `on_behalf_of`. |
 
@@ -143,7 +143,7 @@ A success response is a JSON OAuth 2.0 response with the following parameters.
 
 ### Success response example
 
-The following example shows a success response to a request for an access token for the https://graph.microsoft.com web API. We can see that the response contains an access token and a refresh token and is signed with the private key of the certificate.
+The following example shows a success response to a request for an access token for the https://graph.microsoft.com web API. The response contains an access token and a refresh token and is signed with the private key of the certificate.
 
 ```json
 {
@@ -156,7 +156,7 @@ The following example shows a success response to a request for an access token 
 }
 ```
 
-The above access token is a v1.0-formatted token for Microsoft Graph. This is because the token format is based on the **resource** being accessed and unrelated to the endpoints used to request it. The Microsoft Graph is set up to accept v1.0 tokens, so the Microsoft identity platform produces v1.0 access tokens when a client requests tokens for Microsoft Graph. Other apps may indicate that they want v2.0-format tokens, v1.0-format tokens, or even proprietary or encrypted token formats. Both the v1.0 and v2.0 endpoints can emit either format of token. This way, the resource can always get the right format of token regardless of how or where the token was requested by the client.
+This access token is a v1.0-formatted token for Microsoft Graph. This is because the token format is based on the **resource** being accessed and unrelated to the endpoints used to request it. The Microsoft Graph is set up to accept v1.0 tokens, so the Microsoft identity platform produces v1.0 access tokens when a client requests tokens for Microsoft Graph. Other apps may indicate that they want v2.0-format tokens, v1.0-format tokens, or even proprietary or encrypted token formats. Both the v1.0 and v2.0 endpoints can emit either format of token. This way, the resource can always get the right format of token regardless of how or where the token was requested by the client.
 
 [!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
@@ -207,13 +207,13 @@ A service-to-service request for a SAML assertion contains the following paramet
 | assertion |required | The value of the access token used in the request.|
 | client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration.  The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
-| scope |required | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). SAML itself doesn't have a concept of scopes, but here it's used to identify the target SAML application for which you want to receive a token. For this OBO flow, the scope value must always be the SAML Entity ID with `/.default` appended. For example, in case the SAML application's Entity ID is `https://testapp.contoso.com`, then the requested scope should be `https://testapp.contoso.com/.default`. In case the Entity ID doesn't start with a URI scheme such as `https:`, Azure AD prefixes the Entity ID with `spn:`. In that case you must request the scope `spn:<EntityID>/.default`, for example `spn:testapp/.default` in case the Entity ID is `testapp`. The scope value you request here determines the resulting `Audience` element in the SAML token, which may be important to the SAML application receiving the token. |
+| scope |required | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). SAML itself doesn't have a concept of scopes, but is used to identify the target SAML application for which you want to receive a token. For this OBO flow, the scope value must always be the SAML Entity ID with `/.default` appended. For example, in case the SAML application's Entity ID is `https://testapp.contoso.com`, then the requested scope should be `https://testapp.contoso.com/.default`. In case the Entity ID doesn't start with a URI scheme such as `https:`, Azure AD prefixes the Entity ID with `spn:`. In that case you must request the scope `spn:<EntityID>/.default`, for example `spn:testapp/.default` in case the Entity ID is `testapp`. The scope value you request here determines the resulting `Audience` element in the SAML token, which may be important to the SAML application receiving the token. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be `on_behalf_of`. |
 | requested_token_type | required | Specifies the type of token requested. The value can be `urn:ietf:params:oauth:token-type:saml2` or `urn:ietf:params:oauth:token-type:saml1` depending on the requirements of the accessed resource. |
 
 The response contains a SAML token encoded in UTF8 and Base64url.
 
-- **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a `Recipient` value in `SubjectConfirmationData`, then the value must be configured as the first non-wildcard Reply URL in the resource application configuration. Since the default Reply URL isn't used to determine the `Recipient` value, you might have to reorder the Reply URLs in the application configuration to ensure that the first non-wildcard Reply URL is used. For more information, see [Reply URLs](https://docs.microsoft.com/azure/active-directory/develop/reply-url). 
+- **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a `Recipient` value in `SubjectConfirmationData`, then the value must be configured as the first non-wildcard Reply URL in the resource application configuration. Since the default Reply URL isn't used to determine the `Recipient` value, you might have to reorder the Reply URLs in the application configuration to ensure that the first non-wildcard Reply URL is used. For more information, see [Reply URLs](reply-url.md). 
 - **The SubjectConfirmationData node**: The node can't contain an `InResponseTo` attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an `InResponseTo` attribute.
 - **API permissions**: You have to [add the necessary API permissions](quickstart-configure-app-access-web-apis.md) on the middle-tier application to allow access to the SAML application, so that it can request a token for the `/.default` scope of the SAML application.
 - **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information, see [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application) below.
@@ -242,7 +242,7 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 
 ## Gaining consent for the middle-tier application
 
-The ultimate goal of the OBO flow is to ensure proper consent is given so that the client app can call the middle-tier app and the middle-tier app has permission to call the back-end resource. Depending on the architecture or usage of your application, you may want to consider the following to ensure that OBO flow is successful.
+The goal of the OBO flow is to ensure proper consent is given so that the client app can call the middle-tier app and the middle-tier app has permission to call the back-end resource. Depending on the architecture or usage of your application, you may want to consider the following to ensure that OBO flow is successful.
 
 ### .default and combined consent
 
@@ -260,11 +260,11 @@ Resources can indicate that a given application always has permission to receive
 
 ### Admin consent
 
-A tenant admin can guarantee that applications have permission to call their required APIs by providing admin consent for the middle tier application. To do this, the admin can find the middle tier application in their tenant, open the required permissions page, and choose to give permission for the app. To learn more about admin consent, see the [consent and permissions documentation](v2-permissions-and-consent.md). 
+A tenant admin can guarantee that applications have permission to call their required APIs by providing admin consent for the middle tier application. To do this, the admin can find the middle tier application in their tenant, open the required permissions page, and choose to give permission for the app. To learn more about admin consent, see the [consent and permissions documentation](v2-permissions-and-consent.md).
 
 ### Use of a single application
 
-In some scenarios, you may only have a single pairing of middle-tier and front-end client. In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether. To authenticate between the front-end and the web API, you can use cookies, an id_token, or an access token requested for the application itself. Then, request consent from this single application to the back-end resource. 
+In some scenarios, you may only have a single pairing of middle-tier and front-end client. In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether. To authenticate between the front-end and the web API, you can use cookies, an id_token, or an access token requested for the application itself. Then, request consent from this single application to the back-end resource.
 
 ## Next steps
 

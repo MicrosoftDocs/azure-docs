@@ -2,7 +2,7 @@
 author: blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 09/14/2022
+ms.date: 10/07/2022
 ms.author: larryfr
 ---
 
@@ -15,7 +15,7 @@ Before following the steps in this article, make sure you have the following pre
 * To install the Python SDK v2, use the following command:
 
     ```bash
-    pip install --pre azure-ai-ml
+    pip install azure-ai-ml
     ```
 
-    For more information, see [Install the Python SDK v2 for Azure Machine Learning](https://aka.ms/sdk-v2-install) (preview).
+    For more information, see [Install the Python SDK v2 for Azure Machine Learning](https://aka.ms/sdk-v2-install).
