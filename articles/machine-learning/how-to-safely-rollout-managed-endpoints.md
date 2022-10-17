@@ -19,7 +19,7 @@ ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-In this article, you learn how to deploy a new version of a machine learning model in production without causing any disruption. Using blue-green deployment (or safe rollout), you'll introduce a new version of a web service to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
+In this article, you'll learn how to deploy a new version of a machine learning model in production without causing any disruption. Using blue-green deployment (or safe rollout), you'll introduce a new version of a web service to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
 In this article, you'll learn to:
 
@@ -51,9 +51,6 @@ In this article, you'll learn to:
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
-> [!IMPORTANT]
-> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
-
 # [Python](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
@@ -72,9 +69,9 @@ In this article, you'll learn to:
 
 # [Azure CLI](#tab/azure-cli)
 
-### Clone the sample repository
+### Clone the examples repository
 
-To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
+To follow along with this article, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, go to the repository's `cli/` directory:
 
 ```azurecli
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -100,9 +97,9 @@ For Unix, run this command:
 
 # [Python](#tab/python)
 
-### Clone the sample repository
+### Clone the examples repository
 
-To run the training examples, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and change into the `azureml-examples/sdk/python/endpoints/online/managed` directory:
+To run the training examples, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, go into the `azureml-examples/sdk/python/endpoints/online/managed` directory:
 
 ```bash
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -113,17 +110,6 @@ cd azureml-examples/sdk/python/endpoints/online/managed
 > Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
 
 The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. While the notebook begins with the steps for creating an endpoint and a blue deployment, this article assumes that your endpoint and deployment already exist, as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
-
-### Set an endpoint name
-
-To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
-
-For Unix, run this command:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
-
-> [!NOTE]
-> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
 
 ### Connect to Azure Machine Learning workspace
 
@@ -222,7 +208,7 @@ If you want to use a REST client to invoke the deployment directly without going
 
 # [Python](#tab/python)
 
-Create a new deployment named green:
+Create a new deployment named `green`:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_new_deloyment)]
 
@@ -230,16 +216,13 @@ Create a new deployment named green:
 
 ### Test the new deployment
 
-Though green has 0% of traffic allocated, you can still invoke the endpoint and deployment with [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
+Though `green` has 0% of traffic allocated, you can still invoke the endpoint and deployment with the [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-2/sample-request.json) file.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_new_deployment)]
 
 ---
 
 ## Test the deployment with mirrored traffic (preview)
-
-# [Azure CLI](#tab/azure-cli)
-
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the blue deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors.
@@ -247,24 +230,36 @@ Once you've tested your `green` deployment, you can copy (or 'mirror') a percent
 > [!WARNING]
 > Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
 
+# [Azure CLI](#tab/azure-cli)
+
 The following command mirrors 10% of the traffic to the `green` deployment:
 
 ```azurecli
 az ml online-endpoint update --name $ENDPOINT_NAME --mirror-traffic "green=10"
 ```
+# [Python](#tab/python)
 
-> [!IMPORTANT]
-> Mirroring has the following limitations:
-> * You can only mirror traffic to one deployment.
-> * Mirrored traffic is not currently supported with K8s.
-> * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
-> 
-> Also note the following behavior:
-> * A deployment can only be set to live or mirror traffic, not both.
-> * You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
-> * You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to endpoint without specifying the deployment. 
+The following command mirrors 10% of the traffic to the `green` deployment:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=new_deployment_traffic)]
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=several_tests_to_mirror_traffic)]
+
+---
+
+Mirroring has the following limitations:
+* You can only mirror traffic to one deployment.
+* Mirrored traffic is not currently supported with K8s.
+* The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
+
+Also note the following behavior:
+* A deployment can only be set to live or mirror traffic, not both.
+* You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
+* You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to endpoint without specifying the deployment. 
 
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
+
+# [Azure CLI](#tab/azure-cli)
 
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
@@ -273,32 +268,6 @@ az ml online-endpoint update --name $ENDPOINT_NAME --mirror-traffic "green=0"
 ```
 
 # [Python](#tab/python)
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-Once you've tested your `green` deployment, you can copy (or 'mirror') a percentage of the live traffic to it. Mirroring traffic doesn't change results returned to clients. Requests still flow 100% to the blue deployment. The mirrored percentage of the traffic is copied and submitted to the `green` deployment so you can gather metrics and logging without impacting your clients. Mirroring is useful when you want to validate a new deployment without impacting clients. For example, to check if latency is within acceptable bounds and that there are no HTTP errors.
-
-> [!WARNING]
-> Mirroring traffic uses your [endpoint bandwidth quota](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) (default 5 MBPS). Your endpoint bandwidth will be throttled if you exceed the allocated quota. For information on monitoring bandwidth throttling, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md#metrics-at-endpoint-scope).
-
-The following command mirrors 10% of the traffic to the `green` deployment:
-
-[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=new_deployment_traffic)]
-
-[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=several_tests_to_mirror_traffic)]
-
-> [!IMPORTANT]
-> Mirroring has the following limitations:
-> * You can only mirror traffic to one deployment.
-> * Mirrored traffic is not currently supported with K8s.
-> * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
->
-> Also note the following behavior:
-> * A deployment can only be set to live or mirror traffic, not both.
-> * You can send traffic directly to the mirror deployment by specifying the deployment set for mirror traffic.
-> * You can send traffic directly to a live deployment by specifying the deployment set for live traffic, but in this case the traffic won't be mirrored to the mirror deployment. Mirror traffic is routed from traffic sent to endpoint without specifying the deployment. 
-
-:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept-mirror.png" alt-text="Diagram showing 10% traffic mirrored to one deployment.":::
 
 After testing, you can set the mirror traffic to zero to disable mirroring:
 
@@ -314,33 +283,29 @@ Once you've tested your `green` deployment, allocate a small percentage of traff
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
-Now, your `green` deployment will receive 10% of requests.
-
-:::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
-
 # [Python](#tab/python)
 
-Once you've tested your green deployment, allocate a small percentage of traffic to it:
+Once you've tested your `green` deployment, allocate a small percentage of traffic to it:
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=allocate_some_traffic)]
 
-Now, your green deployment will receive 10% of requests.
+---
+
+Now, your `green` deployment will receive 10% of requests.
 
 :::image type="content" source="./media/how-to-safely-rollout-managed-endpoints/endpoint-concept.png" alt-text="Diagram showing traffic split between deployments.":::
-
----
 
 ## Send all traffic to your new deployment
 
 # [Azure CLI](#tab/azure-cli)
 
-Once you're satisfied that your `green` deployment is fully satisfactory, switch all traffic to it.
+Once you're fully satisfied with your `green` deployment, switch all traffic to it.
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
 
 # [Python](#tab/python)
 
-Once you're satisfied that your green deployment is fully satisfactory, switch all traffic to it.
+Once you're fully satisfied with your `green` deployment, switch all traffic to it.
 
 [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=allocate_all_traffic)]
 
