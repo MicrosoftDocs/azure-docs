@@ -193,11 +193,9 @@ You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/d
 * documentModelCompose
 * documentModelCopyTo
 
-### Track the target modelID
+### Track the target model ID
 
 If the operation was successful, the document model can be accessed using [**getModel**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel)(get a single model) or [**GetModels**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels)(get a list of models) APIs.
-
-* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 
 ::: moniker-end
 
