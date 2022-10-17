@@ -20,7 +20,7 @@ Learn how to execute a Spark job in a secure Spark cluster that reads from a top
 
 A keytab is a file containing pairs of Kerberos principles and encrypted keys (which are derived from the Kerberos password). You can use a keytab file to authenticate to various remote systems using Kerberos without entering a password.
 
-For more information on how to create a keytab, see 
+For more information, see 
 
 1. [KTUTIL](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html)
 
@@ -312,7 +312,7 @@ From Spark cluster, read from Kafka topic bobtopic2 as user bobadmin2 is allowed
 
     `kdestroy`
 
-1. kinit with bobadmin.
+1. Run `kinit` with `bobadmin`
     ```
     sshuser@hn0-umaspa:~$ kinit bobadmin@SECUREHADOOPRC.ONMICROSOFT.COM -t bobadmin.keytab
     ```
