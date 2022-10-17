@@ -103,9 +103,9 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 The following are the possible causes:
 
-- Due to a bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
+- A bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
 
-- When a proxy configuration is not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
+- A proxy configuration that isn't allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
 
 - When you disable local authentication in Azure Automation. See [Disable local authentication](../disable-local-authentication.md). To fix it, see [re-enable local authentication](../disable-local-authentication.md#re-enable-local-authentication).
 
