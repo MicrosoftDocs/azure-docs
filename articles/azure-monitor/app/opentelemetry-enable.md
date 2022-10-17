@@ -482,15 +482,15 @@ Dependencies
 #### [Python](#tab/python)
 
 Requests
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) version:
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) (1) version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.34b0/)
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) version:
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) (1) version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.34b0/)
 
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.34b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) (1) version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
 
 ---
