@@ -31,7 +31,7 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 Create a Python application named *blob-quickstart*.
 
-1. In a console window (such as PowerShell, cmd, or bash), create a new directory for the project.
+1. In a console window (such as PowerShell or Bash), create a new directory for the project.
 
     ```console
     mkdir blob-quickstart
@@ -143,7 +143,7 @@ You can authorize access to data in your storage account using the following ste
     Connect-AzAccount
     ```
 
-2. To use `DefaultAzureCredential`, make sure that the **azure-identity** package is [installed](#install-the-packages) and the class is imported:
+2. To use `DefaultAzureCredential`, make sure that the **azure-identity** package is [installed](#install-the-packages), and the class is imported:
 
     ```xml
     from azure.identity import DefaultAzureCredential
@@ -153,7 +153,7 @@ You can authorize access to data in your storage account using the following ste
 
     :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_CreateServiceClientDAC":::
 
-4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. The storage account name can be found on the overview page of the Azure portal.
+4. Make sure to update the storage account name in the URI of your `BlobServiceClient` object. The storage account name can be found on the overview page of the Azure portal.
 
     :::image type="content" source="./media/storage-quickstart-blobs-python/storage-account-name.png" alt-text="A screenshot showing how to find the storage account name.":::
 
