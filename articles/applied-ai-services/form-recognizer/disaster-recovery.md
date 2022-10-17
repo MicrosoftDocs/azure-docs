@@ -112,16 +112,6 @@ GET https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operati
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 ```
 
-### Common error codes
-
-|Error|Resolution|
-|:--|:--|
-| 400 / Bad Request with `"code:" "1002"` | Indicates validation error or badly formed copy request. Common issues include: a) Invalid or modified `copyAuthorization` payload. b) Expired value for `expirationDateTimeTicks` token (`copyAuthorization` payload is valid for 24 hours). c) Invalid or unsupported `targetResourceRegion`. d) Invalid or malformed `targetResourceId` string.
-|"errors":[{"code":"AuthorizationError",<br>"message":"Authorization failure due to <br>missing or invalid authorization claims."}]   | Occurs when the `copyAuthorization` payload or content is modified from what was returned by the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
-|"errors":[{"code":"AuthorizationError",<br>"message":"Couldn't retrieve authorization <br>metadata. If this issue persists use a different <br>target model to copy into."}] | Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds won't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
-|"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request isn't allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
-|"errors":[{"code":"ResourceResolverError",<br>"message":"Couldn't fetch information for Cognitive resource with ID '...'. Ensure the resource is valid and exists in the specified region 'westus2'.."}] | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.|
-
 ### Track the target model ID
 
 You can also use the **[Get model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [Generate Copy authorization request](#generate-copy-authorization-request) response.
@@ -192,6 +182,7 @@ The following code snippets use cURL to make API calls outlined in the steps abo
 
   ```http
   HTTP/1.1 202 Accepted
+  Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formrecognizer/operations/{operation-id}?api-version=2022-08-31
   ```
 
 ### Track copy operation progress
@@ -321,6 +312,20 @@ curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecogniz
 ```bash
 curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.1/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}"
 ```
+
+::: moniker-end
+
+::: moniker range=">=form-recog-2.1.0"
+
+### Common error codes
+
+|Error|Resolution|
+|:--|:--|
+| 400 / Bad Request with `"code:" "1002"` | Indicates validation error or badly formed copy request. Common issues include: a) Invalid or modified `copyAuthorization` payload. b) Expired value for `expirationDateTimeTicks` token (`copyAuthorization` payload is valid for 24 hours). c) Invalid or unsupported `targetResourceRegion`. d) Invalid or malformed `targetResourceId` string.
+|"errors":[{"code":"AuthorizationError",<br>"message":"Authorization failure due to <br>missing or invalid authorization claims."}]   | Occurs when the `copyAuthorization` payload or content is modified from what was returned by the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
+|"errors":[{"code":"AuthorizationError",<br>"message":"Couldn't retrieve authorization <br>metadata. If this issue persists use a different <br>target model to copy into."}] | Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds won't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
+|"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request isn't allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
+|"errors":[{"code":"ResourceResolverError",<br>"message":"Couldn't fetch information for Cognitive resource with ID '...'. Ensure the resource is valid and exists in the specified region 'westus2'.."}] | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.|
 
 ::: moniker-end
 
