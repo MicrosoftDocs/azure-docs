@@ -23,7 +23,7 @@ A `CallClient` instance is required for this operation. When you have a `CallCli
 
 ```javascript
 const callClient = new CallClient(options);
-const environmentInfo = await callClient.getEnvironmentInfo();
+const environmentInfo = await callClient.feature(Features.DebugInfo).getEnvironmentInfo();
 ```
 
 The `getEnvironmentInfo` method asynchronously returns an object of type `EnvironmentInfo`.
