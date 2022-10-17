@@ -3,7 +3,7 @@ title: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
 description: This article shows how to enable internet access for your Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 07/21/2022
+ms.date: 10/17/2022
 ---
 
 # Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
