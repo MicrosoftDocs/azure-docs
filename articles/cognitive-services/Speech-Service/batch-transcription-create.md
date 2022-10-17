@@ -24,7 +24,7 @@ With batch transcriptions, you submit the [audio data](batch-transcription-audio
 
 To create a transcription and connect it to an existing project, use the `spx batch transcription create` command. Construct the request parameters according to the following instructions:
 
-- Set the required `content` parameter. You can specify either a semi-colon delimited list of individual files, or the SAS URL for an entire container. This property will not be returned in the response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-example).
+- Set the required `content` parameter. You can specify either a semi-colon delimited list of individual files, or the SAS URL for an entire container. This property will not be returned in the response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-upload).
 - Set the required `language` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
@@ -78,7 +78,7 @@ spx help batch transcription
 
 To create a transcription, use the [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) operation of the [Speech-to-text REST API](rest-speech-to-text.md#transcriptions). Construct the request body according to the following instructions:
 
-- You must set either the `contentContainerUrl` or `contentUrls` property. This property will not be returned in the response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-example).
+- You must set either the `contentContainerUrl` or `contentUrls` property. This property will not be returned in the response. For more information about Azure blob storage and SAS URLs, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-upload).
 - Set the required `locale` property. This should match the expected locale of the audio data to transcribe. The locale can't be changed later.
 - Set the required `displayName` property. Choose a transcription name that you can refer to later. The transcription name doesn't have to be unique and can be changed later.
 
@@ -158,8 +158,8 @@ Here are some property options that you can use to configure a transcription whe
 | Property | Description |
 |----------|-------------|
 |`channels`|An array of channel numbers to process. Channels `0` and `1` are transcribed by default. |
-|`contentContainerUrl`| You can submit individual audio files, or a whole storage container. You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-example).|
-|`contentUrls`| You can submit individual audio files, or a whole storage container. You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-example).|
+|`contentContainerUrl`| You can submit individual audio files, or a whole storage container. You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-upload).|
+|`contentUrls`| You can submit individual audio files, or a whole storage container. You must specify the audio data location via either the `contentContainerUrl` or `contentUrls` property. For more information, see [Azure storage for audio files](batch-transcription-audio-data.md#azure-blob-storage-upload).|
 |`destinationContainerUrl`|The result can be stored in an Azure container. Specify the [ad hoc SAS](../../storage/common/storage-sas-overview.md) with write permissions. SAS with stored access policies isn't supported. If you don't specify a container, the Speech service stores the results in a container managed by Microsoft. When the transcription job is deleted, the transcription result data is also deleted.|
 |`diarization`|Indicates that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains multiple voices. Specify the minimum and maximum number of people who might be speaking. You must also set the `diarizationEnabled` property to `true`. The [transcription file](batch-transcription-get.md#transcription-result-file) will contain a `speaker` entry for each transcribed phrase.<br/><br/>Diarization is the process of separating speakers in audio data. The batch pipeline can recognize and separate multiple speakers on mono channel recordings. The feature isn't available with stereo recordings.<br/><br/>**Note**: This property is only available with speech-to-text REST API version 3.1.|
 |`diarizationEnabled`|Specifies that diarization analysis should be carried out on the input, which is expected to be a mono channel that contains two voices. The default value is `false`.|

@@ -35,15 +35,14 @@ The batch transcription API supports the following formats:
 
 For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each input audio file. To create an ordered final transcript, use the timestamps that are generated per utterance.
 
-## Azure Blob Storage with SAS
+## Azure Blob Storage upload
 
 You need to use [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) to store audio files. Usage of [Azure Files](../../storage/files/storage-files-introduction.md) is not supported.
-When audio files are stored in an Azure Blob storage you can provide individual audio files, or an entire Azure Blob Storage container. You can also write transcription results in a Blob container (note some [security considerations](how-to-batch-transcription-storage-security.md#store-the-transcription-results-in-a-blob-container)). This example shows how to transcribe audio files in [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md).
+When audio files are stored in an Azure Blob storage you can provide individual audio files, or an entire Azure Blob Storage container. You can also [write transcription results](batch-transcription-create.md#destination-container-url) to a Blob container.
 
 The storage container must have at most 5 GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5 GB.
 
 Follow these steps to create a storage account and upload wav files from your local directory to a new container. 
-
 
 You can provide individual audio files, or an entire Azure Blob Storage container. You can also read or write transcription results in a container. This example shows how to transcribe audio files in [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
 
@@ -151,24 +150,26 @@ For more information, see [Prevent anonymous public read access to containers an
 
 Having restricted access to the Storage account, you need to grant access to specific managed identities. Follow these steps to add access for the Speech resource.
 
-1. Go to **Networking** menu in **Security + networking** group.
-1. In the **Firewalls and virtual networks** tab select **Enabled from selected virtual networks and IP addresses**.
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Storage account.
+1. In the **Security + networking** group in the left pane, select **Networking**.
+1. In the **Firewalls and virtual networks** tab, select **Enabled from selected virtual networks and IP addresses**.
 1. Deselect all check boxes.
-1. Leave **Microsoft network routing** selected.
-1. In **Resource instances** section add access for your Speech resource. Resource type will be **Microsoft.CognitiveServices/accounts**.
-1. Press **Save**.
+1. Make sure **Microsoft network routing** is selected.
+1. Under the **Resource instances** section, select **Microsoft.CognitiveServices/accounts** as the resource type and select your Speech resource as the instance name. 
+1. Select **Save**.
 
     > [!NOTE]
     > It may takes up to 5 min for the network changes to propagate.
 
-Although now the access is permitted, the Speech resource can't yet access the Storage account. You need to assign a specific access role for Speech resource managed identity.
+Although by now the access is permitted, the Speech resource can't yet access the Storage account. You need to assign a specific access role for Speech resource managed identity.
 
 ### Assign resource access role
 
 Follow these steps to assign the **Storage Blob Data Read** role to the managed identity of your Speech resource.
 
 > [!IMPORTANT]
-> You need to be assigned the *Owner* role of the Storage account or higher scope (like Subscription) to perform the operation in the next steps. This is because only only the *Owner* role can assign roles to others. See details [here.](../../role-based-access-control/built-in-roles.md)
+> You need to be assigned the *Owner* role of the Storage account or higher scope (like Subscription) to perform the operation in the next steps. This is because only the *Owner* role can assign roles to others. See details [here](../../role-based-access-control/built-in-roles.md).
 
 1. Go to **Access Control (IAM)** menu in the top menu group.
 1. Click **Add role assignment** in **Grant access to this resource** group and assign the managed identity of your Speech resource to **Storage Blob Data Reader** role. Be sure to select **Managed identity** for **Assign access to** parameter.
