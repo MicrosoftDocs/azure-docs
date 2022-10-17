@@ -18,79 +18,44 @@ Attesting a platform has its own challenges with its varied components of boot a
 
 ## Attestation Steps
 
-Attestation Setup has 2 main components: 
-One pertaining to the service setup and one pertaining to the client setup. More information about the workflow is described in [Azure attestation workflow](workflow.md).
+Attestation Setup has 2 setup. One pertaining to the service setup and one pertaining to the client setup.
+
+:::image type="content" source="./media/tpm_attestation_setup.png" alt-text="A diagram that shows the different interactions for attestation." lightbox="./media/tpm_attestation_setup.png":::
+
+Detailed information about the workflow is described in [Azure attestation workflow](workflow.md)
 
 ### Service endpoint setup:
-This is the first step for any attestaiton to be performed. Setting up an endpoint can be performed either via code or using the Azure Portal. The key piece to attestation is the policy. Sample policies can be found in the [Policy Samples](policy-examples.md) Section.
+This is the first step for any attestaiton to be performed. Setting up an endpoint, this can be performed either via code or using the Azure Portal.
 
-Here is how you can setup an attestation endpoint using Powershell
+Here is how you can setup an attestation endpoint using Portal
 <ul>
-<li> Ensure powershell and azure prerequisites are met.</li>
-</ul>
+<li> Prerequisite: Access to the AAD tenant and subscription under which you want to create the attestation endpoint.</li>
+<li> Create an endpoint under the desired resource group, with the desired name.
+![](creatingtpmendpoint.mp4)</li>
+<li> Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
+![](addroletoendpoint.mp4)</li>
+<li> Configure the endpoint with the required policy.
+![](configurepolicy.mp4)</li>
+Sample policies can be found in the [Policy Samples](tpm-attestation-sample-policies.md) Section.</br>
 
-Here is how you can setup an attestation endpoint using Azure Portal
+> [!NOTE]
+> Note: TPM endpoints are designed to be provisioned without a default attestation policy.
+</ul>
 
 
 ### Client Setup:
-A client to communicate with the attestation service endpoint needs to ensure it is appropriately following the protocol as described in the procotol documentation, or for ease of intergation a sample client is available is here to try. 
+A client to communicate with the attestation service endpoint needs to ensure it is following the protocol as described in the [procotol documentation](virtualization-based-security-protocol.md). Use the [Attestation Client NuGet](https://www.nuget.org/packages/Microsoft.Attestation.Client) to ease the integration.
+
 <ul>
-<li> Ensure the identity to be used for authentication has Attestation Reader Role.</li>
+<li> Add Attestation Reader Role to the identity that will be used for authentication against the endpoint.
+![](addreaderrole.mov)</li>
 </ul>
 
+## Execute the Attestation Workflow:
+Using the [Client](https://github.com/microsoft/Attestation-Client-Samples) trigger an attestation flow. A successful atttestation will result in an attestation report.Parsing the JWT token, the contents of the report can be easily validated against expected outcome. 
+Here is a sample of the contents of the attestation report.
+<Add decoded report image>
 
-### Executing the Attestation Workflow:
-
-
-## How to use attestation for Boot integrity
-To provide authenticity of the root-of-trust guarantees, the UEFI and other bootloaders and operating system components are running as expected is achieved by leveraging the cryptographic identity provided the TPMs and measured boot feature of the various components.
-
-A sample to set up the client can be found here:
-
-```
-    Steps/Links to sample client on Linux/Windows
-
-```
-
-A Policy as below can be used to verify the TPM, boot components, kerenel signer, kernel signature, built-in-key rings and IMA components to ensure system integrity is maintained.
-
-```
-<B><U> TODO ADD LINUX POLICY </B></U>
-
-```
-
-## How to use TPM attestation for detecting firmware loaded on the system
-Measurement logs also contain the firmware measurements loaded in a plaftorm, and remote attestation can be used to inspect the properties of the loaded firmaware either for monitoring, forensics or even securing the workloads running on the paltform. 
-
-Here is an attestation policy to inspect the firmware loaded:
-
-```
-<B><U> TODO FIRMWARE POLICY </B></U>
-```
-
-Here is an attestation policy to authorize the attestation based on the signer information of the loaded drivers:
-
-```
-<B><U> TODO ADD FIRMWARE VALIDATION POLICY, ADD FASR and DRTM in this </B></U>
-
-```
-
-
-## How to use Key attestation to ensure credential safety
-Key storgage providers capablities to certify objects, and building on the capablity of certifying that the object is loaded, attestation can be used to verify the public area expected by the relying party is same as certified, and the values in that public area are correct. such capability not only allows for the relying party to scale the protections across the KSPs but also additional proof-of-possesion protection.
-
-Here is an attestation policy to verify the Key properties:
-
-```
-<B><U> TODO FIRMWARE POLICY </B></U>
-```
-
-Here is an attestation policy to check if the key object is in a valid TPM
-
-```
-<B><U> TODO ADD FIRMWARE VALIDATION POLICY, ADD FASR and DRTM in this </B></U>
-
-```
-
+Using the Open ID [metadata endpoint](https://learn.microsoft.com/en-us/rest/api/attestation/metadata-configuration/get?tabs=HTTP) contains properties which describe the attestation service.The signing keys describe the keys which will be used to sign tokens generated by the attestation service. All tokens emitted by the attestation service will be signed by one of the certificates listed in the attestation signing keys.
 
 ## Learn More about integration and support
