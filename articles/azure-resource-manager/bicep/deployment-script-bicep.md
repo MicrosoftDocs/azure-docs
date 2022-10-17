@@ -617,7 +617,7 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Use Microsoft Graph within a deployment script
 
-A deployment script can use [Microsoft Graph](https://learn.microsoft.com/graph/overview) to create and work with objects in Azure AD.
+A deployment script can use [Microsoft Graph](/graph/overview) to create and work with objects in Azure AD.
 
 ### Commands
 
