@@ -107,11 +107,11 @@ Below are two examples of complete templates to set up NSG Flow Logs.
 ```
 
 > [!NOTE]
-> * The name of resource has the format "Parent Resource_Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centraluseuap)
+> * The name of the resource has the format "Parent Resource_Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centraluseuap)
 > * targetResourceId is the resource ID of the target NSG
 > * storageId is the resource ID of the destination storage account
 
-**Example 2**: The following templates enabling NSG Flow Logs (version 2) with a retention for 5 days. Enabling Traffic Analytics with a processing interval of 10 minutes.
+**Example 2**: The following templates enable NSG Flow Logs (version 2) with retention for 5 days. Enabling Traffic Analytics with a processing interval of 10 minutes.
 
 ```json
 {
