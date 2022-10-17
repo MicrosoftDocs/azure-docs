@@ -12,14 +12,14 @@ ms.author: asrastog
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
-[Azure Event Grid](/azure/event-grid/overview) helps you build event-based applications and easily integrates IoT events in your business solutions. This article walks you through a setup using Cosmos DB, Logic App, IoT Hub Events, and a simulated Raspberry Pi to track, collect, and store connection and disconnection events of a device.
+[Azure Event Grid](/azure/event-grid/overview) helps you build event-based applications and easily integrates IoT events in your business solutions. This article walks you through a setup using Cosmos DB, Logic App, IoT Hub Events, and a simulated Raspberry Pi to collect and store connection and disconnection events of a device.
 
 From the moment your device runs, an order of operations activates:
 
 1. The Pi device, using your IoT hub device key, is started and then stopped
 1. An IoT Hub event captures the device activity, then sends an HTTP request to your Logic App
-1. The Logic App processes the HTTP request with a condition you set (to track the connections and disconnections of your device)
-1. The Logic App tracks and stores the latest device connection state in Cosmos DB
+1. The Logic App processes the HTTP request based on a condition you set 
+1. The Logic App logs connection or disconnection events into a new document in Cosmos DB
 
 <!--
 A sequence number is used in the *Device Connected* and *Device Disconnected* to track and order events. 
