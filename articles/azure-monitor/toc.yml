@@ -180,6 +180,14 @@ items:
     href: monitor-azure-monitor.md 
 - name: How-to guides
   items:
+  - name: Well-Architected Framework
+    items:
+    - name: Security
+      href: /azure/architecture/framework/services/monitoring/application-insights/security?toc=/azure/azure-monitor/toc.json
+    - name: Optimize costs
+      href: best-practices-cost.md      
+    - name: Operational excellence
+      href: /azure/architecture/framework/services/monitoring/application-insights/operational-excellence?toc=/azure/azure-monitor/toc.json 
   - name: Best practices
     items:
     - name: Overview
@@ -192,8 +200,6 @@ items:
       href: best-practices-analysis.md
     - name: Alerts and automated actions
       href: best-practices-alerts.md
-    - name: Optimize costs
-      href: best-practices-cost.md
   - name: Scenarios
     items:
     - name: Monitor virtual machines
