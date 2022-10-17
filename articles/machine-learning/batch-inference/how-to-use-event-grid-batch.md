@@ -39,13 +39,13 @@ The workflow will work in the following way:
 
 Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
-We recommend to using a `Managed Identity` for authentication and interaction with batch endpoints in this scenario. 
+We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario. 
 
 1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
 1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
-1. Grant access for the managed identity you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the managed identity will require:
+1. Grant access for the service principal you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores. 
@@ -54,7 +54,7 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
 
 We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. When reading data from cloud locations, batch deployments use the identity of the compute to gain access instead of the identity used to submit the job. In order to ensure the identity of the compute does have read access to the underlying data, we will need to assign to it an user assigned managed identity. Follow these steps to ensure data access:
 
-1. Create a [Managed Identity resource](../../active-directory/managed-identities-azure-resources/overview.md):
+1. Create a [managed identity resource](../../active-directory/managed-identities-azure-resources/overview.md):
 
    # [Azure ML CLI](#tab/cli)
 
@@ -69,7 +69,7 @@ We will be using cloud URIs provided by event grid to indicate the input data to
    identity="/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/azureml-cpu-cluster-idn"
    ```
 
-1. Update the compute cluster to use the Managed Identity we created:
+1. Update the compute cluster to use the managed identity we created:
 
    > [!NOTE]
    > This examples assumes you have a compute cluster created named `cpu-cluster` and it is used for the default deployment in the endpoint.
@@ -164,8 +164,8 @@ This Logic App will use parameters to store specific pieces of information that 
     | Parameter             | Description  | Sample value |
     | --------------------- | -------------|------------- |
     | `tenant_id`           | Tenant ID where the endpoint is deployed  | `00000000-0000-0000-00000000` |
-    | `client_id`           | The client ID of the Managed Identity used to invoke the endpoint  | `00000000-0000-0000-00000000` |
-    | `client_secret`       | The client secret of the Managed Identity used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
+    | `client_id`           | The client ID of the service principal used to invoke the endpoint  | `00000000-0000-0000-00000000` |
+    | `client_secret`       | The client secret of the service principal used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
     | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
     
     > [!IMPORTANT]
