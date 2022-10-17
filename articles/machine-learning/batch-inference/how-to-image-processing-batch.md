@@ -333,13 +333,14 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
     score
     ```
 
-    | class | probabilities | label |
-    |-------|---------------| ------|
-    | 21    | 0.999857	| water ouzel |
-    | 952	| 0.162980	| lemon |
-    | 23    | 0.982694	| bald eagle |
-    | 498   | 0.944550	| church |
-    | 25    | 0.999969	| great grey owl |
+    | file                        | class | probabilities | label        |
+    |-----------------------------|-------|---------------| -------------|
+    | n02088094_Afghan_hound.JPEG | 161   | 0.994745	    | Afghan hound |
+    | n02088238_basset            | 162	| 0.999397      | basset       |
+    | n02088364_beagle.JPEG       | 165   | 0.366914      | bluetick     |
+    | n02088466_bloodhound.JPEG   | 164   | 0.926464	    | bloodhound   |
+    | ...                         | ...   | ...           | ...          |
+    
 
 ## High throughput deployments
 
