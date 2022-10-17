@@ -336,7 +336,7 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 ```
 
 ## Next steps
-- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints)
+- [Explore online endpoint samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints)
 - [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)

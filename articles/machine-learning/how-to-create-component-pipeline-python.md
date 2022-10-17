@@ -97,7 +97,7 @@ The next section will show create components in two different ways: the first tw
 
 The first component in this pipeline will convert the compressed data files of `fashion_ds` into two csv files, one for training and the other for scoring. You'll use python function to define this component.
 
-If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `prep/` folder. This folder contains two files to construct the component: `prep_component.py`, which defines the component and `conda.yaml`, which defines the run-time environment of the component.
+If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `prep/` folder. This folder contains two files to construct the component: `prep_component.py`, which defines the component and `conda.yaml`, which defines the run-time environment of the component.
 
 #### Define component using python function
 
@@ -145,7 +145,7 @@ In this section, you'll create a component for training the image classification
 
 The difference is that since the training logic is more complicated, you can put the original training code in a separate Python file.
 
-The source files of this component are under `train/` folder in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet). This folder contains three files to construct the component:
+The source files of this component are under `train/` folder in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet). This folder contains three files to construct the component:
 
 - `train.py`: contains the actual logic to train model.
 - `train_component.py`: defines the interface of the component and imports the function in `train.py`.
@@ -153,7 +153,7 @@ The source files of this component are under `train/` folder in the [AzureML Exa
 
 #### Get a script containing execution logic
 
-The `train.py` file contains a normal python function, which performs the training model logic to train a Keras neural network for image classification. You can find the code [here](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train.py).
+The `train.py` file contains a normal python function, which performs the training model logic to train a Keras neural network for image classification. You can find the code [here](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train.py).
 
 #### Define component using python function
 
@@ -177,7 +177,7 @@ Now, you've prepared all source files for the `Train Image Classification Keras`
 
 In this section, other than the previous components, you'll create a component to score the trained model via Yaml specification and script.
 
-If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `score/` folder. This folder contains three files to construct the component:
+If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet), the source files are already available in `score/` folder. This folder contains three files to construct the component:
 
 - `score.py`: contains the source code of the component.
 - `score.yaml`: defines the interface and other details of the component.
@@ -314,6 +314,6 @@ Using `ml_client.components.get()`, you can get a registered component by name a
 
 ## Next steps
 
-* For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines).
+* For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines).
 * For how to use studio UI to submit and debug your pipeline, refer to [how to create pipelines using component in the UI](how-to-create-component-pipelines-ui.md).
 * For how to use Azure Machine Learning CLI to create components and pipelines, refer to [how to create pipelines using component with CLI](how-to-create-component-pipelines-cli.md).

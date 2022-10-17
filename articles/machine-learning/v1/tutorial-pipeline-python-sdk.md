@@ -172,7 +172,7 @@ The above code specifies a dataset that is based on the output of a pipeline ste
 
 The code that you've executed so far has create and controlled Azure resources. Now it's time to write code that does the first step in the domain. 
 
-If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
+If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
 
 If you're working from scratch, create a subdirectory called `keras-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
 
