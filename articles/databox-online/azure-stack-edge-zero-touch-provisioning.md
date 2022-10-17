@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/06/2022
+ms.date: 10/17/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -339,16 +339,70 @@ Use the following steps to sign into the device, fetch the status of the webProx
    $p.device.webproxy
    ```
 
+   Here is a sample output:
+
+   ```output
+   PS C:\> $p.device.webproxy
+
+   isEnabled      : False 
+   connectionURI  : null,
+   authentication : None
+   username       :
+   password       :
+   ```
+
 1. Set the webProxy property to “isEnabled = true.”
 
    ```azurepowershell
    $p.device.webproxy.isEnabled = $true
    ```
 
-1. Fetch the status of the webProxy property.
+1. Fetch the status of the updated webProxy property.
 
    ```azurepowershell
    $p.device.webproxy
+   ```
+   
+   Here is a sample output showing the updated property:
+
+   ```output
+   PS C:\> $p.device.webproxy
+
+   isEnabled      : True 
+   connectionURI  : null,
+   authentication : None
+   username       :
+   password       :
+   ```
+
+1. Run the package with the updated webProxy property.
+
+   ```azurepowershell
+   $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
+   ```
+
+1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
+
+   ```azurepowershell
+   Get-DeviceConfigurationStatus | to-json
+   ```
+
+1. After the operation is complete, fetch the new device configuration.
+
+   ```azurepowershell
+   Get-DeviceConfiguration | to-json
+   ```
+
+   Here's an example of output showing the updated webProxy property:
+
+   ```output
+     "webProxy":  {
+                      "isEnabled":  true,
+                      "connectionURI":  null,
+                      "authentication":  "None",
+                      "username":  null,
+                      "password":  null
+                  }
    ```
 
 ## Run device diagnostics
