@@ -1112,7 +1112,7 @@ public class Program
 
         var process = Process.GetCurrentProcess();
         
-        ObservableGauge<int> myOservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
+        ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
 
         System.Console.WriteLine("Press Enter key to exit.");
         System.Console.ReadLine();
