@@ -1,3 +1,11 @@
+---
+author: craigshoemaker
+ms.service: static-web-apps
+ms.topic:  include
+ms.date: 10/17/2022
+ms.author: cshoe
+---
+
 ## Create a static web app
 
 Now that the repository is created, you can create a static web app from the Azure portal.
@@ -10,7 +18,8 @@ Now that the repository is created, you can create a static web app from the Azu
 
 In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
-:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Basics section":::
+:::image type="content" source="../../articles/static-web-apps/media/getting-started-portal/quickstart-portal-basics.png" alt-text="Screenshot of the Static Web Apps Basics tab in the Azure portal.":::
+
 
 1. Select your _Azure subscription_.
 1. Next to _Resource Group_, select the **Create new** link.

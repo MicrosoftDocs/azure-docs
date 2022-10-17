@@ -48,7 +48,7 @@ Begin by initializing a new Next.js application.
 
     Navigate to `http://localhost:3000` to open the app, where you should see the following website open in your browser:
 
-    :::image type="content" source="media/deploy-nextjs/nextjs-hybrid-starter.png" alt-text="Start Next.js app":::
+    :::image type="content" source="media/deploy-nextjs/nextjs-hybrid-starter.png" alt-text="Screenshot of a Next.js app running in the browser.":::
 
 1. Stop the development server by pressing **CMD/CTRL + C**.
 
