@@ -82,7 +82,7 @@ Useful options could include:
 
 ### Scalable
 
-The MedTech service enables developers to easily modify and extend the capabilities to support new device mapping template types and FHIR resources.
+The MedTech service enables developers to easily modify and extend the capabilities of the MedTech service to support new device mapping template types and FHIR resources.
 
 ### Integration
 
