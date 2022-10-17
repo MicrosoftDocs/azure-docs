@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory integration for Azure Red Hat OpenShift
 description:  Learn how to create an Azure AD security group and user for testing apps on your Microsoft Azure Red Hat OpenShift cluster.
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: konghot
+ms.author: pkonghot
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/13/2019
