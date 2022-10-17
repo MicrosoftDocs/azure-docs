@@ -248,10 +248,9 @@ You have now run a sample application to collect connection and disconnection ev
 
 ### Observe events in Azure Cosmos DB
 
-You can see results of the executed logic app in your Cosmos DB document. The document appears in your **Items** collection when you refresh the page. Each row contains the latest device connection state per device.
+You can see results of the executed logic app in your Cosmos DB document. The document appears in your **Items** collection when you refresh the page. Each connection state event generates a new document that's assigned a unique `id`. The following image shows the document created when the device was started (connected). The connected event type is listed in the JSON output.
 
-   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
-   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg" alt-text="Screenshot of the status updates on your logic app Overview page." lightbox="media/iot-hub-how-to-order-connection-state-events/logic-app-log.jpg":::
+:::image type="content" source="media/iot-hub-how-to-order-connection-state-events/cosmos-db-doc-result.jpg" alt-text="Screenshot of the newly generated connection state event in a Cosmos DB collection.":::
 
 ## Use the Azure CLI
 
@@ -283,7 +282,7 @@ If you don't want to lose the work on your logic app, disable it instead of dele
 
 ### Cosmos DB
 
-To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.md).
+To remove an Azure Cosmos DB account from the Azure portal, go to your resource and select **Delete account** from the top menu bar. See detailed instructions for [deleting an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.md).
 
 ## Next steps
 
