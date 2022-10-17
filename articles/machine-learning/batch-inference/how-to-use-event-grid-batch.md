@@ -102,7 +102,7 @@ This Logic App will use parameters to store specific pieces of information that 
 
     :::image type="content" source="./media/how-to-use-event-grid-batch/parameters.png" alt-text="The parameters in designer.":::
 
-1.To create a parameter, use the __Add parameter__ option:
+1. To create a parameter, use the __Add parameter__ option:
 
     :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Adding a parameter to designer.":::
     
