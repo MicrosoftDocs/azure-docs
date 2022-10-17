@@ -53,7 +53,7 @@ Batch Endpoint can only deploy registered models. In this case, we already have 
    
 # [Azure ML CLI](#tab/cli)
 
-```bash
+```azurecli
 MODEL_NAME='heart-classifier'
 az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
 ```
@@ -122,9 +122,6 @@ Remarks:
 
 Follow the next steps to create a deployment using the previous scoring script:
 
-> [!NOTE]
-> This example assumes you have an endpoint created with the name `heart-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
-
 1. First, let's create an environment where the scoring script can be executed:
 
    # [Azure ML CLI](#tab/cli)
@@ -142,7 +139,10 @@ Follow the next steps to create a deployment using the previous scoring script:
    )
    ```
 
-2. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, in this case we are going to indicate a scoring script since we want to customize how inference is executed.
+2. MLflow models don't require you to indicate an environment or a scoring script when creating the deployments as it is created for you. However, in this case we are going to indicate a scoring script and environment since we want to customize how inference is executed.
+
+   > [!NOTE]
+   > This example assumes you have an endpoint created with the name `heart-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](../how-to-use-batch-endpoint.md).
 
    # [Azure ML CLI](#tab/cli)
    
@@ -175,7 +175,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    az ml batch-endpoint create -f endpoint.yml
    ```
    
@@ -206,9 +206,6 @@ Follow the next steps to create a deployment using the previous scoring script:
    ```
    ---
    
-   > [!NOTE]
-   > Notice how `scoring_script` and `environment` were indicated dispite of the model being MLflow.
-
    > [!IMPORTANT]
    > Notice that now `output_action` is set to `SUMMARY_ONLY`.
 
@@ -235,7 +232,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
    Then, create the data asset:
    
-   ```bash
+   ```azurecli
    az ml data create -f heart-dataset-unlabeled.yml
    ```
    
@@ -258,7 +255,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure ML CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name')
    ```
    
@@ -280,7 +277,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure ML CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az ml job show --name $JOB_NAME
    ```
    
@@ -303,7 +300,7 @@ You can download the results of the job by using the job name:
 
 To download the predictions, use the following command:
 
-```bash
+```azurecli
 az ml job download --name $JOB_NAME --output-name score --download-path ./
 ```
 
