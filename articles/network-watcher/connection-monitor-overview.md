@@ -79,7 +79,7 @@ Rules for a network security group (NSG) or firewall can block communication bet
 If you wish to escape the installation process for enabling the Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of Network Watcher extensions on your Azure VMs and VM scale sets.
 
  > [!Note]
- > In the case the virtual machine scale sets is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale sets as endpoints. Incase the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
+ > In case the virtual machine scale sets is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale sets as endpoints. Incase the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
  > As Connection Monitor now supports unified auto enablement of monitoring extensions, user can consent to auto upgradation of VM scale set with auto enablement of Network Watcher extension during the creation on Connection Monitor for VM scale sets with manual upgradation. 
 
 ### Agents for on-premises machines
@@ -214,7 +214,7 @@ While monitoring endpoints, Connection Monitor re-evaluates the status of endpoi
 
   > [!NOTE]
   >  In case of monitoring an Azure Virtual Machine Scale Set, instances of a particular scale set selected for monitoring (either by the user or picked up by default as part of the coverage level selected) might get deallocated or scaled down in the middle of the 24-hour cycle. In this particular time period, Connection Monitor will not be able to recognize this action and thus end-up reporting an indeterminate state due to the absence of data. 
-  >  Users are adviced to allow random selection of virtual machine scale sets instances within coverage levels instead of selecting particular instances of scale sets for monitoring, to minimize the risks of non-discoverability of deallocated or scaled down virtual machine scale sets instances in a 24 hours cycle and lead to an indeterminate state of connection monitor.  
+  >  Users are advised to allow random selection of virtual machine scale sets instances within coverage levels instead of selecting particular instances of scale sets for monitoring, to minimize the risks of non-discoverability of deallocated or scaled down virtual machine scale sets instances in a 24 hours cycle and lead to an indeterminate state of connection monitor.  
 
 ### Checks in a test
 
@@ -410,7 +410,7 @@ For networks whose sources are on-premises VMs, the following issues can be dete
 * Request timed out.
 * Endpoint not resolved by DNS – temporary or persistent. URL invalid.
 * No hosts found.
-* Source unable to connect to the destination. Target not reachable through ICMP.
+* Source unable to connect to destination. Target not reachable through ICMP.
 * Certificate-related issues: 
     * Client certificate required to authenticate agent. 
     * Certificate revocation list isn't accessible. 
