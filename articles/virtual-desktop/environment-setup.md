@@ -3,7 +3,7 @@ title: Azure Virtual Desktop environment - Azure
 description: Learn about the basic elements of a Azure Virtual Desktop environment, like host pools and app groups.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 10/18/2022
 ms.author: helohr
 manager: femila
 ---
@@ -27,24 +27,33 @@ You can set additional properties on the host pool to change its load-balancing 
 
 ## App groups
 
-An app group is a logical grouping of applications installed on session hosts in the host pool. An app group can be one of two types:
+An app group is a logical grouping of applications installed on session hosts in the host pool.
 
-- RemoteApp, where users access the RemoteApps you individually select and publish to the app group
-- Desktop, where users access the full desktop
+An app group can be one of two types: 
 
-By default, a desktop app group (named "Desktop Application Group") is automatically created whenever you create a host pool. You can remove this app group at any time. However, you can't create another desktop app group in the host pool while a desktop app group exists. To publish RemoteApps, you must create a RemoteApp app group. You can create multiple RemoteApp app groups to accommodate different worker scenarios. Different RemoteApp app groups can also contain overlapping RemoteApps.
+- RemoteApp, where users access the RemoteApps you individually select and publish to the app group 
+- Desktop, where users access the full desktop.
+ 
+Each host pool has a preferred app group that dictates whether users see RemoteApp or Desktops in their feed. By default, Azure Virtual Desktop automatically creates a Desktop app group named "Desktop Application Group" whenever you create a host pool. This Desktop app group's preferred app group type is automatically set to **Desktop**. You can remove this app group at any time. If you want your users to only see RemoteApps in their feed, you should set the **Preferred App Group Type** value to **RemoteApp**. You can't create another Desktop app group in the host pool while a Desktop app group exists.
 
-To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
+You must create a RemoteApp app group to publish RemoteApp apps. You can create multiple RemoteApp app groups to accommodate different worker scenarios. Different RemoteApp app groups can also contain overlapping RemoteApps. To publish resources to users, you must assign them to app groups.
 
-- We don't support assigning both the RemoteApp and desktop app groups in a single host pool to the same user. Doing so will cause a single user to have two user sessions in a single host pool. Users aren't supposed to have two active user sessions at the same time, as this can cause the following things to happen:
-    - The session hosts become overloaded
-    - Users get stuck when trying to login
-    - Connections won't work
-    - The screen turns black
-    - The application crashes
-    - Other negative effects on end-user experience and session performance
-- A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
-- Personal host pools only allow and support RemoteApp app groups.
+When assigning users to app groups, consider the following things: 
+
+- Azure Virtual Desktop doesn't support assigning both RemoteApp and Desktop app groups in a single host pool to the same user. Doing so will cause that user to have two user sessions in a single host pool at the same time. Users aren't supposed to have two user sessions in a single host pool, as this can cause the following things to happen:
+   
+    - The session hosts become overloaded.
+    - Users get stuck when trying to sign in.
+    - Connections won't work.
+    - The screen turns black.
+    - The application crashes.
+    - Other negative effects on end-user experience and session performance.
+
+- You can assign a user to multiple app groups within the same host pool. Their feed will show apps from all their assigned app groups. 
+- Personal host pools only allow and support RemoteApp app groups. 
+
+>[!NOTE]
+>If your host pool’s Preferred App Group Type is set to **Undefined**, that means that you haven’t set the value yet. You must finish configuring your host pool by setting its Preferred App Group Type before you start using it to prevent app incompatibility and session host overload issues.
 
 ## Workspaces
 
