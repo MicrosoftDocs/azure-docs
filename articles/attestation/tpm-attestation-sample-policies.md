@@ -79,7 +79,7 @@ c:[type=="boolProperties", issuer=="AttestationPolicy"] => add(type="elamDriverL
 };
 
 ```
-Attestation policy to authorize only those TPMs that match known PCR hashs.
+### Attestation policy to authorize only those TPMs that match known PCR hashs.
 
 ```
 version=1.2;
@@ -102,7 +102,7 @@ issuancerules
 };
 ```
 
-Attestation policy to validate System Guard is enabled as expected and has been validated for its state.
+### Attestation policy to validate System Guard is enabled as expected and has been validated for its state.
 
 ```
 version = 1.2;
@@ -142,7 +142,7 @@ issuancerules
 ```
 
 
-Attestation policy to validate VBS enclave for its validity and identity.
+### Attestation policy to validate VBS enclave for its validity and identity.
 
 ```
 version=1.2;
@@ -160,7 +160,7 @@ issuancerules
 };
 ```
 
-Attestation policy to issue all incoming claims produced by the service.
+### Attestation policy to issue all incoming claims produced by the service.
 
 ```
 version = 1.2;
@@ -181,7 +181,7 @@ issuancerules
 };
 ```
 
-Attestation policy to produce some critical security evaluation claims for Windows.
+### Attestation policy to produce some critical security evaluation claims for Windows.
 
 ```
 version=1.2;
@@ -225,7 +225,7 @@ c2:[type=="events", issuer=="AttestationService"] => issue(type="smmLevel", valu
 };
 ```
 
-Attestation policy to validate boot related firmware and early boot driver signers on linux
+### Attestation policy to validate boot related firmware and early boot driver signers on linux
 
 ```
 version = 1.2;
@@ -291,7 +291,7 @@ issuancerules {
 };
 
 ```
-Attestation policy to issue the list of drivers loaded during boot. 
+### Attestation policy to issue the list of drivers loaded during boot. 
 
 ```
 version = 1.2;
@@ -315,49 +315,29 @@ c:[type=="events", issuer=="AttestationService"] => (type="DriverLoadPolicy", va
 
 ```
 
-Attestation policy for Key attestation, validating keys and propterties of the key.
+### Attestation policy for Key attestation, validating keys and propterties of the key.
 
 ```
 version=1.2;
 
 authorizationrules
 {
-    => permit();
+    // Key Attest Policy
+    // -- Validating key types
+	c:[type=="x-ms-tpm-request-key", issuer=="AttestationService"] => add(type="requestKeyType", value=JsonToClaimValue(JmesPath(c.value, "jwk.kty")));
+    c:[type=="requestKeyType", issuer=="AttestationPolicy", value=="RSA"] => issue(type="requestKeyType", value="RSA");
+
+    // -- Validating tpm_certify attributes
+    c:[type=="x-ms-tpm-request-key", issuer=="AttestationService"] => add(type="requestKeyCertify", value=JmesPath(c.value, "info.tpm_certify"));
+    c:[type=="requestKeyCertify", issuer=="AttestationPolicy"] => add(type="requestKeyCertifyObjAttr", value=JsonToClaimValue(JmesPath(c.value, "obj_attr")));
+    c:[type=="requestKeyCertifyObjAttr", issuer=="AttestationPolicy", value==50] => issue(type="requestKeyCertifyObjAttrVerified", value=true);
+    
+    c:[type=="requestKeyCertifyObjAttrVerified", issuer=="AttestationPolicy" , value==true] => permit();
+
 };
 
 issuancerules
 {
-    // Key Attest Policy
-    // -- Validating key types
-	c:[type=="x-ms-tpm-request-key", issuer=="AttestationService"] => add(type="requestKeyType", value=JsonToClaimValue(JmesPath(c.value, "jwk.kty")));
-	c:[type=="x-ms-tpm-other-keys", issuer=="AttestationService"] => add(type="otherKeysTypes", value=JsonToClaimValue(JmesPath(c.value, "[*].jwk.kty")));
-    c:[type=="requestKeyType", issuer=="AttestationPolicy", value=="RSA"] => issue(type="requestKeyType", value="RSA");
-    c:[type=="otherKeysTypes", issuer=="AttestationPolicy", value=="RSA"] => issue(type="otherKeysTypes", value="RSA");
-
-    // -- Validating tpm_quote attributes
-	c:[type=="x-ms-tpm-request-key", issuer=="AttestationService"] => add(type="requestKeyQuote", value=JmesPath(c.value, "info.tpm_quote"));
-	c:[type=="requestKeyQuote", issuer=="AttestationPolicy"] => add(type="requestKeyQuoteHashAlg", value=JsonToClaimValue(JmesPath(c.value, "hash_alg")));
-    c:[type=="requestKeyQuoteHashAlg", issuer=="AttestationPolicy", value=="sha-256"] => issue(type="requestKeyQuoteHashAlg", value="sha-256");
-
-    // -- Validating tpm_certify attributes
-    c:[type=="x-ms-tpm-request-key", issuer=="AttestationService"] => add(type="requestKeyCertify", value=JmesPath(c.value, "info.tpm_certify"));
-    c:[type=="requestKeyCertify", issuer=="AttestationPolicy"] => add(type="requestKeyCertifyNameAlg", value=JsonToClaimValue(JmesPath(c.value, "name_alg")));
-    c:[type=="requestKeyCertifyNameAlg", issuer=="AttestationPolicy", value==11] => issue(type="requestKeyCertifyNameAlg", value=11);
-
-    c:[type=="requestKeyCertify", issuer=="AttestationPolicy"] => add(type="requestKeyCertifyObjAttr", value=JsonToClaimValue(JmesPath(c.value, "obj_attr")));
-    c:[type=="requestKeyCertifyObjAttr", issuer=="AttestationPolicy", value==50] => issue(type="requestKeyCertifyObjAttr", value=50);
-
-    c:[type=="requestKeyCertify", issuer=="AttestationPolicy"] => add(type="requestKeyCertifyAuthPolicy", value=JsonToClaimValue(JmesPath(c.value, "auth_policy")));
-    c:[type=="requestKeyCertifyAuthPolicy", issuer=="AttestationPolicy", value=="AQIDBA"] => issue(type="requestKeyCertifyAuthPolicy", value="AQIDBA");
-
-    c:[type=="x-ms-tpm-other-keys", issuer=="AttestationService"] => add(type="otherKeysCertify", value=JmesPath(c.value, "[*].info.tpm_certify"));
-    c:[type=="otherKeysCertify", issuer=="AttestationPolicy"] => add(type="otherKeysCertifyNameAlgs", value=JsonToClaimValue(JmesPath(c.value, "[*].name_alg")));
-    c:[type=="otherKeysCertifyNameAlgs", issuer=="AttestationPolicy", value==11] => issue(type="otherKeysCertifyNameAlgs", value=11);
-
-    c:[type=="otherKeysCertify", issuer=="AttestationPolicy"] => add(type="otherKeysCertifyObjAttr", value=JsonToClaimValue(JmesPath(c.value, "[*].obj_attr")));
-    c:[type=="otherKeysCertifyObjAttr", issuer=="AttestationPolicy", value==50] => issue(type="otherKeysCertifyObjAttr", value=50);
-
-    c:[type=="otherKeysCertify", issuer=="AttestationPolicy"] => add(type="otherKeysCertifyAuthPolicy", value=JsonToClaimValue(JmesPath(c.value, "[*].auth_policy")));
-    c:[type=="otherKeysCertifyAuthPolicy", issuer=="AttestationPolicy", value=="AQIDBA"] => issue(type="otherKeysCertifyAuthPolicy", value="AQIDBA");
+    
 };
 ```
