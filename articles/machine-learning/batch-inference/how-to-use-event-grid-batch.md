@@ -171,7 +171,8 @@ This Logic App will use parameters to store specific pieces of information that 
     > [!IMPORTANT]
     > `endpoint_uri` is the URI of the endpoint you are trying to execute. The endpoint must have a default deployment configured.
 
-    > [!TIP] Use the values configured at [Authenticating against batch endpoints](#authenticating-against-batch-endpoints).
+    > [!TIP]
+    > Use the values configured at [Authenticating against batch endpoints](#authenticating-against-batch-endpoints).
 
 ## Add the trigger
 
