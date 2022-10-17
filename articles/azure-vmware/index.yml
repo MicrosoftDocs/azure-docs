@@ -150,6 +150,8 @@ landingContent:
             url: configure-storage-policy.md
           - text: Create placement policy 
             url: create-placement-policy.md          
+          - text: Deploy vSAN Stretched Clusters
+            url: deploy-vsan-stretched-clusters.md
 
 # card 5
   - title: Azure native integration
@@ -200,7 +202,7 @@ landingContent:
             url: configure-hcx-network-extension.md
           - text: Configure HCX network extension high availability
             url: configure-hcx-network-extension-high-availability.md
-          - text: Configure vRealize Operations
+          - text: Configure VMware vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
