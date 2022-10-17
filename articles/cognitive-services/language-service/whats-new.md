@@ -42,6 +42,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Orchestration workflow](./orchestration-workflow/service-limits.md#regional-availability)
     * [Custom text classification](./custom-text-classification/service-limits.md#regional-availability) 
     * [Custom named entity recognition](./custom-named-entity-recognition/service-limits.md#regional-availability) 
+* Document type as an input supported for [Text Analytics for health](./text-analytics-for-health/how-to/call-api.md) FHIR requests 
 
 ## September 2022
 
