@@ -4,6 +4,7 @@ description: Stream Analytics can continuously transform, filter and route the d
 ms.topic: conceptual
 ms.date: 10/17/2022
 ms.service: stream-analytics
+ms.author: ebnkruma
 ---
 
 # Use Stream Analytics to process exported data from Application Insights
