@@ -176,8 +176,8 @@ An AD FS server must already be set up and functioning before you begin this pro
    - **Claim rule name**: Issue Immutable ID  
    - **Custom rule**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
-9. Click **Finish**.  
-10.	Click **OK**. The AD FS server is now configured for federation using WS-Fed.
+9. Select **Finish**.  
+10. Select **OK**. The AD FS server is now configured for federation using WS-Fed.
 
 ## Next steps
 Next, you'll [configure SAML/WS-Fed IdP federation in Azure AD](direct-federation.md#step-3-configure-samlws-fed-idp-federation-in-azure-ad) either in the Azure AD portal or by using the Microsoft Graph API.
