@@ -31,13 +31,13 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 Create a Python application named *blob-quickstart*.
 
-1. In a console window (such as PowerShell or Bash), create a new directory for the project.
+1. In a console window (such as PowerShell or Bash), create a new directory for the project:
 
     ```console
     mkdir blob-quickstart
     ```
 
-1. Switch to the newly created *blob-quickstart* directory.
+1. Switch to the newly created *blob-quickstart* directory:
 
     ```console
     cd blob-quickstart
@@ -58,7 +58,7 @@ From the project directory, follow steps to create the basic structure of the ap
 1. Open a new text file in your code editor.
 1. Add `import` statements, create the structure for the program, and include basic exception handling, as shown below.
 1. Save the new file as *blob-quickstart.py* in the *blob-quickstart* directory.
-:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/app-framework-qs.py":::
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/app-framework-qs.py":::
 
 ## Object model
 
@@ -101,7 +101,7 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
-:::image type="content" source="./media/storage-quickstart-blobs-python/defaultazurecredential-flow-python.png"alt-text="A diagram of the credential flow.":::
+:::image type="content" source="./media/storage-quickstart-blobs-python/defaultazurecredential-flow-python.png" alt-text="A diagram of the credential flow.":::
 
 For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
@@ -151,7 +151,7 @@ You can authorize access to data in your storage account using the following ste
 
 3. Add this code inside the `try` block. When the code runs on your local workstation, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio Code.
 
-    :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_CreateServiceClientDAC":::
+    :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_CreateServiceClientDAC":::
 
 4. Make sure to update the storage account name in the URI of your `BlobServiceClient` object. The storage account name can be found on the overview page of the Azure portal.
 
@@ -220,7 +220,7 @@ Create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azu
 
 Add this code to the end of the `try` block:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_CreateContainer":::
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_CreateContainer":::
 
 ### Upload blobs to a container
 
@@ -233,7 +233,7 @@ The following code snippet:
 
 Add this code to the end of the `try` block:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_UploadBlobs":::
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_UploadBlobs":::
 
 ### List the blobs in a container
 
@@ -241,7 +241,7 @@ List the blobs in the container by calling the [list_blobs](/python/api/azure-st
 
 Add this code to the end of the `try` block:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_ListBlobs":::
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_ListBlobs":::
 
 ### Download blobs
 
@@ -249,7 +249,7 @@ Download the previously created blob by calling the [download_blob](/python/api/
 
 Add this code to the end of the `try` block:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_DownloadBlobs":::
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_DownloadBlobs":::
 
 ### Delete a container
 
@@ -259,13 +259,13 @@ The app pauses for user input by calling `input()` before it deletes the blob, c
 
 Add this code to the end of the `try` block:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/blob-quickstart.py" id="Snippet_CleanUp":::
+:::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_CleanUp":::
 
 ## Run the code
 
 This app creates a test file in your local folder and uploads it to Azure Blob Storage. The example then lists the blobs in the container, and downloads the file with a new name. You can compare the old and new files.
 
-Navigate to the directory containing the *blob-quickstart.py* file, then execute the following `python` command to run the app.
+Navigate to the directory containing the *blob-quickstart.py* file, then execute the following `python` command to run the app:
 
 ```console
 python blob-quickstart.py
