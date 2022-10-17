@@ -228,7 +228,7 @@ An automation controller workflow allows you to construct complex automation by 
 1. Select **Save** at the top right corner of the workflow designer.
 
 You will now have a workflow that looks like the following:
-:::image type="content" source="media/migrate-ama/workflow.png" alt-text="Diagram showing workflow of azure monitor agent migration process.":::
+:::image type="content" source="media/migrate-ama/workflow.png" alt-text="Diagram showing workflow of Azure Monitor agent migration process.":::
 
 ### Add a survey to the workflow
 
