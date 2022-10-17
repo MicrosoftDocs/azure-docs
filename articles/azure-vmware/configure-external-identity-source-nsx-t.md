@@ -20,7 +20,7 @@ In this article, you'll learn how to configure an external identity source for N
     >[!Note] 
     > Self-sign certificates are not recommended for production environments.   
     
-- Ensure your Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. For more information, see [Configure NSX-T DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) .    
+- Ensure your Azure VMware Solution has DNS resolution configured to your on-premises AD. Enable DNS Forwarder from Azure portal. For more information, see [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md) .    
 >[!NOTE] 
 > For more information about LDAPS and certificate issuance, see with your security or identity management team.
 
