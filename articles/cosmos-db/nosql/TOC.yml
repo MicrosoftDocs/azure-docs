@@ -350,8 +350,10 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Optimize your Azure Cosmos DB cost
+    - name: Optimize your Azure Cosmos DB costs
       items:
+        - name: Overview
+          href: optimize-costs.yml
         - name: Free tier
           href: ../free-tier.md
           displayName: free tier
