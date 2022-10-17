@@ -76,10 +76,12 @@ An AD FS server must already be set up and functioning before you begin this pro
 6. Leave the other settings in their default options. Continue to select **Next**, and finally select **Close** to close the wizard.
 7. In **AD FS Management**, under **Relying Party Trusts**, right click the relying party trust you just created and select **Properties**.
 8. In the **Monitoring** tab, uncheck the box **Monitor relying party**.
-9. In the **Identifiers** tab, enter ``https://login.microsoftonline.com/<tenant ID>/`` in the **Relying party identifier** text box using the tenant ID of the service partner’s Azure AD tenant. Click **Add**.
+9. In the **Identifiers** tab, enter ``https://login.microsoftonline.com/<tenant ID>/`` in the **Relying party identifier** text box using the tenant ID of the service partner’s Azure AD tenant. Select **Add**.
+
 > [!NOTE]
 > Be sure to include a slash (/) after the tenant ID. For example, https://login.microsoftonline.com/094a6247-27d4-489f-a23b-b9672900084d/.
-10. Click **OK**.
+
+10. Select **OK**.
 
 ### Create claims rules
 
