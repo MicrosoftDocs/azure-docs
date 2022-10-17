@@ -29,35 +29,35 @@ The following sections show you how to calculate each component.
 
 This article uses fictitious prices in all calculations. You can find these sample prices in the [Sample prices](#sample-prices) section at the end of this article. These prices are meant only as examples, and should not be used to calculate your costs.
 
-For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). 
+For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
-For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+#### The cost to write
 
-#### Calculate the cost to write
+You can calculate the cost of writing to the archive tier by multiplying the <u>number of write operations</u> by the <u>cost of each operation</u>. 
 
-You can calculate the cost of writing to the archive tier by multiplying the number of write operations by the cost of each operation. 
+By default, the number of operations is the same as the number of blobs.  For example, if you plan to write 30,000 blobs to the archive tier, then that will require 30,000 operations. If you have enabled a hierarchical namespace, then the payload of each operation is limited to 4 MB. That means that a 1 GB file, would require 250 separate operations to complete.
 
-By default, the number of operations is the same as the number of blobs you plan to write to the archive tier. For example, if you plan to write `30,000` blobs to the archive tier, then that will require `30,000` operations. If you have enabled a hierarchical namespace, then the payload of each operation is limited to `4 MB`. That means that a `1 GB` file, would require `250` separate operations to complete.
+Operations are billed per 10,000. Therefore, if the cost per 10,000 operations is $0.10, then the cost of a single operation is $0.10 / 10,000 = $0.00001.
 
-Operations are billed per `10,000`. Therefore, if the cost per `10,000` operations is `$0.10`, then the cost of a single operation is `$0.10` / `10,000` = `$0.00001`.
+The total cost is the number of operations multiplied by the cost of each operation. For example (using these pricing assumptions), if you plan to archive 30,000 blobs, the cost would be 30,000 * $0.00001 = $0.30.
 
-The total cost is the number of operations multiplied by the cost of each operation. For example (using these pricing assumptions), if you plan to archive `30,000` blobs in an account that does not have a hierarchical namespace, the cost would be `30,000` * `$0.00001` = `$0.30`
+#### The cost to store
 
-#### Calculate the cost to store
+You can calculate the storage costs by multiplying the <u>size of the data</u> in GB by the <u>cost of archive storage</u>.
 
-You can calculate what it costs to store data in the archive tier by multiplying the size of the data in GB by the cost of archive storage.
+For example (assuming the sample pricing), if you plan to store 10 TB archived blobs, the capacity cost is $0.00099 * 10 * 1024 = $10.14 per month. 
 
-For example (assuming the sample pricing), if you plan to store `10 TB` archived blobs, the capacity cost is `$0.00099` * `10` * `1024` = `$10.14` per month. 
-
-#### Calculate the cost to rehydrate
+#### The cost to rehydrate
 
 While a blob is in the archive access tier, it's considered to be offline, and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the hot or cool tier. 
 
-You can calculate the cost to rehydrate data by adding the cost to _retrieve_ data to the cost of _reading_ the data.
+You can calculate the cost to rehydrate data by adding the <u>cost to retrieve data</u> to the <u>cost of reading the data</u>.
 
-Start by multiplying the number of GB that you plan to retrieve by the cost per GB.  For example (assuming sample pricing) the cost of retrieving 1 GB of data from the archive tier would be `1` * `$0.02` = `$0.02`. 
+Assuming sample pricing, the cost of retrieving 1 GB of data from the archive tier would be 1 * $0.02 = $0.02. 
 
-Next, calculate the number of blobs that you plan to retrieve by the cost of each read operation. Like the write operation described earlier, read operations are billed per `10,000`. Therefore, if the cost per `10,000` operations is `$5.00`, then the cost of a single operation is `$5.00` / `10,000` = `$0.0005`. Assuming sample pricing, the cost of retrieving `1000` blobs at standard priority is `1000` * `$0.0005` = `$0.52`
+Read operations are billed per 10,000. Therefore, if the cost per 10,000 operations is $5.00, then the cost of a single operation is $5.00 / 10,000 = $0.0005. The cost of reading 1000 blobs at standard priority is 1000 * $0.0005 = $0.50.
+
+In this example, the total cost to rehydrate (retrieving + reading) would be $0.02 + $0.50 = $0.52.
 
 > [!NOTE]
 > If you set the rehydration priority to high, then the data retrieval and read rates increase.
@@ -66,9 +66,9 @@ If you plan to rehydrate data, you should try to avoid an early deletion fee. To
 
 ## Scenario: One-time data backup
 
-You can remove on-premises tapes or file servers by migrating backup data to cloud storage. If you don't expect users to access that data often, then it might make sense to migrate that data directly to the archive tier. In the first month, you'd assume the cost of writing data to the archive tier. In the remaining months, you'd pay only for the cost to store the data and the cost of rehydrating data as needed for the occasional read operation.
+This scenario assumes that you plan to remove on-premises tapes or file servers by migrating backup data to cloud storage. If you don't expect users to access that data often, then it might make sense to migrate that data directly to the archive tier. In the first month, you'd assume the cost of writing data to the archive tier. In the remaining months, you'd pay only for the cost to store the data and the cost to rehydrate data as needed for the occasional read operation.
 
-Using the [Sample prices](#sample-prices) of that appear in this article, the following table demonstrates three months of spending. 
+Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates three months of spending. 
 
 This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB in size to archive. It also assumes 1 read each month about about 1% of archived capacity.
 
@@ -89,14 +89,14 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>2,000,000</td>
     </tr>
     <tr>
-        <td>Cost of a single write operation</td>
+        <td>Price of a single write operation</td>
         <td>$0.00001</td>
         <td>$0.00001</td>
         <td>$0.00001</td>
         <td>$0.00001</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to write</td>
+        <td>Cost to write (transactions x price of a write operation)</td>
         <td>$20.00</td>
         <td>$0.00</td>
         <td>$0.00</td>
@@ -117,7 +117,7 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.00099</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to store</td>
+        <td>Cost to store (file size x data price)</td>
         <td>$101.38</td>
         <td>$101.38</td>
         <td>$101.38</td>
@@ -152,7 +152,7 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.0005</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to rehydrate</td>
+        <td>Cost to rehydrate (cost to retrieve + cost to read)</td>
         <td>$30.48</td>
         <td>$30.48</td>
         <td>$30.48</td>
@@ -170,9 +170,11 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
 
 ## Scenario: Continuous tiering
 
-A data in cloud is typically hot in processing in first few months. You can measure your data temperature pattern by analysis with inventory. It would make sense to tier actual cold data to archive continuously for cost saving. 
+This scenario assumes that you plan to periodically move data to the archive tier. Perhaps you're using [Blob Storage inventory reports](blob-inventory.md) to gauge which blobs are access less frequently, and then using [lifecycle management policies](lifecycle-management-overview.md) to automate the archival process.
 
-In this scenario, archiving cost would be required every month for new aged data that are fitted to archive. You need to spend on archive capacity for accumulated data and needed rehydration as well. The following example demonstrates the spending in first 12 months. 
+Each month, you'd assume the cost of writing to the archive tier. The cost to store and then rehydrate data would increase over time as you archive more blobs. 
+
+Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates three months of spending. 
 
 This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about about 1% of archived capacity.
 <br><br>
@@ -193,14 +195,14 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
         <td>2,400,000</td>
     </tr>
     <tr>
-        <td>Cost of a single write operation</td>
+        <td>Price of a single write operation</td>
         <td>$0.00001</td>
         <td>$0.00001</td>
         <td>$0.00001</td>
         <td>$0.00001</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to write</td>
+        <td>Cost to write (transactions x price of a write operation)</td>
         <td>$2.00</td>
         <td>$2.00</td>
         <td>$2.00</td>
@@ -221,7 +223,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
         <td>$0.00099</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to store</td>
+        <td>Cost to store (file size x data price)</td>
         <td>$10.14</td>
         <td>$20.28</td>
         <td>$30.41</td>
@@ -249,7 +251,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
         <td>$0.0005</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to rehydrate</td>
+        <td>Cost to rehydrate (cost to retrieve + cost to read)</td>
         <td>$3.05</td>
         <td>$6.10</td>
         <td>$9.14</td>
@@ -267,9 +269,9 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
 
 ## Archive versus cool 
 
-Archive storage is the lowest cost tier. However, it might not be best fit for scenarios or workloads that require immediate read while Archive takes up to 15 hours to rehydrate before it’s available for read. Cool tier offers a balance with near real time read latency and lower price than Hot tier. Understanding your access requirements would help you choose between Cool and Archive. From cost perspective, you can easily compare with an estimation modeling as the following. When you adjust the forecast factor on read, you can tell clearly that the total spending is affected significantly. 
+Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate data. Therefore, the archive tier might not be the best fit if your workloads need to read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements will help you to choose between the cool and archive tiers. 
 
-This comparison uses the example pricing page presented earlier in this article. This scenario also assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about about 10% of stored capacity (1024 GB), and 10% of total transactions (20,000)
+The following table compares the cost of archive storage with the cost of cold storage by using the [Sample prices](#sample-prices) that appear in this article. This scenario also assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about about 10% of stored capacity (1024 GB), and 10% of total transactions (20,000)
 
 <br><br>
 <table>
@@ -284,12 +286,12 @@ This comparison uses the example pricing page presented earlier in this article.
         <td>200,000</td>
     </tr>
     <tr>
-        <td>Cost of a single write operation</td>
+        <td>Price of a single write operation</td>
         <td>$0.00001</td>
         <td>$0.00001</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to write</td>
+        <td>Cost to write (transactions x price of a write operation)</td>
         <td>$2.00</td>
         <td>$2.00</td>
     </tr>
@@ -304,7 +306,7 @@ This comparison uses the example pricing page presented earlier in this article.
         <td>$0.00099</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to store</td>
+        <td>Cost to store (file size x data price)</td>
         <td>$10.14</td>
         <td>$155.65</td>
     </tr>    
@@ -329,7 +331,7 @@ This comparison uses the example pricing page presented earlier in this article.
         <td>$0.0005</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to rehydrate</td>
+        <td>Cost to rehydrate (cost to retrieve + cost to read)</td>
         <td>$30.48</td>
         <td>$10.26</td>
     </tr>
