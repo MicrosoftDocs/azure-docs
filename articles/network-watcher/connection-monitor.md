@@ -91,7 +91,9 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 | Resource group | Select **myResourceGroup**. |
 | Virtual machine name | Enter *myVM2*. |
 | Image | Select **Ubuntu Server 18.04 LTS - Gen2**. |
-| Extensions | **Network Watcher Agent for Linux**. |
+| Public inbound ports | Select **Allow selected ports**. |
+| Select inbound ports | Select **SSH (22)**. |
+| Extensions | Select **Network Watcher Agent for Linux**. |
 
 The VM takes a few minutes to deploy. Wait for the VM to finish deploying before continuing with the remaining steps.
 
@@ -156,9 +158,9 @@ By default, Azure allows communication over all ports between VMs in the same vi
 2. Select the **myVm2-nsg** network security group.
 3. Select **Inbound security rules**, and then select **Add**, as shown in the following picture:
 
-    ![Inbound security rules](./media/connection-monitor/inbound-security-rules.png)
+    :::image type="content" source="./media/connection-monitor/inbound-security-rules-inline.png" alt-text="Screenshot of Inbound security rules." lightbox="./media/connection-monitor/inbound-security-rules-expanded.png":::
 
-4. The default rule that allows communication between all VMs in a virtual network is the rule named **AllowVnetInBound**. Create a rule with a higher priority (lower number) than the **AllowVnetInBound** rule that denies inbound communication over port 22. Select, or enter, the following information, accept the remaining defaults, and then select **Add**:
+4. The default rule that allows communication between all VMs in a virtual network is the rule named **AllowVnetInBound**. Create a rule with a higher priority (lower number) than the **AllowVnetInBound** rule that denies inbound communication over port 22. Select, or enter, the following information, accept the remaining defaults, and then select **+ Add**:
 
     | Setting                 | Value          |
     | ---                     | ---            |
