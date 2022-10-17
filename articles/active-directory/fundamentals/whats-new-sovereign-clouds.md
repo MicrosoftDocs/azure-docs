@@ -23,7 +23,50 @@ This page is updated monthly, so revisit it regularly.
 
 
 
+## October 2022
+
+### General Availability - Azure AD certificate-based authentication
+
+**Type:** New feature  
+**Service category:** Other   
+**Product capability:** User Authentication   
+ 
+
+Azure AD certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI). For more information, see: [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md).
+ 
+---
+
+### General Availability - Audited BitLocker Recovery
+
+**Type:** New feature  
+**Service category:** Device Access Management    
+**Product capability:** Device Lifecycle Management   
+ 
+
+BitLocker keys are sensitive security items. Audited BitLocker recovery ensures that when BitLocker keys are read, an audit log is generated so that you can trace who accesses this information for given devices. For more information, see: [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+ 
+---
+
+### General Availability - More device properties supported for Dynamic Device groups
+
+**Type:** Changed feature   
+**Service category:** Group Management   
+**Product capability:** Directory   
+ 
+
+You can now create or update dynamic device groups using the following properties:
+
+- deviceManagementAppId
+- deviceTrustType
+- extensionAttribute1-15
+- profileType
+
+For more information on how to use this feature, see: [Dynamic membership rule for device groups](../enterprise-users/groups-dynamic-membership.md#rules-for-devices) 
+ 
+---
+
 ## September 2022
+
 
 ### General Availability - No more waiting, provision groups on demand into your SaaS applications.
 
