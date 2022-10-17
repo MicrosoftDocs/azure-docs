@@ -83,15 +83,9 @@ You can deploy a scale set with a Windows Server image or Linux images such as R
 1. For **Region**, select a region that's close to your area.
 1. Under **Orchestration**, for **Orchestration mode**, ensure that the **Uniform** option is selected. 
 1. For **Image**, select a marketplace image. In this example, we've chosen *Ubuntu Server 18.04 LTS*.
-<<<<<<< HEAD
 1. Enter your username, and then select the authentication type you prefer.
    - A **Password** must be at least 12 characters long and contain three of the following: a lowercase character, an uppercase character, a number, and a special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. Provide only your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
-=======
-3. Enter your username, and then select the authentication type you prefer.
-   - A **Password** must be at least 12 characters long and contain three of the following: a lowercase character, an uppercase character, a number, and a special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-   - If you select a Linux OS disk image, you can instead choose **SSH public key**. Provide only your public key, such as *~/.ssh/id_rsa.pub*. You can use Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
->>>>>>> c41669d1b5a264405b8e91f4f74eccbd1ca5a96a
  
 1. Select **Next**. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
