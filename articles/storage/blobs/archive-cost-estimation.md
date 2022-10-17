@@ -49,7 +49,7 @@ For example (assuming the sample pricing), if you plan to store 10 TB archived b
 
 #### The cost to rehydrate
 
-While a blob is in the archive access tier, it's considered to be offline, and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the hot or cool tier. 
+Blobs in the archive tier are offline and can't be read or modified. To read or modify data in an archived blob, you must first rehydrate the blob to an online tier (either the hot or cool tier). 
 
 You can calculate the cost to rehydrate data by adding the <u>cost to retrieve data</u> to the <u>cost of reading the data</u>.
 
@@ -96,7 +96,7 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.00001</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to write (transactions x price of a write operation)</td>
+        <td>Cost to write (transactions * price of a write operation)</td>
         <td>$20.00</td>
         <td>$0.00</td>
         <td>$0.00</td>
@@ -117,7 +117,7 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
         <td>$0.00099</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to store (file size x data price)</td>
+        <td>Cost to store (file size * data price)</td>
         <td>$101.38</td>
         <td>$101.38</td>
         <td>$101.38</td>
@@ -170,7 +170,7 @@ This scenario assumes an initial ingest of 2,000,000 files totaling 102,400 GB i
 
 ## Scenario: Continuous tiering
 
-This scenario assumes that you plan to periodically move data to the archive tier. Perhaps you're using [Blob Storage inventory reports](blob-inventory.md) to gauge which blobs are access less frequently, and then using [lifecycle management policies](lifecycle-management-overview.md) to automate the archival process.
+This scenario assumes that you plan to periodically move data to the archive tier. Perhaps you're using [Blob Storage inventory reports](blob-inventory.md) to gauge which blobs are accessed less frequently, and then using [lifecycle management policies](lifecycle-management-overview.md) to automate the archival process.
 
 Each month, you'd assume the cost of writing to the archive tier. The cost to store and then rehydrate data would increase over time as you archive more blobs. 
 
@@ -202,7 +202,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
         <td>$0.00001</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to write (transactions x price of a write operation)</td>
+        <td>Cost to write (transactions * price of a write operation)</td>
         <td>$2.00</td>
         <td>$2.00</td>
         <td>$2.00</td>
@@ -223,7 +223,7 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
         <td>$0.00099</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to store (file size x data price)</td>
+        <td>Cost to store (file size * data price)</td>
         <td>$10.14</td>
         <td>$20.28</td>
         <td>$30.41</td>
@@ -269,11 +269,11 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
 
 ## Archive versus cool 
 
-Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate data. Therefore, the archive tier might not be the best fit if your workloads need to read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements will help you to choose between the cool and archive tiers. 
+Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate data. Therefore, the archive tier might not be the best fit if your workloads must read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements will help you to choose between the cool and archive tiers. 
 
-The following table compares the cost of archive storage with the cost of cold storage by using the [Sample prices](#sample-prices) that appear in this article. This scenario also assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about about 10% of stored capacity (1024 GB), and 10% of total transactions (20,000)
-
+The following table compares the cost of archive storage with the cost of cold storage by using the [Sample prices](#sample-prices) that appear in this article. This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about about 10% of stored capacity (1024 GB), and 10% of total transactions (20,000).
 <br><br>
+
 <table>
     <tr>
         <th>Cost factor</th>
@@ -291,7 +291,7 @@ The following table compares the cost of archive storage with the cost of cold s
         <td>$0.00001</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to write (transactions x price of a write operation)</td>
+        <td>Cost to write (transactions * price of a write operation)</td>
         <td>$2.00</td>
         <td>$2.00</td>
     </tr>
@@ -306,7 +306,7 @@ The following table compares the cost of archive storage with the cost of cold s
         <td>$0.00099</td>
     </tr>
     <tr bgcolor="beige">
-        <td>Cost to store (file size x data price)</td>
+        <td>Cost to store (file size * data price)</td>
         <td>$10.14</td>
         <td>$155.65</td>
     </tr>    
