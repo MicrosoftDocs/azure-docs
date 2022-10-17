@@ -32,6 +32,7 @@ The workflow will work in the following way:
 ## Prerequisites
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+* This example assumes that your batch deployment runs in a compute cluster called `cpu-cluster`.
 * The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](../how-to-deploy-batch-with-rest.md). 
 
 ## Authentication for Batch Endpoints in Logic Apps
@@ -49,6 +50,55 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores. 
 
+## Enabling data access
+
+We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. When reading data from cloud locations, batch deployments uses the identity of the compute to gain access instead of the identity used to submit the job. In order to ensure the identity of the compute does have read access to the underlying data, we will need to assign a User Identity to the it. Follow this steps to ensure data access:
+
+1. Create a [Managed Identity resource](../../active-directory/managed-identities-azure-resources/overview.md):
+
+   # [Azure ML CLI](#tab/cli)
+
+   ```azurecli
+   IDENTITY=$(az identity create  -n azureml-cpu-cluster-idn  --query id -o tsv)
+   ```
+
+   # [Azure ML SDK for Python](#tab/sdk)
+
+   ```python
+   # Use the Azure CLI to create the managed identity. Then copy the value of the variable IDENTITY into a Python variable
+   identity="/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/azureml-cpu-cluster-idn"
+   ```
+
+1. Update the compute cluster to use the Managed Identity we created:
+
+   > [!NOTE]
+   > This examples assumes you have a compute cluster created named `cpu-cluster` and it is used for the default deployment in the endpoint.
+
+   # [Azure ML CLI](#tab/cli)
+
+   ```azurecli
+   az ml compute update --name cpu-cluster --identity-type user_assigned --user-assigned-identities $IDENTITY
+   ```
+
+   # [Azure ML SDK for Python](#tab/sdk)
+
+   ```python
+   from azure.ai.ml import MLClient
+   from azure.ai.ml.entities import AmlCompute, ManagedIdentityConfiguration
+   from azure.ai.ml.constants import ManagedServiceIdentityType
+   
+   compute_name = "cpu-cluster"
+   compute_cluster = ml_client.compute.get(name=compute_name)
+   
+   compute_cluster.identity.type = ManagedServiceIdentityType.USER_ASSIGNED
+   compute_cluster.identity.user_assigned_identities = [
+       ManagedIdentityConfiguration(resource_id=identity)
+   ]
+   
+   ml_client.compute.begin_create_or_update(compute_cluster)
+   ```
+
+1. Go to the [Azure portal](https://portal.azure.com) and ensure the managed identity has the right permissions to read the data. To access storage services, you must have at least [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../../storage/blobs/assign-azure-role-data-access.md).
 
 ## Create a Logic App
 
@@ -117,6 +167,9 @@ This Logic App will use parameters to store specific pieces of information that 
     | `client_id`           | The client ID of the Managed Identity used to invoke the endpoint  | `00000000-0000-0000-00000000` |
     | `client_secret`       | The client secret of the Managed Identity used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
     | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
+    
+    > [!IMPORTANT]
+    > `endpoint_uri` is the URI of the endpoint you are trying to execute. The endpoint must have a default deployment configured.
 
 ## Add the trigger
 
