@@ -128,7 +128,7 @@ In the Spark cluster, add entries in /etc/hosts in spark worker nodes, for kafka
 1. Make entries for the kafka worker nodes in /etc/hosts of the spark cluster.
 
     > [!Note]
-    > Make the entry of these kafka worker nodes in every spark node (head node + worker node), You can get these details from kafka cluster in /etc/hosts of head node of Kafka.
+    > Make the entry of these kafka worker nodes in every spark node (head node + worker node). You can get these details from kafka cluster in /etc/hosts of head node of Kafka.
     
     ```
     10.3.16.118 wn0-umasec.securehadooprc.onmicrosoft.com wn0-umasec wn0-umasec.securehadooprc.onmicrosoft.com. wn0-umasec.cu1cgjaim53urggr4psrgczloa.cx.internal.cloudapp.net
@@ -193,22 +193,25 @@ From Spark cluster, read from kafka topic alicetopic2 as user alicetest is allow
     ```
     kdestroy
     ```
-    Kinit with alicetest
+1. Run the command `kinit` with `alicetest`
 
     ```
     sshuser@hn0-umaspa:~$ kinit alicetest@SECUREHADOOPRC.ONMICROSOFT.COM -t alicetest.keytab
     ```
      
-1. Run a spark-submit command to read from kafka topic `alicetopic2` as alicetest
+1. Run a `spark-submit` command to read from kafka topic `alicetopic2` as alicetest
  
-    ```spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages <list of packages the jar depends on> --repositories <repository for the dependency packages> --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicetest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class <classname to execute in jar> --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" <path to jar> <kafkabrokerlist> <topicname> false
+    ```
+    spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages <list of packages the jar depends on> --repositories <repository for the dependency packages> --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicetest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class <classname to execute in jar> --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" <path to jar> <kafkabrokerlist> <topicname> false
     ```
     For example,
+    
     ```
     sshuser@hn0-umaspa:~$ spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.3.2.3.1.0.4-1 --repositories http://repo.hortonworks.com/content/repositories/releases/ --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicetest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class com.cloudera.spark.examples.DirectKafkaWordCount --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" /home/sshuser/spark-secure-kafka-app/target/spark-secure-kafka-app-1.0-SNAPSHOT.jar 10.3.16.118:9092 alicetopic2 false
     ```
 
-If you see the below error
+    If you see the below error, which denotes the DNS (Domain Name Server) issue. Make sure to check Kafka worker nodes entry in /etc/hosts file in Spark cluster.
+    
     ```
     Caused by: GSSException: No valid credentials provided (Mechanism level: Server not found in Kerberos database (7))
             at sun.security.jgss.krb5.Krb5Context.initSecContext(Krb5Context.java:770)
@@ -216,8 +219,6 @@ If you see the below error
             at sun.security.jgss.GSSContextImpl.initSecContext(GSSContextImpl.java:179)
             at com.sun.security.sasl.gsskerb.GssKrb5Client.evaluateChallenge(GssKrb5Client.java:192)
     ```
-
-This error denotes the DNS (Domain Name Server) issue. Make sure to check Kafka worker nodes entry in /etc/hosts file in spark cluster.
 
 1. From YARN UI, access the YARN job output you can see the `alicetest` user is able to read from `alicetopic2`. You can see the word count in the output.
 
