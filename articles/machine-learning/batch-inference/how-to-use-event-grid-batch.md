@@ -35,7 +35,7 @@ The workflow will work in the following way:
 * This example assumes that your batch deployment runs in a compute cluster called `cpu-cluster`.
 * The Logic App we are creating will communicate with Azure Machine Learning batch endpoints using REST. To know more about how to use the REST API of batch endpoints read [Deploy models with REST for batch scoring](../how-to-deploy-batch-with-rest.md). 
 
-## Authentication for Batch Endpoints in Logic Apps
+## Authenticating against batch endpoints
 
 Logic Apps can invoke the REST APIs of batch endpoints by using the [HTTP](../../connectors/connectors-native-http.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
@@ -159,7 +159,7 @@ This Logic App will use parameters to store specific pieces of information that 
 
     :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Adding a parameter to designer.":::
     
-1. Create the following parameters:
+1. Create the following parameters.
 
     | Parameter             | Description  | Sample value |
     | --------------------- | -------------|------------- |
@@ -170,6 +170,8 @@ This Logic App will use parameters to store specific pieces of information that 
     
     > [!IMPORTANT]
     > `endpoint_uri` is the URI of the endpoint you are trying to execute. The endpoint must have a default deployment configured.
+
+    > [!TIP] Use the values configured at [Authenticating against batch endpoints](#authenticating-against-batch-endpoints).
 
 ## Add the trigger
 
