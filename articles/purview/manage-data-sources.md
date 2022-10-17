@@ -1,5 +1,5 @@
 ---
-title: How to manage multi-cloud data sources
+title: How to manage multicloud data sources
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Microsoft Purview.
 author: viseshag
 ms.author: viseshag
@@ -19,15 +19,15 @@ Use the following steps to register a new source.
 
 1. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
 
-   :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="the Microsoft Purview governance portal":::
+   :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Screenshot of the Microsoft Purview governance portal":::
 
 1. Select a source type. This example uses Azure Blob Storage. Select **Continue**.
 
-   :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Select a data source type in the Register sources page":::
+   :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Screenshot showing selecting a data source type in the Register sources page":::
 
 1. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list.
 
-   :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Form for data source information":::
+   :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Screenshot of the form for data source information":::
 
 1. Select **Register**.
 
@@ -57,7 +57,7 @@ You can also register a new source by selecting the register source button, or v
 
 In the table view, you can see a sortable list of sources. Hover over the source for options to edit, begin a new scan, or delete.
 
-:::image type="content" source="media/manage-data-sources/list-view.png" alt-text="Microsoft Purview data source list view" lightbox="media/manage-data-sources/list-view.png":::
+:::image type="content" source="media/manage-data-sources/list-view.png" alt-text="Screenshot of the Microsoft Purview data source list view." lightbox="media/manage-data-sources/list-view.png":::
 
 ## Manage collections
 
@@ -67,7 +67,7 @@ To add sources to a collection, select the **Edit** pencil on the source and cho
 
 To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *ContosoPurview* is a parent to the *Finance* collection, which contains an Azure SQL Database source and two subcollections: Investment and Revenue. You can collapse or expand collections by selecting the circle attached to the arrow between levels.
 
-:::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in the Microsoft Purview governance portal":::
+:::image type="content" source="media/manage-data-sources/collections.png" alt-text="Screenshot of a hierarchy of collections in the Microsoft Purview governance portal.":::
 
 >[!TIP] 
 >You can remove sources from a hierarchy by selecting *None* for the parent. Unparented sources are grouped in a dotted box in the map view with no arrows linking them to parents.
