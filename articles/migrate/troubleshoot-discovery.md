@@ -76,13 +76,18 @@ The software inventory discovery runs once every 24 hours. This process might ta
 1. Select **Refresh services**.
 Wait for the refresh operation to finish. You should now see up-to-date information.
 
-## Unable to export software inventory
+## Unable to export software inventory data
 
 You get this error when you don't have Contributor privileges.
 
 ### Remediation
 
 Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
+
+## Export the software inventory errors
+
+You can export all the errors and remediations for software inventory from portal by selecting **Export notifications**. The exported CSV file also contains additional information like the timestamp at which the error was encountered.
+
 
 ## Common software inventory errors
 

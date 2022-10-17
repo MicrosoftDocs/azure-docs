@@ -26,6 +26,10 @@ In agentless dependency analysis, the process names are captured on a best-effor
 ## Unable to export dependency data in a CSV due to the error "403: This request is not authorized to perform this operation"
 If your Azure Migrate project has private endpoint connectivity, the request to export dependency data should be initiated from a client connected to the Azure virtual network over a private network. To resolve this error, open the Azure portal in your on-premises network or on your appliance server and try exporting again.
 
+## Export the software inventory errors
+
+You can export all the errors and remediations for software inventory from portal by selecting **Export notifications**. The exported CSV file also contains additional information like the timestamp at which the error was encountered.
+
 ## Common agentless dependency analysis errors
 
 Azure Migrate supports agentless dependency analysis by using Azure Migrate: Discovery and assessment. [Learn more](how-to-create-group-machine-dependencies-agentless.md) about how to perform agentless dependency analysis.
