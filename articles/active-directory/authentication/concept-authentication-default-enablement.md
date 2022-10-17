@@ -14,24 +14,24 @@ manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to encourage users to understand how letting Microsoft manage settings can improve our security posture.
+# Customer intent: As an identity administrator, I want to encourage users to understand how default protection can improve our security posture.
 ---
 # Protecting authentication methods in Azure Active Directory
 
-As security threats evolve, Azure Active Directory (Azure AD) adds and improves security features to better protect customers. If an attack vector emerges as a threat to customers, Azure AD may respond by enabling protection by default to help stay ahead. 
+Azure Active Directory (Azure AD) adds and improves security features to better protect customers against increasing attacks. As new attack vectors become known, Azure AD may respond by enabling protection by default to help customers stay ahead of emerging security threats. 
 
 For example, in response to increasing MFA fatigue attacks, Microsoft recommended ways for customers to [defend users](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677). One recommendation to prevent users from accidental multifactor authentication (MFA) approvals is to enable [number matching](how-to-mfa-number-match.md). As a result, default behavior for number matching will be explicitly **Enabled** for all Microsoft Authenticator users.  
 
-This topic explains how default enablement works for security capabilities in Azure AD authentication. 
+This topic explains how default protection works for Azure AD authentication. 
 
-## Default enablement
+## Default protection
 
-There are two ways for a security capability to be enabled by default: 
+There are two ways for protection to be enabled by default: 
 
-- **Scheduled default enablement** is a specific date after which all Azure AD tenants are enabled for a capability by default. Microsoft announces the schedule to enable a feature by default far in advance to give customers time to prepare for the change. Customers can't opt out when a feature is scheduled to be enabled by default. 
-- **Microsoft managed settings** can be enabled or disabled by Azure AD based upon current landscape of security threats. Customers control whether to allow Microsoft to manage the setting. They can change a setting from **Microsoft managed** at any time to explicitly make it **Enabled** or **Disabled**. 
+- Azure AD will enable protection by default for all tenants on a certain date. Microsoft schedules default protection far in advance to give customers time to prepare for the change. Customers can't opt out when a feature is scheduled to be enabled by default. 
+- Protection can be controlled by a Microsoft managed setting, which can be enabled or disabled by Azure AD based upon current landscape of security threats. Customers can choose whether to allow Microsoft to manage the setting. They can change it from **Microsoft managed** at any time to explicitly make it **Enabled** or **Disabled**. 
 
-## Scheduled default enablement
+## Default protection enabled by Azure AD
 
 To address emerging security threats, Microsoft may occasionally change default behavior of a feature, or even deprecate a feature. These changes are announced... how?
 
