@@ -192,7 +192,7 @@ Create a new deployment named `green`:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
-Since we haven't explicitly allocated any traffic to green, it will have zero traffic allocated to it. You can verify that using the command:
+Since we haven't explicitly allocated any traffic to `green`, it will have zero traffic allocated to it. You can verify that using the command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
 
