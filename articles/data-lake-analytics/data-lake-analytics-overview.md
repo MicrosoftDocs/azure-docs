@@ -1,13 +1,13 @@
 ---
 title: Overview of Azure Data Lake Analytics
-description: Data Lake Analytics lets you drive you business using insights gained in your cloud data at any scale.
+description: Data Lake Analytics lets you drive your business using insights gained in your cloud data at any scale.
 author: saveenr
 ms.author: saveenr
 
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: overview
-ms.date: 10/13/2022
+ms.date: 10/17/2022
 ---
 # What is Azure Data Lake Analytics?
 
@@ -15,7 +15,7 @@ Azure Data Lake Analytics is an on-demand analytics job service that simplifies 
 
 ## Azure Data Lake analytics recent update information
 
-Azure Data Lake analytics service is updated on an a periodic basis. We continue to provide the support for this service with component update, component beta preview and so on.
+Azure Data Lake analytics service is updated on a periodic basis. We continue to provide the support for this service with component update, component beta preview and so on.
 
 - For recent update general information, refer to [What's new in Data Lake Analytics?](data-lake-analytics-whats-new.md).
 - For each update details, refer to [Azure Data Lake analytics release note](https://github.com/Azure/AzureDataLake/tree/master/docs/Release_Notes).
