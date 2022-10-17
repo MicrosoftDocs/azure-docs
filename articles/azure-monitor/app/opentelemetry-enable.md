@@ -494,7 +494,7 @@ Dependencies
 
 ---
 
-*Supports automatic exception capture
+(1) Supports automatic exception capture
 
 
 ### Metrics
