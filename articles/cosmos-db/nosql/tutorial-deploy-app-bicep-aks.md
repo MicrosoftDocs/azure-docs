@@ -154,7 +154,7 @@ The deployment could take somewhere around 20 to 30 minutes. Once provisioning i
 
 You can also see the deployment status in the resource group
 
-:::image type="content" source="./media/tutorial-deploy-app-bicep-aks/deployed-resource-group.png" alt-text="Screenshot of the deployment status for the resource group in the Azure portal.":::
+:::image type="content" source="./media/tutorial-deploy-app-bicep-aks/deployed-resource-group.png" lightbox="./media/tutorial-deploy-app-bicep-aks/deployed-resource-group.png" alt-text="Screenshot of the deployment status for the resource group in the Azure portal.":::
 
 > [!NOTE]
 > When creating an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
@@ -329,7 +329,8 @@ When the application runs, a Kubernetes service exposes the application front en
 Use [`kubectl get`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to view the external IP exposed by the load balancer.
 
 ```bash
-kubectl get services --namespace "my-app"
+kubectl get services \
+  --namespace "my-app"
 ```
 
 Open the IP received as output in a browser to access the application.
