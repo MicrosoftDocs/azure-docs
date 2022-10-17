@@ -121,14 +121,14 @@ You need to opt in for _each_ factory that you want detailed billing for. To tur
 1. Select _Showing billing report_ by pipeline
 1. Publish the change
 
-:::image type="content" source="media/plan-manage-costs/per-pipeline-enable.png" alt-text="Steps to enable per pipeline billing feature":::
+:::image type="content" source="media/plan-manage-costs/per-pipeline-enable.png" alt-text="Screenshot of steps to enable per pipeline billing feature.":::
 
 > [!NOTE]
 > The detailed pipeline billing settings is _not_ included in the exported ARM templates from your factory. That means [Continuous Integration and Delivery (CI/CD)](continuous-integration-delivery-improvements.md) will not overwrite billing behaviors for the factory. This allows you to set different billing behaviors for development, test, and production factories.
 
 Once the feature is enabled, each pipeline will have a separate entry in our Billing report: It shows _exactly_ how much each pipeline costs, in the selected time interval. It allows you to identify spending trends, and notice overspending, if any occurred.
 
-:::image type="content" source="media/plan-manage-costs/per-pipeline-billing-statment.png" alt-text="Example showing granular cost for a pipeline":::
+:::image type="content" source="media/plan-manage-costs/per-pipeline-billing-statement.png" alt-text="Screenshot of example showing granular cost for a pipeline.":::
 
 Using the graphing tools of Cost Analysis, you get similar charts and trends lines as shown [above](#monitor-costs-at-factory-level-with-cost-analysis), but for individual pipelines. You also get the summary view by factory name, as factory name is included in billing report, allowing for proper filtering when necessary.
 
@@ -139,9 +139,9 @@ Using the graphing tools of Cost Analysis, you get similar charts and trends lin
 
 Following are known limitations of per pipeline billing features. These billing meters won't file under the pipeline that spins it, but instead will file under a fall-back line item for your factory.
 
-1. Data Factory Operations charges, including Read/Write and Monitoring
-1. Charges for [Azure Data Factory SQL Server Integration Services (SSIS) nodes](tutorial-deploy-ssis-packages-azure.md)
-1. If you have [Time to Live (TTL)](concepts-integration-runtime-performance.md#time-to-live) configured for Azure Integration Runtime (Azure IR), Data Flow activities run on these IR won't file under individual pipelines.
+- Data Factory Operations charges, including Read/Write and Monitoring
+- Charges for [Azure Data Factory SQL Server Integration Services (SSIS) nodes](tutorial-deploy-ssis-packages-azure.md)
+- If you have [Time to Live (TTL)](concepts-integration-runtime-performance.md#time-to-live) configured for Azure Integration Runtime (Azure IR), Data Flow activities run on these IR won't file under individual pipelines.
 
 ### Monitor consumption at pipeline-run level in Azure Data Factory
 
