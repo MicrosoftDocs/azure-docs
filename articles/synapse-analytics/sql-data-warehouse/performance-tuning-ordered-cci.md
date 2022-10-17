@@ -139,7 +139,7 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 SQL Server 2022 (16.x) introduced ordered clustered columnstore indexes similar to the feature in Azure Synapse dedicated SQL pools.
 
 - Currently, only SQL Server 2022 (16.x) and later versions support clustered columnstore enhanced [segment elimination](/sql/relational-databases/indexes/columnstore-indexes-design-guidance) capabilities for string, binary, and guid data types, and the datetimeoffset data type for scale greater than two. Previously, this segment elimination applies to numeric, date, and time data types, and the datetimeoffset data type with scale less than or equal to two.  
-- Currently, only SQL Server 2022 (16.x) and later versions support clustered columnstore rowgroup elimination for the prefix of `LIKE` predicates, for example `column LIKE 'string%'`. Segment elimination is not supported for use of LIKE such as `column LIKE '%string'`.
+- Currently, only SQL Server 2022 (16.x) and later versions support clustered columnstore rowgroup elimination for the prefix of `LIKE` predicates, for example `column LIKE 'string%'`. Segment elimination is not supported for non-prefix use of LIKE such as `column LIKE '%string'`.
 
 For more information, see [What's New in Columnstore Indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new).
 
