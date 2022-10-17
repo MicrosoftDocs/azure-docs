@@ -160,7 +160,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 
 ### Create claims rules
 
-1. Select Relying Party Trust you just created and click **Edit Claim Issuance Policy**.
+1. Select the Relying Party Trust you just created, and then select **Edit Claim Issuance Policy**.
 2. Select **Add rule**.
 3. Select **Send LDAP Attributes as Claims**, and then select **Next**.
 4. In **Configure Claim Rule**, specify the following values:
