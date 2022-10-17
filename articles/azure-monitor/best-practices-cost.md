@@ -1,15 +1,14 @@
 ---
-title: 'Azure Monitor best practices: Cost management'
+title: Cost optimization and Azure Monitor
 description: Guidance and recommendations for reducing your cost for Azure Monitor.
 ms.topic: conceptual
-ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.date: 10/17/2022
 ms.reviewer: bwren
 ---
 
-# Azure Monitor best practices: Cost optimization
+# Cost optimization and Azure Monitor
 
 To understand how [Azure Monitor](overview.md) supports cost optimization, start by understanding the different ways that Azure Monitor charges and how to view your monthly bill. See [Azure Monitor cost and usage](usage-estimated-costs.md) for a complete description of how Azure Monitor is billed and the different tools available to analyze your charges.
 
