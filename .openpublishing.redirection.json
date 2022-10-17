@@ -1,8 +1,63 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
+            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-manage.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-restore.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id":  false  
+        },
+        {
+            "source_path":  "articles/backup/sap-hana-db-about.md",
+            "redirect_url":  "/azure/backup/sap-hana-database-about",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-java-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-python-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/container-registry/container-registry-customer-managed-keys.md",
+            "redirect_url":  "/azure/container-registry/tutorial-customer-managed-keys",
+            "redirect_document_id":  false
+        },
+        {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
-            "redirect_url": "articles/iot-hub/iot-hub-rm-template-powershell",
+            "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
             "redirect_document_id": false
         },
         {
@@ -11,14 +66,39 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-queues.md",
-            "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": false
+            "source_path":  "articles/site-recovery/failover-failback-overview-preview.md",
+            "redirect_url":  "/azure/site-recovery/failover-failback-overview-modernized",
+            "redirect_document_id":  false
         },
         {
-            "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-tables.md",
-            "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": false
+            "source_path":  "articles/site-recovery/switch-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/switch-replication-appliance-modernized",
+            "redirect_document_id":  false 
+        },
+        {
+            "source_path":  "articles/site-recovery/upgrade-mobility-service-preview.md",
+            "redirect_url":  "/azure/site-recovery/upgrade-mobility-service-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-set-up-replication-tutorial-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-architecture-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-architecture-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/physical-server-azure-architecture-preview.md",
+            "redirect_url":  "/azure/physical-server-azure-architecture-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/vmware-azure-tutorial-failover-failback-preview.md",
+            "redirect_url":  "/azure/vmware-azure-tutorial-failover-failback-modernized",
+            "redirect_document_id":  false   
         },
         {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
@@ -6223,6 +6303,56 @@
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
             "redirect_document_id": false
         },
+        { 
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-attributes.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-attributes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-examples.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-examples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-portal.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-powershell.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-security.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/reference.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/queues/reference.md",
+            "redirect_url": "/azure/storage/queues/storage-queues-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/files/reference.md",
+            "redirect_url": "/azure/storage/files/storage-files-introduction",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
             "redirect_url": "/azure/storage/common/storage-client-side-encryption",
@@ -11214,6 +11344,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/ddos-protection/ddos-protection-standard-features.md",
+            "redirect_url": "/azure/ddos-protection/ddos-protection-features",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/asc-for-iot/index.yml",
             "redirect_url": "/azure/defender-for-iot/",
             "redirect_document_id": false
@@ -14001,61 +14136,6 @@
         {
             "source_path_from_root": "/articles/industry/retail/visual-search-use-case-overview.md",
             "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/concepts-auto-provisioning.md",
-            "redirect_url": "/azure/iot-dps/concepts-roles-operations",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/concepts-device.md",
-            "redirect_url": "/azure/iot-dps/concepts-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/concepts-security.md",
-            "redirect_url": "/azure/iot-dps/concepts-service#attestation-mechanism",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/use-hsm-with-sdk.md",
-            "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-use-sdk-tools.md",
-            "redirect_url": "/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-manage-enrollments-sdks.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509-java",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-manage-dps-with-cli.md",
-            "redirect_url": "/azure/iot-dps/quick-setup-auto-provision-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-net-provision-device-to-hub.md",
-            "redirect_url": "/azure/iot-dps/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-provision-device-to-hub.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-set-up-cloud.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/tutorial-set-up-device.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
             "redirect_document_id": false
         },
         {
@@ -21186,12 +21266,12 @@
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-what-happened.md",
@@ -26359,11 +26439,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-dps/how-to-connect-mxchip-iot-devkit.md",
-            "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/app-service-api/app-service-api-dotnet-swashbuckle-customize.md",
             "redirect_url": "https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse",
             "redirect_document_id": false
@@ -28440,116 +28515,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-node.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-python.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-symmetric-key-java.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-java.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-node.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-python.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-java.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-node.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-python.md",
-            "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-java.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-node.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-python.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-csharp.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-java.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-node.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-python.md",
-            "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-dps/how-to-use-custom-allocation-policies.md",
-            "redirect_url": "/azure/iot-dps/tutorial-custom-allocation-policies",
-            "redirect_document_id": false
-          },          
-        {
             "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-web-application-firewall.md",
             "redirect_url": "/azure/app-service/environment/integrate-with-application-gateway",
             "redirect_document_id": false
@@ -28803,6 +28768,18 @@
             "source_path": "articles/virtual-machines/workloads/redhat/wildfly-on-centos.md",
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/aks/keda-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/using-visual-studio-vm.md",
+            "redirect_url": "/visualstudio/install/using-visual-studio-vm",
+            "redirect_document_id": false
         }
+
     ]
 }
+

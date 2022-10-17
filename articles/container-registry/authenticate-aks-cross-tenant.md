@@ -2,9 +2,9 @@
 title: Authenticate from AKS cluster to Azure container registry in different AD tenant
 description: Configure an AKS cluster's service principal with permissions to access your Azure container registry in a different AD tenant
 ms.topic: article
-author: dlepow
-ms.author: danlep
-ms.date: 09/13/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Pull images from a container registry to an AKS cluster in a different Azure AD tenant

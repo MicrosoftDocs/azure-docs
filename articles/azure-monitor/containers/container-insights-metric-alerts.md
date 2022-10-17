@@ -27,7 +27,7 @@ Before you start, confirm the following:
 
     To verify your cluster is running the newer version of the agent, you can either:
 
-    * Run the command: `kubectl describe pod <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
+    * Run the command: `kubectl describe pod <azure-monitor-agent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for Azure Monitor agent in the *Containers* section of the output. 
     * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
     The value shown for AKS should be version **ciprod05262020** or later. The value shown for Azure Arc-enabled Kubernetes cluster should be version **ciprod09252020** or later. If your cluster has an older version, see [How to upgrade the Container insights agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) for steps to get the latest version.
@@ -123,19 +123,19 @@ This section walks through enabling Container insights metric alert (preview) fr
 
 3. From the command bar, select **Recommended alerts**.
 
-    ![Recommended alerts option in Container insights](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![Screenshot showing the Recommended alerts option in Container insights.](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. The **Recommended alerts** property pane automatically displays on the right side of the page. By default, all alert rules in the list are disabled. After selecting **Enable**, the alert rule is created and the rule name updates to include a link to the alert resource.
 
-    ![Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
+    ![Screenshot showing the Recommended alerts properties pane.](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
     After selecting the **Enable/Disable** toggle to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
-    ![Enable alert rule](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
+    ![Screenshot showing the option to enable an alert rule.](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
 5. Alert rules are not associated with an [action group](../alerts/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** and on the **Action Groups** page, specify an existing or create an action group by selecting **Add** or **Create**.
 
-    ![Select an action group](./media/container-insights-metric-alerts/select-action-group.png)
+    ![Screenshot showing the option to select an action group.](./media/container-insights-metric-alerts/select-action-group.png)
 
 ### Enable with a Resource Manager template
 
@@ -255,7 +255,7 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods; they don't all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following example and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect, and all Azure Monitor agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor agent pods; they don't all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following example and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Next steps
 

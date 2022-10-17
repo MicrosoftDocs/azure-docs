@@ -33,9 +33,9 @@ For each group, you can either add a user as an OWNER or a MEMBER. The only diff
 
 ## Group naming
 
-All group identifiers (emails) will be of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention has been adopted such that the group's name should start with the word "data." for data groups; "service." for service groups; and "users." for user groups. An exception is when a data partition is provisioned. When a data partition is created, so is a corresponding group: users (for example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created). 
+All group identifiers (emails) will be of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention has been adopted such that the group's name should start with the word "data." for data groups; "service." for service groups; and "users." for user groups. An exception is when a data partition is provisioned. When a data partition is created, so is a corresponding group-for example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created. 
 
-## Permissions/roles
+## Permissions and roles
 
 The OSDU&trade; Data Ecosystem user groups provide an abstraction from permission and user management and--without a user creating their own groups--the following user groups exist by default:
 

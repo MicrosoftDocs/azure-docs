@@ -1,8 +1,8 @@
 ---
 title: Understand how Device Update for IoT Hub uses IoT Plug and Play | Microsoft Docs
 description: Device Update for IoT Hub uses to discover and manage devices that are over-the-air update capable.
-author: ValOlson
-ms.author: valls
+author: EshaShah
+ms.author: eshashah
 ms.date: 1/26/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
@@ -48,7 +48,7 @@ The **deviceProperties** field contains the manufacturer and model information f
 |----|------|---------|-----------|
 |manufacturer|string|device to cloud|The device manufacturer of the device, reported through `deviceProperties`. This property is read from one of two places - first, the DeviceUpdateCore interface attempts to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md). If the value isn't populated in the configuration file, it defaults to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property is reported only at boot time. <br><br> Default value: 'Contoso'.|
 |model|string|device to cloud|The device model of the device, reported through `deviceProperties`. This property is read from one of two places - first, the DeviceUpdateCore interface attempts to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md).  If the value isn't populated in the configuration file, it defaults to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property is reported only at boot time. <br><br> Default value: 'Video'|
-|interfaceId|string|device to cloud|This property is used by the service to identify the interface version being used by the Device Update agent. The interface ID is required by Device Update service to manage and communicate with the agent. <br><br> Default value: 'dtmi:azure:iot:deviceUpdateModel;1' for devices using DU agent version 0.8.0.|
+|interfaceId|string|device to cloud|This property is used by the service to identify the interface version being used by the Device Update agent. The interface ID is required by Device Update service to manage and communicate with the agent. <br><br> Default value: 'dtmi:azure:iot:deviceUpdate;1' for devices using DU agent version 0.8.0.|
 |aduVer|string|device to cloud|Version of the Device Update agent running on the device. This value is read from the build only if ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true) during compile time. Customers can choose to opt out of version reporting by setting the value to 0 (false). [How to customize Device Update agent properties](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true) during compile time. Customers can choose to opt out of the version reporting by setting the value to 0 (false). [How to customize Delivery Optimization agent properties](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
 |Custom compatibility Properties|User Defined|device to cloud|Implementer can define other device properties to be used for the compatibility check while targeting the update deployment.|
