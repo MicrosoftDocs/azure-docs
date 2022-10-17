@@ -234,11 +234,11 @@ From Spark cluster, read from kafka topic alicetopic2 as user alicetest is allow
         
     1. Click on 'stdout'. You'll see the output with the count of words from your Kafka topic.
     
-        :::image type="content" source="./media/hdinsight-spark-kafka/bobtopic-job-fail.png" alt-text="Screenshot showing bobtopic job failed status":::        
+        :::image type="content" source="./media/hdinsight-spark-kafka/logs-for-spesfic-container.png" alt-text="Screenshot showing bobtopic job failed status":::        
         
     1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
     
-        :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-denied.png" alt-text="Screenshot showing Kafka cluster ranger UI audit logs in denied status":::
+        :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs.png" alt-text="Screenshot showing Kafka cluster ranger UI audit logs in denied status":::
     
 ### Scenario 2
 
@@ -264,11 +264,11 @@ From Spark cluster, read Kafka topic bobtopic2 as user alicetest is denied
      
 1. From yarn UI, access the yarn job output you can see that alicetest user is unable to read from bobtopic1 and the job fails.
 
-    :::image type="content" source="./media/hdinsight-spark-kafka/yarn-job-output.png" alt-text="Screenshot showing YARN-job-output":::
+    :::image type="content" source="./media/hdinsight-spark-kafka/bobtopic-job-fail.png" alt-text="Screenshot showing YARN-job-output":::
     
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
  
-    :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-allowed.png" alt-text="Screenshot showing Kafka cluster-ranger UI audit logs in allowed status":::        
+    :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-denied.png" alt-text="Screenshot showing Kafka cluster-ranger UI audit logs in allowed status":::        
     
 ### Scenario 3
 
