@@ -1,7 +1,7 @@
 ---
-title: How to Deploy Static Files
-titleSuffix: Azure Spring Apps Enterprise Tier
-description: How to Deploy Static File in Azure Spring Apps Enterprise Tier
+title: Deploy Static Files
+titleSuffix: Azure Spring Apps Enterprise yier
+description: Learn how to deploy static files in Azure Spring Apps Enterprise tier.
 author: yilims
 ms.author: yili7
 ms.service: spring-apps
@@ -10,7 +10,7 @@ ms.date: 10/09/2022
 ms.custom: event-tier1-build-2022
 ---
 
-# How to Deploy Static Files
+# Deploy Static Files
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
