@@ -109,8 +109,10 @@ landingContent:
         links:
         - text: Access and identity
           url: concepts-identity.md
-        - text: Configure identity source for vCenter
+        - text: Configure identity source for vCenter Server
           url: configure-identity-source-vcenter.md
+        - text: Configure identity source for NSX-T Data Center
+          url: configure-external-identity-source-nsx-t.md
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
 
