@@ -31,11 +31,11 @@ There are several components that make up the Microsoft identity platform:
 - **Application configuration API and PowerShell**: Programmatic configuration of your applications through the Microsoft Graph API and PowerShell so you can automate your DevOps tasks.
 - **Developer content**: Technical documentation including quickstarts, tutorials, how-to guides, and code samples.
 
+> [!VIDEO https://www.youtube.com/embed/uDU1QTSw7Ps]
+
 For developers, the Microsoft identity platform offers integration of modern innovations in the identity and security space like passwordless authentication, step-up authentication, and Conditional Access. You don't need to implement such functionality yourself. Applications integrated with the Microsoft identity platform natively take advantage of such innovations.
 
 With the Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as both a client and a resource application (API).
-
-> [!VIDEO https://www.youtube.com/embed/uDU1QTSw7Ps]
 
 ## Getting started
 
