@@ -402,6 +402,7 @@ Some points to consider:
 *    You can achieve longer retention of your operational data in the analytical store by setting ATTL >= TTTL at the container level.
 *    The analytical store can be made to mirror the transactional store by setting ATTL = TTTL.
 *    If you have ATTL bigger than TTTL, at some point in time you'll have data that only exists in analytical store. This data is read only.
+*    Currently we don't delete any data from analytical store. If you set your ATTL to any positive integer, the data won't be included in your queries and you won't be billed for it. But if you change ATTL back to `-1`, all the data will show up again, you will start to be billed for all the data volume.
 
 How to enable analytical store on a container:
 
@@ -521,14 +522,13 @@ Analytical store follows a consumption-based pricing model where you're charged 
 
 Analytical store pricing is separate from the transaction store pricing model. There's no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for full details on the pricing model for analytical store.
 
-Data in the analytics store can only be accessed through Azure Synapse Link, which is done in the Azure Synapse Analytics runtimes: Azure Synapse Apache Spark pools and
-Azure Synapse serverless SQL pools. See [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/) for full details on the pricing model to access data in analytical store.
+Data in the analytics store can only be accessed through Azure Synapse Link, which is done in the Azure Synapse Analytics runtimes: Azure Synapse Apache Spark pools and Azure Synapse serverless SQL pools. See [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/) for full details on the pricing model to access data in analytical store.
 
-In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, from the analytical store perspective, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. Analytical read operations costs depends on the analytics workload characteristics but as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065.
+In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos DB container, from the analytical store perspective, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. 
 
-> [!NOTE]
-> Analytical store read operations estimates aren't included in the Azure Cosmos DB cost calculator since they are a function of your analytical workload. While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
+Analytical store read operations estimates aren't included in the Azure Cosmos DB cost calculator since they are a function of your analytical workload. But as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and results in a cost of $0.065. As an example, if you use Azure Synapse serverless SQL pools to perform this scan of 1 TB, it will cost $5.00 according to [Azure Synapse Analytics pricing page](https://azure.microsoft.com/pricing/details/synapse-analytics/). The final total cost for this 1 TB scan would be $5.065.
 
+While the above estimate is for scanning 1TB of data in analytical store, applying filters reduces the volume of data scanned and this determines the exact number of analytical read operations given the consumption pricing model. A proof-of-concept around the analytical workload would provide a more finer estimate of analytical read operations. This estimate doesn't include the cost of Azure Synapse Analytics.
 
 
 ## Next steps
