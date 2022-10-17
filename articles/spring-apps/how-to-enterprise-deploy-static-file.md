@@ -75,19 +75,20 @@ The [Paketo samples](https://github.com/paketo-buildpacks/samples/tree/main/web-
 - Serving static files with default server configuration file, using BP_WEB_SERVER to select either [HTTPD](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/HTTPD.md) or [NGINX](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/NGINX.md).
 - Using NPM to build a [React app](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/javascript-frontend-sample) into static files that can be served by a web server:
    - Define a script under the "scripts" property of your package.json that builds your production-ready static assets. For React, it's "build".
-   - Find out where static assets are stored after the build script runs. For React, this is "./build" by default.
+   - Find out where static assets are stored after the build script runs. For React, static assets are stored in `./build` by default.
    - BP_NODE_RUN_SCRIPTS should be set to the name of the build script.
    - BP_WEB_SERVER_ROOT should be set to the build output directory. 
 - Serving static files with your own server configuration file. using either [HTTPD](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/httpd-sample) or [NGINX](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/nginx-sample)
 
 ## Configure auto-generated server configuration file
-You can use environment variables to tweak the automatically-generated server configuration file. 
+
+You can use environment variables to tweak the auto-generated server configuration file.
 
 Supported environment variables:
 
 |Environment Variable|Supported Value|Description|
 |--------------------|---------------|-----------|
-|BP_WEB_SERVER|nginx or httpd|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server. <br> It's required when using automatically-generated server configuration file.|
+|BP_WEB_SERVER|nginx or httpd|Specify web server type: "nginx" for Nginx and "httpd" for Apache HTTP server. <br> It's required when using the auto-generated server configuration file.|
 |BP_WEB_SERVER_ROOT|an absolute file path or a file path relative to /workspace|Defaults to public, set the root directory for the static files.|
 |BP_WEB_SERVER_ENABLE_PUSH_STATE|true or false|Enable push state routing for your application. Regardless of the route that is requested, index.html will always be served. It's useful for single-page web applications.|
 |BP_WEB_SERVER_FORCE_HTTPS|true or false|Enforce HTTPS for server connections by redirecting all requests to use the HTTPS protocol.|
@@ -102,10 +103,10 @@ You can configure web server by providing a customized server configuration file
 
 |Configuration|Description|Nginx Configuration|Httpd Configuration|
 |-------------|-----------|-----|-----|
-|Listening port|Web server must listen on port 8080. The service checks the port on TCP for readiness and liveness. <br/> It's requried to use templated variable PORT in the configuration file. The appropriate port number is injected when the web server is launched|listen {{PORT}}|Listen "${PORT}"|
+|Listening port|Web server must listen on port 8080. The service checks the port on TCP for readiness and liveness. <br/> It's required to use templated variable PORT in the configuration file. The appropriate port number is injected when the web server is launched|listen {{PORT}}|Listen "${PORT}"|
 |Log path|Config log path to the console| access_log /dev/stdout <br/> error_log stderr| ErrorLog /proc/self/fd/2|
-|File path with write permission|Web server is granted write permssion to directory /tmp, configure all the path requires write permission under directory /tmp | For example: <br/> client_body_temp_path /tmp/client_body_temp||
-|Maximum accepted body size of client request|Web server is behind the gateway, maximum accepted body size of client request is set to 500m in the gateway, the vaue for web server must be less than 500m | client_max_body_size should be less than 500m|LimitRequestBody should be less than 500m|
+|File path with write permission|Web server is granted write permission to directory /tmp, configure all the path requires write permission under directory /tmp | For example: <br/> client_body_temp_path /tmp/client_body_temp||
+|Maximum accepted body size of client request|Web server is behind the gateway, maximum accepted body size of client request is set to 500m in the gateway, the value for web server must be less than 500m | client_max_body_size should be less than 500m|LimitRequestBody should be less than 500m|
 
 ## Buildpack bindings
 Supported [Buildpack bindings](how-to-enterprise-build-service.md#buildpack-bindings) 
@@ -118,7 +119,7 @@ Unsupported Buildpack bindings
 
 |Error Message|Root Cause|Solution|
 |-------------|----------|--------|
-|ERROR: No buildpack groups passed detection. <br/> ERROR: Please check that you are running against the correct path. <br/> ERROR: failed to detect: no buildpacks participating|Web server type is not specified|set environment variable BP_WEB_SERVER to nginx or httpd|
+|ERROR: No buildpack groups passed detection. <br/> ERROR: Please check that you're running against the correct path. <br/> ERROR: failed to detect: no buildpacks participating|Web server type isn't specified|set environment variable BP_WEB_SERVER to nginx or httpd|
 
 ## Common deployment error
 
