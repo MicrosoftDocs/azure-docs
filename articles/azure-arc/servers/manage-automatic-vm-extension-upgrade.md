@@ -1,13 +1,13 @@
 ---
-title: Automatic extension upgrade (preview) for Azure Arc-enabled servers
-description: Learn how to enable the automatic extension upgrades for your Azure Arc-enabled servers.
+title: Automatic extension upgrade for Azure Arc-enabled servers
+description: Learn how to enable automatic extension upgrades for your Azure Arc-enabled servers.
 ms.topic: conceptual
 ms.date: 10/14/2022
 ---
 
-# Automatic extension upgrade (preview) for Azure Arc-enabled servers
+# Automatic extension upgrade for Azure Arc-enabled servers
 
-Automatic extension upgrade (preview) is available for Azure Arc-enabled servers that have supported VM extensions installed. Automatic extension upgrades reduce the amount of operational overhead for you by scheduling the installation of new extension versions when they become available. The Azure Connected Machine agent takes care of upgrading the extension (preserving its settings along the way) and automatically rolling back to the previous version if something goes wrong during the upgrade process.
+Automatic extension upgrade is available for Azure Arc-enabled servers that have supported VM extensions installed. Automatic extension upgrades reduce the amount of operational overhead for you by scheduling the installation of new extension versions when they become available. The Azure Connected Machine agent takes care of upgrading the extension (preserving its settings along the way) and automatically rolling back to the previous version if something goes wrong during the upgrade process.
 
 Automatic extension upgrade has the following features:
 
@@ -42,7 +42,7 @@ If an extension upgrade fails, Azure will try to repair the extension by perform
 1. If the rollback is successful, the extension status will show as **Succeeded** and the extension will be added to the automatic upgrade queue again. The next upgrade attempt can be as soon as the next hour and will continue until the upgrade is successful.
 1. If the rollback fails, the extension status will show as **Failed** and the extension will no longer function as intended. You'll need to [remove](manage-vm-extensions-cli.md#remove-extensions) and [reinstall](manage-vm-extensions-cli.md#enable-extension) the extension to restore functionality.
 
-If you continue to have trouble upgrading an extension, you can [disable automatic extension upgrade](#disable-automatic-extension-upgrade) to prevent the system from trying again while you troubleshoot the issue. You can [enable automatic extension upgrade](#enable-automatic-extension-upgrade) again when you're ready.
+If you continue to have trouble upgrading an extension, you can [disable automatic extension upgrade](#manage-automatic-extension-upgrade) to prevent the system from trying again while you troubleshoot the issue. You can [enable automatic extension upgrade](#manage-automatic-extension-upgrade) again when you're ready.
 
 ## Supported extensions
 
