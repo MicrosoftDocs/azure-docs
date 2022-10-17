@@ -26,9 +26,13 @@ Synapse notebooks use Azure Active Directory (Azure AD) pass-through to access t
 Synapse pipelines use workspace's Managed Service Identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
 Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
+
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.
+
 1. Select the **Access control (IAM)** from the left panel.
+
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
     | Setting | Value |
@@ -50,7 +54,7 @@ You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
 ### Configure access to Azure Blob Storage
 
-Synapse use [**Shared access signature (SAS)**](../../storage/common/storage-sas-overview.md) to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
+Synapse uses [**Shared access signature (SAS)**](../../storage/common/storage-sas-overview.md) to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
 
 Follow these steps to add a new linked service for an Azure Blob Storage account:
 
@@ -149,15 +153,21 @@ print( paste('Remote blob path: ',wasb_path))
 
 ::: zone-end
 
-###  Configure access to Azure Key Vault
+### Configure access to Azure Key Vault
 
 You can add an Azure Key Vault as a linked service to manage your credentials in Synapse.
 Follow these steps to add an Azure Key Vault as a Synapse linked service:
+
 1. Open the [Azure Synapse Studio](https://web.azuresynapse.net/).
+
 2. Select **Manage** from the left panel and select **Linked services** under the **External connections**.
+
 3. Search **Azure Key Vault** in the **New linked Service** panel on the right.
+
 4. Select the Azure Key Vault Account to access and configure the linked service name.
+
 5. Select **Test connection** to validate the settings are correct.
+
 6. Select **Create** first and click **Publish all** to save your change.
 
 Synapse notebooks use Azure active directory(Azure AD) pass-through to access Azure Key Vault. Synapse pipelines use workspace identity(MSI) to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend granting secret access permission for both your Azure AD account and workspace identity.
@@ -183,6 +193,7 @@ Run the following commands for an overview of the available methods:
 from notebookutils import mssparkutils
 mssparkutils.fs.help()
 ```
+
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
@@ -213,6 +224,7 @@ mssparkutils.fs.help()
 
 Results in:
 ```
+
 mssparkutils.fs provides utilities for working with various FileSystems.
 
 Below is overview about the available methods:
@@ -231,6 +243,7 @@ Use mssparkutils.fs.help("methodName") for more info about a method.
 ```
 
 ### List files
+
 List the content of a directory.
 
 
@@ -239,6 +252,7 @@ List the content of a directory.
 ```python
 mssparkutils.fs.ls('Your directory path')
 ```
+
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"

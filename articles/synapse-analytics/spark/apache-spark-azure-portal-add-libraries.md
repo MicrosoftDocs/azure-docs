@@ -70,9 +70,11 @@ Session-scoped packages allow users to define package dependencies at the start 
 
 To learn more about how to manage session-scoped packages, see the following articles:
 
-- [Python session packages: ](./apache-spark-manage-session-packages.md#session-scoped-python-packages) At the start of a session, provide a Conda *environment.yml* to install more Python packages from popular repositories. 
-- [Scala/Java session packages: ](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
-- [R session packages: ] (./apache-spark-manage-session-packages.md##session-scoped-r-packages-preview) Within your session, you can install packages across all nodes within your Spark pool using `install.packages` or `devtools`. 
+- [Python session packages:](./apache-spark-manage-session-packages.md#session-scoped-python-packages) At the start of a session, provide a Conda *environment.yml* to install more Python packages from popular repositories.
+
+- [Scala/Java session packages:](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
+
+- [R session packages:](./apache-spark-manage-session-packages.md##session-scoped-r-packages-preview) Within your session, you can install packages across all nodes within your Spark pool using `install.packages` or `devtools`.
 
 ## Manage your packages outside Synapse Analytics UI
 
@@ -84,5 +86,6 @@ To learn more about Azure PowerShell cmdlets and package management REST APIs, s
 - Package management REST APIs: [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-ui.md#manage-packages-through-rest-apis)
 
 ## Next steps
+
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
 - Troubleshoot library installation errors: [Troubleshoot library errors](apache-spark-troubleshoot-library-errors.md)
