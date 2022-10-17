@@ -51,6 +51,8 @@ In Map view, you can see all of your sources and collections. In the following i
 Each of the subcollections can be opened and managed from the map view by selecting the **+** button.
 You can also register a new source, by selecting the register source button, or view details.
 
+:::image type="content" source="media/manage-data-sources/collection-options.png" alt-text="Screenshot the map view showing the Root collection and the finance subcollection with its resource and subcollections expanded.":::
+
 ### Table view
 
 In the table view, you can see a sortable list of sources. Hover over the source for options to edit, begin a new scan, or delete.
