@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Basics
 
-:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png" alt-text="HDInsight create cluster basics":::
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-hdinsight-40-portal-cluster-basics.png" alt-text="Shreesshot showing HDInsight 4.0 create cluster basics":::
 
 From the **Basics** tab, provide the following information:
 
@@ -129,7 +129,7 @@ On the **Tags** page, provide the following information:
 
 ## Review + create
 
-:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight create cluster summary":::
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-hdinsight-40-portal-cluster-review-create-hadoop.png" alt-text="Screenshot showing HDInsight 4.0 create cluster summary":::
 
 Review the settings. Select **Create** to create the cluster.
 
@@ -139,7 +139,7 @@ It takes some time for the cluster to be created, usually around 20 minutes. Mon
 
 After the creation process finishes, select **Go to Resource** from the **Deployment succeeded** notification. The cluster window provides the following information.
 
-:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png" alt-text="HDI Azure portal cluster overview":::
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-hdinsight-40-create-cluster-completed.png" alt-text="Screenshot showing Azure HDInsight   portal cluster overview":::
 
 Some of the icons in the window are explained as follows:
 
