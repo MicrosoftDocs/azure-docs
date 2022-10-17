@@ -275,6 +275,33 @@ the `.zip` file for the content package, the configuration name in the MOF file,
 and the guest assignment name in the Azure Resource Manager template, must be
 the same.
 
+## Running commands in Windows PowerShell
+
+Running Windows modules in PowerShell can be achieved through using the below pattern in your DSC resources. The below pattern temporarily sets the `PSModulePath` to run Windows PowerShell instead of PowerShell core in order to discover required modules available in Windows PowerShell. This sample is a snippet from the DSC resource used in the [Secure Web Server](https://github.com/Azure/azure-policy/blob/master/samples/GuestConfiguration/package-samples/resource-modules/SecureProtocolWebServer/DSCResources/SecureWebServer/SecureWebServer.psm1#L253) built-in DSC resource.
+
+This pattern temporarily sets the PowerShell execution path to run from full PowerShell and discovers the required cmdlet which in this case is `Get-WindowsFeature`. The output of the command is returned and then standardized for compatability requirements. Once the cmdlet has been executed, the `PSModulePath` is set back to the original path.
+
+```powershell
+
+    # This command needs to be run through full PowerShell rather than through PowerShell Core which is what the Policy engine runs
+    $null = Invoke-Command -ScriptBlock {
+        param ($fileName)
+        $fullPowerShellExePath = "$env:SystemRoot\System32\WindowsPowershell\v1.0\powershell.exe"
+        $oldPSModulePath = $env:PSModulePath
+        try
+        {
+            # Set env variable to full powershell module path so that powershell can discover Get-WindowsFeature cmdlet.
+            $env:PSModulePath = "$env:SystemRoot\System32\WindowsPowershell\v1.0\Modules"
+            &$fullPowerShellExePath -command "if (Get-Command 'Get-WindowsFeature' -errorAction SilentlyContinue){Get-WindowsFeature -Name Web-Server | ConvertTo-Json | Out-File $fileName} else { Add-Content -Path $fileName -Value 'NotServer'}"
+        }
+        finally
+        {
+            $env:PSModulePath = $oldPSModulePath
+        }
+    }
+
+```
+
 ## Common DSC features not available during machine configuration public preview
 
 During public preview, machine configuration doesn't support
