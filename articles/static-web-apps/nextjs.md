@@ -45,7 +45,7 @@ The following example shows the GitHub Actions job that is enabled for static ex
           IS_STATIC_EXPORT: true
 ```
 
-Follow the [deploy static-rendered Next.js websites](deploy-nextjs-ssg.md) tutorial to learn how to deploy a statically exported Next.js application to Azure.
+Follow the [deploy static-rendered Next.js websites](deploy-nextjs-static-export.md) tutorial to learn how to deploy a statically exported Next.js application to Azure.
 
 ## Hybrid Next.js applications (preview)
 

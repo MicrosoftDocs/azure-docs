@@ -6,8 +6,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/static-web-apps/deploy-nextjs-hybrid.md",
-            "redirect_url": "/azure/static-web-apps/deploy-nextjs",
+            "source_path_from_root": "/articles/static-web-apps/deploy-nextjs.md",
+            "redirect_url": "/azure/static-web-apps/deploy-nextjs-hybrid",
             "redirect_document_id": false
         }
     ]
