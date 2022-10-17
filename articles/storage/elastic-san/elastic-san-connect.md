@@ -83,11 +83,40 @@ az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $vol
 ```
 ---
 
+## Environment setup
+
+### Windows
+
+To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
+
+```powershell
+# Confirm iSCSI is running
+Get-Service -Name MSiSCSI
+
+# If it's not running, start it
+Start-Service -Name MSiSCSI
+
+# Set it to start automatically
+Set-Service -Name MSiSCSI -StartupType Automatic
+```
+
+### Linux
+
+To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
+
+As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with RedHat you'd use `sudo yum install iscsi-initiator-utils -y`.
+
 ## Connect to a volume
+
+You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
+
+To aggregate multiple I/O sessions and paths to your Elastic SAN volumes and efficiently distribute I/O over these sessions, use native Multipath I/O. For instructions on configuring Multipath I/O, see.
 
 You can connect to Elastic SAN volumes over iSCSI from multiple compute clients. The following sections cover how to establish connections from a Windows client and a Linux client.
 
-### Windows
+### Single-session configuration
+
+#### Windows
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
 
@@ -111,12 +140,13 @@ Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **you
 iscsicli AddTarget $yourStorageTargetIQN * $yourStorageTargetPortalHostName $yourStorageTargetPortalPort * 0 * * * * * * * * * 0
 
 # Login
+# If you didn't want the session to be persitent, use iscsicli LoginTarget instead, the rest of the command is the same
 # The *s are essential, as they are default arguments
-iscsicli LoginTarget $yourStorageTargetIQN t $yourStorageTargetPortalHostName $yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
+iscsicli PersistentLoginTarget $yourStorageTargetIQN t $yourStorageTargetPortalHostName $yourStorageTargetPortalPort Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
 
 ```
 
-### Linux
+#### Linux
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
 
@@ -133,6 +163,8 @@ You should see a list of output that looks like the following:
 
 Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
 
+To establish persistent iSCSI connections, modify **node.startup** in **/etc/iscsi/iscsid.conf** from **manual** to **automatic**.
+
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
 
 ```
@@ -140,6 +172,20 @@ iscsiadm -m node --targetname **yourStorageTargetIQN** --portal **yourStorageTar
 
 iscsiadm -m node --targetname **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
 ```
+
+### Multi-session configuration
+
+#### Windows
+
+To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume. To do this, set the login flag to **0x00000002** to enable multipathing for the target.
+
+You can then re-run the commands from the single session configuration or use the following script.
+
+#### Linux
+
+To establish multiple sessions to a volume, create a single session first. Then, get the session ID and create as many sessions as needed with the session ID.
+
+The following example shows how to get the session ID
 
 ## Next steps
 
