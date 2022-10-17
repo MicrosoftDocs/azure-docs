@@ -1,64 +1,98 @@
 ---
-title: Import and run notebooks from a GitHub repo into Azure Cosmos DB
-description: Learn how to connect to GitHub and import the notebooks from a GitHub repo to your Azure Cosmos account. After importing, you can run, edit them, and save the changes back to GitHub.
-author: deborahc
-ms.author: dech
+title: |
+  Tutorial: Import Jupyter notebooks from GitHub into Azure Cosmos DB for NoSQL (preview)
+description: |
+  Learn how to connect to GitHub and import the notebooks from a GitHub repository to your Azure Cosmos DB for NoSQL account.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
-ms.topic: how-to
-ms.date: 02/22/2021
-
+ms.subservice: nosql
+ms.topic: overview 
+ms.date: 09/29/2022
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: dech
 ---
 
-# Import notebooks from a GitHub repo into Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+# Tutorial: Import Jupyter notebooks from GitHub into Azure Cosmos DB for NoSQL (preview)
 
-After you [enable notebook support](enable-notebooks.md) for your Azure Cosmos accounts, you can create new notebooks, upload new notebooks from your local computer, or import the existing notebooks from your GitHub accounts. This article shows how to connect your notebooks workspace to GitHub and import the notebooks from a GitHub repo to your Azure Cosmos account. After importing, you can run them, make changes, and save the changes back to GitHub.
+[!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-## Get notebooks from GitHub
+> [!IMPORTANT]
+> The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
 
-You can connect to your own GitHub repositories or other public GitHub repositories to read, author, and share notebooks in Azure Cosmos DB. Use the following steps to connect to a GitHub account:
+This tutorial walks through how to import Jupyter notebooks from a GitHub repository and run them in an Azure Cosmos DB for NoSQL account. After importing the notebooks, you can run, edit them, and persist your changes back to the same GitHub repository.
 
-1. Sign into [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos account.
+## Prerequisites
 
-1. Open the **Data Explorer** tab. This tab will show all your existing databases, containers, and notebooks.
+- [Azure Cosmos DB for NoSQL account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) (configured with serverless throughput).
 
-1. Select the **Connect to GitHub** menu item.
+## Create a copy of a GitHub repository
 
-1. A tab opens where you can choose to connect to **Public repos** only or **Public and private repos**.  After choosing the required option, select **Authorize access**. Authorization is required for Azure Cosmos DB to access the repositories in your GitHub account.
+1. Navigate to the [azure-samples/cosmos-db-nosql-notebooks](https://github.com/azure-samples/cosmos-db-nosql-notebooks/generate) template repository.
 
-   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Authorize Azure Cosmos DB to access your GitHub repositories":::
+1. Create a new copy of the template repository in your own GitHub account or organization.
 
-1. You are redirected to "github.com" web page where you can confirm the authorization. Select the **Authorize AzureCosmosDBNotebooks** button and enter your GitHub account password in the prompt.
+## Pull notebooks from GitHub
 
-1. After the authorization is successful, it takes you back to your Azure Cosmos account. You can then see all the public/private repos from your GitHub account. You can select a repo from the list available or add a repo directly by using its URL.
+Instead of creating new notebooks each time you start a workspace, you can import existing notebooks from GitHub. In this section, you'll connect to an existing GitHub repository with sample notebooks.
 
-1. Once you select the required repo, the repo entry moves from the **Unpinned repos** section to **Pinned repos** section. If needed, you can also choose a specific branch of that repo to import the notebooks from.
+1. Navigate to your Azure Cosmos DB account and open the **Data Explorer.**
 
-   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Choose a repository and a branch":::
+1. Select **Connect to GitHub**.
 
-1. Select **OK** to complete the import operation. All the notebooks available in the selected branch of your repo are imported into your Azure Cosmos account.
+    :::image type="content" source="media/tutorial-import-notebooks/connect-github-option.png" lightbox="media/tutorial-import-notebooks/connect-github-option.png" alt-text="Screenshot of the Data Explorer with the 'Connect to GitHub' option highlighted.":::
 
-After you integrate with a GitHub account, only you can see the list of repositories and notebooks in your Azure Cosmos account. This statement is true even if multiple users log into the Azure Cosmos DB account and add their own accounts. In other words, multiple users can use the same Azure Cosmos account to connect the notebook workspace to GitHub. However, each user only sees the list of repositories and notebooks they have imported. The notebooks imported by others are not visible to you.
+1. In the **Connect to GitHub** dialog, select the access option appropriate to your GitHub repository and then select **Authorize access**.
 
-To disconnect your GitHub account from the notebooks workspace, open the **Data Explorer** tab, select `…` next to **GitHub repos** and select **Disconnect from GitHub**.
+    :::image type="content" source="media/tutorial-import-notebooks/authorize-access.png" alt-text="Screenshot of the 'Connect to GitHub' dialog with options for various levels of access.":::
 
-## Edit a notebook and push changes to GitHub
+1. Complete the GitHub third-party authorization workflow granting access to the organization\[s\] required to access your GitHub repository. For more information, see [Authorizing GitHub Apps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/authorizing-github-apps).
 
-You can edit an existing notebook or add a new notebook to the repo and save the changes back to GitHub.
+1. In the **Manage GitHub settings** dialog, select the GitHub repository you created earlier.
 
-After you edit an existing notebook, select **Save**. A dialog box opens where you can enter the commit message for the changes you have made. Select **Commit** and the notebook in GitHub is updated. You can validate the updates by signing into your GitHub account, and verifying the commit history.
+    :::image type="content" source="media/tutorial-import-notebooks/select-pinned-repositories.png" alt-text="Screenshot of the 'Manage GitHub settings' dialog with a list of unpinned and pinned repositories.":::
 
-In the regular GitHub flow after committing the changes, you will typically push changes to a remote. However, in this case the commit option serves the purpose of “staging, committing, and pushing” your updates to GitHub.
+1. Back in the Data Explorer, locate the new tree of nodes for your pinned repository and open the **website-metrics-python.ipynb** file.
 
-:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edit notebooks and commit changes to GitHub":::
+    :::image type="content" source="media/tutorial-import-notebooks/open-notebook-pinned-repositories.png" alt-text="Screenshot of the pinned repositories in the Data Explorer.":::
 
-After editing the notebook, you can [Publish it to the notebook gallery](publish-notebook-gallery.md). 
+1. In the editor for the notebook, locate the following cell.
+
+    ```python
+    import pandas as pd
+    pd.options.display.html.table_schema = True
+    pd.options.display.max_rows = None
+    
+    df_cosmos.groupby("Item").size()
+    ```
+
+1. The cell currently outputs the number of unique items. Replace the final line of the cell with a new line to output the number of unique actions in the dataset.
+
+    ```python
+    df_cosmos.groupby("Action").size()
+    ```
+
+1. Run all the cells sequentially to see the new dataset. The new dataset should only include three potential values for the **Action** column. Optionally, you can select a data visualization for the results.
+
+    :::image type="content" source="media/tutorial-import-notebooks/updated-visualization.png" alt-text="Screenshot of the Pandas dataframe visualization for the data.":::
+
+## Push notebook changes to GitHub
+
+To save your work permanently, save your notebooks back to the GitHub repository. In this section, you'll persist your changes from the temporary workspace to GitHub as a new commit.
+
+1. Select **Save** to create a commit for your change to the notebook.
+
+    :::image type="content" source="media/tutorial-import-notebooks/save-option.png" alt-text="Screenshot of the 'Save' option in the Data Explorer menu.":::
+
+1. In the **Save** dialog, add a descriptive commit message.
+
+    :::image type="content" source="media/tutorial-import-notebooks/commit-message-dialog.png" alt-text="Screenshot of the 'Save' dialog with an example of a commit message.":::
+
+1. Navigate to the GitHub repository you created using your browser. The new commit should now be visible in the online repository.
+
+    :::image type="content" source="media/tutorial-import-notebooks/updated-github-repository.png" alt-text="Screenshot of the updated notebook on the GitHub website.":::
 
 ## Next steps
 
-* Learn about the benefits of [Azure Cosmos DB Jupyter notebooks.](../cosmosdb-jupyter-notebooks.md)
-* [Explore notebook samples gallery](https://cosmos.azure.com/gallery.html)
-* [Publish notebooks to the Azure Cosmos DB notebook gallery](publish-notebook-gallery.md)
-* [Use Python notebook features and commands](../use-python-notebook-features-and-commands.md)
-* [Use C# notebook features and commands](../use-csharp-notebook-features-and-commands.md)
+- [Learn about the Jupyter Notebooks feature in Azure Cosmos DB](../notebooks-overview.md)
+- [Create your first notebook in an Azure Cosmos DB for NoSQL account](tutorial-create-notebook.md)
+- [Review the FAQ on Jupyter Notebook support](../notebooks-faq.yml)
