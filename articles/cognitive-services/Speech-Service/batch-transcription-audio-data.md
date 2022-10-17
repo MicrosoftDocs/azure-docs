@@ -114,7 +114,7 @@ Follow these steps to create a storage account and upload wav files from your lo
 
 ## Trusted Azure services security mechanism
 
-This section explains how to configure an Azure Storage account used for storing [Batch transcription](batch-transcription.md) audio files with the maximal restricted access rights. The article implies that the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) is used to access the files. 
+This section explains how to restrict access to your batch transcription source audio files in an Azure Storage account using the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity). 
 
 > [!NOTE]
 > With the trusted Azure services security mechanism, you need to use [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) to store audio files. Usage of [Azure Files](../../storage/files/storage-files-introduction.md) is not supported.
@@ -125,11 +125,14 @@ If you perform all actions in this article, your Storage account will be in the 
 - Access to Storage account blob storage using [shared access signatures (SAS)](../../storage/common/storage-sas-overview.md) is prohibited.
 - Access to the selected Speech resource is allowed using the resource [system assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
-So in effect your Storage account becomes completely "locked" and can't be used in any scenario apart from transcribing audio files that were already present by the time the new configuration was applied. You should consider this configuration as a "model" as far as the security of your audio data is concerned and enhance and/or relax it according to your needs.
+So in effect your Storage account becomes completely "locked" and can't be used in any scenario apart from transcribing audio files that were already present by the time the new configuration was applied. You should consider this configuration as a model as far as the security of your audio data is concerned and customize it according to your needs.
 
-For example, you may allow traffic from selected public IP addresses and/or Azure Virtual networks. You may also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
+For example, you may allow traffic from selected public IP addresses and Azure Virtual networks. You may also set up access to your Storage account using [private endpoints](../../storage/common/storage-private-endpoints.md) (see as well [this tutorial](../../private-link/tutorial-private-endpoint-storage-portal.md)), re-enable access using Storage account key, allow access to other Azure trusted services, etc.
 
-In the steps below, you'll severely restrict access to the storage account. Then you'll assign the minimum required permissions for Speech resource managed identity to access the Storage account. 
+> [!NOTE] 
+> Using [private endpoints](speech-services-private-link.md) isn't required to secure the storage account. You can use a private endpoint for batch transcription API requests, while separately accessing the source audio files from a secure storage account, or the other way around.
+
+By following the steps below, you'll severely restrict access to the storage account. Then you'll assign the minimum required permissions for Speech resource managed identity to access the Storage account. 
 
 ### Enable system assigned managed identity for the Speech resource
 
