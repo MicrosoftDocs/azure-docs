@@ -12,6 +12,7 @@ metadata:
   ms.author: v-szuber 
   ms.date: 10/17/2022 
 
+
 # card 1
 landingContent:
   - title: About Azure VMware Solution
@@ -42,8 +43,6 @@ landingContent:
             url: concepts-private-clouds-clusters.md
           - text: Run command
             url: concepts-run-command.md
-          - text: Security recommendations
-            url: concepts-security-recommendations.md            
           - text: Storage
             url: concepts-storage.md
 
@@ -110,12 +109,11 @@ landingContent:
         links:
         - text: Access and identity
           url: concepts-identity.md
-        - text: Configure identity source for vCenter Server
+        - text: Configure identity source for vCenter
           url: configure-identity-source-vcenter.md
-        - text: Configure identity source for NSX-T Data Center
-          url: configure-external-identity-source-nsx-t.md          
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
+
 
 # card 4
   - title: Extend Azure VMware Solution
@@ -136,15 +134,9 @@ landingContent:
             url: configure-l2-stretched-vmware-hcx-networks.md
           - text: Configure DNS forwarder
             url: configure-dns-azure-vmware-solution.md
-          - text: Configure HCX network extension
-            url: configure-hcx-network-extension.md
-          - text: VMware HCX Mobility Optimized Networking (MON) guidance
-            url: vmware-hcx-mon-guidance.md
-          - text: Configure NSX-T Data Center network components
-            url: configure-nsx-network-components-azure-portal.md
-          - text: Configure port mirroring
+          - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
-          - text: Enable Public IP to the NSX Data Center Edge for Azure VMware Solution
+          - text: Enable Public IP to the NSX Edge for Azure VMware Solution
             url: enable-public-ip-nsx-edge.md
           - text: Configure a site-to-site VPN in vWAN
             url: configure-site-to-site-vpn-gateway.md
@@ -155,9 +147,7 @@ landingContent:
           - text: Configure storage policies
             url: configure-storage-policy.md
           - text: Create placement policy 
-            url: create-placement-policy.md
-          - text: Deploy vSAN stretched clusters (Preview)
-            url: deploy-vsan-stretched-clusters.md
+            url: create-placement-policy.md          
 
 # card 5
   - title: Azure native integration
@@ -182,7 +172,7 @@ landingContent:
             url: netapp-files-with-azure-vmware-solution.md
 
 # card 6 == backup and restore
-  - title: Protect with Azure Backup Server & third party solutions
+  - title: Backup with Azure Backup Server
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -266,7 +256,8 @@ landingContent:
             url: https://youtu.be/BoQYvqzb6Y8
           - text: Migration and capacity planning
             url: https://youtu.be/NoNG-hkksrA
-                           
+
+                            
 # Move resources (card 10)
   - title: Move Azure VMware Solution resources
     linkLists:
@@ -276,6 +267,8 @@ landingContent:
           url: move-ea-csp-subscriptions.md
         - text: Move Azure VMware Solution across regions
           url: move-azure-vmware-solution-across-regions.md
+
+
 
 # card 11
   - title: Troubleshooting
