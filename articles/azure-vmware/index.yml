@@ -130,7 +130,7 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure DHCP server or relay
+          - text: Configure DHCP server or relay 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched networks
             url: configure-l2-stretched-vmware-hcx-networks.md
@@ -144,7 +144,7 @@ landingContent:
             url: configure-nsx-network-components-azure-portal.md
           - text: Configure port mirroring
             url: configure-port-mirroring-azure-vmware-solution.md
-          - text: Enable Public IP to the NSX Edge for Azure VMware Solution
+          - text: Enable Public IP to the NSX Data Center Edge for Azure VMware Solution
             url: enable-public-ip-nsx-edge.md
           - text: Configure a site-to-site VPN in vWAN
             url: configure-site-to-site-vpn-gateway.md
