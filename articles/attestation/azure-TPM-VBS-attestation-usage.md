@@ -31,11 +31,11 @@ Here is how you can setup an attestation endpoint using Portal
 <ul>
 <li> Prerequisite: Access to the AAD tenant and subscription under which you want to create the attestation endpoint.</li>
 <li> Create an endpoint under the desired resource group, with the desired name.
-![](creatingtpmendpoint.mp4)</li>
+![](./media/creatingtpmendpoint.mp4)</li>
 <li> Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
-![](addroletoendpoint.mp4)</li>
+![](./media/addroletoendpoint.mp4)</li>
 <li> Configure the endpoint with the required policy.
-![](configurepolicy.mp4)</li>
+![](./media/configurepolicy.mp4)</li>
 Sample policies can be found in the [Policy Samples](tpm-attestation-sample-policies.md) Section.</br>
 
 > [!NOTE]
@@ -48,12 +48,12 @@ A client to communicate with the attestation service endpoint needs to ensure it
 
 <ul>
 <li> Add Attestation Reader Role to the identity that will be used for authentication against the endpoint.
-![](addreaderrole.mp4)</li>
+![](./media/addreaderrole.mp4)</li>
 </ul>
 
 ## Execute the Attestation Workflow:
 Using the [Client](https://github.com/microsoft/Attestation-Client-Samples) trigger an attestation flow. A successful atttestation will result in an attestation report.Parsing the JWT token, the contents of the report can be easily validated against expected outcome. 
-![](sampleexecution.mp4)
+![](./media/sampleexecution.mp4)
 Here is a sample of the contents of the attestation report.
 :::image type="content" source="./media/sampledecodedtoken.jpg" alt-text="Sample decoded token for tpm attestation" lightbox="./media/sampledecodedtoken.jpg":::
 
