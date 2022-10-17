@@ -76,6 +76,17 @@ Analysis is performed upon receipt of the request. If you send a request using t
 [!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 
+## Submitting a Fast Healthcare Interoperability Resources (FHIR) request
+
+To receive your result using the **FHIR** structure, you must send the FHIR version in the API request body. You can also send the **document type** as a parameter to the FHIR API request body. If the request does not specify a document type, the value is set to none.
+
+| Parameter Name  | Type |  Value |
+|--|--|--|
+| fhirVersion |  string  | `4.0.1` |
+| documentType | string | `ClinicalTrial`, `Consult`, `DischargeSummary`,  `HistoryAndPhysical`, `Imaging`, `None`, `Pathology`, `ProcedureNote`, `ProgressNote`|
+
+
+
 ## Getting results from the feature
 
 Depending on your API request, and the data you submit to the Text Analytics for health, you will get:
