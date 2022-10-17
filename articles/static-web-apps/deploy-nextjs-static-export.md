@@ -1,12 +1,12 @@
 ---
-title: "Deploy static-rendered Next.js websites on Azure Static Web Apps"
-description: "Generate and deploy Next.js dynamic sites with Azure Static Web Apps."
+title: "Tutorial: Deploy static-rendered Next.js websites on Azure Static Web Apps"
+description: "Generate and deploy Next.js static-rendered sites with Azure Static Web Apps."
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 10/12/2022
-ms.author: cshoe
+ms.author: aapowell
 ms.custom: devx-track-js, engagement-fy23
 ---
 
@@ -108,13 +108,13 @@ The following steps show how to link your app to Azure Static Web Apps. Once in 
 
 1. On the _Overview_ window, select the *URL* link to open your deployed application.
 
-If the website doesn't load immediately, then the build is still running. Once the workflow is complete, you can refresh the browser to view your web app.
-
-To check the status of the Actions workflow, go to the Actions dashboard for your repository:
+If the website doesn't load immediately, then the build is still running. To check the status of the Actions workflow, navigate to the Actions dashboard for your repository:
 
 ```url
 https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 ```
+
+Once the workflow is complete, you can refresh the browser to view your web app.
 
 Now any changes made to the `main` branch start a new build and deployment of your website.
 
@@ -123,6 +123,55 @@ Now any changes made to the `main` branch start a new build and deployment of yo
 When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
 
 Return to the terminal and run the following command `git pull origin main`.
+
+### Configuring Static Rendering
+
+By default, the application is treated as a hybrid rendered Next.js application, but to continue using it as a static site generator, you need to update the deployment task.
+
+1. Open the repository in Visual Studio Code.
+
+1. Navigate to the GitHub Actions file that Azure Static Web Apps added to your repository at `.github/workflows/azure-static-web-apps-<your site ID>.yml`
+
+1. Update the _Build and Deploy_ job to have an environment variable of `IS_STATIC_EXPORT` set to `true`:
+
+    ### [GitHub Actions](#tab/github-actions)
+
+    ```yaml
+        - name: Build And Deploy
+            id: swa
+            uses: azure/static-web-apps-deploy@latest
+            with:
+              azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_TOKEN }}
+              repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+              action: "upload"
+              app_location: "/" # App source code path
+              api_location: "" # Api source code path - optional
+              output_location: "" # Built app content directory - optional
+            env: # Add environment variables here
+              is_static_export: true
+    ```
+
+    ### [Azure Pipelines](#tab/azure-pipelines)
+
+    ```yaml
+        - task: AzureStaticWebAppLatest@0
+          inputs:
+            azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_TOKEN)
+            ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+            # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+            app_location: "/" # App source code path
+            api_location: "" # Api source code path - optional
+            output_location: "" # Built app content directory - optional
+            is_static_export: true # For running Static Next.js file - optional
+    ```
+
+1. Commit the changes to git and push them to GitHub.
+
+    ```bash
+    git commit -am "Configuring static site generation" && git push
+    ```
+
+Once the build has completed, the site will be statically rendered.
 
 ## Clean up resources
 
