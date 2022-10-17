@@ -485,12 +485,12 @@ Requests
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.34b0/)
 - [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.34b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
 
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
   [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.34b0/)
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
 
 ---
 
@@ -517,30 +517,12 @@ Dependencies
 
 #### [Python](#tab/python)
 
-The following code demonstrates how to enable OpenTelemetry in a Python by setting up OpenTelemetry MeterProvider. Metrics created and recorded using the sdk are tracked and telemetry is exported to application insights with the AzureMonitorMetricExporter.
-
-```python
-from opentelemetry import metrics
-from opentelemetry.sdk.metrics import MeterProvider
-from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
-
-from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
-
-exporter = AzureMonitorMetricExporter(connection_string="<Your Connection String>")
-reader = PeriodicExportingMetricReader(exporter)
-metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
-meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_demo")
-
-counter = meter.create_counter("my_fruit_counter")
-counter.add(1, {"name": "apple", "color": "red"})
-counter.add(2, {"name": "lemon", "color": "yellow"})
-counter.add(1, {"name": "lemon", "color": "yellow"})
-counter.add(2, {"name": "apple", "color": "green"})
-counter.add(5, {"name": "apple", "color": "red"})
-counter.add(4, {"name": "lemon", "color": "yellow"})
-
-input()
-```
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) version:
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.34b0/)
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) version:
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.34b0/)
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
+  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
 
 ---
 
