@@ -193,6 +193,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Java Spring provider
           href: https://go.microsoft.com/fwlink/?linkid=2180917
+        - name: Python provider
+          href: https://pypi.org/project/azure-appconfiguration-provider/
         - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Azure SDK for Java
@@ -201,8 +203,6 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
-        - name: Python provider
-          href: https://pypi.org/project/azure-appconfiguration-provider/
     - name: Feature management
       items:
         - name: .NET Core/.NET Standard
