@@ -468,7 +468,7 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Async Java sample with change feed
           href: how-to-java-change-feed.md
-    - name: SQL query
+    - name: NoSQL query
       href: query/toc.yml
     - name: Throughput (Request units)
       items:
