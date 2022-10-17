@@ -88,6 +88,7 @@ Ensure the user downloading the inventory from the portal has Contributor privil
 
 You can export all the errors and remediations for software inventory from portal by selecting **Export notifications**. The exported CSV file also contains additional information like the timestamp at which the error was encountered.
 
+:::image type="content" source="./media/troubleshoot-discovery/export-notifications.png" alt-text="Screenshot of Export notifications screen.":::
 
 ## Common software inventory errors
 

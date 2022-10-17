@@ -30,6 +30,8 @@ If your Azure Migrate project has private endpoint connectivity, the request to 
 
 You can export all the errors and remediations for software inventory from portal by selecting **Export notifications**. The exported CSV file also contains additional information like the timestamp at which the error was encountered.
 
+:::image type="content" source="./media/troubleshoot-dependencies/export-notifications.png" alt-text="Screenshot of Export notifications screen.":::
+
 ## Common agentless dependency analysis errors
 
 Azure Migrate supports agentless dependency analysis by using Azure Migrate: Discovery and assessment. [Learn more](how-to-create-group-machine-dependencies-agentless.md) about how to perform agentless dependency analysis.
