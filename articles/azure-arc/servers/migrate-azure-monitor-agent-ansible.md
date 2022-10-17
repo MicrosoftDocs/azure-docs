@@ -70,7 +70,7 @@ This article also uses the [Azure Infrastructure Configuration Demo](https://git
     **Source Control URL:** https://github.com/ansible-content-lab/azure.infrastructure_config_demos.git
 
 1. Select **Save**.
-    :::image type="content" source="media/migrate-ama/configure-content.png" alt-text="Screenshot of Projects window to edit details":::
+    :::image type="content" source="media/migrate-ama/configure-content.png" alt-text="Screenshot of Projects window to edit details." lightbox="media/migrate-ama/configure-content.png":::
 
 Once saved, the project should be synchronized with the automation controller.
 
@@ -86,10 +86,10 @@ We will create a workflow that leverages the following playbooks to install the 
 
 This workflow performs the following tasks:
 
-1. Installs the Azure Connected Machine agent on all of the VMs identified in inventory.
-1. Enables the Azure Monitor agent extension via Azure Arc.
-1. Disables the Azure Log Analytics agent extension via Azure Arc.
-1. Uninstalls the Azure Log Analytics agent if flagged.
+- Installs the Azure Connected Machine agent on all of the VMs identified in inventory.
+- Enables the Azure Monitor agent extension via Azure Arc.
+- Disables the Azure Log Analytics agent extension via Azure Arc.
+- Uninstalls the Azure Log Analytics agent if flagged.
 
 ### Create template to install Azure Connected Machine agent
 
@@ -228,7 +228,7 @@ An automation controller workflow allows you to construct complex automation by 
 1. Select **Save** at the top right corner of the workflow designer.
 
 You will now have a workflow that looks like the following:
-:::image type="content" source="media/migrate-ama/workflow.png" alt-text="Diagram showing workflow of azure monitor agent migration process":::
+:::image type="content" source="media/migrate-ama/workflow.png" alt-text="Diagram showing workflow of azure monitor agent migration process.":::
 
 ### Add a survey to the workflow
 
@@ -283,3 +283,8 @@ Now that you have the workflow created, you can run the workflow at any time. Wh
 ## Conclusion
 
 After following the steps in this article, you have created an automation workflow that migrates your Linux machines from the Azure Log Analytics agent to the Azure Monitor agent. This workflow will onboard the Linux machine to Azure Arc-enabled servers. This example uses the Ansible Content Lab for Cloud Automation to make implementation fast and easy.
+
+## Next steps
+
+Learn more about [connecting machines using Ansible playbooks](onboard-ansible-playbooks.md).
+
