@@ -50,7 +50,7 @@ When a user authenticates, a session cookie is set on the Azure AD domain in the
 To improve performance and ensure that the authorization server will look for the correct account session, you can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
 
 - Session ID `sid` (which can be retrieved from `idTokenClaims` of an `account` object)
-- `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token)
+- `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token) (if your app is authenticating users with B2C, see: [Configure B2C user-flows to emit username in ID tokens](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/FAQ.md#why-is-getaccountbyusername-returning-null-even-though-im-signed-in) )
 - `account` (which can be retrieved from using one the [account methods](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#account-apis))
 
 #### Using a session ID
@@ -183,11 +183,13 @@ InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-in requ
 
 To resolve the error, the user must create an interactive authentication request using the `loginPopup()` or `loginRedirect()`. In some cases, the prompt value **none** can be used together with an interactive MSAL.js method to achieve SSO. See [Interactive requests with prompt=none](msal-js-prompt-behavior.md#interactive-requests-with-promptnone) for more. If you already have the user's sign-in information, you can pass either the `loginHint` or `sid` optional parameters to sign-in a specific account.
 
-## SSO in ADAL.js to MSAL.js update
+## Negating SSO with prompt=login
 
-MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and to avoid prompting your users to sign in again, the library reads the ID token representing user’s session in ADAL.js cache, and seamlessly signs in the user in MSAL.js.
+If you like Azure AD to prompt the user for entering their credentials despite there being an active session with the authorization server, you can use the **login** prompt parameter in requests with MSAL.js. See [MSAL.js prompt behavior](msal-js-prompt-behavior.md) for more.
 
-To take advantage of the SSO behavior when updating from ADAL.js, you'll need to ensure the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
+## Sharing authentication state between ADAL.js and MSAL.js
+
+MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and share authentication state between apps, the library reads the ID token representing user’s session in ADAL.js cache. To take advantage of this when migrating from ADAL.js, you'll need to ensure that the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
 
 ```javascript
 
@@ -211,8 +213,6 @@ const config = {
 
 const msalInstance = new msal.PublicClientApplication(config);
 ```
-
-Once the `cacheLocation` is configured, MSAL.js can read the cached state of the authenticated user in ADAL.js and use that to provide SSO in MSAL.js.
 
 ## Next steps
 
