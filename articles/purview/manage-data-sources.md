@@ -44,7 +44,7 @@ There are two view types:
 
 ### Map view
 
-In Map view, you can see all of your sources and collections. In the following image we can see the root collection at the top, called Contoso Purview. Two sources are housed in the root collection: An Azure Data Lake Storage Gen2 source and a Power BI source. There are also five subcollections: Finance, Marketing, Sales, Development, and Outreach.
+In Map view, you can see all of your sources and collections. In the following image we can see the root collection at the top, called ContosoPurview. Two sources are housed in the root collection: An Azure Data Lake Storage Gen2 source and a Power BI source. There are also five subcollections: Finance, Marketing, Sales, Development, and Outreach.
 
 :::image type="content" source="media/manage-data-sources/map-view-inline.png" alt-text="Screenshot of the Microsoft Purview data source map view." lightbox="media/manage-data-sources/map-view-expanded.png":::
 
