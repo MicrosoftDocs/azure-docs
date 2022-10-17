@@ -129,8 +129,8 @@ blue_deployment = ManagedOnlineDeployment(name='blue',
                                           environment=env, 
                                           instance_type='Standard_DS2_v2', 
                                           instance_count=1, 
-                                          egress_public_network_access=PublicNetworkAccess.Disabled 
-                                          # egress_public_network_access=PublicNetworkAccess.Enabled 
+                                          egress_public_network_access="disabled"
+                                          # egress_public_network_access="enabled" 
 ) 
                               
 ml_client.begin_create_or_update(blue_deployment) 
