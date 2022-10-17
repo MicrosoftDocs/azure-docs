@@ -145,7 +145,7 @@ You can authorize access to data in your storage account using the following ste
 
 2. To use `DefaultAzureCredential`, make sure that the **azure-identity** package is [installed](#install-the-packages), and the class is imported:
 
-    ```xml
+    ```python
     from azure.identity import DefaultAzureCredential
     ```
 
