@@ -201,6 +201,8 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
+        - name: Python provider
+          href: https://pypi.org/project/azure-appconfiguration-provider/
     - name: Feature management
       items:
         - name: .NET Core/.NET Standard
