@@ -145,11 +145,13 @@ An AD FS server must already be set up and functioning before you begin this pro
 7. Optionally, in the **Configure Certificate** page, if you have an token encryption certificate, select **Browse** to locate a certificate file. Select **Next**.
 8. In the **Configure URL** page, select the **Enable support for the WS-Federation Passive protocol** check box. Under **Relying party WS-Federation Passive protocol URL**, enter the following URL: `https://login.microsoftonline.com/login.srf`
 9. Select **Next**.
-10. In the **Configure Identifiers** page, enter the following URL's and click **Add**. In the 2nd URL, enter the tenant ID of service partner's Azure AD tenant.
+10. In the **Configure Identifiers** page, enter the following URLs and select **Add**. In the second URL, enter the tenant ID of service partner's Azure AD tenant.
       - `urn:federation:MicrosoftOnline`
       - `https://login.microsoftonline.com/<tenant ID>/` 
-> [!NOTE]
-> Be sure to include a slash (/) after the tenant ID. For example, https://login.microsoftonline.com/094a6247-27d4-489f-a23b-b9672900084d/.
+
+   > [!NOTE]
+   > Be sure to include a slash (/) after the tenant ID, for example: https://login.microsoftonline.com/094a6247-27d4-489f-a23b-b9672900084d/.
+
 11. Select **Next**.
 12. In the **Choose Access Control Policy** page, select a policy, and then select **Next**.
 13. In the **Ready to Add Trust** page, review the settings, and then select **Next** to save your relying party trust information.
