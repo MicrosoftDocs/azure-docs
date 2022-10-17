@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 help` command to get help info for the BlobFuse2 command and subcommands.
 
-[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 

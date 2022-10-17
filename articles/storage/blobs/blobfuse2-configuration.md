@@ -23,7 +23,7 @@ You can use configuration settings to manage BlobFuse2 in your deployment. Throu
 
 For a list of all BlobFuse2 settings and their descriptions, see the [base configuration file on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml).
 
-[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 To manage configuration settings for BlobFuse2, you have three options (in order of precedence):
 

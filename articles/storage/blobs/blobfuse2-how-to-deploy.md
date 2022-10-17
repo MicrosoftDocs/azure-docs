@@ -15,7 +15,7 @@ ms.date: 10/17/2022
 
 [BlobFuse2 (preview)](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md).
 
-[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 

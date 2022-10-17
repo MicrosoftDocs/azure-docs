@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 This reference shows how to use the BlobFuse2 command set to mount Azure blob storage containers as file systems on Linux, and how to manage them.
 
-[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 

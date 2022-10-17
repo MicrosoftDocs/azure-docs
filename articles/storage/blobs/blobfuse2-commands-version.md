@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 version` command to display the current version of BlobFuse2, and optionally check for latest version.
 
-[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## Syntax
 

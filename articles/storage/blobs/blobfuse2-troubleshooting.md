@@ -15,7 +15,7 @@ ms.date: 10/17/2022
 
 This article provides references to help you troubleshoot BlobFuse2 issues during the preview.
 
-[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
+[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
 
 ## BlobFuse2 troubleshooting guide
 

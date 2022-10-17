@@ -15,7 +15,7 @@ ms.custom: "include file"
 >
 > To use BlobFuse in a production environment, use the BlobFuse v1 general availability (GA) version. For information about the GA version, see:
 >
-> - [Mount Azure Blob Storage as a file system by using BlobFuse v1](storage-how-to-mount-container-linux.md)
+> - [Mount Azure Blob Storage as a file system by using BlobFuse v1](../articles/storage/blobs/storage-how-to-mount-container-linux.md)
 > - [BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
