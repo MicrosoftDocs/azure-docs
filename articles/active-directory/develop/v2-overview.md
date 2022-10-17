@@ -35,8 +35,6 @@ For developers, the Microsoft identity platform offers integration of modern inn
 
 With the Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as both a client and a resource application (API).
 
-For a video overview of the platform and a demo of the authentication experience, see [What is the Microsoft identity platform for developers?](https://youtu.be/uDU1QTSw7Ps).
-
 > [!VIDEO https://www.youtube.com/embed/uDU1QTSw7Ps]
 
 ## Getting started
@@ -82,4 +80,5 @@ If you have an Azure account, then you have access to an Azure Active Directory 
 
 Learn how to create your own tenant for use while building your applications:
 
-[Quickstart: Set up an Azure AD tenant](quickstart-create-new-tenant.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Set up an Azure AD tenant](quickstart-create-new-tenant.md)
