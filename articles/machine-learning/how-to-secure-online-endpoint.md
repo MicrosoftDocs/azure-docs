@@ -86,17 +86,15 @@ az ml online-endpoint create -f endpoint.yml --set public_network_access=disable
 # [Python SDK](#tab/python)
 
 ```python
-from azure.ai.ml.entities._common import PublicNetworkAccess
+from azure.ai.ml.entities import ManagedOnlineEndpoint
 
 endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',  
                          description='this is a sample online endpoint', 
                          tags={'foo': 'bar'}, 
                          auth_mode="key", 
-                         public_network_access=PublicNetworkAccess.Disabled 
-                         # public_network_access=PublicNetworkAccess.Enabled 
-) 
-                          
-ml_client.begin_create_or_update(endpoint) 
+                         public_network_access="disabled" 
+                         # public_network_access="enabled" 
+)
 ```
 
 ---
