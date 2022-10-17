@@ -146,6 +146,7 @@ The location is the region where the custom image will be created. The following
 - East Asia
 - Korea Central
 - South Africa North
+- Qatar Central
 - USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
 
@@ -600,6 +601,10 @@ Customize properties:
 
 The `File` customizer lets Image Builder download a file from a GitHub repo or Azure storage. The customizer supports both Linux and Windows. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.
 
+  > [!IMPORTANT]
+  > Azure Image Builder does not support using managed identities to download data from storage accounts. Please make sure that the URL for any files that need to be downloaded is either publicly accessible or a SAS uri.
+
+
 # [JSON](#tab/json)
 
 ```json
@@ -635,7 +640,7 @@ File customizer properties:
 - **sourceUri** - an accessible storage endpoint, this endpoint can be GitHub or Azure storage. You can only download one file, not an entire directory. If you need to download a directory, use a compressed file, then uncompress it using the Shell or PowerShell customizers.
 
   > [!NOTE]
-  > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you'll to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
+  > If the sourceUri is an Azure Storage Account, irrespective if the blob is marked public, you'll need to grant the Managed User Identity permissions to read access on the blob. See this [example](./image-builder-user-assigned-identity.md#create-a-resource-group) to set the storage permissions.
 
 - **destination** – the full destination path and file name. Any referenced path and subdirectories must exist, use the Shell or PowerShell customizers to set up these paths up beforehand. You can use the script customizers to create the path.
 
