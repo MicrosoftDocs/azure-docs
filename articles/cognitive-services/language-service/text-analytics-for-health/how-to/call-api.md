@@ -38,6 +38,7 @@ By default, Text Analytics for health will use the latest available AI model on 
 
 | Supported Versions | latest version |
 |--|--|
+| `2022-08-15-preview` | `2022-08-15-preview`   |
 | `2022-03-01` | `2022-03-01`   |
 | `2021-05-15` | `2021-05-15`   |
 
@@ -61,7 +62,7 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 ### Input languages
 
-Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview when deploying the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
+The Text Analytics for health supports English in addition to multiple languages that are currently in preview. You can use the hosted API or deploy the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
 
 ## Submitting data
 
