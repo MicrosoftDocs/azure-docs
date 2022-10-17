@@ -18,7 +18,7 @@ ms.date: 08/26/2022
 
 Azure Machine Learning has several inbound and outbound dependencies. Some of these dependencies can expose a data exfiltration risk by malicious agents within your organization. This document explains how to minimize data exfiltration risk by limiting inbound and outbound requirements.
 
-* __Inbound__: Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
+* __Inbound__: Azure Machine Learning compute instance and compute cluster have two inbound requirements: the `batchnodemanagement` (ports 29876-29877) and `azuremachinelearning` (port 44224) service tags. You can control this inbound traffic by using a network security group and service tags. It's difficult to disguise Azure service IPs, so there's low data exfiltration risk. You can also configure the compute to not use a public IP, which removes inbound requirements.
 
 * __Outbound__: If malicious agents don't have write access to outbound destination resources, they can't use that outbound for data exfiltration. Azure Active Directory, Azure Resource Manager, Azure Machine Learning, and Microsoft Container Registry belong to this category. On the other hand, Storage and AzureFrontDoor.frontend can be used for data exfiltration.
 
@@ -64,7 +64,7 @@ Select the configuration that you're using:
 
 # [Service tag routes](#tab/servicetag)
 
-__Allow__ outbound traffic to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __TCP port 443__ to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `BatchNodeManagement.<region>`
 * `AzureMachineLearning`
@@ -130,7 +130,7 @@ When using Azure ML curated environments, make sure to use the latest environmen
 
 1. When using `mcr.microsoft.com`, you must also allow outbound configuration to the following resources. Select the configuration option that you're using:
 
-    # [Network security group](#tab/nsg)
+    # [Service tag routes](#tab/servicetag)
 
     __Allow__ outbound traffic over __TCP port 443__ to the following service tags. Replace `<region>` with the Azure region that contains your compute cluster or instance.
 
