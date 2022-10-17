@@ -50,6 +50,7 @@ Follow these steps to create a new console application and install the Speech SD
 
     class Program 
     {
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         static string speechKey = Environment.GetEnvironmentVariable("SPEECH_KEY");
         static string speechRegion = Environment.GetEnvironmentVariable("SPEECH_REGION");
 

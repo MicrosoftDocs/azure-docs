@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 1. Within your Front door resource, select **Rules engine configuration** under **Settings**, and then select the rules engine that you want to add the security header to.
 
-:::image type="content" source="media/front-door-security-headers/front-door-rules-engine-configuration.png" alt-text="Screenshot showing rules engine configuration page of Azure Front Door.":::
+    :::image type="content" source="media/front-door-security-headers/front-door-rules-engine-configuration.png" alt-text="Screenshot showing rules engine configuration page of Azure Front Door.":::
 
 2. Select **Add rule** to add a new rule. Provide the rule a name and then select **Add an Action** > **Response Header**.
 
@@ -39,17 +39,17 @@ In this tutorial, you learn how to:
 
 4. Add the header name: *Content-Security-Policy* and define the values this header should accept, then select **Save**. In this scenario, we choose *`script-src 'self' https://apiphany.portal.azure-api.net`*.
 
-:::image type="content" source="./media/front-door-security-headers/front-door-security-header.png" alt-text="Screenshot showing the added security header under.":::
+    :::image type="content" source="./media/front-door-security-headers/front-door-security-header.png" alt-text="Screenshot showing the added security header under.":::
 
    > [!NOTE]
    > Header values are limited to 640 characters.
 
 5. Once you've added all of the rules you'd like to your configuration, don't forget to go to your preferred route and associate your Rules engine configuration to the Route Rule. This step is required to enable the rule to work.
 
-:::image type="content" source="./media/front-door-security-headers/front-door-associate-routing-rule.png" alt-text="Screenshot showing how to associate a routing rule.":::
+    :::image type="content" source="./media/front-door-security-headers/front-door-associate-routing-rule.png" alt-text="Screenshot showing how to associate a routing rule.":::
 
-> [!NOTE]
-> In this scenario, we did not add [match conditions](front-door-rules-engine-match-conditions.md) to the rule. All incoming requests that match the path defined in the Route Rule will have this rule applied. If you would like it to only apply to a subset of those requests, be sure to add your specific **match conditions** to this rule.
+    > [!NOTE]
+    > In this scenario, we did not add [match conditions](front-door-rules-engine-match-conditions.md) to the rule. All incoming requests that match the path defined in the Route Rule will have this rule applied. If you would like it to only apply to a subset of those requests, be sure to add your specific **match conditions** to this rule.
 
 ## Clean up resources
 
