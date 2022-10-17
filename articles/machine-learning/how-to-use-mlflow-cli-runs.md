@@ -294,7 +294,7 @@ To register and view a model from a job, use the following steps:
 
 ## Example files
 
-[Using MLflow (Jupyter Notebooks)](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/notebooks/using-mlflow)
+[Using MLflow (Jupyter Notebooks)](https://github.com/Azure/azureml-examples/tree/main/v1/notebooks/using-mlflow)
 
 ## Limitations
 
