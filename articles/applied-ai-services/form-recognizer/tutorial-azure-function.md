@@ -187,35 +187,36 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
 
 1. Next, add code to query the service and get the returned data.
 
-```Python
+    ```python
     resp = requests.post(url=post_url, data=source, headers=headers)
-if resp.status_code != 202:
-    print("POST analyze failed:\n%s" % resp.text)
-quit()
-print("POST analyze succeeded:\n%s" % resp.headers)
-get_url = resp.headers["operation-location"]
 
-wait_sec = 25
+    if resp.status_code != 202:
+        print("POST analyze failed:\n%s" % resp.text)
+    quit()
+    print("POST analyze succeeded:\n%s" % resp.headers)
+    get_url = resp.headers["operation-location"]
 
-time.sleep(wait_sec)
-# The layout API is async therefore the wait statement
+    wait_sec = 25
 
-resp = requests.get(url=get_url, headers={"Ocp-Apim-Subscription-Key": apim_key})
+    time.sleep(wait_sec)
+    # The layout API is async therefore the wait statement
 
-resp_json = json.loads(resp.text)
+    resp = requests.get(url=get_url, headers={"Ocp-Apim-Subscription-Key": apim_key})
 
-status = resp_json["status"]
+    resp_json = json.loads(resp.text)
 
-if status == "succeeded":
-    print("POST Layout Analysis succeeded:\n%s")
+    status = resp_json["status"]
+
+    if status == "succeeded":
+        print("POST Layout Analysis succeeded:\n%s")
+        results = resp_json
+    else:
+        print("GET Layout results failed:\n%s")
+    quit()
+
     results = resp_json
-else:
-    print("GET Layout results failed:\n%s")
-quit()
 
-results = resp_json
-
-```
+    ```
 
 1. Add the following code to connect to the Azure Storage **output** container. Fill in your own values for the storage account name and key. You can get the key on the **Access keys** tab of your storage resource in the Azure portal.
 
