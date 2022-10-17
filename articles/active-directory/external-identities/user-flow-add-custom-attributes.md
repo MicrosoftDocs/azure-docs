@@ -43,7 +43,7 @@ The `<extensions-app-id>` is specific to your tenant. To find this identifier, n
    - **Data Type** - Choose a data type (**String**, **Boolean**, or **Int**).
    - **Description** - Optionally, enter a description of the custom attribute for internal use. This description isn't visible to the user.
 
-      :::image type="content" source="media/user-flow-add-custom-attributes/add-an-attribute.png" alt-text="Screenshot of adding a custom attribute.":::
+   :::image type="content" source="media/user-flow-add-custom-attributes/add-an-attribute.png" alt-text="Screenshot of adding a custom attribute.":::
 
 7. Select **Create**.
 
