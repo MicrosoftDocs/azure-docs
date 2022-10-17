@@ -26,6 +26,9 @@ The workflow will work in the following way:
 3. It will get an authorization token to invoke batch endpoints using the credentials from a Service Principal.
 4. It will trigger the batch endpoint (default deployment) using the newly created file as input.
 
+> [!IMPORTANT]
+> The proposed Logic App will create a batch deployment job for each file that triggers the event of *blog created*. However, keep in mind that batch deployments distribute the work at the file level. Since this execution is specifying only one file, then, there will not be any parallelization happening in the deployment. Instead, you will be taking advantage of the capability of batch deployments of executing multiple scoring jobs under the same compute cluster.
+
 ## Prerequisites
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
@@ -117,6 +120,8 @@ This Logic App will use parameters to store specific pieces of information that 
 
 ## Add the trigger
 
+We want to trigger the Logic App each time a new file is created in a given folder (data asset) of a Storage Account. The Logic App will also use the information of the event to invoke the batch endpoint and passing the specific file to be processed.
+
 1. On the workflow designer, under the search box, select **Built-in**.
 
 1. In the search box, enter **event grid**, and select the trigger named **When a resource event occurs**.
@@ -189,6 +194,9 @@ This Logic App will use parameters to store specific pieces of information that 
    The action will look as follows:
    
    :::image type="content" source="./media/how-to-use-event-grid-batch/invoke.png" alt-text="The invoke activity of the Logic App.":::
+   
+   > [!NOTE]
+   > Notice that this last action will trigger the batch deployment job, but it will not wait for its completion. Logic Apps are not long running applications. If you need to wait for the job to complete, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-adf.md).
 
 1. Click on __Save__.
 
