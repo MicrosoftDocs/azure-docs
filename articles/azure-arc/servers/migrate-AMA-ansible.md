@@ -7,22 +7,25 @@ ms.topic: conceptual
 
 # Migrate to Azure Monitor Agent on Azure Arc using Red Hat Ansible Automation Platform
 
-This article covers how to use Red Hat Ansible Automation Platform to migrate servers that are currently using Azure Log Analytics agent to Azure Monitor Agent on Azure Arc using Ansible Automation Platform. Once you have completed the configuration steps in this article, you'll be able to run a workflow against an automation controller inventory that performs the following tasks:
+This article covers how to use Red Hat Ansible Automation Platform to migrate non-Azure machines from the Azure Log Analytics agent to Azure Monitor agent. This includes onboarding the machines to Azure Arc-enabled servers. Once you have completed the configuration steps in this article, you'll be able to run a workflow against an automation controller inventory that performs the following tasks:
 
-- Ensure that the Azure Connected Machine agent is installed on each machine. In cases where the agent is not installed, then it will be installed.
-- Enable the Azure Monitor Agent on Arc-enabled machines.
-- Disable the Log Analytics agent.
-- Uninstall the Log Analytics agent.
+- Ensure that the Azure Connected Machine agent is installed on each machine. 
+- Install and enable the Azure Monitor agent.
+- Disable and uninstall the Log Analytics agent.
 
-Content from the [Ansible Content Lab for Cloud Automation](https://cloud.lab.ansible.io/) has already been developed to perform the automation for this effort.  This article will cover importing that content as a project in automation controller to build a workflow that will perform the automation previously mentioned.
+Content from the [Ansible Content Lab for Cloud Automation](https://cloud.lab.ansible.io/) has already been developed to automate this scenario.  This article will walk through how you can import that content as a project in an automation controller to build a workflow to perform the tasks above.
 
-Ansible Automation Platform can automate the deployment of Arc services across your IT landscape to make onboarding to Azure Arc fast and reliable.
+Ansible Automation Platform can automate the deployment of Azure services across your IT landscape to make onboarding to Azure Arc fast and reliable.
 
 > [!NOTE]
 > The Ansible content examples in this article target Linux hosts, but the playbooks can be altered to accommodate Windows hosts as well. 
 
 
 ## Prerequisites
+
+### Azure Log Analytics workspace
+
+This article assumes you are using the Azure Log Analytics agent and that the servers are pre-configured to report data to a Log Analytics workspace. You will need the name and resource group of the workspace from which you are migrating.
 
 ### Automation controller 2.x
 
@@ -48,17 +51,11 @@ A working account credential configured in Ansible Automation Platform for the A
 
 A “Machine Credential” configured in Automation Controller for SSH access to the servers in your host inventory is required.
 
-### Azure Log Analytics workspace
-
-This article assumes you are using the Azure Log Analytics agent and that the servers are pre-configured to report data to a Log Analytics workspace. You will need the name and resource group of the workspace from which you are migrating.
-
 ## Configuring the content
 
 The examples in this article rely on content developed and incubated by Red Hat through the [Ansible Content Lab for Cloud Content](https://cloud.lab.ansible.io/).
 
-Also, this article makes use of the [Azure Infrastructure Configuration Demo](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) collection, which contains a number of roles and playbooks that manage Azure use cases including those with Azure Arc-enabled servers and Azure Log Analytics.
-
-To use this collection in Automation Controller, follow the steps below to set up a project with the repository:
+This article also uses the [Azure Infrastructure Configuration Demo](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) collection. This collection contains a number of roles and playbooks that manage Azure use cases including those with Azure Arc-enabled servers. To use this collection in Automation Controller, follow the steps below to set up a project with the repository:
 
 1. Log in to automation controller.
 1. In the left menu, select **Projects**.
@@ -79,9 +76,7 @@ Once saved, the project should be synchronized with the automation controller.
 
 ## Migrating Azure agents
 
-The Ansible Content Lab for Cloud Content project contains example playbooks that implement the reusable content found in the example roles. Learn more about the individual roles in the Collection by viewing the [README.md](https://github.com/ansible-content-lab/azure.infrastructure_config_demos/blob/main/README.md) file included with the Collection.
-
-In this example, we will assume that our Linux servers are already running the Azure Log Analytics agent, but do not yet have the Azure Connected Machine agent installed. If your organization relies on other Azure services that use the Log Analytics agent, you may need to plan for extra data collection rules prior to migrating to the Connected Machine agent.
+In this example, we will assume that our Linux servers are already running the Azure Log Analytics agent, but do not yet have the Azure Connected Machine agent installed. If your organization relies on other Azure services that use the Log Analytics agent, you may need to plan for extra data collection rules prior to migrating to the Azure Monitor agent.
 
 We will create a workflow that leverages the following playbooks to install the Azure Connected Machine agent, deploy the Azure Monitor Agent, disable the Log Analytics agent, and then uninstall the Log Analytics agent:
 
@@ -287,5 +282,4 @@ Now that you have the workflow created, you can run the workflow at any time. Wh
 
 ## Conclusion
 
-After following the steps in this article, you have created an automation workflow that migrates your Linux-based machines from the Azure Log Analytics agent to the Azure Monitor Agent. This example took advantage of content from the Ansible Content Lab for Cloud Automation to make implementation fast and easy. You may submit content ideas to the Ansible Content Lab for Cloud Content [here](https://cloud.lab.ansible.io/).
-
+After following the steps in this article, you have created an automation workflow that migrates your Linux machines from the Azure Log Analytics agent to the Azure Monitor agent. This workflow will onboard the Linux machine to Azure Arc-enabled servers. This example uses the Ansible Content Lab for Cloud Automation to make implementation fast and easy.
