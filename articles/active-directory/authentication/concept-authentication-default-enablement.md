@@ -22,14 +22,13 @@ Azure Active Directory (Azure AD) adds and improves security features to better 
 
 For example, in response to increasing MFA fatigue attacks, Microsoft recommended ways for customers to [defend users](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677). One recommendation to prevent users from accidental multifactor authentication (MFA) approvals is to enable [number matching](how-to-mfa-number-match.md). As a result, default behavior for number matching will be explicitly **Enabled** for all Microsoft Authenticator users.  
 
-This topic explains how default protection is applied to the Authentication methods policy for Azure AD. 
+There are two ways for protection of a security feature to be enabled by default: 
 
-## Default protection
-
-There are two ways for protection to be enabled by default: 
-
-- Azure AD will enable protection by default for all tenants on a certain date. Microsoft schedules default protection far in advance to give customers time to prepare for the change. During that time, customers are encouraged to use the Azure portal or Graph API to test and roll out the changes on their own schedule. Customers can't opt out if Microsoft schedules protection by default. 
+- Azure AD will enable protection of a security feature by default for all tenants on a certain date, and there won't be an option to disable protection. Microsoft schedules default protection far in advance to give customers time to prepare for the change. During that time, customers are encouraged to use the Azure portal or Graph API to test and roll out the changes on their own schedule. Customers can't opt out if Microsoft schedules protection by default. 
 - Protection can be **Microsoft managed**, which means Azure AD can enable or disable protection based upon the current landscape of security threats. Customers can choose whether to allow Microsoft to manage the protection. They can change from **Microsoft managed** to explicitly make the protection **Enabled** or **Disabled** at any time. 
+
+>[!NOTE]
+>Only a critical security feature will have protection enabled by default.  
 
 ## Default protection enabled by Azure AD
 
@@ -56,7 +55,8 @@ The following table lists each setting that can be set to Microsoft managed and 
 | [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Disabled      |
 | [Additional context in Microsoft Authenticator notifications](how-to-mfa-additional-context.md) | Disabled      |
 
-As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [relaese notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). 
+As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [release notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). 
+
 
 ## Next steps
 
