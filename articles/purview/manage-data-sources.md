@@ -44,12 +44,12 @@ There are two view types:
 
 ### Map view
 
-In Map view, you can see all of your sources and collections. In the following image we can see the root collection at the top, called Contoso Purview. Two sources are housed in the root collection: A Power BI source and an Azure Subscription source. There are also four subcollections: Finance, Marketing, Sales, and Development.
+In Map view, you can see all of your sources and collections. In the following image we can see the root collection at the top, called Contoso Purview. Two sources are housed in the root collection: An Azure Data Lake Storage Gen2 source and a Power BI source. There are also five subcollections: Finance, Marketing, Sales, Development, and Outreach.
 
 :::image type="content" source="media/manage-data-sources/map-view-inline.png" alt-text="Screenshot of the Microsoft Purview data source map view." lightbox="media/manage-data-sources/map-view-expanded.png":::
 
 Each of the subcollections can be opened and managed from the map view by selecting the **+** button.
-You can also register a new source, by selecting the register source button, or view details.
+You can also register a new source by selecting the register source button, or view details by selecting **View details**.
 
 :::image type="content" source="media/manage-data-sources/collection-options.png" alt-text="Screenshot the map view showing the Root collection and the finance subcollection with its resource and subcollections expanded.":::
 
