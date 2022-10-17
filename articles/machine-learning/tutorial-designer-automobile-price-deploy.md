@@ -185,7 +185,7 @@ You can update the online endpoint with new model trained in the designer. On th
 
 * If your inference graph contains "Enter Data Manually" component which is not connected to the same port as “Web service Input” component, the "Enter Data Manually" component will not be executed during HTTP call processing. A workaround is to register the outputs of that "Enter Data Manually" component as dataset, then in the inference pipeline draft, replace the "Enter Data Manually" component with the registered dataset. 
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/real-time-inferencepipeline-limitation.png" alt-text="Screenshot showing how to modify inference pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/real-time-inferencepipeline-limitation.png" alt-text="Screenshot showing how to modify inference pipeline containing enter data manually component.":::
 
 ## Clean up resources
 
