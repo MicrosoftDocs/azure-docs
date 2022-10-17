@@ -73,7 +73,7 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](../../logic-apps/logic-apps-pricing.md#standard-pricing). |
    | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing). |
 
 1. Now continue with the following selections:
