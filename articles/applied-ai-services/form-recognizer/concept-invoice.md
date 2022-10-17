@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/10/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,7 +27,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**JavaScript SDK**](quickstarts/get-started-v3-sdk-rest-api.md)</li></ul>|**prebuilt-invoice**|
+|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li></ul>|**prebuilt-invoice**|
 
 The following tools are supported by Form Recognizer v2.1:
 
@@ -136,7 +136,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 The prebuilt invoice **2022-06-30** and later releases support returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. If you have documents where the same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on context.
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key will be either customer or user (based on context).
 
 ## Form Recognizer v3.0
 
