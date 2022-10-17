@@ -117,6 +117,16 @@ From the **Configuration + pricing** tab, provide the following information:
 
 Select **Review + create >>** to validate the cluster configuration and advance to the final tab.
 
+## Tags
+
+On the **Tags** page, provide the following information:
+
+| Property | Description|
+|---|---|
+|Name | Optional. Enter a name of your choice to easily identify all resources.|
+| Value | Leave this blank.|
+| Resource | Select All resources selected.|     
+
 ## Review + create
 
 :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight create cluster summary":::
