@@ -272,7 +272,7 @@ With outbound settings, you select which of your users and groups will be able t
 When you remove an organization from your Organizational settings, the default cross-tenant access settings will go into effect for that organization.
 
 > [!NOTE]
-> If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
+> If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicy-overview) is true), you won't be able to remove the organization.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 
