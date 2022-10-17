@@ -5,7 +5,7 @@ author: XiaoyuMSFT
 ms.author: xiaoyul
 manager: craigg
 ms.reviewer: nibruno; wiassaf
-ms.date: 10/14/2022
+ms.date: 10/17/2022
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
@@ -99,13 +99,16 @@ The number of overlapping segments depends on the size of data to sort, the avai
 
 - Use `xlargerc` resource class on a higher DWU to allow more memory for data sorting before the index builder compresses the data into segments.  Once in an index segment, the physical location of the data cannot be changed.  There's no data sorting within a segment or across segments.
 
-- Create ordered CCI with `OPTION (MAXDOP = 1)`.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands doesn't support the MAXDOP option. For example:
+- Create ordered CCI with `OPTION (MAXDOP = 1)`. Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global sorting across data sorted by different threads. Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread. Using a single threaded operation delivers the highest compression quality. For example:
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
+
+> [!NOTE]
+> Currently, in dedicated SQL pools in Azure Synapse Analytics, the MAXDOP option is only supported in creating an ordered CCI table using `CREATE TABLE AS SELECT` command. Creating an ordered CCI via `CREATE INDEX` or `CREATE TABLE` commands doesn't support the MAXDOP option. This limitation does not apply to SQL Server 2022, where you can specify MAXDOP with the `CREATE INDEX` statement.
 
 - Pre-sort the data by the sort key(s) before loading them into tables.
 
@@ -162,3 +165,7 @@ WITH (DROP_EXISTING = ON);
 ## Next steps
 
 - For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
+- [Columnstore indexes: Overview](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [What's new in columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)
+- [Columnstore indexes - Design guidance](/sql/relational-databases/indexes/columnstore-indexes-design-guidance)
+- [Columnstore indexes - Query performance](/sql/relational-databases/indexes/columnstore-indexes-query-performance)
