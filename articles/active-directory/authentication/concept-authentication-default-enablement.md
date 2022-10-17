@@ -56,7 +56,7 @@ The following table lists each setting that can be set to Microsoft managed and 
 | [Registration campaign](how-to-mfa-registration-campaign.md)                                    | Disabled      |
 | [Additional context in Microsoft Authenticator notifications](how-to-mfa-additional-context.md) | Disabled      |
 
-As threat vectors change, Azure AD may schedule default protection for a **Microsoft managed** setting. 
+As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [relaese notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). 
 
 ## Next steps
 
