@@ -13,6 +13,9 @@ services: azure-maps
 
 Azure Maps Creator enables users to import their indoor map data in GeoJSON format with [Facility Ontology 2.0][Facility Ontology], which can then be used to create a [dataset][dataset-concept].
 
+> [!NOTE]
+> This article explains how to create a dataset from a GeoJSON package. For information on additional steps required to complete an indoor map, see [Next steps](#next-steps).
+
 ## Prerequisites
 
 - Basic understanding of [Creator for indoor maps](creator-indoor-maps.md).
@@ -64,7 +67,10 @@ https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&
 
 ### Create a dataset
 
-A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API][Dataset Create 2022-09-01-preview]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset. This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted Drawing package.
+A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset from your GeoJSON, use the new [Dataset Create API][Dataset Create 2022-09-01-preview]. The Dataset Create API takes the `udid` you got in the previous section and returns the `datasetId` of the new dataset.
+
+> [!IMPORTANT]
+> This is different from the [previous version][Dataset Create] in that it doesn't require a `conversionId` from a converted Drawing package.
 
 To create a dataset:
 
@@ -89,6 +95,8 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 1. In the Header of the HTTP response, copy the value of the unique identifier contained in the `Resource-Location` key.
 
     > https://us.atlas.microsoft.com/datasets/**c9c15957-646c-13f2-611a-1ea7adc75174**?api-version=2022-09-01-preview
+
+See [Next steps](#next-steps) for links to articles to help you complete your indoor map.
 
 ## Add data to an existing dataset
 
@@ -117,7 +125,7 @@ https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversio
 
 The GeoJSON zip package consists of one or more [RFC 7946][RFC 7946] compliant GeoJSON files, one for each feature class, all in the root directory (subdirectories aren't supported), compressed with standard Zip compression and named using the `.ZIP` extension.
 
-Each feature class file must match its definition in the [Facility ontology 2.0][Facility ontology] and each feature must have a globally unique identifier. 
+Each feature class file must match its definition in the [Facility ontology 2.0][Facility ontology] and each feature must have a globally unique identifier.
 
 Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) and underscore (_) characters.
 
@@ -138,12 +146,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 
 [Facility ontology][Facility ontology] defines how Azure Maps Creator internally stores facility data, divided into feature classes, in a Creator dataset. When importing a GeoJSON package, anytime a feature is added or modified, a series of validations run. This includes referential integrity checks as well as geometry and attribute validations. These validations are described in more detail below.
 
-#### Facility Area Check
-
-The facility area can be between 4 and 4,000 Sq Km.
-
-#### Hierarchical spatial validations
-
+- The facility area can be between 4 and 4,000 Sq Km.
 - The top level element is [facility][facility], which defines each building in the file *facility.geojson*.
 - Each facility has one or more levels, which are defined in the file *levels.goejson*.
   - Each level must be inside the facility.
@@ -156,14 +159,6 @@ The facility area can be between 4 and 4,000 Sq Km.
   - `openings` define traversable boundaries between two units, or a `unit` and `verticalPenetration` and are defined in the file *opening.geojson*.
     - Openings can't intersect with other openings on the same level.
     - Every `opening` must be associated with at least one `verticalPenetration` or `unit`.
-
-## Additional information
-
-- [tileset API][tileset]
-
-- [wfs API][wfs]
-
-- [stateset API][stateset]
 
 ## Next steps
 

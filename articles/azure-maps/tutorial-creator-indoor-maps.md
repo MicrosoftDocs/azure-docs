@@ -28,6 +28,9 @@ In the next tutorials in the Creator series you'll learn to:
 > * Create a feature stateset that can be used to set the states of features in your dataset.
 > * Update the state of a given map feature.
 
+> [!TIP]
+> You can also create a dataset from a GeoJSON package. For more information, see [Create a dataset using a GeoJson package (Preview)](how-to-dataset-geojson.md).
+
 ## Prerequisites
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
