@@ -66,9 +66,9 @@ After the read replica is created, it can be viewed from the **Replication** win
 >
 > Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
 
-## Stop replication
+## Promote replicas
 
-You can stop replication between a primary server and a read replica.
+You can promote replicas to become stand-alone servers serving read-write requests.
 
 > [!IMPORTANT]
 > After you stop replication to a primary server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
@@ -77,19 +77,15 @@ To stop replication between a primary server and a read replica from the Azure p
 
 1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
 
-2. On the server menu, under **SETTINGS**, select **Replication**.
+2. On the server menu, under **Settings**, select **Replication**.
 
-3. Select the replica server for which to stop replication.
+3. Select the replica server for which to stop replication and hit **Promote**.
 
    :::image type="content" source="./media/how-to-read-replicas-portal/select-replica.png" alt-text="Select the replica":::
 
-4. Select **Stop replication**.
+4. Confirm promote operation.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/select-stop-replication.png" alt-text="Select stop replication":::
-
-5. Select **OK** to stop replication.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/confirm-stop-replication.png" alt-text="Confirm to stop replication":::
+   :::image type="content" source="./media/how-to-read-replicas-portal/confirm-promote.png" alt-text="Confirm to promote replica":::
 
 ## Delete a primary server
 
