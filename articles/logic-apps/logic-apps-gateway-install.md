@@ -12,11 +12,11 @@ ms.date: 10/12/2022
 
 # Install on-premises data gateway for Azure Logic Apps
 
-In Consumption logic app workflows, some connectors provide access on-premises data sources. However, before you can create these connections, you have to download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) and then create an Azure resource for that gateway installation. The gateway works as a bridge that provides quick data transfer and encryption between on-premises data sources and your workflows. You can use the same gateway installation with other cloud services, such as Power Automate, Power BI, Power Apps, and Azure Analysis Services.
+In Consumption logic app workflows, some connectors provide access to on-premises data sources. Before you can create these connections, you have to download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) and then create an Azure resource for that gateway installation. The gateway works as a bridge that provides quick data transfer and encryption between on-premises data sources and your workflows. You can use the same gateway installation with other cloud services, such as Power Automate, Power BI, Power Apps, and Azure Analysis Services.
 
 In Standard logic app workflows, [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) don't need the gateway to access your on-premises data source. Instead, you provide information that authenticates your identity and authorizes access to your data source. If a built-in connector isn't available for your data source, but a managed connector is available, you'll need the on-premises data gateway.
 
-This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic. For more information about the gateway, see [What is an on-premises gateway](/data-integration/gateway/service-gateway-onprem)? To automate gateway installation and management tasks, visit the PowerShell gallery for the [DataGateway PowerShell cmdlets](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
+This how-to guide shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this article. For more information about the gateway, see [What is an on-premises gateway](/data-integration/gateway/service-gateway-onprem)? To automate gateway installation and management tasks, see the [DataGateway PowerShell cmdlets in the PowerShell gallery](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
 For information about how to use the gateway with these services, see these articles:
 
@@ -29,23 +29,20 @@ For information about how to use the gateway with these services, see these arti
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure account with a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * Your Azure account needs to use either a work account or school account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
+  * Your Azure account needs to use either a work account or school account with the format `\<username\>@\<organization\>.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as accounts with hotmail.com or outlook.com domains.
 
     > [!NOTE]
-    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, 
-    > your address might look like `username@domain.onmicrosoft.com`. Your account is stored 
-    > in an Azure AD tenant. In most cases, the User Principal Name (UPN) for your Azure account 
-    > is the same as your email address.
+    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, your address might have the format `username@domain.onmicrosoft.com`. In this case, your account is stored in an Azure AD tenant. In most cases, the user principal name (UPN) for your Azure account is the same as your email address.
 
     To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated with a Microsoft account, first [create an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md) or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
 
-  * Your Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use the same Azure account for installing and administering the gateway on your local computer.
+  * Your Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use that account when you install and administer the gateway on your local computer.
 
   * When you install the gateway, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. You can't link the same gateway installation across multiple Azure accounts or Azure AD tenants.
 
-  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that links to your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, your Azure account can link to different gateway installations that are each associated with an Azure gateway resource. Your logic apps can then use this gateway resource in triggers and actions that can access on-premises data sources.
+  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that's associated with your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, you can use your Azure account to set up different gateway installations that are each associated with an Azure gateway resource. Your logic apps can then use these gateway resources in triggers and actions that can access on-premises data sources.
 
 * Local computer requirements:
 
@@ -84,14 +81,12 @@ For information about how to use the gateway with these services, see these arti
     > To continue using your Azure Government account, but set up the gateway to work in the global multi-tenant Azure Commercial cloud instead, first sign 
     > in during gateway installation with the `prod@microsoft.com` username. This solution forces the gateway to use the global multi-tenant Azure cloud, 
     > but still lets you continue using your Azure Government account.
-    >
-    > The Azure gateway resource, which you create later, and your logic app resource must use the same Azure subscription, although these resources can exist in  different resource groups.
 
-  * Your logic app resource and the Azure gateway resource, which you create after you install the gateway, must use the same Azure subscription. However, these resources can exist in different Azure resource groups.
+  * Your logic app resource and the Azure gateway resource, which you create after you install the gateway, must use the same Azure subscription. But these resources can exist in different Azure resource groups.
 
   * If you're updating your gateway installation, uninstall your current gateway first for a cleaner experience.
 
-    As a best practice, make sure that you're using a supported version. Microsoft releases a new update to the on-premises data gateway every month, and currently supports only the last six releases for the on-premises data gateway. If you experience issues with the version that you're using, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer) as your issue might be resolved in the latest version.
+    As a best practice, make sure that you're using a supported version. Microsoft releases a new update to the on-premises data gateway every month, and currently supports only the last six releases for the on-premises data gateway. If you experience issues with the version that you're using, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer). Your issue might be resolved in the latest version.
 
   * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
 
@@ -105,25 +100,25 @@ For information about how to use the gateway with these services, see these arti
 
 1. Review the minimum requirements, keep the default installation path, accept the terms of use, and then select **Install**.
 
-   ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
+   :::image type="content" source="./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png" alt-text="Screenshot of the gateway installer, with a minimum requirements link, an installation path, and a check box that's highlighted for accepting terms.":::
 
-1. After the gateway successfully installs, provide the email address for your Azure account, and then select **Sign in**, for example:
+1. After the gateway installation finishes, provide the email address for your Azure account, and then select **Sign in**.
 
-   ![Sign in with work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
+   :::image type="content" source="./media/logic-apps-gateway-install/sign-in-gateway-install.png" alt-text="Screenshot of the gateway installer, with a message about a successful installation, a box that contains an email address, and a 'Sign in' button.":::
 
    Your gateway installation can link to only one Azure account.
 
 1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
 
-   ![Register gateway on local computer](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
+   :::image type="content" source="./media/logic-apps-gateway-install/register-gateway-local-computer.png" alt-text="Screenshot of the gateway installer, with a message about registering the gateway. The 'Register a new gateway on this computer' option is selected.":::
 
 1. Provide this information for your gateway installation:
 
    * A gateway name that's unique across your Azure AD tenant
-   * The recovery key, which must have at least eight characters, that you want to use
-   * Confirmation for your recovery key
+   * A recovery key that has at least eight characters
+   * Confirmation of the recovery key
 
-   ![Provide information for gateway installation](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
+   :::image type="content" source="./media/logic-apps-gateway-install/gateway-name-recovery-key.png" alt-text="Screenshot of the gateway installer, with input boxes for the gateway name, a recovery key, and confirmation of the recovery key.":::
 
    > [!IMPORTANT]
    > Save and keep your recovery key in a safe place. 
