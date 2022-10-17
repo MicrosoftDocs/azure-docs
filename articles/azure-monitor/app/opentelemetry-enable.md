@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 
 The Azure Monitor OpenTelemetry Distro (or in the case of .NET, Exporter) sends traces, metrics, and eventually logs to Azure Monitor Application Insights. As of today, Node.js and Python offer a "distro" and .NET offers an Exporter. To learn more, see [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offerings. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces to Azure Monitor Application Insights.
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offerings. After you finish the instructions in this article, you'll be able to send OpenTelemetry traces and metrics to Azure Monitor Application Insights.
 
 > [!IMPORTANT]
 > The Azure Monitor OpenTelemetry-based Offerings for .NET, Node.js, and Python applications are currently in preview.
