@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/27/2022
+ms.date: 10/17/2022
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev, engagement-fy23
@@ -21,7 +21,14 @@ If you offer a Software as a Service (SaaS) application to many organizations, y
 
 For existing apps with its own account system (or other sign-ins from other cloud providers), you should add sign-in code via OAuth2, OpenID Connect, or SAML, and put a ["Sign in with Microsoft" button][AAD-App-Branding] in your application. 
 
-In this how-to guide, you'll undertake the four steps needed to convert a single tenant app into an Azure AD multi-tenant app. You can also refer to the sample; [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md). This how-to assumes familiarity with building a single-tenant application for Azure AD. If not, start with one of the quickstarts on the [developer guide homepage][AAD-Dev-Guide].
+In this how-to guide, you'll undertake the four steps needed to convert a single tenant app into an Azure AD multi-tenant app:
+
+1. [Update your application registration to be multi-tenant](#update-registration-to-be-multi-tenant)
+2. [Update your code to send requests to the `/common` endpoint](#update-your-code-to-send-requests-to-common)
+3. [Update your code to handle multiple issuer values](#update-your-code-to-handle-multiple-issuer-values)
+4. [Understand user and admin consent and make appropriate code changes](#understand-user-and-admin-consent-and-make-appropriate-code-changes)
+
+You can also refer to the sample; [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md). This how-to assumes familiarity with building a single-tenant application for Azure AD. If not, start with one of the quickstarts on the [developer guide homepage][AAD-Dev-Guide].
 
 ## Update registration to be multi-tenant
 
@@ -45,7 +52,7 @@ Web applications and web APIs receive and validate tokens from the Microsoft ide
 
 For example, if a multi-tenant application only allows sign-in from specific tenants who have signed up for their service, then it must check either the `issuer` value or the `tid` claim value in the token to make sure that tenant is in their list of subscribers. If a multi-tenant application only deals with individuals and doesn’t make any access decisions based on tenants, then it can ignore the issuer value altogether.
 
-In the [multi-tenant samples][AAD-Samples-MT], issuer validation is disabled to enable any Azure AD tenant to sign in. Because the `/common` endpoint doesn’t correspond to a tenant and isn’t an issuer, when you examine the issuer value in the metadata for `/common` it has a templated URL instead of an actual value:
+In the [multi-tenant samples][AAD-Samples-MT], issuer validation is disabled to enable any Azure AD tenant to sign in. Because the `/common` endpoint doesn’t correspond to a tenant and isn’t an issuer, when you examine the issuer value in the metadata for `/common`, it has a templated URL instead of an actual value:
 
 ```http
 https://sts.windows.net/{tenantid}/
