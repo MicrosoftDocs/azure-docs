@@ -2,7 +2,7 @@
 title: "Tutorial: Create a JavaScript single-page app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build a JavaScript single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 09/26/2022
-ms.author: marsma
+ms.author: owenrichards
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
@@ -159,7 +159,7 @@ sampleApp/
 In the next steps you'll create a new folder for the JavaScript SPA, and set up the user interface (UI).
 
 > [!TIP]
-> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization, and is primarily associated with a domain, like Microsoft.com. If you wish to learn how applications can work with multiple tenants, refer to the [application model](https://docs.microsoft.com/azure/active-directory/develop/application-model).
+> When you set up an Azure Active Directory (Azure AD) account, you create a tenant. This is a digital representation of your organization, and is primarily associated with a domain, like Microsoft.com. If you wish to learn how applications can work with multiple tenants, refer to the [application model](/articles/active-directory/develop/application-model.md).
 
 ## Create the SPA UI
 
@@ -178,13 +178,12 @@ In the next steps you'll create a new folder for the JavaScript SPA, and set up 
        <title>Quickstart | MSAL.JS Vanilla JavaScript SPA</title>
 
        <!-- msal.js with a fallback to backup CDN -->
-       <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
-       <script type="text/javascript">
-         if(typeof Msal === 'undefined')document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.1/js/msal.js' type='text/javascript' integrity='sha384-m/3NDUcz4krpIIiHgpeO0O8uxSghb+lfBTngquAo2Zuy2fEF+YgFeP08PWFo5FiJ' crossorigin='anonymous'%3E%3C/script%3E"));
-       </script>
+         <script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.js"
+    integrity="sha384-L8LyrNcolaRZ4U+N06atid1fo+kBo8hdlduw0yx+gXuACcdZjjquuGZTA5uMmUdS"
+    crossorigin="anonymous"></script> 
 
        <!-- adding Bootstrap 4 for UI components  -->
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-o4ufwq3oKqc7IoCcR08YtZXmgOljhTggRwxP2CLbSqeXGtitAxwYaUln/05nJjit" crossorigin="anonymous">
      </head>
      <body>
        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -488,7 +487,7 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 
 ## Call the Microsoft Graph API using the acquired token
 
-1. In the *JavaScriptSPA* folder create a *.js* file named *graphConfig.js*, which stores the Representational State Transfer ([REST](https://docs.microsoft.com/rest/api/azure/)) endpoints. Add the following code:
+1. In the *JavaScriptSPA* folder create a *.js* file named *graphConfig.js*, which stores the Representational State Transfer ([REST](/rest/api/azure/)) endpoints. Add the following code:
 
    ```JavaScript
       const graphConfig = {
