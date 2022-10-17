@@ -30,7 +30,7 @@ The detailed specification of all NSG flow logs commands for various versions of
 
 ## Register Insights provider
 
-In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you aren't sure if the **Microsoft.Insights** provider is registered, run the following script.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
@@ -92,6 +92,6 @@ For information about the structure of the log visit [Network Security Group Flo
 
 ## Next Steps
 
-Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Learn how to [Visualize your NSG flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 Learn how to [Visualize your NSG flow logs with open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

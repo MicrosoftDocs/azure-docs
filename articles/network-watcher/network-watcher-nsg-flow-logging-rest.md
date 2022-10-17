@@ -29,7 +29,7 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient). The detailed specifications of NSG flow logs REST API can be found [here](/rest/api/network-watcher/flowlogs) 
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
+This scenario assumes you've already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
 > [!Important]
 > For Network Watcher REST API calls the resource group name in the request URI is the resource group that contains the Network Watcher, not the resources you are performing the diagnostic actions on.
@@ -54,7 +54,7 @@ armclient login
 
 ## Register Insights provider
 
-In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
+In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you aren't sure if the **Microsoft.Insights** provider is registered, run the following script.
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -63,7 +63,7 @@ armclient post "https://management.azure.com//subscriptions/${subscriptionId}/pr
 
 ## Enable Network Security Group flow logs
 
-The command to enable flow logs version 2 is shown in the following example. For version 1 replace the 'version' field with '1':
+The command to enable flow logs version 2 is shown in the following example. For version 1, replace the 'version' field with '1':
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -188,7 +188,7 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/queryFlowLogStatus?api-version=2016-12-01" $requestBody
 ```
 
-The following is an example of the response returned:
+The following example shows the response returned:
 
 ```json
 {
@@ -224,6 +224,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## Next steps
 
-Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Learn how to [Visualize your NSG flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 Learn how to [Visualize your NSG flow logs with open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
