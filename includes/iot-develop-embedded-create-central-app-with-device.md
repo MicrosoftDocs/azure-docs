@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 05/17/2021
+ ms.date: 10/14/2022
  ms.author: timlt
  ms.custom: include file
 ---
@@ -35,7 +35,7 @@ To create a new application:
 
 ### Create a new device
 
-In this section, you use the IoT Central application dashboard to create a new device. You will use the connection information for the newly created device to securely connect your physical device in a later section.
+In this section, you use the IoT Central application dashboard to create a new device. You'll use the connection information for the newly created device to securely connect your physical device in a later section.
 
 To create a device:
 

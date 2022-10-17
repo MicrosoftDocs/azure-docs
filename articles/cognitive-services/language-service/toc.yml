@@ -1099,7 +1099,7 @@ items:
     - name: REST API
       items:
         - name: Document summarization
-          href: https://go.microsoft.com/fwlink/?linkid=2195178
+          href: https://go.microsoft.com/fwlink/?linkid=2211684
         - name: Conversation summarization
           href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs
