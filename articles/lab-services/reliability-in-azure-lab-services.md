@@ -2,7 +2,7 @@
 title: Reliability in Azure Lab Services 
 description: Learn about reliability in Azure Lab Services
 ms.topic: overview
-ms.custom: 'subject-resiliency, references_regions'
+ms.custom: subject-resiliency, references_regions, ignite-2022
 ms.date: 08/18/2022
 ---
 
@@ -24,7 +24,7 @@ Currently, the service is not zonal. That is, you can’t configure a lab or the
 
 There are no increased SLAs available for availability in Azure Lab Services. For the monthly uptime SLAs for Azure Lab Services, see [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0/).
 
-The Azure Lab Services infrastructure uses Cosmos DB storage. The Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Cosmos DB accounts are single region. In the zone-redundant regions listed in this article, the Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Cosmos DB](/azure/cosmos-db/high-availability#slas).
+The Azure Lab Services infrastructure uses Azure Cosmos DB storage. The Azure Cosmos DB storage region is the same as the region where the lab plan is located. All the regional Azure Cosmos DB accounts are single region. In the zone-redundant regions listed in this article, the Azure Cosmos DB accounts are single region with Availability Zones. In the other regions, the accounts are single region without Availability Zones. For high availability capabilities for these account types, see [SLAs for Azure Cosmos DB](/azure/cosmos-db/high-availability#slas).
 
 ### Zone down experience
 
@@ -48,7 +48,7 @@ In the event of a zone outage in these regions, you can still perform the follow
 - Configure lab schedules
 - Create/manage labs and VMs in regions unaffected by the zone outage.
 
-Data loss may occur only with an unrecoverable disaster in the Cosmos DB region. For more information, see [Region Outages](/azure/cosmos-db/high-availability#region-outages).
+Data loss may occur only with an unrecoverable disaster in the Azure Cosmos DB region. For more information, see [Region outages](/azure/cosmos-db/high-availability#region-outages).
 
 For regions not listed, access to the Azure Lab Services infrastructure is not guaranteed when there is a zone outage in the region containing the lab plan. You will only be able to perform the following tasks:
 

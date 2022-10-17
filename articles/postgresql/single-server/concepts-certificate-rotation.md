@@ -24,15 +24,19 @@ As per the industry's compliance requirements, CA vendors began revoking CA cert
 
 The new certificate is rolled out and in effect starting October, 2022 (10/2022). 
 
-## What change will be performed starting October 2022 (10/2022)?
+## What change will be performed starting November 2022 (11/2022)?
 
-Starting October 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
+Starting November 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
-There are no code or application  changes required on client side. if you follow our previous recommendation below, you will still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate isn't removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
+There are no code or application  changes required on client side. if you follow our certificate update recommendation below, you will still be able to continue to connect as long as **BaltimoreCyberTrustRoot certificate isn't removed** from the combined CA certificate. **We recommend to not remove the BaltimoreCyberTrustRoot from your combined CA certificate until further notice to maintain connectivity.**
 
-### Previous Recommendation
+## Do I need to make any changes to client certificates
+
+By default, PostgreSQL will not perform any verification of the server certificate. This means that it is still theoretically possible to spoof the server identity (for example by modifying a DNS record or by taking over the server IP address) without the client knowing. In order to prevent any possibility spoofing, SSL certificate verification on the client must be used. Such verification can be set via application client connection string [**ssl mode**](https://www.postgresql.org/docs/13/libpq-ssl.html) value - **verify-ca** or **verify-full**.  If these ssl-mode values are chosen you should follow directions in next section. 
+
+### Client Certificate Update Recommendation
 
 *   Download BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 Root CA from links below:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem

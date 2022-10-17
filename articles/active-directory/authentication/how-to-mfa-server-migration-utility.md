@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 10/10/2022
 
 ms.author: justinha
 author: justinha
 manager: martinco
-ms.reviewer: michmcla
+ms.reviewer: jpettere
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,8 +27,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 
 ## Limitations and requirements
 
-- The MFA Server Migration Utility is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-- The MFA Server Migration Utility requires a new preview build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You don’t have to update the WebSDK or User portal. Installing the update _doesn't_ start the migration automatically.
+- The MFA Server Migration Utility requires a new build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You don’t have to update the WebSDK or User portal. Installing the update _doesn't_ start the migration automatically.
 - The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure AD MFA for testing purposes using [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md). Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
 - Review your AD FS claims rules and make sure none requires MFA to be performed on-premises as part of the authentication process.
@@ -130,7 +129,7 @@ Open MFA Server, click **User Portal**:
 |- OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
 |Allow users to select language|Language settings will be automatically applied to a user based on the locale settings in their browser|
 |Allow users to activate mobile app|See [MFA Service settings](howto-mfa-mfasettings.md#mfa-service-settings)|
-|- Device limit|Azure AD limits users to 5 cumulative devices (mobile app instances + hardware OATH token + software OATH token) per user|
+|- Device limit|Azure AD limits users to five cumulative devices (mobile app instances + hardware OATH token + software OATH token) per user|
 |Use security questions for fallback|Azure AD allows users to choose a fallback method at authentication time should the chosen authentication method fail|
 |- Questions to answer|Security Questions in Azure AD can only be used for SSPR. See more details for [Azure AD Custom Security Questions](concept-authentication-security-questions.md#custom-security-questions)|
 |Allow users to associate third-party OATH token|See [OATH token documentation](howto-mfa-mfasettings.md#oath-tokens)|
@@ -249,7 +248,7 @@ Once you've successfully migrated user data, you can validate the end-user exper
 
 1. Navigate to the following url: [Enable staged rollout features - Microsoft Azure](https://portal.azure.com/?mfaUIEnabled=true%2F#view/Microsoft_AAD_IAM/StagedRolloutEnablementBladeV2).
 
-1. Change **Azure multifactor authentication (preview)** to **On**, and then click **Manage groups**.
+1. Change **Azure multifactor authentication** to **On**, and then click **Manage groups**.
 
    :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/staged-rollout.png" alt-text="Screenshot of Staged Rollout.":::
 

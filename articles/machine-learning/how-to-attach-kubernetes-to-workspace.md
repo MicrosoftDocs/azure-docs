@@ -17,7 +17,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 Once AzureML extension is deployed on AKS or Arc Kubernetes cluster, you can attach the Kubernetes cluster to AzureML workspace and create compute targets for ML professionals to use. 
 
 Some key considerations when attaching Kubernetes cluster to AzureML workspace:
-  * If you need to access Azure resource seamlessly from your training script, you can specify a managed identity for Kubernetes compute target during attach operation.
+  * If you need to access Azure resource securely from your training script, you can specify a [managed identity](./how-to-identity-based-service-authentication.md) for Kubernetes compute target during attach operation.
   * If you plan to have different compute target for different project/team, you can specify Kubernetes namespace for the compute target to isolate workload among different teams/projects.
   * For the same Kubernetes cluster, you can attach it to the same workspace multiple times and create multiple compute targets for different project/team/workload.
   * For the same Kubernetes cluster, you can also attach it to multiple workspaces, and the multiple workspaces can share the same Kubernetes cluster.

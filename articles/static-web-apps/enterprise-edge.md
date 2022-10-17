@@ -62,7 +62,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
 # [Azure portal](#tab/azure-portal)
 
-1. Navigate to your static web app in the Azure portal.
+1. Go to your static web app in the Azure portal.
 
 1. Select **Enterprise-grade edge** in the left menu.
 
