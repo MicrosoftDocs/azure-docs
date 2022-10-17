@@ -87,7 +87,7 @@ Cross-cloud Azure AD guest users can also use application endpoints that include
 
   * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
-  * `https://portal.azure.com/<your tenant ID>`
+  * `https://contoso.sharepoint.com/sites/testsite`
 
 You can also give cross-cloud Azure AD guest users a direct link to an application or resource by including your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
@@ -96,7 +96,6 @@ You can also give cross-cloud Azure AD guest users a direct link to an applicati
 The following scenarios are supported when collaborating with an organization from a different Microsoft cloud:
 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
-- Use B2B collaboration to grant users from a partner tenant to access and manage configurations in the Azure portal
 - Use B2B collaboration to [share Power BI content to a user in the partner tenant](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
 - Apply Conditional Access policies to the B2B collaboration user and opt to trust multi-factor authentication or device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
