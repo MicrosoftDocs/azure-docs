@@ -20,10 +20,11 @@ Learn how to execute a Spark job in a secure Spark cluster that reads from a top
 
 A keytab is a file containing pairs of Kerberos principles and encrypted keys (which are derived from the Kerberos password). You can use a keytab file to authenticate to various remote systems using Kerberos without entering a password.
 
-For details on how to create a keytab, see 
+For more information on how to create a keytab, see 
+
 1. [KTUTIL](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html)
 
-1. https://www.ibm.com/docs/en/pasc/1.1?topic=file-creating-kerberos-principal-keytab
+1. [Creating a Kerberos principal and keytab file](https://www.ibm.com/docs/en/pasc/1.1?topic=file-creating-kerberos-principal-keytab)
 
 ```
 ktutil
@@ -240,7 +241,7 @@ From Spark cluster, read from kafka topic alicetopic2 as user alicetest is allow
     
         :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs.png" alt-text="Screenshot showing Kafka cluster ranger UI audit logs in denied status":::
     
-### Scenario 2
+## Scenario 2
 
 From Spark cluster, read Kafka topic bobtopic2 as user alicetest is denied
 
@@ -270,7 +271,7 @@ From Spark cluster, read Kafka topic bobtopic2 as user alicetest is denied
  
     :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-denied.png" alt-text="Screenshot showing Kafka cluster-ranger UI audit logs in allowed status":::        
     
-### Scenario 3
+## Scenario 3
 
 From Spark cluster, read from kafka topic alicetopic2 as user `bobadmin` is allowed
 
@@ -301,9 +302,9 @@ From Spark cluster, read from kafka topic alicetopic2 as user `bobadmin` is allo
     
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
 
-    :::image type="content" source="./media/hdinsight-spark-kafka/audit-logs-with-sucess-state.png" alt-text="Screenshot showing audit logs with success state":::
+    :::image type="content" source="./media/hdinsight-spark-kafka/kafka-cluster-ranger-ui-audit-logs-allowed.png" alt-text="Screenshot showing audit logs with success state":::
 
-### Scenario 4
+## Scenario 4
 
 From Spark cluster, read from Kafka topic bobtopic2 as user bobadmin2 is allowed.
 
