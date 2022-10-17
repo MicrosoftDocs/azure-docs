@@ -32,9 +32,11 @@ There are two ways for protection of a security feature to be enabled by default
 
 ## Default protection enabled by Azure AD
 
-Number matching is a good example of protection for an authentication method that was optional and disabled for all tenants. Customers could choose to enable number matching in Microsoft Authenticator for users and groups, or they could leave it disabled. 
+Number matching is a good example of protection for an authentication method that is currently optional for all tenants. Customers could choose to enable number matching in Microsoft Authenticator for users and groups, or they could leave it disabled. 
 
 As MFA fatigue attacks rise, Microsoft responds to the threat by changing the default behavior for push notifications in Microsoft Authenticator. As a result, Azure AD will make number matching in push notifications the default behavior for all users in every tenant. Number matching is already the default behavior for passwordless notifications in Microsoft Authenticator, and users can't opt out.
+
+<!---Add link to Mayur Blog post here--->
 
 ## Microsoft managed settings
 
@@ -56,7 +58,6 @@ The following table lists each setting that can be set to Microsoft managed and 
 | [Additional context in Microsoft Authenticator notifications](how-to-mfa-additional-context.md) | Disabled      |
 
 As threat vectors change, Azure AD may announce default protection for a **Microsoft managed** setting in [release notes](../fundamentals/whats-new.md) and on commonly read forums like [Tech Community](https://techcommunity.microsoft.com/). 
-
 
 ## Next steps
 
