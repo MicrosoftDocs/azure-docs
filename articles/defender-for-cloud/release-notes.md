@@ -55,7 +55,7 @@ Until now, Defender for Cloud based its posture assessments for VMs on agent-bas
 
 With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
 
-Agentless vulnerability scanning is available in both Defender Defender Cloud Security Posture Management (CSPM) and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
+Agentless vulnerability scanning is available in both Defender Cloud Security Posture Management (CSPM) and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
 
 - Learn more about [agentless scanning](concept-agentless-data-collection.md).
 - Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).

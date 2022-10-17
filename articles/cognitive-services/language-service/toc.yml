@@ -280,6 +280,8 @@ items:
     items:
       - name: Best practices
         href: conversational-language-understanding/concepts/best-practices.md
+      - name: Multilingual projects
+        href: conversational-language-understanding/concepts/multiple-languages.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
@@ -1097,7 +1099,7 @@ items:
     - name: REST API
       items:
         - name: Document summarization
-          href: https://go.microsoft.com/fwlink/?linkid=2195178
+          href: https://go.microsoft.com/fwlink/?linkid=2211684
         - name: Conversation summarization
           href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs
