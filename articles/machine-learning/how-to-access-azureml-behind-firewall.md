@@ -114,7 +114,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
 
-### Kubernetes Compute
+## Kubernetes Compute
 
 [Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
 
@@ -136,6 +136,15 @@ Besides above requirements, the following outbound URLs are also required for Az
 > `<region>` is the lowcase full spelling of Azure Region, for example, eastus, southeastasia.
 >
 > `<your AML workspace ID>` can be found in Azure portal - your Machine Learning resource page - Properties - Workspace ID.
+
+### In-cluster communication requirements
+
+To install AzureMl extension at Kubernetes compute, all AzureML related components are deployed in `azureml` namespace. Following in-cluster communication are needed to ensure the ML workloads work well in cluster.
+- The components in  `azureml` namespace should be able to communicate with Kubernetes API server.
+- The components in  `azureml` namespace should be able to communicate with each other.
+- The components in  `azureml` namespace should be able to communicate with `kube-dns` and `konnectivity-agent` in `kube-system` namespace.
+- If the cluster is used for real-time inferencing, `azureml-fe-xxx` PODs should be able to communicate with the deployed model PODs on 5001 port in other namespace. `azureml-fe-xxx` PODs should open 11001, 12001, 12101, 12201, 20000, 8000, 8001, 9001 ports for internal communication.
+- If the cluster is used for real-time inferencing, the deployed model PODs should be able to communicate with `amlarc-identity-proxy-xxx` PODs on 9999 port.
 
 
 

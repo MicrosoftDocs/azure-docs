@@ -38,7 +38,7 @@ When setting up scan, you can further scope the scan after providing the databas
 
 ### Known limitations
 
-* Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
+* Microsoft Purview doesn't support over 800 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 800 columns.
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
 * Stored procedures running remotely from data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.
@@ -360,6 +360,10 @@ Scans can be managed or run again on completion
 
 ## Access policy
 
+### Supported policies
+The following types of policies are supported on this data resource from Microsoft Purview:
+- [Data owner policies](concept-policies-data-owner.md)
+
 ### Access policy pre-requisites on Azure SQL Database
 [!INCLUDE [Access policies specific Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
@@ -369,7 +373,7 @@ Scans can be managed or run again on completion
 ### Register the data source and enable Data use management
 The Azure SQL Database resource needs to be registered first with Microsoft Purview before you can create access policies. 
 To register your resources, follow the **Prerequisites** and **Register** sections of this guide:
-[Register Azure SQL Database](./register-scan-azure-sql-database.md#prerequisites)
+[Register Azure SQL Database in Microsoft Purview](./register-scan-azure-sql-database.md#prerequisites)
 
 After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 

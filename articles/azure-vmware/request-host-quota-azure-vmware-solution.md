@@ -25,9 +25,9 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
-- A [Microsoft Customer Agreement](../cost-management-billing/understand/mca-overview.md) with Microsoft.
+- A [Microsoft Customer Agreement (MCA)](../cost-management-billing/understand/mca-overview.md) with Microsoft.
 
-## Request host quota for EA customers
+## Request host quota for EA and MCA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
    - **Issue type:** Technical

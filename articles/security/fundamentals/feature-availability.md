@@ -4,6 +4,7 @@ description: This article describes security feature availability in Azure and A
 author: TerryLanfear
 ms.author: terrylan
 ms.service: security
+ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 12/30/2021
 ---
@@ -144,7 +145,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Recommendation exemption rules](../../defender-for-cloud/exempt-resource.md)                                                                                                      | Public Preview | Not Available                  |
 | <li> [Alert suppression rules](../../defender-for-cloud/alerts-suppression-rules.md)                                                                                                    | GA             | GA                             |
 | <li> [Email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md)                                                            | GA             | GA                             |
-| <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/enable-data-collection.md)                                                                  | GA             | GA                             |
+| <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/monitoring-components.md)                                                                  | GA             | GA                             |
 | <li> [Asset inventory](../../defender-for-cloud/asset-inventory.md)                                                                                                                     | GA             | GA                             |
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../defender-for-cloud/custom-dashboards-azure-workbooks.md)                               | GA             | GA                             |
 | <li> [Integration with Microsoft Defender for Cloud Apps](../../defender-for-cloud/other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                                       | GA             | Not Available                  |
