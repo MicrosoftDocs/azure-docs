@@ -30,7 +30,7 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 
 * Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
-## Authentication for Batch Endpoints in Azure Data Factory
+## Authenticating against batch endpoints
 
 Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
@@ -43,7 +43,7 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
 1. Grant access for the managed identity you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the managed identity will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
-   1. Permissions to read/write in data stores. 
+   1. Permissions to read/write in data stores.
 
 ## About the pipeline
 
@@ -76,7 +76,10 @@ The pipeline requires the following parameters to be configured:
 | `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
 
 > [!WARNING]
-> Remember that `endpoint_output_uri` should be the path to a file that doesn't exist yet. Otherwise, the job will fail with the error `the path already exists`.
+> Remember that `endpoint_output_uri` should be the path to a file that doesn't exist yet. Otherwise, the job will fail with the error *the path already exists*.
+
+> [!IMPORTANT]
+> The input data URI can be a path to an Azure Machine Learning data store, data asset, or a cloud URI. Depending on the case, further configuration may be required to ensure the deployment can read the data properly. See [Accessing storage services](../how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
 
 ## Steps
 
@@ -102,11 +105,11 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 When calling Azure Machine Learning batch deployments consider the following limitations:
 
 * __Data inputs__:
-   * Only Azure Machine Learning data stores or Azure Storage Accounts are supported as inputs. If your input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
-   * Ensure that the identity you are using to execute the endpoint either has access to the underlying data or the workspace contains the credentials to read it.
+   * Only Azure Machine Learning data stores or Azure Storage Accounts (Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2) are supported as inputs. If your input data is in another source, use the Azure Data Factory Copy activity before the execution of the batch job to sink the data to a compatible store.
+   * Ensure the deployment has the required access to read the input data depending on the type of input you are using. See [Accessing storage services](../how-to-identity-based-service-authentication.md#accessing-storage-services) for details.
 * __Data outputs__:
    * Only registered Azure Machine Learning data stores are supported.
-   * Only Azure Blob Storage Accounts are supported for outputs. For instance, ADLS Gen2 isn't supported as output in batch deployment jobs. If you need to output the data to a different location/sink, use the Azure Data Factory Copy activity after the execution of the batch job.   
+   * Only Azure Blob Storage Accounts are supported for outputs. For instance, Azure Data Lake Storage Gen2 isn't supported as output in batch deployment jobs. If you need to output the data to a different location/sink, use the Azure Data Factory Copy activity after the execution of the batch job.   
 
 ## Considerations when reading and writing data
 
