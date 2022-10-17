@@ -87,7 +87,7 @@ To create a persistent Azure Machine Learning Compute resource in Python, specif
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=cluster_basic)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_basic)]
 
 You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute) for details.
 
@@ -175,7 +175,7 @@ Use any of these ways to specify a low-priority VM:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=cluster_low_pri)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=cluster_low_pri)]
     
 # [Azure CLI](#tab/azure-cli)
 
