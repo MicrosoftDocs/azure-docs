@@ -157,6 +157,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 13. In the **Ready to Add Trust** page, review the settings, and then select **Next** to save your relying party trust information.
 14. In the **Finish** page, select **Close**. select Relying Party Trust and click **Edit Claim Issuance Policy**.
 
+
 ### Create claims rules
 
 1. Select Relying Party Trust you just created and click **Edit Claim Issuance Policy**.
