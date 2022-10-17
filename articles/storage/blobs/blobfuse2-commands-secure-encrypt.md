@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 secure encrypt` command to encrypt a BlobFuse2 configuration file.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Syntax
 

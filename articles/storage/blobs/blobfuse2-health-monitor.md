@@ -15,7 +15,7 @@ ms.date: 10/17/2022
 
 This article provides references to help you deploy and use BlobFuse2 Health Monitor to gain insights into BlobFuse2 mount activities and resource usage.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 You can use BlobFuse2 Health Monitor to:
 

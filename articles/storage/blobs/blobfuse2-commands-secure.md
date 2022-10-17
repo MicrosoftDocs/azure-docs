@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 secure` command to encrypt, decrypt, or access settings in a BlobFuse2 configuration file.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Command Syntax
 

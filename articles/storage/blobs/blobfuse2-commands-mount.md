@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 mount` command to mount a Blob Storage container as a file system in Linux, or to display existing mount points.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Command Syntax
 

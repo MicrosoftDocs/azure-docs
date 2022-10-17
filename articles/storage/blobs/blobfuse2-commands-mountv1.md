@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 mountv1` command to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Syntax
 

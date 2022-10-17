@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 completion` command to generate the autocompletion script for BlobFuse2 for a specified shell.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Syntax
 

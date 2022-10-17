@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 unmount` command to unmount one or more existing BlobFuse2 mount points.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Syntax
 

@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 secure get` command to display the value of a specified parameter from an encrypted BlobFuse2 configuration file.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Syntax
 

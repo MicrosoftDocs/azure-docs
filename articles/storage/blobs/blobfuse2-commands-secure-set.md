@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 secure set` command to change the value of a specified parameter in an encrypted BlobFuse2 configuration file.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Syntax
 

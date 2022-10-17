@@ -1,6 +1,6 @@
 ---
-title: "include file"
-description: "include file"
+title: "include file that contains shared BlobFuse2 preview blurb"
+description: "include file that contains shared BlobFuse2 preview blurb"
 services: storage
 author: jimmart-dev
 ms.service: storage

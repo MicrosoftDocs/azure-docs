@@ -15,7 +15,7 @@ ms.reviewer: tamram
 
 Use the `blobfuse2 mount all` command to mount all blob containers in a storage account as a Linux file system. Each container will be mounted to a unique subdirectory under the path specified. The subdirectory names will correspond to the container names.
 
-[!INCLUDE [storage-blobfuse2-preview](../../../includes/storage-blobfuse2-preview.md)]
+[!INCLUDE [blobfuse2-preview](blobfuse2-preview.md)]
 
 ## Syntax
 
