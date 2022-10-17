@@ -77,18 +77,18 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 Optionally, setup common variables in your shell for usage in subsequent commands:
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="set_variables":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="set_variables":::
 
 > [!WARNING]
 > This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
 
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="az_group_create":::
 
 And create a machine learning workspace:
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 

@@ -27,7 +27,7 @@ This article outlines how to register dedicated SQL pools (formerly SQL DW), and
 
 ### Known limitations
 
-* Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated".
+* Microsoft Purview doesn't support over 800 columns in the Schema tab and it will show "Additional-Columns-Truncated".
 
 ## Prerequisites
 
