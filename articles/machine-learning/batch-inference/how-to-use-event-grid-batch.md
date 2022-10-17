@@ -17,12 +17,12 @@ ms.custom: devplatv2
 
 [!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
 
-Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. In this tutorial we are going to learn how to create a Logic App that can subscribe to the Event Grid event associated with new files created in an storage account and trigger a batch endpoint to process the given file.
+Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. In this tutorial we are going to learn how to create a Logic App that can subscribe to the Event Grid event associated with new files created in a storage account and trigger a batch endpoint to process the given file.
 
 The workflow will work in the following way:
 
-1. It will react be triggered when a new blob is created in an specific storage account.
-2. Since the storage account can contain multiple data assets, event filtering will be applied to only react to events happening in an specific folder inside of it. Further filtering can be done is needed.
+1. It will be triggered when a new blob is created in a specific storage account.
+2. Since the storage account can contain multiple data assets, event filtering will be applied to only react to events happening in a specific folder inside of it. Further filtering can be done is needed.
 3. It will get an authorization token to invoke batch endpoints using the credentials from a Service Principal.
 4. It will trigger the batch endpoint (default deployment) using the newly created file as input.
 
@@ -96,7 +96,7 @@ We recommend to using a `Managed Identity` for authentication and interaction wi
 
 ## Configure the workflow parameters
 
-This Logic App will use parameters ot store specific pieces of information that you will need to run the batch deployment. On the workflow designer, under the tool bar, select the option __Parameters__ and configure them as follows:
+This Logic App will use parameters to store specific pieces of information that you will need to run the batch deployment. On the workflow designer, under the tool bar, select the option __Parameters__ and configure them as follows:
 
 | Parameter             | Description  | Sample value |
 | --------------------- | -------------|------------- |
@@ -182,7 +182,7 @@ This Logic App will use parameters ot store specific pieces of information that 
 
 1. Click on __Save__.
 
-1. The Logic App is ready to be executed and it will trigger automatically each time a new file is created under the indicated path. You will notice when the app has successfully recieved the event by checking the __Run history__ of it:
+1. The Logic App is ready to be executed and it will trigger automatically each time a new file is created under the indicated path. You will notice the app has successfully received the event by checking the __Run history__ of it:
 
   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke-history.png" alt-text="The invoke history of the Logic App.":::
 
