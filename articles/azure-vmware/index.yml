@@ -148,10 +148,8 @@ landingContent:
             url: connect-multiple-private-clouds-same-region.md  
           - text: Configure storage policies
             url: configure-storage-policy.md
-          - text: Create placement policy 
-            url: create-placement-policy.md          
-          - text: Deploy vSAN Stretched Clusters
-            url: deploy-vsan-stretched-clusters.md
+          - text: Create placement policy
+            url: create-placement-policy.md
 
 # card 5
   - title: Azure native integration
