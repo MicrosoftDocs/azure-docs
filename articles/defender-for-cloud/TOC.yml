@@ -338,9 +338,6 @@
     - name: Vulnerability assessment for Amazon Elastic Container Registry
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-va-ecr.md
-    - name: Scan images in your CI/CD workflows
-      displayName: ACR, registry, images, trevi, vulnerabilities, scanner
-      href: defender-for-containers-cicd.md
     - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md

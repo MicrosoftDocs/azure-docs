@@ -2,7 +2,7 @@
 title: Single sign-on (MSAL.js)
 description: Learn about building single sign-on experiences using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/25/2021
-ms.author: marsma
+ms.author: owenrichards
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn about enabling single sign on experiences with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
@@ -39,6 +39,8 @@ const config = {
 const msalInstance = new msal.PublicClientApplication(config);
 ```
 
+In this case, application instances in different browser tabs make use of the same MSAL cache, thus sharing the authentication state between them.
+
 ## SSO between different apps
 
 When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain.
@@ -47,7 +49,7 @@ MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens with
 
 ### With user hint
 
-To improve performance and ensure that the authorization server will look for the correct account session. You can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
+To improve performance and ensure that the authorization server will look for the correct account session, you can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
 
 - Session ID `sid` (which can be retrieved from `idTokenClaims` of an `account` object)
 - `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token)
@@ -181,7 +183,7 @@ For better performance and to help avoid issues, set the `redirectUri` to a blan
 InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD
 ```
 
-To resolve the error, the user must create an interactive authentication request using the `loginPopup()` or `loginRedirect()`.
+To resolve the error, the user must create an interactive authentication request using the `loginPopup()` or `loginRedirect()`. In some cases, the prompt value **none** can be used together with an interactive MSAL.js method to achieve SSO. See [Interactive requests with prompt=none](msal-js-prompt-behavior.md#interactive-requests-with-promptnone) for more.
 
 Additionally, the request object is required when using the **silent** methods. If you already have the user's sign-in information, you can pass either the `loginHint` or `sid` optional parameters to sign-in a specific account.
 
@@ -220,6 +222,6 @@ Once the `cacheLocation` is configured, MSAL.js can read the cached state of the
 
 For more information about SSO, see:
 
-- [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md)
+- [MSAL.js prompt behavior](msal-js-prompt-behavior.md)
 - [Optional token claims](active-directory-optional-claims.md)
 - [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md)

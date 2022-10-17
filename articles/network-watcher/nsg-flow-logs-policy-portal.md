@@ -19,7 +19,8 @@ ms.author: damendo
 # QuickStart: Deploy and manage NSG Flow Logs using Azure Policy 
 
 ## Overview
-Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will use two built-in policies available for NSG Flow Logs to manage your flow logs setup. The first policy  flags any NSGs without flow logs enabled. The second policy automatically deploys Flow logs for NSGs without Flow logs enabled. 
+
+Azure Policy helps to enforce organizational standards and to assess compliance at scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will use two built-in policies available for NSG Flow Logs to manage your flow logs setup. The first policy  flags any NSGs without flow logs enabled. The second policy automatically deploys Flow logs for NSGs without Flow logs enabled. 
 
 If you are creating an Azure Policy definition for the first time, you can read through: 
 - [Azure Policy overview](../governance/policy/overview.md) 
@@ -27,9 +28,11 @@ If you are creating an Azure Policy definition for the first time, you can read 
 
 
 ## Locate the policies
+
 1. Go to the Azure portal – [portal.azure.com](https://portal.azure.com) 
 
-Navigate to Azure Policy page by searching for Policy in the top search bar 
+Navigate to the Azure Policy page by searching for Policy in the top search bar 
+
 ![Policy Home Page](./media/network-watcher-builtin-policy/1_policy-search.png)
 
 2. Head over to the **Assignments** tab from the left pane
@@ -66,13 +69,13 @@ If you want to see the full definition of the policy, you can visit the [Definit
 
 1. Fill in your policy details
 
-- Scope: A subscription is the common choice, you can also choose a management group or resource group as relevant to you.  
+- Scope: A subscription is a common choice, you can also choose a management group or resource group as relevant to you.  
 - Policy Definition: Should be chosen as shown in the "Locate the policies" section.
 - AssignmentName: Choose a descriptive name 
 
 2. Click on "Review + Create" to review your assignment
 
-The policy does not require any parameters. As you are assigning an audit policy, you do not need to fill the details in the "Remediation" tab.  
+The policy does not require any parameters. As you are assigning an audit policy, you do not need to fill in the details in the "Remediation" tab.  
 
 ![Audit Policy Review](./media/network-watcher-builtin-policy/5_1_audit-policy-review.png)
 
@@ -95,7 +98,7 @@ If you want to see the full definition of the policy, you can visit the [Definit
 
 1. Fill in your policy details
 
-- Scope: A subscription is the common choice, you can also choose a management group or resource group as relevant to you.  
+- Scope: A subscription is a common choice, you can also choose a management group or resource group as relevant to you.  
 - Policy Definition: Should be chosen as shown in the "Locate the policies" section.
 - AssignmentName: Choose a descriptive name 
 
@@ -104,17 +107,17 @@ If you want to see the full definition of the policy, you can visit the [Definit
 The Network Watcher service is a regional service. These parameters allow the policy action of deploying flow logs to be executed. 
 - NSG Region: Azure regions at which the policy is targeted
 - Storage ID: Full resource ID of the storage account. Note: This storage account should be in the same region as the NSG. 
-- Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, you can enter 'NetworkWatcherRG' which is the default.
+- Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, you can enter `NetworkWatcherRG` which is the default.
 - Network Watcher name: Name of the regional network watcher service. Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus. See the full list.
 
 ![DINE Policy parameters](./media/network-watcher-builtin-policy/5_2_1_dine-policy-details-alt.png)
 
 3. Add Remediation details
 
-- Check mark on "Create Remediation task" if you want the policy to affect existing resources 
-- "Create a Managed Identity" should be already checked
-- Selected the same location as previous for your Managed Identity 
-- You will need Contributor or Owner permissions to use this policy. If you have these permissions, you should not see any errors.
+- Check mark on **Create Remediation task** if you want the policy to affect existing resources 
+- **Create a Managed Identity** should be already checked
+- Select the same location as previous for your Managed Identity 
+- You will need Contributor or Owner permission to use this policy. If you have these permissions, you should not see any errors.
 
 ![DINE Policy remediation](./media/network-watcher-builtin-policy/5_2_2_dine-remediation.png) 
 
@@ -127,7 +130,7 @@ You should see something similar to the following screenshot.
 ### Results
 
 To check the results, open the Compliance tab and search for the name of your Assignment.
-You should see something like following screenshot once your policy. In case your policy hasn't run, wait for some time.
+You should see something like the following screenshot once your policy. In case your policy hasn't run, wait for some time.
 
 ![DINE Policy results](./media/network-watcher-builtin-policy/7_2_dine-policy-results.png)  
 

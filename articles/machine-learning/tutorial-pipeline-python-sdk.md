@@ -41,52 +41,14 @@ You'll learn how to use the AzureML Python SDK v2 to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
     * Create a cloud-based compute cluster to use for training your model.
+* Complete the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md) to clone the **SDK v2/tutorials** folder.
 
-## Install the SDK
 
-You'll complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+## Open the notebook
 
-First you'll install the v2 SDK on your compute instance:
-
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-
-1. Select the subscription and the workspace you created as part of the [Prerequisites](#prerequisites).
-
-1. On the left, select **Compute**.
-
-1. From the list of **Compute Instances**, find the one you created.
-
-1. Select "Terminal", to open the terminal session on the compute instance.
-
-1. In the terminal window, install Python SDK v2 with this command:
-
-    ```
-    pip install --pre azure-ai-ml
-    ```
-
-    For more information, see [Install the Python SDK v2](https://aka.ms/sdk-v2-install).
-
-## Clone the azureml-examples repo
-
-1. Now on the terminal, run the command:
-
-   ```
-   git clone --depth 1 https://github.com/Azure/azureml-examples
-   ```
-
-1. On the left, select **Notebooks**.
-
-1. Now, on the left, Select the **Files**
-
-    :::image type="content" source="media/tutorial-pipeline-python-sdk/clone-tutorials-users-files.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
-
-1. A list of folders shows each user who accesses the workspace. Select your folder, you'll find **azureml-samples** is cloned.
-
-## Open the cloned notebook
-
-1. Open the **tutorials** folder that was cloned into your **User files** section.
+1. Open the **tutorials** folder that was cloned into your **Files** section from the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md).
     
-1. Select the **e2e-ml-workflow.ipynb** file from your **azureml-examples/tutorials/e2e-ds-experience/** folder. 
+1. Select the **e2e-ml-workflow.ipynb** file from your **tutorials/azureml-examples/tutorials/e2e-ds-experience/** folder. 
 
     :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the open tutorials folder.":::
 

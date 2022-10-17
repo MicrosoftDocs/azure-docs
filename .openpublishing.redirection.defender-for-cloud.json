@@ -729,6 +729,11 @@
             "source_path_from_root": "/articles/defender-for-cloud/release-notes.md#auto-deployment-of-azure-monitor-agent-preview",
             "redirect_url": "/azure/defender-for-cloud/release-notes#azure-monitor-agent-integration-now-in-preview",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-cicd.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": true
         }
     
       ]

@@ -40,7 +40,7 @@ The Responsible AI dashboard is accompanied by a [PDF scorecard](how-to-responsi
 
 ## Responsible AI dashboard components
 
-The Responsible AI dashboard brings together, in a comprehensive view, various new and pre-existing tools. The dashboard integrates these tools with [Azure Machine Learning CLI v2, Azure Machine Learning Python SDK v2](concept-v2.md), and [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). The tools include:  
+The Responsible AI dashboard brings together, in a comprehensive view, various new and pre-existing tools. The dashboard integrates these tools with [Azure Machine Learning CLI v2, Azure Machine Learning Python SDK v2](concept-v2.md), and [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). The tools include:  
 
 - [Data explorer](concept-data-analysis.md), to understand and explore your dataset distributions and statistics.
 - [Model overview and fairness assessment](concept-fairness-ml.md), to evaluate the performance of your model and evaluate your model's group fairness issues (how your model's predictions affect diverse groups of people).

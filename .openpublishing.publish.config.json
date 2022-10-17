@@ -896,7 +896,7 @@
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
-    ".openpublishing.redirection.iot-hub.json",
+    "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.app-service.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.sql-database.json",
@@ -950,7 +950,7 @@
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
     "articles/applied-ai-services/.openpublishing.archived.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
-    ".openpublishing.redirection.baremetal-infrastructure.json"
-
+    ".openpublishing.redirection.baremetal-infrastructure.json",
+    "articles/iot-dps/.openpublishing.redirection.iot-dps.json"
   ]
 }
