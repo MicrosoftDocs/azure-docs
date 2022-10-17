@@ -108,7 +108,7 @@ OPTION (MAXDOP 1);
 ```
 
 > [!NOTE]
-> Currently, in dedicated SQL pools in Azure Synapse Analytics, the MAXDOP option is only supported in creating an ordered CCI table using `CREATE TABLE AS SELECT` command. Creating an ordered CCI via `CREATE INDEX` or `CREATE TABLE` commands doesn't support the MAXDOP option. This limitation does not apply to SQL Server 2022, where you can specify MAXDOP with the `CREATE INDEX` statement.
+> Currently, in dedicated SQL pools in Azure Synapse Analytics, the MAXDOP option is only supported in creating an ordered CCI table using `CREATE TABLE AS SELECT` command. Creating an ordered CCI via `CREATE INDEX` or `CREATE TABLE` commands doesn't support the MAXDOP option. This limitation does not apply to SQL Server 2022 and later versions, where you can specify MAXDOP with the `CREATE INDEX` or `CREATE TABLE` commands.
 
 - Pre-sort the data by the sort key(s) before loading them into tables.
 
