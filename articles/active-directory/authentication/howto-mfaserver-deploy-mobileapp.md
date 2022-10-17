@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable mobile app authentication with Azure AD Multi-Factor Authentication Server
 
-The Microsoft Authenticator app offers an additional out-of-band verification option. Instead of placing an automated phone call or SMS to the user during login, Azure AD Multi-Factor Authentication pushes a notification to the Authenticator app on the user's smartphone or tablet. The user simply taps **Verify** (or enters a PIN and taps "Authenticate") in the app to complete their sign-in.
+The Microsoft Authenticator app offers an extra out-of-band verification option. Instead of placing an automated phone call or SMS to the user during login, Azure AD Multi-Factor Authentication pushes a notification to the Authenticator app on the user's smartphone or tablet. The user simply taps **Verify** (or enters a PIN and taps "Authenticate") in the app to complete their sign-in.
 
 Using a mobile app for two-step verification is preferred when phone reception is unreliable. If you use the app as an OATH token generator, it doesn't require any network or internet connection.
 
