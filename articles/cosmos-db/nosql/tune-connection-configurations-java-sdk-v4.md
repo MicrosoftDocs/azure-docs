@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 04/22/2022
-ms.author: kushagraThapar
+ms.author: kuthapar
 ms.custom: devx-track-java, contperf-fy21q2, ignite-2022
 ---
 
