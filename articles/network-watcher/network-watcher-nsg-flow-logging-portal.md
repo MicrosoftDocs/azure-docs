@@ -37,23 +37,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
+
 ## Create a virtual machine
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines**.
 
-2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines**.
+2. In **Virtual machines**, select **+ Create** then **+ Azure virtual machine**.
 
-3. In **Virtual machines**, select **+ Create** then **+ Azure virtual machine**.
-
-4. Enter or select the following information in **Create a virtual machine**.
+3. Enter or select the following information in **Create a virtual machine**.
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. | 
+    | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. | 
     | **Instance details** |   |
-    | Virtual machine name | Enter **myVM**. |
+    | Virtual machine name | Enter *myVM*. |
     | Region | Select **(US) East US**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Leave the default of **Standard**. |
@@ -68,9 +70,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     | Public inbound ports | Leave the default of **Allow selected ports**. |
     | Select inbound ports | Leave the default of **RDP (3389)**. |
 
-5. Select **Review + create**. 
+4. Select **Review + create**. 
 
-6. Select **Create**.
+5. Select **Create**.
 
 The virtual machine takes a few minutes to create. Don't continue with the remaining steps until the VM has finished creating. While the portal creates the virtual machine, it also creates a network security group with the name **myVM-nsg** and associates it with the network interface for the VM.
 
@@ -78,7 +80,7 @@ The virtual machine takes a few minutes to create. Don't continue with the remai
 
 If you already have a network watcher enabled in the East US region, skip to [Register Insights provider](#register-insights-provider).
 
-1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
 2. In the **Overview** page of **Network Watcher**, select **+ Add**.
 
@@ -92,13 +94,13 @@ If you already have a network watcher enabled in the East US region, skip to [Re
 
 NSG flow logging requires the **Microsoft.Insights** provider. To register the provider, complete the following steps:
 
-1. In the search box at the top of the portal, enter **Subscriptions**. Select **Subscriptions** in the search results.
+1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** in the search results.
 
 2. Select the subscription you want to enable the provider for in **Subscriptions**.
 
 3. Select **Resource providers** in **Settings** of your subscription.
 
-4. Enter **Microsoft.Insights** in the filter box.
+4. Enter *Microsoft.Insights* in the filter box.
 
 5. Confirm the status of the provider displayed is **Registered**. If the status is **Unregistered**, select the provider then select **Register**.
 
@@ -108,7 +110,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 NSG flow log data is written to an Azure Storage account. Complete the following steps to create a storage account for the log data.
 
-1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage account*. Select **Storage accounts** in the search results.
 
 2. In **Storage accounts**, select **+ Create**.
 
@@ -131,7 +133,7 @@ NSG flow log data is written to an Azure Storage account. Complete the following
 
 The storage account may take around a minute to create. Don't continue with the remaining steps until the storage account is created. In all cases, the storage account must be in the same region as the NSG.
 
-1. In the search box at the top of the portal, enter **Network Watcher**. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
 
 2. Select **NSG flow logs** in **Logs**.
 
@@ -159,7 +161,7 @@ The storage account may take around a minute to create. Don't continue with the 
 
 ## Download flow log
 
-1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage account*. Select **Storage accounts** in the search results.
 
 2. Select the storage account you created in the previous steps.
 
