@@ -29,7 +29,7 @@ Open the Azure AD [App registrations](https://portal.azure.com/#view/Microsoft_A
 
 ![Screenshot of the pane for cluster app registrations and the button for a new registration.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-app-registration.png)
 
-In the **Register an application** pane, enter the following information, and then select **Register**:
+On the **Register an application** pane, enter the following information, and then select **Register**:
 
 - **Name**: Enter a descriptive name. It's helpful to define a registration type in the name, as in this example: **{{cluster name}}_Cluster**.
 - **Supported account types**: Select **Accounts in this organizational directory only**.
@@ -67,7 +67,7 @@ Select **+ Add a scope**, and then enter the following information:
 - **Scope name**: Enter **user_impersonation**.
 - **Who can consent?**: Select **Admins and users**.
 - **Admin consent display name**: Enter a descriptive name. It's helpful to define the cluster name and authentication type, as in this example: **Access mysftestcluster_Cluster**.
-- **Admin consent description**: Enter a description like this example: **Allow the application to access mysftestcluster_Cluster on behalf of the signed-in user**.
+- **Admin consent description**: Enter a description like this example: **Allow the application to access mysftestcluster_Cluster on behalf of the signed-in user.**
 - **User consent display name**: Enter a descriptive name. It's helpful to define the cluster name and authentication type, as in this example: **Access mysftestcluster_Cluster**.
 - **User consent description**: Enter a description like this example: **Allow the application to access mysftestcluster_Cluster on your behalf.**
 - **State**: Select **Enabled**.
@@ -81,7 +81,7 @@ Select **App roles** > **+ Create app role** to add admin and read-only user rol
 ![Screenshot of the pane for assigning app roles in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-roles.png)
 
 Enter the following information for an admin user, and then select **Apply**:
-- **Display Name**: Enter **Admin**.
+- **Display name**: Enter **Admin**.
 - **Allowed member types**: Select **Users/Groups**.
 - **Value**: Enter **Admin**.
 - **Description**: Enter **Admins can manage roles and perform all task actions**.
@@ -89,7 +89,7 @@ Enter the following information for an admin user, and then select **Apply**:
 ![Screenshot of selections for creating an admin user role in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-roles-admin.png)
 
 Enter the following information for a read-only user, and then select **Apply**:
-- **Display Name**: Enter **ReadOnly**.
+- **Display name**: Enter **ReadOnly**.
 - **Allowed member types**: Select **Users/Groups**.
 - **Value**: Enter **ReadOnly**.
 - **Description**: Enter **ReadOnly roles have limited query access**.
@@ -106,7 +106,7 @@ Enter the following information, and then select **Register**:
 
 - **Name**: Enter a descriptive name. It's helpful to define the registration type in the name, as in the following example: **{{cluster name}}_Client**.
 - **Supported account types**: Select **Accounts in this organizational directory only**.
-- **Redirect URI**: Select **Public client/native** and enter **urn:ietf:wg:oauth:2.0:oob**.
+- **Redirect URI**: Select **Public client/native** and enter `urn:ietf:wg:oauth:2.0:oob`.
 
 ![Screenshot of client app registration in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-client-app-registration.png)
 
@@ -150,7 +150,7 @@ For both the read-only and admin roles, you use Azure AD cluster app registratio
 
 ### Remove filters
 
-To view the enterprise applications that were created during the app registration process, you must remove the default filters for **Application type** and **Application ID starts with** from the **All applications** pane in the portal. Optionally, you can view enterprise applications by opening the **Enterprise applications** link from the **API permissions** pane for app registration.
+To view the enterprise applications that you created during the app registration process, you must remove the default filters for **Application type** and **Application ID starts with** from the **All applications** pane in the portal. Optionally, you can view enterprise applications by opening the **Enterprise applications** link from the **API permissions** pane for app registration.
 
 The following screenshot shows default filters to be removed.
 
@@ -172,11 +172,11 @@ Under **Users**, select the **None Selected** link.
 
 ![Screenshot of the pane for adding an assignment, with no users selected.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-enterprise-apps-add-assignment.png)
 
-For users who need read-only (view) access, find each user, and then under **Select a role**, choose the **None Selected** link. Then in the **Select a role** pane, add the **ReadOnly** role.
+For users who need read-only (view) access, find each user, and then under **Select a role**, choose the **None Selected** link. Then on the **Select a role** pane, add the **ReadOnly** role.
 
 ![Screenshot of selecting the read-only role for a user.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-enterprise-apps-readonly-role.png)
 
-For users who need full read/write access, find each user, and then under **Select a role**, choose the **None Selected** link. Then in the **Select a role** pane, add the **Admin** role.
+For users who need full read/write access, find each user, and then under **Select a role**, choose the **None Selected** link. Then on the **Select a role** pane, add the **Admin** role.
 
 ![Screenshot of selecting the admin role for a user.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-enterprise-apps-admin-role.png)
 
@@ -213,7 +213,7 @@ Enter the following information, and then select **Add**:
 - **Cluster application**: Enter the ID for the Azure AD cluster app registration. This is also known as the web application.
 - **Client application**: Enter the ID for the Azure AD client app registration. This is also known as the native application.
 
-![Screenshot of selections in the Add pane.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-azure-ad-settings.png)
+![Screenshot of selections on the Add pane.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-cluster-azure-ad-settings.png)
 
 ## Connect to a cluster with Azure AD
 
@@ -299,10 +299,10 @@ On the Azure AD app registration page for your cluster, select **Authentication*
 When you try to connect to a Service Fabric cluster by using Azure AD via PowerShell, the sign-in page returns an error: "AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: &lt;guid&gt;."
 
 #### Reason
-Similar to the preceding issue, PowerShell attempts to authenticate against Azure AD, which provides a redirect URL that isn't listed in the **Reply URIs** list for the Azure AD application.  
+PowerShell attempts to authenticate against Azure AD, which provides a redirect URL that isn't listed in the **Reply URIs** list for the Azure AD application.  
 
 #### Solution
-On the Azure AD app registration page for your cluster, select **Authentication**. In the **Redirect URIs** section, set the URL to **urn:ietf:wg:oauth:2.0:oob**. This URL is a special redirect for command-line authentication.
+On the Azure AD app registration page for your cluster, select **Authentication**. In the **Redirect URIs** section, set the URL to `urn:ietf:wg:oauth:2.0:oob`. This URL is a special redirect for command-line authentication.
 
 ## FAQ
 
