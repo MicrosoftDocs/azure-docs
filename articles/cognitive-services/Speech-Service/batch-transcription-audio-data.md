@@ -9,7 +9,7 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 09/11/2022
+ms.date: 10/17/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -18,8 +18,11 @@ ms.custom: devx-track-csharp
 
 Batch transcription is used to transcribe a large amount of audio in storage. Batch transcription can access audio files from inside or outside of Azure.
 
-- When source audio files are stored outside of Azure, they can be accessed via a public URI (such as "https://crbn.us/hello.wav"). Files should be directly accessible; URIs that require authentication or that invoke interactive scripts before the file can be accessed aren't supported. 
-- Audio files that are stored in Azure Blob storage can be accessed using [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) or via [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI. 
+When source audio files are stored outside of Azure, they can be accessed via a public URI (such as "https://crbn.us/hello.wav"). Files should be directly accessible; URIs that require authentication or that invoke interactive scripts before the file can be accessed aren't supported. 
+
+Audio files that are stored in Azure Blob storage can be accessed via one of two methods:
+- [Trusted Azure services security mechanism](#trusted-azure-services-security-mechanism)
+- [Shared access signature (SAS)](#sas-url-for-batch-transcription) URI. 
 
 You can specify one or multiple audio files when creating a transcription. We recommend that you provide multiple files per request or point to an Azure Blob storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
 
@@ -37,20 +40,29 @@ For stereo audio streams, the left and right channels are split during the trans
 
 ## Azure Blob Storage upload
 
-You need to use [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) to store audio files. Usage of [Azure Files](../../storage/files/storage-files-introduction.md) is not supported.
-When audio files are stored in an Azure Blob storage you can provide individual audio files, or an entire Azure Blob Storage container. You can also [write transcription results](batch-transcription-create.md#destination-container-url) to a Blob container.
+When audio files are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account, you can request transcription of individual audio files or an entire Azure Blob Storage container. You can also [write transcription results](batch-transcription-create.md#destination-container-url) to a Blob container.
 
-The storage container must have at most 5 GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5 GB.
+[Batch transcription](batch-transcription.md) requires the storage container must have at most 5 GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5 GB.
+
+# [Azure portal](#tab/portal)
 
 Follow these steps to create a storage account and upload wav files from your local directory to a new container. 
 
-You can provide individual audio files, or an entire Azure Blob Storage container. You can also read or write transcription results in a container. This example shows how to transcribe audio files in [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md).
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. <a href="https://portal.azure.com/#create/Microsoft.StorageAccount-ARM"  title="Create a Storage account resource"  target="_blank">Create a Storage account resource</a> in the Azure portal. Use the same subscription and resource group as your Speech resource.
+1. Select the Storage account.
+1. In the **Data storage** group in the left pane, select **Containers**.
+1. Select **+ Container**.
+1. Enter a name for the new container and select **Create**.
+1. Select the new container.
+1. Select **Upload**.
+1. Choose the files to upload and select **Upload**.
 
-The [shared access signature (SAS) URI](../../storage/common/storage-sas-overview.md) must have `r` (read) and `l` (list) permissions. The storage container must have at most 5GB of audio data and a maximum number of 10,000 blobs. The maximum size for a blob is 2.5GB.
+# [Azure CLI](#tab/azure-cli)
 
-Follow these steps to create a storage account, upload wav files from your local directory to a new container, and generate a SAS URL that you can use for batch transcriptions.
+Follow these steps to create a storage account and upload wav files from your local directory to a new container. 
 
-1. Set the `RESOURCE_GROUP` environment variable to the name of an existing resource group where the new storage account will be created.
+1. Set the `RESOURCE_GROUP` environment variable to the name of an existing resource group where the new storage account will be created. Use the same subscription and resource group as your Speech resource.
 
     ```azurecli-interactive
     set RESOURCE_GROUP=<your existing resource group name>
@@ -98,9 +110,14 @@ Follow these steps to create a storage account, upload wav files from your local
     az storage blob upload-batch -d <mycontainer> -s . --pattern *.wav
     ```
 
+---
+
 ## Trusted Azure services security mechanism
 
 This section explains how to configure an Azure Storage account used for storing [Batch transcription](batch-transcription.md) audio files with the maximal restricted access rights. The article implies that the [trusted Azure services security mechanism](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) is used to access the files. 
+
+> [!NOTE]
+> With the trusted Azure services security mechanism, you need to use [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) to store audio files. Usage of [Azure Files](../../storage/files/storage-files-introduction.md) is not supported.
 
 If you perform all actions in this article, your Storage account will be in the following configuration:
 - Access to all external network traffic is prohibited.
@@ -171,12 +188,19 @@ Follow these steps to assign the **Storage Blob Data Read** role to the managed 
 > [!IMPORTANT]
 > You need to be assigned the *Owner* role of the Storage account or higher scope (like Subscription) to perform the operation in the next steps. This is because only the *Owner* role can assign roles to others. See details [here](../../role-based-access-control/built-in-roles.md).
 
-1. Go to **Access Control (IAM)** menu in the top menu group.
-1. Click **Add role assignment** in **Grant access to this resource** group and assign the managed identity of your Speech resource to **Storage Blob Data Reader** role. Be sure to select **Managed identity** for **Assign access to** parameter.
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Storage account.
+1. Select **Access Control (IAM)** menu in the left pane.
+1. Select **Add role assignment** in the **Grant access to this resource** tile.
+1. Select **Storage Blob Data Reader** under **Role** and then select **Next**.
+1. Select **Managed identity** under **Members** > **Assign access to**.
+1. Assign the managed identity of your Speech resource and then select **Review + assign**.
+
+    :::image type="content" source="media/storage/storage-iam-managed-role.png" alt-text="Screenshot of the managed role assignment review.":::
+
+1. After confirming the settings, select **Review + assign**
 
 Now the Speech resource managed identity has access to the Storage account and can access the audio files for batch transcription.
-
-### Create batch transcription
 
 With system assigned managed identity, you'll use a plain Storage Account URL (no SAS or other additions) when you [create a batch transcription](batch-transcription-create.md) request. For example: 
 
@@ -186,19 +210,42 @@ With system assigned managed identity, you'll use a plain Storage Account URL (n
 }
 ```
 
-
-
 ## SAS URL for batch transcription
 
-1. Generate a SAS URL with read (r) and list (l) permissions for the container with the [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) command. Replace `<mycontainer>` with the name of your container.
+A shared access signature (SAS) is a URI that grants restricted access to an Azure Storage container. Use it when you want to grant access to your batch transcription files for a specific time range without sharing your storage account key. 
+
+> [!TIP]
+> If you only want your Speech resource to access the container, use the [trusted Azure services security mechanism](#trusted-azure-services-security-mechanism) instead.
+
+# [Azure portal](#tab/portal)
+
+Follow these steps to generate a SAS URL that you can use for batch transcriptions.
+
+1. Complete the steps in [Azure Blob Storage upload](#azure-blob-storage-upload) to create a Storage account and upload audio files to a new container.
+1. Select the new container.
+1. In the **Settings** group in the left pane, select **Shared access tokens**.
+1. Select **+ Container**.
+1. Select **Read** and **List** for **Permissions**.
+
+    :::image type="content" source="media/storage/storage-container-sas.png" alt-text="Screenshot of the container SAS URI permissions.":::
+
+1. Enter the start and expiry times for the SAS URI, or leave the defaults.
+1. Select **Generate SAS token and URL**.
+
+# [Azure CLI](#tab/azure-cli)
+
+Follow these steps to generate a SAS URL that you can use for batch transcriptions.
+
+1. Complete the steps in [Azure Blob Storage upload](#azure-blob-storage-upload) to create a Storage account and upload audio files to a new container.
+1. Generate a SAS URL with read (r) and list (l) permissions for the container with the [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) command. Choose a new expiry date and replace `<mycontainer>` with the name of your container.
 
     ```azurecli-interactive
-    az storage container generate-sas -n <mycontainer> --expiry 2022-09-09 --permissions rl --https-only
+    az storage container generate-sas -n <mycontainer> --expiry 2022-10-10 --permissions rl --https-only
     ```
 
 The previous command returns a SAS token. Append the SAS token to your container blob URL to create a SAS URL. For example: `https://<storage_account_name>.blob.core.windows.net/<container_name>?SAS_TOKEN`. 
 
-### Create batch transcription
+---
 
 You will use the SAS URL when you [create a batch transcription](batch-transcription-create.md) request. For example: 
 
@@ -207,8 +254,6 @@ You will use the SAS URL when you [create a batch transcription](batch-transcrip
     "contentContainerUrl": "https://<storage_account_name>.blob.core.windows.net/<container_name>?SAS_TOKEN"
 }
 ```
-
-
 
 ## Next steps
 
