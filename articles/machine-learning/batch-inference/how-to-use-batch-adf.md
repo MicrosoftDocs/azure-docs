@@ -34,13 +34,13 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 
 Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
-We recommend to using a `Managed Identity` for authentication and interaction with batch endpoints in this scenario. 
+We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario. 
 
 1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 1. Take note of the `client secret` generated.
 1. Take note of the `client ID` and the `tenant id` as explained at [Get tenant and app ID values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
-1. Grant access for the managed identity you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the managed identity will require:
+1. Grant access for the service principal you created to your workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores.
@@ -55,10 +55,10 @@ The pipeline will look as follows:
 
 It is composed of the following activities:
 
-* __Authorize__: It's a Web Activity that uses the Managed Identity created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token. This token will be used to invoke the endpoint later.
+* __Authorize__: It's a Web Activity that uses the service principal created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token. This token will be used to invoke the endpoint later.
 * __Run Batch-Endpoint__: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
 * __Wait for job__: It's a loop activity that checks the status of the created job and waits for its completion, either as **Completed** or **Failed**. This activity, in turns, uses the following activities:
-  * __Authorize Management__: It's a Web Activity that uses the Managed Identity created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token to be used for job's status query.
+  * __Authorize Management__: It's a Web Activity that uses the service principal created in [Authenticating against batch endpoints](#authenticating-against-batch-endpoints) to obtain an authorization token to be used for job's status query.
   * __Check status__: It's a Web Activity that queries the status of the job resource that was returned as a response of the __Run Batch-Endpoint__ activity. 
   * __Wait__: It's a Wait Activity that controls the polling frequency of the job's status. We set a default of 120 (2 minutes).
 
@@ -67,8 +67,8 @@ The pipeline requires the following parameters to be configured:
 | Parameter             | Description  | Sample value |
 | --------------------- | -------------|------------- |
 | `tenant_id`           | Tenant ID where the endpoint is deployed  | `00000000-0000-0000-00000000` |
-| `client_id`           | The client ID of the Managed Identity used to invoke the endpoint  | `00000000-0000-0000-00000000` |
-| `client_secret`       | The client secret of the Managed Identity used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
+| `client_id`           | The client ID of the service principal used to invoke the endpoint  | `00000000-0000-0000-00000000` |
+| `client_secret`       | The client secret of the service principal used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 | `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
