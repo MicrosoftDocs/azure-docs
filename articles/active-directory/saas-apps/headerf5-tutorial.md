@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with F5 | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and F5.
+title: 'Tutorial: Azure AD SSO integration with F5’s BIG-IP Easy Button for header-based SSO'
+description: Learn how to Configure SSO between Azure AD and F5’s BIG-IP Easy Button for header-based SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 10/17/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Configure single sign-on (SSO) between Azure Active Directory and F5
+# Tutorial: Configure SSO between Azure AD and F5’s BIG-IP Easy Button for header-based SSO
 
 In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (Azure AD). When you integrate F5 with Azure AD, you can:
 
@@ -24,454 +24,340 @@ In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (
 > [!NOTE]
 > F5 BIG-IP APM [Purchase Now](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview).
 
-## Prerequisites
-
-To get started, you need the following items:
-
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-* F5 single sign-on (SSO) enabled subscription.
-
-* Deploying the joint solution requires the following license:
-
-	* F5 BIG-IP® Best bundle (or) 
-
-	* F5 BIG-IP Access Policy Manager™ (APM) standalone license 
-
-	* F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
-
-	* In addition to the above license, the F5 system may also be licensed with: 
-
-		* A URL Filtering subscription to use the URL category database
-
-		* An F5 IP Intelligence subscription to detect and block known attackers and malicious traffic
-	 
-		* A network hardware security module (HSM) to safeguard and manage digital keys for strong authentication
-
-* F5 BIG-IP system is provisioned with APM modules (LTM is optional)
-
-* Although optional, it is highly recommended to Deploy the F5 systems in a [sync/failover device group](https://techdocs.f5.com/content/techdocs/en-us/bigip-14-1-0/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), which includes the active standby pair, with a floating IP address for high availability (HA). Further interface redundancy can be achieved using the Link Aggregation Control Protocol (LACP). LACP manages the connected physical interfaces as a single virtual interface (aggregate group) and detects any interface failures within the group.
-
-* For Kerberos applications, an on-premises AD service account for constrained delegation.  Refer to [F5 Documentation](https://support.f5.com/csp/article/K43063049) for creating a AD delegation account.
-
-## Access guided configuration
-
-* Access guided configuration’ is supported on F5 TMOS version 13.1.0.8 and above. If your BIG-IP system is running a version below 13.1.0.8, please refer to the **Advanced configuration** section.
-
-* Access guided configuration presents a completely new and streamlined user experience. This workflow-based architecture provides intuitive, re-entrant configuration steps tailored to the selected topology.
-
-* Before proceeding to the configuration, upgrade the guided configuration by downloading the latest use case pack from [downloads.f5.com](https://login.f5.com/resource/login.jsp?ctx=719748). To upgrade, follow the below procedure.
-
-	>[!NOTE]
-	>The screenshots below are for the latest released version (BIG-IP 15.0 with AGC version 5.0). The configuration steps below are valid for this use case across from 13.1.0.8 to the latest BIG-IP version.
-
-1. On the F5 BIG-IP Web UI, click on **Access >> Guide Configuration**.
-
-1. On the **Guided Configuration** page, click on **Upgrade Guided Configuration** on the top left-hand corner.
-
-	![Screenshot shows the Guided Configuration page with the Update Guided Configuration link.](./media/headerf5-tutorial/configure14.png) 
-
-1. On the Upgrade Guide Configuration pop screen, select **Choose File** to upload the downloaded use case pack and click on **Upload and Install** button.
-
-	![Screenshot shows the Upgrade Guided Configuration dialog box with Choose File selected.](./media/headerf5-tutorial/configure15.png) 
-
-1. When upgrade is completed, click on the **Continue** button.
-
-	![Screenshot shows the Upgrade Guided Configuration dialog box with a completion message.](./media/headerf5-tutorial/configure16.png)
-
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+This scenario looks at the classic legacy application using **HTTP authorization headers** to manage access to protected content.
 
-* F5 SSO can be configured in three different ways.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
 
-- [Configure F5 single sign-on for Header Based application](#configure-f5-single-sign-on-for-header-based-application)
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and headers-based SSO, significantly improving the overall security posture of the application.
 
-- [Configure F5 single sign-on for Kerberos application](kerbf5-tutorial.md)
+> [!NOTE] 
+> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](../app-proxy/application-proxy.md).
 
-- [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
+## Scenario architecture
 
-### Key Authentication Scenarios
+The SHA solution for this scenario is made up of:
 
-* Apart from Azure Active Directory native integration support for modern authentication protocols like Open ID Connect, SAML and WS-Fed, F5 extends secure access for legacy-based authentication apps for both internal and external access with Azure AD, enabling modern scenarios (e.g. password-less access) to these applications. This include:
+**Application:** BIG-IP published service to be protected by Azure AD SHA. 
 
-* Header-based authentication apps
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
-* Kerberos authentication apps
+**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the backend application.
 
-* Anonymous authentication or no inbuilt authentication apps
+SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-* NTLM authentication apps (protection with dual prompts for the user)
+   ![Secure hybrid access - SP initiated flow](./media/headerf5-tutorial//sp-initiated-flow.png)
 
-* Forms Based Application (protection with dual prompts for the user)
+| Steps| Description |
+| - |----|
+| 1| User connects to application endpoint (BIG-IP) |
+| 2| BIG-IP APM access policy redirects user to Azure AD (SAML IdP) |
+| 3| Azure AD pre-authenticates user and applies any enforced Conditional Access policies |
+| 4| User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
+| 5| BIG-IP injects Azure AD attributes as headers in request to the application |
+| 6| Application authorizes request and returns payload |
 
-## Adding F5 from the gallery
+## Prerequisites
 
-To configure the integration of F5 into Azure AD, you need to add F5 from the gallery to your list of managed SaaS apps.
+Prior BIG-IP experience isn’t necessary, but you’ll need:
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **F5** in the search box.
-1. Select **F5** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+* An Azure AD free subscription or above.
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md).
 
-## Configure and test Azure AD SSO for F5
+* Any of the following F5 BIG-IP license SKUs.
 
-Configure and test Azure AD SSO with F5 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in F5.
+  * F5 BIG-IP® Best bundle.
 
-To configure and test Azure AD SSO with F5, perform the following steps:
+  * F5 BIG-IP Access Policy Manager™ (APM) standalone license.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure F5 SSO](#configure-f5-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create F5 test user](#create-f5-test-user)** - to have a counterpart of B.Simon in F5 that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+  * F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
 
-## Configure Azure AD SSO
+  * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD.
 
-1. In the Azure portal, on the **F5** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+* An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator).
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+* An [SSL Web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing.
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+* An existing header-based application or [setup a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing.
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<YourCustomFQDN>.f5.com/`
+## BIG-IP configuration methods
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<YourCustomFQDN>.f5.com/`
+There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy button template. With the Easy Button, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures that applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+> [!NOTE] 
+> All example strings or values referenced throughout this guide should be replaced with those for your actual environment.
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<YourCustomFQDN>.f5.com/`
+## Register Easy Button
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Through these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
-	![The Certificate download link](common/metadataxml.png)
+1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights.
+2. From the left navigation pane, select the **Azure Active Directory** service.
+3. Under Manage, select **App registrations > New registration**.
+4. Enter a display name for your application. For example, `F5 BIG-IP Easy Button`.
+5. Specify who can use the application > **Accounts in this organizational directory only**.
+6. Select **Register** to complete the initial app registration.
+7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
 
-1. On the **Set up F5** section, copy the appropriate URL(s) based on your requirement.
+   * Application.Read.All
+   * Application.ReadWrite.All
+   * Application.ReadWrite.OwnedBy
+   * Directory.Read.All
+   * Group.Read.All
+   * IdentityRiskyUser.Read.All
+   * Policy.Read.All
+   * Policy.ReadWrite.ApplicationConfiguration
+   * Policy.ReadWrite.ConditionalAccess
+   * User.Read.All
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+8. Grant admin consent for your organization.
+9. In the **Certificates & Secrets** blade, generate a new **client secret** and note it down.
+10. From the **Overview** blade, note the **Client ID** and **Tenant ID**.
 
-### Create an Azure AD test user
+## Configure Easy Button
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+Initiate the APM's **Guided Configuration** to launch the **Easy Button** Template.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
-### Assign the Azure AD test user
+   ![Screenshot for Configure Easy Button- Install the template](./media/headerf5-tutorial/easy-button-template.png)
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to F5.
+2. Review the list of configuration steps and select **Next**.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **F5**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+   ![Screenshot for Configure Easy Button - List configuration steps](./media/headerf5-tutorial/config-steps.png)
 
-## Configure F5 SSO
+3. Follow the sequence of steps required to publish your application.
 
-- [Configure F5 single sign-on for Kerberos application](kerbf5-tutorial.md)
+   ![Configuration steps flow](./media/headerf5-tutorial/config-steps-flow.png#lightbox)
 
-- [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
 
-### Configure F5 single sign-on for Header Based application
+### Configuration Properties
 
-### Guided Configuration
+The **Configuration Properties** tab creates a BIG-IP application config and SSO object. Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
 
-1. Open a new web browser window and sign into your F5 (Header Based) company site as an administrator and perform the following steps:
+Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
 
-1. Navigate to **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. Specify a **Certificate Name** (will be referenced Later in the config). In the **Certificate Source**, select Upload File specify the certificate downloaded from Azure while configuring SAML Single Sign on. Click **Import**.
+1. Enter a unique **Configuration Name** so admins can easily distinguish between Easy Button configurations.
 
-	![Screenshot shows the S S L Certificate List where you select the Certificate Name and Certificate Source.](./media/headerf5-tutorial/configure12.png)
+2. Enable **Single Sign-On (SSO) & HTTP Headers**.
+
+3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
+
+4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**.
+
+   ![Screenshot for Configuration General and Service Account properties](./media/headerf5-tutorial/config-properties.png)
+
+### Service Provider
+
+The Service Provider settings define the properties for the SAML SP instance of the application protected through SHA.
+
+1. Enter **Host**. This is the public FQDN of the application being secured.
+
+2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token.
+
+   ![Screenshot for Service Provider settings](./media/headerf5-tutorial/service-provider.png)
+
+   The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+
+3.	From the **Assertion Decryption Private Key** list, select **Create New**.
  
-1. Additionally, you will require **SSL Certificate for the Application Hostname. Navigate to System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. **Import Type** will be **PKCS 12(IIS)**. Specify a **Key Name** (will be referenced Later in the config) and the specify the PFX file. Specify the **Password** for the PFX. Click **Import**.
+      ![Screenshot for Configure Easy Button- Create New import](./media/headerf5-tutorial/configure-security-create-new.png)
 
-	>[!NOTE]
-	>In the example our app name is `Headerapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`.
+4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab. 
 
-	![Screenshot shows the S S L Certificate/Key Source page.](./media/headerf5-tutorial/configure13.png)
+6.	Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
 
-1. We will use the Guided Experience to setup the Azure AD Federation and Application Access. Go to – F5 BIG-IP **Main** and select **Access > Guided Configuration > Federation > SAML Service Provider**. Click **Next** then click **Next** to begin configuration.
+      ![Screenshot for Configure Easy Button- Import new cert](./media/headerf5-tutorial/import-ssl-certificates-and-keys.png)
 
-	![Screenshot shows the Guided Configuration page with Federation selected.](./media/headerf5-tutorial/configure01.png)
+6.	Check **Enable Encrypted Assertion**.
+7.	If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions.
+8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
+   
+   ![Screenshot for Service Provider security settings](./media/headerf5-tutorial/service-provider-security-settings.png)
 
-	![Screenshot shows the SAML Service Provider page.](./media/headerf5-tutorial/configure02.png)
+### Azure Active Directory
+
+This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **F5 BIG-IP APM Azure AD Integration > Add**.
+
+   ![Screenshot for Azure configuration add BIG-IP application](./media/headerf5-tutorial/azure-config-add-app.png)
+
+#### Azure Configuration
+
+1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see on [MyApps portal](https://myapplications.microsoft.com/).
+
+2. Do not enter anything in the **Sign On URL (optional)** to enable IdP initiated sign-on.
+   
+   ![Screenshot for Azure configuration add display info](./media/headerf5-tutorial/azure-configuration-properties.png)
+
+3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier.
  
-1. Provide a **Configuration Name**. Specify the **Entity ID** (same as what you configured on the Azure AD Application Configuration). Specify the **Host name**. Add a **Description** for reference. Accept the remaining default entries and select and then click **Save & Next**.
+5. Enter the certificate’s password in **Signing Key Passphrase**.
 
-	![Screenshot shows the Service Provider Properties page.](./media/headerf5-tutorial/configure03.png) 
+6. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD.
+   
+   ![Screenshot for Azure configuration - Add signing certificates info](./media/headerf5-tutorial/azure-configuration-sign-certificates.png)
 
-1. In this example we are creating a new Virtual Server as 192.168.30.20 with port 443. Specify the Virtual Server IP address in the **Destination Address**. Select the Client **SSL Profile**, select Create new. Specify previously uploaded application certificate, (the wild card certificate in this example) and the associated key, and then click **Save & Next**.
+7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied.
+   
+   ![Screenshot for Azure configuration - Add users and groups](./media/headerf5-tutorial/azure-configuration-add-user-groups.png)
 
-	>[!NOTE]
-	>in this example our Internal webserver is running on port 888 and we want to publish it with 443.
+#### User Attributes & Claims
 
-	![Screenshot shows the Virtual Server Properties page.](./media/headerf5-tutorial/configure04.png) 
+When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims tab** shows the default claims to issue for the new application. It also lets you configure more claims.
 
-1. Under **Select method to configure your IdP connector**, specify Metadata, click on Choose File and upload the Metadata XML file downloaded earlier from Azure AD. Specify a unique **Name** for SAML IDP connector. Choose the **Metadata Signing Certificate** which was upload earlier. Click **Save & Next**.
+For this example, you can include one more attribute:
 
-	![Screenshot shows the External Identity Provider Connector Settings page.](./media/headerf5-tutorial/configure05.png)
- 
-1. Under **Select a Pool**, specify **Create New** (alternatively select a pool it already exists). Let other value be default.	Under Pool Servers, type the IP Address under **IP Address/Node Name**. Specify the **Port**. Click **Save & Next**.
+1. Enter **Header Name** as employeeid.
 
-	![Screenshot shows the Pool Properties page.](./media/headerf5-tutorial/configure06.png)
+2. Enter **Source Attribute** as user.employeeid.
 
-1. On the Single Sign-On Settings screen, select **Enable Single Sign-On**. Under Selected Single Sign-On Type choose **HTTP header-based**. Replace **session.saml.last.Identity** with **session.saml.last.attr.name.Identity** under Username Source ( this variable it set using claims mapping in the Azure AD ). Under SSO Headers.
+   ![Screenshot for user attributes and claims](./media/headerf5-tutorial/user-attributes-claims.png)
 
-	* **HeaderName  : MyAuthorization**
+#### Additional User Attributes
 
-	* **Header Value : %{session.saml.last.attr.name.Identity}**
+In the **Additional User Attributes tab**, you can enable session augmentation required by a variety of distributed systems such as Oracle, SAP, and other JAVA based implementations requiring attributes stored in other directories. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. 
 
-	* Click **Save & Next**
+   ![Screenshot for additional user attributes](./media/headerf5-tutorial/additional-user-attributes.png)
 
-	Refer Appendix for complete list of variables and values. You can add more headers as required.
+>[!NOTE] 
+>This feature has no correlation to Azure AD but is another source of attributes. 
 
-	>[!NOTE]
-	>Account Name Is the F5 Delegation Account Created (Check F5 Documentation).
+#### Conditional Access Policy
 
-	![Screenshot shows the Single Sign-On Settings page.](./media/headerf5-tutorial/configure07.png) 
+CA policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
 
-1. For purposes of this guidance, we will skip endpoint checks.  Refer to F5 documentation for details. Select **Save & Next**.
+The **Available Policies** view, by default, will list all CA policies that do not include user based actions.
 
-	![Screenshot shows the Endpoint Checks Properties page.](./media/headerf5-tutorial/configure08.png)
+The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
 
-1. Accept the defaults and click **Save & Next**. Refer F5 documentation for details regarding SAML session management settings.
+To select a policy to be applied to the application being published:
 
-	![Screenshot shows the Timeout Settings page.](./media/headerf5-tutorial/configure09.png)
+1.	Select the desired policy in the **Available Policies** list.
+2.	Select the right arrow and move it to the **Selected Policies** list.
 
-1. Review the summary screen and select **Deploy** to configure the BIG-IP. click on **Finish**.
+Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-	![Screenshot shows the Your application is ready to be deployed page.](./media/headerf5-tutorial/configure10.png)
-
-	![Screenshot shows the Your application is deployed page.](./media/headerf5-tutorial/configure11.png)
-
-## Advanced Configuration
-
-This section is intended to be used if you cannot use the Guided configuration or would like to add/modify additional Parameters. You will require a TLS/SSL certificate for the Application Hostname.
-
-1. Navigate to **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. **Import Type** will be **PKCS 12(IIS)**. Specify a **Key Name** (will be referenced Later in the config) and the specify the PFX file. Specify the **Password** for the PFX. Click **Import**.
-
-	>[!NOTE]
-	>In the example our app name is `Headerapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`.
-  
-	![Screenshot shows the S S L Certificate/Key Source page for Advanced Configuration.](./media/headerf5-tutorial/configure17.png)
-
-### Adding a new Web Server to BigIP-F5
-
-1. Click on **Main > IApps > Application Services > Application > Create**.
-
-1. Provide the **Name** and under **Template** choose **f5.http**.
- 
-	![Screenshot shows the Application Services page with Template Selection.](./media/headerf5-tutorial/configure18.png)
-
-1. We will publish our HeaderApp2 externally as HTTPS in this case, **how should the BIG-IP system handle SSL Traffic**? we specify **Terminate SSL from Client, Plaintext to servers (SSL Offload)**. Specify your Certificate and Key under **Which SSL certificate do you want to use?** and **Which SSL private key do you want to use?**. Specify the Virtual Server IP under **What IP Address do you want to use for the Virtual Server?**. 
-
-	* **Specify other details**
-
-		* FQDN  
-
-		* Specify exiting app pool or create a new one.
-
-		* If creating a new App Server specify **internal IP Address** and **port number**.
-
-		![Screenshot shows the pane where you can specify these details.](./media/headerf5-tutorial/configure19.png) 
-
-1. Click **Finished**.
-
-	![Screenshot shows the page after completion.](./media/headerf5-tutorial/configure20.png) 
-
-1. Ensure the App Properties can be modified. Click **Main > IApps > Application Services: Applications >> HeaderApp2**. Uncheck **Strict Updates** (we will modify some setting outside of the GUI). Click **Update** button.
-
-	![Screenshot shows the Application Services page with the Properties tab selected.](./media/headerf5-tutorial/configure21.png) 
-
-1. At this point you should be able to browse the virtual Server.
-
-### Configuring F5 as SP and Azure as IDP
-
-1.	Click **Access > Federation> SAML Service Provider > Local SP Service > click create or + sign**.
-
-	![Screenshot shows the About this BIG I P page. ](./media/headerf5-tutorial/configure22.png)
-
-1. Specify Details for the Service Provider Service. Specify **Name** representing F5 SP Configuration. Specify **Entity ID** (generally same as application URL).
-
-	![Screenshot shows the SAML Service Provider page with the Create New SAML S P Service dialog box.](./media/headerf5-tutorial/configure23.png)
-
-	![Screenshot shows the Create New SAML S P Service dialog box with Endpoint Settings selected.](./media/headerf5-tutorial/configure24.png)
-
-	![Screenshot shows the Create New SAML S P Service dialog box with Security Settings selected.](./media/headerf5-tutorial/configure25.png)
-
-	![Screenshot shows the Create New SAML S P Service dialog box with Authentication Context selected.](./media/headerf5-tutorial/configure26.png)
-
-	![Screenshot shows the Create New SAML S P Service dialog box with Requested Attributes selected.](./media/headerf5-tutorial/configure27.png)
-
-	![Screenshot shows the Edit SAML S P Service dialog box with Advanced Settings selected.](./media/headerf5-tutorial/configure28.png)
-
-### Create Idp Connector
-
-1. Click **Bind/Unbind IdP Connectors** button, select **Create New IdP Connector** and choose From **Metadata** option then perform the following steps:
- 
-	![Screenshot shows the Edit SAML I d Ps that use this S P dialog box with Create New I d P Connector selected.](./media/headerf5-tutorial/configure29.png)
-
-	a. Browse to metadata.xml file downloaded from Azure AD and specify an **Identity Provider Name**.
-
-	b. Click **ok**.
-
-	c. The connector is created, and certificate is ready automatically from the metadata xml file.
-	
-	![Screenshot shows the Create New SAML I d P Connector dialog box.](./media/headerf5-tutorial/configure30.png)
-
-	d. Configure F5BIG-IP to send all request to Azure AD.
-
-	e. Click **Add New Row**, choose **AzureIDP** (as created in previous steps, specify 
-
-	f. **Matching Source   =  %{session.server.landinguri}** 
-
-	g. **Matching Value     = /***
-
-	h. Click **update**
-
-	i. Click **OK**
-
-	j. **SAML IDP setup is completed**
-	
-	![Screenshot shows the Edit SAML I d Ps that user this S P dialog box.](./media/headerf5-tutorial/configure31.png)
-
-### Configure F5 Policy to redirect users to Azure SAML IDP
-
-1. To configure F5 Policy to redirect users to Azure SAML IDP, perform the following steps:
-
-	a. Click **Main > Access > Profile/Policies > Access Profiles**.
-
-	b. Click on the **Create** button.
-
-	![Screenshot shows the Access Profiles page.](./media/headerf5-tutorial/configure32.png)
- 
-	c. Specify **Name** (HeaderAppAzureSAMLPolicy in the example).
-
-	d. You can customize other settings please refer to F5 Documentation.
-
-	![Screenshot shows the General Properties page.](./media/headerf5-tutorial/configure33.png)
-
-	![Screenshot shows the General Properties page continued.](./media/headerf5-tutorial/configure34.png) 
-
-	e. Click **Finished**.
-
-	f. Once the Policy creation is completed, click on the Policy and go to the **Access Policy** Tab.
-
-	![Screenshot shows the Access Policy tab with General Properties.](./media/headerf5-tutorial/configure35.png)
- 
-	g. Click on the **Visual Policy editor**, edit **Access Policy for Profile** link.
-
-	h. Click on the + Sign in the Visual Policy editor and choose **SAML Auth**.
-
-	![Screenshot shows an Access Policy.](./media/headerf5-tutorial/configure36.png)
-
-	![Screenshot shows a search dialog box with SAML Auth selected.](./media/headerf5-tutorial/configure37.png)
- 
-	i. Click **Add Item**.
-
-	j. Under **Properties** specify **Name** and under **AAA Server** select the previously configured SP, click **SAVE**.
- 
-	![Screenshot shows the Properties of the item including its A A A server.](./media/headerf5-tutorial/configure38.png)
-
-	k. The basic Policy is ready you can customize the policy to incorporate additional sources/attribute stores.
-
-	![Screenshot shows the customized policy.](./media/headerf5-tutorial/configure39.png)
- 
-	l. Ensure you click on the **Apply Access Policy** link on the top.
-
-### Apply Access Profile to the Virtual Server
-
-1. Assign the access profile to the Virtual Server in order for F5 BIG-IP APM to apply the profile settings to incoming traffic and run the previously defined access policy.
-
-	a. Click **Main** > **Local Traffic** > **Virtual Servers**.
-
-	![Screenshot shows the Virtual Servers List page.](./media/headerf5-tutorial/configure40.png)
- 
-	b. Click on the virtual server, scroll to **Access Policy** section, in the **Access Profile** drop down and select the SAML Policy created (in the example HeaderAppAzureSAMLPolicy)
-
-	c. Click **update**
- 
-	![Screenshot shows the Access Policy pane.](./media/headerf5-tutorial/configure41.png)
-
-	d. create an F5 BIG-IP iRule® to extract the custom SAML attributes from the incoming assertion and pass them as HTTP headers to the backend test application. Click **Main > Local Traffic > iRules > iRule List > click create**
-
-	![Screenshot shows the Local Traffic iRule List.](./media/headerf5-tutorial/configure42.png)
- 
-	e. Paste the F5 BIG-IP iRule text below into the Definition window.
-
-	![Screenshot shows the New iRule page.](./media/headerf5-tutorial/configure43.png)
- 
-	when RULE_INIT {
- 	set static::debug 0
-	}
-	when ACCESS_ACL_ALLOWED {
-
- 	set AZUREAD_USERNAME [ACCESS::session data get "session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"]
- 	if { $static::debug } { log local0. "AZUREAD_USERNAME = $AZUREAD_USERNAME" }
- 	if { !([HTTP::header exists "AZUREAD_USERNAME"]) } {
- 	HTTP::header insert "AZUREAD_USERNAME" $AZUREAD_USERNAME
- 	}
-
- 	set AZUREAD_DISPLAYNAME [ACCESS::session data get "session.saml.last.attr.name.http://schemas.microsoft.com/identity/claims/displayname"]
- 	if { $static::debug } { log local0. "AZUREAD_DISPLAYNAME = $AZUREAD_DISPLAYNAME" }
- 	if { !([HTTP::header exists "AZUREAD_DISPLAYNAME"]) } {
- 	HTTP::header insert "AZUREAD_DISPLAYNAME" $AZUREAD_DISPLAYNAME
- 	}
-
- 	set AZUREAD_EMAILADDRESS [ACCESS::session data get "session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"]
- 	if { $static::debug } { log local0. "AZUREAD_EMAILADDRESS = $AZUREAD_EMAILADDRESS" }
- 	if { !([HTTP::header exists "AZUREAD_EMAILADDRESS"]) } {
- 	HTTP::header insert "AZUREAD_EMAILADDRESS" $AZUREAD_EMAILADDRESS }}
-
-	**Sample output below**
-
-	![Screenshot shows the sample output.](./media/headerf5-tutorial/configure44.png)
- 
-### Create F5 test user
-
-In this section, you create a user called B.Simon in F5. Work with [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to add the users in the F5 platform. Users must be created and activated before you use single sign-on. 
-
-## Test SSO 
-
-In this section, you test your Azure AD single sign-on configuration with following options. 
-
-#### SP initiated:
-
-* Click on **Test this application** in Azure portal. This will redirect to F5 Sign on URL where you can initiate the login flow.  
-
-* Go to F5 Sign-on URL directly and initiate the login flow from there.
-
-#### IDP initiated:
-
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the F5 for which you set up the SSO 
-
-You can also use Microsoft My Apps to test the application in any mode. When you click the F5 tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the F5 for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+   ![Screenshot for CA policies](./media/headerf5-tutorial/conditional-access-policy.png)
 
 > [!NOTE]
-> F5 BIG-IP APM [Purchase Now](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview).
+> The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
+
+### Virtual Server Properties
+
+A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for clients requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
+
+1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
+
+2. Enter **Service Port** as *443* for HTTPS.
+
+3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS.
+
+4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing.
+
+   ![Screenshot for Virtual server](./media/headerf5-tutorial/virtual-server.png)
+
+### Pool Properties
+
+The **Application Pool tab** details the services behind a BIG-IP that are represented as a pool, containing one or more application servers.
+
+1. Choose from **Select a Pool**. Create a new pool or select an existing one.
+
+2. Choose the **Load Balancing Method** as `Round Robin`.
+
+3. For **Pool Servers** select an existing node or specify an IP and port for the server hosting the header-based application.
+
+   ![Screenshot for Application pool](./media/headerf5-tutorial/application-pool.png)
+
+Our backend application sits on HTTP port 80 but obviously switch to 443 if yours is HTTPS.
+
+#### Single Sign-On & HTTP Headers
+
+Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following.
+
+* **Header Operation:** Insert
+* **Header Name:** upn
+* **Header Value:** %{session.saml.last.identity}
+
+* **Header Operation:** Insert
+* **Header Name:** employeeid
+* **Header Value:** %{session.saml.last.attr.name.employeeid}
+
+   ![Screenshot for SSO and HTTP headers](./media/headerf5-tutorial/sso-http-headers.png)
+
+>[!NOTE]
+>APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
+
+### Session Management
+
+The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Refer to [F5's docs](https://support.f5.com/csp/article/K18390492) for details on these settings.
+
+What isn’t covered here however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users sign off. When the Easy Button instantiates a SAML application in your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Azure AD MyApps portal also terminate the session between the BIG-IP and a client.
+
+Along with this the SAML federation metadata for the published application is also imported from your tenant, providing the APM with the SAML logout endpoint for Azure AD. This ensures SP initiated sign outs terminate the session between a client and Azure AD. But for this to be truly effective, the APM needs to know exactly when a user signs-out of the application.
+
+If the BIG-IP webtop portal is used to access published applications then a sign-out from there would be processed by the APM to also call the Azure AD sign-out endpoint. But consider a scenario where the BIG-IP webtop portal isn’t used, then the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this. So for this reason, SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required. One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to either the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant can be found in **App Registrations > Endpoints**.
+
+If making a change to the app is a no go, then consider having the BIG-IP listen for the application's sign-out call, and upon detecting the request have it trigger SLO. Refer to our [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP irules to achieve this. More details on using BIG-IP iRules to achieve this is available in the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+
+## Summary
+
+This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
+
+Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. 
 
 ## Next steps
 
-Once you configure F5 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapplications.microsoft.com/). After authenticating against Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+
+This shows the output of the injected headers displayed by our headers-based application.
+
+   ![Screenshot for App views](./media/headerf5-tutorial/app-view.png)
+
+For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+
+## Advanced deployment
+
+There may be cases where the Guided Configuration templates lacks the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md).
+
+Alternatively, the BIG-IP gives you the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+
+You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+
+   ![Screenshot for Configure Easy Button - Strict Management](./media/headerf5-tutorial/strict-mode-padlock.png)
+
+At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+
+> [!NOTE] 
+> Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+
+## Troubleshooting
+
+Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
+
+1. Navigate to **Access Policy > Overview > Event Logs > Settings**.
+
+2. Select the row for your published application then **Edit > Access System Logs**.
+
+3. Select **Debug** from the SSO list then **OK**.
+
+Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+
+If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+
+1. Navigate to **Access > Overview > Access reports**.
+
+2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD.
+
+If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
+
+1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session.
+
+2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source.
+
+For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
