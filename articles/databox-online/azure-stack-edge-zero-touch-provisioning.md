@@ -135,7 +135,7 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfigurationStatus | to-json
    ```
-   Here is an example output:
+   Here's an example output:
 
    ```output
    PS C:\> Get-DeviceConfigurationStatus | to-json
@@ -339,7 +339,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    $p.device.webproxy
    ```
 
-   Here is a sample output:
+   Here's a sample output:
 
    ```output
    PS C:\> $p.device.webproxy
@@ -363,7 +363,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    $p.device.webproxy
    ```
    
-   Here is a sample output showing the updated property:
+   Here's a sample output showing the updated property:
 
    ```output
    PS C:\> $p.device.webproxy
