@@ -28773,6 +28773,11 @@
             "source_path": "articles/aks/keda-troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/windows/using-visual-studio-vm.md",
+            "redirect_url": "/visualstudio/install/using-visual-studio-vm",
+            "redirect_document_id": false
         }
 
     ]
