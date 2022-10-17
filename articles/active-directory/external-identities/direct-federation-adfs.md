@@ -170,7 +170,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 
 5. Select **Finish**. 
 6. In the same **Edit Claim Rules** wizard, select **Add Rule**. 
-7. Select **Send Claims Using a Custom Rule** and click **Next**.
+7. Select **Send Claims Using a Custom Rule**, and then select **Next**.
 8. In **Configure Claim Rule**, specify the following values:
 
    - **Claim rule name**: Issue Immutable ID  
