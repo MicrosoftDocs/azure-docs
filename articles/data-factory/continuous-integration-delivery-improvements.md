@@ -126,7 +126,6 @@ Follow these steps to get started:
    {
        "scripts":{
            "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index",
-           "build-preview":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index --preview"
        },
        "dependencies":{
            "@microsoft/azure-data-factory-utilities":"^1.0.0"
