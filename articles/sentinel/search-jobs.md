@@ -66,7 +66,7 @@ View the status and results of your search job by going to the **Saved Searches*
 
 1. As you're reviewing your search job results, click **Add bookmark**, or select the bookmark icon to preserve a row. Adding a bookmark allows you to tag events, add notes, and attach these events to an incident for later reference.
 
-   :::image type="content" source="media/search-jobs/search-results-add-bookmark.png" alt-text="Screenshot that shows search job results with added filters.":::
+   :::image type="content" source="media/search-jobs/search-results-add-bookmark.png" alt-text="Screenshot that shows search job results with a bookmark in the process of being added.":::
 
 1. Click the **Columns** button and select the checkbox next to columns you'd like to add to the results view.
 
