@@ -64,7 +64,7 @@ echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/
 
 ---
 
-## Detect anomalies for an entire series
+## Detect anomalies
 
 At a command prompt, run the following command. You'll need to insert the following values into the command.
 - Your Anomaly detector service subscription key.

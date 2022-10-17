@@ -72,21 +72,20 @@ First, create a public standard load balancer by using the Azure portal. The nam
 
 ### Create a virtual machine scale set
 
-You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
+You can deploy a scale set with a Windows Server image or Linux images such as RHEL, CentOS, Ubuntu, or SLES.
 
 1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. 
 1. On the **Virtual machine scale sets** pane, select **Create**.
 
    The **Create a virtual machine scale set** page opens. 
 1. On the **Basics** pane, under **Project details**, ensure that the correct subscription is selected, and then select **myVMSSResourceGroup** in the resource group list. 
-1. For **Name** box, type **myScaleSet**.
+1. For **Name**, type **myScaleSet**.
 1. For **Region**, select a region that's close to your area.
 1. Under **Orchestration**, for **Orchestration mode**, ensure that the **Uniform** option is selected. 
-1. Select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
+1. For **Image**, select a marketplace image. In this example, we've chosen *Ubuntu Server 18.04 LTS*.
 1. Enter your username, and then select the authentication type you prefer.
    - A **Password** must be at least 12 characters long and contain three of the following: a lowercase character, an uppercase character, a number, and a special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. Provide only your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
- 
  
 1. Select **Next**. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
@@ -129,7 +128,7 @@ The VM takes a few minutes to deploy. Wait for it to finish deploying before you
 To create a monitor in Connection Monitor by using the Azure portal:
 
 1. On the Azure portal home page, go to **Network Watcher**.
-1. In the left pane, in the **Monitoring** section, select **Connection monitor**.
+1. On the left pane, in the **Monitoring** section, select **Connection monitor**.
 
    You'll see all the connection monitors that were created in Connection Monitor. To see the connection monitors that were created in the classic Connection Monitor, select the **Connection monitor** tab.
 
@@ -271,6 +270,7 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
 
    :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up a test group and consent for an auto-upgrade of the virtual machine scale set in Connection Monitor.":::
 
+
 ## Create alerts in Connection Monitor
 
 You can set up alerts on tests that are failing based on the thresholds set in test configurations.
@@ -299,7 +299,7 @@ After the creation process is successful, it takes about 5 minutes for the conne
 
 Currently, Connection Monitor provides default coverage for the scale set instances that are selected as endpoints. This means that only a default percentage of all the added scale set instances would be randomly selected to monitor connectivity from the scale set to the endpoint. 
 
-As a best practice, to avoid loss of data because of downscaling of instances, we recommend that you select *all* instances in a scale set while you're creating a test group, instead of selecting a particular few for monitoring your endpoints. 
+As a best practice, to avoid loss of data because of a downscaling of instances, we recommend that you select *all* instances in a scale set while you're creating a test group, instead of selecting a particular few for monitoring your endpoints. 
 
 ## Scale limits
 
@@ -326,8 +326,6 @@ To learn about all the different responses a connection monitor can return, see 
 
 * [Analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
 * [Diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network)
-
-
 
 > [!div class="nextstepaction"]
 > [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
