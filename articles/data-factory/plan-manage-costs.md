@@ -37,7 +37,7 @@ Here's a sample copy activity run detail (your actual mileage will vary based on
 
 :::image type="content" source="media/plan-manage-costs/s3-copy-run-details.png" alt-text="S3 copy run":::
 
-By using the [consumption monitoring at pipeline-run level](#monitor-consumption-at-pipeline-run-level), you can see the corresponding data movement meter consumption quantities:
+By using the [consumption monitoring at pipeline-run level](#monitor-consumption-at-pipeline-run-level-in-azure-data-factory), you can see the corresponding data movement meter consumption quantities:
 
 :::image type="content" source="media/plan-manage-costs/s3-copy-pipeline-consumption.png" alt-text="S3 copy pipeline consumption":::
 
