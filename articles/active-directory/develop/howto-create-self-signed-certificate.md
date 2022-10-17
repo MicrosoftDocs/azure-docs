@@ -39,7 +39,7 @@ This article uses the `New-SelfSignedCertificate` PowerShell cmdlet to create th
 + The certificate is valid for only one year.
 + The certificate is supported for use for both client and server authentication.
 
-To customize the start and expiry date as well as other properties of the certificate, refer to [`New-SelfSignedCertificate`](/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2019-ps&preserve-view=true).
+To customize the start and expiry date and other properties of the certificate, refer to [`New-SelfSignedCertificate`](/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2019-ps&preserve-view=true).
 
 
 ## Create and export your public certificate
@@ -66,7 +66,7 @@ Your certificate is now ready to upload to the Azure portal. Once uploaded, retr
 
 ## (Optional): Export your public certificate with its private key
 
-If your application will be running from another machine or cloud, such as Azure Automation, you will also need a private key.
+If your application will be running from another machine or cloud, such as Azure Automation, you'll also need a private key.
 
 Following on from the previous commands, create a password for your certificate private key and save it in a variable. Replace `{myPassword}` with the password that you wish to use to protect your certificate private key.
 
@@ -76,7 +76,7 @@ $mypwd = ConvertTo-SecureString -String "{myPassword}" -Force -AsPlainText  ## R
 
 ```
 
-Using the password you stored in the `$mypwd` variable, secure, and export your private key using the command;
+Using the password you stored in the `$mypwd` variable, secure and export your private key using the command;
 
 ```powershell
 
@@ -84,7 +84,7 @@ Export-PfxCertificate -Cert $cert -FilePath "C:\Users\admin\Desktop\$certname.pf
 
 ```
 
-Your certificate (*.cer* file) is now ready to upload to the Azure portal. The private key (*.pfx* file) is encrypted and can't be read by other parties. Once uploaded, retrieve the certificate thumbprint which you can use to authenticate your application.
+Your certificate (*.cer* file) is now ready to upload to the Azure portal. The private key (*.pfx* file) is encrypted and can't be read by other parties. Once uploaded, retrieve the certificate thumbprint, which you can use to authenticate your application.
 
 
 ## Optional task: Delete the certificate from the keystore.
