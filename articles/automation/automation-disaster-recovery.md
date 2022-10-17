@@ -4,7 +4,7 @@ description: This article details on disaster recovery strategy to handle servic
 keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
-ms.date: 08/01/2022
+ms.date: 10/17/2022
 ms.topic: conceptual 
 ---
 
@@ -66,39 +66,54 @@ If the Hybrid Runbook worker is deployed in the primary region, and there is a c
 - See the installation steps in [how to deploy an agent-based Windows Hybrid Worker](automation-windows-hrw-install.md#installation-options).
 - See the installation steps in [how to deploy an agent-based Linux Hybrid Worker](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker).
 
-## PowerShell script to migrate Automation account from one region to another
+## Script to migrate Automation account assets from one region to another
 
-You can use this PowerShell script for migration of Automation account assets from the account in primary region to the account in the secondary region. This script is used to migrate only Runbooks, Modules, Connections, Credentials, Certificates and Variables. The execution of this script does not affect the Automation account and its assets present in the primary region.
+You can use these scripts for migration of Automation account assets from the account in primary region to the account in the secondary region. These scripts are used to migrate only Runbooks, Modules, Connections, Credentials, Certificates and Variables. The execution of these scripts does not affect the Automation account and its assets present in the primary region.
 
 ### Prerequisites
 
- 1. Ensure that the Automation account in the secondary region is created and available so that assets from primary region can be migrated to it. 
+ 1. Ensure that the Automation account in the secondary region is created and available so that assets from primary region can be migrated to it. It is preferred if the destination automation account is one without any custom resources as it prevents potential resource class due to same name and loss of data.
  1. Ensure that the system assigned identities are enabled in the Automation account in the primary region.
  1. Ensure that the primary Automation account's Managed Identity has Contributor access with read and write permissions to the Automation account in secondary region. To enable, provide the necessary permissions in secondary Automation account's managed identities. [Learn more](../role-based-access-control/quickstart-assign-role-user-portal.md).
  1. Ensure that the script has access to the Automation account assets in primary region. Hence, it should be executed as a runbook in that Automation account for successful migration.
- 1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account).
+ 1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](migrate-run-as-accounts-managed-identity.md).
  1. Modules required are:
  
       - Az.Accounts version 2.8.0 
       - Az.Resources version 6.0.0 
       - Az.Automation version 1.7.3 
       - Az.Storage version 4.6.0 
+1. Ensure that both the source and destination Automation accounts should belong to the same Azure Active Directory tenant.
 
 ### Create and execute the runbook
-You can use the[PowerShell script](https://github.com/Ab0907/Migrate-Automation-account-from-one-region-to-another) or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
+You can use the[PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
 
 Follow the steps to import and execute the runbook:
- 
+
+#### [PowerShell script](#tab/ps-script)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to Automation account that you want to migrate to another region.
 1. Under **Process Automation**, select **Runbooks**.
-1. Select **Browse gallery** and in the search, enter *Migrate-Automation-account-assets-from-one-region to another* and **Select**.
+1. Select **Browse gallery** and in the search, enter *Migrate-Automation-account-assets-from-one-region to another* and select **PowerShell script**.
 1. In the **Import a runbook** page, enter a name for the runbook.
 1. Select **Runtime version** as either 5.1 or 7.1 (preview)
 1. Enter the description and select **Import**.
 1. In the **Edit PowerShell Runbook** page, edit the required parameters and execute it.
 
 You can choose either of the options to edit and execute the script. You can provide the seven mandatory parameters as given in Option 1 **or** three mandatory parameters given in Option 2 to edit and execute the script.
+
+#### [PowerShell Workflow](#tab/ps-workflow)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to Automation account that you want to migrate to another region.
+1. Under **Process Automation**, select **Runbooks**.
+1. Select **Browse gallery** and in the search, enter *Migrate Automation account assets from one region to another* and Select **PowerShell workflow**.
+1. In the **Import a runbook** page, enter a name for the runbook.
+1. Select **Runtime version** as 5.1
+1. Enter the description and select **Import**.
+
+You can input the parameters during execution of PowerShell Workflow runbook. You can provide the seven mandatory parameters as given in Option 1 **or** three mandatory parameters given in Option 2 to execute the script.
+
 
 #### [Option 1](#tab/option-one)
 
@@ -122,9 +137,10 @@ Type[] | True | Array consisting of all the types of assets that need to be migr
 
 ---
 ### Limitations
+- The script migrates only Custom PowerShell modules. Default modules and Python packages would not be migrated to replica Automation account.
 - The script does not migrate **Schedules** and **Managed identities** present in Automation account in primary region. These would have to be created manually in replica Automation account.
 - Jobs data and activity logs would not be migrated to the replica account.
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](/azure/availability-zones/az-region.md).
+- Learn more about [regions that support availability zones](../availability-zones/az-region.md).
