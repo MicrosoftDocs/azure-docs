@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/17/2022
 ---
 
 # Manage data sources in Microsoft Purview
@@ -25,11 +25,11 @@ Use the following steps to register a new source.
 
    :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Select a data source type in the Register sources page":::
 
-2. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list.
+1. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list.
 
    :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Form for data source information":::
 
-3. Select **Register**.
+1. Select **Register**.
 
 >[!IMPORTANT]
 >Most data sources have additional information and prerequisites to register and scan them in Microsoft Purview. For a list of all available sources, and links to source-specific instructions for registeration and scanning, see our [supported sources article.](microsoft-purview-connector-overview.md#microsoft-purview-data-map-available-data-sources)
@@ -44,9 +44,12 @@ There are two view types:
 
 ### Map view
 
-In Map view, you can see all of your sources and collections. In the following image, there is one Azure Blob Storage source. From each source tile, you can edit the source, start a new scan, or view source details.
+In Map view, you can see all of your sources and collections. In the following image we can see the root collection at the top, called Contoso Purview. Two sources are housed in the root collection: A Power BI source and an Azure Subscription source. There are also four subcollections: Finance, Marketing, Sales, and Development.
 
-:::image type="content" source="media/manage-data-sources/map-view.png" alt-text="Microsoft Purview data source map view":::
+:::image type="content" source="media/manage-data-sources/map-view.png" alt-text="Screenshot of the Microsoft Purview data source map view.":::
+
+Each of the subcollections can be opened and managed from the map view by selecting the **+** button.
+You can also register a new source, by selecting the register source button, or view details.
 
 ### Table view
 
@@ -60,7 +63,7 @@ You can group your data sources into collections. To create a new collection, se
 
 To add sources to a collection, select the **Edit** pencil on the source and choose a collection from the **Select a collection** drop-down menu.
 
-To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source. You can collapse or expand collections by selecting the circle attached to the arrow between levels.
+To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *ContosoPurview* is a parent to the *Finance* collection, which contains an Azure SQL Database source and two subcollections: Investment and Revenue. You can collapse or expand collections by selecting the circle attached to the arrow between levels.
 
 :::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in the Microsoft Purview governance portal":::
 
