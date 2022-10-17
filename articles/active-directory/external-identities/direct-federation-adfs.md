@@ -142,7 +142,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 4. In the Add Relying Party Trust wizard, select **Claims aware**, and then select Start.
 5. In the **Select Data Source** section, select **Enter data about the relying party manually**, and then select **Next**.
 6. In the **Specify Display Name** page, type a name in **Display name**. You may optionally enter a description for this relying party trust in the **Notes** section. Select **Next**.
-7. Optionally, in the **Configure Certificate** page, if you have an token encryption certificate, select **Browse** to locate a certificate file. Select **Next**.
+7. Optionally, in the **Configure Certificate** page, if you have a token encryption certificate, select **Browse** to locate a certificate file. Select **Next**.
 8. In the **Configure URL** page, select the **Enable support for the WS-Federation Passive protocol** check box. Under **Relying party WS-Federation Passive protocol URL**, enter the following URL: `https://login.microsoftonline.com/login.srf`
 9. Select **Next**.
 10. In the **Configure Identifiers** page, enter the following URLs and select **Add**. In the second URL, enter the tenant ID of service partner's Azure AD tenant.
