@@ -540,7 +540,7 @@ items:
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=/azure/storage/blobs/toc.json
       - name: BlobFuse
         items:
-        - name: What is BlobFuse2 Preview?
+        - name: What is BlobFuse2 (preview)?
           href: blobfuse2-what-is.md
         - name: Deploy BlobFuse2 on Linux
           href: blobfuse2-how-to-deploy.md
