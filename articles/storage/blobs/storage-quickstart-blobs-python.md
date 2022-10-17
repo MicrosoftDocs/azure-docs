@@ -21,7 +21,7 @@ Get started with the Azure Blob Storage client library for Python to manage blob
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) 2.7 or 3.6+
+- [Python](https://www.python.org/downloads/) 3.6+
 
 ## Setting up
 
@@ -145,7 +145,7 @@ You can authorize access to data in your storage account using the following ste
 
 2. To use `DefaultAzureCredential`, make sure that the **azure-identity** package is [installed](#install-the-packages), and the class is imported:
 
-    ```xml
+    ```python
     from azure.identity import DefaultAzureCredential
     ```
 
@@ -305,7 +305,7 @@ In this quickstart, you learned how to upload, download, and list blobs using Py
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage SDK for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Azure Blob Storage library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 - To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview).
 - For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/python/).
