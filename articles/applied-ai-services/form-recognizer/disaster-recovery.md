@@ -32,7 +32,7 @@ If your app or business depends on the use of a Form Recognizer custom model, we
 
 ::: moniker-end
 
-monikerRange: 'form-recog-3.0.0'
+::: moniker range="form-recog-3.0.0"
 
 ## Copy API overview
 
@@ -122,7 +122,7 @@ Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 |"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request isn't allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
 |"errors":[{"code":"ResourceResolverError",<br>"message":"Couldn't fetch information for Cognitive resource with ID '...'. Ensure the resource is valid and exists in the specified region 'westus2'.."}] | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.|
 
-### [Optional] Track the target model ID
+### Track the target model ID
 
 You can also use the **[Get model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [Generate Copy authorization request](#generate-copy-authorization-request) response.
 
@@ -192,7 +192,6 @@ The following code snippets use cURL to make API calls outlined in the steps abo
 
   ```http
   HTTP/1.1 202 Accepted
-  Operation-Location: {YOUR-ENDPOINT}/formrecognizer/v2.0-preview/custom/models/{modelId}/copyResults/{resultId}
   ```
 
 ### Track copy operation progress
@@ -203,7 +202,7 @@ You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/d
 * documentModelCompose
 * documentModelCopyTo
 
-### Track the target model ID
+### Track the target modelID
 
 If the operation was successful, the document model can be accessed using [**getModel**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel)(get a single model) or [**GetModels**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels)(get a list of models) APIs.
 
@@ -211,7 +210,7 @@ If the operation was successful, the document model can be accessed using [**get
 
 ::: moniker-end
 
-monikerRange: 'form-recog-2.1.0'
+::: moniker range="form-recog-2.1.0"
 
 ## Copy model overview
 
