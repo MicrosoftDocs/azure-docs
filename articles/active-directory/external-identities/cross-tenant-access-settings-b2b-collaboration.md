@@ -236,7 +236,7 @@ With outbound settings, you select which of your users and groups will be able t
    - When you're done selecting the users and groups you want to add, choose **Select**.
 
    > [!NOTE]
-   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](../authentication/howto-authentication-sms-signin.md). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-1.0) to add the user's object ID directly or target a group the user belongs to.
+   > When targeting your users and groups, you won't be able to select users who have configured [SMS-based authentication](../authentication/howto-authentication-sms-signin.md). This is because users who have a "federated credential" on their user object are blocked to prevent external users from being added to outbound access settings. As a workaround, you can use the [Microsoft Graph API](/graph/api/resources/crosstenantaccesspolicy-overview) to add the user's object ID directly or target a group the user belongs to.
 
 1. Select the **External applications** tab.
 
@@ -272,7 +272,7 @@ With outbound settings, you select which of your users and groups will be able t
 When you remove an organization from your Organizational settings, the default cross-tenant access settings will go into effect for that organization.
 
 > [!NOTE]
-> If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicy-overview) is true), you won't be able to remove the organization.
+> If the organization is a cloud service provider for your organization (the isServiceProvider property in the Microsoft Graph [partner-specific configuration](/graph/api/resources/crosstenantaccesspolicyconfigurationpartner) is true), you won't be able to remove the organization.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 
