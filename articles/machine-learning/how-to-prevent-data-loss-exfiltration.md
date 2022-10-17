@@ -36,10 +36,6 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 * An Azure Machine Learning workspace with a private endpoint that connects to the VNet.
     * The storage account used by the workspace must also connect to the VNet using a private endpoint.
 
-## Limitations
-
-* If you have an Azure Machine Learning compute instance configured for __no public IP__ that was created _before_ October 15th, you must delete and recreate it after step 1 (opt in) below if you want to use data loss exfiltration protection with it. Older compute instances configured for no public IP were created using a different back-end infrastructure. Deleting and recreating the compute instance after opt in to the preview.
-
 ## 1. Opt in to the preview
 
 > [!IMPORTANT]
@@ -50,18 +46,28 @@ Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com
 > [!TIP]
 > It may take one to two weeks to allowlist your subscription.
 
-## 2. Allow outbound network traffic
+## 2. Allow inbound and outbound network traffic
+
+### Inbound
+
+> [!IMPORTANT]
+> The following information __modifies__ the guidance provided in the [Inbound traffic](how-to-secure-training-vnet.md#inbound-traffic) section of the "Secure training environment with virtual networks" article.
+
+When using Azure Machine Learning __compute instance__ _with a public IP address_, allow inbound traffic from Azure Batch management (service tag `BatchNodeManagement.<region>`). A compute instance _with no public IP_ (preview) __doesn't__ require this inbound communication.
+
+### Outbound 
 
 > [!IMPORTANT]
 > The following information is __in addition__ to the guidance provided in the [Secure training environment with virtual networks](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) articles.
 
 Select the configuration that you're using:
 
-# [Network security group](#tab/nsg)
+# [Service tag routes](#tab/servicetag)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following service tags. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `BatchNodeManagement.<region>`
+* `AzureMachineLearning`
 * `Storage.<region>` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 
 # [Firewall](#tab/firewall)
@@ -78,6 +84,8 @@ __Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace
 > If you use one firewall for multiple Azure services, having outbound storage rules impacts other services. In this case, limit thee source IP of the outbound storage rule to the address space of the subnet that contains your compute instance and compute cluster resources. This limits the rule to the compute resources in the subnet.
 
 ---
+
+For more information, see [How to secure training environments](how-to-secure-training-vnet.md) and [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 ## 3. Enable storage endpoint for the subnet
 
