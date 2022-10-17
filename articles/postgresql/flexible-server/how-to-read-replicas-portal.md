@@ -57,7 +57,7 @@ To create a read replica, follow these steps:
 8. Review the information in the final confirmation window. When you're ready, select **Create**.
     :::image type="content" source="./media/how-to-read-replicas-portal/review.png" alt-text="Review the information in the final confirmation window":::
 
-After the read replica is created, it can be viewed from the **Replication** window:
+After the read replica is created, it can be viewed from the **Replication** window.
 
 :::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="View the new replica in the Replication window":::
 
@@ -120,15 +120,11 @@ You can also delete the read replica from the **Replication** window by followin
 
 2. On the server menu, under **Settings**, select **Replication**.
 
-3. Select the read replica to delete and hit the **Delete**.
+3. Select the read replica to delete and hit the **Delete** button.
 
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Select the replica to delete":::
 
-4. Confirm **Delete** operation.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/select-delete-replica.png" alt-text="Select delete replica":::
-
-5. Enter the name of the replica to delete. Select **Delete** to confirm deletion of the replica.
+4. Acknowledge **Delete** operation.
 
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-confirm.png" alt-text="Confirm to delete te replica":::
 
