@@ -184,7 +184,7 @@ This Logic App will use parameters to store specific pieces of information that 
 
 1. The Logic App is ready to be executed and it will trigger automatically each time a new file is created under the indicated path. You will notice the app has successfully received the event by checking the __Run history__ of it:
 
-  :::image type="content" source="./media/how-to-use-event-grid-batch/invoke-history.png" alt-text="The invoke history of the Logic App.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke-history.png" alt-text="The invoke history of the Logic App.":::
 
 ## Next steps
 
