@@ -73,5 +73,10 @@ You can access the dead-letter queue by using the following syntax:
 ```
 
 
+## Sending dead-lettered messages to be reprocessed
+As there can be valuable business data in messages that ended up in the dead-letter queue, it is desirable to have those messages be reprocessed when operators have finished dealing with the circumstances which caused the messages to be dead-lettered in the first place.
+
+Tools like [Azure Service Bus Explorer](/azure/service-bus-messaging/explorer) enable manual moving of messages between queues and topics. If there are many messages in the dead-letter queue that need to be moved, [code like this](https://stackoverflow.com/a/68632602/151350) can help move them all at once. Operators will often prefer having a user interface so they can troubleshoot which message types have failed processing, from which source queues, and for what reasons, while still being able to resubmit batches of messages to be reprocessed. Tools like [ServicePulse with NServiceBus](https://docs.particular.net/servicepulse/intro-failed-messages) provide these capabilities.
+
 ## Next steps
 See [Enable dead lettering for a queue or subscription](enable-dead-letter.md) to learn about different ways of configuring the **dead lettering on message expiration** setting.
