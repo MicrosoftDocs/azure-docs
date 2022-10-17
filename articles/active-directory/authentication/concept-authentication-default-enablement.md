@@ -28,20 +28,18 @@ This topic explains how default protection is applied to the Authentication meth
 
 There are two ways for protection to be enabled by default: 
 
-- Azure AD will enable protection by default for all tenants on a certain date. Microsoft schedules default protection far in advance to give customers time to prepare for the change. Customers can't opt out when a feature is scheduled to be enabled by default. 
-- Protection can be controlled by a Microsoft managed setting, which can be enabled or disabled by Azure AD based upon current landscape of security threats. Customers can choose whether to allow Microsoft to manage the setting. They can change it from **Microsoft managed** at any time to explicitly make it **Enabled** or **Disabled**. 
-- Azure AD will enable protection by default for all tenants on a certain date. Microsoft schedules default protection far in advance to give customers time to prepare for the change. During that time, customers are encouraged to use the Azure portal or Graph API to test and roll out the changes on their own schedule. Customers can't opt out if Microsoft schedules a feature to be enabled by default. 
+- Azure AD will enable protection by default for all tenants on a certain date. Microsoft schedules default protection far in advance to give customers time to prepare for the change. During that time, customers are encouraged to use the Azure portal or Graph API to test and roll out the changes on their own schedule. Customers can't opt out if Microsoft schedules protection by default. 
 - Protection can be **Microsoft managed**, which means Azure AD can enable or disable protection based upon the current landscape of security threats. Customers can choose whether to allow Microsoft to manage the protection. They can change from **Microsoft managed** to explicitly make the protection **Enabled** or **Disabled** at any time. 
 
 ## Default protection enabled by Azure AD
 
-Number matching is a good example of protection for an authentication method that was initially disabled for all tenants. Customers could choose to enable number matching in Microsoft Authenticator for users and groups, or they could leave it disabled. 
+Number matching is a good example of protection for an authentication method that was optional and disabled for all tenants. Customers could choose to enable number matching in Microsoft Authenticator for users and groups, or they could leave it disabled. 
 
 As MFA fatigue attacks rise, Microsoft responds to the threat by changing the default behavior for push notifications in Microsoft Authenticator. As a result, Azure AD will make number matching in push notifications the default behavior for all users in every tenant. Number matching is already the default behavior for passwordless notifications in Microsoft Authenticator, and users can't opt out.
 
 ## Microsoft managed settings
 
-In addition to configuring Authentication methods policy settings to be either **Enabled** or **Disabled**, IT admins can configure some settings to be **Microsoft managed**. A setting that is configured as **Microsoft managed** allows Azure AD to enable or disable the setting. 
+In addition to configuring Authentication methods policy settings to be either **Enabled** or **Disabled**, IT admins can configure some settings in the Authentication methods policy to be **Microsoft managed**. A setting that is configured as **Microsoft managed** allows Azure AD to enable or disable the setting. 
 
 The option to let Azure AD manage the setting is a convenient way for an organization to allow Microsoft to enable or disable a feature by default. Organizations can more easily improve their security posture by trusting Microsoft to manage when a feature should be enabled by default. By configuring a setting as **Microsoft managed** (named *default* in Graph APIs), IT admins can trust Microsoft to enable a security feature they haven't explicitly disabled. 
 
