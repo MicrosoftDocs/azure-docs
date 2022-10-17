@@ -138,7 +138,7 @@ landingContent:
             url: configure-dns-azure-vmware-solution.md
           - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
-          - text: Enable Public IP to the NSX Edge for Azure VMware Solution
+          - text: Enable Public IP to the NSX-T Data Center Edge for Azure VMware Solution
             url: enable-public-ip-nsx-edge.md
           - text: Configure a site-to-site VPN in vWAN
             url: configure-site-to-site-vpn-gateway.md
@@ -174,7 +174,7 @@ landingContent:
             url: netapp-files-with-azure-vmware-solution.md
 
 # card 6 == backup and restore
-  - title: Backup with Azure Backup Server
+  - title: Protect with Azure Backup Server and third party solutions
     linkLists:
       - linkListType: how-to-guide
         links:
