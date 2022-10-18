@@ -71,7 +71,7 @@ az login
 
 az account set --subscription "Cluster Subscription Name"
 
-az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true
+az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --release-train preview --configuration-settings omsagent.useAADAuth=true
 ```
 
 ## Validation
