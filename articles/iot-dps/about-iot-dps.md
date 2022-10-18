@@ -23,8 +23,8 @@ Before the device provisioning flow begins, there are two manual steps to prepar
 
 Once the device and cloud are set up for provisioning, the following steps kick off automatically as soon as the device powers on for the first time:
 
-1. When the device first powers on it connects to the DPS endpoint and presents it authentication credentials.
-1. The DPS instance checks the identity of the device against its enrollment list. Once the device identity is verifies, DPS assigns the device to an IoT hub and registers it in the hub.
+1. When the device first powers on, it connects to the DPS endpoint and presents it authentication credentials.
+1. The DPS instance checks the identity of the device against its enrollment list. Once the device identity is verified, DPS assigns the device to an IoT hub and registers it in the hub.
 1. The DPS instance receives the device ID and registration information from the assigned hub and passes that information back to the device.
 1. The device uses its registration information to connect directly to its assigned IoT hub and authenticate.
 1. Once authenticated, the device and IoT hub begin communicating directly. The DPS instance has no further role as an intermediary unless the device needs to reprovision.
@@ -66,7 +66,7 @@ This step is about configuring the cloud for proper automatic provisioning. Gene
 
 There is a one-time initial setup of the provisioning that must occur, which is usually handled by the solution operator. Once the provisioning service is configured, it does not have to be modified unless the use case changes.
 
-After the service has been configured for automatic provisioning, it must be prepared to enroll devices. This step is done by the device operator, who knows the desired configuration of the device(s) and is in charge of making sure the provisioning service can properly attest to the device's identity when it comes looking for its IoT hub. The device operator takes the identifying key information from the manufacturer and adds it to the enrollment list. There can be subsequent updates to the enrollment list as new entries are added or existing entries are updated with the latest information about the devices.
+After the service has been configured for automatic provisioning, it must be prepared to enroll devices. This step is done by the device operator, who knows the desired configuration of the device(s) and is in charge of making sure the provisioning service can properly attest to the device's identity when it looks for its IoT hub. The device operator takes the identifying key information from the manufacturer and adds it to the enrollment list. There can be subsequent updates to the enrollment list as new entries are added or existing entries are updated with the latest information about the devices.
 
 ## Registration and provisioning
 
@@ -89,11 +89,11 @@ DPS has many features, making it ideal for provisioning devices.
 * **Cross-region support** allows DPS to assign devices to IoT hubs in other regions.
 * **Encryption for data at rest** allows data in DPS to be encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.
 
-You can learn more about the concepts and features involved in device provisioning by reviewing the [DPS terminology](concepts-service.md) topic along with the other conceptual topics in the same section.
+You can learn more about the concepts and features involved in device provisioning by reviewing the [DPS terminology](concepts-service.md) article along with the other conceptual articles in the same section.
 
 ## Cross-platform support
 
-Just like all Azure IoT services, DPS works cross-platform with a variety of operating systems. Azure offers open-source SDKs in a variety of [languages](https://github.com/Azure/azure-iot-sdks) to facilitate connecting devices and managing the service. DPS supports the following protocols for connecting devices:
+Just like all Azure IoT services, DPS works cross-platform with various operating systems. Azure offers open-source SDKs in various [languages](https://github.com/Azure/azure-iot-sdks) to facilitate connecting devices and managing the service. DPS supports the following protocols for connecting devices:
 
 * HTTPS
 * AMQP
