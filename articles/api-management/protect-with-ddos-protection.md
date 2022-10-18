@@ -17,7 +17,7 @@ This article shows how to defend your Azure API Management instance against dist
 
 ## Supported configurations
 
-Enabling Azure DDoS Protection for API Management is available only for instances deployed (injected) in a VNet in [external mode](api-management-using-with-vnet.md).
+Enabling Azure DDoS Protection for API Management is currently available only for instances deployed (injected) in a VNet in [external mode](api-management-using-with-vnet.md).
 
 Currently, Azure DDoS Protection can't be enabled for the following API Management configurations:
 
@@ -40,20 +40,20 @@ Currently, Azure DDoS Protection can't be enabled for the following API Manageme
      
 ## Enable DDoS Protection
 
-Depending on the DDoS Protection plan you use, you enable DDoS protection either on the virtual network used for your API Management instance, or the IP address resource configured for your virtual network.
+Depending on the DDoS Protection plan you use, enable DDoS protection on the virtual network used for your API Management instance, or the IP address resource configured for your virtual network.
 
 ### Enable DDoS Protection on the virtual network used for your API Management instance
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the VNet where your API Management is injected.
 1. In the left menu, under **Settings**, select **DDoS protection**.
-1. Select **Enable**, and then select your Azure DDoS Protection plan.
+1. Select **Enable**, and then select your **DDoS protection plan**.
 1. Select **Save**.
 
     :::image type="content" source="media/protect-with-ddos-protection/enable-ddos-protection.png" alt-text="Screenshot of enabling a DDoS Protection plan on a VNet in the Azure portal.":::
 
 ### Enable DDoS protection on the API Management public IP address
 
-To enable DDoS protection on the IP address, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
+If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
 
 ## Next steps
 
