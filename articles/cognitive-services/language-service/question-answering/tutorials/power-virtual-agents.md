@@ -14,7 +14,7 @@ ms.custom: language-service-question-answering
 
 Create and extend a [Power Virtual Agents](https://powervirtualagents.microsoft.com/) bot to provide answers from your knowledge base. 
 
-> [Note]
+> [!NOTE]
 > The integration demonstrated in this tutorial is in preview and is not intended for deployment to production environments. 
 
 In this tutorial, you learn how to: 
@@ -61,22 +61,22 @@ This section creates the fallback topic conversation flow.
 The new fallback action might already have conversation flow elements. Delete the **Escalate** item by selecting the **Options** menu.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of how to delete existing conversation flow elements.]( ../media/power-virtual-agents/pva-delete-action.png) ]( ../media/power-virtual-agents/pva-delete-action.png#lightbox)
+> [ ![Screenshot of how to delete existing conversation flow elements.]( ../media/power-virtual-agents/delete-action.png) ]( ../media/power-virtual-agents/delete-action.png#lightbox)
 
 Below the *Message* node, select the (**+**) icon, then select **Call an action**.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of how select the Call an action feature.]( ../media/power-virtual-agents/pva-trigger-action-for-power-automate.png) ]( ../media/power-virtual-agents/pva-trigger-action-for-power-automate.png#lightbox)
+> [ ![Screenshot of how select the Call an action feature.]( ../media/power-virtual-agents/trigger-action-for-power-automate.png) ]( ../media/power-virtual-agents/trigger-action-for-power-automate.png#lightbox)
 
 Select **Create a flow**. This takes you to the Power Automate portal.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of where to find the Create a flow action]( ../media/power-virtual-agents/pva-create-flow.png) ]( ../media/power-virtual-agents/pva-create-flow.png#lightbox)
+> [ ![Screenshot of where to find the Create a flow action.]( ../media/power-virtual-agents/create-flow.png) ]( ../media/power-virtual-agents/create-flow.png#lightbox)
 
 Power Automate opens a new template as shown below.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of the default Power Automate template.]( ../media/power-virtual-agents/pva-power-automate-actions.png) ]( ../media/power-virtual-agents/pva-power-automate-actions.png#lightbox)
+> [ ![Screenshot of the default Power Automate template.]( ../media/power-virtual-agents/power-automate-actions.png) ]( ../media/power-virtual-agents/power-automate-actions.png#lightbox)
 **Do not use the template shown above.**
 
 Instead you need to follow the steps below that creates a Power Automate flow. This flow:
@@ -96,7 +96,7 @@ Select "Instant Cloud flow"
 For testing this connector, you can click on “When PowerVirtual Agents calls a flow” and click on **Create**.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of the When Power Virtual Agents calls a flow selection in the Choose how to trigger this flow list.]( ../media/power-virtual-agents/create-pva-trigger.png) ]( ../media/power-virtual-agents/create-pva-trigger.png#lightbox)
+> [ ![Screenshot of the When Power Virtual Agents calls a flow selection in the Choose how to trigger this flow list.]( ../media/power-virtual-agents/create-trigger.png) ]( ../media/power-virtual-agents/create-trigger.png#lightbox)
 
 Click on "New Step" and search for "Power Virtual Agents". Choose "Add an input" and select text. Next, provide the keyword and the value.
 
@@ -209,4 +209,8 @@ Then you can share your website URL with your school or organization members.
 
 ## Clean up resources
 
-When you are done with the knowledge base, remove the QnA Maker resources in the Azure portal. ???????????
+When you are done with the knowledge base, remove the QnA Maker resources in the Azure portal.
+
+## See also
+
+* [Tutorial: Create an FAQ bot](../tutorials/bot-service.md)
