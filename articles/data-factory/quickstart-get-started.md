@@ -24,10 +24,6 @@ Welcome to Azure Data Factory!  This getting started article will let you create
 ## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## TEST Heading for demo
-
-This is for training demo purpose.
-
 ## Video introduction
 
 Select the button below to try it out!  
