@@ -226,7 +226,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Routesets
 
-A [routeset][routeset] is a collection of indoor map data that’s generated from an existing dataset. Once the routeset is created, the [wayfinding](#wayfinding-service) service can generate paths from one point to another point within an Azure Maps-enabled facility.
+A [routeset][routeset] is a collection of indoor map data that’s generated from an existing dataset. Once the routeset is created, the [wayfinding](#wayfinding-service) service uses that data to generate paths from one point to another point within an Azure Maps-enabled facility.
 
 ## Using indoor maps
 
@@ -254,7 +254,7 @@ The Indoor Maps module also supports dynamic map styling. For a step-by-step wal
 
 ### Wayfinding service
 
-The Wayfinding service enables you to provide your customers with the shortest path between two points within a facility. Once you have imported you indoor map data and created your dataset, you can use that to create a routeset. The routeset provide the data required to generate paths between two points, taking into account the required width of openings and navigation between levels.
+The [Wayfinding service][wayfind] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a routeset. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the required width of openings and navigating between levels.
 
 #### Wayfinding paths
 
@@ -264,15 +264,15 @@ For example, the first leg of the path might be from the starting location to th
 
 ##### Wall layer
 
-For wayfinding to work, the imported package must contain a wall layer that’s specified in the manifest.json file. The Wayfinding service calculates the shortest path between two selected geospatial points in a facility. The services creates the path by navigating around walls and any other impermeable structures. Without the wall layer, it is not possible for the wayfinding service to properly navigate.
+For wayfinding to work, the imported package must contain a [wall layer][wall layer] that’s specified in the manifest.json file in a drawing package<!-- or the *structure.geojson* file when importing a GeoJSON package-->. The Wayfinding service calculates the shortest path between two selected geospatial points in a facility. The service creates the path by navigating around walls and any other impermeable structures. Without the wall layer, it isn't possible for the wayfinding service to properly navigate.
 
 ##### isRouteble
 
-The `isRoutable` property of a [unit][unit] indicates whether that unit, such as an office or hallway, can be used as a source or destination point in a wayfinding path. If the `isRoutable` property of a unit is set to False, the user will not be able to select that unit as a start or end point.
+The `isRoutable` property of a [unit][unit] indicates whether that unit, such as an office or hallway, can be used as a source or destination point in a wayfinding path. If the `isRoutable` property of a unit is set to False, the user won't be able to select that unit as a start or end point.
 
 ##### Vertical penetration
 
-If the selected beginning and end points are on different floor levels, the wayfaring services determines what [verticalPenetration][verticalPenetration] objects (stairs or elevators) are available as possible pathways for navigating vertically between levels.
+If the selected beginning and end points are on different floor levels, the wayfinding service determines what [vertical penetration][verticalPenetration] objects, stairs or elevators, are available as possible pathways for navigating vertically between levels.
 
 The Wayfinding service includes stairs or elevators in a route based on the value of the vertical penetration's `direction` property. Valid values:
 
@@ -282,14 +282,15 @@ The Wayfinding service includes stairs or elevators in a route based on the valu
 
 - both (default). The `both` value indicates that the vertical penetration object can be used in both directions.
 
-- closed. A `closed` value means that the vertical penetration object is not available. The object could could be an elevator that is restricted to service deliveries, or a stairwell under construction.
+- closed. A `closed` value means that the vertical penetration object isn't available. The object could be an elevator that is restricted to service deliveries, or a stairwell under construction.
 
 Other factors that affect how to navigate between floors:
 
-- Whether or not the user has selected to avoid either stairs or elevators. The `avoidFeatures` value overrides all other considerations.
+- Whether or not the user has selected to avoid stairs or elevators. The [wayfinding][wayfind] `avoidFeatures` property overrides all other considerations.
+- Whether or not the user has selected a minimum width that is too narrow for either stairs or elevators. The [wayfinding][wayfind] `MinWidth` property enables you to set the minimum width of openings in the resulting path.
 - Whether or not the stairs or elevators facilitates the shortest path.
 
-For additional information on wayfinding, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
+For more information on wayfinding, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
 
 ### Azure Maps integration
 
@@ -327,6 +328,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [style]: /rest/api/maps/v20220901preview/style
 [tileset]: /rest/api/maps/v20220901preview/tileset
 [routeset]: /rest/api/maps/v20220901preview/routestset
+[wayfind]: /rest/api/maps/v20220901preview/wayfind
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
 [style-how-to]: how-to-create-custom-styles.md
 [map-config-api]: /rest/api/maps/v20220901preview/mapconfiguration
@@ -334,3 +336,4 @@ The following example shows how to update a dataset, create a new tileset, and d
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [unit]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
+[wall layer]: drawing-package-guide.md#wall-layer
