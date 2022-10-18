@@ -33,15 +33,15 @@ To complete the steps in this tutorial, you must have the following resources an
 
   |Built-in Role  |Scope  |Reason  |
   |---------|---------|---------|
-  |- [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles)</br>- [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
+  |- [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md)</br>- [Azure Connected Machine Resource Administrator](../role-based-access-control/built-in-roles.md)     |  - Virtual machines</br>- Scale sets</br>- Arc-enabled servers        |   To deploy the agent      |
   |Any role that includes the action Microsoft.Resources/deployments/*    | - Subscription and/or</br>- Resource group and/or</br>- An existing data collection rule       |  To deploy ARM templates       |
-  |[Monitoring Contributor ](/azure/role-based-access-control/built-in-roles)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
+  |[Monitoring Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription and/or </br>- Resource group and/or</br>- An existing data collection rule        | To create or edit data collection rules        |
 - Log Analytics workspace.
 - Linux server that's running an operating system that supports Azure Monitor agent.
 
-   - [Supported Linux operating systems for Azure Monitor agent](/azure/azure-monitor/agents/agents-overview#linux)  
-   - [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or
-   - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm)
+   - [Supported Linux operating systems for Azure Monitor agent](../azure-monitor/agents/agents-overview.md#linux)  
+   - [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or
+   - Onboard an on-premises Linux server to Azure Arc. See [Quickstart: Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
 
 - Linux-based device that generates event log data like a firewall network device.
 
@@ -185,4 +185,4 @@ Evaluate whether you still need the resources you created like the virtual machi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview)
+> [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)

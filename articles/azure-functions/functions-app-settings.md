@@ -87,7 +87,7 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
-## AzureFunctionsWebHost__hostId
+## AzureFunctionsWebHost__hostid
 
 Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
 
@@ -95,7 +95,7 @@ A host ID must be between 1 and 32 characters, contain only lowercase letters, n
 
 |Key|Sample value|
 |---|------------|
-|AzureFunctionsWebHost__hostId|`myuniquefunctionappname123456789`|
+|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
 
 For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
 
