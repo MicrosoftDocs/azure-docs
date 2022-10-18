@@ -103,7 +103,7 @@ For additional insight, query the primary server directly to get the replication
 > [!NOTE]
 > If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
-## Stop replication / Promote replica
+## Promote replicas
 
 You can stop the replication between a primary and a replica at any time. The stop action causes the replica to restart and promotes the replica to be an independent, standalone read-writeable server. The data in the standalone server is the data that was available on the replica server at the time the replication is stopped. Any subsequent updates at the primary are not propagated to the replica. However, replica server may have accumulated logs that are not applied yet. As part of the restart process, the replica applies all the pending logs before accepting client connections.
 
@@ -126,24 +126,26 @@ Learn how to [stop replication to a replica](how-to-read-replicas-portal.md).
 
 In the event of a primary server failure, it is **not** automatically failed over to the read replica.
 
-Since replication is asynchronous, there could be a considerable lag between the primary and the replica. The amount of lag is influenced by a number of factors such as the type of workload running on the primary server and the latency between the primary and the replica server. In typical cases with nominal write workload, replica lag is expected between a few seconds to few minutes. However, in  cases where the primary runs very heavy write-intensive workload and the replica is not catching up fast enough, the lag can be much higher. You can track the replication lag for each replica using the metric *Replica Lag*. This metric shows the time since the last replayed transaction at the replica. We recommend that you identify the average lag by observing the replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you will be notified to take action.
+Since replication is asynchronous, there could be a considerable lag between the primary and the replica(s). The amount of lag is influenced by a number of factors such as the type of workload running on the primary server and the latency between the primary and the replica server. In typical cases with nominal write workload, replica lag is expected between a few seconds to few minutes. However, in  cases where the primary runs very heavy write-intensive workload and the replica is not catching up fast enough, the lag can be much higher. You can track the replication lag for each replica using the *Replica Lag* metric. This metric shows the time since the last replayed transaction at the replica. We recommend that you identify the average lag by observing the replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you will be notified to take action.
 
 > [!Tip]
 > If you failover to the replica, the lag at the time you delink the replica from the primary will indicate how much data is lost.
 
 Once you have decided you want to failover to a replica,
 
-1. Stop replication to the replica<br/>
-   This step is necessary to make the replica server to become a standalone server and be able to accept writes. As part of this process, the replica server will restart and be delinked from the primary. Once you initiate stop replication, the backend process typically takes few minutes to apply any residual logs that were not yet applied and to open the database as a read-writeable server. See the [stop replication](#stop-replication--promote-replica) section of this article to understand the implications of this action.
+1. Promote replica<br/>
+   This step is necessary to make the replica server to become a standalone server and be able to accept writes. As part of this process, the replica server will restart and be delinked from the primary. Once you initiate promotion, the backend process typically takes few minutes to apply any residual logs that were not yet applied and to open the database as a read-writeable server. See the [Promote replicas](#promote-replicas) section of this article to understand the implications of this action.
 
 2. Point your application to the (former) replica<br/>
    Each server has a unique connection string. Update your application connection string to point to the (former) replica instead of the primary.
 
-Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
+Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences, will depend on when you detect an issue and complete steps 1 and 2 above.
 
 ### Disaster recovery
 
-When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then select the replication tab, and you can stop the replica to promote it to be an independent server. Alternatively, you can use the [Azure CLI](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) to stop and promote the replica server.
+When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then select the replication tab, and you can promote the replica to become an independent server. 
+
+[//]: # (Alternatively, you can use the [Azure CLI]&#40;/cli/azure/postgres/server/replica#az-postgres-server-replica-stop&#41; to stop and promote the replica server.)
 
 ## Considerations
 
