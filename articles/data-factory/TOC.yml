@@ -288,14 +288,14 @@ items:
       - name: Supported functions
         href: wrangling-functions.md
         displayName: power
+  - name: Change Data Capture
+    href: concepts-change-data-capture.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
-  - name: Change Data Capture
-    href: concepts-change-data-capture.md
 - name: SAP knowledge center
   items:
   - name: Overview
