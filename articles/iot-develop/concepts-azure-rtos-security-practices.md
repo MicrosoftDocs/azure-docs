@@ -327,6 +327,18 @@ Support current TLS versions:
 
 **Azure RTOS**: TLS 1.2 is enabled by default. TLS 1.3 support must be explicitly enabled in Azure RTOS because TLS 1.2 is still the de-facto standard.
 
+Also ensure the below corresponding NetX Secure configurations are set. Please refer to the [list of configurations](https://learn.microsoft.com/azure/rtos/netx-duo/netx-secure-tls/chapter2#configuration-options) for details.
+
+```c
+/* Enables secure session renegotiation extension */
+#define NX_SECURE_TLS_DISABLE_SECURE_RENEGOTIATION 0
+
+/* Disables protocol version downgrade for TLS client. */
+#define NX_SECURE_TLS_DISABLE_PROTOCOL_VERSION_DOWNGRADE
+```
+
+When setting up NetX TLS, use [`nx_secure_tls_session_time_function_set()`](https://learn.microsoft.com/azure/rtos/netx-duo/netx-secure-tls/chapter4#nx_secure_tls_session_time_function_set) to set a timing function that returns the current GMT in UNIX 32-bit format to enable checking of the certification expirations.
+
 **Application**: To use TLS with cloud services, a certificate is required. The certificate must be managed by the application.
 
 ### Use X.509 certificates for TLS authentication
@@ -351,7 +363,16 @@ Use the strongest cryptography and cipher suites available for TLS. You need the
 
 **Azure RTOS**: Azure RTOS TLS provides hardware drivers for select devices that support cryptography in hardware. For routines not supported in hardware, the [Azure RTOS cryptography library](/azure/rtos/netx/netx-crypto/chapter1) is designed specifically for embedded systems. A FIPS 140-2 certified library that uses the same code base is also available.
 
-**Application**: Applications that use TLS should choose cipher suites that use hardware-based cryptography when it's available. They should also use the strongest keys available.
+**Application**: Applications that use TLS should choose cipher suites that use hardware-based cryptography when it's available. They should also use the strongest keys available. Note the following TLS Cipher Suites, supported in TLS 1.2, do not provide forward secrecy:
+
+- **TLS_RSA_WITH_AES_128_CBC_SHA256**
+- **TLS_RSA_WITH_AES_256_CBC_SHA256**
+
+Consider using **TLS_RSA_WITH_AES_128_GCM_SHA256** if available.
+
+SHA1 (128-bit) is no longer considered cryptographically secure, avoid using cipher suites that engages SHA1 (such as **TLS_RSA_WITH_AES_128_CBC_SHA**) if possible.  
+
+AES/CBC mode is susceptible to Lucky-13 attacks. Application shall use AES-GCM (such as **TLS_RSA_WITH_AES_128_GCM_SHA256**). 
 
 ### TLS mutual certificate authentication
 

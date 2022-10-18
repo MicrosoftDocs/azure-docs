@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with JIRA SAML SSO by Microsoft | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft'
 description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft.
 services: active-directory
-author: jeevansd
+author: dhivyagana
 manager: CelesteDG
 ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
-ms.author: jeedes
+ms.date: 09/23/2022
+ms.author: dhivyag
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with JIRA SAML SSO by Microsoft
+# Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft
 
 In this tutorial, you'll learn how to integrate JIRA SAML SSO by Microsoft with Azure Active Directory (Azure AD). When you integrate JIRA SAML SSO by Microsoft with Azure AD, you can:
 
@@ -30,13 +30,13 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-- JIRA Core and Software 6.4 to 8.22.1 or JIRA Service Desk 3.0 to 4.22.1 should installed and configured on Windows 64-bit version
-- JIRA server is HTTPS enabled
+- JIRA Core and Software 6.4 to 8.22.1 or JIRA Service Desk 3.0 to 4.22.1 should installed and configured on Windows 64-bit version.
+- JIRA server is HTTPS enabled.
 - Note the supported versions for JIRA Plugin are mentioned in below section.
-- JIRA server is reachable on the Internet particularly to the Azure AD login page for authentication and should able to receive the token from Azure AD
-- Admin credentials are set up in JIRA
-- WebSudo is disabled in JIRA
-- Test user created in the JIRA server application
+- JIRA server is reachable on the Internet particularly to the Azure AD login page for authentication and should able to receive the token from Azure AD.
+- Admin credentials are set up in JIRA.
+- WebSudo is disabled in JIRA.
+- Test user created in the JIRA server application.
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment of JIRA. Test the integration first in development or staging environment of the application and then use the production environment.
@@ -51,9 +51,9 @@ To get started, you need the following items:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.22.1
-* JIRA Service Desk 3.0 to 4.22.1
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
+* JIRA Core and Software: 6.4 to 8.22.1.
+* JIRA Service Desk 3.0 to 4.22.1.
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md).
 
 > [!NOTE]
 > Please note that our JIRA Plugin also works on Ubuntu Version 16.04 and Linux.
@@ -62,7 +62,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* JIRA SAML SSO by Microsoft supports **SP** initiated SSO
+* JIRA SAML SSO by Microsoft supports **SP** initiated SSO.
 
 ## Adding JIRA SAML SSO by Microsoft from the gallery
 
@@ -98,9 +98,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<domain:port>/plugins/servlet/saml/auth`
@@ -116,10 +116,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
-
-
-
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 1. The Name ID attribute in Azure AD can be mapped to any desired user attribute by editing the Attributes & Claims section.
 
@@ -206,7 +203,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Perform following steps on configuration page:
 
-	![Screenshot shows the Microsoft Azure Active Directory single sign-on for Jira configuration page.](./media/jiramicrosoft-tutorial/addon54.png)
+	![Screenshot shows the Microsoft Azure Active Directory single sign-on for Jira configuration page.](./media/jiramicrosoft-tutorial/jira-configure-addon.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
@@ -238,7 +235,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
 	> `https://<domain:port>/login.jsp?force_azure_login=false`
 
-	k. Click **Save** button to save the settings.
+	k. **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup.
+
+	* For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](../app-proxy/what-is-application-proxy.md).
+
+	l. Click **Save** button to save the settings.
 
 	> [!NOTE]
 	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](./ms-confluence-jira-plugin-adminguide.md). There is also an [FAQ](./ms-confluence-jira-plugin-adminguide.md) for your assistance.

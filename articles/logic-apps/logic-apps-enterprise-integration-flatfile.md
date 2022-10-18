@@ -29,7 +29,7 @@ This article shows how to add the **Flat File** encoding and decoding actions to
 
 For more information, review the following documentation:
 
-* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-type-and-host-environment-differences)
+* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-environment-differences)
 * [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
 * [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
 * [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
@@ -131,8 +131,8 @@ After you create your schema, you now have to upload the schema based on the fol
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
-   | **Mode of empty node generation** | **ForcedDisabled** or **HonorSchemaNodeProperty** or **ForcedEnabled** | The mode to use for empty node generation in flat file encoding |
-   | **XML Normalization** | **Yes** or **No** | The setting to enable or disable XML normalization in flat file encoding |
+   | **Mode of empty node generation** | **ForcedDisabled** or **HonorSchemaNodeProperty** or **ForcedEnabled** | The mode to use for empty node generation with flat file encoding. <br><br>For BizTalk, the flat file schema has a property that controls empty node generation. You can either follow the empty node generation property behavior for your flat file schema, or you can use this setting to have Azure Logic Apps generate or omit empty nodes. For more information, see [Tags for empty elements](https://www.w3.org/TR/xml/#dt-empty). |
+   | **XML Normalization** | **Yes** or **No** | The setting to enable or disable XML normalization in flat file encoding. For more information, see [XmlTextReader.Normalization](/dotnet/api/system.xml.xmltextreader.normalization). |
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 

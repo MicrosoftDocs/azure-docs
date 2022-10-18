@@ -120,7 +120,7 @@ Toll-free verification (TFV) involves an integration between Microsoft and the T
 ### What are common reasons for toll-free verification delays? 
 Your application wait time increases when your application has missing or unclear information. 
 
-- **Missing required information like Opt-in Image URL** - If there is no Opt-in option, proved a good justification. 
+- **Missing required information like Opt-in Image URL** - If there is no Opt-in option, provide a good justification. 
 - **Opt-in Image URL is not accessible to the public** - When you host your image on image hosting services (i.e. OneDrive, GoogleDrive, iCloud, Dropbox, etc.) make sure the public can view it. Test the URL by seeing if the URL can be viewed by a personal account. 
 - **Incorrect toll-free numbers** - Phone numbers have to be toll-free numbers, not local numbers, 10DLC, or short codes. 
  

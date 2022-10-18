@@ -95,7 +95,7 @@
     href: management.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
-  - name: FSLogix profile containers and Azure files
+  - name: FSLogix profile containers and Azure Files
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
     href: store-fslogix-profile.md
@@ -133,6 +133,8 @@
         href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
+  - name: Multimedia redirection (preview)
+    href: multimedia-redirection-intro.md
   - name: Security
     items:
       - name: Security best practices
@@ -140,11 +142,7 @@
       - name: Security baseline
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
   - name: Azure Virtual Desktop for Azure Stack HCI
-    items:
-      - name: Overview (preview)
-        href: azure-stack-hci-overview.md
-      - name: Azure Stack HCI FAQ (preview)
-        href: azure-stack-hci-faq.yml
+    href: azure-stack-hci-overview.md
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
   - name: Fair Share technologies
@@ -361,6 +359,8 @@
     href: troubleshoot-rdp-shortpath.md
   - name: Sign-in screen is blank
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
+  - name: Multimedia redirection (preview)
+    href: troubleshoot-multimedia-redirection.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -1,10 +1,11 @@
 ---
 title: JSONL format for computer vision tasks
 titleSuffix: Azure Machine Learning
-description: Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks with the CLI v2 and Python SDK v2 (preview).
+description: Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks with the CLI v2 and Python SDK v2.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: reference
 ms.reviewer: nibaccam
 ms.author: rvadthyavath
@@ -20,8 +21,6 @@ ms.date: 09/09/2022
 > * [v1](v1/reference-automl-images-schema-v1.md)
 > * [v2 (current version)](reference-automl-images-schema.md)
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to format your JSONL files for data consumption in automated ML experiments for computer vision tasks during training and inference.
 
@@ -235,50 +234,73 @@ Example of a JSONL file for Instance Segmentation:
 
 ![Image example for instance segmentation.](media/reference-automl-images-schema/instance-segmentation-predictions.jpg)
 
-## Data format for inference
+## Data schema for online scoring
 
-In this section, we document the input data format required to make predictions when using a deployed model. Any aforementioned image format is accepted with content type `application/octet-stream`.
+In this section, we document the input data format required to make predictions using a deployed model.
 
 ### Input format
 
-The following is the input format needed to generate predictions on any task using task-specific model endpoint. After we [deploy the model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
+The following is the input format needed to generate predictions on any task using task-specific model endpoint.
 
-```python
-# input image for inference
-sample_image = './test_image.jpg'
-# load image data
-data = open(sample_image, 'rb').read()
-# set the content type
-headers = {'Content-Type': 'application/octet-stream'}
-# if authentication is enabled, set the authorization header
-headers['Authorization'] = f'Bearer {key}'
-# make the request and display the response
-response = requests.post(scoring_uri, data, headers=headers)
+```json
+{
+   "input_data": {
+      "columns": [
+         "image"
+      ],
+      "data": [
+         "image_in_base64_string_format"
+      ]
+   }
+}
 ```
+
+This json is a dictionary with outer key `input_data` and inner keys `columns`, `data` as described in the following table. The endpoint accepts a json string in the above format and converts it into a dataframe of samples required by the scoring script. Each input image in the `request_json["input_data"]["data"]` section of the json is a [base64 encoded string](https://docs.python.org/3/library/base64.html#base64.encodebytes).
+
+
+| Key       | Description  |
+| -------- |----------|
+| `input_data`<br> (outer key) | It is an outer key in json request. `input_data` is a dictionary that accepts input image samples <br>`Required, Dictionary` |
+| `columns`<br> (inner key) | Column names to use to create dataframe. It accepts only one column with `image` as column name.<br>`Required, List` |
+| `data`<br> (inner key) | List of base64 encoded images <br>`Required, List`|
+
+
+After we [deploy the mlflow model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_inference_request)]
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=dump_inference_request)]
+
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=invoke_inference)]
+
 ### Output format
 
-Predictions made on model endpoints follow different structure depending on the task type. This section explores the output data formats for multi-class, multi-label image classification, object detection, and instance segmentation tasks.  
+Predictions made on model endpoints follow different structure depending on the task type. This section explores the output data formats for multi-class, multi-label image classification, object detection, and instance segmentation tasks.
+
+The following schemas are applicable when the input request contains one image.
 
 #### Image classification
 
 Endpoint for image classification returns all the labels in the dataset and their probability scores for the input image in the following format.
 
 ```json
-{
-   "filename":"/tmp/tmppjr4et28",
-   "probs":[
-      2.098e-06,
-      4.783e-08,
-      0.999,
-      8.637e-06
-   ],
-   "labels":[
-      "can",
-      "carton",
-      "milk_bottle",
-      "water_bottle"
-   ]
-}
+[
+   {
+      "filename": "/tmp/tmppjr4et28",
+      "probs": [
+         2.098e-06,
+         4.783e-08,
+         0.999,
+         8.637e-06
+      ],
+      "labels": [
+         "can",
+         "carton",
+         "milk_bottle",
+         "water_bottle"
+      ]
+   }
+]
 ```
 
 #### Image classification multi-label
@@ -286,21 +308,23 @@ Endpoint for image classification returns all the labels in the dataset and thei
 For image classification multi-label, model endpoint returns labels and their probabilities.
 
 ```json
-{
-   "filename":"/tmp/tmpsdzxlmlm",
-   "probs":[
-      0.997,
-      0.960,
-      0.982,
-      0.025
-   ],
-   "labels":[
-      "can",
-      "carton",
-      "milk_bottle",
-      "water_bottle"
-   ]
-}
+[
+   {
+      "filename": "/tmp/tmpsdzxlmlm",
+      "probs": [
+         0.997,
+         0.960,
+         0.982,
+         0.025
+      ],
+      "labels": [
+         "can",
+         "carton",
+         "milk_bottle",
+         "water_bottle"
+      ]
+   }
+]
 ```
 
 #### Object detection
@@ -308,97 +332,101 @@ For image classification multi-label, model endpoint returns labels and their pr
 Object detection model returns multiple boxes with their scaled top-left and bottom-right coordinates along with box label and confidence score.
 
 ```json
-{
-   "filename":"/tmp/tmpdkg2wkdy",
-   "boxes":[
-      {
-         "box":{
-            "topX":0.224,
-            "topY":0.285,
-            "bottomX":0.399,
-            "bottomY":0.620
+[
+   {
+      "filename": "/tmp/tmpdkg2wkdy",
+      "boxes": [
+         {
+            "box": {
+               "topX": 0.224,
+               "topY": 0.285,
+               "bottomX": 0.399,
+               "bottomY": 0.620
+            },
+            "label": "milk_bottle",
+            "score": 0.937
          },
-         "label":"milk_bottle",
-         "score":0.937
-      },
-      {
-         "box":{
-            "topX":0.664,
-            "topY":0.484,
-            "bottomX":0.959,
-            "bottomY":0.812
+         {
+            "box": {
+               "topX": 0.664,
+               "topY": 0.484,
+               "bottomX": 0.959,
+               "bottomY": 0.812
+            },
+            "label": "can",
+            "score": 0.891
          },
-         "label":"can",
-         "score":0.891
-      },
-      {
-         "box":{
-            "topX":0.423,
-            "topY":0.253,
-            "bottomX":0.632,
-            "bottomY":0.725
-         },
-         "label":"water_bottle",
-         "score":0.876
-      }
-   ]
-}
+         {
+            "box": {
+               "topX": 0.423,
+               "topY": 0.253,
+               "bottomX": 0.632,
+               "bottomY": 0.725
+            },
+            "label": "water_bottle",
+            "score": 0.876
+         }
+      ]
+   }
+]
 ```
 #### Instance segmentation
 
 In instance segmentation, output consists of multiple boxes with their scaled top-left and bottom-right coordinates, labels, confidence scores, and polygons (not masks). Here, the polygon values are in the same format that we discussed in the schema section.
 
 ```json
-{
-   "filename":"/tmp/tmpi8604s0h",
-   "boxes":[
-      {
-         "box":{
-            "topX":0.679,
-            "topY":0.491,
-            "bottomX":0.926,
-            "bottomY":0.810
-         },
-         "label":"can",
-         "score":0.992,
-         "polygon":[
-            [
-               0.82, 0.811, 0.771, 0.810, 0.758, 0.805, 0.741, 0.797, 0.735, 0.791, 0.718, 0.785, 0.715, 0.778, 0.706, 0.775, 0.696, 0.758, 0.695, 0.717, 0.698, 0.567, 0.705, 0.552, 0.706, 0.540, 0.725, 0.520, 0.735, 0.505, 0.745, 0.502, 0.755, 0.493
-            ]
-         ]
-      },
-      {
-         "box":{
-            "topX":0.220,
-            "topY":0.298,
-            "bottomX":0.397,
-            "bottomY":0.601
-         },
-         "label":"milk_bottle",
-         "score":0.989,
-         "polygon":[
-            [
-               0.365, 0.602, 0.273, 0.602, 0.26, 0.595, 0.263, 0.588, 0.251, 0.546, 0.248, 0.501, 0.25, 0.485, 0.246, 0.478, 0.245, 0.463, 0.233, 0.442, 0.231, 0.43, 0.226, 0.423, 0.226, 0.408, 0.234, 0.385, 0.241, 0.371, 0.238, 0.345, 0.234, 0.335, 0.233, 0.325, 0.24, 0.305, 0.586, 0.38, 0.592, 0.375, 0.598, 0.365
-            ]
-         ]
-      },
-      {
-         "box":{
-            "topX":0.433,
-            "topY":0.280,
-            "bottomX":0.621,
-            "bottomY":0.679
-         },
-         "label":"water_bottle",
-         "score":0.988,
-         "polygon":[
-            [
-               0.576, 0.680, 0.501, 0.680, 0.475, 0.675, 0.460, 0.625, 0.445, 0.630, 0.443, 0.572, 0.440, 0.560, 0.435, 0.515, 0.431, 0.501, 0.431, 0.433, 0.433, 0.426, 0.445, 0.417, 0.456, 0.407, 0.465, 0.381, 0.468, 0.327, 0.471, 0.318
-            ]
-         ]
-      }
-   ]
-}
+[
+    {
+       "filename": "/tmp/tmpi8604s0h",
+       "boxes": [
+          {
+             "box": {
+                "topX": 0.679,
+                "topY": 0.491,
+                "bottomX": 0.926,
+                "bottomY": 0.810
+             },
+             "label": "can",
+             "score": 0.992,
+             "polygon": [
+                [
+                   0.82, 0.811, 0.771, 0.810, 0.758, 0.805, 0.741, 0.797, 0.735, 0.791, 0.718, 0.785, 0.715, 0.778, 0.706, 0.775, 0.696, 0.758, 0.695, 0.717, 0.698, 0.567, 0.705, 0.552, 0.706, 0.540, 0.725, 0.520, 0.735, 0.505, 0.745, 0.502, 0.755, 0.493
+                ]
+             ]
+          },
+          {
+             "box": {
+                "topX": 0.220,
+                "topY": 0.298,
+                "bottomX": 0.397,
+                "bottomY": 0.601
+             },
+             "label": "milk_bottle",
+             "score": 0.989,
+             "polygon": [
+                [
+                   0.365, 0.602, 0.273, 0.602, 0.26, 0.595, 0.263, 0.588, 0.251, 0.546, 0.248, 0.501, 0.25, 0.485, 0.246, 0.478, 0.245, 0.463, 0.233, 0.442, 0.231, 0.43, 0.226, 0.423, 0.226, 0.408, 0.234, 0.385, 0.241, 0.371, 0.238, 0.345, 0.234, 0.335, 0.233, 0.325, 0.24, 0.305, 0.586, 0.38, 0.592, 0.375, 0.598, 0.365
+                ]
+             ]
+          },
+          {
+             "box": {
+                "topX": 0.433,
+                "topY": 0.280,
+                "bottomX": 0.621,
+                "bottomY": 0.679
+             },
+             "label": "water_bottle",
+             "score": 0.988,
+             "polygon": [
+                [
+                   0.576, 0.680, 0.501, 0.680, 0.475, 0.675, 0.460, 0.625, 0.445, 0.630, 0.443, 0.572, 0.440, 0.560, 0.435, 0.515, 0.431, 0.501, 0.431, 0.433, 0.433, 0.426, 0.445, 0.417, 0.456, 0.407, 0.465, 0.381, 0.468, 0.327, 0.471, 0.318
+                ]
+             ]
+          }
+       ]
+    }
+]
 ```
 
 > [!NOTE]
@@ -408,4 +436,4 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 
 * Learn how to [Prepare data for training computer vision models with automated ML](how-to-prepare-datasets-for-automl-images.md).
 * [Set up computer vision tasks in AutoML](how-to-auto-train-image-models.md)
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).

@@ -2,20 +2,22 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2022
+ms.date: 09/29/2022
 ms.author: eur
 ---
 
 In this C# quickstart, you perform sentiment analysis and conversation summarization of [call center](/azure/cognitive-services/speech-service/call-center-overview) transcriptions. The sample will automatically identify, categorize, and redact sensitive information. The quickstart implements a cross-service scenario that uses features of the [Azure Cognitive Speech](/azure/cognitive-services/speech-service/) and [Azure Cognitive Language](/azure/cognitive-services/language-service/) services.
 
 > [!TIP]
+> Try the [Language Studio](https://language.cognitive.azure.com) or [Speech Studio](https://aka.ms/speechstudio/callcenter) for a demonstration on how to use the Language and Speech services to analyze call center conversations. 
+> 
 > To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
 
-The following Azure Cognitive Services for Speech features are used:
+The following Azure Cognitive Services for Speech features are used in the quickstart:
 - [Batch transcription](/azure/cognitive-services/speech-service/batch-transcription): Submit a batch of audio files for transcription.
 - [Speaker separation](/azure/cognitive-services/speech-service/batch-transcription): Separate multiple speakers through diarization of mono 16khz 16 bit PCM wav files. 
 
-The Language service offers the following features that are used in the quickstart:
+The Language service offers the following features that are used:
 
 - [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/how-to-call-for-conversations): Identify, categorize, and redact sensitive information in conversation transcription.
 - [Conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization): Summarize in abstract text what each conversation participant said about the issues and resolutions. For example, a call center can group product issues that have a high volume.
