@@ -37,6 +37,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 ### Canonical
 | Publisher / Version| Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
+|Canonical 22.04 |UbuntuServer |22.04-LTS |latest |yes | yes |
 |Canonical 20.04 |UbuntuServer |20.04-LTS |latest |yes | yes |
 |Canonical 18.04 |UbuntuServer |18.04-LTS |latest |yes | yes |
 
