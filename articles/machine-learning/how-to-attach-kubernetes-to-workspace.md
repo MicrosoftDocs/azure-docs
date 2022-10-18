@@ -17,7 +17,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 Once AzureML extension is deployed on AKS or Arc Kubernetes cluster, you can attach the Kubernetes cluster to AzureML workspace and create compute targets for ML professionals to use. 
 
 Some key considerations when attaching Kubernetes cluster to AzureML workspace:
-  * If you need to access Azure resource seamlessly from your training script, you can specify a managed identity for Kubernetes compute target during attach operation.
+  * If you need to access Azure resource securely from your training script, you can specify a [managed identity](./how-to-identity-based-service-authentication.md) for Kubernetes compute target during attach operation.
   * If you plan to have different compute target for different project/team, you can specify Kubernetes namespace for the compute target to isolate workload among different teams/projects.
   * For the same Kubernetes cluster, you can attach it to the same workspace multiple times and create multiple compute targets for different project/team/workload.
   * For the same Kubernetes cluster, you can also attach it to multiple workspaces, and the multiple workspaces can share the same Kubernetes cluster.
@@ -61,32 +61,7 @@ Set the `--type` argument to `Kubernetes`. Use the `identity_type` argument to e
 > `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
 >
 > Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace existed. You need to verify that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
-### [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-from azureml.core.compute import KubernetesCompute, ComputeTarget
-
-# Specify a name for your Kubernetes compute
-compute_target_name = "<kubernetes compute target name>"
-
-# resource ID of the Arc-enabled Kubernetes cluster
-cluster_resource_id = "/subscriptions/<sub ID>/resourceGroups/<RG>/providers/Microsoft.Kubernetes/connectedClusters/<cluster name>"
-
-user_assigned_identity_resouce_id = ['subscriptions/<sub ID>/resourceGroups/<RG>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity name>']
-
-# Specify Kubernetes namespace to run AzureML workloads
-ns = "default" 
-
-try:
-    compute_target = ComputeTarget(workspace=ws, name=compute_target_name)
-    print('Found existing cluster, use it.')
-except ComputeTargetException:
-    attach_configuration = KubernetesCompute.attach_configuration(resource_id = cluster_resource_id, namespace = ns,  identity_type ='UserAssigned',identity_ids = user_assigned_identity_resouce_id)
-    compute_target = ComputeTarget.attach(ws, compute_target_name, attach_configuration)
-    compute_target.wait_for_completion(show_output=True)
-```
 ### [Studio](#tab/studio)
 
 Attaching a Kubernetes cluster makes it available to your workspace for training or inferencing.

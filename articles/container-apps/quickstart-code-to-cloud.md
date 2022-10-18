@@ -292,8 +292,7 @@ az containerapp create \
   --image $ACR_NAME.azurecr.io/$API_NAME \
   --target-port 3500 \
   --ingress 'external' \
-  --registry-server $ACR_NAME.azurecr.io \
-  --query configuration.ingress.fqdn
+  --registry-server $ACR_NAME.azurecr.io
 ```
 
 # [PowerShell](#tab/powershell)
@@ -306,8 +305,7 @@ az containerapp create `
   --image "$ACR_NAME.azurecr.io/$API_NAME" `
   --target-port 3500 `
   --ingress 'external' `
-  --registry-server "$ACR_NAME.azurecr.io" `
-  --query configuration.ingress.fqdn
+  --registry-server "$ACR_NAME.azurecr.io"
 ```
 
 ---

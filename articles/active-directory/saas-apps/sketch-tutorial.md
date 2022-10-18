@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/13/2022
+ms.date: 09/23/2022
 ms.author: jeedes
 
 ---
@@ -106,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.sketch.com`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Sketch support team](mailto:sso-support@sketch.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Please use **Identifier** and **Reply URL** values from [Choose a shortname for your Workspace in Sketch](#choose-a-shortname-for-your-workspace-in-sketch) section.
 
 1. Sketch application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

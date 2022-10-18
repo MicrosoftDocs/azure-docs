@@ -30,6 +30,9 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
 ## Identify faces
 
+> [!NOTE]
+> If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
+
 1. First, call the Detect API on the source face. This is the face that we'll try to identify from the larger group. Copy the following command to a text editor, insert your own key, and then copy it into a shell window and run it.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_detect":::
