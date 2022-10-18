@@ -24,8 +24,8 @@ In this quickstart, you'll do the following steps:
 1. Create a Service Bus namespace, using the Azure portal.
 2. Create a Service Bus topic, using the Azure portal.
 3. Create a Service Bus subscription to that topic, using the Azure portal.
-4. Write a .NET Core console application to send a set of messages to the topic.
-5. Write a .NET Core console application to receive those messages from the subscription.
+4. Write a .NET console application to send a set of messages to the topic.
+5. Write a .NET console application to receive those messages from the subscription.
 
 > [!NOTE]
 > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
@@ -45,7 +45,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 > Note down the connection string to the namespace, the topic name, and the subscription name. You'll use them later in this tutorial.
 
 ## Send messages to the topic
-This section shows you how to create a .NET Core console application to send messages to a Service Bus topic. 
+This section shows you how to create a .NET console application to send messages to a Service Bus topic. 
 
 > [!NOTE]
 > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
@@ -222,7 +222,7 @@ This section shows you how to create a .NET Core console application to send mes
         :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Messages received at the subscription" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
     
 ## Receive messages from a subscription
-In this section, you'll create a .NET Core console application that receives messages from the subscription to the Service Bus topic. 
+In this section, you'll create a .NET console application that receives messages from the subscription to the Service Bus topic. 
 
 > [!NOTE]
 > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
