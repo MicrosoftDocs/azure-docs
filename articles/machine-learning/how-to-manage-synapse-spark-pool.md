@@ -189,7 +189,7 @@ The YAML files above can be used in az ml compute attach command as the **--file
       "type": "synapsespark"
     }
 
-    ```
+```
 
 If the attached Synapse Spark pool, with the name specified in the YAML file, already exists in the workspace, then **az ml compute attach** command execution will update the existing pool with the information provided in the YAML file. Update the
 
