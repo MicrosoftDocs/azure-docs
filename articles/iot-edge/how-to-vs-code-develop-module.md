@@ -5,7 +5,7 @@ services: iot-edge
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/30/2022
+ms.date: 10/18/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
@@ -68,7 +68,7 @@ To build and deploy your module image, you need Docker to build the module image
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli)
 
-::: zone pivot="iotedge-dev-vscode"
+::: zone pivot="iotedge-dev-cli"
 
 - Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
 
