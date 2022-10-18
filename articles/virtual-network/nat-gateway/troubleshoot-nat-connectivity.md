@@ -174,7 +174,7 @@ For more information about keepalives, see [TCP idle timeout timers set higher t
 
 ### Use Private link to reduce SNAT port usage for connecting to other Azure services  
 
-When possible, Private Link should be used to connect directly from your virtual networks to Azure platform services in order to [reduce the demand](./troubleshoot-nat.md#tcp-idle-timeout-timers-set-higher-than-the-default-value) on SNAT ports. Reducing the demand on SNAT ports can help reduce the risk of SNAT port exhaustion. 
+When possible, Private Link should be used to connect directly from your virtual networks to Azure platform services in order to [reduce the demand](./troubleshoot-nat.md) on SNAT ports. Reducing the demand on SNAT ports can help reduce the risk of SNAT port exhaustion. 
 
 To create a Private Link, see the following Quickstart guides to get started: 
 
