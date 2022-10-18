@@ -23,7 +23,8 @@ In this quickstart, you do the following actions:
 
 ## Prerequisites
 
-- [Create and configure a project](quickstart-create-and-configure-projects.md).
+- [Create and configure a dev center](quickstart-create-and-configure-devcenter.md)
+- [Create and configure a project](quickstart-create-and-configure-projects.md)
 - Install the Deployment Environments Azure CLI Extension
     1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
     2. Install the Deployment Environments AZ CLI extension:
@@ -42,6 +43,9 @@ In this quickstart, you do the following actions:
     ```azurecli
     az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-environments-0.1.0-py3-none-any.whl
     ```
+
+>[!NOTE]
+> Only users with a [Deployment Environments user](how-to-configure-deployment-environments-user.md) role or a [DevCenter Project Admin](how-to-configure-project-admin.md) role or a built-in role with appropriate permissions will be able to create environments.
 
 ## Create an Environment
 
