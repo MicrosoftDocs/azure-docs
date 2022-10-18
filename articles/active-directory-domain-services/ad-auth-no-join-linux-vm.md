@@ -112,9 +112,11 @@ dSCorePropagationData: 16010101000000.0Z
 
 > [!NOTE]
 > If your get and error run the following command:
+>
 > ldapsearch -H ldaps://contoso.com -x \
 >       -D CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com -w Read0nlyuserpassword \
 >       -b CN=Users,DC=contoso,DC=com -d 3
+>
 > Troubleshoot according to the output.
 
 ## Create sssd.conf file
