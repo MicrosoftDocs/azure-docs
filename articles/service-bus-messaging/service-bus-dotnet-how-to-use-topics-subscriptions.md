@@ -166,8 +166,8 @@ This section shows you how to create a .NET Core console application to send mes
     // The Service Bus client types are safe to cache and use as a singleton for the lifetime
     // of the application, which is best practice when messages are being published or read
     // regularly.
-    //TODO: Replace the "<NAMESPACE CONNECTION STRING>" and "<TOPIC-NAME>" placeholders.
-    client = new ServiceBusClient("<NAMESPACE CONNECTION STRING>");
+    //TODO: Replace the "<NAMESPACE-CONNECTION-STRING>" and "<TOPIC-NAME>" placeholders.
+    client = new ServiceBusClient("<NAMESPACE-CONNECTION-STRING>");
     sender = client.CreateSender("<TOPIC-NAME>");
 
     // create a batch 
@@ -284,7 +284,6 @@ In this section, you'll add code to retrieve messages from the subscription.
     // handle received messages
     async Task MessageHandler(ProcessMessageEventArgs args)
     {
-        // TODO: Replace the <TOPIC SUBSCRIPTION NAME> placeholder
         string body = args.Message.Body.ToString();
         Console.WriteLine($"Received: {body} from subscription.");
 
@@ -315,9 +314,9 @@ In this section, you'll add code to retrieve messages from the subscription.
     // handle received messages
     async Task MessageHandler(ProcessMessageEventArgs args)
     {
-        // TODO: Replace the <TOPIC SUBSCRIPTION NAME> placeholder
+        // TODO: Replace the <TOPIC-SUBSCRIPTION-NAME> placeholder
         string body = args.Message.Body.ToString();
-        Console.WriteLine($"Received: {body} from subscription: <TOPIC SUBSCRIPTION NAME>");
+        Console.WriteLine($"Received: {body} from subscription: <TOPIC-SUBSCRIPTION-NAME>");
 
         // complete the message. messages is deleted from the subscription. 
         await args.CompleteMessageAsync(args.Message);
@@ -350,14 +349,14 @@ In this section, you'll add code to retrieve messages from the subscription.
     // regularly.
     //
     // Create the clients that we'll use for sending and processing messages.
-    // TODO: Replace the <CONNECTION STRING VALUE> placeholder
+    // TODO: Replace the <NAMESPACE-NAME> placeholder
     client = new ServiceBusClient(
         "<NAMESPACE-NAME>.servicebus.windows.net",
         new DefaultAzureCredential());
 
     // create a processor that we can use to process the messages
-    // TODO: Replace the <TOPIC NAME> and <SUBSCRIPTION NAME> placeholders
-    processor = client.CreateProcessor("<TOPIC NAME>", "<SUBSCRIPTION NAME>", new ServiceBusProcessorOptions());
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
 
     try
     {
@@ -403,12 +402,12 @@ In this section, you'll add code to retrieve messages from the subscription.
     // regularly.
     //
     // Create the clients that we'll use for sending and processing messages.
-    // TODO: Replace the <CONNECTION STRING VALUE> placeholder
-    client = new ServiceBusClient("<CONNECTION STRING VALUE>">);
+    // TODO: Replace the <CONNECTION-STRING-VALUE> placeholder
+    client = new ServiceBusClient("<CONNECTION-STRING-VALUE>">);
 
     // create a processor that we can use to process the messages
-    // TODO: Replace the <TOPIC NAME> and <SUBSCRIPTION NAME> placeholders
-    processor = client.CreateProcessor("<TOPIC NAME>", "<SUBSCRIPTION NAME>", new ServiceBusProcessorOptions());
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
 
     try
     {
@@ -478,14 +477,14 @@ In this section, you'll add code to retrieve messages from the subscription.
     // regularly.
     //
     // Create the clients that we'll use for sending and processing messages.
-    // TODO: Replace the <CONNECTION STRING VALUE> placeholder
+    // TODO: Replace the <CONNECTION-STRING-VALUE> placeholder
     client = new ServiceBusClient(
         "<NAMESPACE-NAME>.servicebus.windows.net",
         new DefaultAzureCredential());
 
     // create a processor that we can use to process the messages
-    // TODO: Replace the <TOPIC NAME> and <SUBSCRIPTION NAME> placeholders
-    processor = client.CreateProcessor("<TOPIC NAME>", "<SUBSCRIPTION NAME>", new ServiceBusProcessorOptions());
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
 
     try
     {
@@ -550,12 +549,12 @@ In this section, you'll add code to retrieve messages from the subscription.
     // regularly.
     //
     // Create the clients that we'll use for sending and processing messages.
-    // TODO: Replace the <CONNECTION STRING VALUE> placeholder
-    client = new ServiceBusClient("<CONNECTION STRING VALUE>">);
+    // TODO: Replace the <CONNECTION-STRING-VALUE> placeholder
+    client = new ServiceBusClient("<CONNECTION-STRING-VALUE>">);
 
     // create a processor that we can use to process the messages
-    // TODO: Replace the <TOPIC NAME> and <SUBSCRIPTION NAME> placeholders
-    processor = client.CreateProcessor("<TOPIC NAME>", "<SUBSCRIPTION NAME>", new ServiceBusProcessorOptions());
+    // TODO: Replace the <TOPIC-NAME> and <SUBSCRIPTION-NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC-NAME>", "<SUBSCRIPTION-NAME>", new ServiceBusProcessorOptions());
 
     try
     {
