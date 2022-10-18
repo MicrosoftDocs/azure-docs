@@ -42,15 +42,21 @@ to learn how to get your datasets efficiently into Azure Blob Storage.
 There's a demonstration Azure Blob Storage account and container pre-created for this how-to. The container's name is `github`, and it's in the `pgquickstart` account. We can easily see which files are present in the container by using the `azure_storage.blob_list(account, container)` function.
 
 ```sql
-SELECT path, bytes, pg_size_pretty(bytes), content_type FROM azure_storage.blob_list('pgquickstart','github');
+SELECT path, bytes, pg_size_pretty(bytes), content_type
+  FROM azure_storage.blob_list('pgquickstart','github');
 ```
 
 ```
-     path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
----------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
- events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
- users.csv.gz  |  5382831 | 2022-10-12 18:49:18+00 | 0x8DAAC8277D84814 | application/x-gzip |                  | f49886ee815cba1904858f8504c9f6ea
-(2 rows)
+-[ RECORD 1 ]--+-------------------
+path           | events.csv.gz
+bytes          | 41691786
+pg_size_pretty | 40 MB
+content_type   | application/x-gzip
+-[ RECORD 2 ]--+-------------------
+path           | users.csv.gz
+bytes          | 5382831
+pg_size_pretty | 5257 kB
+content_type   | application/x-gzip
 ```
 
 You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter will filter the returned rows on the Azure Blob Storage side.
@@ -66,21 +72,31 @@ SELECT * FROM azure_storage.blob_list('pgquickstart','github','e');
 ```
 
 ```
-     path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
----------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
- events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
-(1 row)
+-[ RECORD 1 ]----+---------------------------------
+path             | events.csv.gz
+bytes            | 41691786
+last_modified    | 2022-10-12 18:49:51+00
+etag             | 0x8DAAC828B970928
+content_type     | application/x-gzip
+content_encoding |
+content_hash     | 473b6ad25b7c88ff6e0a628889466aed
 ```
 
 ```sql
-SELECT * FROM azure_storage.blob_list('pgquickstart','github') WHERE path LIKE 'e%';
+SELECT *
+  FROM azure_storage.blob_list('pgquickstart','github')
+ WHERE path LIKE 'e%';
 ```
 
 ```
-     path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
----------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
- events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
-(1 row)
+-[ RECORD 1 ]----+---------------------------------
+path             | events.csv.gz
+bytes            | 41691786
+last_modified    | 2022-10-12 18:49:51+00
+etag             | 0x8DAAC828B970928
+content_type     | application/x-gzip
+content_encoding |
+content_hash     | 473b6ad25b7c88ff6e0a628889466aed
 ```
 
 ## Load data from ABS
@@ -125,11 +141,13 @@ Loading data into the tables becomes as simple as calling the `COPY` command.
 ```sql
 -- download users and store in table
 
-COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz';
+COPY github_users
+FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz';
 
 -- download events and store in table
 
-COPY github_events FROM 'https://pgquickstart.blob.core.windows.net/github/events.csv.gz';
+COPY github_events
+FROM 'https://pgquickstart.blob.core.windows.net/github/events.csv.gz';
 ```
 
 Notice how the extension recognized that the URLs provided to the copy command are from Azure Blob Storage, the files we pointed were gzip compressed and that was also automatically handled for us.
@@ -137,7 +155,9 @@ Notice how the extension recognized that the URLs provided to the copy command a
 The `COPY` command supports more parameters and formats. In the above example, the format and compression were auto-selected based on the file extensions. You can however provide the format directly similar to the regular `COPY` command.
 
 ```sql
-COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz' WITH (FORMAT 'csv');
+COPY github_users
+FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz'
+WITH (FORMAT 'csv');
 ```
 
 Currently the extension supports the following file formats:
@@ -154,16 +174,36 @@ Currently the extension supports the following file formats:
 The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
 
 ```sql
-SELECT * FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users) LIMIT 3;
+SELECT *
+  FROM azure_storage.blob_get(
+         'pgquickstart', 'github',
+         'users.csv.gz', NULL::github_users
+       )
+ LIMIT 3;
 ```
 
 ```
- user_id |                    url                    |    login     |                 avatar_url                  | gravatar_id | display_login
----------+-------------------------------------------+--------------+---------------------------------------------+-------------+---------------
-      21 | https://api.github.com/users/technoweenie | technoweenie | https://avatars.githubusercontent.com/u/21? |             | technoweenie
-      22 | https://api.github.com/users/macournoyer  | macournoyer  | https://avatars.githubusercontent.com/u/22? |             | macournoyer
-      38 | https://api.github.com/users/atmos        | atmos        | https://avatars.githubusercontent.com/u/38? |             | atmos
-(3 rows)
+-[ RECORD 1 ]-+--------------------------------------------
+user_id       | 21
+url           | https://api.github.com/users/technoweenie
+login         | technoweenie
+avatar_url    | https://avatars.githubusercontent.com/u/21?
+gravatar_id   |
+display_login | technoweenie
+-[ RECORD 2 ]-+--------------------------------------------
+user_id       | 22
+url           | https://api.github.com/users/macournoyer
+login         | macournoyer
+avatar_url    | https://avatars.githubusercontent.com/u/22?
+gravatar_id   |
+display_login | macournoyer
+-[ RECORD 3 ]-+--------------------------------------------
+user_id       | 38
+url           | https://api.github.com/users/atmos
+login         | atmos
+avatar_url    | https://avatars.githubusercontent.com/u/38?
+gravatar_id   |
+display_login | atmos
 ```
 
 > [!NOTE]
@@ -237,8 +277,11 @@ INSERT 0 264308
 
    Without an access key, we won't be allowed to list containers that are set to Private or Blob access levels.
 
+    ```sql
+    SELECT * FROM azure_storage.blob_list('mystorageaccount','privdatasets');
     ```
-    citus=> SELECT * FROM azure_storage.blob_list('mystorageaccount','privdatasets');
+
+    ```
     ERROR:  azure_storage: missing account access key
     HINT:  Use SELECT azure_storage.account_add('<account name>', '<access key>')
     ```
@@ -255,10 +298,12 @@ INSERT 0 264308
 
     Now you can list containers set to Private and Blob access levels for that storage but only as the `citus` user, which has the `azure_storage_admin` role granted to it. If you create a new user named `support`, it won't be allowed to access container contents by default.
 
+    ```sql
+    SELECT * FROM azure_storage.blob_list('pgabs','dataverse');
     ```
-    citus=> select * from azure_storage.blob_list('pgabs','dataverse');
+
+    ```
     ERROR:  azure_storage: current user support is not allowed to use storage account pgabs
-    citus=>
     ```
 
 1. Allow the `support` user to use a specific Azure Blob Storage account
