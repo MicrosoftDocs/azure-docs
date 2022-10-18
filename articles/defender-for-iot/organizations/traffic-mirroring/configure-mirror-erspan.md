@@ -24,7 +24,7 @@ ERSPAN sessions include a source session and a destination session configured on
 
 For example:
 
-:::image type="content" source="../media/traffic-mirroring/erspan.png" alt-text="Diagram of traffic mirrored from an air-gapped or industrial network to an OT network sensor using ERSPAN.":::
+:::image type="content" source="../media/traffic-mirroring/erspan.png" alt-text="Diagram of traffic mirrored from an air-gapped or industrial network to an OT network sensor using ERSPAN." border="false":::
 
 ERSPAN transports mirrored traffic over an IP network using the following process:
 
