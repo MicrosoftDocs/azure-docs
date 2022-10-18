@@ -77,8 +77,8 @@
         href: plan-sso-deployment.md
     - name: Consent and permissions
       items:
-      - name: Consent and permissions overview
-        href: consent-and-permissions-overview.md
+      - name: User and admin consent overview
+        href: user-admin-consent-overview.md
       - name: Admin consent workflow overview
         href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests

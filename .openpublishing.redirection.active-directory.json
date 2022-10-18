@@ -5492,6 +5492,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/consent-and-permissions-overview.md",
+      "redirect_url": "/azure/active-directory/manage-apps/user-admin-consent-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-proxy-enable.md",
       "redirect_url": "/azure/active-directory/app-proxy/application-proxy-add-on-premises-application",
       "redirect_document_id": false

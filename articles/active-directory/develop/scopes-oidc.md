@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform scopes.
-description: Learn about openID connect scopes in the Microsoft identity platform endpoint.
+title: Microsoft identity platform scopes and permissions.
+description: Learn about openID connect scopes and permissions in the Microsoft identity platform endpoint.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -9,15 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 10/18/2022
 ms.author: marsma
 ms.reviewer: jawoods, ludwignick, phsignor
 ---
-# Scopes in the Microsoft identity platform
+# Scopes and permissions in the Microsoft identity platform
 
 The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *application ID URI*.
 
-Here are some examples of Microsoft web-hosted resources:
+In this article, you'll learn about scopes and permissions in the identity platform.
+
+The following list shows are some examples of Microsoft web-hosted resources:
 
 - Microsoft Graph: `https://graph.microsoft.com`
 - Microsoft 365 Mail API: `https://outlook.office.com`
@@ -36,6 +38,23 @@ When a resource's functionality is chunked into small permission sets, third-par
 In OAuth 2.0, these types of permission sets are called *scopes*. They're also often referred to as *permissions*. In the Microsoft identity platform, a permission is represented as a string value. An app requests the permissions it needs by specifying the permission in the `scope` query parameter. Identity platform supports several well-defined [OpenID Connect scopes](#openid-connect-scopes) as well as resource-based permissions (each permission is indicated by appending the permission value to the resource's identifier or application ID URI). For example, the permission string `https://graph.microsoft.com/Calendars.Read` is used to request permission to read users calendars in Microsoft Graph.
 
 In requests to the authorization server, for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, `scope=User.Read` is equivalent to `https://graph.microsoft.com/User.Read`.
+
+## Admin-restricted permissions
+
+Some high-privilege  in Microsoft resources can be set to *admin-restricted*. If your app requires scopes for admin-restricted permissions, an organization's administrator must consent to those scopes on behalf of the organization's users.The following section gives examples of these kinds of permissions:
+
+- Read all user's full profiles by using `User.Read.All`
+- Write data to an organization's directory by using `Directory.ReadWrite.All`
+- Read all groups in an organization's directory by using `Groups.Read.All`
+
+> [!NOTE]
+>In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, `scope=User.Read` is equivalent to `https://graph.microsoft.com/User.Read`.
+
+Although a consumer user might grant an application access to this kind of data, organizational users can't grant access to the same set of sensitive company data. If your application requests access to one of these permissions from an organizational user, the user receives an error message that says they're not authorized to consent to your app's permissions.
+
+If the application requests application permissions and an administrator grants these permissions this grant isn't done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are used only by daemon services and other non-interactive applications that run in the background. For more information on the direct access scenario, see [Access scenarios in the Microsoft identity platform](permissions-consent-overview.md).
+
+For a step by step guide on how to expose scopes in a web API, see [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
 
 ## OpenID Connect scopes
@@ -150,5 +169,6 @@ Some resource URIs have a trailing forward slash, for example, `https://contoso.
 
 ## Next steps
 
-* [ID tokens in the Microsoft identity platform](id-tokens.md)
-* [Access tokens in the Microsoft identity platform](access-tokens.md)
+- [Requesting permissions through consent in the identity platform](consent-types-developer.md)
+- [ID tokens in the Microsoft identity platform](id-tokens.md)
+- [Access tokens in the Microsoft identity platform](access-tokens.md)

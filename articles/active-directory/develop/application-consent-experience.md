@@ -4,13 +4,12 @@ description: Learn more about the Azure AD consent experiences to see how you ca
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 10/18/2022
 ms.author: jomondi
 ms.reviewer: jesakowi, asteen, jawoods
 ---
@@ -97,6 +96,30 @@ All users in that tenant won't see the consent dialog unless the application req
 
    > [!IMPORTANT]
    > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use MSAL.js. Otherwise, the application fails when the access token is requested.
+
+## Common Issues
+This section outlines the common issues with the consent experience and possible troubleshooting tips.
+
+- 403 error
+
+  - Is this a [delegated scenario](permissions-consent-overview.md)? What permissions does a user have? 
+  - Are necessary permissions added to leverage the endpoint? 
+  - Check the [token](https://jwt.ms/) to see if it has necessary claims to call the endpoint.
+  - What permissions have been consented to? Who consented? 
+
+- User is unable to consent
+
+  - Check if tenant admin has disabled user consent for your organization
+  - Confirm if the permissions you requesting are admin-restricted permissions.
+
+- User is still blocked even after admin has consented
+
+  - Check if [static permissions](consent-types-developer.md) are configured to be a superset of permissions requested dynamically.
+  - Check if user assignment is required for the app.
+
+## Troubleshoot known errors
+
+For troubleshooting steps, see [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 ## Next steps
 
 - Get a step-by-step overview of [how the Azure AD consent framework implements consent](./quickstart-register-app.md).
