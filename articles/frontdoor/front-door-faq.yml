@@ -147,6 +147,16 @@ sections:
         answer:  |
           Azure Front Door and Azure CDN can't be configured together because both services utilizes the same Azure edge sites when responding to requests. 
 
+      - question: |
+          Which network service tags does Front Door support?
+        answer:  |
+          Azure Front Door supports three service tags:
+          - The *AzureFrontDoor.Backend* service tag provides the list of IP addresses that Front Door uses to connect to your origins. You can use this service tag when you [secure traffic to your origins](origin-security.md).
+          - The *AzureFrontDoor.Frontend* service tag provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door.
+          - The *AzureFrontDoor.FirstParty* service tag is used internally within Azure.
+          
+          See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
+
   - name: Performance
     questions:
       - question: |
