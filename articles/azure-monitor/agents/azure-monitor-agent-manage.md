@@ -165,7 +165,7 @@ Remove-AzVMExtension -Name AzureMonitorLinuxAgent -ResourceGroupName <resource-g
 
 ### Update on Azure virtual machines
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version,. Then install the new version as described.
+To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
 
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following PowerShell commands.
 
@@ -308,7 +308,7 @@ az vm extension delete --resource-group <resource-group-name> --vm-name <virtual
 
 ### Update on Azure virtual machines
 
-To perform a one-time update of the agent, you must first uninstall the existing agent version,. Then install the new version as described.
+To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
   
 We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following CLI commands.
 
