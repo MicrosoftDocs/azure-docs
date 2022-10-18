@@ -383,6 +383,8 @@ items:
       href: how-to-workflow-manage-requests-approvals.md
     - name: Manage workflow runs
       href: how-to-workflow-manage-runs.md
+    - name: Workflow connectors
+      href: how-to-use-workflow-connectors.md      
     - name: Workflow HTTP connector
       href: how-to-use-workflow-http-connector.md
   - name: Manage Kafka notifications - .NET
