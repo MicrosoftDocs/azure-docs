@@ -9,12 +9,12 @@ ms.author: rifox
 
 ### Request access to the microphone
 
-The app will require access to the microphone to run properly. In UWP apps, the microphone capability should be declared in the app manifest file. 
+The app will require access to the camera to run properly. In UWP apps, the camera capability should be declared in the app manifest file. 
 he following steps exemplify how to achieve that.
 
 1. In the `Solution Explorer` panel, double click on the file with `.appxmanifest` extension.
 2. Click on the `Capabilities` tab.
-3. Select the `Microphone` check box from the capabilities list.
+3. Select the `Camera` check box from the capabilities list.
 
 ### Create UI buttons to place and hang up the call
 
@@ -53,7 +53,7 @@ Please keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next steps wil
 The UI buttons previously added need to operate on top of a placed `Call`. It means that a `Call` data member should be added to the `MainPage` or `MainWindow` class.
 Additionally, to allow the asynchronous operation creating `CallAgent` to succeed, a `CallAgent` data member should also be added to the same class.
 
-Please add the following data members to the `MainPage` pr `MainWindow` class:
+Please add the following data members to the `MainPage` or `MainWindow` class:
 ```csharp
 CallAgent callAgent;
 Call call;
@@ -108,26 +108,148 @@ var callAgentOptions = new CallAgentOptions()
 };
 
 this.callAgent = await callClient.CreateCallAgent(tokenCredential, callAgentOptions);
+this.callAgent.OnCallsUpdated += Agent_OnCallsUpdatedAsync;
+this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 ```
 
 `<AUTHENTICATION_TOKEN>` must be replaced by a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/access-tokens.md) documentation if a credential token has to be sourced.
 
-## Create CallAgent and place a call
+## Place a 1:1 call with video camera
 
-The objects needed for creating a `CallAgent` are now ready. It is time to asynchronously create `CallAgent` and place a call.
+The objects needed for creating a `CallAgent` are now ready. It is time to asynchronously create `CallAgent` and place a video call.
 
 The following code should be added after handling the exception from the previous step.
 
 ```csharp
 var startCallOptions = new StartCallOptions();
 
+if ((LocalVideo.Source == null) && (this.deviceManager.Cameras?.Count > 0))
+{
+    var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
+    if (videoDeviceInfo != null)
+    {
+        // <Initialize local camera preview>
+        startCallOptions.VideoOptions = new VideoOptions(new[] { localVideoStream });
+    }
+}
+
 var callees = new ICommunicationIdentifier[1] { new CommunicationUserIdentifier(CalleeTextBox.Text.Trim()) };
 
 this.call = await this.callAgent.StartCallAsync(callees, startCallOptions);
+this.call.OnRemoteParticipantsUpdated += Call_OnRemoteParticipantsUpdatedAsync;
 this.call.OnStateChanged += Call_OnStateChangedAsync;
 ```
 
-Feel free to use `8:echo123` to talk to the Azure Communication Services echo bot.
+## Local camera preview
+
+We can optionally set up local camera preview. The video can be rendered through UWP `MediaElement`:
+
+```xml
+<Grid Grid.Row="1">
+    <Grid.RowDefinitions>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <MediaElement x:Name="LocalVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center"/>
+    <MediaElement x:Name="RemoteVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center"/>
+</Grid>
+```
+To initialize the local preview `MedialElement`:
+```csharp
+var localVideoStream = new LocalVideoStream(videoDeviceInfo);
+
+var localUri = await localVideoStream.MediaUriAsync();
+
+await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+{
+    LocalVideo.Source = localUri;
+    LocalVideo.Play();
+});
+```
+
+Or, by `MediaPlayerElement` in WinUI 3:
+```xml
+<Grid Grid.Row="1">
+    <Grid.RowDefinitions>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <MediaPlayerElement x:Name="LocalVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center"/>
+    <MediaPlayerElement x:Name="RemoteVideo" HorizontalAlignment="Center" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center"/>
+</Grid>
+```
+To initialize the local preview `MediaPlayerElement`:
+```csharp
+var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
+if (videoDeviceInfo != null)
+{
+    var localVideoStream = new LocalVideoStream(videoDeviceInfo);
+
+    var localUri = await localVideoStream.MediaUriAsync();
+
+    this.DispatcherQueue.TryEnqueue(() => {
+        LocalVideo.Source = MediaSource.CreateFromUri(localUri);
+        LocalVideo.MediaPlayer.Play();
+    });
+}
+```
+
+## Render remote camera stream
+
+Set up even handler in response to `OnCallsUpdated` event:
+```csharp
+private async void Agent_OnCallsUpdatedAsync(object sender, CallsUpdatedEventArgs args)
+{
+    foreach (var call in args.AddedCalls)
+    {
+        foreach (var remoteParticipant in call.RemoteParticipants)
+        {
+            var remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+            this.remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
+            await AddVideoStreamsAsync(remoteParticipant.VideoStreams);
+            remoteParticipant.OnVideoStreamsUpdated += Call_OnVideoStreamsUpdatedAsync;
+        }
+    }
+}
+
+```
+Start rendering remote video stream on `MediaElement` for UWP app:
+```csharp
+private async Task AddVideoStreamsAsync(IReadOnlyList<RemoteVideoStream> remoteVideoStreams)
+{
+    foreach (var remoteVideoStream in remoteVideoStreams)
+    {
+        var remoteUri = await remoteVideoStream.Start();
+
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        {
+            RemoteVideo.Source = remoteUri;
+            RemoteVideo.Play();
+        });
+    }
+}
+```
+Or, render remote video stream on `MediaPlayerElement` for Win32 3 app:
+```csharp
+private async Task AddVideoStreamsAsync(IReadOnlyList<RemoteVideoStream> remoteVideoStreams)
+{
+    foreach (var remoteVideoStream in remoteVideoStreams)
+    {
+        var remoteUri = await remoteVideoStream.Start();
+
+        this.DispatcherQueue.TryEnqueue(() => {
+            RemoteVideo.Source = MediaSource.CreateFromUri(remoteUri);
+            RemoteVideo.MediaPlayer.Play();
+        });
+    }
+}
+```
 
 ## End a call
 
