@@ -35,7 +35,7 @@ Defender for Cloud continually assesses your resources, subscriptions, and organ
 
 As soon as you open Defender for Cloud for the first time, Defender for Cloud:
 
-- **Generates a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Microsoft Cloud Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
+- **Generates a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Microsoft cloud security benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
 
     You can also [learn more about secure score](secure-score-security-controls.md).
 
@@ -112,7 +112,7 @@ It's a security basic to know and make sure your workloads are secure, and it st
 
 Defender for Cloud continuously discovers new resources that are being deployed across your workloads and assesses whether they're configured according to security best practices. If not, they're flagged and you get a prioritized list of recommendations for what you need to fix. Recommendations help you reduce the attack surface across each of your resources.
 
-The list of recommendations is enabled and supported by the Microsoft Cloud Security Benchmark. This Microsoft-authored benchmark, based on common compliance frameworks, began with Azure and now provides a set of guidelines for security and compliance best practices for multiple cloud environments. Learn more in [Microsoft Cloud Security Benchmark introduction](/security/benchmark/azure/introduction).
+The list of recommendations is enabled and supported by the Microsoft cloud security benchmark. This Microsoft-authored benchmark, based on common compliance frameworks, began with Azure and now provides a set of guidelines for security and compliance best practices for multiple cloud environments. Learn more in [Microsoft cloud security benchmark introduction](/security/benchmark/azure/introduction).
 
 In this way, Defender for Cloud enables you not just to set security policies, but to *apply secure configuration standards across your resources*.
 

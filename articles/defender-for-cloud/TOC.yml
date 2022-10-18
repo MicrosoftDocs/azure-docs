@@ -122,7 +122,7 @@
       - name: Cloud Security Posture Management (CSPM)
         displayName: CSPM, cloud security, posture, management
         href: concept-cloud-security-posture-management.md
-      - name: Microsoft Cloud Security Benchmark (MCSB)
+      - name: Microsoft cloud security benchmark (MCSB)
         href: concept-regulatory-compliance.md
       - name: What is the cloud security graph
         displayName: What are the cloud security graph, attack path analysis, and the cloud security explorer?
