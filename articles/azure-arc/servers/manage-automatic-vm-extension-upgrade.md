@@ -78,7 +78,7 @@ To check the status of automatic extension upgrade for all extensions on an Arc-
 az connectedmachine extension list --resource-group resourceGroupName --machine-name machineName --query "[].{Name:name, AutoUpgrade:properties.enableAutoUpgrade}" --output table
 ```
 
-Use the [az connectedmachine extension update](/cli/azure/connectedmachine/extension) command to configure automatic upgrade on an extension:
+Use the [az connectedmachine extension update](/cli/azure/connectedmachine/extension) command to enable automatic upgrades on an extension:
 
 ```azurecli
 az connectedmachine extension update \
@@ -88,7 +88,15 @@ az connectedmachine extension update \
     --enable-auto-upgrade true
 ```
 
-To disable automatic upgrades, set the `--enable-auto-upgrade` parameter to `false`.
+To disable automatic upgrades, set the `--enable-auto-upgrade` parameter to `false`, as shown below:
+
+```azurecli
+az connectedmachine extension update \
+    --resource-group resourceGroupName \
+    --machine-name machineName \
+    --name extensionName \
+    --enable-auto-upgrade false
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
