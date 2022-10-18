@@ -131,7 +131,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     
     ```
 
-* SDK v2. [Full sample link](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
+* SDK v2. [Full sample link](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1b_pipeline_with_python_function_components/pipeline_with_python_function_components.ipynb)
 
     ```python
     # import required libraries
@@ -245,6 +245,6 @@ For more information, see the documentation here:
 
 * [steps in SDK v1](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)
 * [Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2 (Preview)](how-to-create-component-pipeline-python.md)
-* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
+* [Build a simple ML pipeline for image classification (SDK v1)](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/using-pipelines/image-classification.ipynb)
 * [OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)
 * [`mldesigner`](https://pypi.org/project/mldesigner/)
