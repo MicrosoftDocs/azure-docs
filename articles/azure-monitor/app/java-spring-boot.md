@@ -62,7 +62,7 @@ in the first line of your `main()` method.
 
 > [!WARNING]
 >
-> The temporary directory should be writable.
+> The temporary directory of the operating system should be writable.
 
 Example:
 
