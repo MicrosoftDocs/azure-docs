@@ -239,10 +239,10 @@ defaults {
     no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
 }
 
-# To exclude disks (for example local disks) from multipath topology
+# To exclude volumes from multipath topology
 blacklist {
-    wwid 360022480b13867ae2354de779cfc04fb
-    wwid 360022480bdec0186316aaf58e097e057
+    wwid <your volume WWID>
+    wwid <your volume WWID>
 }
 devices {
   device {
