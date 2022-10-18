@@ -67,6 +67,8 @@
       href: samples-nodejs.md
     - name: Python
       href: samples-python.md
+    - name: Go
+      href: samples-go.md
     - name: PowerShell
       href: powershell-samples.md
     - name: Azure CLI

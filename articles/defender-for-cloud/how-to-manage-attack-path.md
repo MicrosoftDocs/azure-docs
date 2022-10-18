@@ -11,7 +11,7 @@ ms.date: 10/03/2022
 
 Defender for Cloud's contextual security capabilities assists security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environment context to perform a risk assessment of your security issues. Defender for Cloud identifies the biggest security risk issues, while distinguishing them from less risky issues.
 
-Attack Path Analysis helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
+Attack path analysis helps you to address the security issues that pose immediate threats with the greatest potential of being exploited in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate it.
 
 You can check out the full list of [Attack path names and descriptions](attack-path-reference.md).
 
@@ -126,4 +126,4 @@ While you are [investigating and remediating an attack path](#investigate-and-re
 
 ## Next Steps
 
-Learn how to [Build queries with Cloud Security Explorer](how-to-manage-cloud-security-explorer.md).
+Learn how to [Build queries with cloud security explorer](how-to-manage-cloud-security-explorer.md).
