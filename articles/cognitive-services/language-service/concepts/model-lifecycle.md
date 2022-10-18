@@ -26,6 +26,8 @@ We regularly update the language service with new model versions to improve mode
 
 By default, all API requests will use the latest Generally Available (GA) model.
 
+#### Choose the model-version used on your data
+
 We recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. 
 
 Preview models used for preview features do not maintain a minimum retirement period and may be deprecated at any time.
