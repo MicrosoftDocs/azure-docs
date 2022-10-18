@@ -418,6 +418,8 @@ These are the valid `level` values that you can specify in the `applicationinsig
 
 ### Log markers for Logback and Log4j 2 (preview)
 
+Log markers are disabled by default.
+
 You can enable the `Marker` property for Logback and Log4j 2:
 
 ```json
