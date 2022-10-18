@@ -44,7 +44,7 @@ A key reason to migrate your existing data warehouse to Azure Synapse Analytics 
   
 - [Azure HDInsight](../../../hdinsight/index.yml) to process large amounts of data, and to join big data with Azure Synapse data by creating a logical data warehouse using PolyBase.
 
-- [Azure Event Hubs](../../../event-hubs/event-hubs-about.md), [Azure Stream Analytics](../../../stream-analytics/stream-analytics-introduction.md), and [Apache Kafka](/azure/databricks/spark/latest/structured-streaming/kafka) to integrate live streaming data from Azure Synapse.
+- [Azure Event Hubs](../../../event-hubs/event-hubs-about.md), [Azure Stream Analytics](../../../stream-analytics/stream-analytics-introduction.md), and [Apache Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) to integrate live streaming data from Azure Synapse.
 
 The growth of big data has led to an acute demand for [machine learning](../../machine-learning/what-is-machine-learning.md) to enable custom-built, trained machine learning models for use in Azure Synapse. Machine learning models enable in-database analytics to run at scale in batch, on an event-driven basis and on-demand. The ability to take advantage of in-database analytics in Azure Synapse from multiple BI tools and applications also guarantees consistent predictions and recommendations.
 
