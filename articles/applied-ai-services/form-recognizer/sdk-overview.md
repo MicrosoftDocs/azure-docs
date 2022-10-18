@@ -19,6 +19,8 @@ recommendations: false
 
 # What is the Form Recognizer SDK?
 
+[!INCLUDE [versioning and navigation](includes/versioning-and-navigation.md)]
+
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to analyze text and structured data from documents. The Form Recognizer software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Form Recognizer models and capabilities into your applications. Form Recognizer SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.

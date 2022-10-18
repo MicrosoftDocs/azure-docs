@@ -9,6 +9,8 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/10/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -18,6 +20,8 @@ ms.author: lajanuar
 # What's new in Azure Form Recognizer
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
+
+[!INCLUDE [versioning and navigation](includes/versioning-and-navigation.md)]
 
 ## October 2022
 

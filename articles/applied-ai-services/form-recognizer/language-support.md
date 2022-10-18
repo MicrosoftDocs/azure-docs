@@ -13,6 +13,8 @@ ms.author: lajanuar
 
 # Language support for Form Recognizer
 
+[!INCLUDE [versioning and navigation](includes/versioning-and-navigation.md)]
+
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
 ::: moniker-end

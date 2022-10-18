@@ -9,6 +9,7 @@ metadata:
   ms.topic: faq
   ms.date: 09/09/2022
   ms.author: lajanuar
+  monikerRange: '>=form-recog-2.1.0'
 
 title: Form Recognizer frequently asked questions
 summary: |
