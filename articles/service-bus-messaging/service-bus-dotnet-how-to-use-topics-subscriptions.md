@@ -254,7 +254,7 @@ In this section, you'll create a .NET Core console application that receives mes
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
 
-    ```cmd
+    ```Powershell
     Install-Package Azure.Messaging.ServiceBus
     ```
 
