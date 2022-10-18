@@ -1325,24 +1325,24 @@ Placeholder
 
 By default, the Azure Monitor exporters will use the following path:
 
-`<tempfile.gettempdir()>/opentelemetry-python-<your-instrumentation-key>`
+`<tempfile.gettempdir()>/Microsoft/AzureMonitor/opentelemetry-python-<your-instrumentation-key>`
 
-To override the default directory you should set `storage_path` to the directory you want.
+To override the default directory you should set `storage_directory` to the directory you want.
 
 For example:
 ```python
 ...
-exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", storage_path="C:\\SomeDirectory")
+exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", storage_directory="C:\\SomeDirectory")
 ...
 
 ```
 
-To disable this feature you should set `enable_local_storage` to `False`. Defaults to `True`.
+To disable this feature you should set `disable_offline_storage` to `True`. Defaults to `False`.
 
 For example:
 ```python
 ...
-exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", enable_local_storage=False)
+exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", disable_offline_storage=True)
 ...
 
 ```
