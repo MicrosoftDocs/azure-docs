@@ -1,7 +1,7 @@
 ---
 title: Defender for Azure Cosmos DB | Defender for Cloud in the Field
 titleSuffix: Microsoft Defender for Cloud
-description: Learn about Defender for Cloud integration with Azure Cosmos DB
+description: Learn about Defender for Cloud integration with Azure Cosmos DB.
 ms.topic: reference
 ms.date: 10/18/2022
 ---
