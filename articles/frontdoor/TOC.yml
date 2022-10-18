@@ -208,7 +208,7 @@
         href: web-application-firewall.md
       - name: Geo-filtering
         href: ../web-application-firewall/afds/waf-front-door-geo-filtering.md?toc=/azure/frontdoor/toc.json
-      - name: Origin security
+      - name: Secure traffic to origins
         href: origin-security.md
     - name: Protocol
       items:

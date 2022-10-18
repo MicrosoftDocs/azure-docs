@@ -1,5 +1,5 @@
 ---
-title: Origin security - Azure Front Door
+title: Secure traffic to origins - Azure Front Door
 description: This article explains how to restrict traffic to your origins to ensure it's been processed by Azure Front Door.
 services: front-door
 author: johndowns
@@ -11,9 +11,9 @@ ms.author: jodowns
 zone_pivot_groups: front-door-tiers
 ---
 
-# Origin security in Azure Front Door
+# Secure traffic to Azure Front Door origins
 
-Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door.
+Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features.
 
 ::: zone pivot="front-door-standard-premium"
 
