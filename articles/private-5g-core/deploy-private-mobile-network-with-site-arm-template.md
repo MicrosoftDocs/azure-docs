@@ -16,7 +16,6 @@ ms.date: 03/23/2022
 Azure Private 5G Core is an Azure cloud service for deploying and managing 5G core network functions on an Azure Stack Edge device, as part of an on-premises private mobile network for enterprises. This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy the following.
 
 - A private mobile network.
-- A network slice. If the new site will support 4G technology, this slice must be configured with slice/service type (SST) value of 1 and an empty slice differentiator (SD).
 - A site.
 - The default service and SIM policy (as described in [Default service and SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
@@ -76,9 +75,7 @@ The following Azure resources are defined in the template.
     | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
     |**Service Name**     | Leave this field unchanged.        |
     |**Sim Policy Name**     | Leave this field unchanged.        |
-    |**Slice Name**     | Enter the name of the network slice.        |
-    |**Sst**     |  Enter the slice/service type (SST) value. If the site will support 4G technology, enter a value of 1.        |
-    |**Sd**     | Enter the slice differentiator (SD) value. If the site will support 4G technology, leave this field blank.       |
+    |**Slice Name**     | Leave this field unchanged.        |
     |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added. Otherwise, leave this field blank.        |
     |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     | **Platform Type** | Ensure **AKS-HCI** is selected. |
@@ -100,12 +97,12 @@ The following Azure resources are defined in the template.
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     |**Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site.|    
 
-1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+2. Select **Review + create**.
+3. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
+4. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
 
 ## Review deployed resources
 
@@ -116,7 +113,7 @@ The following Azure resources are defined in the template.
 1. Confirm that the following resources have been created in the resource group.
 
     - A **Mobile Network** resource representing the private mobile network as a whole.
-    - A **Slice** resource representing the network slice.
+    - A **Slice** resource representing a network slice.
     - A **Data Network** resource representing the data network.
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
