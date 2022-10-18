@@ -24,9 +24,9 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 ## Estimate costs before using Azure Data Factory
  
-Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory) to get an estimate of the cost of running your ETL workload in Azure Data Factory.  .To use the calculator, you have to input details such as number of activity runs, number of data integration unit hours, type of compute used for Data Flow, core count, instance count, execution duration, and etc.
+Use the [ADF pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=data-factory) to get an estimate of the cost of running your ETL workload in Azure Data Factory. To use the calculator, you have to input details such as number of activity runs, number of data integration unit hours, type of compute used for Data Flow, core count, instance count, execution duration, and etc.
 
-One of the commonly asked questions for the pricing calculator is what values should be used as inputs.  During the proof-of-concept phase, you can conduct trial runs using sample datasets to understand the consumption for various ADF meters.  Then based on the consumption for the sample dataset, you can project out the consumption for the full dataset and operationalization schedule.
+One of the commonly asked questions for the pricing calculator is what values should be used as inputs.  During the proof-of-concept phase, you can conduct trial runs using sample datasets to understand the consumption for various ADF meters.  Then based on the consumption for the sample dataset, you can project out the consumption for the full dataset and operational schedule.
 
 > [!NOTE]
 > The prices used in this example below are hypothetical and are not intended to imply actual pricing.
@@ -84,7 +84,7 @@ You can pay for Azure Data Factory charges with your Azure Prepayment credit. Ho
 
 ## Monitor costs
 
-Azure Data Factory costs can be monitored at the factory, pipeline-run and activity-run levels.
+Azure Data Factory costs can be monitored at the factory, pipeline, pipeline-run and activity-run levels.
 
 ### Monitor costs at factory level with Cost Analysis
 
