@@ -263,7 +263,7 @@ This section lists the values supported as event *type* and *title* values for t
 | SRTP_CHANGE_LEVEL_FAILED                             | PLC Change access level failed                       |
 | SUITELINK_INIT_CONNECTION                            | Wonderware session initialized                       |
 | USER_OPERATION                                       | User Operation                                       |
-| DIP_UPLOADED                                         | Data Intelligance Package Uploaded                   |
+| DIP_UPLOADED                                         | Data Intelligence Package Uploaded                   |
 | FTP_AUTHENTICATION_FAILURE                           | FTP Authentication Failure                           |
 | PROFINET_DPC_VALUE_SET                               | Profinet SET operation                               |
 | S7PLUS_PLC_MODE_CHANGE                               | PLC Mode Change                                      |

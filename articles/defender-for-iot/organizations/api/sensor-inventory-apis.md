@@ -732,7 +732,7 @@ The following values are supported as [protocol names](#protocol-name) out-of-th
 
 
 #### Supported firmware fields
-This section lists the supported fields for the [firware](#operatingsystem) object in the `firmware` response field.
+This section lists the supported fields for the [firmware](#operatingsystem) object in the `firmware` response field.
 
 
 | Name | Type | Nullable / Not nullable | List of values |

@@ -291,7 +291,7 @@ This API returns data about a specific device per a given device ID.
 | **u_site** | String | Not nullable | The name of the device's site. |
 | **u_zone** | String | Not nullable | The name of the device's site. |
 | **u_last_activity**  | DateTime |Not nullable  | The timestamp of the last time the device was active. |
-| **u_first_discovered** | DateTime| Not nullable | Rhe timestamp of the device's discovery time. |
+| **u_first_discovered** | DateTime| Not nullable | The timestamp of the device's discovery time. |
 | **u_device_type**  |String |Not nullable  | The device [type](sensor-inventory-apis.md#supported-type-values) |
 | **u_name**  | String| Not nullable| Defines the device name. |
 | **u_ip_address_objects**  |JSON array of IP addresses | Not nullable | Array of [IP address](#ip_address_object-fields) objects  |
@@ -727,7 +727,7 @@ This API returns a list of active CVEs for all devices that were updated since t
 curl -k -H "Authorization: <Authorization token>" "https://<IP Address>/external/v3/integration/devicecves/<timestamp>"
 ```
 
-**Examplle**:
+**Example**:
 
 ```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/devicecves/1664781014000"
