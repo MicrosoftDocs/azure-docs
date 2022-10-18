@@ -28,7 +28,7 @@ DPS supports four allocation policies:
 
 * **Static configuration**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
 
-* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md). Cannot be set as the DPS instance default policy.
+* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md). Can't be set as the DPS instance default policy.
 
 There are two settings on a linked IoT hub that control how it participates in allocation:
 
@@ -140,7 +140,7 @@ Note the following behavior when using allocation policies with IoT hub:
 
 * With the Azure CLI, the REST API, and the DPS service SDKs, you can create enrollments with no allocation policy. In this case, DPS uses the default policy for the DPS instance when a device provisions through the enrollment. Changing the default policy setting on the DPS instance will change how devices are provisioned through the enrollment.
 
-* With the Azure portal, the allocation policy setting for the enrollment is pre-populated with the default allocation policy. You can keep this setting or change it to another policy, but, when you save the enrollment, the allocation policy is set on the enrollment. Subsequent changes to the service default allocation policy, will not change how devices are provisioned through the enrollment.
+* With the Azure portal, the allocation policy setting for the enrollment is pre-populated with the default allocation policy. You can keep this setting or change it to another policy, but, when you save the enrollment, the allocation policy is set on the enrollment. Subsequent changes to the service default allocation policy, won't change how devices are provisioned through the enrollment.
 
 * For the *Equally weighted distribution*, *Lowest latency* and *Custom* allocation policies you can configure the enrollment to use all the IoT hubs linked to the DPS instance:
 
@@ -152,7 +152,7 @@ Note the following behavior when using allocation policies with IoT hub:
 
 * If IoT hubs are specified on an enrollment, the IoT hubs setting on the enrollment must be manually or programmatically updated for a newly linked IoT hub to be added or a deleted IoT hub to be removed from allocation.
 
-* Changing the allocation policy or IoT hubs used for an enrollment only affects subsequent registrations through that enrollment. If you want the changes to affect prior registrations, you'll need to re-provision all previously registered devices.
+* Changing the allocation policy or IoT hubs used for an enrollment only affects subsequent registrations through that enrollment. If you want the changes to affect prior registrations, you'll need to reprovision all previously registered devices.
 
 ## Limitations
 
