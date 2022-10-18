@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2022
+ms.date: 10/19/2022
 ms.author: jodowns
 ---
 
@@ -30,7 +30,7 @@ If you need content caching and delivery (CDN), TLS termination, advanced routin
 
 ## Restrict traffic to your origins
 
-Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. For more information, see [Restrict origin traffic](origin.md#restrict-origin-traffic).
+Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
 ### Use the latest API version and SDK version
 

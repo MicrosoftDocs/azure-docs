@@ -7,7 +7,7 @@ metadata:
   ms.service: frontdoor
   ms.topic: faq
   ms.workload: infrastructure-services
-  ms.date: 09/14/2021
+  ms.date: 10/19/2022
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -95,7 +95,7 @@ sections:
       - question: |
           How do I lock down the access to my backend to only Azure Front Door?
         answer: |
-          Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. For more information, see [Restrict origin traffic](origin.md#restrict-origin-traffic).
+          Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
       - question: |
           Can the anycast IP change over the lifetime of my Front Door?

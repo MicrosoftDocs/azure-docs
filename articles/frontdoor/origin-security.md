@@ -40,21 +40,28 @@ When you use public IP address-based origins, there are two approaches you shoul
 
 ### IP address filtering
 
-Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer the IP details below for ACLing your backend:
+Configure IP address filtering for your origins to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only.
 
-    - Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's backend IP address range or you can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](../virtual-network/network-security-groups-overview.md#security-rules).
-    - Azure's [basic infrastructure services](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`
+The *AzureFrontDoor.Backend* service tag provides a list of the IP addresses that Front Door uses to connect to your origins. You can use this service tag within your [network security group rules](../virtual-network/network-security-groups-overview.md#security-rules). You can also download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) data set, which is updated regularly with the latest IP addresses.
 
-    > [!WARNING]
-    > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
+You should also allow traffic from Azure's [basic infrastructure services](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through the virtualized host IP addresses `168.63.129.16` and `169.254.169.254`.
+
+> [!WARNING]
+> Front Door's backend IP space changes regularly. Ensure that you use the *AzureFrontDoor.Backend* service tag rather than hard-coding IP addresses.
 
 ### Front Door identifier
 
-- Look for the `Front Door ID` value under the Overview section from Front Door portal page. You can then filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with that value to ensure only your own specific Front Door instance is allowed (because the IP ranges above are shared with other Front Door instances of other customers).
+IP address filtering alone isn't sufficient to secure traffic to your origin, because other Azure customers use the same IP addresses. You shuold also configure your origin to ensure that traffic has originated from *your* Front Door profile.
 
-- Apply rule filtering in your backend web server to restrict traffic based on the resulting 'X-Azure-FDID' header value. Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) capability without needing to change your application or host.
+Azure generates a unique identifier for each Front Door profile. You can find the identifier in the Azure portal, by looking for the *Front Door ID* value in the Overview page of your profile.
+
+When Front Door makes a request to your origin, it adds the `X-Azure-FDID` request header. Your origin should inspect the header on incoming requests, and reject requests where the value doesn't match your Front Door profile's identifier.
+
+### Example configuration
 
 Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+
+# [IIS](#tab/iis)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -74,6 +81,8 @@ Here's an example for [Microsoft Internet Information Services (IIS)](https://ww
   </system.webServer>
 </configuration>
 ```
+
+# [AKS NGINX controller](#tab/aks-nginx)
     
 Here's an example for [AKS NGINX ingress controller](../aks/ingress-basic.md):
 
@@ -93,4 +102,18 @@ spec:
   #section omitted on purpose
 ```
 
+# [App Service and Azure Functions](#tab/app-service-azure-functions)
+
+Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) capability without needing to change your application or host.
+
+# [Application Gateway](#tab/application-gateway)
+
 If using Application Gateway as a backend to Azure Front Door, then the check on the `X-Azure-FDID` header can be done in a custom WAF rule.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
+
+---
+
+## Next steps
+
+- Learn how to configure a [WAF profile on Front Door](front-door-waf.md). 
+- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn [how Front Door works](front-door-routing-architecture.md).
