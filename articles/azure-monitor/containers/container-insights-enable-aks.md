@@ -20,7 +20,7 @@ If you're connecting an existing AKS cluster to a Log Analytics workspace in ano
 You can enable monitoring for an AKS cluster when it's created by using any of the following methods:
 
 - **Azure CLI**: Follow the steps in [Create AKS cluster](../../aks/learn/quick-kubernetes-deploy-cli.md).
-- **Azure Policy**: Follow the steps in [Enable AKS monitoring add-on using Azure Policy](container-insights-enable-aks-policy.md).
+- **Azure Policy**: Follow the steps in [Enable AKS monitoring add-on by using Azure Policy](container-insights-enable-aks-policy.md).
 - **Terraform**: If you're [deploying a new AKS cluster by using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you don't choose to specify an existing one. To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution). Complete the profile by including the [addon_profile](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) and specifying **oms_agent**.
 
 ## Existing AKS cluster
@@ -75,7 +75,7 @@ To enable monitoring by using Terraform:
    }
    ```
 
-1. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) following the steps in the Terraform documentation.
+1. Add the [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) by following the steps in the Terraform documentation.
 1. Enable collection of custom metrics by using the guidance at [Enable custom metrics](container-insights-custom-metrics.md).
 
 ## [Azure portal](#tab/portal-azure-monitor)
@@ -109,7 +109,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 ## [Resource Manager template](#tab/arm)
 
 >[!NOTE]
->The template needs to be deployed in the same resource group as the cluster.
+>The template must be deployed in the same resource group as the cluster.
 
 ### Create or download templates
 
@@ -117,16 +117,16 @@ You'll either download template and parameter files or create your own depending
 
 To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication):
 
-1. Download the template at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
+1. Download the template in the [GitHub content file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
 
-1. Download the parameter file at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save it as **existingClusterParam.json**.
+1. Download the parameter file in the [GitHub content file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save it as **existingClusterParam.json**.
 
-1. Edit the values in the parameter file.
+1. Edit the values in the parameter file:
 
    - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
    - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
    - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
-   - `resourceTagValues`:  Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
+   - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterName\>-\<clusterRegion\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 
 To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication):
 
@@ -213,16 +213,16 @@ To enable [managed identity authentication (preview)](container-insights-onboard
     }
     ```
 
-1. Download the parameter file at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save as **existingClusterParam.json**.
+1. Download the parameter file in the [GitHub content file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file) and save as **existingClusterParam.json**.
 
-1. Edit the values in the parameter file.
+1. Edit the values in the parameter file:
 
-  - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
-  - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
-  - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
-  - `resourceTagValues`: Use the existing tag values specified for the AKS cluster.
+   - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
+   - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
+   - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
+   - `resourceTagValues`: Use the existing tag values specified for the AKS cluster.
 
-### Deploy template
+### Deploy the template
 
 Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
@@ -232,7 +232,7 @@ Deploy the template with the parameter file by using any valid method for deploy
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
 ```
 
-The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following example and includes the result:
+The configuration change can take a few minutes to complete. When it's finished, a message similar to the following example includes this result:
 
 ```output
 provisioningState       : Succeeded
@@ -246,7 +246,7 @@ az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
 ```
 
-The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following example and includes the result:
+The configuration change can take a few minutes to complete. When it's finished, a message similar to the following example includes this result:
 
 ```output
 provisioningState       : Succeeded
@@ -272,7 +272,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```
 
-If there are Windows Server nodes on the cluster, you can run the following command to verify that the agent is deployed successfully.
+If there are Windows Server nodes on the cluster, run the following command to verify that the agent is deployed successfully:
 
 ```
 kubectl get ds ama-logs-windows --namespace=kube-system
@@ -302,7 +302,7 @@ ama-logs-rs   1         1         1            1            3h
 
 ## View configuration with CLI
 
-Use the `aks show` command to get details such as whether the solution is enabled or not, what is the Log Analytics workspace resource ID, and summary details about the cluster.
+Use the `aks show` command to find out whether the solution is enabled or not, what the Log Analytics workspace resource ID is, and summary information about the cluster.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
@@ -323,63 +323,65 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Migrate to managed identity authentication
 
-### Existing clusters with service principal
+This section explains two methods for migrating to managed identity authentication.
 
-AKS clusters with service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
+### Existing clusters with a service principal
+
+AKS clusters with a service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
 
 1. Get the configured Log Analytics workspace resource ID:
 
-```cli
-az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
-```
+    ```cli
+    az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
+    ```
 
 1. Disable monitoring with the following command:
 
-  ```cli
-  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> 
-  ```
+      ```cli
+      az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name> 
+      ```
 
 1. Upgrade cluster to system managed identity with the following command:
 
-  ```cli
-  az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity
-  ```
+      ```cli
+      az aks update -g <resource-group-name> -n <cluster-name> --enable-managed-identity
+      ```
 
-1. Enable monitoring add-on with managed identity authentication option by using the Log Analytics workspace resource ID obtained in the first step:
+1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
 
-  ```cli
-  az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
-  ```
+      ```cli
+      az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      ```
 
 ### Existing clusters with system or user-assigned identity
 
-AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure Public cloud is supported.
+AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure public cloud is supported.
 
 1. Get the configured Log Analytics workspace resource ID:
 
-  ```cli
-  az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
-  ```
+      ```cli
+      az aks show -g <resource-group-name> -n <cluster-name> | grep -i "logAnalyticsWorkspaceResourceID"
+      ```
 
 1. Disable monitoring with the following command:
 
-  ```cli
-  az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name>
-  ```
+      ```cli
+      az aks disable-addons -a monitoring -g <resource-group-name> -n <cluster-name>
+      ```
 
-1. Enable monitoring add-on with managed identity authentication option by using the Log Analytics workspace resource ID obtained in the first step:
+1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
 
-  ```cli
-  az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
-  ```
+      ```cli
+      az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      ```
 
 ## Private link
 
 To enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md), your cluster must be using managed identity authentication with Azure Monitor Agent.
 
-1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your AMPLS.
+1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your Azure Monitor private link service.
 
-1. Create an association between the cluster and the data collection endpoint by using the following API call. For information on this call, see [Data collection rule associations - Create](/rest/api/monitor/data-collection-rule-associations/create). The DCR association name must be **configurationAccessEndpoint**, and  `resourceUri` is the resource ID of the AKS cluster.
+1. Create an association between the cluster and the data collection endpoint by using the following API call. For information on this call, see [Data collection rule associations - Create](/rest/api/monitor/data-collection-rule-associations/create). The DCR association name must be **configurationAccessEndpoint**, and `resourceUri` is the resource ID of the AKS cluster.
 
     ```rest
     PUT https://management.azure.com/{cluster-resource-id}/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
@@ -390,7 +392,7 @@ To enable network isolation by connecting your cluster to the Log Analytics work
     }
     ```
 
-    The following is an example of this API call:
+    The following snippet is an example of this API call:
 
     ```rest
     PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster/providers/Microsoft.Insights/dataCollectionRuleAssociations/configurationAccessEndpoint?api-version=2021-04-01
@@ -411,5 +413,5 @@ To enable network isolation by connecting your cluster to the Log Analytics work
 
 ## Next steps
 
-* If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](container-insights-troubleshoot.md)
+* If you experience issues while you attempt to onboard the solution, review the [Troubleshooting guide](container-insights-troubleshoot.md).
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
