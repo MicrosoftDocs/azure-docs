@@ -1,17 +1,19 @@
 ---
-title: 'Quickstart: Enable single sign-on for an enterprise application'
+title: Enable single sign-on for an enterprise application
 description: Enable single sign-on for an enterprise application in Azure Active Directory.
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: quickstart
+ms.topic: how-to
 ms.workload: identity
-ms.date: 09/21/2022
-ms.author: davidmu
+ms.date: 09/29/2022
+ms.author: jomondi
 ms.reviewer: ergleenl
 ms.custom: contperf-fy22q2, mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
+---
 #Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
 ---
 
