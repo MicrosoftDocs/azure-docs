@@ -18,7 +18,7 @@ ms.custom: scenarios:getting-started, engagement-fy23
 
 # Create a self-signed public certificate to authenticate your application
 
-Azure Active Directory (Azure AD) supports two types of authentication for service principals: **password-based authentication** (app secret) and **certificate-based authentication**. While app secrets can easily be created in the Azure portal, it's recommended that your application uses a certificate.
+Azure Active Directory (Azure AD) supports two types of authentication for service principals: **password-based authentication** (app secret) and **certificate-based authentication**. While app secrets can easily be created in the Azure portal, they're long-lived, and not as secure as certificates. It's therefore recommended that your application uses a certificate rather than a secret.
 
 For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. In this how-to, you'll use Windows PowerShell to create and export a self-signed certificate.
 
