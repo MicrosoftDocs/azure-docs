@@ -301,7 +301,7 @@ image_object_detection_job.set_limits(max_trials=10, max_concurrent_trials=2, ti
 ```
 ---
 
-The [time budget](#experiment-budget) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
+The [time budget](#job-limits) for the AutoML job can still be set, but we recommend doing this only if each trial may take a long time.
 
 > [!Warning]
 > Automatic sweeps for computer vision tasks are currently not supported in the UI.
