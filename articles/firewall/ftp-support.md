@@ -41,9 +41,21 @@ The following table shows the configuration required to support various FTP scen
 
 To deploy using Azure PowerShell, use the `AllowActiveFTP` parameter. For more information, see [Create a Firewall with Allow Active FTP](/powershell/module/az.network/new-azfirewall#16---create-a-firewall-with-allow-active-ftp-).
 
+## Update an existing Azure Firewall by using Azure PowerShell
+
+To update an existing Azure Firewall by using Azure PowerShell, switch the `AllowActiveFTP` parameter to 'True'.
+
+```azurepowershell
+$rgName = "resourceGroupName"
+$afwName = "afwName"
+$afw = Get-AzFirewall -Name $afwName -ResourceGroupName $rgName
+$afw.AllowActiveFTP = $true
+$afw | Set-AzFirewall
+```
+
 ## Deploy using Azure CLI
 
-To deploy using the Azure CLI, use the `--allow-active-ftp` parameter. For more information, see [az network firewall create](/cli/azure/network/firewall#az_network_firewall_create-optional-parameters). 
+To deploy using the Azure CLI, use the `--allow-active-ftp` parameter. For more information, see [az network firewall create](/cli/azure/network/firewall#az-network-firewall-create-optional-parameters). 
 
 ## Deploy Azure Resource Manager (ARM) template
 

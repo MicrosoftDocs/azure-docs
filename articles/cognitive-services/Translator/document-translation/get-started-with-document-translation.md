@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/02/2022
+ms.date: 09/20/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -22,19 +22,41 @@ ms.custom: mode-other
 
 > [!NOTE]
 >
-> 1. Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
-> 2. Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Typically, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+>
+> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account.
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
-## Custom domain name and subscription key
+  **Complete the Translator project and instance details fields as follows:**
+
+  1. **Subscription**. Select one of your available Azure subscriptions.
+
+  1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
+
+  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](managed-identity.md) for authentication, choose a **non-global** region.
+
+  1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
+
+     > [!NOTE]
+     > Document Translation requires a custom domain endpoint. The value that you enter in the Name field will be the custom domain name parameter for your endpoint.
+
+  1. **Pricing tier**. Document Translation isn't supported in the free tier. Select Standard S1 to try the service.
+
+  1. Select **Review + Create**.
+
+  1. Review the service terms and select **Create** to deploy your resource.
+
+  1. After your resource has successfully deployed, select **Go to resource**.
+
+## Your custom domain name and key
 
 > [!IMPORTANT]
 >
@@ -55,16 +77,16 @@ The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is th
 
 :::image type="content" source="../media/instance-details.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
 
-### Get your subscription key
+### Get your key
 
 Requests to the Translator service require a read-only key for authenticating access.
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
-1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
+1. Copy and paste your key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
 
-:::image type="content" source="../media/translator-keys.png" alt-text="Image of the get your subscription key field in Azure portal.":::
+:::image type="content" source="../media/translator-keys.png" alt-text="Image of the get your key field in Azure portal.":::
 
 ## Create Azure blob storage containers
 
@@ -88,28 +110,27 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 >
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
->
+> * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](managed-identity.md) for authentication.
 
-## Document Translation: HTTP requests
+## HTTP requests
 
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
+A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will be listed in your target container.
 
 ### HTTP headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
+|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
-|Content-Length|**Required**: the length of the request body.|
 
 ### POST request body properties
 
 * The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
 * The POST request body is a JSON object named `inputs`.
-* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs
-* The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.
+* The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
+* The `prefix` and `suffix` are case-sensitive strings to filter documents in the source path for translation. The `prefix` field is often used to delineate subfolders for translation. The `suffix` field is most often used for file extensions.
 * A value for the  `glossaries`  field (optional) is applied when the document is being translated.
 * The `targetUrl` for each target language must be unique.
 
@@ -139,9 +160,9 @@ The following headers are included with each Document Translator API request:
 
 ### Translate a specific document in a container
 
-* Ensure you have specified "storageType": "File"
-* Ensure you have created source URL & SAS token for the specific blob/document (not for the container)
-* Ensure you have specified the target filename as part of the target URL – though the SAS token is still for the container.
+* Specify `"storageType": "File"`
+* If you aren't using a [**system-assigned managed identity**](managed-identity.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
+* Ensure you've specified the target filename as part of the target URL – though the SAS token is still for the container.
 * Sample request below shows a single document getting translated into two target languages
 
 ```json
@@ -174,11 +195,8 @@ The following headers are included with each Document Translator API request:
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://myblob.blob.core.windows.net/source",
-                "filter": {
-                    "prefix": "myfolder/"
-                }
-            },
+                "sourceUrl": "https://myblob.blob.core.windows.net/source"
+             },
             "targets": [
                 {
                     "targetUrl": "https://myblob.blob.core.windows.net/target",
@@ -204,7 +222,7 @@ The following headers are included with each Document Translator API request:
 
 * Create a new project.
 * Replace Program.cs with the C# code shown below.
-* Set your endpoint, subscription key, and container URL values in Program.cs.
+* Set your endpoint, key, and container URL values in Program.cs.
 * To process JSON data, add [Newtonsoft.Json package using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory.
 
@@ -213,14 +231,14 @@ The following headers are included with each Document Translator API request:
 * Create a new Node.js project.
 * Install the Axios library with `npm i axios`.
 * Copy/paste the code below into your project.
-* Set your endpoint, subscription key, and container URL values.
+* Set your endpoint, key, and container URL values.
 * Run the program.
 
 ### [Python](#tab/python)
 
 * Create a new project.
 * Copy and paste the code from one of the samples into your project.
-* Set your endpoint, subscription key, and container URL values.
+* Set your endpoint, key, and container URL values.
 * Run the program. For example: `python translate.py`.
 
 ### [Java](#tab/java)
@@ -269,7 +287,7 @@ gradle init --type basic
   }
   ```
 
-* Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your subscription key and endpoint.
+* Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your key and endpoint.
 
 * **Build and run the sample from the root directory**:
 
@@ -282,7 +300,7 @@ gradle run
 
 * Create a new Go project.
 * Add the code provided below.
-* Set your endpoint, subscription key, and container URL values.
+* Set your endpoint, key, and container URL values.
 * Save the file with a '.go' extension.
 * Open a command prompt on a computer with Go installed.
 * Build the file. For example: 'go build example-code.go'.
@@ -292,12 +310,12 @@ gradle run
 
 > [!IMPORTANT]
 >
-> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) for ways to securely store and access your credentials.
+> For the code samples below, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Managed Identity](managed-identity.md). See the Azure Storage [security](../../../storage/common/authorize-data-access.md) article for more information.
 >
 > You may need to update the following fields, depending upon the operation:
 >>>
 >> * `endpoint`
->> * `subscriptionKey`
+>> * `key`
 >> * `sourceURL`
 >> * `targetURL`
 >> * `glossaryURL`
@@ -335,9 +353,9 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
         private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
 
-        private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+        private static readonly string key = "<YOUR-KEY>";
 
-        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\",\"filter\":{\"prefix\": \"Demo_1/\"} }, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+        static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\"}, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
 
         static async Task Main(string[] args)
         {
@@ -349,7 +367,7 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
 
                 request.Method = HttpMethod.Post;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
                 request.Content = content;
 
                 HttpResponseMessage  response = await client.SendAsync(request);
@@ -379,16 +397,14 @@ const axios = require('axios').default;
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
 let route = '/batches';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 
 let data = JSON.stringify({"inputs": [
   {
       "source": {
           "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
           "storageSource": "AzureBlob",
-          "language": "en",
-          "filter":{
-              "prefix": "Demo_1/"
+          "language": "en"
           }
       },
       "targets": [
@@ -403,7 +419,7 @@ let config = {
   baseURL: endpoint,
   url: route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': key,
     'Content-Type': 'application/json'
   },
   data: data
@@ -427,7 +443,7 @@ axios(config)
 import requests
 
 endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 path = '/batches'
 constructed_url = endpoint + path
 
@@ -437,10 +453,7 @@ payload= {
             "source": {
                 "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
                 "storageSource": "AzureBlob",
-                "language": "en",
-                "filter":{
-                    "prefix": "Demo_1/"
-                }
+                "language": "en"
             },
             "targets": [
                 {
@@ -454,7 +467,7 @@ payload= {
     ]
 }
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey,
+  'Ocp-Apim-Subscription-Key': key,
   'Content-Type': 'application/json'
 }
 
@@ -473,7 +486,7 @@ import java.util.*;
 import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
-    String subscriptionKey = "'<YOUR-SUBSCRIPTION-KEY>'";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String path = endpoint + "/batches";
 
@@ -481,10 +494,10 @@ public class DocumentTranslation {
 
     public void post() throws IOException {
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n \"filter\": {\n  \"prefix\": \"Demo_1\"\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
+        RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
         Request request = new Request.Builder()
                 .url(path).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -517,14 +530,14 @@ import (
 
 func main() {
 endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+key := "<YOUR-KEY>"
 uri := endpoint + "/batches"
 method := "POST"
 
-var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en","filter":{"prefix":"Demo_1/"}},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
+var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en"},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
 req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
-req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Ocp-Apim-Subscription-Key", key)
 req.Header.Add("Content-Type", "application/json")
 
 client := &http.Client{}
@@ -567,7 +580,7 @@ class Program
 
     static readonly string route = "/documents/formats";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -577,7 +590,7 @@ class Program
             {
                 request.Method = HttpMethod.Get;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -598,14 +611,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/documents/formats';
 
 let config = {
   method: 'get',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -629,14 +642,14 @@ import com.squareup.okhttp.*;
 
 public class GetFileFormats {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/documents/formats";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -661,11 +674,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/documents/formats'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("GET", parameters , payload, headers)
 res = conn.getresponse()
@@ -690,7 +703,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/documents/formats"
   method := "GET"
 
@@ -702,7 +715,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {
@@ -745,7 +758,7 @@ class Program
 
     static readonly string route = "/batches/{id}";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -755,7 +768,7 @@ class Program
             {
                 request.Method = HttpMethod.Get;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -776,14 +789,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/batches/{id}';
 
 let config = {
   method: 'get',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -808,14 +821,14 @@ import com.squareup.okhttp.*;
 
 public class GetJobStatus {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -840,11 +853,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/batches/{id}'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("GET", parameters , payload, headers)
 res = conn.getresponse()
@@ -869,7 +882,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "GET"
 
@@ -881,7 +894,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {
@@ -925,7 +938,7 @@ class Program
 
     static readonly string route = "/{id}/document/{documentId}";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -935,7 +948,7 @@ class Program
             {
                 request.Method = HttpMethod.Get;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -956,14 +969,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/{id}/document/{documentId}';
 
 let config = {
   method: 'get',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -988,14 +1001,14 @@ import com.squareup.okhttp.*;
 
 public class GetDocumentStatus {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/{id}/document/{documentId}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("GET", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -1020,11 +1033,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/{id}/document/{documentId}'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("GET", parameters , payload, headers)
 res = conn.getresponse()
@@ -1049,7 +1062,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/{id}/document/{documentId}"
   method := "GET"
 
@@ -1061,7 +1074,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {
@@ -1105,7 +1118,7 @@ class Program
 
     static readonly string route = "/batches/{id}";
 
-    private static readonly string subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    private static readonly string key = "<YOUR-KEY>";
 
     static async Task Main(string[] args)
     {
@@ -1115,7 +1128,7 @@ class Program
             {
                 request.Method = HttpMethod.Delete;
                 request.RequestUri = new Uri(endpoint + route);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
                 HttpResponseMessage response = await client.SendAsync(request);
@@ -1136,14 +1149,14 @@ class Program
 const axios = require('axios');
 
 let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0';
-let subscriptionKey = '<YOUR-SUBSCRIPTION-KEY>';
+let key = '<YOUR-KEY>';
 let route = '/batches/{id}';
 
 let config = {
   method: 'delete',
   url: endpoint + route,
   headers: {
-    'Ocp-Apim-Subscription-Key': subscriptionKey
+    'Ocp-Apim-Subscription-Key': key
   }
 };
 
@@ -1168,14 +1181,14 @@ import com.squareup.okhttp.*;
 
 public class DeleteJob {
 
-    String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY>";
+    String key = "<YOUR-KEY>";
     String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0";
     String url = endpoint + "/batches/{id}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
         Request request = new Request.Builder().url(
-                url).method("DELETE", null).addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).build();
+                url).method("DELETE", null).addHeader("Ocp-Apim-Subscription-Key", key).build();
         Response response = client.newCall(request).execute();
             System.out.println(response.body().string());
         }
@@ -1200,11 +1213,11 @@ import http.client
 
 host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
 parameters = '//translator/text/batch/v1.0/batches/{id}'
-subscriptionKey =  '<YOUR-SUBSCRIPTION-KEY>'
+key =  '<YOUR-KEY>'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
-  'Ocp-Apim-Subscription-Key': subscriptionKey
+  'Ocp-Apim-Subscription-Key': key
 }
 conn.request("DELETE", parameters , payload, headers)
 res = conn.getresponse()
@@ -1229,7 +1242,7 @@ import (
 func main() {
 
   endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0"
-  subscriptionKey := "<YOUR-SUBSCRIPTION-KEY>"
+  key := "<YOUR-KEY>"
   uri := endpoint + "/batches/{id}"
   method := "DELETE"
 
@@ -1241,7 +1254,7 @@ func main() {
     fmt.Println(err)
     return
   }
-  req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+  req.Header.Add("Ocp-Apim-Subscription-Key", key)
 
   res, err := client.Do(req)
   if err != nil {
@@ -1274,7 +1287,7 @@ The table below lists the limits for data that you send to Document Translation.
 |Number of target languages in a batch| ≤ 10 |
 |Size of Translation memory file| ≤ 10 MB|
 
-Document Translation can not be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
+Document Translation can't be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
 
 ## Troubleshooting
 
@@ -1284,8 +1297,8 @@ Document Translation can not be used to translate secured documents such as thos
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. When managing your subscription on the Azure portal, please ensure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource.
-| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. When managing your subscription on the Azure portal, make sure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource.
+| 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 
 ## Learn more

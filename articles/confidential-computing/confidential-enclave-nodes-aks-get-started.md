@@ -10,7 +10,7 @@ ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021, mode-api
 ---
 
-# Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI
+# Quickstart: Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI
 
 In this quickstart, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster with enclave-aware (DCsv2/DCSv3) VM nodes. You'll then run a simple Hello World application in an enclave. You can also provision a cluster and add confidential computing nodes from the Azure portal, but this quickstart focuses on the Azure CLI.
 
@@ -24,7 +24,7 @@ Features of confidential computing nodes include:
 - Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 
 > [!NOTE]
-> DCsv2/DCsv3 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md). DCsv3 VM's are currently in preview in limited regions. Please refer to above mentioned page for details. 
+> DCsv2/DCsv3 VMs use specialized hardware that's subject region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
 
 
 ## Prerequisites
@@ -32,26 +32,26 @@ Features of confidential computing nodes include:
 This quickstart requires:
 
 - An active Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Azure CLI version 2.0.64 or later installed and configured on your deployment machine. 
+- Azure CLI version 2.0.64 or later installed and configured on your deployment machine.
 
   Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
-- A minimum of six DCsv2 cores available in your subscription. 
+- A minimum of eight DCsv2/DCSv3/DCdsv3 cores available in your subscription.
 
-  By default, the quota for confidential computing per Azure subscription is eight VM cores. If you plan to provision a cluster that requires more than eight cores, follow [these instructions](../azure-portal/supportability/per-vm-quota-requests.md) to raise a quota-increase ticket.
+  By default, there is no pre-assigned quota for Intel SGX VM sizes for your Azure subscriptions. You should follow [these instructions](../azure-portal/supportability/per-vm-quota-requests.md) to request for VM core quota for your subscriptions.
 
-## Create an AKS cluster with enclave-aware confidential computing nodes and add-on
+## Create an AKS cluster with enclave-aware confidential computing nodes and Intel SGX add-on
 
-Use the following instructions to create an AKS cluster with the confidential computing add-on enabled, add a node pool to the cluster, and verify what you created.
+Use the following instructions to create an AKS cluster with the Intel SGX add-on enabled, add a node pool to the cluster, and verify what you created with hello world enclave application.
 
 ### Create an AKS cluster with a system node pool
 
 > [!NOTE]
 > If you already have an AKS cluster that meets the prerequisite criteria listed earlier, [skip to the next section](#add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster) to add a confidential computing node pool.
 
-First, create a resource group for the cluster by using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *westus2* region:
+First, create a resource group for the cluster by using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus2* region:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus2
 ```
 
 Now create an AKS cluster, with the confidential computing add-on enabled, by using the [az aks create][az-aks-create] command:
@@ -59,16 +59,17 @@ Now create an AKS cluster, with the confidential computing add-on enabled, by us
 ```azurecli-interactive
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addons confcom
 ```
+The above command will deploy a new AKS cluster with system node pool of non confidential computing node. Confidential computing Intel SGX nodes are not recommended for system node pools.
 
-### Add a user node pool with confidential computing capabilities to the AKS cluster 
+### Add an user node pool with confidential computing capabilities to the AKS cluster<a id="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>
 
-Run the following command to add a user node pool of `Standard_DC2s_v2` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/Dcsv3 SKUs and regions](../virtual-machines/dcv2-series.md).
+Run the following command to add a user node pool of `Standard_DC4s_v3` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/DCsv3 SKUs and regions](../virtual-machines/dcv3-series.md).
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC4s_v3 --node-count 2
 ```
 
-After you run the command, a new node pool with DCsv2 should be visible with confidential computing add-on DaemonSets ([SGX device plug-in](confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)).
+After you run the command, a new node pool with DCsv3 should be visible with confidential computing add-on DaemonSets ([SGX device plug-in](confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)).
 
 ### Verify the node pool and add-on
 
@@ -102,15 +103,15 @@ Run the following command to enable the confidential computing add-on:
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
 
-### Add a DCsv2/DCsv3 user node pool to the cluster
+### Add a DCsv3 user node pool to the cluster
 
 > [!NOTE]
-> To use the confidential computing capability, your existing AKS cluster needs to have a minimum of one node pool that's based on a DCsv2/DCsv3 VM SKU. To learn more about DCs-v2 VMs SKUs for confidential computing, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
+> To use the confidential computing capability, your existing AKS cluster needs to have a minimum of one node pool that's based on a DCsv2/DCsv3 VM SKU. To learn more about DCs-v2/Dcs-v3 VMs SKUs for confidential computing, see the [available SKUs and supported regions](virtual-machine-solutions-sgx.md).
 
 Run the following command to create a node pool:
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 2 --node-vm-size Standard_DC4s_v3
 ```
 
 Verify that the new node pool with the name *confcompool1* has been created:

@@ -1,14 +1,17 @@
 ---
 title: Azure Percept DK datasheet
 description: Check out the Azure Percept DK datasheet for detailed device specifications
-author: nkhuyent
+author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 10/04/2022
 ---
 
 # Azure Percept DK datasheet
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
 
 |Product Specification           |Value     |
 |--------------------------------|--------|
@@ -19,7 +22,7 @@ ms.date: 02/16/2021
 |Included in Box                 |1x Azure Percept DK Carrier Board  <br> 1x [Azure Percept Vision](./azure-percept-vision-datasheet.md) <br> 1x RGB Sensor (Camera) <br> 1x USB 3.0 Type C Cable <br> 1x DC Power Cable <br> 1x AC/DC Converter <br> 2x Wi-Fi Antennas  |
 |OS                              |[CBL-Mariner](https://github.com/microsoft/CBL-Mariner)           |
 |Management Control Plane        |Azure Device Update (ADU) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)          |
-|Supported Software and Services |Azure Device Update <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) and [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [Azure Mariner OS with Connectivity](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Azure Device Provisioning Service (DPS)](../iot-dps/index.yml) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
+|Supported Software and Services |Azure Device Update <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) and [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [Azure Mariner OS with Connectivity](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [TensorFlow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Azure Device Provisioning Service (DPS)](../iot-dps/index.yml) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
 |General Processor               |NXP iMX8m (Azure Percept DK Carrier Board)        |
 |AI Acceleration                 |1x Intel Movidius Myriad X Integrated ISP (Azure Percept Vision) |
 |Sensors and Visual Indicators   |Sony IMX219 Camera sensor with 6P Lens<br>Resolution: 8MP at 30FPS, Distance: 50 cm - infinity<br>FoV: 120-degrees diagonal, Color: Wide Dynamic Range, Fixed Focus Rolling Shutter|

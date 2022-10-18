@@ -3,8 +3,8 @@ title: "Issues connecting source databases"
 titleSuffix: Azure Database Migration Service
 description: Learn about how to troubleshoot known issues/errors associated with connecting Azure Database Migration Service to source databases.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms

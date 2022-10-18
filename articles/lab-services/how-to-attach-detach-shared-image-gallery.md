@@ -1,89 +1,111 @@
 ---
-title: Attach or detach a shared image gallery in Azure Lab Services | Microsoft Docs
-description: This article describes how to attach a shared image gallery to a classroom lab in Azure Lab Services. 
+title: Attach or detach an Azure Compute Gallery in Azure Lab Services | Microsoft Docs
+description: This article describes how to attach an Azure Compute Gallery to a lab in Azure Lab Services. 
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 07/04/2022
+ms.custom: devdivchpfy22
 ---
 
-# Attach or detach a shared image gallery in Azure Lab Services
-This article shows you how to attach or detach a shared image gallery to a lab account. 
+# Attach or detach a compute gallery in Azure Lab Services
+
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]
-> When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a specialized image. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services. 
->
-> A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services. 
+> If using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Attach or detach a shared image gallery to a lab account in Azure Lab Services](how-to-attach-detach-shared-image-gallery-1.md).
 
-## Scenarios
-Here are the couple of scenarios supported by this feature: 
-
-- A lab account admin attaches a shared image gallery to the lab account, and uploads an image to the shared image gallery outside the context of a lab. Then, lab creators can use that image from the shared image gallery to create labs. 
-- A lab account admin attaches a shared image gallery to the lab account. A lab creator (instructor) saves the customized image of his/her lab to the shared image gallery. Then, other lab creators can select this image from the shared image gallery to create a template for their labs. 
-
-    When an image is saved to a shared image gallery, Azure Lab Services replicates the saved image to other regions available in the same [geography](https://azure.microsoft.com/global-infrastructure/geographies/). It ensures that the image is available for labs created in other regions in the same geography. Saving images to a shared image gallery incurs an additional cost, which includes cost for all replicated images. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Shared Image Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
+This article shows you how to attach or detach an Azure Compute Gallery to a lab plan.
 
 > [!IMPORTANT]
-> While using a Shared Image Gallery, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
+> Lab plan administrators must manually [replicate images](../virtual-machines/shared-image-galleries.md) to other regions in the compute gallery. Replicate an Azure Compute Gallery image to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
 
-## Configure at the time of lab account creation
-When you are creating a lab account, you can attach a shared image gallery to the lab account. You can either select an existing shared image gallery from the drop-down list or create a new one. To create and attach a shared image gallery to the lab account, select **Create new**, enter a name for the gallery, and enter **OK**. 
+Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure Compute Gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/azure-compute-gallery.md#billing).
 
-![Configure shared image gallery at the time of lab account creation](./media/how-to-use-shared-image-gallery/new-lab-account.png)
+## Scenarios
 
-## Configure after the lab account is created
-After the lab account is created, you can do the following tasks:
+Here are a couple of scenarios supported by attaching a compute gallery.
 
-- Create and attach a shared image gallery
-- Attach a shared image gallery to the lab account
-- Detach a shared image gallery from the lab account
+- A lab plan admin attaches a compute gallery to the lab plan. An image is uploaded to the compute gallery outside the context of a lab. The image is enabled on the lab plan by the lab plan admin. Then, lab creators can use that image from the compute gallery to create labs.
+- A lab plan admin attaches a compute gallery to the lab plan. A lab creator (educator) saves the customized image of their lab to the compute gallery. Then, other lab creators can select this image from the compute gallery to create a template for their labs.
 
-## Create and attach a shared image gallery
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left menu. Select **Lab Services** in the **DEVOPS** section. If you select star (`*`) next to **Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Services** under **FAVORITES**.
+When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-a-compute-gallery) in Azure Lab Services, the image is uploaded to the compute gallery as a specialized image. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
 
-    ![All Services -> Lab Services](./media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Select your lab account to see the **Lab Account** page. 
-4. Select **Shared image gallery** on the left menu, and select **+ Create** on the toolbar.  
+A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services.
 
-    ![Create shared image gallery button](./media/how-to-use-shared-image-gallery/new-shared-image-gallery-button.png)
-5. In the **Create shared image gallery** window, enter a **name** for the gallery, and enter **OK**. 
+> [!IMPORTANT]
+> While using an Azure Compute Gallery, Azure Lab Services supports only images that use less than 128 GB of disk space on their OS drive. Images with more than 128 GB of disk space or multiple disks won't be shown in the list of virtual machine images during lab creation.
 
-    ![Create shared image gallery window](./media/how-to-use-shared-image-gallery/create-shared-image-gallery-window.png)
+## Create and attach a compute gallery
 
-    Azure Lab Services creates the shared image gallery and attached it to the lab account. All labs created in this lab account have access to the attached shared image gallery. 
+> [!IMPORTANT]
+> Your user account must have permission to create a new Azure Compute Gallery.
 
-    ![Attached image gallery](./media/how-to-use-shared-image-gallery/image-gallery-in-list.png)
+1. Open your lab plan in the [Azure portal](https://portal.azure.com).
+1. Select **Azure compute gallery** on the menu.
+1. Select the **Create Azure compute gallery** button.  
 
-    In the bottom pane, you see images in the shared image gallery. In this new gallery, there are no images. When you upload images to the gallery, you see them on this page.     
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-create-new.png" alt-text="Screenshot of the Create Azure compute gallery button.":::
 
-    All images in the attached shared image gallery are enabled by default. You can enable or disable selected images by selecting them in the list and using the **Enable selected images** or **Disable selected images** button.
+1. In the **Create Azure compute gallery** window, enter a **name** for the gallery, and then select **Create**.
 
-## Attach an existing shared image gallery
-The following procedure shows you how to attach an existing shared image gallery to a lab account. 
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/create-azure-compute-gallery-window.png" alt-text="Screenshot of the Create compute gallery window.":::
 
-1. On the **Lab Account** page, select **Shared image gallery** on the left menu, and select **Attach** on the toolbar. 
+Azure Lab Services creates the compute gallery and attaches it to the lab plan. All labs created using this lab plan can now use images from the attached compute gallery.
 
-    ![Shared image gallery - Add button](./media/how-to-use-shared-image-gallery/sig-attach-button.png)
-5. On the **Attach an existing Shared Image Gallery** page, select your shared image gallery, and select **OK**.
+In the bottom pane, you see images in the compute gallery. There are no images in this new gallery. When you upload images to the gallery, you see them on this page.
 
-    ![Select an existing gallery](./media/how-to-use-shared-image-gallery/select-image-gallery.png)
-6. You see the following screen: 
+:::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-empty-list.png" alt-text="Attached image gallery list of images.":::
 
-    ![My gallery in the list](./media/how-to-use-shared-image-gallery/my-gallery-in-list.png)
-    
-    In this example, there are no images in the shared image gallery yet.
+## Attach an existing compute gallery
 
-    Azure Lab Services identity is added as a contributor to the shared image gallery that is attached to the lab. It allows educators/IT admins to save virtual machine images to the shared image gallery. All labs created in this lab account have access to the attached shared image gallery. 
+The following procedure shows you how to attach an existing compute gallery to a lab plan.
 
-    All images in the attached shared image gallery are enabled by default. You can enable or disable selected images by selecting them in the list and using the **Enable selected images** or **Disable selected images** button. 
+1. Open your lab plan in the [Azure portal](https://portal.azure.com).
+1. Select **Azure compute gallery** on the menu.
+1. Select the **Attach existing gallery** button.  
 
-## Detach a shared image gallery
-Only one shared image gallery can be attached to a lab. If you would like to attach another shared image gallery, detach the current one before attaching the new one. To detach a shared image gallery from your lab, select **Detach** on the toolbar, and confirm the detach operation. 
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/no-gallery-attach-existing.png" alt-text="Screenshot of the Attach existing gallery button.":::
 
-![Detach the shared image gallery from the lab account](./media/how-to-use-shared-image-gallery/detach.png)
+1. On the **Attach an existing compute gallery** page, select your compute gallery, and then select the **Select** button.
+
+    :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attach-existing-compute-gallery.png" alt-text="Azure compute gallery page for lab plan when gallery has been attached.":::
+
+> [!NOTE]
+> The **Azure Lab Services** app must be assigned the **Owner** role on the compute gallery to show in the list.
+
+All labs created using this lab plan can now use images from the attached compute gallery.
+
+## Enable and disable images
+
+All images in the attached compute gallery are disabled by default. To enable selected images:
+
+1. Check images you want to enable.
+1. Select **Enable image**  button.
+1. Select **Apply**.
+
+:::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/enable-attached-gallery-image.png" alt-text="Enable an imaged for an attached compute gallery.":::
+
+To disable selected images:
+
+1. Check images you want to disable.
+1. Select **Disable image**  button.
+1. Select **Apply**.
+
+## Detach a compute gallery
+
+To detach a compute gallery from your lab, select **Detach** on the toolbar. Confirm the detach operation.  
+
+Only one Azure Compute Gallery can be attached to a lab. To attach another compute gallery, follow the below steps:
+
+1. Select **Change gallery** on the toolbar.
+1. Confirm the change operation.
+1. On the **Attach an existing compute gallery** page, select your compute gallery, and then select the **Select** button.
+
+:::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-detach.png" alt-text="Detach the compute gallery from the lab plan":::
 
 ## Next steps
-To learn about how to save a lab image to the shared image gallery or use an image from the shared image gallery to create a VM, see [How to use shared image gallery](how-to-use-shared-image-gallery.md).
 
-To explore other options for bringing custom images to shared image gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
+To learn how to save a template image to the compute gallery or use an image from the compute gallery, see [How to use a compute gallery](how-to-use-shared-image-gallery.md).
 
-For more information about shared image galleries in general, see [shared image gallery](../virtual-machines/shared-image-galleries.md).
+To explore other options for bringing custom images to compute gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
+
+For more information about compute galleries in general, see [compute gallery](../virtual-machines/shared-image-galleries.md).

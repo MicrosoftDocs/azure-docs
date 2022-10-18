@@ -15,7 +15,7 @@ You can specify the number of partitions at the time of creating an event hub. I
 > Dynamic additions of partitions is available only in **premium** and **dedicated** tiers of Event Hubs. 
 
 > [!NOTE]
-> For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hub-conceptual-mapping)
+> For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hubs-conceptual-mapping)
 
 
 ## Update the partition count
@@ -29,7 +29,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### CLI
-Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az_eventhubs_eventhub_update) CLI command to update partitions in an event hub. 
+Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12

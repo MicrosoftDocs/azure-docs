@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/16/2022
+ms.date: 03/15/2022
 ms.author: eur
 ---
 
@@ -14,163 +14,93 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-### Install the Speech SDK
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
+## Set up the environment
 
-## Create a speech configuration
+The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
+- You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+- On Linux, you must use the x64 target architecture.
 
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, or authorization token.
+Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements 
 
-> [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+### Set environment variables
 
-You can initialize `SpeechConfig` in a few ways:
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-* With a subscription: pass in a speech key and the associated location/region.
-* With an endpoint: pass in a Speech service endpoint. A speech key or authorization token is optional.
-* With a host: pass in a host address. A speech key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated location/region.
-
-In this example, you create a `SpeechConfig` instance by using a speech key and location/region. Get these credentials by following the steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
-
-```python
-speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
-```
-
-## Select synthesis language and voice
-
-The text-to-speech feature in the Azure Speech service supports more than 270 voices and more than 110 languages and variants. You can get the [full list](../../../language-support.md#prebuilt-neural-voices) or try them in a [text-to-speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
-
-Specify the language or voice of `SpeechConfig` to match your input text and use the wanted voice:
-
-```python
-# Note: if only language is set, the default voice of that language is chosen.
-speech_config.speech_synthesis_language = "<your-synthesis-language>" # For example, "de-DE"
-# The voice setting will overwrite the language setting.
-# The voice setting will not overwrite the voice element in input SSML.
-speech_config.speech_synthesis_voice_name ="<your-wanted-voice>"
-```
-
-## Synthesize speech to a file
-
-Next, you create a [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer) object. This object executes text-to-speech conversions and outputs to speakers, files, or other output streams. `SpeechSynthesizer` accepts as parameters:
-
-- The [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) object that you created in the previous step
-- An [`AudioOutputConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audiooutputconfig) object that specifies how output results should be handled
-
-To start, create an `AudioOutputConfig` instance to automatically write the output to a .wav file by using the `filename` constructor parameter:
-
-```python
-audio_config = speechsdk.audio.AudioOutputConfig(filename="path/to/write/file.wav")
-```
-
-Next, instantiate `SpeechSynthesizer` by passing your `speech_config` object and the `audio_config` object as parameters. Then, executing speech synthesis and writing to a file is as simple as running `speak_text_async()` with a string of text.
-
-```python
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-synthesizer.speak_text_async("A simple test to write to a file.")
-```
-
-Run the program. A synthesized .wav file is written to the location that you specified. This is a good example of the most basic usage. Next, you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Synthesize to speaker output
 
-In some cases, you might want to output synthesized speech directly to a speaker. To do this, use the example in the previous section, but change `AudioOutputConfig` by removing the `filename` parameter. Also, set `use_default_speaker=True`. This code outputs to the current active output device.
+Follow these steps to create a new console application.
 
-```python
-audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
+1. Open a command prompt where you want the new project, and create a new file named `speech-synthesis.py`.
+1. Run this command to install the Speech SDK:  
+    ```console
+    pip install azure-cognitiveservices-speech
+    ```
+1. Copy the following code into `speech_synthesis.py`: 
+
+    ```Python
+    import os
+    import azure.cognitiveservices.speech as speechsdk
+
+    # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+    speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
+    audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
+
+    # The language of the voice that speaks.
+    speech_config.speech_synthesis_voice_name='en-US-JennyNeural'
+
+    speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+
+    # Get text from the console and synthesize to the default speaker.
+    print("Enter some text that you want to speak >")
+    text = input()
+
+    speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
+
+    if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+        print("Speech synthesized for text [{}]".format(text))
+    elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
+        cancellation_details = speech_synthesis_result.cancellation_details
+        print("Speech synthesis canceled: {}".format(cancellation_details.reason))
+        if cancellation_details.reason == speechsdk.CancellationReason.Error:
+            if cancellation_details.error_details:
+                print("Error details: {}".format(cancellation_details.error_details))
+                print("Did you set the speech resource key and region values?")
+    ```
+
+1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
+
+Run your new console application to start speech synthesis to the default speaker.
+
+```console
+python speech_synthesis.py
 ```
 
-## Get a result as an in-memory stream
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior, including:
+Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
-* Abstract the resulting byte array as a seekable stream for custom downstream services.
-* Integrate the result with other APIs or services.
-* Modify the audio data, write custom .wav headers, and do related tasks.
-
-It's simple to make this change from the previous example. First, remove `AudioConfig`, because you'll manage the output behavior manually from this point onward for increased control. Then pass `None` for `AudioConfig` in the `SpeechSynthesizer` constructor.
-
-> [!NOTE]
-> Passing `None` for `AudioConfig`, rather than omitting it as you did in the previous speaker output example, will not play the audio by default on the current active output device.
-
-This time, you save the result to a [`SpeechSynthesisResult`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) variable. The `audio_data` property contains a `bytes` object of the output data. You can work with this object manually, or you can use the [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example, you use the `AudioDataStream` constructor to get a stream from the result:
-
-```python
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
-result = synthesizer.speak_text_async("Getting the response as an in-memory stream.").get()
-stream = AudioDataStream(result)
+```console
+Enter some text that you want to speak > 
+I'm excited to try text to speech
 ```
 
-From here, you can implement any custom behavior by using the resulting `stream` object.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
-## Customize audio format
+## Remarks
+Now that you've completed the quickstart, here are some additional considerations:
 
-You can customize audio output attributes, including:
+This quickstart uses the `speak_text_async` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
+- For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
 
-* Audio file type
-* Sample rate
-* Bit depth
+## Clean up resources
 
-To change the audio format, you use the `set_speech_synthesis_output_format()` function on the `SpeechConfig` object. This function expects an `enum` instance of type [`SpeechSynthesisOutputFormat`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat), which you use to select the output format. See the [list of audio formats](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat) that are available.
-
-There are various options for different file types, depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` don't include audio headers. Use raw formats only in one of these situations: 
-
-- You know that your downstream implementation can decode a raw bitstream.
-- You plan to manually build headers based on factors like bit depth, sample rate, and number of channels.
-
-In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) to get an in-memory stream of the result, and then write it to a file.
-
-
-```python
-speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm)
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
-
-result = synthesizer.speak_text_async("Customizing audio output format.").get()
-stream = speechsdk.AudioDataStream(result)
-stream.save_to_wav_file("path/to/write/file.wav")
-```
-
-Running your program again will write a customized .wav file to the specified path.
-
-## Use SSML to customize speech characteristics
-
-You can use SSML to fine-tune the pitch, pronunciation, speaking rate, volume, and more in the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice. For a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
-
-To start using SSML for customization, you make a simple change that switches the voice.
-
-First, create a new XML file for the SSML configuration in your root project directory. In this example, it's `ssml.xml`. The root element is always `<speak>`. Wrapping the text in a `<voice>` element allows you to change the voice by using the `name` parameter. See the [full list](../../../language-support.md#prebuilt-neural-voices) of supported *neural* voices.
-
-```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-JennyNeural">
-    When you're on the freeway, it's a good idea to use a GPS.
-  </voice>
-</speak>
-```
-
-Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `speak_text_async()` function, you use `speak_ssml_async()`. This function expects an XML string, so you first read your SSML configuration as a string. From here, the result object is exactly the same as previous examples.
-
-> [!NOTE]
-> If your `ssml_string` contains `ï»¿` at the beginning of the string, you need to strip off the BOM format or the service will return an error. You do this by setting the `encoding` parameter as follows: `open("ssml.xml", "r", encoding="utf-8-sig")`.
-
-```python
-synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
-
-ssml_string = open("ssml.xml", "r").read()
-result = synthesizer.speak_ssml_async(ssml_string).get()
-
-stream = speechsdk.AudioDataStream(result)
-stream.save_to_wav_file("path/to/write/file.wav")
-```
-
-> [!NOTE]
-> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `speech_config.speech_synthesis_voice_name = "en-US-JennyNeural"`.
-
-## Get facial pose events
-
-Speech can be a good way to drive the animation of facial expressions.
-[Visemes](../../../how-to-speech-synthesis-viseme.md) are often used to represent the key poses in observed speech. Key poses include the position of the lips, jaw, and tongue in producing a particular phoneme.
-
-You can subscribe the viseme event in Speech SDK. Then, you can apply viseme events to animate the face of a character as speech audio plays. Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]

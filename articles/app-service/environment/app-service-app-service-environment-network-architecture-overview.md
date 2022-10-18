@@ -5,12 +5,17 @@ author: madsd
 
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18
 
 ---
 # Network Architecture Overview of App Service Environments
+
+> [!IMPORTANT]
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+>
+
 App Service Environments are always created within a subnet of a [virtual network][virtualnetwork] - apps running in an App Service Environment can communicate with private endpoints located within the same virtual network topology.  Since customers may lock down parts of their virtual network infrastructure, it is important to understand the types of network communication flows that occur with an App Service Environment.
 
 ## General Network Flow

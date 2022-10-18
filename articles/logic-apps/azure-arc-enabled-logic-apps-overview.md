@@ -3,10 +3,10 @@ title: Overview - Azure Arc-enabled Logic Apps
 description: Learn about single-tenant Logic Apps workflows that can run anywhere that Kubernetes can run.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
+ms.reviewer: estfan, kewear, rohithah, archidda, azla
 ms.topic: overview
-ms.date: 05/25/2021
-#Customer intent: As a developer, I want to learn about automated Logic Apps workflows that can run anywhere that Kubernetes can run.
+ms.date: 08/20/2022
+#Customer intent: As a developer, I want to learn about automated Azure Arc-enabled logic app workflows that can run anywhere that Kubernetes can run.
 ---
 
 # What is Azure Arc-enabled Logic Apps? (Preview)
@@ -83,7 +83,7 @@ This table provides a high-level comparison between the capabilities in the curr
       **Single-tenant Logic Apps (Standard)**
    :::column-end:::
    :::column:::
-      **Standalone containers**
+      **Standalone containers** <br><br>**Note**: Unsupported for workflows in production environments. For fully supported containers, [create Azure Arc-enabled Logic Apps workflows](azure-arc-enabled-logic-apps-create-deploy-workflows.md) instead.
    :::column-end:::
    :::column:::
       **Azure Arc**

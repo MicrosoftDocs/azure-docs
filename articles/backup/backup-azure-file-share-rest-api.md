@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/16/2020
 ---
 
-# Backup Azure file share using Azure Backup via Rest API
+# Backup Azure file share using Azure Backup via REST API
 
 This article describes how to back up an Azure File share using Azure Backup via REST API.
 
@@ -539,4 +539,4 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ## Next steps
 
-- Learn how to [restore Azure file shares using Rest API](restore-azure-file-share-rest-api.md).
+- Learn how to [restore Azure file shares using REST API](restore-azure-file-share-rest-api.md).

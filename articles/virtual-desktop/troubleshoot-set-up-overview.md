@@ -16,7 +16,7 @@ This article provides an overview of the issues you may encounter when setting u
 
 ## Troubleshoot deployment and connection issues
 
-[Azure Monitor for Windows Virtual Desktop](azure-monitor.md) is a dashboard built on Azure Monitor workbooks that can quickly troubleshoot and identify issues in your Windows Virtual Desktop environment for you. If you prefer working with Kusto queries, we recommend using the built-in diagnostic feature, [Log Analytics](diagnostics-log-analytics.md), instead.
+[Azure Monitor for Azure Virtual Desktop](azure-monitor.md) is a dashboard built on Azure Monitor workbooks that can quickly troubleshoot and identify issues in your Azure Virtual Desktop environment for you. If you prefer working with Kusto queries, we recommend using the built-in diagnostic feature, [Log Analytics](diagnostics-log-analytics.md), instead.
 
 ## Report issues
 
@@ -26,7 +26,7 @@ When you make a post asking for help or propose a new feature, make sure you des
 
 ## Escalation tracks
 
-Before doing anything else, make sure to check the [Azure status page](https://status.azure.com/status) and [Azure Service Health](https://azure.microsoft.com/features/service-health/) to make sure your Azure service is running properly.
+Before doing anything else, make sure to check the [Azure status page](https://azure.status.microsoft/status) and [Azure Service Health](https://azure.microsoft.com/features/service-health/) to make sure your Azure service is running properly.
 
 Use the following table to identify and resolve issues you may encounter when setting up an environment using Remote Desktop client. Once your environment's set up, you can use our new [Diagnostics service]() to identify issues for common scenarios.
 

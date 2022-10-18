@@ -5,17 +5,12 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
+ms.reviewer: mmcc
 ---
 
 # Configuration options - Azure Monitor Application Insights for Java
 
-> [!WARNING]
-> **If you are upgrading from 3.0 Preview**
->
-> Please review all the configuration options below carefully, as the json structure has completely changed,
-> in addition to the file name itself which went all lowercase.
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Connection string and role name
 
@@ -23,7 +18,7 @@ Connection string and role name are the most common settings needed to get start
 
 ```json
 {
-  "connectionString": "InstrumentationKey=...",
+  "connectionString": "...",
   "role": {
     "name": "my cloud role name"
   }
@@ -37,14 +32,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.2.6.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.1.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.6.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
@@ -58,7 +53,7 @@ Connection string is required. You can find your connection string in your Appli
 
 ```json
 {
-  "connectionString": "InstrumentationKey=..."
+  "connectionString": "..."
 }
 ```
 
@@ -67,7 +62,7 @@ You can also set the connection string using the environment variable `APPLICATI
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.2.6.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located.
 
 ```json
 {
@@ -75,13 +70,12 @@ If you specify a relative path, it will be resolved relative to the directory wh
 }
 ```
 
-The file should contain only the connection string, for example:
-
-```
-InstrumentationKey=...
-```
+The file should contain only the connection string and nothing else.
 
 Not setting the connection string will disable the Java agent.
+
+If you have multiple applications deployed in the same JVM and want them to send telemetry to different instrumentation
+keys, see [Instrumentation key overrides (preview)](#instrumentation-key-overrides-preview).
 
 ## Cloud role name
 
@@ -102,6 +96,12 @@ If cloud role name is not set, the Application Insights resource's name will be 
 You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`
 (which will then take precedence over cloud role name specified in the json configuration).
 
+Or you can set the cloud role name using the Java system property `applicationinsights.role.name`
+(which will also take precedence over cloud role name specified in the json configuration).
+
+If you have multiple applications deployed in the same JVM and want them to send telemetry to different cloud role
+names, see [Cloud role name overrides (preview)](#cloud-role-name-overrides-preview).
+
 ## Cloud role instance
 
 Cloud role instance defaults to the machine name.
@@ -120,14 +120,56 @@ If you want to set the cloud role instance to something different rather than th
 You can also set the cloud role instance using the environment variable `APPLICATIONINSIGHTS_ROLE_INSTANCE`
 (which will then take precedence over cloud role instance specified in the json configuration).
 
+Or you can set the cloud role instance using the Java system property `applicationinsights.role.instance`
+(which will also take precedence over cloud role instance specified in the json configuration).
+
 ## Sampling
 
-Sampling is helpful if you need to reduce cost.
-Sampling is performed as a function on the operation ID (also known as trace ID), so that the same operation ID will always result in the same sampling decision. This ensures that you won't get parts of a distributed transaction sampled in while other parts of it are sampled out.
+> [!NOTE]
+> Sampling can be a great way to reduce the cost of Application Insights. Make sure to set up your sampling
+> configuration appropriately for your use case.
 
-For example, if you set sampling to 10%, you will only see 10% of your transactions, but each one of those 10% will have full end-to-end transaction details.
+Sampling is request-based, meaning if a request is captured (sampled), then so are its dependencies, logs and
+exceptions.
 
-Here is an example how to set the sampling to capture approximately **1/3 of all transactions** - make sure you set the sampling rate that is correct for your use case:
+Furthermore, sampling is trace ID based, to help ensure consistent sampling decisions across different services.
+
+### Rate-Limited Sampling
+
+Starting from 3.4.1, rate-limited sampling is available, and is now the default.
+
+If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
+(approximately) 5 requests per second, along with all the dependencies and logs on those requests.
+
+This replaces the prior default which was to capture all requests.
+If you still wish to capture all requests, use [fixed-percentage sampling](#fixed-percentage-sampling) and set the
+sampling percentage to 100.
+
+> [!NOTE]
+> The rate-limited sampling is approximate, because internally it must adapt a "fixed" sampling percentage over
+> time in order to emit accurate item counts on each telemetry record. Internally, the rate-limited sampling is
+> tuned to adapt quickly (0.1 seconds) to new application loads, so you should not see it exceed the configured rate by
+> much, or for very long.
+
+Here is an example how to set the sampling to capture at most (approximately) 1 request per second:
+
+```json
+{
+  "sampling": {
+    "requestsPerSecond": 1.0
+  }
+}
+```
+
+Note that `requestsPerSecond` can be a decimal, so you can configure it to capture less than one request per second if you wish.
+For example, a value of `0.5` means capture at most 1 request every 2 seconds.
+
+You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_REQUESTS_PER_SECOND`
+(which will then take precedence over rate limit specified in the json configuration).
+
+### Fixed-Percentage Sampling
+
+Here is an example how to set the sampling to capture approximately a third of all requests:
 
 ```json
 {
@@ -141,7 +183,8 @@ You can also set the sampling percentage using the environment variable `APPLICA
 (which will then take precedence over sampling percentage specified in the json configuration).
 
 > [!NOTE]
-> For the sampling percentage, choose a percentage that is close to 100/N where N is an integer. Currently sampling doesn't support other values.
+> For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.
+> Currently sampling doesn't support other values.
 
 ## Sampling overrides (preview)
 
@@ -219,7 +262,32 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 }
 ```
 
-## Instrumentation keys overrides (preview)
+## Connection string overrides (preview)
+
+This feature is in preview, starting from 3.4.1.
+
+Connection string overrides allow you to override the [default connection string](#connection-string), for example:
+* Set one connection string for one http path prefix `/myapp1`.
+* Set another connection string for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "connectionStringOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "connectionString": "..."
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "connectionString": "..."
+      }
+    ]
+  }
+}
+```
+
+## Instrumentation key overrides (preview)
 
 This feature is in preview, starting from 3.2.3.
 
@@ -244,9 +312,34 @@ Instrumentation key overrides allow you to override the [default instrumentation
 }
 ```
 
+## Cloud role name overrides (preview)
+
+This feature is in preview, starting from 3.3.0.
+
+Cloud role name overrides allow you to override the [default cloud role name](#cloud-role-name), for example:
+* Set one cloud role name for one http path prefix `/myapp1`.
+* Set another cloud role name for another http path prefix `/myapp2/`.
+
+```json
+{
+  "preview": {
+    "roleNameOverrides": [
+      {
+        "httpPathPrefix": "/myapp1",
+        "roleName": "Role A"
+      },
+      {
+        "httpPathPrefix": "/myapp2",
+        "roleName": "Role B"
+      }
+    ]
+  }
+}
+```
+
 ## Autocollect InProc dependencies (preview)
 
-Starting from 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
+Starting from version 3.2.0, if you want to capture controller "InProc" dependencies, please use the following configuration:
 
 ```json
 {
@@ -272,8 +365,8 @@ For more information, check out the [telemetry processor](./java-standalone-tele
 
 ## Auto-collected logging
 
-Log4j, Logback, and java.util.logging are auto-instrumented, and logging performed via these logging frameworks
-is auto-collected.
+Log4j, Logback, JBoss Logging, and java.util.logging are auto-instrumented,
+and logging performed via these logging frameworks is auto-collected.
 
 Logging is only captured if it first meets the level that is configured for the logging framework,
 and second, also meets the level that is configured for Application Insights.
@@ -299,22 +392,64 @@ You can also set the level using the environment variable `APPLICATIONINSIGHTS_I
 
 These are the valid `level` values that you can specify in the `applicationinsights.json` file, and how they correspond to logging levels in different logging frameworks:
 
-| level             | Log4j  | Logback | JUL     |
-|-------------------|--------|---------|---------|
-| OFF               | OFF    | OFF     | OFF     |
-| FATAL             | FATAL  | ERROR   | SEVERE  |
-| ERROR (or SEVERE) | ERROR  | ERROR   | SEVERE  |
-| WARN (or WARNING) | WARN   | WARN    | WARNING |
-| INFO              | INFO   | INFO    | INFO    |
-| CONFIG            | DEBUG  | DEBUG   | CONFIG  |
-| DEBUG (or FINE)   | DEBUG  | DEBUG   | FINE    |
-| FINER             | DEBUG  | DEBUG   | FINER   |
-| TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
-| ALL               | ALL    | ALL     | ALL     |
+| level             | Log4j  | Logback | JBoss  | JUL     |
+|-------------------|--------|---------|--------|---------|
+| OFF               | OFF    | OFF     | OFF    | OFF     |
+| FATAL             | FATAL  | ERROR   | FATAL  | SEVERE  |
+| ERROR (or SEVERE) | ERROR  | ERROR   | ERROR  | SEVERE  |
+| WARN (or WARNING) | WARN   | WARN    | WARN   | WARNING |
+| INFO              | INFO   | INFO    | INFO   | INFO    |
+| CONFIG            | DEBUG  | DEBUG   | DEBUG  | CONFIG  |
+| DEBUG (or FINE)   | DEBUG  | DEBUG   | DEBUG  | FINE    |
+| FINER             | DEBUG  | DEBUG   | DEBUG  | FINER   |
+| TRACE (or FINEST) | TRACE  | TRACE   | TRACE  | FINEST  |
+| ALL               | ALL    | ALL     | ALL    | ALL     |
 
 > [!NOTE]
 > If an exception object is passed to the logger, then the log message (and exception object details)
 > will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
+> If you want to see the log messages across both the `traces` and `exceptions` tables,
+> you can write a Logs (Kusto) query to union across them, e.g.
+>
+> ```
+> union traces, (exceptions | extend message = outerMessage)
+> | project timestamp, message, itemType
+> ```
+
+
+### Code properties for Logback (preview) 
+
+You can enable code properties (_FileName_, _ClassName_, _MethodName_, _LineNumber_) for Logback: 
+
+```json
+{
+  "preview": {
+    "captureLogbackCodeAttributes": true
+  }
+}
+```
+
+> [!WARNING]
+>
+> This feature could add a performance overhead.
+
+This feature is in preview, starting from 3.4.1.
+
+### LoggingLevel
+
+Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field.
+
+If needed, you can re-enable the previous behavior:
+
+```json
+{
+  "preview": {
+    "captureLoggingLevelAsCustomDimension": true
+  }
+}
+```
+
+We will remove this configuration option in 4.0.0.
 
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 
@@ -340,9 +475,45 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 }
 ```
 
+## JDBC query masking
+
+Literal values in JDBC queries are masked by default in order to avoid accidentally capturing sensitive data.
+
+Starting from 3.4.1, this behavior can be disabled if desired, e.g.
+
+```json
+{
+  "instrumentation": {
+    "jdbc": {
+      "masking": {
+        "enabled": false
+      }
+    }
+  }
+}
+```
+
+## Mongo query masking
+
+Literal values in Mongo queries are masked by default in order to avoid accidentally capturing sensitive data.
+
+Starting from 3.4.1, this behavior can be disabled if desired, e.g.
+
+```json
+{
+  "instrumentation": {
+    "mongo": {
+      "masking": {
+        "enabled": false
+      }
+    }
+  }
+}
+```
+
 ## HTTP headers
 
-Starting from 3.2.6, you can capture request and response headers on your server (request) telemetry:
+Starting from version 3.3.0, you can capture request and response headers on your server (request) telemetry:
 
 ```json
 {
@@ -388,7 +559,7 @@ Again, the header names are case-insensitive, and the examples above will be cap
 
 By default, http server requests that result in 4xx response codes are captured as errors.
 
-Starting from version 3.2.6, you can change this behavior to capture them as success if you prefer:
+Starting from version 3.3.0, you can change this behavior to capture them as success if you prefer:
 
 ```json
 {
@@ -424,6 +595,9 @@ Starting from version 3.0.3, specific auto-collected telemetry can be suppressed
       "enabled": false
     },
     "mongo": {
+      "enabled": false
+    },
+    "quartz": {
       "enabled": false
     },
     "rabbitmq": {
@@ -472,9 +646,6 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
       "grizzly": {
         "enabled": true
       },
-      "quartz": {
-        "enabled": true
-      },
       "springIntegration": {
         "enabled": true
       },
@@ -490,7 +661,7 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
 ```
 > [!NOTE]
 > Akka instrumentation is available starting from version 3.2.2
-> Vertx HTTP Library instrumentation is available starting from version 3.2.6
+> Vertx HTTP Library instrumentation is available starting from version 3.3.0
 
 ## Metric interval
 
@@ -557,6 +728,22 @@ you can configure Application Insights Java 3.x to use an HTTP proxy:
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
 if those are set (and `http.nonProxyHosts` if needed).
 
+## Recovery from ingestion failures
+
+When sending telemetry to the Application Insights service fails, Application Insights Java 3.x will store the telemetry
+to disk and continue retrying from disk.
+
+The default limit for disk persistence is 50 Mb. If you have high telemetry volume, or need to be able to recover from
+longer network or ingestion service outages, you can increase this limit starting from version 3.3.0:
+
+```json
+{
+  "preview": {
+    "diskPersistenceMaxSizeMb": 50
+  }
+}
+```
+
 ## Self-diagnostics
 
 "Self-diagnostics" refers to internal logging from Application Insights Java 3.x.
@@ -585,14 +772,19 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.2.6.jar` is located.
+`applicationinsights-agent-3.4.1.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
 
-Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`
+Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable
+`APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`
 (which will then take precedence over self-diagnostics level specified in the json configuration).
+
+And starting from version 3.0.3, you can also set the self-diagnostics file location using the environment variable
+`APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_FILE_PATH`
+(which will then take precedence over self-diagnostics file path specified in the json configuration).
 
 ## An example
 
@@ -601,7 +793,7 @@ Please configure specific options based on your needs.
 
 ```json
 {
-  "connectionString": "InstrumentationKey=...",
+  "connectionString": "...",
   "role": {
     "name": "my cloud role name"
   },

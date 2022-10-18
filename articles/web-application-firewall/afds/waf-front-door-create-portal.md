@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/31/2021
+ms.date: 04/20/2022
 ms.author: victorh
 ---
 
@@ -61,7 +61,7 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
 
 ### Change mode
 
-When you create a WAF policy, by the default WAF policy is in **Detection** mode. In **Detection** mode, WAF does not block any requests, instead, requests matching the WAF rules are logged at WAF logs.
+When you create a WAF policy, by the default WAF policy is in **Detection** mode. In **Detection** mode, WAF doesn't block any requests, instead, requests matching the WAF rules are logged at WAF logs.
 To see WAF in action, you can change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, requests that match rules that are defined in Default Rule Set (DRS) are blocked and logged at WAF logs.
 
  :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot of the Policy settings section. The Mode toggle is set to Prevention.":::
@@ -78,7 +78,7 @@ Below is an example of configuring a custom rule to block a request if the query
 
 ### Default Rule Set (DRS)
 
-Azure-managed Default Rule Set is enabled by default. Current default version is DefaultRuleSet_1.0. From WAF **Managed rules**, **Assign**,  recently available ruleset Microsoft_DefaultRuleSet_1.1 is available in the drop down list.
+Azure-managed Default Rule Set is enabled by default. Current default version is DefaultRuleSet_1.0. From WAF **Managed rules**, **Assign**,  recently available ruleset Microsoft_DefaultRuleSet_1.1 is available in the drop-down list.
 
 To disable an individual rule, select the **check box** in front of the rule number, and select **Disable** at the top of the page. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** at the top of the page.
 

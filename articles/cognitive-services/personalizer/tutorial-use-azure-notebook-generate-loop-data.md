@@ -2,15 +2,15 @@
 title: "Tutorial: Azure Notebook - Personalizer"
 titleSuffix: Azure Cognitive Services
 description: This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-#Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
+#Customer intent:  As a Python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
 
 # Tutorial: Use Personalizer in Azure Notebook
@@ -94,9 +94,9 @@ These values have a very short duration in order to show changes in this tutoria
 
 Run each executable cell and wait for it to return. You know it is done when the brackets next to the cell display a number instead of a `*`. The following sections explain what each cell does programmatically and what to expect for the output.
 
-### Include the python modules
+### Include the Python modules
 
-Include the required python modules. The cell has no output.
+Include the required Python modules. The cell has no output.
 
 ```python
 import json

@@ -1,15 +1,15 @@
 ---
 title: Manage app consent policies
 description: Learn how to manage built-in and custom app consent policies to control when consent can be granted.
-titleSuffix: Azure AD
 services: active-directory
-author: psignoret
+author: yuhko-msft
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.author: phsignor
+ms.author: yuhko
+ms.reviewer: phsignor
 ms.custom: contperf-fy21q2
 
 #customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
@@ -17,9 +17,9 @@ ms.custom: contperf-fy21q2
 
 # Manage app consent policies
 
-With Azure AD PowerShell, you can view and manage app consent policies.
+With [Microsoft Graph](/graph/overview) and [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true), you can view and manage app consent policies.
 
-An app consent policy consists of one or more "includes" condition sets and zero or more "excludes" condition sets. For an event to be considered in an app consent policy, it must match *at least* one "includes" condition set, and must not match *any* "excludes" condition set.
+An app consent policy consists of one or more "include" condition sets and zero or more "exclude" condition sets. For an event to be considered in an app consent policy, it must match *at least* one "include" condition set, and must not match *any* "exclude" condition set.
 
 Each condition set consists of several conditions. For an event to match a condition set, *all* conditions in the condition set must be met.
 
@@ -27,10 +27,16 @@ App consent policies where the ID begins with "microsoft-" are built-in policies
 
 ## Pre-requisites
 
-1. Connect to [Azure AD PowerShell](/powershell/module/azuread/).
+1. A user or service with one of the following:
+   - Global Administrator directory role
+   - Privileged Role Administrator directory role
+   - A custom directory role with the necessary [permissions to manage app consent policies](../roles/custom-consent-permissions.md#managing-app-consent-policies)
+   - The Microsoft Graph app role (application permission) Policy.ReadWrite.PermissionGrant (when connecting as an app or a service)
+   
+1. Connect to [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true).
 
    ```powershell
-   Connect-AzureAD
+   Connect-MgGraph -Scopes "Policy.ReadWrite.PermissionGrant"
    ```
 
 ## List existing app consent policies
@@ -40,21 +46,19 @@ It's a good idea to start by getting familiar with the existing app consent poli
 1. List all app consent policies:
 
    ```powershell
-   Get-AzureADMSPermissionGrantPolicy | ft Id, DisplayName, Description
+   Get-MgPolicyPermissionGrantPolicy | ft Id, DisplayName, Description
    ```
 
-1. View the "includes" condition sets of a policy:
+1. View the "include" condition sets of a policy:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
-                                             -ConditionSetType "includes"
+    Get-MgPolicyPermissionGrantPolicyInclude -PermissionGrantPolicyId "microsoft-application-admin" | fl
     ```
 
-1. View the "excludes" condition sets:
+1. View the "exclude" condition sets:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
-                                             -ConditionSetType "excludes"
+    Get-MgPolicyPermissionGrantPolicyExclude -PermissionGrantPolicyId "microsoft-application-admin" | fl
     ```
 
 ## Create a custom app consent policy
@@ -64,36 +68,34 @@ Follow these steps to create a custom app consent policy:
 1. Create a new empty app consent policy.
 
    ```powershell
-   New-AzureADMSPermissionGrantPolicy `
+   New-MgPolicyPermissionGrantPolicy `
        -Id "my-custom-policy" `
        -DisplayName "My first custom consent policy" `
        -Description "This is a sample custom app consent policy."
    ```
 
-1. Add "includes" condition sets.
+1. Add "include" condition sets.
 
    ```powershell
    # Include delegated permissions classified "low", for apps from verified publishers
-   New-AzureADMSPermissionGrantConditionSet `
-       -PolicyId "my-custom-policy" `
-       -ConditionSetType "includes" `
+   New-MgPolicyPermissionGrantPolicyInclude `
+       -PermissionGrantPolicyId "my-custom-policy" `
        -PermissionType "delegated" `
        -PermissionClassification "low" `
-       -ClientApplicationsFromVerifiedPublisherOnly $true
+       -ClientApplicationsFromVerifiedPublisherOnly
    ```
 
    Repeat this step to add additional "include" condition sets.
 
-1. Optionally, add "excludes" condition sets.
+1. Optionally, add "exclude" condition sets.
 
    ```powershell
    # Retrieve the service principal for the Azure Management API
-   $azureApi = Get-AzureADServicePrincipal -Filter "servicePrincipalNames/any(n:n eq 'https://management.azure.com/')"
+   $azureApi = Get-MgServicePrincipal -Filter "servicePrincipalNames/any(n:n eq 'https://management.azure.com/')"
 
    # Exclude delegated permissions for the Azure Management API
-   New-AzureADMSPermissionGrantConditionSet `
-       -PolicyId "my-custom-policy" `
-       -ConditionSetType "excludes" `
+   New-MgPolicyPermissionGrantPolicyExclude `
+       -PermissionGrantPolicyId "my-custom-policy" `
        -PermissionType "delegated" `
        -ResourceApplication $azureApi.AppId
    ```
@@ -107,7 +109,7 @@ Once the app consent policy has been created, you can [allow user consent](confi
 1. The following shows how you can delete a custom app consent policy. **This action cannot be undone.**
 
    ```powershell
-   Remove-AzureADMSPermissionGrantPolicy -Id "my-custom-policy"
+   Remove-MgPolicyPermissionGrantPolicy -PermissionGrantPolicyId "my-custom-policy"
    ```
 
 > [!WARNING]
@@ -128,12 +130,13 @@ The following table provides the list of supported conditions for app consent po
 | ClientApplicationIds | A list of **AppId** values for the client applications to match with, or a list with the single value "all" to match any client application. Default is the single value "all". |
 | ClientApplicationTenantIds | A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value "all" to match with client apps registered in any tenant. Default is the single value "all". |
 | ClientApplicationPublisherIds | A list of Microsoft Partner Network (MPN) IDs for [verified publishers](../develop/publisher-verification-overview.md) of the client application, or a list with the single value "all" to match with client apps from any publisher. Default is the single value "all". |
-| ClientApplicationsFromVerifiedPublisherOnly | Set to `$true` to only match on client applications with a [verified publishers](../develop/publisher-verification-overview.md). Set to `$false` to match on any client app, even if it does not have a verified publisher. Default is `$false`. |
+| ClientApplicationsFromVerifiedPublisherOnly | Set this switch to only match on client applications with a [verified publishers](../develop/publisher-verification-overview.md). Disable this switch (`-ClientApplicationsFromVerifiedPublisherOnly:$false`) to match on any client app, even if it does not have a verified publisher. Default is `$false`. |
 
 ## Next steps
 
 To learn more:
 
+* [Manage app consent policies using Microsoft Graph](/graph/api/resources/permissiongrantpolicy)
 * [Configure user consent settings](configure-user-consent.md)
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)

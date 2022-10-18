@@ -3,11 +3,11 @@ title: 'Configure VPN NAT rules for your gateway using PowerShell'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure NAT rules for your VWAN VPN gateway using PowerShell.
 services: virtual-wan
-author: reasuquo
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 01/20/2022
-ms.author: reasuquo
+ms.date: 04/11/2022
+ms.author: cherylmc
 
 ---
 
@@ -20,7 +20,7 @@ This configuration uses a flow table to route traffic from an external (host) IP
 ## Prerequisites
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-* This tutorial will create a NAT rule on a VpnGateway which will be associated with a VpnSiteConnection, so this assumes you have an existing VpnGateway connection to two branches with overlapping address spaces.
+* This tutorial creates a NAT rule on a VPN gateway that will be associated with a VPN site connection. The steps assume that you have an existing Virtual WAN VPN gateway connection to two branches with overlapping address spaces.
 
 ### Azure PowerShell
 
@@ -32,11 +32,11 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
 ## <a name="rules"></a>Configure NAT rules
 
-You can configure and view NAT rules on your VPN gateway settings at any time using Azure PowerShell
+You can configure and view NAT rules on your VPN gateway settings at any time using Azure PowerShell.
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing how to edit rules."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
 
-1. Declare the variables for the existing resources
+1. Declare the variables for the existing resources.
 
    ```azurepowershell-interactive
    $resourceGroup = Get-AzResourceGroup -ResourceGroupName "testRG" 
@@ -45,64 +45,64 @@ You can configure and view NAT rules on your VPN gateway settings at any time us
    $vpnGateway = Get-AzVpnGateway -ResourceGroupName "testRG" -Name "testvpngw"
    ```
 
-1. Create the new NAT rule to ensure the Site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces.
+1. Create the new NAT rule to ensure the site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces.
 
     You can set the parameters for the following values:
 
    * **Name:** A unique name for your NAT rule.
    * **Type:** Static or Dynamic. Static one-to-one NAT establishes a one-to-one relationship between an internal address and an external address. The subnet size for both internal and external mapping must be the same for static.
    * **Mode:** IngressSnat or EgressSnat.  
-      * IngressSnat mode (also known as Ingress Source NAT) is applicable to traffic entering the Azure hub’s Site-to-site VPN gateway. 
-      * EgressSnat mode (also known as Egress Source NAT) is applicable to traffic leaving the Azure hub’s Site-to-site VPN gateway. 
-   * **InternalMapping:** An address prefix range of source IPs on the inside network that will be mapped to a set of external IPs. In other words, your pre-NAT address prefix range.
-   * **ExternalMapping:** An address prefix range of destination IPs on the outside network that source IPs will be mapped to. In other words, your post-NAT address prefix range.
-   * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure Virtual WAN Hub's Site-to-site VPN gateway.
-    
-    ### Syntax
+      * IngressSnat mode (also known as Ingress Source NAT) is applicable to traffic entering the Azure hub’s site-to-site VPN gateway.
+      * EgressSnat mode (also known as Egress Source NAT) is applicable to traffic leaving the Azure hub’s site-to-site VPN gateway.
+   * **Internal Mapping:** An address prefix range of source IPs on the inside network that will be mapped to a set of external IPs. In other words, your pre-NAT address prefix range.
+   * **External Mapping:** An address prefix range of destination IPs on the outside network that source IPs will be mapped to. In other words, your post-NAT address prefix range.
+   * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure Virtual WAN hub's site-to-site VPN gateway.
 
-    ```
-    New-AzVpnGatewayNatRule 
-    -ResourceGroupName <String> 
-    -ParentResourceName <String> 
-    -Name <String>
-    [-Type <String>] 
-    [-Mode <String>] 
-    -InternalMapping <String[]> 
-    -ExternalMapping <String[]>
-    [-InternalPortRange <String[]>] 
-    [-ExternalPortRange <String[]>] 
-    [-IpConfigurationId <String>] 
-    [-AsJob]
-    [-DefaultProfile <IAzureContextContainer>] 
-    [-WhatIf] 
-    [-Confirm] [<CommonParameters>]
-    ```
-    
-    ```azurepowershell-interactive
+   **Syntax**
+
+   ```
+   New-AzVpnGatewayNatRule 
+   -ResourceGroupName <String> 
+   -ParentResourceName <String> 
+   -Name <String>
+   [-Type <String>] 
+   [-Mode <String>] 
+   -InternalMapping <String[]> 
+   -ExternalMapping <String[]>
+   [-InternalPortRange <String[]>] 
+   [-ExternalPortRange <String[]>] 
+   [-IpConfigurationId <String>] 
+   [-AsJob]
+   [-DefaultProfile <IAzureContextContainer>] 
+   [-WhatIf] 
+   [-Confirm] [<CommonParameters>]
+   ```
+
+   ```azurepowershell-interactive
    $natrule = New-AzVpnGatewayNatRule -ResourceGroupName "testRG" -ParentResourceName "testvpngw" -Name "testNatRule" -InternalMapping "10.0.0.0/24" -ExternalMapping "1.2.3.4/32" -IpConfigurationId "Instance0" -Type Dynamic -Mode EgressSnat 
    ```
 
-1. Declare the variable to create a new object for the new NAT rule
+1. Declare the variable to create a new object for the new NAT rule.
 
    ```azurepowershell-interactive
    $newruleobject = New-Object Microsoft.Azure.Commands.Network.Models.PSResourceId
    $newruleobject.Id = $natrule.Id
    ```
 
-1. Declare the variable to get the existing VPN connection
+1. Declare the variable to get the existing VPN connection.
 
    ```azurepowershell-interactive
    $conn = Get-AzVpnConnection -Name "Connection-VPNsite1" -ResourceGroupName "testRG" -ParentResourceName "testvpngw"
    ```
 
-1. Set the appropriate index for the NAT rule in the VPN connection
+1. Set the appropriate index for the NAT rule in the VPN connection.
 
    ```azurepowershell-interactive
    $conn.VpnLinkConnections
    $conn.VpnLinkConnections[0].EgressNatRules = $newruleobject
    ```
 
-1. Finally, update the existing VPN connection with the new NAT rule
+1. Update the existing VPN connection with the new NAT rule.
 
    ```azurepowershell-interactive
    Update-AzVpnConnection -Name "Connection-VPNsite1" -ResourceGroupName "testRG" -ParentResourceName "testvpngw" -VpnSiteLinkConnection $conn.VpnLinkConnections
@@ -110,4 +110,4 @@ You can configure and view NAT rules on your VPN gateway settings at any time us
 
 ## Next steps
 
-For more information about Site-to-site configurations, see [Configure a Virtual WAN Site-to-site connection](virtual-wan-site-to-site-portal.md).
+For more information about site-to-site configurations, see [Configure a Virtual WAN site-to-site connection](virtual-wan-site-to-site-portal.md).

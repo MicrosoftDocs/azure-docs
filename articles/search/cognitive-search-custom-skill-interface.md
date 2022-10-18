@@ -1,16 +1,16 @@
 ---
-title: Interface definition for custom skills
+title: Custom skill interface
 titleSuffix: Azure Cognitive Search
-description: Custom data extraction interface for web-api custom skill in an AI enrichment pipeline in Azure Cognitive Search.
+description: Integrate a custom skill with an AI enrichment pipeline in Azure Cognitive Search through a web interface that defines compatible inputs and outputs in a skillset.
 
-author: LiamCavanagh
-ms.author: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 01/14/2022
+ms.topic: how-to
+ms.date: 03/25/2022
 ---
 
-# How to add a custom skill to an Azure Cognitive Search enrichment pipeline
+# Add a custom skill to an Azure Cognitive Search enrichment pipeline
 
 An [enrichment pipeline](cognitive-search-concept-intro.md) can include both [built-in skills](cognitive-search-predefined-skills.md) and [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and publish. Your custom code executes externally to the search service (for example, as an Azure function), but accepts inputs and sends outputs to the skillset just like any other skill.
 
@@ -24,18 +24,27 @@ Building a custom skill gives you a way to insert transformations unique to your
 
 ## Set the endpoint and timeout interval
 
-The interface for a custom skill is specified through the [Custom WebAPI skill](cognitive-search-custom-skill-web-api.md). 
-
-By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
+The interface for a custom skill is specified through the [Custom Web API skill](cognitive-search-custom-skill-web-api.md).
 
 ```json
-    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-    "description": "This skill has a 230 second timeout",
-    "uri": "https://[your custom skill uri goes here]",
-    "timeout": "PT230S",
+"@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+"description": "This skill has a 230 second timeout",
+"uri": "https://[your custom skill uri goes here]",
+"authResourceId": "[for managed identity connections, your app's client ID goes here]",
+"timeout": "PT230S",
 ```
 
-When setting the URI, make sure the URI is secure (HTTPS).
+The URI is the HTTPS endpoint of your function or app. When setting the URI, make sure the URI is secure (HTTPS). If your code is hosted in an Azure function app, the URI should include an [API key in the header or as a URI parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) to authorize the request. 
+
+If instead your function or app uses Azure managed identities and Azure roles for authentication and authorization, the custom skill can include an authentication token on the request. The following points describe the requirements for this approach:
+
++ The search service, which sends the request on the indexer's behalf, must be [configured to use a managed identity](search-howto-managed-identities-data-sources.md) (either system or user-assigned) so that the caller can be authenticated by Azure Active Directory.
+
++ Your function or app must be [configured for Azure Active Directory](../app-service/configure-authentication-provider-aad.md).
+
++ Your [custom skill definition](cognitive-search-custom-skill-web-api.md) must include an "authResourceId" property. This property takes an application (client) ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri): `api://<appId>`.
+
+By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
 
 ## Format Web API inputs
 
@@ -125,6 +134,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
     "skills": [
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "name": "myCustomSkill",
         "description": "This skill calls an Azure function, which in turn calls TA sentiment",
         "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/DateExtractor?language=en",
         "context": "/document",

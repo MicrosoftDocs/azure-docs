@@ -1,13 +1,9 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/19/2020
+ ms.date: 06/13/2022
  ms.author: cherylmc
- ms.custom: include file
 ---
 You can verify that your connection succeeded by using the 'Get-AzureVNetConnection' cmdlet.
 
@@ -16,7 +12,7 @@ You can verify that your connection succeeded by using the 'Get-AzureVNetConnect
    ```azurepowershell
    Get-AzureVNetConnection "Group ClassicRG TestVNet1"
    ```
-2. After the cmdlet has finished, view the values. In the example below, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
+1. After the cmdlet has finished, view the values. In the example below, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
 
    ```output
    ConnectivityState         : Connected

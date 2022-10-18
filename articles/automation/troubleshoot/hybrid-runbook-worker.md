@@ -346,11 +346,11 @@ To resolve this issue, remove the following registry key, restart `HealthService
 
 #### Issue
 
-You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script:
 
 `Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
-Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` Python script:
 
 `Failed to deregister worker. [response_status=404]`
 

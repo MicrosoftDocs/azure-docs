@@ -2,21 +2,15 @@
 title: Sign-in logs in Azure Active Directory | Microsoft Docs
 description: Overview of the sign-in logs in Azure Active Directory.  
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/25/2021
-ms.author: markvi
+ms.date: 10/06/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
-
 ms.collection: M365-identity-device-management
 ---
 # Sign-in logs in Azure Active Directory
@@ -98,9 +92,6 @@ that have more than one value for a given sign-in request as column. This is, fo
 
 ![Screenshot shows the Columns dialog box where you can select attributes.](./media/concept-sign-ins/columns.png "Sign-in activity")
 
-Select an item in the list view to get more detailed information.
-
-![Screenshot shows a detailed information view.](./media/concept-sign-ins/basic-sign-in.png "Sign-in activity")
 
 
 
@@ -208,23 +199,6 @@ The **Location** - The location the connection was initiated from:
 
 - **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
 
-
-
-
-
-
-
-
-
-## Download sign-in activities
-
-Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](./howto-download-logs.md) if you want to work with it outside the Azure portal.  
-
-![Download](./media/concept-sign-ins/71.png "Download")
-
-> [!IMPORTANT]
-> The number of records you can download is constrained by the [Azure Active 
-> Directory report retention policies](reference-reports-data-retention.md).  
 
 
 ## Sign-ins data shortcuts
@@ -336,6 +310,8 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 ## Next steps
 
-* [Azure AD data retention policies](reference-reports-data-retention.md)
-* [Azure AD report latencies](reference-reports-latencies.md)
-* [First party Microsoft applications in sign-ins report](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)
+- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md)
+
+- [How to download logs in Azure Active Directory](howto-download-logs.md)
+
+- [How to access activity logs in Azure AD](howto-access-activity-logs.md)

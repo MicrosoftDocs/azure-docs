@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/22/2021
+ms.date: 07/18/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -26,31 +26,50 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 Azure AD B2C page layout uses the following versions of the [jQuery library](https://jquery.com/) and the [Handlebars templates](https://handlebarsjs.com/):
 
-|Element |Page layout version range |jQuery version  |Handlebars Runtime version |Handlebars Compliler version |
+|Element |Page layout version range |jQuery version  |Handlebars Runtime version |Handlebars Compiler version |
 |---------|---------|------|--------|----------|
-|multifactor |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
+|multifactor |>= 1.2.8 | 3.5.1 | 4.7.7 |4.7.7 |
+|            |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
 |            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|selfasserted |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|selfasserted |>= 2.1.11 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|unifiedssp |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|unifiedssp |>= 2.1.7 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|globalexception |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|globalexception |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|providerselection |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|providerselection |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|claimsconsent |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|claimsconsent |>= 1.2.2 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.2 | 3.5.1 |4.7.7 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|unifiedssd |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|unifiedssd |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.14**
+- Fixed WCAG 2.1 accessibility bug for the TOTP multifactor authentication screens.
+
+**2.1.10**
+
+- Correcting to the tab index
+- Fixing WCAG 2.1 accessibility and screen reader issues   
+
+**2.1.9**
+
+- TOTP multifactor authentication support. Adding links that allows users to download and install the Microsoft authenticator app to complete the enrollment of the TOTP on the authenticator.
 
 **2.1.8**
 
@@ -74,7 +93,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Fixed an accessibility bug to show inline error messages only on form submission.
 
 **2.1.6**
-- Fixed password error get cleared when typing too quickly on a different field.
+- Fixed *password error gets cleared when typing too quickly on a different field*.
 
 **2.1.5**
 - Fixed cursor jumps issue on iOS when editing in the middle of the text.
@@ -91,7 +110,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.1**
 
-- Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This message is hidden by default.
 - Added support for saving passwords to iCloud Keychain.
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
 - Added disclaimers on self-asserted page.
@@ -134,13 +153,23 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 - Initial release
 
-## Unified sign-in sign-up page with password reset link (unifiedssp)
+## Unified sign-in and sign-up page with password reset link (unifiedssp)
 
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+
+**2.1.7**
+
+- Accessibility fix - correcting to the tab index
+
+**2.1.6**
+
+- Accessibility fix - set the focus on the input field for verification. 
+- Updates to the UI elements and CSS classes
+
 **2.1.5**
-- Fixed an issue on tab order when idp selector template is used on sign in page.
+- Fixed an issue on tab order when idp selector template is used on sign-in page.
 - Fixed an encoding issue on sign-in link text.
 
 **2.1.4**
@@ -156,7 +185,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Allowing the "forgot password" link to use as claims exchange. For more information, see [Self-service password reset](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
-- Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This message is hidden by default.
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
 - Added support for saving passwords to iCloud Keychain.
 - Focus is now placed on the first error field when multiple fields have errors.
@@ -168,7 +197,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 - Added support for multiple sign-up links.
 - Added support for user input validation according to the predicate rules defined in the policy.
-- When the [sign-in option](sign-in-options.md) is set to Email, the sign-in header presents "Sign in with your sign in name". The username field presents "Sign in name". For more information, see [localization](localization-string-ids.md#sign-up-or-sign-in-page-elements).
+- When the [sign-in option](sign-in-options.md) is set to Email, the sign-in header presents "Sign in with your sign-in name". The username field presents "Sign in name". For more information, see [localization](localization-string-ids.md#sign-up-or-sign-in-page-elements).
 
 **1.2.0**
 
@@ -206,7 +235,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 **1.2.2**
 - Fixed an issue with auto-filling the verification code when using iOS.
 - Fixed an issue with redirecting a token to the relying party from Android Webview. 
-- Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.  
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This messages is hidden by default.  
 - Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
 
 **1.2.1**
@@ -227,7 +256,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 - 'Confirm Code' button removed
 - The input field for the code now only takes input up to six (6) characters
-- The page will automatically attempt to verify the code entered when a 6-digit code is entered, without any button having to be clicked
+- The page will automatically attempt to verify the code entered when a six-digit code is entered, without any button having to be clicked
 - If the code is wrong, the input field is automatically cleared
 - After three (3) attempts with an incorrect code, B2C sends an error back to the relying party
 - Accessibility fixes
@@ -255,7 +284,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 **1.1.0**
 
 - Accessibility fix
-- Removed the default message when there is no contact from the policy
+- Removed the default message when there's no contact from the policy
 - Default CSS removed
 
 **1.0.0**

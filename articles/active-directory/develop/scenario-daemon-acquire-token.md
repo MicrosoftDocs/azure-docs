@@ -1,5 +1,5 @@
 ---
-title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform | Azure
+title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 author: jmprieur
@@ -8,13 +8,9 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 05/12/2022
 ms.author: jmprieur
-ms.custom: aaddev
-
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
-
 ---
 
 # Daemon app that calls web APIs - acquire a token
@@ -42,7 +38,7 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ```JavaScript
 const tokenRequest = {
-	scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
 };
 ```
 
@@ -106,7 +102,7 @@ Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because
 
 # [Java](#tab/java)
 
-This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
+This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/msal4j-sdk/src/samples/confidential-client/).
 
 ```Java
 private static IAuthenticationResult acquireToken() throws Exception {
@@ -252,9 +248,7 @@ Content: {
 
 ### Are you calling your own API?
 
-If you call your own web API and couldn't add an app permission to the app registration for your daemon app, did you expose an app role in your web API?
-
-For details, see [Exposing application permissions (app roles)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) and, in particular, [Ensuring that Azure AD issues tokens for your web API to only allowed clients](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
+If your daemon app calls your own web API and you weren't able to add an app permission to the daemon's app registration, you need to [Add app roles to the web API's app registration](howto-add-app-roles-in-azure-ad-apps.md).
 
 ## Next steps
 

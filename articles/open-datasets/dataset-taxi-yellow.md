@@ -1,11 +1,8 @@
 ---
 title: NYC Taxi and Limousine yellow dataset
-titleSuffix: Azure Open Datasets
 description: Learn how to use the NYC Taxi and Limousine yellow dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 
@@ -164,7 +161,7 @@ Sample not available for this platform/package combination.
 
 ```python
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 from azureml.opendatasets import NycTlcYellow
 
 from datetime import datetime
@@ -190,7 +187,7 @@ Sample not available for this platform/package combination.
 blob_account_name = "azureopendatastorage"
 blob_container_name = "nyctlc"
 blob_relative_path = "yellow"
-blob_sas_token = r"
+blob_sas_token = "r"
 
 # Allow SPARK to read from Blob remotely
 wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)

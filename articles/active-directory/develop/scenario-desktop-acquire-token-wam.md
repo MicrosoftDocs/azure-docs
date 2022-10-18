@@ -1,17 +1,16 @@
 ---
-title: Acquire a token to call a web API using web account manager (desktop app) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API using web account manager (desktop app)
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using web account manager
 services: active-directory
-author: maliksahil
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2021
-ms.author: sahmalik
+ms.date: 06/07/2022
+ms.author: dmwendia
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -26,22 +25,22 @@ MSAL 4.25+ supports WAM on UWP, .NET Classic, .NET Core 3.1, and .NET 5.
 
 For .NET Classic and .NET Core 3.1, WAM functionality is fully supported but you have to add a reference to [Microsoft.Identity.Client.Desktop](https://www.nuget.org/packages/Microsoft.Identity.Client.Desktop/) package, alongside MSAL, and instead of `WithBroker()`, call `.WithWindowsBroker()`.
 
-For .NET 5, target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the csproj. MSAL will use a browser when WAM is not available.
+For .NET 5, target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the csproj. MSAL will use a browser when WAM isn't available.
 
 ## WAM value proposition
 
 Using an authentication broker such as WAM has numerous benefits.
 
-- Enhanced security (your app does not have to manage the powerful refresh token)
+- Enhanced security (your app doesn't have to manage the powerful refresh token)
 - Better support for Windows Hello, Conditional Access and FIDO keys
 - Integration with Windows' "Email and Accounts" view
-- Better Single Sing-On (users don't have to reenter passwords)
+- Better Single Sign-On (users don't have to reenter passwords)
 - Most bug fixes and enhancements will be shipped with Windows
 
 ## WAM limitations
 
-- B2C and ADFS authorities are not supported. MSAL will fallback to a browser.
-- Available on Win10+ and Win Server 2019+. On Mac, Linux and earlier Windows MSAL will fallback to a browser.
+- B2C and ADFS authorities aren't supported. MSAL will fall back to a browser.
+- Available on Win10+ and Win Server 2019+. On Mac, Linux, and earlier versions of Windows, MSAL will fall back to a browser.
 - Not available on Xbox.
 
 ## WAM calling pattern
@@ -54,7 +53,7 @@ var pca = PublicClientApplicationBuilder.Create("client_id")
               .WithBroker()
               .Build();
 
-// Add a token cache, see https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
+// Add a token cache, see https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
 
 // 2. GetAccounts
 var accounts = await pca.GetAccountsAsync();
@@ -79,11 +78,11 @@ catch (MsalUiRequiredException) // no change in the pattern
 }
 ```
 
-Call `.WithBroker(true)`. If a broker is not present (e.g. Win8.1, Mac, or Linux), then MSAL will fallback to a browser! Redirect URI rules apply to the browser.
+Call `.WithBroker(true)`. If a broker isn't present (for example, Win8.1, Mac, or Linux), then MSAL will fall back to a browser. Redirect URI rules apply to the browser.
 
 ## Redirect URI
 
-WAM redirect URIs do not need to be configured in MSAL, but they must be configured in the app registration.
+WAM redirect URIs don't need to be configured in MSAL, but they must be configured in the app registration.
 
 ### Win32 (.NET framework / .NET 5)
 
@@ -102,13 +101,13 @@ ms-appx-web://microsoft.aad.brokerplugin/{client_id}
 
 ## Token cache persistence
 
-It's important to persist MSAL's token cache because MSAL needs to save internal WAM account IDs there. Without it, restarting the app means that `GetAccounts` API will miss some of the accounts. Note that on UWP, MSAL knows where to save the token cache.
+It's important to persist MSAL's token cache because MSAL needs to save internal WAM account IDs there. Without it, restarting the app means that `GetAccounts` API will miss some of the accounts. On UWP, MSAL knows where to save the token cache.
 
 ## GetAccounts
 
 `GetAccounts` returns accounts of users who have previously logged in interactively into the app.
 
-In addition to this, WAM can list the OS-wide Work and School accounts configured in Windows (for Win32 apps but not for UWP apps). To opt-into this feature, set `ListWindowsWorkAndSchoolAccounts` in `WindowsBrokerOptions` to **true**. You can enable it as below.
+In addition, WAM can list the OS-wide Work and School accounts configured in Windows (for Win32 apps but not for UWP apps). To opt-into this feature, set `ListWindowsWorkAndSchoolAccounts` in `WindowsBrokerOptions` to **true**. You can enable it as below.
 
 ```csharp
 .WithWindowsBrokerOptions(new WindowsBrokerOptions()
@@ -122,13 +121,13 @@ In addition to this, WAM can list the OS-wide Work and School accounts configure
 ```
 
 >[!NOTE]
-> Microsoft (i.e. outlook.com etc.) accounts will not be listed in Win32 nor UWP for privacy reasons.
+> Microsoft (outlook.com etc.) accounts will not be listed in Win32 nor UWP for privacy reasons.
 
 Applications cannot remove accounts from Windows! 
 
 ## RemoveAsync
 
-- Removes all account information from MSAL's token cache (this includes MSA - i.e. personal accounts - account info and other account information copied by MSAL into its cache).
+- Removes all account information from MSAL's token cache (this includes MSA, that is, personal accounts information copied by MSAL into its cache).
 - Removes app-only (not OS-wide) accounts.
 
 >[!NOTE]
@@ -136,22 +135,22 @@ Applications cannot remove accounts from Windows!
 
 ## Other considerations
 
-- WAM's interactive operations require being on the UI thread. MSAL throws a meaningful exception when not on UI thread. This does NOT apply to console apps.
+- WAM's interactive operations require being on the UI thread. MSAL throws a meaningful exception when not on UI thread. This doesn't apply to console apps.
 - `WithAccount` provides an accelerated authentication experience if the MSAL account was originally obtained via WAM, or, WAM can find a work and school account in Windows.
-- WAM is not able to pre-populate the username field with a login hint, unless a Work and School account with the same username is found in Windows.
+- WAM isn't able to pre-populate the username field with a login hint, unless a Work and School account with the same username is found in Windows.
 - If WAM is unable to offer an accelerated authentication experience, it will show an account picker. Users can add new accounts.
 
 !["WAM account picker"](media/scenario-desktop-acquire-token-wam/wam-account-picker.png)
 
-- New accounts are automatically remembered by Windows. Work and School have the option of joining the organization's directory or opting out completely, in which case the account will not appear under "Email & Accounts". Microsoft accounts are automatically added to Windows. Apps cannot list these accounts programmatically (but only through the Account Picker).
+- New accounts are automatically remembered by Windows. Work and School have the option of joining the organization's directory or opting out completely, in which case the account won't appear under "Email & Accounts". Microsoft accounts are automatically added to Windows. Apps can't list these accounts programmatically (but only through the Account Picker).
 
 ## Troubleshooting
 
-### "Either the user cancelled the authentication or the WAM Account Picker crashed because the app is running in an elevated process" error message
+### "Either the user canceled the authentication or the WAM Account Picker crashed because the app is running in an elevated process" error message
 
 When an app that uses MSAL is run as an elevated process, some of these calls within WAM may fail due to different process security levels. Internally MSAL.NET uses native Windows methods ([COM](/windows/win32/com/the-component-object-model)) to integrate with WAM. Starting with version 4.32.0, MSAL will display a descriptive error message when it detects that the app process is elevated and WAM returned no accounts.
 
-One solution is to not run the app as elevated, if possible. Another solution is for the app developer to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this solution is not guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. See issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560) for additional information.
+One solution is to not run the app as elevated, if possible. Another solution is for the app developer to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this solution isn't guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. For more information, see issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560).
 
 ### "WAM Account Picker did not return an account" error message
 

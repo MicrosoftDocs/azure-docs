@@ -1,4 +1,4 @@
-﻿- name: IoT device development
+- name: IoT device development
   href: index.yml
 - name: Overview
   items:
@@ -21,20 +21,16 @@
         href: quickstart-devkit-mxchip-az3166.md
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro.md
-      - name: NXP MIMXRT1050-EVKB
-        href: quickstart-devkit-nxp-mimxrt1050-evkb.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk.md
-      - name: Renesas RX65N-2 MB
-        href: quickstart-devkit-renesas-rx65n-2mb.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
-    - name: Azure FreeRTOS — Embedded device development
+    - name: FreeRTOS — Embedded device development
       items:
       - name: ESPRESSIF ESP32
-        href: quickstart-devkit-espressif-esp32.md
+        href: quickstart-devkit-espressif-esp32-freertos.md
       - name: STMicroelectronics L475E
         href: quickstart-devkit-stm-b-l475e-freertos.md
 - name: Tutorials
@@ -48,23 +44,25 @@
       - name: Interact with a device from your solution
         href: tutorial-service.md
     - name: Securely connect IoT devices to the cloud
-      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+      href: /training/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Preview — Connect and analyze data with Time Series Insights Gen2
-      href: tutorial-configure-tsi.md
 - name: Concepts
   items:
   - name: Connection options for device developers
     href: concepts-overview-connection-options.md
+  - name: C SDK and Embedded C SDK usage scenarios
+    href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
+  - name: IoT device selection list
+    href: iot-device-selection.md
   - name: Device models
     items:
     - name: Modeling guide
@@ -91,6 +89,10 @@
       href: concepts-digital-twin.md
     - name: IoT Plug and Play bridge
       href: concepts-iot-pnp-bridge.md
+  - name: Security
+    items:
+    - name: Guidelines for secured embedded development
+      href: concepts-azure-rtos-security-practices.md 
 - name: How to
   items:
   - name: Install and use IoT explorer
@@ -101,10 +103,14 @@
     href: howto-convert-to-pnp.md
   - name: Azure RTOS Samples
     items:
-    - name: STMicroelectronics B-L475-IOT01A
-      href: quickstart-devkit-stm-b-l475e.md
     - name: MXCHIP AZ3166 — IoT Hub
       href: quickstart-devkit-mxchip-az3166-iot-hub.md
+    - name: STMicroelectronics B-L475-IOT01A
+      href: quickstart-devkit-stm-b-l475e.md
+    - name: NXP MIMXRT1050-EVKB
+      href: quickstart-devkit-nxp-mimxrt1050-evkb.md
+    - name: Renesas RX65N-2 MB
+      href: quickstart-devkit-renesas-rx65n-2mb.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot embedded quickstarts
@@ -118,7 +124,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
     - name: C (Device)
-      href: /azure/iot-hub/iot-c-sdk-ref/
+      href: https://github.com/Azure/azure-iot-sdk-c/
     - name: Embedded C (Device)
       href: https://azure.github.io/azure-sdk-for-c/
     - name: Azure RTOS Middleware (Device)
@@ -140,7 +146,7 @@
     - name: Node.js (Service)
       href: /javascript/api/azure-iothub/
     - name: Node.js (Management)
-      href: /javascript/api/overview/azure/iothub/management
+      href: /javascript/api/overview/azure/iot-hub
     - name: Python (Device)
       href: /python/api/azure-iot-device
     - name: Python (Service)

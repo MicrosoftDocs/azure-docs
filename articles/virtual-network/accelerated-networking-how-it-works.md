@@ -25,6 +25,8 @@ If the VM is configured with Accelerated Networking, a second network interface 
 
 Different Azure hosts use different models of Mellanox physical NIC, so Linux automatically determines whether to use the “mlx4” or “mlx5” driver. Placement of the VM on an Azure host is controlled by the Azure infrastructure. With no customer option to specify which physical NIC that a VM deployment uses, the VMs must include both drivers. If a VM is stopped/deallocated and then restarted, it might be redeployed on hardware with a different model of Mellanox physical NIC. Therefore, it might use the other Mellanox driver. 
 
+If a VM image doesn't include a driver for the Mellanox physical NIC, networking capabilities will continue to work at the slower speeds of the virtual NIC, even though the portal, Azure CLI, and Azure PowerShell will still show the Accelerated Networking feature as _enabled_.
+
 FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD.
 
 > [!NOTE]
@@ -227,9 +229,9 @@ The mlx5 driver initializes the VF interface, and the interface is now functiona
 
 The data path has been switched back to the VF interface. 
 
-## Disable/Enable Accelerated Networking in a Running VM 
+## Disable/Enable Accelerated Networking in a non-running VM 
 
-Accelerated Networking can be toggled on a virtual NIC in a running VM with Azure CLI. For example: 
+Accelerated Networking can be toggled on a virtual NIC in a non-running VM with Azure CLI. For example: 
 
 ```output
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 

@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 04/15/2021
+  ms.date: 03/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -46,6 +46,11 @@ landingContent:
       links:
       - text: How a reservation discount is applied
         url: reservation-discount-application.md
+    - linkListType: learn
+      links:
+      - text: Save money with Azure reserved instances
+        url: /training/modules/save-money-with-azure-reserved-instances/
+
 
   # Card (optional)
   - title: Manage reservations after purchase

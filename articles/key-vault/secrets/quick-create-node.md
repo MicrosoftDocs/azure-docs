@@ -81,7 +81,7 @@ Create a Node.js application that uses your key vault.
 
 ## Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
+Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command.
 
 ```azurecli
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge

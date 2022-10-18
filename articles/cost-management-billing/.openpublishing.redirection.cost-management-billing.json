@@ -262,8 +262,13 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-export-subscriptions.md",
-            "redirect_url": "/azure/cost-management-billing/manage/export-subscriptions",
-            "redirect_document_id": true
+            "redirect_url": "/powershell/module/servicemanagement/azure.service/get-azuresubscription",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/billing-export-subscriptions.md",
+            "redirect_url": "/powershell/module/servicemanagement/azure.service/get-azuresubscription",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-getting-started.md",
@@ -1054,6 +1059,26 @@
             "source_path_from_root": "/articles/cost-management-billing/understand/mca-faq.md",
             "redirect_url": "/azure/cost-management-billing/microsoft-customer-agreement/microsoft-customer-agreement-faq",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/understand/subscription-transfer.md",
+            "redirect_url": "/azure/cost-management-billing/manage/subscription-transfer",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/azure-account-for-microsoft-365-subscription.md",
+            "redirect_url": "/microsoft-365/commerce/try-or-buy-microsoft-365",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md",
+            "redirect_url": "/microsoft-365/enterprise/azure-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management/use-reports.md",

@@ -3,11 +3,10 @@ title: Plan a solution template for an Azure application offer
 description: Learn what is required to create a solution template plan for a new Azure application offer using the commercial marketplace portal in Microsoft Partner Center.
 author: macerru
 ms.author: macerr
-ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 08/18/2022
 ---
 
 # Plan a solution template for an Azure application offer
@@ -25,11 +24,10 @@ The solution template plan type requires an [Azure Resource Manager template (AR
 | Customer usage attribution | Enabling customer usage attribution is required on all solution templates that are published on Azure Marketplace. For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
 | Use managed disks | [Managed disks](../virtual-machines/managed-disks-overview.md) is the default option for persisted disks of infrastructure as a service (IaaS) VMs in Azure. You must use managed disks in solution templates.<ul><li>To update your solution templates, follow the guidance in [Use managed disks in Azure Resource Manager templates](../virtual-machines/using-managed-disks-template-deployments.md), and use the provided [samples](https://github.com/Azure/azure-quickstart-templates).</li><li>To publish the VHD as an image in Azure Marketplace, import the underlying VHD of the managed disks to a storage account by using either [Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) or the [Azure CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)</ul> |
 | Deployment package | You'll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same plan package. For details, see the next section: Deployment package. |
-|||
 
 ## Deployment package
 
-The deployment package contains all of the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
+The deployment package contains all the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
 
 All Azure applications must include these two files in the root folder of a .zip archive:
 
@@ -41,7 +39,8 @@ Maximum file sizes supported are:
 - Up to 1 Gb in total compressed .zip archive size
 - Up to 1 Gb for any individual uncompressed file within the .zip archive
 
-All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
+> [!TIP]
+> Make sure your offer is compliant with our recommended practices by using the [ARM template test toolkit](../azure-resource-manager/templates/test-toolkit.md#validate-templates-for-azure-marketplace) before publishing your Azure Application.
 
 ## Azure regions
 

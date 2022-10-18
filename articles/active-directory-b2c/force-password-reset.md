@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 08/04/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -98,15 +98,18 @@ Get the example of the force password reset policy on [GitHub](https://github.co
 
 ## Force password reset on next login
 
-To force reset the password on next login, update the account password profile using MS Graph [Update user](/graph/api/user-update) operation. The following example updates the password profile [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute to `true`, which forces the user to reset the password on next login.
+To force reset the password on next login, update the account password profile using MS Graph [Update user](/graph/api/user-update) operation. To do this, you need to assign your [Microsoft Graph application](microsoft-graph-get-started.md) the [User administrator](../active-directory/roles/permissions-reference.md#user-administrator) role. Follow the steps in [Grant user administrator role](microsoft-graph-get-started.md?tabs=app-reg-ga#optional-grant-user-administrator-role) to assign your Microsoft Graph application a User administrator role. 
+
+The following example updates the password profile [forceChangePasswordNextSignIn](user-profile-attributes.md#password-profile-property) attribute to `true`, which forces the user to reset the password on next login.
 
 ```http
 PATCH https://graph.microsoft.com/v1.0/users/<user-object-ID>
 Content-type: application/json
 
 {
-"passwordProfile": {
-  "forceChangePasswordNextSignIn": true
+    "passwordProfile": {
+      "forceChangePasswordNextSignIn": true
+    }
 }
 ```
 

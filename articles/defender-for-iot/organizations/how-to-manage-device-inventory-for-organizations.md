@@ -1,163 +1,182 @@
 ---
-title: Manage your IoT devices with the device inventory for organizations
-description: Learn how to manage your IoT devices with the device inventory for organizations.
-ms.date: 11/11/2021
+title: Manage your device inventory from the Azure portal
+description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
+ms.date: 06/27/2022
 ms.topic: how-to
 ---
 
-# Manage your IoT devices with the device inventory for organizations
+# Manage your device inventory from the Azure portal
 
-The device inventory can be used to view device systems, and network information. The search, filter, edit columns, and export tools can be used to manage this information.
+Use the **Device inventory** page in the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
 
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen."  lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png":::
+For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
 
-Some of the benefits of the device inventory include:
+> [!NOTE]
+> The **Device inventory** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> Alternately, view device inventory from a [specific sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md), or from an [on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
 
-- Identify all IOT, and OT devices from different inputs. For example, allowing you to understand which devices in your environment are not communicating, and will require troubleshooting.
+## View the device inventory
 
-- Group, and filter devices by site, type, or vendor.
+This procedure describes how to view detected devices in the **Device inventory** page in the Azure portal.
 
-- Gain visibility into each device, and investigate the different threats, and alerts for each one.
+1. In Defender for IoT in the Azure portal, select **Device inventory**.
 
-- Export the entire device inventory to a CSV file for your reports.
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Screenshot of the Device inventory page in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png":::
 
-## Device inventory overview
+    Use any of the following options to modify or filter the devices shown:
 
-The Device inventory gives you an overview of all devices within your environment. Here you can see the individual details of each device and filter, and order your search by various options.
+    |Option  |Steps  |
+    |---------|---------|
+    | **Sort devices** | Select a column header to sort the devices by that column. Select it again to change the sort direction. |
+    |**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br>In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br>You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page.|
+    |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
+    | **Group devices** | From the **Group by** above the gird, select either **Type** or **Class** to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
-The following table describes the different device properties in the device inventory.
+    For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
-| Parameter | Description | Default value |
-|--|--|--|
-| **Application** | The application the exists on the device. | - |
-| **Class** | The class of the device. | IoT |
-| **Data source** | The source of the data, such as Micro Agent, OtSensor, and Mde. | MicroAgent |
-| **Description** | The description of the device. | - |
-| **Firmware vendor** | The vendor of the device's firmware. | - |
-| **Firmware version** | The version of the firmware. | - |
-| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **Importance** | The level of importance of the device. | - |
-| **IPv4 Address** | The IPv4 address of the device. | - |
-| **IPv6 Address** | The IPv6 address of the device. | - |
-| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. | - |
-| **Location** | The physical location of the device. | - |
-| **MAC Address** | The MAC address of the device. | - |
-| **Model** | The device's model. | - |
-| **Name** | The name of the device as the sensor discovered it, or as entered by the user. | - |
-| **OS architecture** | The architecture of the operating system. | - |
-| **OS distribution** | The distribution of the operating system, such as Android, Linux, and Haiku. | - |
-| **OS platform** | The OS of the device, if detected. | - |
-| **OS version** | The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. | - |
-| **PLC mode** | The PLC operating mode which includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. | - |
-| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state cab be either `Program`, or `Remote`. | - |
-| **Programming time** | The last time the device was programmed.  | - |
-| **Protocols** | The protocols that the device uses. | - |
-| **Purdue level** | The Purdue level in which the device exists. | - |
-| **Scanner** | Whether the device performs scanning-like activities in the network. | - |
-| **Sensor** | The sensor the device is connected to.  | - |
-| **Site** | The site that contains this device. | - |
-| **Slots** | The number of slots the device has.  | - |
-| **Subtype** | The subtype of the device, such as speaker and smart tv. | Managed Device |
-| **Type** | The type of device, such as communication, and industrial. | Miscellaneous |
-| **Vendor** | The name of the device's vendor, as defined in the MAC address. | - |
-| **VLAN** | The VLAN of the device. | - |
-| **Zone** | The zone that contains this device. | - |
+1. Select a device row to view more details about that device. Initial details are shown in a pane on the right, where you can also select **View full details** to drill down more.
 
-**To view the device inventory**:
+    For example:
 
-1. Open the [Azure portal](https://portal.azure.com).
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
-1. Navigate to **Defender for IoT** > **Device inventory**.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Select device inventory from the left side menu under Defender for IoT.":::
+### Identify devices that aren't connecting successfully
 
-## Customize the device inventory table
+If you suspect that certain devices aren't actively communicating with Azure, we recommend that you verify whether those devices have communicated with Azure recently at all. For example:
 
-In the device inventory table, you can add or remove columns. You can also change the column order by dragging and dropping a field.
+1. In the **Device inventory** page, make sure that the **Last activity** column is shown.
 
-**To customize the device inventory table**:
+    Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: > **Add column** > **Last Activity** > **Save**.
 
-1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: button.
+1. Select the **Last activity** column to sort the grid by that column.
 
-1. In the Edit columns tab, select the drop-down menu to change the value of a column.
+1. Filter the grid to show active devices during a specific time period:
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-drop-down-menu.png" alt-text="Select the drop-down menu to change the value of a given column.":::
+    1. Select **Add filter**.
+    1. In the **Column** field, select **Last activity**.
+    1. Select a predefined time range, or define a custom range to filter for.
+    1. Select **Apply**.
 
-1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: button.
+1. Search for the devices you're verifying in the filtered list of devices.
 
-1. Reorder the columns by dragging a column parameter to a new location.
+## Edit device details
 
-1. Delete a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: button.
+As you manage your network devices, you may need to update their details. For example, you may want to modify security value as assets change, or personalize the inventory to better identify devices, or if a device was classified incorrectly.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/delete-a-column.png" alt-text="Select the trash can icon to delete a column.":::
+**To edit device details**:
 
-1. Select **Save** to save any changes made.
+1. Select one or more devices in the grid, and then select **Edit** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/edit-device-details.png" border="false":::.
 
-If you want to reset the device inventory to the default settings, in the Edit columns window, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false"::: button.
+1. If you've selected multiple devices, select **Add field type** and add the fields you want to edit, for all selected devices.
 
-## Filter the device inventory
+1. Modify the device fields as needed, and then select **Save** when you're done.
 
-You can search, and filter the device inventory to define what information the table displays.
+Your updates are saved for all selected devices.
 
-For a list of filters that can be applied to the device inventory table, see the [Device inventory overview](#device-inventory-overview).
+For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
-**To filter the device inventory**:
+### Reference of editable fields
 
-1. Select **Add filter**
+The following device fields are supported for editing in the **Device inventory** page:
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter.png" alt-text="Select  the add filter button to specify what you want to appear in the device inventory.":::
+|Name  |Description  |
+|---------|---------|
+| **General information** | |
+|**Name** | Mandatory. Supported for editing only when editing a single device. |
+|**Authorized Device**     |Toggle on or off as needed as device security changes.         |
+|**Description**     |  Enter a meaningful description for the device.       |
+|**Location**     |   Enter a meaningful location for the device.      |
+|**Category**     | Use the **Class**, **Type**, and **Subtype** options to categorize the device.         |
+|**Business Function**     | Enter a meaningful description of the device's business function.        |
+|**Hardware Model**     |   Select the device's hardware model from the dropdown menu.      |
+|**Hardware Vendor**     | Select the device's hardware vendor from the dropdown menu.        |
+|**Firmware**      |   Device the device's firmware name and version. You can either select the **delete** button to delete an existing firmware definition, or select **+ Add** to add a new one.  |
+|**Tags**     | Enter meaningful tags for the device. Select the **delete**  button to delete an existing tag, or select **+ Add** to add a new one.         |
+| **Settings** |
+|**Importance**     | Select **Low**, **Normal**, or **High** to modify the device's importance.        |
+|**Programming device**     | Toggle the **Programming Device** option on or off as needed for your device.        |
 
-1. In the Add filter window, select the column drop-down menu to choose which column to filter.
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-window.png" alt-text="Select which column you want to filter in the device inventory.":::
-
-1. Enter a value in the filter field to filter by.
-
-1. Select the **Apply button**.
-
-Multiple filters can be applied at one time. The filters are not saved when you leave the Device inventory page.
-
-## View device information
-
-To view a specific devices information, select the device and the device information window appears.
-
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
+For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
 ## Export the device inventory to CSV
 
-You can export your device inventory to a CSV file. Any filters that you apply to the device inventory table will be exported, when you export the table.
+Export your device inventory to a CSV file to manage or share data outside of the Azure portal. You can export a maximum of 30,000 devices at a time.
 
-Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
+**To export device inventory data**:
 
-## How to identify devices that have not recently communicated with the Azure cloud
+On the **Device inventory page**, select **Export** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false":::.
 
-If you are under the impression that certain devices are not actively communicating, there is a way to check, and see which devices have not communicated in a specified time period.
+The device inventory is exported with any filters currently applied, and you can save the file locally.
 
-**To identify all devices that have not communicated recently**:
 
-1. Open the [Azure portal](https://portal.azure.com).
+## Delete a device
 
-1. Navigate to **Defender for IoT** > **Device inventory**.
+If you have devices no longer in use, delete them from the device inventory so that they're no longer connected to Defender for IoT.
 
-1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: button.
+Devices might be inactive because of misconfigured SPAN ports, changes in network coverage, or because the device was unplugged from the network.
 
-1. Add a column by selecting the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-column-icon.png" border="false"::: button.
+Delete inactive devices to maintain a correct representation of current network activity, better understand your committed devices when managing your Defender for IoT plans, and to reduce clutter on your screen.
 
-1. Select **Last Activity**.
+**To delete a device**:
 
-1. Select **Save**
+In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
-1. On the main Device inventory page, select **Last activity** to sort the page by last activity.
+At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png" alt-text="Screenshot of the device inventory organized by last activity." lightbox="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png":::
+## Device inventory column reference
 
-1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-icon.png" border="false"::: to add a filter on the last activity column.
+The following table describes the device properties shown in the **Device inventory** page on the Azure portal.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity-filter.png" alt-text="Screenshot of the add filter screen where you can select the time period to see the last activity.":::
+| Parameter | Description |
+|--|--|
+| **Application** | The application that exists on the device. |
+|**Authorized Device**     |Editable. Determines whether or not the device is *authorized*. This value may change as device security changes.         |
+|**Business Function**     | Editable. Describes the device's business function.        |
+| **Class** | Editable. The class of the device. <br>Default: `IoT`|
+| **Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent`|
+| **Description** | Editable. The description of the device. |
+| **Firmware vendor** | Editable. The vendor of the device's firmware. |
+| **Firmware version** |Editable.  The version of the firmware. |
+| **First seen** | The date, and time the device was first seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
+|**Hardware Model**     |  Editable.  Determines the device's hardware model.     |
+|**Hardware Vendor**     |Editable.  Determines the device's hardware vendor.        |
+| **Importance** | Editable. The level of importance of the device. |
+| **IPv4 Address** | The IPv4 address of the device. |
+| **IPv6 Address** | The IPv6 address of the device. |
+| **Last activity** | The date, and time the device last sent an event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
+| **Last update time** | The date, and time the device last sent a system information event to the cloud. Presented in format MM/DD/YYYY HH:MM:SS AM/PM. |
+| **Location** | Editable. The physical location of the device. |
+| **MAC Address** | The MAC address of the device. |
+| **Model** | The device's model. |
+| **Name** | Mandatory, and editable. The name of the device as the sensor discovered it, or as entered by the user. |
+| **OS architecture** | Editable. The architecture of the operating system. |
+| **OS distribution** | Editable. The distribution of the operating system, such as Android, Linux, and Haiku. |
+| **OS platform** | Editable. The OS of the device, if detected. |
+| **OS version** | Editable. The version of the operating system, such as Windows 10 and Ubuntu 20.04.1. |
+| **PLC mode** | The PLC operating mode that includes the Key state (physical, or logical), and the Run state (logical). Possible Key states include, `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. Possible Run states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`. If both states are the same, then only one state is presented. |
+| **PLC secured** | Determines if the PLC mode is in a secure state. A possible secure state is `Run`. A possible unsecured state can be either `Program`, or `Remote`. |
+|**Programming device**     | Editable.  Determines whether the device is a *Programming Device*. |
+| **Programming time** | The last time the device was programmed.  |
+| **Protocols** | The protocols that the device uses. |
+| **Purdue level** | Editable. The Purdue level in which the device exists. |
+| **Scanner** | Whether the device performs scanning-like activities in the network. |
+| **Sensor** | The sensor the device is connected to.  |
+| **Site** | The site that contains this device. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.|
+| **Slots** | The number of slots the device has.  |
+| **Subtype** | Editable. The subtype of the device, such as speaker and smart tv. <br>**Default**: `Managed Device` |
+| **Tags** | Editable. Tagging data for each device. |
+| **Type** | Editable. The type of device, such as communication, and industrial. <br>**Default**: `Miscellaneous` |
+| **Underlying devices** | Any relevant underlying devices for the device |
+| **Underlying device region** | The region for an underlying device |
+| **Vendor** | The name of the device's vendor, as defined in the MAC address. |
+| **VLAN** | The VLAN of the device. |
+| **Zone** | The zone that contains this device. |
 
-1. Enter a time period, or a custom date range, and select **Apply**.
+## Next steps
 
-## See next
+For more information, see:
 
-- [Welcome to Microsoft Defender for IoT for device builders](overview.md)
+- [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
+- [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)

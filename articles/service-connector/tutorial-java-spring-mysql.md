@@ -1,35 +1,35 @@
 ---
-title: 'Tutorial: Deploy Spring Cloud Application Connected to Azure Database for MySQL with Service Connector'
+title: 'Tutorial: Deploy a Spring Cloud Application Connected to Azure Database for MySQL with Service Connector'
 description: Create a Spring Boot application connected to Azure Database for MySQL with Service Connector.
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 10/28/2021
-ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.date: 05/03/2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
 # Tutorial: Deploy Spring Cloud Application Connected to Azure Database for MySQL with Service Connector
 
-In this tutorial, you complete the following tasks using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
+In this tutorial, you will complete the following tasks using the Azure portal or the Azure CLI. Both methods are explained in the following procedures.
 
 > [!div class="checklist"]
 > * Provision an instance of Azure Spring Cloud
 > * Build and deploy apps to Azure Spring Cloud
 > * Integrate Azure Spring Cloud with Azure Database for MySQL with Service Connector
 
-## 1. Prerequisites
+## Prerequisites
 
 * [Install JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 * [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with the command: `az extension add --name spring-cloud`
 
-## 2. Provision an instance of Azure Spring Cloud
+## Provision an instance of Azure Spring Cloud
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Cloud.
 
-1. Update Azure CLI with Azure Spring Cloud extension.
+1. Update Azure CLI with the Azure Spring Cloud extension.
 
     ```azurecli
     az extension update --name spring-cloud
@@ -45,47 +45,47 @@ The following procedure uses the Azure CLI extension to provision an instance of
 
 1. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create a resource group to contain your Azure Spring Cloud service.  Create in instance of the Azure Spring Cloud service.
+1. Create a resource group to contain your Azure Spring Cloud service and an instance of the Azure Spring Cloud service.
 
     ```azurecli
     az group create --name ServiceConnector-tutorial-rg
     az spring-cloud create -n <service instance name> -g ServiceConnector-tutorial-rg
     ```
 
-## 3. Create an Azure Database for MySQL
+## Create an Azure Database for MySQL
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Database for MySQL.
 
-1. Install the [db-up](/cli/azure/ext/db-up/mysql) extension.
+1. Install the [db-up](/cli/azure/mysql) extension.
 
-```azurecli
-az extension add --name db-up
-```
+    ```azurecli
+    az extension add --name db-up
+    ```
 
-Create an Azure Database for MySQL server using the following command:
+1. Create an Azure Database for MySQL server using the following command:
 
-```azurecli
-az mysql up --resource-group ServiceConnector-tutorial-rg --admin-user <admin-username> --admin-password <admin-password>
-```
+    ```azurecli
+    az mysql up --resource-group ServiceConnector-tutorial-rg --admin-user <admin-username> --admin-password <admin-password>
+    ```
 
-- For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this MySQL server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, #, %). The password cannot contain username.
+    For *`<admin-username>`* and *`<admin-password>`*, specify credentials to create an administrator user for this MySQL server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, #, %). The password cannot contain username.
 
-The server is created with the following default values (unless you manually override them):
+    The server is created with the following default values (unless you manually override them):
 
-**Setting** | **Default value** | **Description**
----|---|---
-server-name | System generated | A unique name that identifies your Azure Database for MySQL server.
-sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier}\_{compute generation}\_{vCores} in shorthand. The default is a General Purpose Gen5 server with 2 vCores. See our [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information about the tiers.
-backup-retention | 7 | How long a backup should be retained. Unit is days.
-geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
-location | westus2 | The Azure location for the server.
-ssl-enforcement | Enabled | Whether SSL should be enabled or not for this server.
-storage-size | 5120 | The storage capacity of the server (unit is megabytes).
-version | 5.7 | The MySQL major version.
+    **Setting** | **Default value** | **Description**
+    ---|---|---
+    server-name | System generated | A unique name that identifies your Azure Database for MySQL server.
+    sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier}\_{compute generation}\_{vCores} in shorthand. The default is a General Purpose Gen5 server with 2 vCores. See our [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information about the tiers.
+    backup-retention | 7 | How long a backup should be retained. Unit is days.
+    geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
+    location | westus2 | The Azure location for the server.
+    ssl-enforcement | Enabled | Whether SSL should be enabled or not for this server.
+    storage-size | 5120 | The storage capacity of the server (unit is megabytes).
+    version | 5.7 | The MySQL major version.
 
 
 > [!NOTE]
-> For more information about the `az mysql up` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/mysql#az_mysql_up).
+> For more information about the `az mysql up` command and its additional parameters, see the [Azure CLI documentation](/cli/azure/mysql#az-mysql-up).
 
 Once your server is created, it comes with the following settings:
 
@@ -95,7 +95,7 @@ Once your server is created, it comes with the following settings:
 - An empty database named `sampledb` is created
 - A new user named "root" with privileges to `sampledb` is created
 
-## 4. Build and deploy the app
+## Build and deploy the app
 
 1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the `--runtime-version=Java_11` switch.
 
@@ -118,20 +118,20 @@ Once your server is created, it comes with the following settings:
     git clone https://github.com/Azure-Samples/serviceconnector-springcloud-mysql-springboot.git
     ```
 
-1. Build the project using maven.
+1. Build the project using Maven.
 
     ```bash
     cd serviceconnector-springcloud-mysql-springboot
     mvn clean package -DskipTests 
     ```
 
-1. Deploy the Jar file for the app (`target/demo-0.0.1-SNAPSHOT.jar`).
+1. Deploy the JAR file for the app (`target/demo-0.0.1-SNAPSHOT.jar`).
 
     ```azurecli
     az spring-cloud app deploy -n hellospring -s <service instance name> -g ServiceConnector-tutorial-rg  --artifact-path target/demo-0.0.1-SNAPSHOT.jar
     ```
 
-1. Query app status after deployments with the following command.
+1. Query app status after deployment with the following command.
 
     ```azurecli
     az spring-cloud app list -o table

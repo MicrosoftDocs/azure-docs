@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/16/2020
+ms.date: 06/02/2022
 ms.author: sedusch
 ---
 # Azure Virtual Machines deployment for SAP NetWeaver
@@ -277,9 +277,9 @@ ms.author: sedusch
 [virtual-machines-sizes]:../../linux/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
+[virtual-machines-sql-server-infrastructure-services]:/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
+[virtual-machines-sql-server-performance-best-practices]:/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices
 [virtual-machines-upload-image-windows-resource-manager]:../../windows/upload-image.md
 [virtual-machines-windows-tutorial]:../../windows/quick-create-portal.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -409,7 +409,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 The easiest way to create a new virtual machine with an image from the Azure Marketplace is by using the Azure portal.
 
-1.  Go to <https://portal.azure.com/#create/hub>.  Or, in the Azure portal menu, select **+ New**.
+1.  Navigate to [Create a resource in the Azure portal](https://portal.azure.com/#create/hub). Or, in the Azure portal menu, select **+ New**.
 1.  Select **Compute**, and then select the type of operating system you want to deploy. For example, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), Red Hat Enterprise Linux 7.2 (RHEL 7.2), or Oracle Linux 7.2. The default list view does not show all supported operating systems. Select **see all** for a full list. For more information about supported operating systems for SAP software deployment, see SAP Note [1928533].
 1.  On the next page, review terms and conditions.
 1.  In the **Select a deployment model** box, select **Resource Manager**.
@@ -549,7 +549,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../windows/capture-image-resource.md)
 
-1.  Go to <https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Or, in the Azure portal menu, select **Images**.
+1.  Navigate to [Images in the Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages). Or, in the Azure portal menu, select **Images**.
 1.  Select the Managed Disk image you want to deploy and click on **Create VM**
 
 The wizard guides you through setting the required parameters to create the virtual machine, in addition to all required resources, like network interfaces and storage accounts. Some of these parameters are:
@@ -861,3 +861,6 @@ For more information about user-defined routes, see [User-defined routes and IP 
 
 When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
+## Next steps
+
+Learn about [RHEL for SAP in-place upgrade](../redhat/redhat-in-place-upgrade.md#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)

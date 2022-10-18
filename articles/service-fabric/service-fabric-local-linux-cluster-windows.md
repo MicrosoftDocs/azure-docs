@@ -1,15 +1,20 @@
 ---
 title: Set up Azure Service Fabric Linux cluster on Windows 
 description: This article covers how to set up Service Fabric Linux clusters running on Windows development machines. This approach is useful for cross platform development.  
-
-ms.topic: conceptual
-ms.date: 10/16/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
 # service-fabric-get-started-linux.md
 # service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
+# service-fabric-local-linux-cluster-windows-wsl2.md
 ---
+
 # Set up a Linux Service Fabric cluster on your Windows developer machine
 
 This document covers how to set up a local Linux Service Fabric cluster on a Windows development machine. Setting up a local Linux cluster is useful to quickly test applications targeted for Linux clusters but are developed on a Windows machine.
@@ -46,14 +51,14 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     * Apply & Restart - restart the Docker daemon for the changes to take effect.
 
 2. Start the cluster via PowerShell.<br/>
+    <b>Ubuntu 20.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u20
+    ```
+
     <b>Ubuntu 18.04 LTS:</b>
     ```powershell
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
-    ```
-
-    <b>Ubuntu 16.04 LTS:</b>
-    ```powershell
-    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
 
     >[!TIP]
@@ -128,6 +133,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  * Running container-based apps requires running SF on a Linux host. Nested container applications are currently not supported.
 
 ## Next steps
+* [Set up a Linux cluster on Windows via WSL2](service-fabric-local-linux-cluster-windows-wsl2.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * Get started with [Eclipse](./service-fabric-get-started-eclipse.md)
 * Check out other [Java samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)

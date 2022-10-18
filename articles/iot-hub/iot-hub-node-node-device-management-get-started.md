@@ -1,9 +1,9 @@
 ---
 title: Get started with Azure IoT Hub device management (Node) | Microsoft Docs
 description: How to use IoT Hub device management to initiate a remote device reboot. You use the Azure IoT SDK for Node.js to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
-author: wesmc7777
+author: kgremban
 
-ms.author: wesmc
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -15,37 +15,23 @@ ms.custom: mqtt, devx-track-js, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-This tutorial shows you how to:
+This article shows you how to create:
 
-* Use the [Azure portal](https://portal.azure.com) to create an IoT Hub and create a device identity in your IoT hub.
+* **dmpatterns_getstarted_device.js**: a simulated device app with a direct method that reboots the device and reports the last reboot time. Direct methods are invoked from the cloud.
 
-* Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
-
-* Create a Node.js console app that calls the reboot direct method in the simulated device app through your IoT hub.
-
-At the end of this tutorial, you have two Node.js console apps:
-
-* **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
-
-* **dmpatterns_getstarted_service.js**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
+* **dmpatterns_getstarted_service.js**: a .NET console app that calls the direct method in the simulated device app through your IoT hub. It displays the response and updated reported properties.
 
 ## Prerequisites
 
-* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
+* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this article on either Windows or Linux.
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
-
-## Create a simulated device app
+## Create a device app with a direct method
 
 In this section, you:
 
@@ -78,7 +64,7 @@ In this section, you:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Add a **connectionString** variable and use it to create a **Client** instance.  Replace the `{yourdeviceconnectionstring}` placeholder value with the device connection string you copied previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).  
+5. Add a **connectionString** variable and use it to create a **Client** instance.  Replace the `{yourdeviceconnectionstring}` placeholder value with the device connection string you saw when you registered a device in the IoT Hub:  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -143,7 +129,7 @@ In this section, you:
 8. Save and close the **dmpatterns_getstarted_device.js** file.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this article does not implement a retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 ## Get the IoT hub connection string
 
@@ -151,7 +137,7 @@ In this section, you:
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## Trigger a remote reboot on the device using a direct method
+## Create a service app to trigger a reboot
 
 In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 

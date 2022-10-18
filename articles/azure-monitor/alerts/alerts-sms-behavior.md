@@ -5,7 +5,8 @@ author: dkamstra
 ms.author: dukek
 services: monitoring
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 2/23/2022
+ms.reviewer: dukek
 ---
 
 # SMS Alert Behavior in Action Groups

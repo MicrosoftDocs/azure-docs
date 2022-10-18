@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/27/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.custom: contperf-fy22q2
 ---
@@ -14,7 +14,7 @@ ms.custom: contperf-fy22q2
 
 Organizations let you define a hierarchy that you use to manage which users can see which devices in your IoT Central application. The user's role determines their permissions over the devices they see, and the experiences they can access. Use organizations to implement a multi-tenanted application.
 
-Organizations is an optional feature that gives you more control over the [users and roles](howto-manage-users-roles.md) in your application.
+Organizations are an optional feature that gives you more control over the [users and roles](howto-manage-users-roles.md) in your application.
 
 Organizations are hierarchical:
 
@@ -31,13 +31,15 @@ When you give users access to your application, the higher in the hierarchy you 
 
 The following screenshot shows an organization hierarchy definition in IoT Central:
 
-:::image type="content" source="media/howto-create-organization/organizations-definition.png" alt-text="Screenshot of organizations hierarchy definition.":::
+:::image type="content" source="media/howto-create-organization/organizations-definition.png" alt-text="Screenshot of organizations hierarchy definition." lightbox="media/howto-create-organization/organizations-definition.png":::
+
+To learn how to manage organizations by using the IoT Central REST API, see [How to use the IoT Central REST API to manage organizations.](../core/howto-manage-organizations-with-rest-api.md)
 
 ## Create a hierarchy
 
-To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Administration** section in your IoT Central application, select the **Organizations** tab, and select either **+ New** or use the context menu for an existing organization. To create one or many organizations at a time, select **+ Add another organization**:
+To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Permissions** section in your IoT Central application, select the **Organizations** tab, and select either **+ New** or use the context menu for an existing organization. To create one or many organizations at a time, select **+ Add another organization**:
 
-:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an organization hierarchy.":::
+:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an organization hierarchy." lightbox="media/howto-create-organization/create-organizations-hierarchy.png":::
 
 > [!TIP]
 > The initial setup of organizations must be done by a member of the **App Administrator** role.
@@ -47,7 +49,7 @@ To reassign an organization to a new parent, select **Edit** and choose a new pa
 To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
 
 > [!TIP]
-> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.1-previewdataplane/organizations).
+> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/2022-07-31dataplane/organizations).
 
 ## Assign devices
 
@@ -59,7 +61,7 @@ When you create a new device in your application, assign it to an organization i
 
 To assign or reassign an existing device to an organization, select the device in the device list and then select **Organization**:
 
-:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how change the organization a device is associated with.":::
+:::image type="content" source="media/howto-create-organization/change-device-organization.png" alt-text="Screenshot that shows how to change the organization a device is associated with." lightbox="media/howto-create-organization/change-device-organization.png":::
 
 > [!TIP]
 > You can see which organization a device belongs to in the device list. Use the filter tool in the device list to show devices in a particular organization.
@@ -102,7 +104,7 @@ Then select the permissions for the role:
 
 After you've created your organization hierarchy and assigned devices to organizations, invite users to your application and assign them to organizations.
 
-To invite a user, navigate to **Administration > Users**. Enter their email address, the organization they're assigned to, and the role or roles the user is a member of. The organization you select filters the list of available roles to make sure you assign the user to a valid role:
+To invite a user, navigate to **Permissions > Users**. Enter their email address, the organization they're assigned to, and the role or roles the user is a member of. The organization you select filters the list of available roles to make sure you assign the user to a valid role:
 
 :::image type="content" source="media/howto-create-organization/assign-user-organization.png" alt-text="Screenshot that shows how to assign a user to an organization and role.":::
 
@@ -110,8 +112,8 @@ You can assign the same user to multiple organizations. The user can have a diff
 
 | Name | Role | Organization |
 | ---- | ---- | ------------ |
-| user1@contoso.com | Org Administrator | Contoso Inc/Lamna Health |
-| user1@contoso.com | Org Viewer | Contoso Inc/Adatum Solar |
+| user1@contoso.com | Org Administrator | Custom app |
+| user1@contoso.com | Org Viewer | Custom app |
 
 When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
@@ -135,7 +137,7 @@ You can set an organization as the default organization to use in your applicati
 
 To set the default organization, select **Settings** on the top menu bar:
 
-:::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization.":::
+:::image type="content" source="media/howto-create-organization/set-default-organization.png" alt-text="Screenshot that shows how to set your default organization." lightbox="media/howto-create-organization/set-default-organization.png":::
 
 
 ## Add organizations to an existing application
@@ -153,9 +155,9 @@ When you start adding organizations, all existing devices, users, and experience
 The following limits apply to organizations:
 
 - The hierarchy can be no more than five levels deep.
-- The total number of organization cannot be more than 200. Each node in the hierarchy counts as an organization.
+- The total number of organizations can't be more than 200. Each node in the hierarchy counts as an organization.
 
 
 ## Next steps
 
-Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
+Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is to learn how to  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).

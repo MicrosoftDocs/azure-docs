@@ -10,7 +10,7 @@ ms.date: 02/17/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: chuqiaoshi
 
 ms.collection: M365-identity-device-management
@@ -47,7 +47,7 @@ For more information about what happens when confirming compromise, see the sect
 
 ### Self-remediation with risk policy
 
-If you allow users to self-remediate, with Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure AD MFA and SSPR for use when risk is detected.
+If you allow users to self-remediate, with Azure AD multifactor authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure AD MFA and SSPR for use when risk is detected.
 
 Some detections may not raise risk to the level where a user self-remediation would be required but administrators should still evaluate these detections. Administrators may determine that extra measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
@@ -66,6 +66,8 @@ Administrators are given two options when resetting a password for their users:
 If a password reset isn't an option for you, you can choose to dismiss user risk detections.
 
 When you select **Dismiss user risk**, all events are closed and the affected user is no longer at risk. However, because this method doesn't have an impact on the existing password, it doesn't bring the related identity back into a safe state. 
+
+To **Dismiss user risk**, search for and select **Azure AD Risky users**, select the affected user, and select **Dismiss user(s) risk**.
 
 ### Close individual risk detections manually
 

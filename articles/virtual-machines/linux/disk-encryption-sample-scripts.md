@@ -46,7 +46,7 @@ This article provides sample scripts for preparing pre-encrypted VHDs and other 
    ```
 
 ### Using the Azure Disk Encryption prerequisites PowerShell script
-If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group.
+If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group.
 
 The following table shows which parameters can be used in the PowerShell script:
 
@@ -442,7 +442,7 @@ To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/m
 Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
 
 ### Disk encryption secret encrypted with a KEK
-Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/wrapkey) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/keys/wrap-key) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

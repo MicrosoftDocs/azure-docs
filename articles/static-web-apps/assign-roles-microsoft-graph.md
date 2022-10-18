@@ -31,7 +31,7 @@ In this tutorial, you learn to:
 
 ## Create a GitHub repository
 
-1. Navigate to the following location to create a new repository:
+1. Go to the following location to create a new repository:
     - [https://github.com/staticwebdev/roles-function/generate](https://github.com/login?return_to=/staticwebdev/roles-function/generate)
 
 1. Name your repository **my-custom-roles-app**.
@@ -40,7 +40,7 @@ In this tutorial, you learn to:
 
 ## Deploy the static web app to Azure
 
-1. In a new browser window, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+1. In a new browser window, go to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
 1. Select **Create a resource** in the top left corner.
 
@@ -61,7 +61,7 @@ In this tutorial, you learn to:
     | _Region_ | Select a region closest to you | |
     | _Deployment details_ | Select **GitHub** as the source | |
 
-1. Select the **Sign-in with GitHub** button and authenticate with GitHub.
+1. Select **Sign-in with GitHub** and authenticate with GitHub.
 
 1. Select the name of the _Organization_ where you created the repository.
 
@@ -86,7 +86,7 @@ In this tutorial, you learn to:
 
 ## Create an Azure Active Directory application
 
-1. In the Azure portal, search for and navigate to *Azure Active Directory*.
+1. In the Azure portal, search for and go to *Azure Active Directory*.
 
 1. In the menu bar, select **App registrations**.
 
@@ -139,7 +139,7 @@ In this tutorial, you learn to:
 
 ## Configure Active Directory authentication
 
-1. In a browser, open the GitHub repository containing the static web app you deployed. Navigate to the app's configuration file at *frontend/staticwebapp.config.json*. It contains the following section:
+1. In a browser, open the GitHub repository containing the static web app you deployed. Go to the app's configuration file at *frontend/staticwebapp.config.json*. It contains the following section:
 
     ```json
     "auth": {
@@ -165,36 +165,36 @@ In this tutorial, you learn to:
     > [!NOTE]
     > To obtain an access token for Microsoft Graph, the `loginParameters` field must be configured with `resource=https://graph.microsoft.com`.
 
-1. Select the **Edit** button to update the file.
+2. Select **Edit** to update the file.
 
-1. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
+3. Update the *openIdIssuer* value of `https://login.microsoftonline.com/<YOUR_AAD_TENANT_ID>` by replacing `<YOUR_AAD_TENANT_ID>` with the directory (tenant) ID of your Azure Active Directory.
 
-1. Select **Commit directly to the main branch** and select **Commit changes**.
+4. Select **Commit directly to the main branch** and select **Commit changes**.
 
-1. A GitHub Actions run triggers to update the static web app.
+5. A GitHub Actions run triggers to update the static web app.
 
-1. Navigate to your static web app resource in the Azure portal.
+6. Go to your static web app resource in the Azure portal.
 
-1. Select **Configuration** in the menu bar.
+7. Select **Configuration** in the menu bar.
 
-1. In the *Application settings* section, add the following settings:
+8. In the *Application settings* section, add the following settings:
 
     | Name | Value |
     |------|-------|
     | `AAD_CLIENT_ID` | *Your Active Directory application (client) ID* |
     | `AAD_CLIENT_SECRET` | *Your Active Directory application client secret value* |
 
-1. Select **Save**.
+9. Select **Save**.
 
 ## Verify custom roles
 
 The sample application contains a serverless function (*api/GetRoles/index.js*) that queries Microsoft Graph to determine if a user is in a pre-defined group. Based on the user's group memberships, the function assigns custom roles to the user. The application is configured to restrict certain routes based on these custom roles.
 
-1. In your GitHub repository, navigate to the *GetRoles* function located at *api/GetRoles/index.js*. Near the top, there is a `roleGroupMappings` object that maps custom user roles to Azure Active Directory groups.
+1. In your GitHub repository, go to the *GetRoles* function located at *api/GetRoles/index.js*. Near the top, there is a `roleGroupMappings` object that maps custom user roles to Azure Active Directory groups.
 
-1. Click the **Edit** button.
+2. Select **Edit**.
 
-1. Update the object with group IDs from your Azure Active Directory tenant.
+3. Update the object with group IDs from your Azure Active Directory tenant.
 
     For instance, if you have groups with IDs `6b0b2fff-53e9-4cff-914f-dd97a13bfbd6` and `b6059db5-9cef-4b27-9434-bb793aa31805`, you would update the object to:
 
@@ -209,15 +209,18 @@ The sample application contains a serverless function (*api/GetRoles/index.js*) 
     
     In the above example, if a user is a member of the Active Directory group with ID `b6059db5-9cef-4b27-9434-bb793aa31805`, they are granted the `reader` role.
 
-1. Select **Commit directly to the main branch** and select **Commit changes**.
+4. Select **Commit directly to the main branch** and select **Commit changes**.
 
-1. A GitHub Actions run triggers to update the static web app.
+5. A GitHub Actions run triggers to update the static web app.
 
-1. When the deployment is complete, you can verify your changes by navigating to the app's URL.
+6. When the deployment is complete, you can verify your changes by navigating to the app's URL.
 
-1. Log in to your static web app using Azure Active Directory.
+7. Log in to your static web app using Azure Active Directory.
 
-1. When you are logged in, the sample app displays the list of roles that you are assigned based on your identity's Active Directory group membership. Depending on these roles, you are permitted or prohibited to access some of the routes in the app.
+8. When you are logged in, the sample app displays the list of roles that you are assigned based on your identity's Active Directory group membership. Depending on these roles, you are permitted or prohibited to access some of the routes in the app.
+
+> [!NOTE]
+> Some queries against Microsoft Graph return multiple pages of data. When more than one query request is required, Microsoft Graph returns an `@odata.nextLink` property in the response which contains a URL to the next page of results. For more details please refer to [Paging Microsoft Graph data in your app](/graph/paging)
 
 ## Clean up resources
 

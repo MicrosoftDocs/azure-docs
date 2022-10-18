@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -60,12 +60,32 @@ The following reports are available in the app.
 
 **Getting Started** - Provides useful links to documentation and links to provide feedback.
 
-**Account overview** - The report shows a monthly summary of information, including:
+**Account overview** - The report shows the current billing month summary of information, including:
 
 - Charges against credits
 - New purchases
 - Azure Marketplace charges
 - Overages and total charges
+
+The Billing account overview page might show costs that differ from costs shown in the EA portal. 
+
+>[!NOTE]
+>The **Select date range** selector doesn’t affect or change overview tiles. Instead, the overview tiles show the costs for the current billing month. This behavior is intentional.
+
+Data shown in the bar graph is determined by the date selection.
+
+Here's how values in the overview tiles are calculated.
+
+- The value shown in the **Charges against credit** tile is calculated as the sum of `adjustments`.
+- The value shown in the **Service overage** tile is calculated as the sum of `ServiceOverage`.
+- The value shown in the **Billed separately** tile is calculated as the sum of `chargesBilledseparately`.
+- The value shown in the **Azure Marketplace** tile is calculated as the sum of `azureMarketplaceServiceCharges`.
+- The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
+- The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
+
+The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
+ 
+The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
 
 **Usage by Subscriptions and Resource Groups** - Provides a cost over time view and charts showing cost by subscription and resource group.
 

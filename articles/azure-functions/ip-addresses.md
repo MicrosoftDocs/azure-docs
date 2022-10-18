@@ -35,6 +35,14 @@ Use the `nslookup` utility from your local client computer:
 nslookup <APP_NAME>.azurewebsites.net
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the `nslookup` utility from your local client computer:
+
+```powershell
+nslookup <APP_NAME>.azurewebsites.net
+```
+
 ---
 
 ## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
@@ -56,6 +64,15 @@ To find the outbound IP addresses available to a function app:
 az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query outboundIpAddresses --output tsv
 az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query possibleOutboundIpAddresses --output tsv
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$functionApp = Get-AzFunctionApp -ResourceGroupName <GROUP_NAME> -Name <APP_NAME>
+$functionApp.OutboundIPAddress
+$functionApp.PossibleOutboundIPAddress
+```
+
 ---
 
 The set of `outboundIpAddresses` is currently available to the function app. The set of `possibleOutboundIpAddresses` includes IP addresses that will be available only if the function app [scales to other pricing tiers](#outbound-ip-address-changes).
@@ -69,7 +86,7 @@ If you need to add the outbound IP addresses used by your function apps to an al
 
 For example, the following JSON fragment is what the allowlist for Western Europe might look like:
 
-```
+```json
 {
   "name": "AzureCloud.westeurope",
   "id": "AzureCloud.westeurope",
@@ -146,7 +163,7 @@ For full control over the IP addresses, both inbound and outbound, we recommend 
 
 To find out if your function app runs in an App Service Environment:
 
-# [Azure Porta](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.
@@ -156,7 +173,14 @@ To find out if your function app runs in an App Service Environment:
 # [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
+az resource show --resource-group <GROUP_NAME> --name <APP_NAME> --resource-type Microsoft.Web/sites --query properties.sku --output tsv
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$functionApp = Get-AzResource -ResourceGroupName <GROUP_NAME> -ResourceName <APP_NAME> -ResourceType Microsoft.Web/sites 
+$functionApp.Properties.sku
 ```
 
 ---

@@ -2,7 +2,7 @@
 title: Set resource dependencies in Bicep
 description: Describes how to specify the order resources are deployed.
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 10/05/2022
 ---
 
 # Resource dependencies in Bicep
@@ -44,6 +44,12 @@ resource myParent 'My.Rp/parentType@2020-01-01' = {
 }
 ```
 
+A resource that includes the [parent](./child-resource-name-type.md) property has an implicit dependency on the parent resource. It depends on the parent resource, not any of its other child resources.
+
+The following example shows a storage account and file service. The file service has an implicit dependency on the storage account.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" range="1-13":::
+
 When an implicit dependency exists, **don't add an explicit dependency**.
 
 For more information about nested resources, see [Set name and type for child resources in Bicep](./child-resource-name-type.md).
@@ -69,7 +75,7 @@ resource otherZone 'Microsoft.Network/dnszones@2018-05-01' = {
 }
 ```
 
-While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. You can't query which resources were defined in the `dependsOn` element after deployment. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
+While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. After deployment, the resource doesn't retain deployment dependencies in its properties, so there are no commands or operations that let you see dependencies. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
 
 Even though explicit dependencies are sometimes required, the need for them is rare. In most cases, you can use a symbolic name to imply the dependency between resources. If you find yourself setting explicit dependencies, you should consider if there's a way to remove it.
 

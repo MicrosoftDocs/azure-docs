@@ -4,8 +4,8 @@ description: Deploy the Chef Client to a virtual machine using the Chef VM Exten
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.author: amjads
-author: amjads1
+ms.author: gabsta
+author: MsGabsta
 ms.collection: linux
 ms.date: 09/21/2018
 ---

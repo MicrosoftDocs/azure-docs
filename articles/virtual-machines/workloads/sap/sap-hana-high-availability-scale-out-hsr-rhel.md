@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/11/2022
+ms.date: 05/10/2022
 ms.author: radeltch
 
 ---
@@ -22,7 +22,6 @@ ms.author: radeltch
 
 [anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
@@ -81,7 +80,6 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
   * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
-* [NetApp SAP applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].
 * [Azure NetApp Files documentation][anf-azure-doc]. 
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
@@ -269,18 +267,15 @@ Configure and prepare your operating system by doing the following:
      10.23.1.207 hana-s2-db3-hsr
     ```
 
-1. **[A]** Prepare the operating system for running SAP HANA. For more information, see [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the Azure NetApp Files configuration settings.  
+1. **[A]** Prepare the operating system for running SAP HANA. For more information, see SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the Azure NetApp Files configuration settings.  
 
     <pre><code>
-    vi /etc/sysctl.d/netapp-hana.conf
+    vi /etc/sysctl.d/91-NetApp-HANA.conf
     # Add the following entries in the configuration file
     net.core.rmem_max = 16777216
     net.core.wmem_max = 16777216
-    net.core.rmem_default = 16777216
-    net.core.wmem_default = 16777216
-    net.core.optmem_max = 16777216
-    net.ipv4.tcp_rmem = 65536 16777216 16777216
-    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.ipv4.tcp_rmem = 4096 131072 16777216
+    net.ipv4.tcp_wmem = 4096 16384 16777216
     net.core.netdev_max_backlog = 300000 
     net.ipv4.tcp_slow_start_after_idle=0 
     net.ipv4.tcp_no_metrics_save = 1
@@ -304,7 +299,7 @@ Configure and prepare your operating system by doing the following:
     > [!TIP]
     > Avoid setting `net.ipv4.ip_local_port_range` and `net.ipv4.ip_local_reserved_ports` explicitly in the `sysctl` configuration files, to allow the SAP host agent to manage the port ranges. For more details, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-1. **[A]** Adjust the `sunrpc` settings, as recommended in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
+1. **[A]** Adjust the `sunrpc` settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).    
 
     <pre><code>
     vi /etc/modprobe.d/sunrpc.conf

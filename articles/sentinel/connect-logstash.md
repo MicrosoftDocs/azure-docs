@@ -69,7 +69,7 @@ Use the information in the Logstash [Structure of a config file](https://www.ela
 | `amount_resizing` | boolean | True or false. Enable or disable the automatic scaling mechanism, which adjusts the message buffer size according to the volume of log data received. |
 | `max_items` | number | Optional field. Applies only if `amount_resizing` set to "false." Use to set a cap on the message buffer size (in records). The default is 2000.  |
 | `azure_resource_id` | string | Optional field. Defines the ID of the Azure resource where the data resides. <br>The resource ID value is especially useful if you are using [resource-context RBAC](resource-context-rbac.md) to provide access to specific data only. |
-| | | |
+
 
 > [!TIP]
 > - You can find the workspace ID and primary key in the workspace resource, under **Agents management**.

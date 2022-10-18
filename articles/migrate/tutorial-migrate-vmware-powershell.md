@@ -146,7 +146,7 @@ You can specify the replication properties as follows.
  Target VM size | Mandatory | Specify the Azure VM size to be used for the replicating VM by using (`TargetVMSize`) parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for (`TargetVMSize`) as "Standard_D2_v2". 
  License | Mandatory | To use Azure Hybrid Benefit for your Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, specify the value for (`LicenseType`) parameter as **WindowsServer**. Otherwise, specify the value as **NoLicenseType**. 
  OS Disk | Mandatory | Specify the unique identifier of the disk that has the operating system bootloader and installer. The disk ID to be used is the unique identifier (UUID) property for the disk retrieved using the [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver) cmdlet.
- Disk Type | Mandatory | Specify the name of the load balancer to be created. 
+ Disk Type | Mandatory | Specify the type of disk to be used. 
  Infrastructure redundancy | Optional | Specify infrastructure redundancy option as follows. <br/><br/> - **Availability Zone** to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. This option is only available if the target region selected for the migration supports Availability Zones. To use availability zones, specify the availability zone value for (`TargetAvailabilityZone`) parameter. <br/> - **Availability Set** to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set ID for (`TargetAvailabilitySet`) parameter. 
  Boot Diagnostic Storage Account | Optional | To use a boot diagnostic storage account, specify the ID for (`TargetBootDiagnosticStorageAccount`) parameter. <br/> - The storage account used for boot diagnostics should be in the same subscription that you're migrating your VMs to. <br/> - By default, no value is set for this parameter. 
  Tags | Optional | Add tags to your migrated virtual machines, disks, and NICs. <br/>  Use (`Tag`) to add tags to virtual machines, disks, and NICs. <br/> or <br/> Use (`VMTag`) for adding tags to your migrated virtual machines.<br/> Use (`DiskTag`) for adding tags to disks. <br/> Use (`NicTag`) for adding tags to network interfaces. <br/> For example, add the required tags to a variable $tags and pass the variable in the required parameter.  $tags = @{Organization=”Contoso”}
@@ -328,7 +328,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## 10. Update properties of a replicating VM
 
-[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
+[Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 
@@ -498,8 +498,7 @@ Write-Output $MigrateJob.State
    # Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
    Write-Output $StopReplicationJob.State
    ```
-
-1. Install the [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines if the machine has Linux OS. We automatically install the VM agent for Windows VMs during migration.
+   
 1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 1. Cut over traffic to the migrated Azure VM instance.
@@ -515,7 +514,7 @@ Write-Output $MigrateJob.State
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
 -  Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

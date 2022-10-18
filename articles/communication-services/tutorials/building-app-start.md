@@ -232,12 +232,12 @@ Paste this code into `index.html`:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My first ACS application</title>
+    <title>My first Azure Communication Services application</title>
     <link rel="stylesheet" href="./app.css"/>
     <script src="./app.js" defer></script>
 </head>
 <body>
-    <h1>Hello from ACS!</h1>
+    <h1>Hello from Azure Communication Services!</h1>
 </body>
 </html>
 ```

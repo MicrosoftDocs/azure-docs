@@ -1,11 +1,11 @@
 ---
 title: Resources for creating Microsoft Sentinel custom connectors | Microsoft Docs
 description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
-author: batamig
+author: limwainstein
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/21/2021
-ms.author: bagol
+ms.author: lwainstein
 ---
 
 # Resources for creating Microsoft Sentinel custom connectors
@@ -31,7 +31,7 @@ The following table compares essential details about each method for creating cu
 |**[PowerShell](#connect-with-powershell)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
 |**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
 |**[Azure Functions](#connect-with-azure-functions)** <br>Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
-|     |         |                |
+
 
 > [!TIP]
 > For comparisons of using Logic Apps and Azure Functions for the same connector, see:
@@ -95,7 +95,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom c
     |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
     |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](../logic-apps/logic-apps-http-endpoint.md).        |
     |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](../connectors/connectors-native-http.md).       |
-    |     |         |
+
 
 1. **Use any of the Logic App connectors that read information to get your events**. For example:
 
@@ -152,7 +152,7 @@ The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/pa
 |**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, and adheres to resource-centric, role-based access control.       |
 |**AdditionalDataTaggingName**     |      When this parameter exists, the script adds another field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
 |**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds another field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
-|     |         |
+
 
 ### Find your workspace ID and key
 

@@ -16,11 +16,11 @@ This article outlines some of the frequently asked questions and OS concepts for
 
 ## Which Windows operating systems are supported?
 
-AKS uses Windows Server 2019 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat].
+AKS uses Windows Server 2019 and Windows Server 2022 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat].
 
 ## Is Kubernetes different on Windows and Linux?
 
-Windows Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on the upstream support for Windows Server in Kubernetes, see the [Supported functionality and limitations][upstream-limitations] section of the [Intro to Windows support in Kubernetes][intro-windows] document, from the Kubernetes project.
+Windows Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on the upstream support from the Kubernetes project, see the [Supported functionality and limitations][upstream-limitations] section of the [Intro to Windows support in Kubernetes][intro-windows] document.
 
 Historically, Kubernetes is Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS level apply:
 
@@ -32,7 +32,7 @@ Historically, Kubernetes is Linux-focused. Many examples used in the upstream [K
 
 ## What kind of disks are supported for Windows?
 
-Azure Disks and Azure Files are the supported volume types. These are accessed as NTFS volumes in the Windows Server container.
+Azure Disks and Azure Files are the supported volume types, and are accessed as NTFS volumes in the Windows Server container.
 
 ## Can I run Windows only clusters in AKS?
 
@@ -40,15 +40,14 @@ The master nodes (the control plane) in an AKS cluster are hosted by the AKS ser
 
 ## How do I patch my Windows nodes?
 
-To get the latest patches for Windows nodes, you can either [upgrade the node pool][nodepool-upgrade] or [upgrade the node image][upgrade-node-image]. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, and it's the user's responsibility to upgrade node pools to stay current on patches and hotfixes. This is also true for the Kubernetes version being used. [AKS release notes][aks-release-notes] indicate when new versions are available. For more information on upgrading the entire Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade]. If you're only interested in updating the node image, see [AKS node image upgrades][upgrade-node-image].
+To get the latest patches for Windows nodes, you can either [upgrade the node pool][nodepool-upgrade] or [upgrade the node image][upgrade-node-image]. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, and it's the user's responsibility to upgrade node pools to stay current on patches and hotfixes. This patch process is also true for the Kubernetes version being used. [AKS release notes][aks-release-notes] indicate when new versions are available. For more information on upgrading the Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade]. If you're only interested in updating the node image, see [AKS node image upgrades][upgrade-node-image].
 
 > [!NOTE]
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool.
->
 
 ## What network plug-ins are supported?
 
-AKS clusters with Windows node pools must use the Azure Container Networking Interface (Azure CNI) (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. The Azure CNI network model requires additional planning and consideration for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+AKS clusters with Windows node pools must use the Azure Container Networking Interface (Azure CNI) (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. The Azure CNI network model requires extra planning and consideration for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
 
 Windows nodes on AKS clusters also have [Direct Server Return (DSR)][dsr] enabled by default when Calico is enabled.
 
@@ -81,6 +80,8 @@ Instead of service principals, use managed identities, which are essentially wra
 
 ## How do I change the administrator password for Windows Server nodes on my cluster?
 
+### [Azure CLI](#tab/azure-cli)
+
 When you create your AKS cluster, you specify the `--windows-admin-password` and `--windows-admin-username` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you didn't specify administrator credentials when you created a cluster by using the Azure portal or when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure` by using the Azure CLI, the username defaults to *azureuser* and a randomized password.
 
 To change the administrator password, use the `az aks update` command:
@@ -97,13 +98,32 @@ az aks update \
 > 
 > When you're changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+When you create your AKS cluster, you specify the `-WindowsProfileAdminUserPassword` and `-WindowsProfileAdminUserName` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you didn't specify administrator credentials when you created a cluster by using the Azure portal or when setting `-NodeVmSetType VirtualMachineScaleSets` and `-NetworkPlugin azure` by using the Azure PowerShell, the username defaults to *azureuser* and a randomized password.
+
+To change the administrator password, use the `Set-AzAksCluster` command:
+
+```azurepowershell
+$cluster = Get-AzAksCluster -ResourceGroupName $RESOURCE_GROUP -Name $CLUSTER_NAME
+$cluster.WindowsProfile.AdminPassword = $NEW_PW
+$cluster | Set-AzAksCluster
+```
+
+> [!IMPORTANT]
+> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools. Linux node pools are not affected.
+> 
+> When you're changing the Windows administrator password, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
+
+---
+
 ## How many node pools can I create?
 
 The AKS cluster can have a maximum of 100 node pools. You can have a maximum of 1,000 nodes across those node pools. For more information, see [Node pool limitations][nodepool-limitations].
 
 ## What can I name my Windows node pools?
 
-Keep names to a maximum of six characters. This is the current limitation of AKS.
+A Windows node pool can have a six-character name.
 
 ## Are all features supported with Windows nodes?
 
@@ -115,7 +135,7 @@ Yes, an ingress controller that supports Windows Server containers can run on Wi
 
 ## Can my Windows Server containers use gMSA?
 
-Group-managed service account (gMSA) support is currently unavailable in AKS.
+Group-managed service account (gMSA) support is generally available for Windows on AKS. See [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](use-group-managed-service-accounts.md)
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 
@@ -129,9 +149,9 @@ A cluster with Windows nodes can have approximately 500 services before it encou
 
 Yes. Azure Hybrid Benefit for Windows Server reduces operating costs by letting you bring your on-premises Windows Server license to AKS Windows nodes.
 
-Azure Hybrid Benefit can be used on your entire AKS cluster or on individual nodes. For individual nodes, you need to browse to the [node resource group][resource-groups] and apply the Azure Hybrid Benefit to the nodes directly. For more information on applying Azure Hybrid Benefit to individual nodes, see [Azure Hybrid Benefit for Windows Server][hybrid-vms]. 
+Azure Hybrid Benefit can be used on your entire AKS cluster or on individual nodes. For individual nodes, you need to browse to the [node resource group][resource-groups] and apply the Azure Hybrid Benefit to the nodes directly. For more information on applying Azure Hybrid Benefit to individual nodes, see [Azure Hybrid Benefit for Windows Server][hybrid-vms].
 
-To use Azure Hybrid Benefit on a new AKS cluster, use the `--enable-ahub` argument.
+To use Azure Hybrid Benefit on a new AKS cluster, run the `az aks create` command and use the `--enable-ahub` argument.
 
 ```azurecli
 az aks create \
@@ -144,7 +164,7 @@ az aks create \
     --enable-ahub
 ```
 
-To use Azure Hybrid Benefit on an existing AKS cluster, update the cluster by using the `--enable-ahub` argument.
+To use Azure Hybrid Benefit on an existing AKS cluster, run the `az aks update` command and use the update the cluster by using the `--enable-ahub` argument.
 
 ```azurecli
 az aks update \
@@ -153,19 +173,20 @@ az aks update \
     --enable-ahub
 ```
 
-To check if Azure Hybrid Benefit is set on the cluster, use the following command:
+To check if Azure Hybrid Benefit is set on the Windows nodes in the cluster, run the `az vmss show` command with the `--name` and `--resource-group` arguments to query the virtual machine scale set. To identify the resource group the scale set for the Windows node pool is created in, you can run the `az vmss list -o table` command.
 
 ```azurecli
-az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+az vmss show --name myScaleSet --resource-group MC_<resourceGroup>_<clusterName>_<region>
 ```
 
-If the cluster has Azure Hybrid Benefit enabled, the output of `az vmss show` will be similar to the following:
+If the Windows nodes in the scale set have Azure Hybrid Benefit enabled, the output of `az vmss show` will be similar to the following:
 
 ```console
-"platformFaultDomainCount": 1,
-  "provisioningState": "Succeeded",
-  "proximityPlacementGroup": null,
-  "resourceGroup": "MC_CLUSTERNAME"
+""hardwareProfile": null,
+    "licenseType": "Windows_Server",
+    "networkProfile": {
+      "healthProbe": null,
+      "networkApiVersion": null,
 ```
 
 ## How do I change the time zone of a running container?
@@ -188,16 +209,12 @@ To see the current time zone of the running container or an available list of ti
 
 Although maintaining session affinity from client connections to pods with Windows containers will be supported in the Windows Server 2022 OS version, you achieve session affinity by client IP currently by limiting your desired pod to run a single instance per node and configuring your Kubernetes service to direct traffic to the pod on the local node. 
 
-Use the following configuration: 
+Use the following configuration:
 
 1. Use an AKS cluster running a minimum version of 1.20.
 1. Constrain your pod to allow only one instance per Windows node. You can achieve this by using anti-affinity in your deployment configuration.
 1. In your Kubernetes service configuration, set **externalTrafficPolicy=Local**. This ensures that the Kubernetes service directs traffic only to pods within the local node.
 1. In your Kubernetes service configuration, set **sessionAffinity: ClientIP**. This ensures that the Azure Load Balancer gets configured with session affinity.
-
-## What if I need a feature that's not supported?
-
-If you encounter feature gaps, the open-source, upstream [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. For more information, see [AKS roadmap][aks-roadmap].
 
 ## Next steps
 
@@ -205,7 +222,6 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 
 <!-- LINKS - external -->
 [kubernetes]: https://kubernetes.io
-[aks-engine]: https://github.com/azure/aks-engine
 [upstream-limitations]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations
 [intro-windows]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/
 [aks-roadmap]: https://github.com/Azure/AKS/projects/1
@@ -215,7 +231,7 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[windows-node-cli]: windows-container-cli.md
+[windows-node-cli]: ./learn/quick-windows-container-deploy-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [upgrade-cluster]: upgrade-cluster.md

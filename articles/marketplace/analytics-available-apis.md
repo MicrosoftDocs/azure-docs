@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 3/08/2021
+ms.date: 03/14/2022
 ---
 
 # APIs for accessing commercial marketplace analytics data
@@ -21,27 +21,25 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 
 ## Dataset pull APIs
 
-***Table 1: Dataset pull APIs***
+**Table 1: Dataset pull APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
 | [Get all datasets](analytics-api-get-all-datasets.md) | Gets all the available datasets. Datasets list the tables, columns, metrics, and time ranges. |
-|||
 
 ## Query management APIs
 
-***Table 2: Query management APIs***
+**Table 2: Query management APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
 | [Create Report Query](analytics-programmatic-access.md#create-report-query-api) | Creates custom queries that define the dataset from which columns and metrics need to be exported. |
 | [GET Report Queries](analytics-api-get-report-queries.md) | Gets all the queries available for use in reports. Gets all the system and user-defined queries by default. |
 | [DELETE Report Queries](analytics-api-delete-report-queries.md) | Deletes user-defined queries. |
-|||
 
 ## Report management APIs
 
-***Table 3: Report management APIs***
+**Table 3: Report management APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
@@ -52,16 +50,14 @@ Following are the list of APIs for accessing commercial marketplace analytics da
 | [Delete Report](analytics-api-delete-report.md) | Deletes all the report and report execution records. |
 | [Pause Report Executions](analytics-api-pause-report-executions.md) | Pauses the scheduled execution of reports. |
 | [Resume Report Executions](analytics-api-resume-report-executions.md) | Resumes the scheduled execution of a paused report. |
-|||
 
 ## Report execution pull APIs
 
-***Table 4: Report execution pull APIs***
+**Table 4: Report execution pull APIs**
 
 | **API** | **Functionality** |
 | --- | --- |
 | [Get Report Executions](analytics-programmatic-access.md#get-report-executions-api) | Get all the executions that have happened for a given report. |
-|||
 
 ## Next steps
 

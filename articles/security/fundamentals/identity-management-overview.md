@@ -7,8 +7,8 @@ author: TerryLanfear
 manager: rkarlin
 
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -77,7 +77,7 @@ Azure AD Multi-Factor Authentication is a method of authentication that requires
 
 Learn more:
 
-* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [Multi-Factor Authentication](/azure/multi-factor-authentication/)
 * [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [How Azure AD Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
@@ -178,7 +178,7 @@ Microsoft’s identity solutions span on-premises and cloud-based capabilities, 
 Learn more:
 
 * [Hybrid identity white paper](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
-* [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
+* [Azure Active Directory](../../active-directory/index.yml)
 * [Azure AD team blog](https://blogs.technet.microsoft.com/ad/)
 
 ## Azure AD access reviews

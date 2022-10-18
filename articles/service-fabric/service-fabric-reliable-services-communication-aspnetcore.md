@@ -2,8 +2,11 @@
 title: Service communication with the ASP.NET Core 
 description: Learn how to use ASP.NET Core in stateless and stateful Azure Service Fabric Reliable Services applications.
 ms.topic: conceptual
-ms.date: 10/12/2018
-ms.custom: devx-track-csharp
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # ASP.NET Core in Azure Service Fabric Reliable Services
@@ -326,6 +329,155 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
 
 For HTTPS, it should have the Endpoint configured with HTTPS protocol without a port specified in ServiceManifest.xml and pass the endpoint name to KestrelCommunicationListener constructor.
+
+
+## IHost and Minimal Hosting integration
+In addition to IWebHost/IWebHostBuilder, `KestrelCommunicationListener` and `HttpSysCommunicationListener` support building ASP.NET Core services using IHost/IHostBuilder.
+This is available starting v5.2.1363 of `Microsoft.ServiceFabric.AspNetCore.Kestrel` and `Microsoft.ServiceFabric.AspNetCore.HttpSys` packages.
+
+```csharp
+// Stateless Service
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    return new ServiceInstanceListener[]
+    {
+        new ServiceInstanceListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                return Host.CreateDefaultBuilder()
+                        .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                            webBuilder.UseKestrel()
+                                .UseStartup<Startup>()
+                                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                                .UseContentRoot(Directory.GetCurrentDirectory())
+                                .UseUrls(url);
+                        })
+                        .ConfigureServices(services => services.AddSingleton<StatelessServiceContext>(serviceContext))
+                        .Build();
+            }))
+    };
+}
+
+```
+
+```csharp
+// Stateful Service
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new ServiceReplicaListener[]
+    {
+        new ServiceReplicaListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                return Host.CreateDefaultBuilder()
+                        .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                            webBuilder.UseKestrel()
+                                .UseStartup<Startup>()
+                                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                                .UseContentRoot(Directory.GetCurrentDirectory())
+                                .UseUrls(url);
+                        })
+                        .ConfigureServices(services =>
+                        {
+                            services.AddSingleton<StatefulServiceContext>(serviceContext);
+                            services.AddSingleton<IReliableStateManager>(this.StateManager);
+                        })
+                        .Build();
+            }))
+    };
+}
+```
+
+
+>[!NOTE]
+> As KestrelCommunicationListener and HttpSysCommunicationListener are meant for web services, it is required to register/configure a web server (using [ConfigureWebHostDefaults](/dotnet/api/microsoft.extensions.hosting.generichostbuilderextensions.configurewebhostdefaults) or [ConfigureWebHost](/dotnet/api/microsoft.extensions.hosting.generichostwebhostbuilderextensions.configurewebhost) method) over the IHost
+
+
+ASP.NET 6 introduced the Minimal Hosting model which is a more simplified and streamlined way of creating web applications. Minimal hosting model can also be used with KestrelCommunicationListener and HttpSysCommunicationListener.
+
+```csharp
+// Stateless Service
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    return new ServiceInstanceListener[]
+    {
+        new ServiceInstanceListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                var builder = WebApplication.CreateBuilder();
+
+                builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
+                builder.WebHost
+                            .UseKestrel()
+                            .UseContentRoot(Directory.GetCurrentDirectory())
+                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                            .UseUrls(url);
+
+                builder.Services.AddControllersWithViews();
+
+                var app = builder.Build();
+
+                if (!app.Environment.IsDevelopment())
+                {
+                    app.UseExceptionHandler("/Home/Error");
+                }
+
+                app.UseHttpsRedirection();
+                app.UseStaticFiles();
+                app.UseRouting();
+                app.UseAuthorization();
+                app.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                return app;
+            }))
+    };
+}
+```
+
+```csharp
+// Stateful Service
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new ServiceReplicaListener[]
+    {
+        new ServiceReplicaListener(serviceContext =>
+            new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                var builder = WebApplication.CreateBuilder();
+
+                builder.Services
+                            .AddSingleton<StatefulServiceContext>(serviceContext)
+                            .AddSingleton<IReliableStateManager>(this.StateManager);
+                builder.WebHost
+                            .UseKestrel()
+                            .UseContentRoot(Directory.GetCurrentDirectory())
+                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                            .UseUrls(url);
+
+                builder.Services.AddControllersWithViews();
+
+                var app = builder.Build();
+
+                if (!app.Environment.IsDevelopment())
+                {
+                    app.UseExceptionHandler("/Home/Error");
+                }
+                app.UseStaticFiles();
+                app.UseRouting();
+                app.UseAuthorization();
+                app.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                return app;
+            }))
+    };
+}
+```
 
 
 ## Service Fabric configuration provider

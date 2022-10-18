@@ -1,11 +1,9 @@
 ---
 title: Create a function that integrates with Azure Logic Apps
 description: Create a function integrate with Azure Logic Apps and Azure Cognitive Services. The resulting workflow categorizes tweet sentiments sends email notifications.
-author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/10/2021
-ms.author: cshoe
 ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47"
 ---

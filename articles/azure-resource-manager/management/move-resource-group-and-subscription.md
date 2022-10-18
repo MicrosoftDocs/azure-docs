@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 08/15/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -65,6 +65,8 @@ There are some important steps to do before moving a resource. By verifying thes
 
    * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+
+1. If you're attempting to move resources to or from a Cloud Solution Provider (CSP) partner, see [Transfer Azure subscriptions between subscribers and CSPs](../../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md).
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
@@ -193,7 +195,7 @@ To move to a new subscription, include a value for the `DestinationSubscriptionI
 
 ### Validate
 
-To test your move scenario without actually moving the resources, use the [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) command. Use this command only when you need to predetermine the results. To run this operation, you need the:
+To test your move scenario without actually moving the resources, use the [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action) command. Use this command only when you need to predetermine the results. To run this operation, you need the:
 
 * Resource ID of the source resource group
 * Resource ID of the target resource group
@@ -217,7 +219,7 @@ If validation fails, you see an error message describing why the resources can't
 
 ### Move
 
-To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource#az_resource_move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
+To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

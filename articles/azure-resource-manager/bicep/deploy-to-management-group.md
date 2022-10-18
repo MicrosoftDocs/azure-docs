@@ -11,9 +11,9 @@ This article describes how to set scope with Bicep when deploying to a managemen
 
 As your organization matures, you can deploy a Bicep file to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).
 
 ## Supported resources
 
@@ -67,7 +67,7 @@ To deploy to a management group, use the management group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
+For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
 ```azurecli-interactive
 az deployment mg create \

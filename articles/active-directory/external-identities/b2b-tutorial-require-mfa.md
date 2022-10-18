@@ -11,7 +11,6 @@ ms.date: 01/07/2022
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
@@ -131,6 +130,9 @@ To complete the scenario in this tutorial, you need:
 1. You should see a request for additional authentication methods. Note that it could take some time for the policy to take effect.
 
     ![Screenshot showing the More information required message](media/tutorial-mfa/mfa-required.png)
+
+    > [!NOTE]
+    > You also can configure [cross-tenant access settings](cross-tenant-access-overview.md) to trust the MFA from the Azure AD home tenant. This allows external Azure AD users to use the MFA registered in their own tenant rather than register in the resource tenant.
 
 1. Sign out.
 

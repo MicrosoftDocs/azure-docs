@@ -14,7 +14,7 @@ ms.date: 01/04/2022
 
 Learn which Azure resource types Azure Load Testing Preview supports for server-side monitoring. You can select specific metrics for each resource type to track and report on for a load test.
 
-To learn how to configure your load test, see [Monitor server-side application metrics](./how-to-update-rerun-test.md).
+To learn how to configure your load test, see [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -50,6 +50,6 @@ This section lists the Azure resource types that Azure Load Testing supports for
 
 ## Next steps
 
-* Learn how to [Monitor server-side application metrics](./how-to-update-rerun-test.md).
+* Learn how to [Monitor server-side application metrics](./how-to-monitor-server-side-metrics.md).
 * Learn how to [Get more insights from App Service diagnostics](./how-to-appservice-insights.md).
 * Learn how to [Compare multiple test runs](./how-to-compare-multiple-test-runs.md).

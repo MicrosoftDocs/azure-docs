@@ -1,27 +1,24 @@
 ---
-title: FHIR destination mappings in IoT connector - Azure Healthcare APIs
-description: This article describes how to configure and use the FHIR destination mappings in Azure Healthcare APIs IoT connector. 
+title: FHIR destination mappings in the MedTech service - Azure Health Data Services
+description: This article describes how to configure and use the FHIR destination mappings in Azure Health Data Services MedTech service. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 07/07/2022
 ms.author: jasteppe
 ---
 
 # How to use the FHIR destination mappings
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This article describes how to configure IoT connector using the Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings.
+This article describes how to configure the MedTech service using the Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings.
 
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-Below is a conceptual example of what happens during the normalization and transformation process within IoT connector:
+Below is a conceptual example of what happens during the normalization and transformation process within the MedTech service:
 
-:::image type="content" source="media/iot-data-normalization-high-level.png" alt-text="IoT data normalization flow example1" lightbox="media/iot-data-normalization-high-level.png":::
+:::image type="content" source="media/iot-data-transformation/iot-data-normalization-high-level.png" alt-text="Diagram of IoT data normalization flow." lightbox="media/iot-data-transformation/iot-data-normalization-high-level.png":::
 
 ## FHIR destination mappings
 
@@ -268,7 +265,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 ```
 
 > [!TIP]
-> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Next steps
 
@@ -277,4 +274,4 @@ In this article, you learned how to use FHIR destination mappings. To learn how 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mappings.md)
 
-(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

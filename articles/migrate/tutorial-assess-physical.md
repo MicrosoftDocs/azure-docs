@@ -71,7 +71,7 @@ Run an assessment as follows:
 1. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
         - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
-        - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#supported-geographies-azure-government)
+        - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government)
     - In **Storage type**,
         - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
         - Alternatively, select the storage type you want to use for VM when you migrate it.

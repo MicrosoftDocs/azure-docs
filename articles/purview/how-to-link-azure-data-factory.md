@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Data Factory 
-description: This article describes how to connect Azure Data Factory and Azure Purview to track data lineage.
+description: This article describes how to connect Azure Data Factory and Microsoft Purview to track data lineage.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/01/2021
 ---
-# How to connect Azure Data Factory and Azure Purview
+# How to connect Azure Data Factory and Microsoft Purview
 
-This document explains the steps required for connecting an Azure Data Factory account with an Azure Purview account to track data lineage. The document also gets into the details of the coverage scope and supported lineage patterns.
+This document explains the steps required for connecting an Azure Data Factory account with a Microsoft Purview account to track data lineage. The document also gets into the details of the coverage scope and supported lineage patterns.
 
 ## View existing Data Factory connections
 
-Multiple Azure Data Factories can connect to a single Azure Purview to push lineage information. The current limit allows you to connect up 10 Data Factory accounts at a time from the Azure Purview management center. To show the list of Data Factory accounts connected to your Azure Purview account, do the following:
+Multiple Azure Data Factories can connect to a single Microsoft Purview to push lineage information. The current limit allows you to connect up to 10 Data Factory accounts at a time from the Microsoft Purview management center. To show the list of Data Factory accounts connected to your Microsoft Purview account, do the following:
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -24,7 +24,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview to push line
 
 4. Notice the various values for connection **Status**:
 
-    - **Connected**: The data factory is connected to the Azure Purview account.
+    - **Connected**: The data factory is connected to the Microsoft Purview account.
     - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
     - **CannotAccess**: The current user doesn't have access to the data factory, so the connection status is unknown.
 
@@ -39,8 +39,10 @@ Multiple Azure Data Factories can connect to a single Azure Purview to push line
 >**Collection admins** role on the root collection.
 >
 > Also, it requires the users to be the data factory's "Owner" or "Contributor".
+>
+> Your data factory needs to have system assigned managed identity enabled.
 
-Follow the steps below to connect an existing data factory to your Azure Purview account. You can also [connect Data Factory to Azure Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
+Follow the steps below to connect an existing data factory to your Microsoft Purview account. You can also [connect Data Factory to Microsoft Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -48,22 +50,20 @@ Follow the steps below to connect an existing data factory to your Azure Purview
 
 4. Select your Data Factory account from the list and select **OK**. You can also filter by subscription name to limit your list.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/connect-data-factory.png" alt-text="Screenshot showing how to connect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/connect-data-factory.png":::
+    Some Data Factory instances might be disabled if the data factory is already connected to the current Microsoft Purview account, or the data factory doesn't have a managed identity.
 
-    Some Data Factory instances might be disabled if the data factory is already connected to the current Azure Purview account, or the data factory doesn't have a managed identity.
-
-    A warning message will be displayed if any of the selected Data Factories are already connected to other Azure Purview account. By selecting OK, the Data Factory connection with the other Azure Purview account will be disconnected. No additional confirmations are required.
+    A warning message will be displayed if any of the selected Data Factories are already connected to other Microsoft Purview account. By selecting OK, the Data Factory connection with the other Microsoft Purview account will be disconnected. No additional confirmations are required.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
 >[!Note]
->We now support adding no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket.
+>We support adding up to 10 Azure Data Factory accounts at once. If you want to add more than 10 data factory accounts, do so in multiple batches.
 
 ### How authentication works
 
-Data factory's managed identity is used to authenticate lineage push operations from data factory to Azure Purview. When connecting data factory to Azure Purview on UI, it adds the role assignment automatically.
+Data factory's managed identity is used to authenticate lineage push operations from data factory to Microsoft Purview. When connecting data factory to Microsoft Purview on UI, it adds the role assignment automatically.
 
-Grant the data factory's managed identity **Data Curator** role on Azure Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
+Grant the data factory's managed identity **Data Curator** role on Microsoft Purview **root collection**. Learn more about [Access control in Microsoft Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
 ### Remove data factory connections
 
@@ -76,16 +76,16 @@ To remove a data factory connection, do the following:
 
 ## Supported Azure Data Factory activities
 
-Azure Purview captures runtime lineage from the following Azure Data Factory activities:
+Microsoft Purview captures runtime lineage from the following Azure Data Factory activities:
 
 - [Copy Data](../data-factory/copy-activity-overview.md)
 - [Data Flow](../data-factory/concepts-data-flow-overview.md)
 - [Execute SSIS Package](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
 
 > [!IMPORTANT]
-> Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
+> Microsoft Purview drops lineage if the source or destination uses an unsupported data storage system.
 
-The integration between Data Factory and Azure Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
+The integration between Data Factory and Microsoft Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
 
 [!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
@@ -93,17 +93,17 @@ The integration between Data Factory and Azure Purview supports only a subset of
 
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
-## Access secured Azure Purview account
+## Access secured Microsoft Purview account
       
-If your Azure Purview account is protected by firewall, learn how to let Data Factory [access a secured Azure Purview account](../data-factory/how-to-access-secured-purview-account.md) through Azure Purview private endpoints.
+If your Microsoft Purview account is protected by firewall, learn how to let Data Factory [access a secured Microsoft Purview account](../data-factory/how-to-access-secured-purview-account.md) through Microsoft Purview private endpoints.
 
-## Bring Data Factory lineage into Azure Purview
+## Bring Data Factory lineage into Microsoft Purview
 
-For an end to end walkthrough, follow the [Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
+For an end to end walkthrough, follow the [Tutorial: Push Data Factory lineage data to Microsoft Purview](../data-factory/turorial-push-lineage-to-purview.md).
 
 ## Supported lineage patterns
 
-There are several patterns of lineage that Azure Purview supports. The generated lineage data is based on the type of source and sink used in the Data Factory activities. Although Data Factory supports over 80 source and sinks, Azure Purview supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
+There are several patterns of lineage that Microsoft Purview supports. The generated lineage data is based on the type of source and sink used in the Data Factory activities. Although Data Factory supports over 80 source and sinks, Microsoft Purview supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
 
 To configure Data Factory to send lineage information, see [Get started with lineage](catalog-lineage-user-guide.md#get-started-with-lineage).
 
@@ -127,7 +127,7 @@ An example of this pattern would be the following:
 
 ### Data movement with 1:1 lineage and wildcard support
 
-Another common scenario for capturing lineage, is using a wildcard to copy files from a single input dataset to a single output dataset. The wildcard allows the copy activity to match multiple files for copying using a common portion of the file name. Azure Purview captures file-level lineage for each individual file copied by the corresponding copy activity.
+Another common scenario for capturing lineage, is using a wildcard to copy files from a single input dataset to a single output dataset. The wildcard allows the copy activity to match multiple files for copying using a common portion of the file name. Microsoft Purview captures file-level lineage for each individual file copied by the corresponding copy activity.
 
 An example of this pattern would be the following:
 
@@ -139,7 +139,7 @@ An example of this pattern would be the following:
 
 ### Data movement with n:1 lineage
 
-You can use Data Flow activities to perform data operations like merge, join, and so on. More than one source dataset can be used to produce a target dataset. In this example, Azure Purview captures file-level lineage for individual input files to a SQL table that is part of a Data Flow activity.
+You can use Data Flow activities to perform data operations like merge, join, and so on. More than one source dataset can be used to produce a target dataset. In this example, Microsoft Purview captures file-level lineage for individual input files to a SQL table that is part of a Data Flow activity.
 
 An example of this pattern would be the following:
 
@@ -151,7 +151,7 @@ An example of this pattern would be the following:
 
 ### Lineage for resource sets
 
-A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Understanding Resource sets](concept-resource-sets.md). When Azure Purview captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
+A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Understanding Resource sets](concept-resource-sets.md). When Microsoft Purview captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
 
 In the following example, an Azure Data Lake Gen2 resource set is produced from an Azure Blob:
 
@@ -163,7 +163,7 @@ In the following example, an Azure Data Lake Gen2 resource set is produced from 
 
 ## Next steps
 
-[Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md)
+[Tutorial: Push Data Factory lineage data to Microsoft Purview](../data-factory/turorial-push-lineage-to-purview.md)
 
 [Catalog lineage user guide](catalog-lineage-user-guide.md)
 

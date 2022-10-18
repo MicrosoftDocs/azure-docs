@@ -7,7 +7,7 @@ documentationcenter: network-watcher
 author: damendo
 ms.author: damendo
 editor: 
-ms.date: 01/07/2021
+ms.date: 10/12/2022
 ms.assetid: 
 ms.topic: quickstart
 ms.service: network-watcher
@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell, mvc, mode-api
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure PowerShell
 
-In this quickstart, you deploy a virtual machine (VM), and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
+In this quickstart, you deploy a virtual machine (VM) and then check communications to an IP address and URL and from an IP address. You determine the cause of a communication failure and how you can resolve it.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,8 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this quickstart requires the Azure PowerShell `Az` module. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
+If you choose to install and use PowerShell locally, this quickstart requires the Azure PowerShell `Az` module. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, [Install the Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 
 ## Create a VM
@@ -40,7 +39,7 @@ Before you can create a VM, you must create a resource group to contain the VM. 
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the VM.
+Create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). When running this step, you're prompted for credentials. The values that you enter are configured as the username and password for the VM.
 
 ```azurepowershell-interactive
 $vM = New-AzVm `
@@ -49,7 +48,7 @@ $vM = New-AzVm `
     -Location "East US"
 ```
 
-The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and PowerShell returns output.
+The VM takes a few minutes to create. Don't continue with the remaining steps until the VM is created and PowerShell returns the output.
 
 ## Test network communication
 
@@ -108,7 +107,7 @@ Test-AzNetworkWatcherIPFlow `
   -RemotePort 80
 ```
 
-The result returned informs you that access is denied by a security rule named **DefaultOutboundDenyAll**.
+The result returned informs you that access is denied by a security rule named **DenyAllOutBound**.
 
 Test inbound communication to the VM from 172.31.0.100:
 
@@ -124,7 +123,9 @@ Test-AzNetworkWatcherIPFlow `
   -RemotePort 60000
 ```
 
-The result returned informs you that access is denied because of a security rule named **DefaultInboundDenyAll**. Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
+The result returned informs you that access is denied because of a security rule named **DenyAllInBound**.
+
+ Now that you know which security rules are allowing or denying traffic to or from a VM, you can determine how to resolve the problems.
 
 ## View details of a security rule
 
@@ -173,7 +174,7 @@ The returned output includes the following text for the **AllowInternetOutbound*
 
 You can see in the output that **DestinationAddressPrefix** is **Internet**. It's not clear how 13.107.21.200, the address you tested in [Use IP flow verify](#use-ip-flow-verify), relates to **Internet** though. You see several address prefixes listed under **ExpandedDestinationAddressPrefix**. One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher **priority** (lower number) rules listed in the output returned by `Get-AzEffectiveNetworkSecurityGroup`, that override this rule. To deny outbound communication to 13.107.21.200, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
 
-When you ran the `Test-AzNetworkWatcherIPFlow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
+When you ran the `Test-AzNetworkWatcherIPFlow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DenyAllOutBound** rule denied the communication. The **DenyAllOutBound** rule equates to the **DenyAllOutBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
 
 ```powershell
 {
@@ -199,9 +200,9 @@ When you ran the `Test-AzNetworkWatcherIPFlow` command to test outbound communic
 }
 ```
 
-The rule lists **0.0.0.0/0** as the **DestinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100, because the address is not within the **DestinationAddressPrefix** of any of the other outbound rules in the output from the `Get-AzEffectiveNetworkSecurityGroup` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
+The rule lists **0.0.0.0/0** as the **DestinationAddressPrefix**. The rule denies the outbound communication to 172.131.0.100, because the address isn't within the **DestinationAddressPrefix** of any of the other outbound rules in the output from the `Get-AzEffectiveNetworkSecurityGroup` command. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 at 172.131.0.100.
 
-When you ran the `Test-AzNetworkWatcherIPFlow` command to test inbound communication from 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
+When you ran the `Test-AzNetworkWatcherIPFlow` command to test inbound communication from 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DenyAllInBound** rule denied the communication. The **DenyAllInBound** rule equates to the **DenyAllInBound** rule listed in the following output from the `Get-AzEffectiveNetworkSecurityGroup` command:
 
 ```powershell
 {
@@ -229,11 +230,11 @@ When you ran the `Test-AzNetworkWatcherIPFlow` command to test inbound communica
 
 The **DenyAllInBound** rule is applied because, as shown in the output, no other higher priority rule exists in the output from the `Get-AzEffectiveNetworkSecurityGroup` command that allows port 80 inbound to the VM from 172.131.0.100. To allow the inbound communication, you could add a security rule with a higher priority that allows port 80 inbound from 172.131.0.100.
 
-The checks in this quickstart tested Azure configuration. If the checks return expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
+The checks in this quickstart tested Azure configuration. If the checks return the expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
 
 ## Clean up resources
 
-When no longer needed, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
+When no longer needed, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group, and all of the resources it contains:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

@@ -4,11 +4,13 @@ description: Learn how to use the .NET SDK within the StorSimple Data Manager se
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/16/2018
+ms.date: 08/22/2022
 ms.author: alkohli
 ---
 
 # Use the .NET SDK to initiate data transformation
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 
@@ -28,7 +30,7 @@ Before you begin, ensure that you have:
 
     - Visual Studio 2012, 2013, 2015, or 2017.
 
-    - Azure Powershell. [Download Azure Powershell](/powershell/azure/).
+    - Azure PowerShell. [Download Azure PowerShell](/powershell/azure/).
 *	A correctly configured job definition in StorSimple Data Manager within a resource group.
 *	All the required dlls. Download these dlls from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
 *	[`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) script from the GitHub repository.

@@ -7,12 +7,15 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 05/23/2022
 ---
 
 # Combine LUIS and question answering capabilities
 
-Cognitive Services provides two natural language processing services, [Language Understanding](../what-is-luis.md) (LUIS) and question answering, each with a different purpose. Understand when to use each service and how they compliment each other.
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
+
+Cognitive Services provides two natural language processing services, [Language Understanding](../what-is-luis.md) (LUIS) and question answering, each with a different purpose. Understand when to use each service and how they complement each other.
 
 Natural language processing (NLP) allows your client application, such as a chat bot, to work with your users' natural language.
 
@@ -34,14 +37,13 @@ As an example, if your chat bot receives the text "How do I get to the Human Res
 
 Orchestration helps you connect more than one project and service together. Each connection in the orchestration is represented by a type and relevant data. The intent needs to have a name, a project type (LUIS, question answering, or conversational language understanding, and a project you want to connect to by name.
 
-You can use conversational language understanding to create a new orchestration project, See the [conversational language understanding documentation](../../language-service/conversational-language-understanding/how-to/create-project.md#create-an-orchestration-workflow-project).
-
+You can use orchestration workflow to create new orchestration projects. See [orchestration workflow](../../language-service/orchestration-workflow/how-to/create-project.md) for more information.
 ## Set up orchestration between Cognitive Services features
 
 To use an orchestration project to connect LUIS, question answering, and conversational language understanding, you need:
 
 * A language resource in [Language Studio](https://language.azure.com/) or the Azure portal.
-* To change your LUIS authoring resource to the Language resource. You can also optionally export your application from LUIS, and then [import it into conversational language understanding](../../language-service/conversational-language-understanding/how-to/create-project.md#import-a-project).
+* To change your LUIS authoring resource to the Language resource. You can also optionally export your application from LUIS, and then [import it into conversational language understanding](../../language-service/orchestration-workflow/how-to/create-project.md#import-an-orchestration-workflow-project).
 
 >[!Note]
 >LUIS can be used with Orchestration projects in West Europe only, and requires the authoring resource to be a Language resource. You can either import the application in the West Europe Language resource or change the authoring resource from the portal.
@@ -60,4 +62,4 @@ You need to follow the following steps to change LUIS authoring resource to a La
 
 ## Next steps
 
-[Conversational language understanding documentation](../../language-service/conversational-language-understanding/how-to/create-project.md#create-an-orchestration-workflow-project).
+* [Conversational language understanding documentation](../../language-service/conversational-language-understanding/how-to/create-project.md)

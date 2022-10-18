@@ -2,14 +2,14 @@
 title: Build more resilient hybrid authentication in Azure Active Directory
 description: A guide for architects and IT administrators on building a resilient hybrid infrastructure.
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/30/2020
-ms.author: baselden
+ms.date: 08/19/2022
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

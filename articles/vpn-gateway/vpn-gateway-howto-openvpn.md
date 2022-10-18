@@ -2,28 +2,26 @@
 title: 'How to enable OpenVPN for P2S VPN gateways'
 titleSuffix: Azure VPN Gateway
 description: Learn how to enable OpenVPN Protocol on VPN gateways for point-to-site configurations.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 05/16/2022
 ms.author: cherylmc
 
 ---
 # Configure OpenVPN for Point-to-Site VPN gateways
 
-This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. You can use either the portal, or the PowerShell instructions.
+This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. This article contains both Azure portal and PowerShell instructions.
 
 ## Prerequisites
 
-* The article assumes that you already have a working point-to-site environment. If you don't, create one using one of the following methods. When creating your gateway, note that the **Basic** SKU does not support the OpenVPN tunnel type.
+* The article steps assume that you already have a working point-to-site environment. If you don't, you can create one using one of the following methods. When you create your gateway, don't use the Basic SKU. The Basic SKU doesn't support the OpenVPN tunnel type.
 
   * [Portal - Create point-to-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 
   * [PowerShell - Create point-to-site](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-* If you already have a VPN gateway, verify that it does not use the **Basic** SKU. The Basic SKU is not supported for OpenVPN. For more information about SKUs, see [VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). To resize a Basic SKU, see [Resize a legacy gateway](vpn-gateway-about-skus-legacy.md#resource-manager). 
+* If you already have a VPN gateway, verify that it doesn't use the Basic SKU. The Basic SKU isn't supported for OpenVPN. For more information about SKUs, see [VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). To resize a Basic SKU, see [Resize a legacy gateway](vpn-gateway-about-skus-legacy.md#resource-manager).
 
 ## Portal
 
@@ -45,6 +43,6 @@ This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. You c
 
 ## Next steps
 
-To configure clients for OpenVPN, see [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md).
+To configure clients for OpenVPN, see Configure OpenVPN clients for [Windows](point-to-site-vpn-client-cert-windows.md), [macOS and IOS](point-to-site-vpn-client-cert-mac.md), and [Linux](point-to-site-vpn-client-cert-linux.md).
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

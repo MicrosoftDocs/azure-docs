@@ -7,7 +7,7 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 03/22/2022
 ms.author: banders
 ---
 

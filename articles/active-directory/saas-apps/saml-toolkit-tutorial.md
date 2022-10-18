@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Azure AD SAML Toolkit | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Azure AD SAML Toolkit'
 description: Learn how to configure single sign-on between Azure Active Directory and Azure AD SAML Toolkit.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 03/24/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Azure AD SAML Toolkit
+# Tutorial: Azure AD SSO integration with Azure AD SAML Toolkit
 
 In this tutorial, you'll learn how to integrate Azure AD SAML Toolkit with Azure Active Directory (Azure AD). When you integrate Azure AD SAML Toolkit with Azure AD, you can:
 
@@ -27,17 +27,19 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Azure AD SAML Toolkit single sign-on (SSO) enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Azure AD SAML Toolkit supports **SP** initiated SSO
+* Azure AD SAML Toolkit supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Azure AD SAML Toolkit from the gallery
+## Add Azure AD SAML Toolkit from the gallery
 
 To configure the integration of Azure AD SAML Toolkit into Azure AD, you need to add Azure AD SAML Toolkit from the gallery to your list of managed SaaS apps.
 
@@ -47,6 +49,10 @@ To configure the integration of Azure AD SAML Toolkit into Azure AD, you need to
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Azure AD SAML Toolkit** in the search box.
 1. Select **Azure AD SAML Toolkit** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. You can learn more about O365 wizards [here](/microsoft-365/admin/misc/azure-ad-setup-guides?view=o365-worldwide).
 
 ## Configure and test Azure AD SSO for Azure AD SAML Toolkit
 
@@ -67,17 +73,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Azure AD SAML Toolkit** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** page, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign on URL** text box, type the URL:
-    `https://samltoolkit.azurewebsites.net/`
-
-	b. In the **Reply URL** text box, type the URL:
+	a. In the **Reply URL** text box, type the URL:
     `https://samltoolkit.azurewebsites.net/SAML/Consume`
+
+    b. In the **Sign on URL** text box, type the URL:
+    `https://samltoolkit.azurewebsites.net/`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -113,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Azure AD SAML Toolkit SSO
 
-1. Open a new web browser window, if you have not registered in the Azure AD SAML Toolkit website, first register by clicking on the **Register**. If you have registered already, sign into your Azure AD SAML Toolkit company site using the registered sign in credentials.
+1. Open a new web browser window, if you have not registered in the Azure AD SAML Toolkit website, first register by clicking on the **Register**. If you have registered already, sign into your Azure AD SAML Toolkit company site using the registered sign-in credentials.
 
 	![Azure AD SAML Toolkit Register](./media/saml-toolkit-tutorial/register.png)
 
@@ -149,12 +155,12 @@ In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Plea
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to SAML Toolkit Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Azure AD SAML Toolkit Sign-on URL where you can initiate the login flow. 
 
-2. Go to SAML Toolkit Sign-on URL directly and initiate the login flow from there.
+* Go to Azure AD SAML Toolkit Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the SAML Toolkit tile in the Access Panel, you should be automatically signed in to the SAML Toolkit for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* You can use Microsoft My Apps. When you click the Azure AD SAML Toolkit tile in the My Apps, this will redirect to Azure AD SAML Toolkit Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## Next Steps
+## Next steps
 
-Once you configure Azure AD SAML Toolkit you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
+Once you configure Azure AD SAML Toolkit you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

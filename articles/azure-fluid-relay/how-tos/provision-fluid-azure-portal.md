@@ -7,18 +7,16 @@ ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
+ms.custom: references_regions
 ---
 
 # How to: Provision an Azure Fluid Relay service
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
-Before you can connect your app to an Azure Fluid Relay server, you must provision an Azure Fluid Relay server resource on your Azure account. This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
+Before you can connect your app to an Azure Fluid Relay, you must provision an Azure Fluid Relay server resource in your Azure account. This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
 ## Prerequisites
 
-To create an Azure Fluid Relay service, you must have an Azure account. If you don't have an account, you can [try Azure for free](https://azure.com/free).
+To create an Azure Fluid Relay resource, you must have an Azure account. If you don't have an account, you can [try Azure for free](https://azure.com/free).
 
 ## Create a resource group
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. To create a resource group:
@@ -59,7 +57,7 @@ Each Azure Fluid Relay server resource provides a tenant for you to use in your 
     4. Select a location for the namespace.
     
     > [!NOTE]
-    > During the public preview, the only West US 2, West Europe, and SoutheastAsia regions are supported
+    > Currently, the only regions supported are: West US 2, West Europe, and SoutheastAsia.
 
 5. Click the **Review + Create** button at the bottom of the page.
 

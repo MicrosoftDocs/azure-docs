@@ -4,7 +4,7 @@ description: Learn how to use Apache Maven to build a Java-based Apache HBase ap
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
-ms.date: 12/24/2019
+ms.date: 09/23/2022
 ---
 
 # Build Java applications for Apache HBase
@@ -177,7 +177,7 @@ Enter the command below to create and open a new file `CreateTable.java`. Select
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the Java code below into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -259,7 +259,7 @@ Enter the command below to create and open a new file `SearchByEmail.java`. Sele
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the Java code below into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -344,7 +344,7 @@ Enter the command below to create and open a new file `DeleteTable.java`. Select
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the Java code below into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/5/2022
+ms.date: 02/23/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -73,7 +73,7 @@ This fact means that you can express several different types of relationships be
 You can even create multiple instances of the same type of relationship between the same two twins, if you want. In this example, Twin A could have two different *stored* relationships with Twin B, as long as the relationships have different relationship IDs.
 
 > [!NOTE]
-> The DTDL attributes of `minMultiplicity` and `maxMultiplicity` for relationships aren't currently supported in Azure Digital Twins—even if they're defined as part of a model, they won't be enforced by the service. For more information, see [Azure Digital Twins DTDL implementation specifics](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics).
+> The DTDL attributes of `minMultiplicity` and `maxMultiplicity` for relationships aren't currently supported in Azure Digital Twins—even if they're defined as part of a model, they won't be enforced by the service. For more information, see [Service-specific DTDL notes](concepts-models.md#service-specific-dtdl-notes).
 
 ## List relationships
 
@@ -183,13 +183,15 @@ The following runnable code snippet uses the relationship operations from this a
 
 ### Set up sample project files
 
-The snippet uses two sample model definitions, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Floor.json). To **download the model files** so you can use them in your code, use these links to go directly to the files in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the files as **Room.json** and **Floor.json**.
+The snippet uses two sample model definitions, [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/main/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/main/AdtSampleApp/SampleClientApp/Models/Floor.json). To **download the model files** so you can use them in your code, use these links to go directly to the files in GitHub. Then, right-click anywhere on the screen, select **Save as** in your browser's right-click menu, and use the Save As window to save the files as **Room.json** and **Floor.json**.
 
 Next, create a **new console app project** in Visual Studio or your editor of choice.
 
 Then, **copy the following code** of the runnable sample into your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
+
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
 
 ### Configure project
 

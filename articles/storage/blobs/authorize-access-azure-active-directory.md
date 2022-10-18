@@ -3,12 +3,12 @@ title: Authorize access to blobs using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure blobs using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 
@@ -32,13 +32,15 @@ The authorization step requires that one or more Azure RBAC roles be assigned to
 
 Native applications and web applications that make requests to the Azure Blob service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for blob data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](../common/storage-auth-aad-app.md).
 
+Authorizing blob data operations with Azure AD is supported only for REST API versions 2017-11-09 and later. For more information, see [Versioning for the Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+
 ## Assign Azure roles for access rights
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through Azure RBAC. Azure Storage defines a set of  built-in RBAC roles that encompass common sets of permissions used to access blob data. You can also define custom roles for access to blob data. To learn more about assigning Azure roles for blob access, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). The RBAC roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for blob access, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
 
-In some cases you may need to enable fine-grained access to blob resources or to simplify permissions when you have a large number of role assignments for a storage resource. You can use Azure attribute-based access control (Azure ABAC) to configure conditions on role assignments. You can use conditions with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. For more information about configuring conditions for Azure storage resources with ABAC, see [Authorize access to blobs using Azure role assignment conditions (preview)](../common/storage-auth-abac.md). For details about supported conditions for blob data operations, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../common/storage-auth-abac-attributes.md).
+In some cases you may need to enable fine-grained access to blob resources or to simplify permissions when you have a large number of role assignments for a storage resource. You can use Azure attribute-based access control (Azure ABAC) to configure conditions on role assignments. You can use conditions with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. For more information about configuring conditions for Azure storage resources with ABAC, see [Authorize access to blobs using Azure role assignment conditions (preview)](../blobs/storage-auth-abac.md). For details about supported conditions for blob data operations, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../blobs/storage-auth-abac-attributes.md).
 
 ### Resource scope
 
@@ -101,14 +103,7 @@ Azure CLI and PowerShell support signing in with Azure AD credentials. After you
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)| ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

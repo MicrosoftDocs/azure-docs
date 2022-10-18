@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: ../concepts-servers.md
+            url: concepts-servers.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
@@ -29,58 +29,58 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a server using the Azure Portal
-            url: ../quickstart-create-server-database-portal.md
+            url: quickstart-create-server-database-portal.md
           - text: Create a server using Azure CLI
-            url: ../quickstart-create-server-database-azure-cli.md
+            url: quickstart-create-server-database-azure-cli.md
       - linkListType: learn
         links:
           - text: 'Learning module: Create an Azure Database for PostgreSQL server'
-            url: /learn/modules/create-azure-db-for-postgresql-server/
+            url: /training/modules/create-azure-db-for-postgresql-server/
       - linkListType: concept
         links:
           - text: Pricing tiers
-            url: ../concepts-pricing-tiers.md
+            url: concepts-pricing-tiers.md
           - text: Limits
-            url: ../concepts-limits.md
+            url: concepts-limits.md
           - text: PostgreSQL versions
-            url: ../concepts-supported-versions.md
+            url: concepts-supported-versions.md
           - text: PostgreSQL extensions - single server
-            url: ../concepts-extensions.md
+            url: concepts-extensions.md
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
-            url: ../tutorial-design-database-using-azure-portal.md
+            url: tutorial-design-database-using-azure-portal.md
           - text: Build a Web App using Python (Django)
-            url: ../../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+            url: ../../app-service/tutorial-python-postgresql-app.md?toc=/azure/postgresql/toc.json
 # Card
   - title: Connect and query
     linkLists:
       - linkListType: concept
         links:
           - text: Understand the firewall
-            url: ../concepts-firewall-rules.md
+            url: concepts-firewall-rules.md
       - linkListType: how-to-guide
         links:
           - text: Create firewall rules
-            url: ../howto-manage-firewall-using-portal.md
+            url: how-to-manage-firewall-using-portal.md
           - text: Configure TLS
-            url: ../howto-tls-configurations.md
+            url: how-to-tls-configurations.md
       - linkListType: get-started
         links:
           - text: Connect using Python
-            url: ../connect-python.md
+            url: connect-python.md
           - text: Connect using  Node.js
-            url: ../connect-nodejs.md
+            url: connect-nodejs.md
           - text: Connect using Java
-            url: ../connect-java.md
+            url: connect-java.md
           - text: Connect using Ruby
-            url: ../connect-ruby.md
+            url: connect-ruby.md
           - text: Connect using PHP
-            url: ../connect-php.md
+            url: connect-php.md
           - text: Connect using .Net
-            url: ../connect-csharp.md
+            url: connect-csharp.md
           - text: Connect using Go
-            url: ../connect-go.md
+            url: connect-go.md
 
   # Card
   - title: Manage and migrate
@@ -88,32 +88,32 @@ landingContent:
       - linkListType: concept
         links:
           - text: Understand Virtual Networks
-            url: ../concepts-data-access-and-security-vnet.md
+            url: concepts-data-access-and-security-vnet.md
           - text: Monitor and tune the service
-            url: ../tutorial-monitor-and-tune.md
+            url: tutorial-monitor-and-tune.md
       - linkListType: how-to-guide
         links:
           - text: Migrate a database using pg_dump and pg_restore
-            url: ../howto-migrate-using-dump-and-restore.md
+            url: how-to-migrate-using-dump-and-restore.md
           - text: Migrate a database using pg_dump and psql
-            url: ../howto-migrate-using-export-and-import.md
+            url: how-to-migrate-using-export-and-import.md
           - text: Migrate using Data Migration Service
-            url: ../howto-migrate-online.md
+            url: how-to-migrate-online.md
 # Card
   - title: Business Continuity
     linkLists:
       - linkListType: concept
         links:
           - text: Business continuity
-            url: ../concepts-business-continuity.md
+            url: concepts-business-continuity.md
           - text: Back up and restore
-            url: ../concepts-backup.md
+            url: concepts-backup.md
       - linkListType: how-to-guide
         links:
           - text: Create a read replica
-            url: ../howto-read-replicas-portal.md
+            url: how-to-read-replicas-portal.md
           - text: Restore a server 
-            url: ../howto-restore-server-portal.md
+            url: how-to-restore-server-portal.md
 
 # Card
   - title: Reference
@@ -121,7 +121,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure CLI scripts for common tasks
-            url: ../sample-scripts-azure-cli.md
+            url: sample-scripts-azure-cli.md
       - linkListType: reference
         links:
           - text: Azure CLI developer reference

@@ -40,7 +40,7 @@ This article uses the sample dataset, **Automobile price data (Raw)**.
 
 1. Connect the output port of the dataset to the top-left input port of the **Execute Python Script** component. The designer exposes the input as a parameter to the entry point script.
     
-    The right input port is reserved for zipped python libraries.
+    The right input port is reserved for zipped Python libraries.
 
     ![Connect datasets](media/how-to-designer-python/connect-dataset.png)
         
@@ -82,4 +82,4 @@ Now, you have a dataset with the new feature **Dollars/HP**, which could be usef
 
 ## Next steps
 
-Learn how to [import your own data](how-to-designer-import-data.md) in Azure Machine Learning designer.
+Learn how to [import your own data](v1/how-to-designer-import-data.md) in Azure Machine Learning designer.

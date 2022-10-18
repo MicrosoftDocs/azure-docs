@@ -1,15 +1,17 @@
 ---
 title: Connect Azure Percept DK over LTE by using a MultiTech MultiConnect USB modem 
 description: This article explains how to connect Azure Percept DK over 5G or LTE networks by using a MultiTech MultiConnect USB modem.
-author: nkhuyent
+author: yvonne-dq
 ms.author: jluoto
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 09/23/2021
+ms.date: 10/04/2022
 ms.custom: template-how-to
 ---
 
 # Connect Azure Percept DK over LTE by using a MultiTech MultiConnect USB modem 
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 This article discusses how to connect your Azure Percept DK by using a MultiTech MultiConnect (MTCM-LNA3-B03) USB modem. 
 
@@ -21,7 +23,7 @@ To learn how to prepare Azure Percept DK, go to [Connect Azure Percept DK over 5
 
 ### Prepare the modem
 Before you begin, your modem must be in Mobile Broadband Interface Model (MBIM) mode. To learn how to prepare the modem, see the [Telit wireless solutions Attention (AT) command reference guide](
-https://www.telit.com/wp-content/uploads/2018/01/Telit-LE910-V2-Modules-AT-Commands-Reference-Guide-r3.pdf).
+https://www.multitech.com/documents/publications/reference-guides/Telit_LE910-V2_Modules_AT_Commands_Reference_Guide_r5.pdf).
 
 In this article, to enable the MBIM interface, we use AT command `AT#USBCFG=<mode>` to configure the correct USB mode.
 

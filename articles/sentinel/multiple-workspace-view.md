@@ -21,7 +21,7 @@ To take full advantage of Microsoft Sentinel’s capabilities, Microsoft recomme
 When you open Microsoft Sentinel, you are presented with a list of all the workspaces to which you have access rights, across all selected tenants and subscriptions. To the left of each workspace name is a checkbox. Selecting the name of a single workspace will bring you into that workspace. To choose multiple workspaces, select all the corresponding checkboxes, and then select the **View incidents** button at the top of the page.
 
 > [!IMPORTANT]
-> Multiple Workspace View currently supports a maximum of 30 concurrently displayed workspaces.
+> Multiple Workspace View now supports a maximum of 100 concurrently displayed workspaces.
 >
 
 Note that in the list of workspaces, you can see the directory, subscription, location, and resource group associated with each workspace. The directory corresponds to the tenant.

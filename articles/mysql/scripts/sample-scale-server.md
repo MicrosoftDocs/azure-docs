@@ -4,10 +4,11 @@ description: This sample CLI script scales Azure Database for MySQL server to a 
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.date: 12/02/2019
+ms.date: 02/10/2022
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
@@ -16,31 +17,37 @@ ms.date: 12/02/2019
 
 This sample CLI script scales compute and storage for a single Azure Database for MySQL server after querying the metrics. Compute can scale up or down. Storage can only scale up.
 
-[!INCLUDE[azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-Update the script with your subscription ID.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh "Create and scale Azure Database for MySQL.")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment
+### Run the script
 
-Use the following command to remove the resource group and all resources associated with it after the script has been run. 
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/delete-mysql.sh  "Delete the resource group.")]
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh" id="FullScript":::
 
-## Script explanation
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Creates a MySQL server that hosts the databases. |
-| [az mysql server update](/cli/azure/mysql/server#az_mysql_server_update) | Updates properties of the MySQL server. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | List the metric value for the resources. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server update](/cli/azure/mysql/server#az-mysql-server-update) | Updates properties of the MySQL server. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

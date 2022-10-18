@@ -22,7 +22,7 @@ The following tables compare the storage solutions Azure Storage offers for Azur
 |Use case|General purpose|Ultra performance or migration from NetApp on-premises|Cross-platform|
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
 |Regional availability|All regions|[Select regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|All regions|
-|Redundancy|Locally redundant/zone-redundant/geo-redundant/geo-zone-redundant|Locally redundant|Locally redundant/zone-redundant/geo-redundant|
+|Redundancy|Locally redundant/zone-redundant/geo-redundant/geo-zone-redundant|Locally redundant/geo-redundant [with cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md)|Locally redundant/zone-redundant/geo-redundant|
 |Tiers and performance| Standard (Transaction optimized)<br>Premium<br>Up to max 100K IOPS per share with 10 GBps per share at about 3 ms latency|Standard<br>Premium<br>Ultra<br>Up to 4.5GBps per volume at about 1 ms latency. For IOPS and performance details, see [Azure NetApp Files performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) and [the FAQ](../azure-netapp-files/faq-performance.md#how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops).|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
 |Capacity|100 TiB per share, Up to 5 PiB per general purpose account |100 TiB per volume, up to 12.5 PiB per subscription|Maximum 32 TiB per disk|
 |Required infrastructure|Minimum share size 1 GiB|Minimum capacity pool 4 TiB, min volume size 100 GiB|Two VMs on Azure IaaS (+ Cloud Witness) or at least three VMs without and costs for disks|
@@ -43,9 +43,11 @@ Once you've chosen your storage method, check out [Azure Virtual Desktop pricing
 
 Azure Files offers two different tiers of storage: premium and standard. These tiers let you tailor the performance and cost of your file shares to meet your scenario's requirements.
 
-- Premium file shares are backed by solid-state drives (SSDs) and are deployed in the FileStorage storage account type. Premium file shares provide consistent high performance and low latency for input and output (IO) intensive workloads. 
+- Premium file shares are backed by solid-state drives (SSDs) and are deployed in the FileStorage storage account type. Premium file shares provide consistent high performance and low latency for input and output (IO) intensive workloads. Premium file shares use a provisioned billing model, where you pay for the amount of storage you would like your file share to have, regardless of how much you use.
 
-- Standard file shares are backed by hard disk drives (HDDs) and are deployed in the general purpose version 2 (GPv2) storage account type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability, such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
+- Standard file shares are backed by hard disk drives (HDDs) and are deployed in the general purpose version 2 (GPv2) storage account type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability, such as general-purpose file shares and dev/test environments. Standard file shares use a pay-as-you-go billing model, where you pay based on storage usage, including data stored and transactions.
+
+To learn more about how billing works in Azure Files, see [Understand Azure Files billing](../storage/files/understanding-billing.md).
 
 The following table lists our recommendations for which performance tier to use based on your workload. These recommendations will help you select the performance tier that meets your performance targets, budget, and regional considerations. We've based these recommendations on the example scenarios from [Remote Desktop workload types](/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
 
@@ -59,16 +61,15 @@ The following table lists our recommendations for which performance tier to use 
 
 For more information about Azure Files performance, see [File share and file scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
+## Azure NetApp Files tiers
+
+Azure NetApp Files volumes are organized in capacity pools. Volume performance is defined by the service level of the hosting capacity pool. Three performance levels are offered, ultra, premium and standard. For more information, see [Storage hierarchy of Azure NetApp Files](../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md).
+
 ## Next steps
 
-To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
+To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 
-- [Create an Azure file share with a domain controller](create-file-share.md)
-- [Create an Azure file share with Azure Active Directory](create-profile-container-azure-ad.md)
-- [Create an Azure file share with Azure Active Directory Domain Services](create-profile-container-adds.md)
-- [Create an FSLogix profile container for a host pool using Azure NetApp files](create-fslogix-profile-container.md)
-- The instructions in [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) also apply when you use an FSLogix profile container instead of a user profile disk
-
-You can also start from the very beginning and set up your own Azure Virtual Desktop solution at [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
+- [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)

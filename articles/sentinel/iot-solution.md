@@ -1,52 +1,38 @@
 ---
-title: Integrate Microsoft Sentinel and Microsoft Defender for IoT  | Microsoft Docs
-description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Defender for IoT to secure your entire OT environment. Detect and respond to OT threats, including multistage attacks that may cross IT and OT boundaries.
+title: Connect Microsoft Defender for IoT with Microsoft Sentinel
+description: This tutorial describes how to integrate Microsoft Sentinel and Microsoft Defender for IoT with the Microsoft Sentinel data connector to secure your entire OT environment. Detect and respond to OT threats, including multistage attacks that may cross IT and OT boundaries.
 author: batamig
 ms.topic: tutorial
-ms.date: 12/20/2021
+ms.date: 06/20/2022
 ms.author: bagol
 ---
 
-# Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT
+# Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel
 
-> [!IMPORTANT]
->
-> The *Microsoft Sentinel Data connector for Microsoft Defender for IoT* and the *IoT OT Threat Monitoring with Defender for IoT* solution are in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
-​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
+​[Microsoft Defender for IoT](../defender-for-iot/index.yml) enables you to secure your entire OT and Enterprise IoT environment, whether you need to protect existing devices or build security into new innovations.
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
 
-In this tutorial, you:
+This connector allows you to stream Microsoft Defender for IoT data into Microsoft Sentinel, so you can view, analyze, and respond to Defender for IoT alerts, and the incidents they generate, in a broader organizational threat context.
+
+The Microsoft Sentinel integration is supported only for OT networks.
+
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 >
-> * Connect Microsoft Sentinel to Defender for IoT
-> * Use Log Analytics to query for Defender for IoT alerts
-> * Install the Microsoft Sentinel solution for Defender for IoT
-> * Learn about the analytics rules, workbooks, and playbooks deployed to your Microsoft Sentinel workspace with the Defender for IoT solution
-
+> * Connect Defender for IoT data to Microsoft Sentinel
+> * Use Log Analytics to query Defender for IoT alert data
 
 ## Prerequisites
 
 Before you start, make sure you have the following requirements on your workspace:
 
-- **Read** and **Write** permissions on your Microsoft Sentinel workspace
+- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
-- **Contributor** permissions on the subscription you want to connect
+- **Contributor** or **Owner** permissions on the subscription you want to connect to Microsoft Sentinel.
 
-- <a name="enablehub"></a>Defender for IoT must be enabled on your relevant IoT Hub instances.
-
-    Use the following procedure to verify or enable this setting if needed:
-
-    1. Go to the IoT Hub instance that you'd defined when onboarding your sensors in Defender for IoT.
-
-    1. Select **Defender for IoT > Settings > Data Collection**.
-
-    1. Under **Microsoft Defender for IoT**, select **Enable Microsoft Defender for IoT**.
-
-For more information, see [Permissions in Microsoft Sentinel](roles.md) and [Quickstart: Get started with Defender for IoT](../defender-for-iot/organizations/getting-started.md).
+- A Defender for IoT plan on your Azure subscription with data streaming into Defender for IoT. For more information, see [Quickstart: Get started with Defender for IoT](../defender-for-iot/organizations/getting-started.md).
 
 > [!IMPORTANT]
 > Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
@@ -66,17 +52,11 @@ Start by enabling the **Defender for IoT** data connector to stream all your Def
 
     If you've made any connection changes, it can take 10 seconds or more for the **Subscription** list to update.
 
-    > [!TIP]
-    > If you see an error message, make sure that you have [Defender for IoT enabled](#enablehub) on at least one IoT Hub instance within your selected subscription.
-    >
-
 For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md).
-
 
 ## View Defender for IoT alerts
 
-
-View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
+After you've connected a subscription to Microsoft Sentinel, you'll be able to view Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 
 1. In Microsoft Sentinel, select  **Logs > AzureSecurityOfThings > SecurityAlert**, or search for **SecurityAlert**.
 
@@ -109,11 +89,11 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " PROTOCOL_VIOLATION"
+    | where ProductComponentName == "PROTOCOL_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
-    | where ProductComponentName == " POLICY_VIOLATION"
+    | where ProductComponentName == "POLICY_VIOLATION"
 
     SecurityAlert
     | where ProductName == "Azure Security Center for IoT"
@@ -139,146 +119,36 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 > [!NOTE]
 > The **Logs** page in Microsoft Sentinel is based on Azure Monitor's Log Analytics. 
 >
-> For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/learn/modules/write-first-query-kusto-query-language/) Learn module.
->
-## Install the Defender for IoT solution
-
-The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS).
-
-> [!TIP]
-> Microsoft Sentinel [solutions](sentinel-solutions.md) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process. For example, the **IoT OT Threat Monitoring with Defender for IoT** supports the integration with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and OT-optimized playbooks with automated response and prevention capabilities.
-
-
-**To install the solution**
-
-1. In Microsoft Sentinel, under **Content management**, select **Content hub** and then locate the **IoT OT Threat Monitoring with Defender for IoT** solution.
-
-1. At the bottom right, select **View details**, and then **Create**. Select the subscription, resource group, and workspace where you want to install the solution, and then review the related security content that will be deployed.
-
-    When you're done, select **Review + Create** to install the solution. 
-
-For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md) and [Centrally discover and deploy out-of-the-box content and solutions](sentinel-solutions-deploy.md).
-
-## Detect threats out-of-the-box with Defender for IoT data
-
-Incidents are not created for alerts generated by Defender for IoT data by default.
-
-You can ensure that Microsoft Sentinel creates incidents for relevant alerts generated by Defender for IoT, either by using out-of-the-box analytics rules provided in the  **IoT OT Threat Monitoring with Defender for IoT** solution, configuring analytics rules manually, or by configuring your data connector to automatically create incidents for *all* alerts generated by Defender for IoT.
-
-For more information, see:
-
-- [Detect threats out-of-the-box](detect-threats-built-in.md)
-- [Create custom analytics rules to detect threats](detect-threats-custom.md)
-
-# [Use out-of-the-box analytics rules](#tab/use-out-of-the-box-analytics-rules-recommended)
-
-[Install the Defender for IoT solution](#install-the-defender-for-iot-solution) to get out-of-the-box analytics rules deployed to your workspace, built specifically for Defender for IoT data.
-
-The following table describes the out-of-the-box analytics rules provided in the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
-
-> [!TIP]
-> When working with the following analytics rules, we recommend that you turn off the default *Microsoft Security* Defender for the IoT analytics rules.
+> For more information, see [Log queries overview](../azure-monitor/logs/log-query-overview.md) in the Azure Monitor documentation and the [Write your first KQL query](/training/modules/write-first-query-kusto-query-language/) Learn module.
 >
 
-| Rule Name | Description|
-| ---------- | ----------|
-| **Illegal function codes for ICS/SCADA traffic** | Illegal function codes in supervisory control and data acquisition (SCADA) equipment may indicate one of the following: <br><br>- Improper application configuration, such as due to a firmware update or reinstallation. <br>- Malicious activity. For example, a cyber threat that attempts to use illegal values within a protocol to exploit a vulnerability in the programmable logic controller (PLC), such as a buffer overflow.              |
-| **Firmware update**      | Unauthorized firmware updates may indicate malicious activity on the network, such as a cyber threat that attempts to manipulate PLC firmware to compromise PLC function.    |
-| **Unauthorized PLC changes**                     | Unauthorized changes to PLC ladder logic code may be one of the following: <br><br>- An indication of new functionality in the PLC. <br>- Improper configuration of an application, such as due to a firmware update or reinstallation. <br>- Malicious activity on the network, such as a cyber threat that attempts to manipulate PLC programming to compromise PLC function.          |
-| **PLC insecure key state**                      | The new mode may indicate that the PLC is not secure. Leaving the PLC in an insecure operating mode may allow adversaries to perform malicious activities on it, such as a program download. <br><br>If the PLC is compromised, devices and processes that interact with it may be impacted. which may affect overall system security and safety.      |
-| **PLC stop**  | The PLC stop command may indicate an improper configuration of an application that has caused the PLC to stop functioning, or malicious activity on the network. For example, a cyber threat that attempts to manipulate PLC programming to affect the functionality of the network.       |
-| **Suspicious malware found in the network**      | Suspicious malware found on the network indicates that suspicious malware is trying to compromise production.    |
-| **Multiple scans in the network**                | Multiple scans on the network can be an indication of one of the following: <br><br>- A new device on the network <br>- New functionality of an existing device <br>- Misconfiguration of an application, such as due to a firmware update or re-installation <br>- Malicious activity on the network for reconnaissance    |
-| **Internet connectivity**                        | An OT device communicating with internet addresses may indicate an improper application configuration, such as anti-virus software attempting to download updates from an external server, or malicious activity on the network.     |
-| **Unauthorized device in the SCADA network**     | An unauthorized device on the network may be a legitimate, new device recently installed on the network, or an indication of unauthorized or even malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network.  |
-| **Unauthorized DHCP configuration in the SCADA network**    | An unauthorized DHCP configuration on the network may indicate a new, unauthorized device operating on the network. <br><br>This may be one a legitimate, new device recently deployed on the network, or an indication of unauthorized or even malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network. |
-| **Excessive login attempts**                     | Excessive login attempts may indicate improper service configuration, human error, or malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network.  |
-| **High bandwidth in the network**                | An unusually high bandwidth may be an indication of a new service/process on the network, such as backup, or an indication of malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network.     |
-| **Denial of Service**    | This alert detects attacks that would prevent the use or proper operation of the DCS system.         |
-| **Unauthorized remote access to the network**    | Unauthorized remote access to the network can compromise the target device. <br><br> This means that if another device on the network is compromised, the target devices can be accessed remotely, increasing the attack surface.         |
+### Understand alert timestamps
 
-# [Create and maintain analytics rules manually](#tab/create-and-maintain-analytics-rules-manually)
+Defender for IoT alerts, in both the Azure portal and on the sensor console, track the time an alert was first detected, last detected, and last changed.
 
-Manually create and manage analytics rules in the Microsoft Sentinel **Analytics > Active rules** page. For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
+The following table describes the Defender for IoT alert timestamp fields, with a mapping to the relevant fields from Log Analytics shown in Microsoft Sentinel.
 
-Use this option if you haven't yet installed the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution, if you want to use the out-of-the-box analytics rules as templates for customized rules, or if you'd like to configure analytics rules for scenarios not covered by the solution.
-
-# [Configure the connector to create incidents for all alerts](#tab/configure-the-connector-to-create-incidents-for-all-alerts)
-
-You can configure the **Defender for IoT** data connector to automatically create incidents for *all* alerts generated by Defender for IoT.
-
-In the **Instructions** tab of the data connector page, scroll down to the **Create incidents** section and select **Enable**.
-
-> [!CAUTION]
-> This option may cause a large number of incidents to be created in your workspace.
->
-
----
-
-## Visualize and monitor Defender for IoT data
-
-To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
-
-The Defender for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
-
-View workbooks in Microsoft Sentinel on the **Threat management > Workbooks > My workbooks** tab. For more information, see [Visualize collected data](get-visibility.md).
-
-The following table describes the workbooks included in the **IoT OT Threat Monitoring with Defender for IoT** solution:
-
-|Workbook  |Description  |Logs  |
+|Defender for IoT field |Description |  Log Analytics field |
 |---------|---------|---------|
-|**Alerts**     |  Displays data such as: Alert Metrics, Topmost Alerts, Alert over time, Alert by Severity, Alert by Engine, Alert by Device Type, Alert by Vendor and Alert by IP address.         |    Uses data from the following log: SecurityAlert     |
-|**Incidents**     |   Displays data such as: <br><br>- Incident Metrics, Topmost Incident, Incident over time, Incident by Protocol, Incident by Device Type, Incident by Vendor, and Incident by IP address.<br><br>- Incident by Severity, Incident Mean time to respond, Incident Mean time to resolve and Incident close reasons.       |   Uses data from the following log: SecurityAlert       |
-|**MITRE ATT&CK® for ICS**     |   Displays data such as: Tactic Count, Tactic Details, Tactic over time, Technique Count.        |   Uses data from the following log: SecurityAlert       |
-|**Device Inventory**     | Displays data such as: OT device name, type, IP address, Mac address, Model, OS, Serial Number, Vendor, Protocols.         |    Uses data from the following log: SecurityAlert      |
-|     |         |         |
+|**First detection**     |Defines the first time the alert was detected in the network. | `StartTime`        |
+|**Last detection**     | Defines the last time the alert was detected in the network, and replaces the **Detection time** column.|     `EndTime`    |
+|**Last activity**     |   Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication | `TimeGenerated`      |
 
-## Automate response to Defender for IoT alerts
+In Defender for IoT on the Azure portal and the sensor console, the **Last detection** column is shown by default. Edit the columns on the **Alerts** page to show the **First detection** and **Last activity** columns as needed.
 
-Playbooks are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
-
-The playbooks described in the following sections are deployed to your Microsoft Sentinel workspace as part of the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
-
-For more information, see:
-
-- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
-- [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
-
-###  Automatically close incidents
-
-**Playbook name**: AD4IoT-AutoCloseIncidents
-
-In some cases, maintenance activities generate alerts in Microsoft Sentinel that can distract a SOC team from handling the real problems. This playbook automatically closes incidents created from such alerts during a specified maintenance period, explicitly parsing the IoT device entity fields.
-
-To use this playbook:
-
-- Enter the relevant time period when the maintenance is expected to occur, and the IP addresses of any relevant assets, such as listed in an Excel file.
-- Create a watchlist that includes al the asset IP addresses on which alerts should be handled automatically.
-
-
-### Email notifications by production line
-
-**Playbook name**: AD4IoT-MailByProductionLine
-
-This playbook sends mail to notify specific stakeholders about alerts and events that occur in your environment.
-
-For example, when you have specific security teams assigned to specific product lines or geographic locations, you'll want that team to be notified about alerts that are relevant to their responsibilities.
-
-To use this playbook, create a watchlist that maps between the sensor names and the mailing addresses of each of the stakeholders you want to alert.
-
-### Create a new ServiceNow ticket
-
-**Playbook name** AD4IoT-NewAssetServiceNowTicket
-
-Typically, the entity authorized to program a PLC is the Engineering Workstation. Therefore, attackers might create new Engineering Workstations in order to create malicious PLC programming.
-
-This playbook opens a ticket in SerivceNow each time a new Engineering Workstation is detected, explicitly parsing the IoT device entity fields.
+For more information, see [View alerts on the Defender for IoT portal](../defender-for-iot/organizations/how-to-manage-cloud-alerts.md) and [View alerts on your sensor](../defender-for-iot/organizations/how-to-view-alerts.md).
 
 ## Next steps
 
+[Install the **Microsoft Defender for IoT** solution](iot-advanced-threat-monitoring.md) to your Microsoft Sentinel workspace.
+
+The **Microsoft Defender for IoT** solution is a set of bundled, out-of-the-box content that's configured specifically for Defender for IoT data, and includes analytics rules, workbooks, and playbooks.
+
 For more information, see:
 
+- [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md)
 - [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
 - [Microsoft Defender for IoT documentation](../defender-for-iot/index.yml)
-- [Microsoft Defender for IoT solution](sentinel-solutions-catalog.md#microsoft)
+- [Microsoft Defender for IoT solution](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-unifiedmicrosoftsocforot?tab=Overview)
 - [Microsoft Defender for IoT data connector](data-connectors-reference.md#microsoft-defender-for-iot)
+

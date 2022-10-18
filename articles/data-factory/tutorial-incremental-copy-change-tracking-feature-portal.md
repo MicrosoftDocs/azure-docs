@@ -61,7 +61,7 @@ In this tutorial, you create two pipelines that perform the following two operat
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article for steps to create one.
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
 ### Create a data source table in Azure SQL Database
@@ -149,7 +149,7 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
-   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Screenshot that shows the data factory selection in the New pane.":::
 
 2. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 

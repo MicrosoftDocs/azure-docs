@@ -1,11 +1,11 @@
 ---
 title: Develop C# class library functions using Azure Functions
-description: Understand how to use C# to develop and publish code as class libraries that runs in-process with the Azure Functions runtime.
+description: Understand how to use C# to develop and publish code as class libraries that run in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 07/24/2021
+ms.date: 10/12/2022
 
 ---
 # Develop C# class library functions using Azure Functions
@@ -15,13 +15,13 @@ ms.date: 07/24/2021
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
 
 >[!IMPORTANT]
->This article supports .NET class library functions that run in-process with the runtime. Functions also supports .NET 5.x by running your C# functions out-of-process and isolated from the runtime. To learn more, see [.NET isolated process functions](dotnet-isolated-process-guide.md).
+>This article supports .NET class library functions that run in-process with the runtime. Your C# functions can also run out-of-process and isolated from the Functions runtime. The isolated model is the only way to run .NET 5.x and the preview of .NET Framework 4.8 using recent versions of the Functions runtime. To learn more, see [.NET isolated process functions](dotnet-isolated-process-guide.md).
 
 As a C# developer, you may also be interested in one of the following articles:
 
 | Getting started | Concepts| Guided learning/samples |
 |--| -- |--| 
-| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Using command line tools](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li><li>[Visual Studio development](functions-develop-vs.md)</li><li>[Dependency injection](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[C# samples](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
 
@@ -59,7 +59,7 @@ When you build the project, a folder structure that looks like the following exa
  | - host.json
 ```
 
-This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-bindings-register.md#vs).
+This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-develop-vs.md?tabs=in-process#add-bindings).
 
 > [!IMPORTANT]
 > The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md).
@@ -67,7 +67,7 @@ This directory is what gets deployed to your function app in Azure. The binding 
 
 ## Methods recognized as functions
 
-In a class library, a function is a static method with a `FunctionName` and a trigger attribute, as shown in the following example:
+In a class library, a function is a method with a `FunctionName` and a trigger attribute, as shown in the following example:
 
 ```csharp
 public static class SimpleExample
@@ -82,7 +82,7 @@ public static class SimpleExample
 } 
 ```
 
-The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name.
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The above example shows a static method being used, but functions aren't required to be static.
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
@@ -170,7 +170,7 @@ The generated *function.json* file includes a `configurationSource` property tha
 
 The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks with the same `Sdk` package:
+The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of the `.csproj` files, showing different target frameworks with the same `Sdk` package:
 
 # [v2.x+](#tab/v2)
 
@@ -215,23 +215,23 @@ If you install the Core Tools using the Windows installer (MSI) package or by us
 
 ## ReadyToRun
 
-You can compile your function app as [ReadyToRun binaries](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 3.0 and requires [version 3.0 of the Azure Functions runtime](functions-versions.md).
+ReadyToRun is available in .NET 3.1 and .NET 6 (in-proc and isolated) and .NET 7 and requires [version 3.0 or 4.0 of the Azure Functions runtime](functions-versions.md).
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netcoreapp3.1</TargetFramework>
-  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <TargetFramework>net6.0</TargetFramework>
+  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   <PublishReadyToRun>true</PublishReadyToRun>
   <RuntimeIdentifier>win-x86</RuntimeIdentifier>
 </PropertyGroup>
 ```
 
 > [!IMPORTANT]
-> ReadyToRun currently doesn't support cross-compilation. You must build your app on the same platform as the deployment target. Also, pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](/dotnet/core/rid-catalog).
+> Starting in .NET 6, support for Composite ReadyToRun compilation has been added.  Check out [ReadyToRun Cross platform and architecture restrictions](/dotnet/core/deploying/ready-to-run).
 
 You can also build your app with ReadyToRun from the command line. For more information, see the `-p:PublishReadyToRun=true` option in [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
 
@@ -335,17 +335,6 @@ namespace ServiceBusCancellationToken
     }
 }
 ```
-
-As in the previous example, you commonly iterate through an array using a `foreach` loop. Within this loop and before processing the message, you should check the value of `cancellationToken.IsCancellationRequested` to see if cancellation is pending. In the case where `IsCancellationRequested` is `true`, you might need to take some actions to prepare for a graceful shutdown. For example, you might want to log the status of your code before the shutdown, or perhaps write to a persisted store the portion of the message batch which hasn't yet been processed. If you write this kind of information to a persisted store, your startup code needs to check the store for any unprocessed message batches that were written during shutdown. What your code needs to do during graceful shutdown depends on your specific scenario.
-
-Azure Event Hubs is an other trigger that supports batch processing messages. The following example is a function method definition for an Event Hubs trigger with a cancellation token that accepts an incoming batch as an array of [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) objects:
-
-```csharp
-public async Task Run([EventHubTrigger("csharpguitar", Connection = "EH_CONN")] 
-       EventData[] events, CancellationToken cancellationToken, ILogger log)
-```
-
-The pattern to process a batch of Event Hubs events is similar to the previous example of processing a batch of Service Bus messages. In each case, you should check the cancellation token for a cancellation state before processing each item in the array. When a pending shutdown is detected in the middle of the batch, handle it gracefully based on your business requirements.
 
 ## Logging
 
@@ -579,6 +568,13 @@ Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll s
 
 Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
+## Testing functions
+
+The following articles show how to run an in-process C# class library function locally for testing purposes:
+
++ [Visual Studio](functions-develop-vs.md#testing-functions)
++ [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp#debugging-functions-locally)
++ [Command line](functions-run-local.md?tabs=v4%2Ccsharp%2Cazurecli%2Cbash#start)
 
 ## Environment variables
 

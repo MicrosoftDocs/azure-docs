@@ -8,7 +8,7 @@ metadata:
   ms.service: databox
   ms.subservice: disk
   ms.topic: faq
-  ms.date: 03/02/2021
+  ms.date: 05/06/2022
   ms.author: alkohli
   ms.custom: references_regions
 title: "Azure Data Box Disk: Frequently Asked Questions"
@@ -84,13 +84,16 @@ sections:
         answer: |
           No. Data Box Disk does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.  
           
-          In addition to the customer data, there is Data Box Disk data that includes metadata and monitoring logs. In all the regions (except Brazil South and Southeast Asia), Data Box Disk data is stored and replicated in a [paired region](../availability-zones/cross-region-replication-azure.md) via a Geo-redundant Storage account to protect against data loss.  
+          In addition to the customer data, there is Data Box Disk data that includes metadata and monitoring logs. In all the regions (except Brazil South, Southeast Asia, and East Asia), Data Box Disk data is stored and replicated in a [paired region](../availability-zones/cross-region-replication-azure.md) via a Geo-redundant Storage account to protect against data loss.  
           
-          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, Data Box Disk data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box Disk data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
+          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South, Southeast Asia, and East Asia, Data Box Disk data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box Disk data is stored in Singapore. For Brazil South, the data is stored in Brazil. For East Asia, the data is stored in Hong Kong.
           
-          If there is a service outage in Brazil South and Southeast Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box Disk.
-          
-          
+          If there is a service outage in Brazil South, Southeast Asia, or East Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box Disk.
+      
+      - question: |
+          Does my Data Box Disk region have to be in the same Azure region as my destination storage account?
+        answer: |
+          No. The Data Box Disk resource does not need to be the same as the storage account region where you want to transfer data. You can choose a storage account in any region within the country or commerce boundary selected during the order. The Data Box Disk region is only used to deploy the resource during order creation. This is fixed for each country or commerce boundary and cannot be changed.
           
       - question: |
           How can I recover my data if an entire region fails?
@@ -133,6 +136,11 @@ sections:
           4. Data copy at customer site: Depends on nature of data, size, and number of files.
           5. Return shipping: 2-3 business days
           6. Processing at the datacenter and upload to Azure: Data upload begins at the datacenter as soon as operational processing is complete and the disk is connected. Upload time depends on nature of data, size, and number of files.
+
+      - question: |
+          Does Data Box Disk support export? 
+        answer: |
+          No, only import is supported for Data Box Disk. Export functionality is not available. If you want to export data from Azure, you can use [Azure Data Box](data-box-overview.md).
           
   - name: Configure and connect
     questions:

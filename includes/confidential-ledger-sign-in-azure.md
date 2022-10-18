@@ -9,7 +9,7 @@ ms.author: msmbaldwin
 
 ---
 
-Sign in to Azure using the Azure CLI [az login](/cli/azure/reference-index#az_login) command or the Azure PowerShell [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+Sign in to Azure using the Azure CLI [az login](/cli/azure/reference-index#az-login) command or the Azure PowerShell [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive

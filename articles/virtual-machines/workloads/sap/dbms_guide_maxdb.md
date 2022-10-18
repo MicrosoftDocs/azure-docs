@@ -1,21 +1,15 @@
 ---
 title: SAP MaxDB, liveCache, and Content Server deployment on Azure VMs | Microsoft Docs
 description: SAP MaxDB, liveCache, and Content Server deployment on Azure
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SAP MaxDB, liveCache, and Content Server deployment on Azure VMs
@@ -277,9 +271,9 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
+[virtual-machines-sql-server-infrastructure-services]:/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
+[virtual-machines-sql-server-performance-best-practices]:/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -309,10 +303,9 @@ This document covers several different areas to consider when deploying MaxDB, l
 
 ## Specifics for the SAP MaxDB deployments on Windows
 ### SAP MaxDB Version Support on Azure
-SAP currently supports SAP MaxDB version 7.9 or higher for use with SAP NetWeaver-based products in Azure. All updates for SAP MaxDB server, or JDBC and ODBC drivers to be used with SAP NetWeaver-based products are provided solely through the SAP Service Marketplace at <https://support.sap.com/swdc>.
-General information on running SAP NetWeaver on SAP MaxDB can be found at <https://www.sap.com/community/topic/maxdb.html>.
+SAP currently supports SAP MaxDB version 7.9 or higher for use with SAP NetWeaver-based products in Azure. All updates for SAP MaxDB server, or JDBC and ODBC drivers to be used with SAP NetWeaver-based products are provided solely through the [SAP Service Marketplace](https://support.sap.com/en/my-support/software-downloads.html). For more information about running SAP NetWeaver on SAP MaxDB, see [SAP MaxDB](https://www.sap.com/community/topic/maxdb.html).
 
-### Supported Microsoft Windows Versions and Azure VM types for SAP MaxDB DBMS
+### Supported Microsoft Windows versions and Azure VM types for SAP MaxDB DBMS
 To find the supported Microsoft Windows version for SAP MaxDB DBMS on Azure, see:
 
 * [SAP Product Availability Matrix (PAM)][sap-pam]
@@ -468,5 +461,5 @@ If you configure the SAP Content Server to store files in the file system, one o
 #### Other
 Other SAP Content Server-specific settings are transparent to Azure VMs and are described in various documents and SAP Notes:
 
-* <https://service.sap.com/contentserver> 
-* SAP Note [1619726]  
+* [SAP NetWeaver](https://service.sap.com/contentserver)
+* SAP Note [1619726]

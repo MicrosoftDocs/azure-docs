@@ -57,7 +57,7 @@ There are three steps to configuring Syslog collection:
     |---------|---------|
     |**For an Azure Linux VM**     |    1. Expand **Install agent on Azure Linux virtual machine**. <br><br>2. Select the **Download & install agent for Azure Linux Virtual machines >** link.<br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.     |
     |**For any other Linux machine**     |     1. Expand **Install agent on a non-Azure Linux Machine** <br><br>2. Select the **Download & install agent for non-Azure Linux machines >** link.<br><br>3. In the **Agents management** blade, select the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.<br><br>        If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command. |
-    |     |         |
+
 
    > [!NOTE]
    > Make sure you configure security settings for these devices according to your organization's security policy. For example, you can configure the network settings to align with your organization's network security policy, and change the ports and protocols in the daemon to align with the security requirements.
@@ -72,8 +72,8 @@ Having already set up [data collection from your CEF sources](connect-common-eve
 
 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.
 
-    ```c
-    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'
+    ```bash
+    sudo -u omsagent python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
     ```
 
 ## Configure your device's logging settings
@@ -86,7 +86,7 @@ If the instructions on your data connector's page in Microsoft Sentinel indicate
 
 Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/ASIM).
 
-For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md).
+For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md).
 
 ## Configure the Log Analytics agent
 

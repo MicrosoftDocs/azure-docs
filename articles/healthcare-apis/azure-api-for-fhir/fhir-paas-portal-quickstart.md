@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
-author: zxue
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
-ms.date: 12/02/2021
-ms.author: zxue
+ms.date: 06/03/2022
+ms.author: kesheth
 ms.custom: mode-api
 ---
 
@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create new resource
 
-Open the [Azure portal](https://portal.azure.com) and click **Create a resource**
+Open the [Azure portal](https://portal.azure.com) and select **Create a resource**
 
 ![Create a resource](media/quickstart-paas-portal/portal-create-resource.png)
 
@@ -27,7 +27,7 @@ Open the [Azure portal](https://portal.azure.com) and click **Create a resource*
 
 You can find Azure API for FHIR by typing "FHIR" into the search box:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Healthcare APIs":::
+:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Azure Health Data Services":::
 
 ## Create Azure API for FHIR account
 
@@ -37,7 +37,7 @@ Select **Create** to create a new Azure API for FHIR account:
 
 ## Enter account details
 
-Select an existing resource group or create a new one, choose a name for the account, and finally click **Review + create**:
+Select an existing resource group or create a new one, choose a name for the account, and finally select **Review + create**:
 
 :::image type="content" source="media/quickstart-paas-portal/portal-new-healthcare-apis-details.png" alt-text="New healthcare api details":::
 
@@ -45,7 +45,7 @@ Confirm creation and await FHIR API deployment.
 
 ## Additional settings (optional)
 
-You can also click **Next: Additional settings** to view the authentication settings. The default configuration for the Azure API for FHIR is to [use Azure RBAC for assigning data plane roles](configure-azure-rbac.md). When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
+You can also select **Next: Additional settings** to view the authentication settings. The default configuration for the Azure API for FHIR is to [use Azure RBAC for assigning data plane roles](configure-azure-rbac.md). When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
 
 :::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Default Authentication settings":::
 
@@ -86,3 +86,5 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

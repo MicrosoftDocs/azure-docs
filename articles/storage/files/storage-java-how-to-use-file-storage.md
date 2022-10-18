@@ -1,12 +1,12 @@
 ---
 title: Develop for Azure Files with Java | Microsoft Docs
 description: Learn how to develop Java applications and services that use Azure Files to store file data.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 05/26/2021
 ms.custom: devx-track-java
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

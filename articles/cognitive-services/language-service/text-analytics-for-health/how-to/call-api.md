@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 12/03/2021
+ms.date: 09/05/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -38,7 +38,9 @@ By default, Text Analytics for health will use the latest available AI model on 
 
 | Supported Versions | latest version |
 |--|--|
+| `2022-03-01` | `2022-03-01`   |
 | `2021-05-15` | `2021-05-15`   |
+
 
 ### Text Analytics for health container
 
@@ -46,7 +48,10 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `3.0.016230002-onprem-amd64` (latest)            | `2021-05-15`  |
+| `/entities/health`              | `3.0.59413252-onprem-amd64` (latest)            | `2022-03-01`  |
+| `/entities/health`              | `3.0.59413252-latin-onprem-amd64` (latin)            | `2022-08-15-preview`  |
+| `/entities/health`              | `3.0.59413252-semitic-onprem-amd64` (semitic)            | `2022-08-15-preview`  |
+| `/entities/health`              | `3.0.016230002-onprem-amd64`            | `2021-05-15`  |
 | `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
 | `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
@@ -56,7 +61,7 @@ The [Text Analytics for health container](use-containers.md) uses separate model
 
 ### Input languages
 
-Currently the Text Analytics for health only [supports](../language-support.md) the English language. 
+Currently the Text Analytics for health hosted API only [supports](../language-support.md) the English language. Additional languages are currently in preview when deploying the API in a container, as detailed [under Text Analytics for health languages support](../language-support.md).
 
 ## Submitting data
 
@@ -65,9 +70,7 @@ To send an API request, You will need your Language resource endpoint and key.
 > [!NOTE]
 > You can find the key and endpoint for your Language resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits below.
-
-If you send a request using the REST API or client library, the results will be returned asynchronously. If you're using the Docker container, they will be returned synchronously.  
+Analysis is performed upon receipt of the request. If you send a request using the REST API or client library, the results will be returned asynchronously. If you're using the Docker container, they will be returned synchronously.  
 
 [!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
@@ -79,30 +82,9 @@ Depending on your API request, and the data you submit to the Text Analytics for
 [!INCLUDE [Text Analytics for health features](../includes/features.md)]
 
 
-## Data limits
+## Service and data limits
 
-> [!NOTE]
-> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. For best results, split text between sentences.
-> * A document is a single string of text characters.  
-
-| Limit | Value |
-|------------------------|---------------|
-| Maximum size of a single document | 30,720 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum size of entire request | 1 MB |
-| Max Documents Per Request | 10 for the web-based API, 1000 for the container. |
-
-If a document exceeds the character limit, the API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
-
-When you send a document larger than 5,120 characters, it will be split by Text Analytics for health into chunks of 5,120 characters. If two entities are present on either side of a split that are related, the model will not be able to detect the relation. To prevent potential relations from being undetected, consider splitting your text into documents of 5,120 characters or less, consisting only of full sentences.
-
-### Rate limits
-
-Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
-
-| Tier          | Requests per second | Requests per minute |
-|---------------|---------------------|---------------------|
-| S / Multi-service | 1000                | 1000                |
-| F0         | 100                 | 300                 |
+[!INCLUDE [service limits article](../../includes/service-limits-link.md)]
 
 ## See also
 

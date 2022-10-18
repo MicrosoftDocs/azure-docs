@@ -1,10 +1,12 @@
 ---
 title: Deploy on dedicated host 
 description: Use a dedicated host to achieve true host-level isolation for your Azure Container Instances workloads
-ms.topic: article
-ms.date: 01/17/2020
-author: macolso
-ms.author: macolso
+ms.topic: how-to
+ms.service: container-instances
+services: container-instances
+author: tomvcassidy
+ms.author: tomcassidy
+ms.date: 03/18/2022
 ---
 
 # Deploy on dedicated hosts
@@ -12,6 +14,8 @@ ms.author: macolso
 "Dedicated" is an Azure Container Instances (ACI) sku that provides an isolated and dedicated compute environment for securely running containers. Using the dedicated sku results in each container group having a dedicated physical server in an Azure datacenter, ensuring full workload isolation to help meet your organization's security and compliance requirements. 
 
 The dedicated sku is appropriate for container workloads that require workload isolation from a physical server perspective.
+
+A dedicated host for Azure Container Instances provides [double encryption at rest](../virtual-machines/windows/disk-encryption.md#double-encryption-at-rest) for your container data when it is persisted by the service to the cloud. This encryption protects your data to help meet your organization's security and compliance requirements. ACI also gives you the option to [encrypt this data with your own key](container-instances-encrypt-data.md), giving you greater control over the data related to your ACI deployments.
 
 ## Prerequisites
 
@@ -23,8 +27,7 @@ The dedicated sku is appropriate for container workloads that require workload i
 ## Use the dedicated sku
 
 > [!IMPORTANT]
-> Using the dedicated sku is only available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template.
->
+> Using the dedicated sku is only available in **API version 2019-12-01 or later**. Specify this API version or a more recent one in your deployment template.
 
 Starting with API version 2019-12-01, there is a `sku` property under the container group properties section of a deployment template, which is required for an ACI deployment. Currently, you can use this property as part of an Azure Resource Manager deployment template for ACI. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
 
@@ -144,8 +147,8 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 Within a few seconds, you should receive an initial response from Azure. A successful deployment takes place on a dedicated host.
 
 <!-- LINKS - Internal -->
-[az-group-create]: /cli/azure/group#az_group_create
-[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-group-create]: /cli/azure/group#az-group-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 
 <!-- LINKS - External -->
 [azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

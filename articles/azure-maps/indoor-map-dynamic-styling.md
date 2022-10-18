@@ -42,7 +42,7 @@ The following script implements the mouse-click event. The code retrieves the fe
 /* Upon a mouse click, log the feature properties to the browser's console. */
 map.events.add("click", function(e){
 
-    var features = map.layers.getRenderedShapes(e.position, "indoor");
+    var features = map.layers.getRenderedShapes(e.position, "unit");
 
     features.forEach(function (feature) {
         if (feature.layer.id == 'indoor_unit_office') {
@@ -128,7 +128,7 @@ The web application that you previously opened in a browser should now reflect t
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
 
-[See live demo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
+[See live demo](https://samples.azuremaps.com/?sample=creator-indoor-maps)
 
 ## Next steps
 

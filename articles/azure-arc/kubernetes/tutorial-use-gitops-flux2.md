@@ -1,41 +1,48 @@
 ---
 title: "Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
+keywords: "GitOps, Flux, Flux v2, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 1/24/2022
+ms.date: 10/12/2022
 ms.topic: tutorial
-author: csand-msft
-ms.author: csand
-ms.custom: template-tutorial, devx-track-azurecli
+ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
 
-# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters (public preview)
+# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or AKS clusters
 
 GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clusters or Azure Arc-enabled Kubernetes connected clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
+
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
-General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
+> [!IMPORTANT]
+> The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
+
+> [!TIP]
+> When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Prerequisites
 
-To manage GitOps through the Azure CLI or the Azure portal, you need the following items.
+To manage GitOps through the Azure CLI or the Azure portal, you need the following:
 
 ### For Azure Arc-enabled Kubernetes clusters
 
 * An Azure Arc-enabled Kubernetes connected cluster that's up and running.
   
-  [Learn how to Azure Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
+  [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
+
 * Read and write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type.
 
 ### For Azure Kubernetes Service clusters
 
-* An AKS cluster that's up and running.
+* An MSI-based AKS cluster that's up and running.
 
-  >[!IMPORTANT]
-  >Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
+  > [!IMPORTANT]
+  > **Ensure that the AKS cluster is created with MSI** (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
+  > For new AKS clusters created with “az aks create”, the cluster will be MSI-based by default. For already created SPN-based clusters that need to be converted to MSI run “az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity”. For more information, refer to [managed identity docs](../../aks/use-managed-identity.md).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 * Registration of your subscription with the `AKS-ExtensionManager` feature flag. Use the following command:
@@ -45,6 +52,11 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   ```
 
 ### Common to both cluster types
+
+* Read and write permissions on these resource types:
+
+  * `Microsoft.KubernetesConfiguration/extensions`
+  * `Microsoft.KubernetesConfiguration/fluxConfigurations`
 
 * Azure CLI version 2.15 or later. [Install the Azure CLI](/cli/azure/install-azure-cli) or use the following commands to update to the latest version:
 
@@ -71,13 +83,15 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
   Microsoft.KubernetesConfiguration  RegistrationRequired  Registered
   ```
 
-### Supported regions
+### Version and region support
 
-GitOps is currently supported in the regions that Azure Arc-enabled Kubernetes supports. These regions are a subset of the regions that AKS supports. GitOps is currently not supported in all AKS regions.  [See the supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). The GitOps service is adding new supported regions on a regular cadence.
+GitOps is currently supported in [all regions that Azure Arc-enabled Kubernetes supports](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). GitOps is currently supported in a subset of the regions that AKS supports. The GitOps service is adding new supported regions on a regular cadence.
+
+The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
 ### Network requirements
 
-The GitOps agents require TCP on port 443 (`https://:443`) to function. The agents also require the following outbound URLs:
+The GitOps agents require outbound (egress) TCP to the repo source on either port 22 (SSH) or port 443 (HTTPS) to function. The agents also require the following outbound URLs:
 
 | Endpoint (DNS) | Description |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -85,12 +99,11 @@ The GitOps agents require TCP on port 443 (`https://:443`) to function. The agen
 | `https://<region>.dp.kubernetesconfiguration.azure.com` | Data plane endpoint for the agent to push status and fetch configuration information. Depends on `<region>` (the supported regions mentioned earlier). |
 | `https://login.microsoftonline.com` | Required to fetch and update Azure Resource Manager tokens. |
 | `https://mcr.microsoft.com` | Required to pull container images for Flux controllers. |
-| `https://azurearcfork8s.azurecr.io` | Required to pull container images for GitOps agents. |
 
 ## Enable CLI extensions
 
 >[!NOTE]
->The `k8s-configuration` CLI extension has been upgraded to manage either Flux v2 or Flux v1 configurations. Flux v2 is an important upgrade to Flux v1, and eventually GitOps support for Flux v1 will cease. Begin using Flux v2 as soon as possible.
+>The `k8s-configuration` CLI extension manages either Flux v2 or Flux v1 configurations. Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible. 
 
 Install the latest `k8s-configuration` and `k8s-extension` CLI extension packages:
 
@@ -113,57 +126,69 @@ az extension list -o table
 
 Experimental   ExtensionType   Name                   Path                                                       Preview   Version
 -------------  --------------  -----------------      -----------------------------------------------------      --------  --------
-False          whl             connectedk8s           C:\Users\somename\.azure\cliextensions\connectedk8s         False     1.2.0
-False          whl             k8s-configuration      C:\Users\somename\.azure\cliextensions\k8s-configuration    False     1.4.1
-False          whl             k8s-extension          C:\Users\somename\.azure\cliextensions\k8s-extension        False     1.0.4
+False          whl             connectedk8s           C:\Users\somename\.azure\cliextensions\connectedk8s         False     1.2.7
+False          whl             k8s-configuration      C:\Users\somename\.azure\cliextensions\k8s-configuration    False     1.5.0
+False          whl             k8s-extension          C:\Users\somename\.azure\cliextensions\k8s-extension        False     1.1.0
 ```
+
+> [!TIP]
+> For help resolving any errors, see the Flux v2 suggestions in [Azure Arc-enabled Kubernetes and GitOps troubleshooting](troubleshooting.md#flux-v2---general).
 
 ## Apply a Flux configuration by using the Azure CLI
 
-Use the `k8s-configuration` Azure CLI extension (or the Azure portal) to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For a demonstration, use the public [flux2-kustomize-helm-example](https://github.com/fluxcd/flux2-kustomize-helm-example) repository. 
+Use the `k8s-configuration` Azure CLI extension (or the Azure portal) to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For a demonstration, use the public [gitops-flux2-kustomize-helm-mt](https://github.com/Azure/gitops-flux2-kustomize-helm-mt) repository.
+
+> [!IMPORTANT]
+> The demonstration repo is designed to simplify your use of this tutorial and illustrate some key principles. To keep up to date, the repo can get breaking changes occasionally from version upgrades. These changes won't affect your new application of this tutorial, only previous tutorial applications that have not been deleted. To learn how to handle these changes please see the [breaking change disclaimer](https://github.com/Azure/gitops-flux2-kustomize-helm-mt#breaking-change-disclaimer-%EF%B8%8F).
 
 In the following example:
 
 * The resource group that contains the cluster is `flux-demo-rg`.
 * The name of the Azure Arc cluster is `flux-demo-arc`.
 * The cluster type is Azure Arc (`-t connectedClusters`), but this example also works with AKS (`-t managedClusters`).
-* The name of the Flux configuration is `gitops-demo`.
-* The namespace for configuration installation is `gitops-demo`.
-* The URL for the public Git repository is `https://github.com/fluxcd/flux2-kustomize-helm-example`.
+* The name of the Flux configuration is `cluster-config`.
+* The namespace for configuration installation is `cluster-config`.
+* The URL for the public Git repository is `https://github.com/Azure/gitops-flux2-kustomize-helm-mt`.
 * The Git repository branch is `main`.
-* The scope of the configuration is `cluster`. It gives the operators permissions to make changes throughout cluster.
+* The scope of the configuration is `cluster`. This gives the operators permissions to make changes throughout cluster. To use `namespace` scope with this tutorial, [see the changes needed](#multi-tenancy).
 * Two kustomizations are specified with names `infra` and `apps`. Each is associated with a path in the repository.
 * The `apps` kustomization depends on the `infra` kustomization. (The `infra` kustomization must finish before the `apps` kustomization runs.)
 * Set `prune=true` on both kustomizations. This setting assures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
 
-If the `microsoft.flux` extension isn't already installed in the cluster, it will be installed.
+If the `microsoft.flux` extension isn't already installed in the cluster, it'll be installed. When the flux configuration is installed, the initial compliance state may be "Pending" or "Non-compliant" because reconciliation is still on-going. After a minute, you can query the configuration again and see the final compliance state.
 
 ```console
-az k8s-configuration flux create -g flux-demo-rg -c flux-demo-arc -n gitops-demo --namespace gitops-demo -t connectedClusters --scope cluster -u https://github.com/fluxcd/flux2-kustomize-helm-example --branch main  --kustomization name=infra path=./infrastructure prune=true --kustomization name=apps path=./apps/staging prune=true dependsOn=["infra"]
+az k8s-configuration flux create -g flux-demo-rg \
+-c flux-demo-arc \
+-n cluster-config \
+--namespace cluster-config \
+-t connectedClusters \
+--scope cluster \
+-u https://github.com/Azure/gitops-flux2-kustomize-helm-mt \
+--branch main  \
+--kustomization name=infra path=./infrastructure prune=true \
+--kustomization name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
 
-Command group 'k8s-configuration flux' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Warning! https url is being used without https auth params, ensure the repository url provided is not a private repo
 'Microsoft.Flux' extension not found on the cluster, installing it now. This may take a few minutes...
 'Microsoft.Flux' extension was successfully installed on the cluster
-Creating the flux configuration 'gitops-demo' in the cluster. This may take a few minutes...
+Creating the flux configuration 'cluster-config' in the cluster. This may take a few minutes...
 {
   "complianceState": "Pending",
   ... (not shown because of pending status)
 }
 ```
 
-Show the configuration after time to finish reconciliations.
+Show the configuration after allowing time to finish reconciliations.
 
 ```console
-az k8s-configuration flux show -g flux-demo-rg -c flux-demo-arc -n gitops-demo -t connectedClusters
-
-Command group 'k8s-configuration flux' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+az k8s-configuration flux show -g flux-demo-rg -c flux-demo-arc -n cluster-config -t connectedClusters
 {
+  "bucket": null,
   "complianceState": "Compliant",
   "configurationProtectedSettings": {},
   "errorMessage": "",
   "gitRepository": {
-    "httpsCaFile": null,
+    "httpsCaCert": null,
     "httpsUser": null,
     "localAuthRef": null,
     "repositoryRef": {
@@ -175,17 +200,16 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
     "sshKnownHosts": null,
     "syncIntervalInSeconds": 600,
     "timeoutInSeconds": 600,
-    "url": "https://github.com/fluxcd/flux2-kustomize-helm-example"
+    "url": "https://github.com/Azure/gitops-flux2-kustomize-helm-mt"
   },
-  "id": "/subscriptions/REDACTED/resourceGroups/flux-demo-rg/providers/Microsoft.Kubernetes/connectedClusters/flux-demo-arc/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/gitops-demo",
+  "id": "/subscriptions/REDACTED/resourceGroups/flux-demo-rg/providers/Microsoft.Kubernetes/connectedClusters/flux-demo-arc/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/cluster-config",
   "kustomizations": {
     "apps": {
       "dependsOn": [
-        {
-          "kustomizationName": "infra"
-        }
+        "infra"
       ],
       "force": false,
+      "name": "apps",
       "path": "./apps/staging",
       "prune": true,
       "retryIntervalInSeconds": null,
@@ -193,8 +217,9 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
       "timeoutInSeconds": 600
     },
     "infra": {
-      "dependsOn": [],
+      "dependsOn": null,
       "force": false,
+      "name": "infra",
       "path": "./infrastructure",
       "prune": true,
       "retryIntervalInSeconds": null,
@@ -202,27 +227,28 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
       "timeoutInSeconds": 600
     }
   },
-  "lastSourceSyncedAt": "2021-11-23T22:59:22+00:00",
-  "lastSourceSyncedCommitId": "main/f0c2aaef48461d8099a8fff05893e9ebb96f1561",
-  "name": "gitops-demo",
-  "namespace": "gitops-demo",
+  "name": "cluster-config",
+  "namespace": "cluster-config",
   "provisioningState": "Succeeded",
   "repositoryPublicKey": "",
-  "resourceGroup": "flux-demo-rg",
+  "resourceGroup": "Flux2-Test-RG-EUS",
   "scope": "cluster",
   "sourceKind": "GitRepository",
+  "sourceSyncedCommitId": "main/4f1bdad4d0a54b939a5e3d52c51464f67e474fcf",
+  "sourceUpdatedAt": "2022-04-06T17:34:03+00:00",
+  "statusUpdatedAt": "2022-04-06T17:44:56.417000+00:00",
   "statuses": [
     {
       "appliedBy": null,
       "complianceState": "Compliant",
       "helmReleaseProperties": null,
       "kind": "GitRepository",
-      "name": "gitops-demo",
-      "namespace": "gitops-demo",
+      "name": "cluster-config",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T22:59:22+00:00",
-          "message": "Fetched revision: main/f0c2aaef48461d8099a8fff05893e9ebb96f1561",
+          "lastTransitionTime": "2022-04-06T17:33:32+00:00",
+          "message": "Fetched revision: main/4f1bdad4d0a54b939a5e3d52c51464f67e474fcf",
           "reason": "GitOperationSucceed",
           "status": "True",
           "type": "Ready"
@@ -234,12 +260,12 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
       "complianceState": "Compliant",
       "helmReleaseProperties": null,
       "kind": "Kustomization",
-      "name": "gitops-demo-apps",
-      "namespace": "gitops-demo",
+      "name": "cluster-config-apps",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T22:59:53+00:00",
-          "message": "Applied revision: main/f0c2aaef48461d8099a8fff05893e9ebb96f1561",
+          "lastTransitionTime": "2022-04-06T17:44:04+00:00",
+          "message": "Applied revision: main/4f1bdad4d0a54b939a5e3d52c51464f67e474fcf",
           "reason": "ReconciliationSucceeded",
           "status": "True",
           "type": "Ready"
@@ -248,15 +274,15 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
     },
     {
       "appliedBy": {
-        "name": "gitops-demo-apps",
-        "namespace": "gitops-demo"
+        "name": "cluster-config-apps",
+        "namespace": "cluster-config"
       },
       "complianceState": "Compliant",
       "helmReleaseProperties": {
         "failureCount": 0,
         "helmChartRef": {
-          "name": "podinfo-podinfo",
-          "namespace": "flux-system"
+          "name": "cluster-config-podinfo",
+          "namespace": "cluster-config"
         },
         "installFailureCount": 0,
         "lastRevisionApplied": 1,
@@ -264,17 +290,17 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
       },
       "kind": "HelmRelease",
       "name": "podinfo",
-      "namespace": "podinfo",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T22:59:54+00:00",
+          "lastTransitionTime": "2022-04-06T17:33:43+00:00",
           "message": "Release reconciliation succeeded",
           "reason": "ReconciliationSucceeded",
           "status": "True",
           "type": "Ready"
         },
         {
-          "lastTransitionTime": "2021-11-23T22:59:54+00:00",
+          "lastTransitionTime": "2022-04-06T17:33:43+00:00",
           "message": "Helm install succeeded",
           "reason": "InstallSucceeded",
           "status": "True",
@@ -287,12 +313,12 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
       "complianceState": "Compliant",
       "helmReleaseProperties": null,
       "kind": "Kustomization",
-      "name": "gitops-demo-infra",
-      "namespace": "gitops-demo",
+      "name": "cluster-config-infra",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T22:59:24+00:00",
-          "message": "Applied revision: main/f0c2aaef48461d8099a8fff05893e9ebb96f1561",
+          "lastTransitionTime": "2022-04-06T17:43:33+00:00",
+          "message": "Applied revision: main/4f1bdad4d0a54b939a5e3d52c51464f67e474fcf",
           "reason": "ReconciliationSucceeded",
           "status": "True",
           "type": "Ready"
@@ -301,18 +327,18 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
     },
     {
       "appliedBy": {
-        "name": "gitops-demo-infra",
-        "namespace": "gitops-demo"
+        "name": "cluster-config-infra",
+        "namespace": "cluster-config"
       },
       "complianceState": "Compliant",
       "helmReleaseProperties": null,
       "kind": "HelmRepository",
       "name": "bitnami",
-      "namespace": "flux-system",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T22:59:30+00:00",
-          "message": "Fetched revision: 75dd8746b22e569460eb3b453b0ae22941c680b7",
+          "lastTransitionTime": "2022-04-06T17:33:36+00:00",
+          "message": "Fetched revision: 46a41610ea410558eb485bcb673fd01c4d1f47b86ad292160b256555b01cce81",
           "reason": "IndexationSucceed",
           "status": "True",
           "type": "Ready"
@@ -321,18 +347,18 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
     },
     {
       "appliedBy": {
-        "name": "gitops-demo-infra",
-        "namespace": "gitops-demo"
+        "name": "cluster-config-infra",
+        "namespace": "cluster-config"
       },
       "complianceState": "Compliant",
       "helmReleaseProperties": null,
       "kind": "HelmRepository",
       "name": "podinfo",
-      "namespace": "flux-system",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T22:59:24+00:00",
-          "message": "Fetched revision: fddc2924c28a1a1895e215a4dc065f33a0ea2e8e",
+          "lastTransitionTime": "2022-04-06T17:33:33+00:00",
+          "message": "Fetched revision: 421665ba04fab9b275b9830947417b2cebf67764eee46d568c94cf2a95a6341d",
           "reason": "IndexationSucceed",
           "status": "True",
           "type": "Ready"
@@ -341,15 +367,15 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
     },
     {
       "appliedBy": {
-        "name": "gitops-demo-infra",
-        "namespace": "gitops-demo"
+        "name": "cluster-config-infra",
+        "namespace": "cluster-config"
       },
       "complianceState": "Compliant",
       "helmReleaseProperties": {
         "failureCount": 0,
         "helmChartRef": {
-          "name": "nginx-nginx",
-          "namespace": "flux-system"
+          "name": "cluster-config-nginx",
+          "namespace": "cluster-config"
         },
         "installFailureCount": 0,
         "lastRevisionApplied": 1,
@@ -357,17 +383,17 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
       },
       "kind": "HelmRelease",
       "name": "nginx",
-      "namespace": "nginx",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T23:00:10+00:00",
+          "lastTransitionTime": "2022-04-06T17:34:13+00:00",
           "message": "Release reconciliation succeeded",
           "reason": "ReconciliationSucceeded",
           "status": "True",
           "type": "Ready"
         },
         {
-          "lastTransitionTime": "2021-11-23T23:00:10+00:00",
+          "lastTransitionTime": "2022-04-06T17:34:13+00:00",
           "message": "Helm install succeeded",
           "reason": "InstallSucceeded",
           "status": "True",
@@ -377,15 +403,15 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
     },
     {
       "appliedBy": {
-        "name": "gitops-demo-infra",
-        "namespace": "gitops-demo"
+        "name": "cluster-config-infra",
+        "namespace": "cluster-config"
       },
       "complianceState": "Compliant",
       "helmReleaseProperties": {
         "failureCount": 0,
         "helmChartRef": {
-          "name": "redis-redis",
-          "namespace": "flux-system"
+          "name": "cluster-config-redis",
+          "namespace": "cluster-config"
         },
         "installFailureCount": 0,
         "lastRevisionApplied": 1,
@@ -393,31 +419,51 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
       },
       "kind": "HelmRelease",
       "name": "redis",
-      "namespace": "redis",
+      "namespace": "cluster-config",
       "statusConditions": [
         {
-          "lastTransitionTime": "2021-11-23T22:59:56+00:00",
+          "lastTransitionTime": "2022-04-06T17:33:57+00:00",
           "message": "Release reconciliation succeeded",
           "reason": "ReconciliationSucceeded",
           "status": "True",
           "type": "Ready"
         },
         {
-          "lastTransitionTime": "2021-11-23T22:59:56+00:00",
+          "lastTransitionTime": "2022-04-06T17:33:57+00:00",
           "message": "Helm install succeeded",
           "reason": "InstallSucceeded",
           "status": "True",
           "type": "Released"
         }
       ]
+    },
+    {
+      "appliedBy": {
+        "name": "cluster-config-infra",
+        "namespace": "cluster-config"
+      },
+      "complianceState": "Compliant",
+      "helmReleaseProperties": null,
+      "kind": "HelmChart",
+      "name": "test-chart",
+      "namespace": "cluster-config",
+      "statusConditions": [
+        {
+          "lastTransitionTime": "2022-04-06T17:33:40+00:00",
+          "message": "Pulled 'redis' chart with version '11.3.4'.",
+          "reason": "ChartPullSucceeded",
+          "status": "True",
+          "type": "Ready"
+        }
+      ]
     }
   ],
   "suspend": false,
   "systemData": {
-    "createdAt": "2021-11-23T22:58:53.736245+00:00",
+    "createdAt": "2022-04-06T17:32:44.646629+00:00",
     "createdBy": null,
     "createdByType": null,
-    "lastModifiedAt": "2021-11-23T22:58:53.736245+00:00",
+    "lastModifiedAt": "2022-04-06T17:32:44.646629+00:00",
     "lastModifiedBy": null,
     "lastModifiedByType": null
   },
@@ -428,22 +474,11 @@ Command group 'k8s-configuration flux' is in preview and under development. Refe
 These namespaces were created:
 
 * `flux-system`: Holds the Flux extension controllers.
-* `gitops-demo`: Holds the Flux configuration objects.
+* `cluster-config`: Holds the Flux configuration objects.
 * `nginx`, `podinfo`, `redis`: Namespaces for workloads described in manifests in the Git repository.
 
 ```console
 kubectl get namespaces
-NAME              STATUS   AGE
-azure-arc         Active   17d
-default           Active   17d
-flux-system       Active   18m
-gitops-demo       Active   17m
-kube-node-lease   Active   17d
-kube-public       Active   17d
-kube-system       Active   17d
-nginx             Active   17m
-podinfo           Active   16m
-redis             Active   17m
 ```
 
 The `flux-system` namespace contains the Flux extension objects:  
@@ -465,59 +500,68 @@ notification-controller-7d45678bc-fvlvr   1/1     Running   0          21m
 source-controller-df7dc97cd-4drh2         1/1     Running   0          21m
 ```
 
-The namespace `gitops-demo` has the Flux configuration objects.
+The namespace `cluster-config` has the Flux configuration objects.
 
 ```console
 kubectl get crds
 
 NAME                                                   CREATED AT
-alerts.notification.toolkit.fluxcd.io                  2021-11-23T22:57:49Z
-arccertificates.clusterconfig.azure.com                2021-11-06T15:12:36Z
-azureclusteridentityrequests.clusterconfig.azure.com   2021-11-06T15:12:36Z
-connectedclusters.arc.azure.com                        2021-11-06T15:12:36Z
-customlocationsettings.clusterconfig.azure.com         2021-11-06T15:12:36Z
-extensionconfigs.clusterconfig.azure.com               2021-11-06T15:12:36Z
-fluxconfigs.clusterconfig.azure.com                    2021-11-23T22:57:49Z
-gitconfigs.clusterconfig.azure.com                     2021-11-06T15:12:36Z
-gitrepositories.source.toolkit.fluxcd.io               2021-11-23T22:57:49Z
-healthstates.azmon.container.insights                  2021-11-06T14:45:55Z
-helmcharts.source.toolkit.fluxcd.io                    2021-11-23T22:57:49Z
-helmreleases.helm.toolkit.fluxcd.io                    2021-11-23T22:57:49Z
-helmrepositories.source.toolkit.fluxcd.io              2021-11-23T22:57:49Z
-kustomizations.kustomize.toolkit.fluxcd.io             2021-11-23T22:57:49Z
-providers.notification.toolkit.fluxcd.io               2021-11-23T22:57:49Z
-receivers.notification.toolkit.fluxcd.io               2021-11-23T22:57:49Z
+alerts.notification.toolkit.fluxcd.io                  2022-04-06T17:15:48Z
+arccertificates.clusterconfig.azure.com                2022-03-28T21:45:19Z
+azureclusteridentityrequests.clusterconfig.azure.com   2022-03-28T21:45:19Z
+azureextensionidentities.clusterconfig.azure.com       2022-03-28T21:45:19Z
+buckets.source.toolkit.fluxcd.io                       2022-04-06T17:15:48Z
+connectedclusters.arc.azure.com                        2022-03-28T21:45:19Z
+customlocationsettings.clusterconfig.azure.com         2022-03-28T21:45:19Z
+extensionconfigs.clusterconfig.azure.com               2022-03-28T21:45:19Z
+fluxconfigs.clusterconfig.azure.com                    2022-04-06T17:15:48Z
+gitconfigs.clusterconfig.azure.com                     2022-03-28T21:45:19Z
+gitrepositories.source.toolkit.fluxcd.io               2022-04-06T17:15:48Z
+helmcharts.source.toolkit.fluxcd.io                    2022-04-06T17:15:48Z
+helmreleases.helm.toolkit.fluxcd.io                    2022-04-06T17:15:48Z
+helmrepositories.source.toolkit.fluxcd.io              2022-04-06T17:15:48Z
+imagepolicies.image.toolkit.fluxcd.io                  2022-04-06T17:15:48Z
+imagerepositories.image.toolkit.fluxcd.io              2022-04-06T17:15:48Z
+imageupdateautomations.image.toolkit.fluxcd.io         2022-04-06T17:15:48Z
+kustomizations.kustomize.toolkit.fluxcd.io             2022-04-06T17:15:48Z
+providers.notification.toolkit.fluxcd.io               2022-04-06T17:15:48Z
+receivers.notification.toolkit.fluxcd.io               2022-04-06T17:15:48Z
+volumesnapshotclasses.snapshot.storage.k8s.io          2022-03-28T21:06:12Z
+volumesnapshotcontents.snapshot.storage.k8s.io         2022-03-28T21:06:12Z
+volumesnapshots.snapshot.storage.k8s.io                2022-03-28T21:06:12Z
+websites.extensions.example.com                        2022-03-30T23:42:32Z
 ```
 
 ```console
 kubectl get fluxconfigs -A
 
-NAMESPACE     NAME          SCOPE     URL                                                      PROVISION   AGE
-gitops-demo   gitops-demo   cluster   https://github.com/fluxcd/flux2-kustomize-helm-example   Succeeded   22m
+NAMESPACE        NAME             SCOPE     URL                                                       PROVISION   AGE
+cluster-config   cluster-config   cluster   https://github.com/Azure/gitops-flux2-kustomize-helm-mt   Succeeded   44m
 ```
 
 ```console
 kubectl get gitrepositories -A
 
-NAMESPACE     NAME          URL                                                      READY   STATUS                                                            AGE
-gitops-demo   gitops-demo   https://github.com/fluxcd/flux2-kustomize-helm-example   True    Fetched revision: main/f0c2aaef48461d8099a8fff05893e9ebb96f1561   22m
+NAMESPACE        NAME             URL                                                       READY   STATUS                                                            AGE
+cluster-config   cluster-config   https://github.com/Azure/gitops-flux2-kustomize-helm-mt   True    Fetched revision: main/4f1bdad4d0a54b939a5e3d52c51464f67e474fcf   45m
 ```
 
 ```console
 kubectl get helmreleases -A
 
-NAMESPACE   NAME      READY   STATUS                             AGE
-nginx       nginx     True    Release reconciliation succeeded   6d4h
-podinfo     podinfo   True    Release reconciliation succeeded   6d4h
-redis       redis     True    Release reconciliation succeeded   6d4h
+NAMESPACE        NAME      READY   STATUS                             AGE
+cluster-config   nginx     True    Release reconciliation succeeded   66m
+cluster-config   podinfo   True    Release reconciliation succeeded   66m
+cluster-config   redis     True    Release reconciliation succeeded   66m
 ```
 
 ```console
 kubectl get kustomizations -A
 
-NAMESPACE     NAME                READY   STATUS                                                            AGE
-gitops-demo   gitops-demo-apps    True    Applied revision: main/f0c2aaef48461d8099a8fff05893e9ebb96f1561   23m
-gitops-demo   gitops-demo-infra   True    Applied revision: main/f0c2aaef48461d8099a8fff05893e9ebb96f1561   23m
+
+NAMESPACE        NAME                   READY   STATUS                                                            AGE
+cluster-config   cluster-config-apps    True    Applied revision: main/4f1bdad4d0a54b939a5e3d52c51464f67e474fcf   65m
+cluster-config   cluster-config-infra   True    Applied revision: main/4f1bdad4d0a54b939a5e3d52c51464f67e474fcf   65m
 ```
 
 Workloads are deployed from manifests in the Git repository.
@@ -526,25 +570,25 @@ Workloads are deployed from manifests in the Git repository.
 kubectl get deploy -n nginx
 
 NAME                                       READY   UP-TO-DATE   AVAILABLE   AGE
-nginx-ingress-controller                   1/1     1            1           25m
-nginx-ingress-controller-default-backend   1/1     1            1           25m
+nginx-ingress-controller                   1/1     1            1           67m
+nginx-ingress-controller-default-backend   1/1     1            1           67m
 
 kubectl get deploy -n podinfo
 
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
-podinfo   1/1     1            1           26m
+podinfo   1/1     1            1           68m
 
 kubectl get all -n redis
 
 NAME                 READY   STATUS    RESTARTS   AGE
-pod/redis-master-0   1/1     Running   0          95m
+pod/redis-master-0   1/1     Running   0          68m
 
 NAME                     TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE
-service/redis-headless   ClusterIP   None          <none>        6379/TCP   95m
-service/redis-master     ClusterIP   10.0.180.63   <none>        6379/TCP   95m
+service/redis-headless   ClusterIP   None          <none>        6379/TCP   68m
+service/redis-master     ClusterIP   10.0.13.182   <none>        6379/TCP   68m
 
 NAME                            READY   AGE
-statefulset.apps/redis-master   1/1     95m
+statefulset.apps/redis-master   1/1     68m
 ```
 
 ### Delete the Flux configuration
@@ -552,8 +596,10 @@ statefulset.apps/redis-master   1/1     95m
 You can delete the Flux configuration by using the following command. This action deletes both the `fluxConfigurations` resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the Git repository will be removed when the Flux configuration is removed.
 
 ```console
-az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n gitops-demo -t connectedClusters --yes
+az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n cluster-config -t connectedClusters --yes
 ```
+
+For an AKS cluster, use the same command but with `-t managedClusters`replacing `-t connectedClusters`.
 
 Note that this action does *not* remove the Flux extension.
 
@@ -588,6 +634,22 @@ Here's an example for including the [Flux image-reflector and image-automation c
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
 ```
 
+### Red Hat OpenShift onboarding guidance
+
+Flux controllers require a **nonroot** [Security Context Constraint](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.2/html/authentication/managing-pod-security-policies) to properly provision pods on the cluster. These constraints must be added to the cluster prior to onboarding of the `microsoft.flux` extension.
+
+```console
+NS="flux-system"
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:kustomize-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:helm-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:source-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:notification-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:image-automation-controller
+oc adm policy add-scc-to-user nonroot system:serviceaccount:$NS:image-reflector-controller
+```
+
+For more information on OpenShift guidance for onboarding Flux, refer to the [Flux documentation](https://fluxcd.io/docs/use-cases/openshift/#openshift-setup).
+
 ## Work with parameters
 
 For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
@@ -599,8 +661,7 @@ az k8s-configuration flux -h
 
 Group
     az k8s-configuration flux : Commands to manage Flux v2 Kubernetes configurations.
-        This command group is in preview and under development. Reference and support levels:
-        https://aka.ms/CLI_refstatus
+
 Subgroups:
     deployed-object : Commands to see deployed objects associated with Flux v2 Kubernetes
                       configurations.
@@ -608,11 +669,11 @@ Subgroups:
                       configurations.
 
 Commands:
-    create        : Create a Flux v2 Kubernetes configuration.
-    delete        : Delete a Flux v2 Kubernetes configuration.
-    list          : List all Flux v2 Kubernetes configurations.
-    show          : Show a Flux v2 Kubernetes configuration.
-    update        : Update a Flux v2 Kubernetes configuration.
+    create          : Create a Flux v2 Kubernetes configuration.
+    delete          : Delete a Flux v2 Kubernetes configuration.
+    list            : List all Flux v2 Kubernetes configurations.
+    show            : Show a Flux v2 Kubernetes configuration.
+    update          : Update a Flux v2 Kubernetes configuration.
 ```
 
 Here are the parameters for the `k8s-configuration flux create` CLI command:
@@ -624,8 +685,7 @@ This command is from the following extension: k8s-configuration
 
 Command
     az k8s-configuration flux create : Create a Flux v2 Kubernetes configuration.
-        Command group 'k8s-configuration flux' is in preview and under development. Reference
-        and support levels: https://aka.ms/CLI_refstatus
+
 Arguments
     --cluster-name -c   [Required] : Name of the Kubernetes cluster.
     --cluster-type -t   [Required] : Specify Arc connected clusters or AKS managed clusters.
@@ -783,7 +843,7 @@ Just like private keys, you can provide your `known_hosts` content directly or i
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--url` `-u` | https://server/repo[.git] | HTTPS with Basic Authentication. |
+| `--url` `-u` | `https://server/repo[.git]` | HTTPS with Basic Authentication. |
 | `--https-user` | Raw string | HTTPS username. |
 | `--https-key` | Raw string | HTTPS personal access token or password.
 
@@ -791,22 +851,24 @@ Just like private keys, you can provide your `known_hosts` content directly or i
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--url` `-u` | https://server/repo[.git] | HTTPS with Basic Authentication. |
+| `--url` `-u` | `https://server/repo[.git]` | HTTPS with Basic Authentication. |
 | `--https-ca-cert` | Base64 string | CA certificate for TLS communication. |
 | `--https-ca-cert-file` | Full path to local file | Provide CA certificate content in a local file. |
 
 ### Bucket source arguments
+
 If you use a `bucket` source instead of a `git` source, here are the bucket-specific command arguments.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://, s3://. |
+| `--url` `-u` | URL String | The URL for the `bucket`. Formats supported: http://, https://. |
 | `--bucket-name` | String | Name of the `bucket` to sync. |
 | `--bucket-access-key` | String | Access Key ID used to authenticate with the `bucket`. |
 | `--bucket-secret-key` | String | Secret Key used to authenticate with the `bucket`. |
 | `--bucket-insecure` | Boolean | Communicate with a `bucket` without TLS.  If not provided, assumed false; if provided, assumed true. |
 
 ### Local secret for authentication with source
+
 You can use a local Kubernetes secret for authentication with a `git` or `bucket` source.  The local secret must contain all of the authentication parameters needed for the source and must be created in the same namespace as the Flux configuration.
 
 | Parameter | Format | Notes |
@@ -832,14 +894,16 @@ For both cases, when you create the Flux configuration, use `--local-auth-ref my
 ```console
 az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -n <config_name> -t connectedClusters --scope cluster --namespace flux-config -u <git-repo-url> --kustomization name=kustomization1 --local-auth-ref my-custom-secret
 ```
+
 Learn more about using a local Kubernetes secret with these authentication methods:
+
 * [Git repository HTTPS authentication](https://fluxcd.io/docs/components/source/gitrepositories/#https-authentication)
 * [Git repository HTTPS self-signed certificates](https://fluxcd.io/docs/components/source/gitrepositories/#https-self-signed-certificates)
 * [Git repository SSH authentication](https://fluxcd.io/docs/components/source/gitrepositories/#ssh-authentication)
 * [Bucket static authentication](https://fluxcd.io/docs/components/source/buckets/#static-authentication)
 
->[!NOTE]
->If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
+> [!NOTE]
+> If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli-connect-using-an-outbound-proxy-server).
 
 ### Git implementation
 
@@ -877,8 +941,6 @@ az k8s-configuration flux kustomization -h
 Group
     az k8s-configuration flux kustomization : Commands to manage Kustomizations associated with Flux
     v2 Kubernetes configurations.
-        Command group 'k8s-configuration flux' is in preview and under development. Reference
-        and support levels: https://aka.ms/CLI_refstatus
 
 Commands:
     create : Create a Kustomization associated with a Flux v2 Kubernetes configuration.
@@ -898,8 +960,7 @@ This command is from the following extension: k8s-configuration
 Command
     az k8s-configuration flux kustomization create : Create a Kustomization associated with a
     Kubernetes Flux v2 Configuration.
-        Command group 'k8s-configuration flux kustomization' is in preview and under
-        development. Reference and support levels: https://aka.ms/CLI_refstatus
+
 Arguments
     --cluster-name -c          [Required] : Name of the Kubernetes cluster.
     --cluster-type -t          [Required] : Specify Arc connected clusters or AKS managed clusters.
@@ -946,38 +1007,43 @@ Examples
 
 ## Manage GitOps configurations by using the Azure portal
 
-The Azure portal is useful for managing GitOps configurations and the Flux extension in Azure Arc-enabled Kubernetes or AKS clusters. The portal displays all Flux configurations associated with each cluster and enables drilling in to each. 
+The Azure portal is useful for managing GitOps configurations and the Flux extension in Azure Arc-enabled Kubernetes or AKS clusters. The portal displays all Flux configurations associated with each cluster and enables drilling in to each.
 
 The portal provides the overall compliance state of the cluster. The Flux objects that have been deployed to the cluster are also shown, along with their installation parameters, compliance state, and any errors.
 
-You can also use the portal to create and delete GitOps configurations.
+You can also use the portal to create, update, and delete GitOps configurations.
 
 ## Manage cluster configuration by using the Flux Kustomize controller
 
 The Flux Kustomize controller is installed as part of the `microsoft.flux` cluster extension. It allows the declarative management of cluster configuration and application deployment by using Kubernetes manifests synced from a Git repository. These Kubernetes manifests can include a *kustomize.yaml* file, but it isn't required.
 
-For usage details, see the following documents:
+For usage details, see the following:
 
 * [Flux Kustomize controller](https://fluxcd.io/docs/components/kustomize/)
 * [Kustomize reference documents](https://kubectl.docs.kubernetes.io/references/kustomize/)
 * [The kustomization file](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
-* [Kustomize project](https://kubernetes-sigs.github.io/kustomize/)
+* [Kustomize project](https://kubectl.docs.kubernetes.io/references/kustomize/)
 * [Kustomize guides](https://kubectl.docs.kubernetes.io/guides/config_management/)
 
 ## Manage Helm chart releases by using the Flux Helm controller
 
 The Flux Helm controller is installed as part of the `microsoft.flux` cluster extension. It allows you to declaratively manage Helm chart releases with Kubernetes manifests that you maintain in your Git repository.
 
-For usage details, see the following documents:
+For usage details, see the following:
 
 * [Flux for Helm users](https://fluxcd.io/docs/use-cases/helm/)
 * [Manage Helm releases](https://fluxcd.io/docs/guides/helmreleases/)
 * [Migrate to Flux v2 Helm from Flux v1 Helm](https://fluxcd.io/docs/migration/helm-operator-migration/)
 * [Flux Helm controller](https://fluxcd.io/docs/components/helm/)
 
+> [!TIP]
+> Because of how Helm handles index files, processing helm charts is an expensive operation and can have very high memory footprint. As a result, helm chart reconciliation, when occurring in parallel, can cause memory spikes and OOMKilled if you are reconciling a large number of helm charts at a given time. By default, the source-controller sets its memory limit at 1Gi and its memory requests at 64Mi. If you need to increase this limit and requests due to a high number of large helm chart reconciliations, run the following command after installing the microsoft.flux extension:
+>
+> `az k8s-extension update -g <resource-group> -c <cluster-name> -n flux -t connectedClusters --config source-controller.resources.limits.memory=2Gi source-controller.resources.requests.memory=300Mi`
+
 ### Use the GitRepository source for Helm charts
 
-If your Helm charts are stored in the `GitRepository` source that you configure as part of the `fluxConfigurations` resource, you can add an annotation to your HelmRelease yaml to indicate that the configured source should be used as the source of the Helm charts.  The annotation is `clusterconfig.azure.com/use-managed-source: "true"`, and here is a usage example:
+If your Helm charts are stored in the `GitRepository` source that you configure as part of the `fluxConfigurations` resource, you can indicate that the configured source should be used as the source of the Helm charts by adding `clusterconfig.azure.com/use-managed-source: "true"` to your HelmRelease yaml, as shown in the following example:
 
 ```console
 ---
@@ -992,13 +1058,121 @@ spec:
   ...
 ```
 
-By using this annotation, the HelmRelease that is deployed will be patched with the reference to the configured source. Note that only GitRepository source is supported for this currently.
+By using this annotation, the HelmRelease that is deployed will be patched with the reference to the configured source. Currently, only `GitRepository` source is supported.
+
+## Multi-tenancy
+
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability has been integrated into Azure GitOps with Flux v2.
+
+>[ !NOTE]
+> For the multi-tenancy feature, you need to know if your manifests contain any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare, take these actions:
+>
+> * Upgrade to Kubernetes version 1.20.6 or greater.
+> * In your Kubernetes manifests, assure that all `sourceRef` are to objects within the same namespace as the GitOps configuration.
+>   * If you need time to update your manifests, you can [opt out of multi-tenancy](#opt-out-of-multi-tenancy). However, you still need to upgrade your Kubernetes version.
+
+### Update manifests for multi-tenancy
+
+Let’s say you deploy a `fluxConfiguration` to one of our Kubernetes clusters in the **cluster-config** namespace with cluster scope. You configure the source to sync the https://github.com/fluxcd/flux2-kustomize-helm-example repo. This is the same sample Git repo used in the tutorial earlier in this doc. After Flux syncs the repo, it will deploy the resources described in the manifests (YAML files). Two of the manifests describe HelmRelease and HelmRepository objects.
+
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  releaseName: nginx-ingress-controller
+  chart:
+    spec:
+      chart: nginx-ingress-controller
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      version: "5.6.14"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+  values:
+    service:
+      type: NodePort
+```
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
+```
+
+By default, the Flux extension will deploy the `fluxConfigurations` by impersonating the **flux-applier** service account that is deployed only in the **cluster-config** namespace. Using the above manifests, when multi-tenancy is enabled the HelmRelease would be blocked. This is because the HelmRelease is in the **nginx** namespace and is referencing a HelmRepository in the **flux-system** namespace. Also, the Flux helm-controller cannot apply the HelmRelease, because there is no **flux-applier** service account in the **nginx** namespace.
+
+To work with multi-tenancy, the correct approach is to deploy all Flux objects into the same namespace as the `fluxConfigurations`. This avoids the cross-namespace reference issue, and allows the Flux controllers to get the permissions to apply the objects. Thus, for a GitOps configuration created in the **cluster-config** namespace, the above manifests would change to these:
+
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: cluster-config 
+spec:
+  releaseName: nginx-ingress-controller
+  targetNamespace: nginx
+  chart:
+    spec:
+      chart: nginx-ingress-controller
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: cluster-config
+      version: "5.6.14"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+  values:
+    service:
+      type: NodePort
+```
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: cluster-config
+spec:
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
+```
+
+### Opt out of multi-tenancy
+
+When the `microsoft.flux` extension is installed, multi-tenancy is enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
+
+```console
+az k8s-extension create --extension-type microsoft.flux --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
+
+or
+
+az k8s-extension update --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
+```
 
 ## Migrate from Flux v1
 
-If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't be installed if there are `sourceControlConfigurations` resources installed in the cluster.
+If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources in the cluster.
 
-Use these az CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
+Use these Azure CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
 
 ```console
 az k8s-configuration list --cluster-name <Arc or AKS cluster name> --cluster-type <connectedClusters OR managedClusters> --resource-group <resource group name>
@@ -1007,10 +1181,10 @@ az k8s-configuration delete --name <configuration name> --cluster-name <Arc or A
 
 You can also use the Azure portal to view and delete GitOps configurations in Azure Arc-enabled Kubernetes or AKS clusters.
 
-General information about migration from Flux v1 to Flux v2 is available in the fluxcd project: [Migrate from Flux v1 to v2](https://fluxcd.io/docs/migration/).
+General information about migration from Flux v1 to Flux v2 is available in the fluxed project: [Migrate from Flux v1 to v2](https://fluxcd.io/docs/migration/).
 
 ## Next steps
 
-Advance to the next tutorial to learn how to implement CI/CD with GitOps.
+Advance to the next tutorial to learn how to apply configuration at scale with Azure Policy.
 > [!div class="nextstepaction"]
-> [Implement CI/CD with GitOps](./tutorial-gitops-flux2-ci-cd.md)
+> [Use Azure Policy to enforce GitOps at scale](./use-azure-policy-flux-2.md).

@@ -1,125 +1,127 @@
 ---
-title: Known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
-description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support in Azure Blob Storage.
+title: Limitations & known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
+description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 09/13/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
+# Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
 
-This article describes limitations and known issues of SFTP support in Azure Blob Storage.
+This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> SFTP support is currently in PREVIEW. 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 >
-> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
+> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
-## Data redundancy options
+> [!IMPORTANT]
+> Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article also apply to your account.
 
-- Geo-redundant storage (GRS), Geo-zone-redundant storage (GZRS), Read-access geo-redundant storage (RA-GRS), and Read-access geo-zone-redundant storage (RA-GZRS) are not supported in accounts that have SFTP enabled.
+## Known unsupported clients
 
-## Authorization
+The following clients are known to be incompatible with SFTP for Azure Blob Storage (preview). See [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms) for more information.
 
-- Local users are the only form of identity management that is currently supported for the SFTP endpoint.
+- Five9
+- Kemp
+- Mule
+- paramiko 1.16.0
+- SSH.NET 2016.1.0
 
-- Azure Active Directory (Azure AD), shared access signature (SAS) and account key authorization are not supported for the SFTP endpoint.
+The unsupported client list above is not exhaustive and may change over time.
 
-- POSIX-like access control lists (ACLs) are not supported for the SFTP endpoint.
+## Client settings
 
-  > [!NOTE]
-  > After your data is ingested into Azure Storage, you can use the full breadth of Azure storage security settings. While authorization mechanisms such as role-based access control (RBAC) and access control lists aren't supported as a means to authorize a connecting SFTP client, they can be used to authorize access via Azure tools (such Azure portal, Azure CLI, Azure PowerShell commands, and AzCopy) as well as Azure SDKS, and Azure REST APIs. 
+To transfer files to or from Azure storage via client applications, see the following recommended client settings.
 
-- Account level operations such as listing, putting/getting, creating/deleting containers are not supported.
- 
+- WinSCP
+
+  - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename** option.
+  
+  > [!CAUTION]
+  > Leaving this option enabled can cause failures or degraded performance during large file uploads.
+
+## Unsupported operations
+
+| Category | Unsupported operations |
+|---|---|
+| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving permissions |
+| Resuming Uploads | `reput`. `put -a` |
+| Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
+| Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
+| Capacity Information | `df` - usage info for filesystem |
+| Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
+| SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of key exchange will fail. |
+| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
+| Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation will return an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.
+
+## Authentication and authorization
+  
+- _Local users_ is the only form of identity management that is currently supported for the SFTP endpoint.
+
+- Azure Active Directory (Azure AD) isn't supported for the SFTP endpoint.
+
+- POSIX-like access control lists (ACLs) aren't supported for the SFTP endpoint.
+
+To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+
 ## Networking
 
-- Partitioned DNS endpoints are not supported.
-
 - To access the storage account using SFTP, your network must allow traffic on port 22.
-
-- When a firewall is configured, connections from non-allowed IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
-
-## Security
-
-- Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys will rotate up to once per month.
-
-- There a few different reasons for "remote host identification has changed" warning:
-
-  - The remote host key was updated (host keys are periodically rotated).
+ 
+- Static IP addresses aren't supported for storage accounts. This is not an SFTP specific limitation.
   
-  - The client selected a different host key algorithm than the one stored in the local ssh "known_hosts" file. OpenSSH will use an already trusted key if the host (account.blob.core.windows.net) matches, even when the algorithm doesn't necessarily match.
-  
-  - The storage account failed over to a different region.
-  
-  - The remote host (account.blob.core.windows.net) is being faked.
+- Internet routing is not supported. Use Microsoft network routing.
 
-## Integrations
-
-- Change feed is not supported.
-
-- Account metrics such as transactions and capacity are available. Filter logs by operations to see SFTP activity.
-
-- Network File System (NFS) 3.0 and SFTP can't be enabled on the same storage account.
-
-## Performance
-
-- Upload performance with default settings for some clients can be slow. Some of this is expected because SFTP is a chatty protocol and sends small message requests. Increasing the buffer size and using multiple concurrent connections can significantly improve speed. 
-
-  - For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files. 
-
-  - For OpenSSH on Windows, you can increase buffer size to 100000: sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net 
-
-  - For OpenSSH on Linux, you can increase buffer size to 262000: sftp -B 262000 -R 32 testaccount.user1@testaccount.blob.core.windows.net 
-
-- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
-
-- Maximum file size upload is limited by client message size. A few examples below: 
-
-  - 32KB message (OpenSSH default) * 50k blocks = 1.52GB 
-
-  - 100KB message (OpenSSH Windows max) * 50k blocks = 4.77GB 
-
-  - 256KB message (OpenSSH Linux max) * 50k blocks = 12.20GB 
+- There's a 2 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
 ## Other
 
-- Symbolic links are not supported.
+- For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
+  
+- Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 
-- PowerShell and Azure CLI are not supported. You can leverage Portal and ARM templates for Public Preview.
+- Symbolic links aren't supported.
 
-- `ssh-keyscan` is not supported.
+- SSH and SCP commands that aren't SFTP aren't supported.
 
-- SSH commands, that are not SFTP, are not supported.
+- FTPS and FTP aren't supported.
+  
+- TLS and SSL aren't related to SFTP.
 
 ## Troubleshooting
 
 - To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
 
-  - The account needs to be a GPv2 or Block Blob Storage account.
-  
-  - The account needs to have LRS or ZRS replication setup.
+  - The account needs to be a general-purpose v2 and premium block blob accounts.
   
   - The account needs to have hierarchical namespace enabled on it.
-  
-  - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
-  
-  - Customer's subscription needs to be signed up for the preview. To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) *and* request to join via 'Preview features' in the Azure portal.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
   - The user has been assigned appropriate permissions to the container.
   
-  -	The container name is specified in the connection string if you have not configured (set home directory) and provisioned (create the directory inside the container) a home directory for the user.
+  -	The container name is specified in the connection string for local users don't have a home directory.
+  
+  -	The container name is specified in the connection string for local users that have a home directory that doesn't exist.
+
+- To resolve the `Received disconnect from XX.XXX.XX.XXX port 22:11:` when connecting, check that:
+  
+  - Public network access is `Enabled from all networks` or `Enabled from selected virtual networks and IP addresses`.
+  
+  - The client IP address is allowed by the firewall.
+  
+  - Network Routing is set to `Microsoft network routing`.
 
 ## See also
 
-- [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
-- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)
+- [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
+- [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

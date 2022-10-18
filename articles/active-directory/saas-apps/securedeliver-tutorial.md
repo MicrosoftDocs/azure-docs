@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SECURE DELIVER | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with SECURE DELIVER'
 description: Learn how to configure single sign-on between Azure Active Directory and SECURE DELIVER.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2021
+ms.date: 03/24/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory integration with SECURE DELIVER
+# Tutorial: Azure AD SSO integration with SECURE DELIVER
 
 In this tutorial, you'll learn how to integrate SECURE DELIVER with Azure Active Directory (Azure AD). When you integrate SECURE DELIVER with Azure AD, you can:
 
@@ -27,6 +27,8 @@ To configure Azure AD integration with SECURE DELIVER, you need the following it
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
 * SECURE DELIVER single sign-on enabled subscription.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
@@ -46,6 +48,8 @@ To configure the integration of SECURE DELIVER into Azure AD, you need to add SE
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **SECURE DELIVER** in the search box.
 1. Select **SECURE DELIVER** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SECURE DELIVER
 
@@ -72,22 +76,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/jsf/login/sso`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/postResponse`
 
+	b. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/jsf/login/sso`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [SECURE DELIVER Client support team](mailto:iw-sd-support@fujifilm.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [SECURE DELIVER Client support team](mailto:iw-sd-support@fujifilm.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
-
-6. On the **Set up SECURE DELIVER** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![The Certificate download link](common/metadataxml.png)
 
 ### Create an Azure AD test user
 
@@ -115,7 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SECURE DELIVER SSO
 
-To configure single sign-on on **SECURE DELIVER** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [SECURE DELIVER support team](mailto:iw-sd-support@fujifilm.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SECURE DELIVER** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SECURE DELIVER support team](mailto:iw-sd-support@fujifilm.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SECURE DELIVER test user
 

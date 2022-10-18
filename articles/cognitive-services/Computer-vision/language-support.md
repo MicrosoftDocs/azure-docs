@@ -7,8 +7,9 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 05/02/2022
 ms.author: pafarley
 ---
 
@@ -18,123 +19,115 @@ Some capabilities of Computer Vision support multiple languages; any capabilitie
 
 ## Optical Character Recognition (OCR)
 
-The Computer Vision OCR APIs support many languages. Read can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
+The Computer Vision [Read API](./overview-ocr.md) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter.
 
 > [!NOTE]
 > **Language code optional**
 >
-> Read OCR's deep-learning-based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+> `Read` OCR's deep-learning-based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the new languages.
+See [How to specify the `Read` model](./how-to/call-read-api.md#determine-how-to-process-the-data-optional) to use the new languages.
 
-### Handwritten languages
+### Handwritten text
 
-The following table lists the languages supported by Read for handwritten text.
+The following table lists the OCR supported languages for handwritten text by the most recent `Read` GA model.
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
-|English|`en`|Japanese (preview) |`ja`|
-|Chinese Simplified (preview)  |`zh-Hans`|Korean (preview)|`ko`|
-|French (preview) |`fr`|Portuguese (preview)|`pt`|
-|German (preview) |`de`|Spanish (preview) |`es`|
-|Italian (preview) |`it`|
+|English|`en`|Japanese |`ja`|
+|Chinese Simplified |`zh-Hans`|Korean|`ko`|
+|French |`fr`|Portuguese |`pt`|
+|German |`de`|Spanish |`es`|
+|Italian |`it`|
 
-### Print languages (preview)
+### Print text
 
-This section lists the supported languages in the latest preview.
-
-|Language| Code (optional) |Language| Code (optional) |
-|:-----|:----:|:-----|:----:|
-|Angika (Devanagiri) | `anp`|Lakota | `lkt`
-|Arabic | `ar`|Latin | `la`
-|Awadhi-Hindi (Devanagiri) | `awa`|Lithuanian | `lt`
-|Azerbaijani (Latin) | `az`|Lower Sorbian | `dsb`
-|Bagheli | `bfy`|Lule Sami | `smj`
-|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Mahasu Pahari (Devanagiri) | `bfz`
-|Belarusian (Latin) | `be`, `be-latn`|Maltese | `mt`
-|Bhojpuri-Hindi (Devanagiri) | `bho`|Malto (Devanagiri) | `kmj`
-|Bodo (Devanagiri) | `brx`|Maori | `mi`
-|Bosnian (Latin) | `bs`|Marathi | `mr`
-|Brajbha | `bra`|Mongolian (Cyrillic)  | `mn`
-|Bulgarian  | `bg`|Montenegrin (Cyrillic)  | `cnr-cyrl`
-|Bundeli | `bns`|Montenegrin (Latin) | `cnr-latn`
-|Buryat (Cyrillic) | `bua`|Nepali | `ne`
-|Chamling | `rab`|Niuean | `niu`
-|Chhattisgarhi (Devanagiri)| `hne`|Nogay | `nog`
-|Croatian | `hr`|Northern Sami (Latin) | `sme`
-|Dari | `prs`|Ossetic  | `os`
-|Dhimal (Devanagiri) | `dhi`|Pashto | `ps`
-|Dogri (Devanagiri) | `doi`|Persian | `fa`
-|Erzya (Cyrillic) | `myv`|Punjabi (Arabic) | `pa`
-|Faroese | `fo`|Ripuarian | `ksh`
-|Gagauz (Latin) | `gag`|Romanian | `ro`
-|Gondi (Devanagiri) | `gon`|Russian | `ru`
-|Gurung (Devanagiri) | `gvr`|Sadri  (Devanagiri) | `sck`
-|Halbi (Devanagiri) | `hlb`|Samoan (Latin) | `sm`
-|Haryanvi | `bgc`|Sanskrit (Devanagari) | `sa`
-|Hawaiian | `haw`|Santali(Devanagiri) | `sat`
-|Hindi | `hi`|Serbian (Latin) | `sr`, `sr-latn`
-|Ho(Devanagiri) | `hoc`|Sherpa (Devanagiri) | `xsr`
-|Icelandic | `is`|Sirmauri (Devanagiri) | `srx`
-|Inari Sami | `smn`|Skolt Sami | `sms`
-|Jaunsari (Devanagiri) | `Jns`|Slovak | `sk`
-|Kangri (Devanagiri) | `xnr`|Somali (Arabic) | `so`
-|Karachay-Balkar  | `krc`|Southern Sami | `sma`
-|Kara-Kalpak (Cyrillic) | `kaa-cyrl`|Tajik (Cyrillic)  | `tg`
-|Kazakh (Cyrillic)  | `kk-cyrl`|Thangmi | `thf`
-|Kazakh (Latin) | `kk-latn`|Tongan | `to`
-|Khaling | `klr`|Turkmen (Latin) | `tk`
-|Korku | `kfq`|Tuvan | `tyv`
-|Koryak | `kpy`|Urdu  | `ur`
-|Kosraean | `kos`|Uyghur (Arabic) | `ug`
-|Kumyk (Cyrillic) | `kum`|Uzbek (Arabic) | `uz-arab`
-|Kurdish (Arabic) | `ku-arab`|Uzbek (Cyrillic)  | `uz-cyrl`
-|Kurukh (Devanagiri) | `kru`|Welsh | `cy`
-|Kyrgyz (Cyrillic)  | `ky`
-
-### Print languages (GA)
-
-This section lists the supported languages in the latest GA version.
+The following table lists the OCR supported languages for print text by the most recent `Read` GA model.
 
 |Language| Code (optional) |Language| Code (optional) |
 |:-----|:----:|:-----|:----:|
-|Afrikaans|`af`|Japanese | `ja` |
-|Albanian |`sq`|Javanese | `jv` |
-|Asturian |`ast`|K'iche'  | `quc` |
-|Basque  |`eu`|Kabuverdianu | `kea` |
-|Bislama   |`bi`|Kachin (Latin) | `kac` |
-|Breton    |`br`|Kara-Kalpak (Latin) | `kaa` |
-|Catalan    |`ca`|Kashubian | `csb` |
-|Cebuano    |`ceb`|Khasi  | `kha` |
-|Chamorro  |`ch`|Korean | `ko` |
-|Chinese Simplified | `zh-Hans`|Kurdish (Latin) | `ku-latn`
-|Chinese Traditional | `zh-Hant`|Luxembourgish  | `lb` |
-|Cornish     |`kw`|Malay (Latin) | `ms` |
-|Corsican      |`co`|Manx  | `gv` |
-|Crimean Tatar (Latin)|`crh`|Neapolitan   | `nap` |
-|Czech | `cs` |Norwegian | `no` |
-|Danish | `da` |Occitan | `oc` |
-|Dutch | `nl` |Polish | `pl` |
-|English | `en` |Portuguese | `pt` |
-|Estonian  |`et`|Romansh  | `rm` |
-|Fijian |`fj`|Scots  | `sco` |
-|Filipino  |`fil`|Scottish Gaelic  | `gd` |
-|Finnish | `fi` |Slovenian  | `sl` |
-|French | `fr` |Spanish | `es` |
-|Friulian  | `fur` |Swahili (Latin)  | `sw` |
-|Galician   | `gl` |Swedish | `sv` |
-|German | `de` |Tatar (Latin)  | `tt` |
-|Gilbertese    | `gil` |Tetum    | `tet` |
-|Greenlandic   | `kl` |Turkish | `tr` |
-|Haitian Creole  | `ht` |Upper Sorbian  | `hsb` |
-|Hani  | `hni` |Uzbek (Latin)     | `uz` |
-|Hmong Daw (Latin)| `mww` |Volapük   | `vo` |
-|Hungarian | `hu` |Walser    | `wae` |
-|Indonesian   | `id` |Western Frisian | `fy` |
-|Interlingua  | `ia` |Yucatec Maya | `yua` |
-|Inuktitut (Latin) | `iu` |Zhuang | `za` |
-|Irish    | `ga` |Zulu  | `zu` |
-|Italian | `it` |
+|Afrikaans|`af`|Khasi  | `kha` |
+|Albanian |`sq`|K'iche'  | `quc` |
+|Angika (Devanagiri) | `anp`| Korean | `ko` |
+|Arabic | `ar` | Korku | `kfq`|
+|Asturian |`ast`| Koryak | `kpy`|
+|Awadhi-Hindi (Devanagiri) | `awa`| Kosraean | `kos`|
+|Azerbaijani (Latin) | `az`| Kumyk (Cyrillic) | `kum`|
+|Bagheli | `bfy`| Kurdish (Arabic) | `ku-arab`|
+|Basque  |`eu`| Kurdish (Latin) | `ku-latn`
+|Belarusian (Cyrillic)  | `be`, `be-cyrl`|Kurukh (Devanagiri) | `kru`|
+|Belarusian (Latin) | `be`, `be-latn`| Kyrgyz (Cyrillic)  | `ky`
+|Bhojpuri-Hindi (Devanagiri) | `bho`| Lakota | `lkt` |
+|Bislama   |`bi`| Latin | `la` |
+|Bodo (Devanagiri) | `brx`| Lithuanian | `lt` |
+|Bosnian (Latin) | `bs`| Lower Sorbian | `dsb` |
+|Brajbha | `bra`|Lule Sami | `smj`|
+|Breton    |`br`|Luxembourgish  | `lb` |
+|Bulgarian  | `bg`|Mahasu Pahari (Devanagiri) | `bfz`|
+|Bundeli | `bns`|Malay (Latin) | `ms` |
+|Buryat (Cyrillic) | `bua`|Maltese | `mt`
+|Catalan    |`ca`|Malto (Devanagiri) | `kmj`
+|Cebuano    |`ceb`|Manx  | `gv` |
+|Chamling | `rab`|Maori | `mi`|
+|Chamorro  |`ch`|Marathi | `mr`|
+|Chhattisgarhi (Devanagiri)| `hne`| Mongolian (Cyrillic)  | `mn`|
+|Chinese Simplified | `zh-Hans`|Montenegrin (Cyrillic)  | `cnr-cyrl`|
+|Chinese Traditional | `zh-Hant`|Montenegrin (Latin) | `cnr-latn`|
+|Cornish     |`kw`|Neapolitan   | `nap` |
+|Corsican      |`co`|Nepali | `ne`|
+|Crimean Tatar (Latin)|`crh`|Niuean | `niu`|
+|Croatian | `hr`|Nogay | `nog`
+|Czech | `cs` |Northern Sami (Latin) | `sme`|
+|Danish | `da` |Norwegian | `no` |
+|Dari | `prs`|Occitan | `oc` |
+|Dhimal (Devanagiri) | `dhi`| Ossetic  | `os`|
+|Dogri (Devanagiri) | `doi`|Pashto | `ps`|
+|Dutch | `nl` |Persian | `fa`|
+|English | `en` |Polish | `pl` |
+|Erzya (Cyrillic) | `myv`|Portuguese | `pt` |
+|Estonian  |`et`|Punjabi (Arabic) | `pa`|
+|Faroese | `fo`|Ripuarian | `ksh`|
+|Fijian |`fj`|Romanian | `ro` | 
+|Filipino  |`fil`|Romansh  | `rm` |
+|Finnish | `fi` | Russian | `ru` | 
+|French | `fr` |Sadri  (Devanagiri) | `sck` | 
+|Friulian  | `fur` | Samoan (Latin) | `sm`
+|Gagauz (Latin) | `gag`|Sanskrit (Devanagari) | `sa`|
+|Galician   | `gl` |Santali(Devanagiri) | `sat` | 
+|German | `de` | Scots  | `sco` | 
+|Gilbertese    | `gil` | Scottish Gaelic  | `gd` | 
+|Gondi (Devanagiri) | `gon`| Serbian (Latin) | `sr`, `sr-latn`|
+|Greenlandic   | `kl` | Sherpa (Devanagiri) | `xsr` |
+|Gurung (Devanagiri) | `gvr`| Sirmauri (Devanagiri) | `srx`|
+|Haitian Creole  | `ht` | Skolt Sami | `sms` | 
+|Halbi (Devanagiri) | `hlb`| Slovak | `sk`|
+|Hani  | `hni` | Slovenian  | `sl` | 
+|Haryanvi | `bgc`|Somali (Arabic) | `so`|
+|Hawaiian | `haw`|Southern Sami | `sma`
+|Hindi | `hi`|Spanish | `es` |
+|Hmong Daw (Latin)| `mww` | Swahili (Latin)  | `sw` |
+|Ho(Devanagiri) | `hoc`|Swedish | `sv` |
+|Hungarian | `hu` |Tajik (Cyrillic)  | `tg` |
+|Icelandic | `is`| Tatar (Latin)  | `tt` |
+|Inari Sami | `smn`|Tetum    | `tet` |
+|Indonesian   | `id` | Thangmi | `thf` |
+|Interlingua  | `ia` |Tongan | `to`| 
+|Inuktitut (Latin) | `iu` | Turkish | `tr` | 
+|Irish    | `ga` |Turkmen (Latin) | `tk`|
+|Italian | `it` |Tuvan | `tyv`|
+|Japanese | `ja` |Upper Sorbian  | `hsb` |
+|Jaunsari (Devanagiri) | `Jns`|Urdu  | `ur`|
+|Javanese | `jv` |Uyghur (Arabic) | `ug`|
+|Kabuverdianu | `kea` |Uzbek (Arabic) | `uz-arab`|
+|Kachin (Latin) | `kac` |Uzbek (Cyrillic)  | `uz-cyrl`|
+|Kangri (Devanagiri) | `xnr`|Uzbek (Latin)     | `uz` |
+|Karachay-Balkar  | `krc`|Volapük   | `vo` |
+|Kara-Kalpak (Cyrillic) | `kaa-cyrl`|Walser    | `wae` |
+|Kara-Kalpak (Latin) | `kaa` |Welsh | `cy` |
+|Kashubian | `csb` |Western Frisian | `fy` |
+|Kazakh (Cyrillic)  | `kk-cyrl`|Yucatec Maya | `yua` |
+|Kazakh (Latin) | `kk-latn`|Zhuang | `za` |
+|Khaling | `klr`|Zulu  | `zu` |
 
 ## Image analysis
 
@@ -169,8 +162,8 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Japanese  |`ja`|✅ | ✅| ✅|||||| |✅|✅|
 |Kazakh |`kk`| | ✅| |||||| |||
 |Korean |`ko`| | ✅| |||||| |||
-|Lithuanian |`It`| | ✅| |||||| |||
-|Latvian |`Iv`| | ✅| |||||| |||
+|Lithuanian |`lt`| | ✅| |||||| |||
+|Latvian |`lv`| | ✅| |||||| |||
 |Macedonian |`mk`| | ✅| |||||| |||
 |Malay  Malaysia |`ms`| | ✅| |||||| |||
 |Norwegian (Bokmal) |`nb`| | ✅| |||||| |||
@@ -178,7 +171,8 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Polish |`pl`| | ✅| |||||| |||
 |Dari |`prs`| | ✅| |||||| |||
 | Portuguese-Brazil|`pt-BR`| | ✅| |||||| |||
-| Portuguese-Portugal |`pt`/`pt-PT`|✅ | ✅| ✅|||||| |✅|✅|
+| Portuguese-Portugal |`pt`|✅ | ✅| ✅|||||| |✅|✅|
+| Portuguese-Portugal |`pt-PT`| | ✅| |||||| |||
 |Romanian |`ro`| | ✅| |||||| |||
 |Russian |`ru`| | ✅| |||||| |||
 |Slovak |`sk`| | ✅| |||||| |||
@@ -190,5 +184,6 @@ Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.micro
 |Turkish |`tr`| | ✅| |||||| |||
 |Ukrainian |`uk`| | ✅| |||||| |||
 |Vietnamese |`vi`| | ✅| |||||| |||
-|Chinese Simplified |`zh`/ `zh-Hans`|✅ | ✅| ✅|||||| |✅|✅|
+|Chinese Simplified |`zh`|✅ | ✅| ✅|||||| |✅|✅|
+|Chinese Simplified |`zh-Hans`| | ✅| |||||| |||
 |Chinese Traditional |`zh-Hant`| | ✅| |||||| |||

@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 09/20/2022
 ms.author: banders
 ---
 
@@ -61,15 +61,17 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
-| EnrollmentReader | Can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
-| EA purchaser | Purchase reservation orders and view reservation transactions. Can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
+| EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which will in turn have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
 - An EnrollmentReader role can be assigned to an SPN only by a user who has an enrollment writer role.
 - A DepartmentReader role can be assigned to an SPN only by a user who has an enrollment writer or department writer role.
-- A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account. The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
+- A SubscriptionCreator role can be assigned to an SPN only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
 - The EA purchaser role isn't shown in the EA portal. It's created by programmatic means and is only for programmatic use.
+
+An SPN can have only one role.
 
 ## Assign enrollment account role permission to the SPN
 
@@ -206,6 +208,11 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Subscri
 ## Troubleshoot
 
 You must identify and use the Enterprise application object ID where you granted the EA role. If you use the Object ID from some other application, API calls will fail. Verify that you’re using the correct Enterprise application object ID.
+
+If you receive the following error when making your API call, then you may be incorrectly using the SPN object ID value located in App Registrations. To resolve this error, ensure you're using the SPN object ID from Enterprise Applications, not App Registrations.
+
+`The provided principal Tenant Id = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx and principal Object Id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx are not valid`
+
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Use workflows to integrate your Azure IoT Central application with other 
 description: This how-to article shows you, as a builder, how to configure rules and actions that integrate your IoT Central application with other cloud services. To create an advanced rule, you use an IoT Central connector in either Power Automate or Azure Logic Apps. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,9 +26,6 @@ The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets 
 To complete the steps in this how-to guide, you need:
 
 [!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
-
-> [!NOTE]
-> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
 
 ## Trigger a workflow from a rule
 
@@ -107,7 +104,7 @@ Use this action to execute a command defined in one of the device's interfaces.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to execute a command. |
 | Device Component | The interface in the device template that contains the command. |
 | Device Command | Choose one of the commands on the selected interface. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
@@ -123,7 +120,7 @@ Use this action to retrieve the device's details.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the details. |
 
 You can use the returned details in the dynamic expressions in other actions. The device details returned include: **Approved**, **body**, **Device Description**, **Device Name**, **Device Template**, **Provisioned**, and **Simulated**.
 
@@ -134,7 +131,7 @@ Use this action to retrieve the cloud property values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the cloud properties. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 
 You can use the returned cloud property values in the dynamic expressions in other actions.
@@ -146,7 +143,7 @@ Use this action to retrieve the property values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the properties. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 
 You can use the returned property values in the dynamic expressions in other actions.
@@ -158,7 +155,7 @@ Use this action to retrieve the telemetry values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to get the telemetry values. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 
 You can use the returned telemetry values in the dynamic expressions in other actions.
@@ -170,7 +167,7 @@ Use this action to update cloud property values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to update. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 | Cloud properties | After you choose a device template, a field is added for each cloud property defined in the template. |
 
@@ -181,7 +178,7 @@ Use this action to update writable property values for a specific device.
 | Field | Description |
 | ----- | ----------- |
 | Application | Choose from your list of IoT Central applications. |
-| Device | The unique ID of the device to delete. |
+| Device | The unique ID of the device to update. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 | Writable properties | After you choose a device template, a field is added for each writable property defined in the template. |
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Admin UI.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/08/2021
+ms.date: 06/08/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Palo Alto Networks - Admin UI
@@ -26,6 +26,7 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Palo Alto Networks - Admin UI single sign-on (SSO) enabled subscription.
+* It is a requirement that the service should be public available. Please refer [this](../develop/single-sign-on-saml-protocol.md) page for more information.
 
 ## Scenario description
 
@@ -44,6 +45,8 @@ To configure the integration of Palo Alto Networks - Admin UI into Azure AD, you
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Palo Alto Networks - Admin UI** in the search box.
 1. Select **Palo Alto Networks - Admin UI** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Palo Alto Networks - Admin UI
 
@@ -107,7 +110,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
     > For more information about the attributes, see the following articles:
-    > * [Administrative role profile for Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
+    > * [Administrative role profile for Admin UI (adminrole)](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
     > * [Device access domain for Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.

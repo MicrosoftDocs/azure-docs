@@ -20,7 +20,7 @@ An Azure Key Vault account generates the following event types:
 | Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when the current version of certificate is about to expire. (The event is triggered 30 days before the expiration date.) |
 | Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when the current version of a certificate is expired. |
 | Microsoft.KeyVault.KeyNewVersionCreated | Key New Version Created | Triggered when a new key or new key version is created. |
-| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. The event time can be configured using [key rotation policy(preview)](../key-vault/keys/how-to-configure-key-rotation.md) |
+| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. The event time can be configured using [key rotation policy](../key-vault/keys/how-to-configure-key-rotation.md) |
 | Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when the current version of a key is expired. |
 | Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
 | Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |

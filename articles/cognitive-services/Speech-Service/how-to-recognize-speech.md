@@ -1,14 +1,14 @@
 ---
 title: "How to recognize speech - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech SDK to convert speech to text, including object construction, supported audio input formats, and configuration options for speech recognition.
+description: Learn how to convert speech to text, including object construction, supported audio input formats, and configuration options for speech recognition.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 zone_pivot_groups: programming-languages-speech-services
@@ -59,5 +59,6 @@ keywords: speech to text, speech to text software
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [See the quickstart samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)
+* [Try the speech to text quickstart](get-started-speech-to-text.md)
+* [Improve recognition accuracy with custom speech](custom-speech-overview.md)
+* [Use batch transcription](batch-transcription.md)

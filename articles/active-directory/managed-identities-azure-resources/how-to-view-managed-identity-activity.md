@@ -4,15 +4,14 @@ description: Step-by-step instructions for viewing the activities made to manage
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 06/24/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---

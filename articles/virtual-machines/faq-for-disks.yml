@@ -5,7 +5,7 @@ metadata:
   author: roygara
   ms.service: storage
   ms.topic: faq
-  ms.date: 06/15/2017
+  ms.date: 10/03/2022
   ms.author: rogarana
   ms.subservice: disks
 title: Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
@@ -107,7 +107,7 @@ sections:
       - question: |
           Are unmanaged disks still supported?
         answer: |
-          Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+          Yes, but they'll be [retired by September 30, 2025](unmanaged-disks-deprecation.md), and as of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
       - question: |
           Can I colocate unmanaged and managed disks on the same VM?
@@ -122,7 +122,7 @@ sections:
       - question: |
           Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?
         answer: |
-          Azure Managed Disks currently supports only locally redundant storage managed disks.
+          Azure Managed Disks currently supports only locally redundant storage and zone-redundant storage managed disks.
 
       - question: |
           Can I shrink or downsize my managed disks?
@@ -194,6 +194,11 @@ sections:
         answer: |
           Yes, all disk types support single instance VM SLA.
 
+      - question: |
+          Can I attach a disk to a VM in another region?
+        answer: |
+          No. All managed disks, even shared disks, must be in the same region as the VM they are attaching to.
+
   - name: Snapshots
     questions:
       - question: |
@@ -235,6 +240,11 @@ sections:
           What disk types support snapshots?
         answer: |
           Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
+          
+      - question: |
+          What happens if I have multiple incremental snapshots and delete one of them?
+        answer: |
+          Deleting one of your incremental snapshots does not affect subsequent incremental snapshots. The system merges the data occupied by the first snapshot with the next snapshot under the hood to ensure that the subsequent snapshots are not impacted due to the deletion of the first snapshot.
           
   - name: Azure shared disks
     questions:
@@ -484,6 +494,11 @@ sections:
           If a VM uses a size series that supports Premium SSD disks, such as a DSv2, can I attach both premium and standard data disks? 
         answer: |
           Yes.
+      
+      - question: |
+          Can I deploy a VM with an unmanaged disk in the Azure portal?
+        answer: |
+          Not all OS images support deploying with an unmanaged disk in the Azure portal. If your chosen image doesn't support this method of deployment, we recommend that you use managed disks for new workloads and [convert](windows/convert-unmanaged-to-managed-disks.md) your existing disk to a managed disk. If you’re unable to use managed disks, you can deploy a VM using unmanaged disks with either the Azure PowerShell module or the Azure CLI.
 
       - question: |
           Can I attach both premium and standard data disks to a size series that doesn't support Premium SSD disks, such as D, Dv2, G, or F series?
@@ -515,7 +530,7 @@ sections:
         answer: |
           There is no downside to the use of TRIM on Azure disks on either premium or standard disks.
 
-  - name: "New disk sizes: Managed and unmanaged"
+  - name: "New disk sizes"
     questions:
       - question: |
           What regions support bursting capability for applicable premium SSD disk size?

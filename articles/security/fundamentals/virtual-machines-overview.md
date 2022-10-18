@@ -9,8 +9,8 @@ manager: rkarlin
 editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -70,7 +70,7 @@ Learn more:
 
 Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault.
 
-Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](../../active-directory/index.yml).
 
 Learn more:
 
@@ -85,7 +85,7 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-* [Azure Disk Encryption for IaaS VMs](./azure-disk-encryption-vms-vmss.md)
+* [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md)
 * [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## Virtual machine backup
@@ -105,7 +105,7 @@ Site Recovery:
 
 * **Simplifies your BCDR strategy**: Site Recovery makes it easy to handle replication, failover, and recovery of multiple business workloads and apps from a single location. Site Recovery orchestrates replication and failover but doesn't intercept your application data or have any information about it.
 * **Provides flexible replication**: By using Site Recovery, you can replicate workloads running on Hyper-V virtual machines, VMware virtual machines, and Windows/Linux physical servers.
-* **Supports failover and recovery**: Site Recovery provides test failovers to support disaster recovery drills without affecting production environments. You can also run planned failovers with a zero-data loss for expected outages, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. After failover, you can fail back to your primary sites. Site Recovery provides recovery plans that can include scripts and Azure automation workbooks so that you can customize failover and recovery of multi-tier applications.
+* **Supports failover and recovery**: Site Recovery provides test failovers to support disaster recovery drills without affecting production environments. You can also run planned failovers with a zero-data loss for expected outages, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. After failover, you can fail back to your primary sites. Site Recovery provides recovery plans that can include scripts and Azure Automation workbooks so that you can customize failover and recovery of multi-tier applications.
 * **Eliminates secondary datacenters**: You can replicate to a secondary on-premises site, or to Azure. Using Azure as a destination for disaster recovery eliminates the cost and complexity of maintaining a secondary site. Replicated data is stored in Azure Storage.
 * **Integrates with existing BCDR technologies**: Site Recovery partners with other applications' BCDR features. For example, you can use Site Recovery to help protect the SQL Server back end of corporate workloads. This includes native support for SQL Server Always On to manage the failover of availability groups.
 
@@ -119,7 +119,7 @@ Learn more:
 
 Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure virtual network.
 
-An Azure virtual network is a logical construct built on top of the physical Azure network fabric. Each logical Azure virtual network is isolated from all other Azure virtual networks. This isolation helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
+An Azure virtual network is a logical construct built on top of the physical Azure network fabric. Each logical Azure virtual network is isolated from all other Azure virtual networks. This isolation helps ensure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
 Learn more:
 

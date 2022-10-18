@@ -4,14 +4,14 @@ description: This Azure AD Connect Health article describes agent installation f
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.date: 01/21/2022
+ms.date: 04/27/2022
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management 
@@ -20,6 +20,9 @@ ms.custom: devx-track-azurepowershell
 # Azure AD Connect Health agent installation
 
 In this article, you'll learn how to install and configure the Azure Active Directory (Azure AD) Connect Health agents. To download the agents, see [these instructions](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
+
+> [!NOTE]
+> Azure AD Connect Health is not available in the China sovereign cloud
 
 ## Requirements
 
@@ -44,6 +47,8 @@ The following table lists requirements for using Azure AD Connect Health.
 > [!NOTE]
 > If you have a highly locked-down and restricted environment, you need to add more URLs than the ones the table lists for Internet Explorer enhanced security. Also add URLs that are listed in the table in the next section.  
 
+### New versions of the agent and Auto upgrade
+If a new version of the Health agent is released, any existing installed agents are automatically updated.
 
 ### Outbound connectivity to the Azure service endpoints
 

@@ -2,20 +2,20 @@
 title: Create a security plan for external access to Azure Active Directory 
 description: Plan the security for external access to your organization's resources..
 services: active-directory
-author: BarbaraSelden
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.author: baselden
+ms.date: 09/13/2022
+ms.author: gasinh
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# 3. Create a security plan for external access 
+# Create a security plan for external access 
 
 Now that you have [determined your desired security posture security posture for external access](1-secure-access-posture.md) and [discovered your current collaboration state](2-secure-access-current-state.md), you can create an external user security and governance plan. 
 
@@ -37,9 +37,11 @@ There are multiple ways to group resources for access.
 
 * Microsoft Teams groups files, conversation threads, and other resources in one place. You should formulate an external access strategy for Microsoft Teams. See [Secure access to Teams, OneDrive, and SharePoint](9-secure-access-teams-sharepoint.md).
 
-* Entitlement Management Access Packages enable you to create a single package of applications and other resources to which you can grant access. 
+* Entitlement Management Access Packages enable you to create and delegate management of packages of Applications, Groups, Teams, SharePoint sites, and other resources to which you can grant access. 
 
 * Conditional Access policies can be applied to up to 250 applications with the same access requirements.
+
+* Cross Tenant Access Settings Inbound Access can define what application groups of external users are allowed to access. 
 
 However you will manage access, you must document which applications should be grouped together. Considerations should include:
 
@@ -73,7 +75,7 @@ For each grouping of applications and resources that you want to make accessible
 
 This type of governance plan can and should also be completed for internal access as well.
 
-## Document sign-in conditions for external users.
+## Document sign-in conditions for external users
 
 As part of your plan you must determine the sign-in requirements for your external users as they access resources. Sign-in requirements are often based on the risk profile of the resources, and the risk assessment of the users’ sign-in.
 
@@ -88,7 +90,7 @@ Sign-in conditions are configured in [Azure AD Conditional Access](../conditiona
 | High risk| Require MFA always for external users |
 
 
-Today, you can [enforce multi-factor authentication for B2B users in your tenant](../external-identities/b2b-tutorial-require-mfa.md). 
+Today, you can [enforce multi-factor authentication for B2B users in your tenant](../external-identities/b2b-tutorial-require-mfa.md). You can also trust the MFA from external tenants to satisfy your MFA requirements using [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings).
 
 **User- and device-based sign in conditions**.
 
@@ -99,7 +101,7 @@ Today, you can [enforce multi-factor authentication for B2B users in your tenant
 | Identity protection shows high risk| Require user to change password |
 | Network location| Require sign in from a specific IP address range to highly confidential projects |
 
-Today, to use device state as an input to a policy, the device must be registered or joined to your tenant. 
+Today, to use device state as an input to a policy, the device must be either be registered or joined to your tenant or [Cross Tenant Access Settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings) must be configured to trust the device claims from the home tenant.  
 
 [Identity Protection risk-based policies](../conditional-access/howto-conditional-access-policy-risk.md) can be used. However, issues must be mitigated in the user’s home tenant.
 
@@ -134,8 +136,6 @@ While your policies will be highly customized to your needs, consider the follow
    * Remove sign-in ability for any account not signed in to for 90 days.
 
    * Assess access needs and take action at the end of every project with external users.
-
- 
 
 ## Determine your access control methods
 

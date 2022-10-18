@@ -9,14 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2022
+ms.date: 02/25/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy
 
-This article describes how to handle an OAuth2 custom error with Azure Active Directory B2C (Azure AD B2C). Use this technical profile if something logic goes wrong within your policy. The technical profile returns error to your OAuth2 or OpenId Connect relying party application.
+This article describes how to handle an OAuth2 custom error with Azure Active Directory B2C (Azure AD B2C). Use this technical profile if something logic goes wrong within your policy. The technical profile returns error to your OAuth2 or OpenId Connect relying party application. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/oauth2-error) of the OAuth2 custom error technical profile. 
 
 To handle custom OAuth2 error message:
 
@@ -89,7 +89,7 @@ The CryptographicKeys element contains the following key:
 
 ## Invoke the technical profile
 
-You can call the OAuth2 error technical profile from a user journey, or sub journey. Set the [orchestration step](userjourneys.md#orchestrationsteps) type to `SendClaims` with a reference to your OAuth2 error technical profile.
+You can call the OAuth2 error technical profile from a [user journey](userjourneys.md), or [sub journey](subjourneys.md) (type of `transfer`). Set the [orchestration step](userjourneys.md#orchestrationsteps) type to `SendClaims` with a reference to your OAuth2 error technical profile.
 
 If your user journey or sub journey already has another `SendClaims` orchestration step, set the `DefaultCpimIssuerTechnicalProfileReferenceId` attribute to the token issuer technical profile.
 

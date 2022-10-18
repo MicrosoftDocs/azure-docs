@@ -1,11 +1,11 @@
 ---
 title: Create & locate anchors overview
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors

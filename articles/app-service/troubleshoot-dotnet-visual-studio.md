@@ -33,7 +33,7 @@ The tutorial assumes you're using Visual Studio 2019.
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
 ## <a name="sitemanagement"></a>App configuration and management
-Visual Studio provides access to a subset of the app management functions and configuration settings available in the [Azure portal](https://go.microsoft.com/fwlink/?LinkId=529715). In this section, you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open both windows from the **View** menu.
+Visual Studio provides access to a subset of the app management functions and configuration settings available in the [Azure portal](/rest/api/appservice/web-apps). In this section, you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open both windows from the **View** menu.
 
 1. If you aren't already signed in to Azure in Visual Studio, right-click **Azure** and select Connect to **Microsoft Azure Subscription** in **Server Explorer**.
 

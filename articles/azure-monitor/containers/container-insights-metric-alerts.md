@@ -2,8 +2,8 @@
 title: Metric alerts from Container insights
 description: This article reviews the recommended metric alerts available from Container insights in public preview.
 ms.topic: conceptual
-ms.date: 10/28/2020
-
+ms.date: 05/24/2022
+ms.reviewer: aul
 ---
 
 # Recommended metric alerts (preview) from Container insights
@@ -27,12 +27,15 @@ Before you start, confirm the following:
 
     To verify your cluster is running the newer version of the agent, you can either:
 
-    * Run the command: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
+    * Run the command: `kubectl describe pod <azure-monitor-agent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for Azure Monitor agent in the *Containers* section of the output. 
     * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
     The value shown for AKS should be version **ciprod05262020** or later. The value shown for Azure Arc-enabled Kubernetes cluster should be version **ciprod09252020** or later. If your cluster has an older version, see [How to upgrade the Container insights agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) for steps to get the latest version.
 
     For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts. If you don't see any metrics collected, the cluster Service Principal or MSI is missing the necessary permissions. To verify the SPN or MSI is a member of the **Monitoring Metrics Publisher** role, follow the steps described in the section [Upgrade per cluster using Azure CLI](container-insights-update-metrics.md#update-one-cluster-by-using-the-azure-cli) to confirm and set role assignment.
+    
+> [!TIP]
+> Download the new ConfigMap from [here](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
 
 ## Alert rules overview
 
@@ -43,7 +46,7 @@ To alert on what matters, Container insights includes the following metric alert
 |**(New)Average container CPU %** |Calculates average CPU used per container.|When average CPU usage per container is greater than 95%.| 
 |**(New)Average container working set memory %** |Calculates average working set memory used per container.|When average working set memory usage per container is greater than 95%. |
 |Average CPU % |Calculates average CPU used per node. |When average node CPU utilization is greater than 80% |
-| Daily Data Cap Breach | When data cap is breached| When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) |
+| Daily Data Cap Breach | When data cap is breached| When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md) |
 |Average Disk Usage % |Calculates average disk usage for a node.|When disk usage for a node is greater than 80%. |
 |**(New)Average Persistent Volume Usage %** |Calculates average PV usage per pod. |When average PV usage per pod is greater than 80%.|
 |Average Working set memory % |Calculates average Working set memory for a node. |When average Working set memory for a node is greater than 80%. |
@@ -74,9 +77,9 @@ The following alert-based metrics have unique behavior characteristics compared 
 
 * *oomKilledContainerCount* metric is only sent when there are OOM killed containers.
 
-* *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%). These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../essentials/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file.
+* *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%). *cpuThresholdViolated*, *memoryRssThresholdViolated*, and *memoryWorkingSetThresholdViolated* metrics are equal to 0 is the usage percentage is below the threshold and are equal to 1 if the usage percentage is above the threshold. These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../essentials/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file.
 
-* *pvUsageExceededPercentage* metric is sent when the persistent volume usage percentage exceeds the configured threshold (the default threshold is 60%). This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../essentials/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for persistent volume utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file. Collection of persistent volume metrics with claims in the *kube-system* namespace are excluded by default. To enable collection in this namespace, use the section `[metric_collection_settings.collect_kube_system_pv_metrics]` in the ConfigMap file. See [Metric collection settings](./container-insights-agent-config.md#metric-collection-settings) for details.
+* *pvUsageExceededPercentage* metric is sent when the persistent volume usage percentage exceeds the configured threshold (the default threshold is 60%). *pvUsageThresholdViolated* metric is equal to 0 when the PV usage percentage is below the threshold and is equal 1 if the usage is above the threshold. This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../essentials/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for persistent volume utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file. Collection of persistent volume metrics with claims in the *kube-system* namespace are excluded by default. To enable collection in this namespace, use the section `[metric_collection_settings.collect_kube_system_pv_metrics]` in the ConfigMap file. See [Metric collection settings](./container-insights-agent-config.md#metric-collection-settings) for details.
 
 ## Metrics collected
 
@@ -120,19 +123,19 @@ This section walks through enabling Container insights metric alert (preview) fr
 
 3. From the command bar, select **Recommended alerts**.
 
-    ![Recommended alerts option in Container insights](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
+    ![Screenshot showing the Recommended alerts option in Container insights.](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
 4. The **Recommended alerts** property pane automatically displays on the right side of the page. By default, all alert rules in the list are disabled. After selecting **Enable**, the alert rule is created and the rule name updates to include a link to the alert resource.
 
-    ![Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
+    ![Screenshot showing the Recommended alerts properties pane.](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
     After selecting the **Enable/Disable** toggle to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
-    ![Enable alert rule](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
+    ![Screenshot showing the option to enable an alert rule.](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
 5. Alert rules are not associated with an [action group](../alerts/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** and on the **Action Groups** page, specify an existing or create an action group by selecting **Add** or **Create**.
 
-    ![Select an action group](./media/container-insights-metric-alerts/select-action-group.png)
+    ![Screenshot showing the option to select an action group.](./media/container-insights-metric-alerts/select-action-group.png)
 
 ### Enable with a Resource Manager template
 
@@ -218,9 +221,13 @@ To view alerts created for the enabled rules, in the **Recommended alerts** pane
 Perform the following steps to configure your ConfigMap configuration file to override the default utilization thresholds. These steps are applicable only for the following alertable metrics:
 
 * *cpuExceededPercentage*
+* *cpuThresholdViolated*
 * *memoryRssExceededPercentage*
+* *memoryRssThresholdViolated*
 * *memoryWorkingSetExceededPercentage*
+* *memoryWorkingSetThresholdViolated*
 * *pvUsageExceededPercentage*
+* *pvUsageThresholdViolated*
 
 1. Edit the ConfigMap YAML file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` or `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`.
 
@@ -248,7 +255,7 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods; they don't all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following example and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect, and all Azure Monitor agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor agent pods; they don't all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following example and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Next steps
 

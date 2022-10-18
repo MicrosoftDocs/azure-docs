@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Container Registry 
 description: Start here to learn how to monitor your Azure container registry using features of Azure Monitor
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring 
 ms.service: container-registry
-ms.date: 08/13/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Monitor Azure Container Registry
@@ -71,8 +71,8 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 The following Azure CLI commands can be used to get information about the Azure Container Registry metrics.
 
-* [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) - List metric definitions and dimensions
-* [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) - Retrieve metric values
+* [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) - List metric definitions and dimensions
+* [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) - Retrieve metric values
 
 ### REST API 
 

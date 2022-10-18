@@ -1,7 +1,6 @@
 ---
 title: How to test and publish a SaaS offer to the Microsoft commercial marketplace
 description: Use Partner Center to submit your SaaS offer to preview, preview your offer, test, and then publish it to the Microsoft commercial marketplace.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -39,6 +38,9 @@ This article explains how to use Partner Center to submit your SaaS offer for pu
 
 Your offer's publish status will change as it moves through the publication process. For detailed information on this process, see [Validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
+> [!TIP]
+> After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
+
 ## Preview and test your offer
 
 When the offer is ready for your sign off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available. There will be a link for either Microsoft AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
@@ -66,7 +68,7 @@ Use the following steps to preview your offer.
 After completing all tests on your preview, select **Go live** to publish your offer live to the commercial marketplace. If your offer is already live in the commercial marketplace, any updates you make won't go live until you select **Go live**.
 
 > [!IMPORTANT]
-> Don’t ever select **Go live** for a [development/test offer](create-saas-dev-test-offer.md).
+> Don’t ever select **Go live** for a [development/test offer](plan-saas-dev-test-offer.md).
 
 Now that you’ve chosen to make your offer available in the commercial marketplace, we perform a series of final validation checks to ensure the live offer is configured just like the preview version of the offer. For details about these validation checks, see [Publish phase](review-publish-offer.md#publish-phase).
 

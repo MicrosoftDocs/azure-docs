@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Migrate projects
 description: Helps you to troubleshoot issues with creating and managing Azure Migrate projects.
-author: ms-psharma
-ms.author: panshar
+author: v-ksreedevan
+ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/01/2020
@@ -27,7 +27,7 @@ Finding an existing Azure Migrate project depends upon whether you're using the 
 
 ## Can't find a geography
 
-You can create an Azure Migrate project in supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+You can create an Azure Migrate project in supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ## What are VM limits?
 

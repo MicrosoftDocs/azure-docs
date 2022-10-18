@@ -48,7 +48,7 @@ To enable Go to manage management groups, the package must be added. This packag
 can be used, including [bash on Windows 10](/windows/wsl/install-win10) or locally installed.
 
 1. Check that the latest Go is installed (at least **1.15**). If it isn't yet installed, download it
-   at [Golang.org](https://golang.org/dl/).
+   at [Golang.org](https://go.dev/dl/).
 
 1. Check that the latest Azure CLI is installed (at least **2.5.1**). If it isn't yet installed, see
    [Install the Azure CLI](/cli/azure/install-azure-cli).

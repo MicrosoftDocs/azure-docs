@@ -26,38 +26,41 @@ These media streams are typically arrayed in a grid and broadcast to call partic
 - Connect devices and services using streaming protocols such as [RTMP](https://datatracker.ietf.org/doc/html/rfc7016) or [SRT](https://datatracker.ietf.org/doc/html/draft-sharabayko-srt)
 - Compose media streams into complex scenes
 
-RTMP & SRT connectivity can be used for both input and output. Using RTMP/SRT input, a videography studio that emits RTMP/SRT can join an Azure Communication Services call. RTMP/SRT output allows you to stream media from Azure Communication Services into [Azure Media Services](../../../media-services/latest/concepts-overview.md), YouTube Live, and many other broadcasting channels. The ability to attach industry standard RTMP/SRT emitters and to output content to RTMP/SRT subscribers for broadcasting transforms a small group call into a virtual event that reaches millions of people in real time.
+RTMP & SRT connectivity can be used for both input and output. Using RTMP/SRT input, a videography studio that emits RTMP/SRT can join an Azure Communication Services call. RTMP/SRT output allows you to stream media from Azure Communication Services into [Azure Media Services](/azure/media-services/latest/concepts-overview), YouTube Live, and many other broadcasting channels. The ability to attach industry standard RTMP/SRT emitters and to output content to RTMP/SRT subscribers for broadcasting transforms a small group call into a virtual event that reaches millions of people in real time.
 
 Media Composition REST APIs (and open-source SDKs) allow you to command the Azure service to cloud compose these media streams. For example, a **presenter layout** can be used to compose a speaker and a translator together in a classic picture-in-picture style. Media Composition allows for all clients and services connected to the media data plane to enjoy a particular dynamic layout without local processing or application complexity.
 
- In the diagram below, three endpoints are participating actively in a group call and uploading media. Two users, one of which is using Microsoft Teams, are composed using a *presenter layout.*  The third endpoint is a television studio that emits RTMP into the call. The Azure Calling client and Teams client will receive the composed media stream instead of a typical grid. Additionally, Azure Media Services is shown here subscribing to the call's RTMP channel and broadcasting content externally. 
+ In the diagram below, three endpoints are participating actively in a group call and uploading media. Two users, one of which is using Microsoft Teams, are composed using a *presenter layout.*  The third endpoint is a television studio that emits RTMP into the call. The Azure Calling client and Teams client will receive the composed media stream instead of a typical grid. Additionally, Azure Media Services is shown here subscribing to the call's RTMP channel and broadcasting content externally.
 
 :::image type="content" source="../media/media-comp.svg" alt-text="Diagram showing how media input is processed by the Azure Communication Services Media Composition services":::
 
 This functionality is activated through REST APIs and open-source SDKs. Below is an example of the JSON encoded configuration of a presenter layout for the above scenario:
 
-```
+```json
 {
-  layout: {
-    type: ‘presenter’,
-    presenter: {
-      supportPosition: ‘right’,
-      primarySource: ‘1’, // source id
+   "layout": {
+    "presenter": {
+      "presenterId": "presenter",
+      "supportId": "translatorSupport",
+      "supportPosition": "topLeft",
+      "supportAspectRatio": 3/2
     }
-  },
-  sources: [
-    { id: ‘1’ }, { id: ‘2’ }
-  ]
+  }
 }
-
 ```
+
 The presenter layout is one of several layouts available through the media composition capability:
 
-- **Grid** - This is the typical video calling layout, where all media sources are shown on a grid with similar sizes. You can use the grid layout to specify grid positions and size.
-- **Presentation.** Similar to the grid layout but media sources can have different sizes, allowing for emphasis.
-- **Presenter** - This layout overlays two sources on top of each other.
-- **Weather Person** - This layout overlays two sources, but in real-time Azure will remove the background behind people.
-
+- **Grid** - The grid layout shows the specified media sources in a standard grid format. You can specify the number of rows and columns in the grid as well as which media source should be placed in each slot of the grid.
+:::image type="content" source="../media/two-by-two-grid-layout.png" alt-text="A diagram showing an example of the grid layout.":::
+- **Auto-Grid** - This layout automatically displays all the media sources in the scene in an optimized way. Unlike the grid layout, it does not allow for customizations on the number of rows and columns.
+:::image type="content" source="../media/five-cell-auto-grid.png" alt-text="A diagram showing an example of the auto grid layout.":::
+- **Presentation** - The presentation layout features a fixed media source, the presenter, covering the majority of the scene. The other media sources are arranged in either a row or column in the remaining space of the scene.
+:::image type="content" source="../media/top-presentation.png" alt-text="A diagram showing an example of the presentation layout.":::
+- **Presenter** - This is a picture-in-picture layout composed of two sources. One source is the background of the scene. This commonly represents the content being presented or the main presenter. The secondary source is cropped and positioned at a corner of the scene.
+:::image type="content" source="../media/top-left-presenter.png" alt-text="A diagram showing an example of the presenter layout.":::
+- **Custom** - You can customize the layout to fit your specific scenario. Media sources can have different sizes and be placed at any position on the scene.
+:::image type="content" source="../media/custom-grid-with-single-cell-overlayed.png" alt-text="A diagram showing an example of the custom layout.":::
 <!----To try out media composition, check out following content:----->
 
 <!---- [Quick Start - Applying Media Composition to a video call](../../quickstarts/media-composition/get-started-media-composition.md) ----->

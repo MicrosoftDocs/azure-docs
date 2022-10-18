@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/02/2022
 ms.author: jeedes
-ms.custom: has-adal-ref
+ms.custom: 
 ---
 # Configure an OpenID Connect OAuth application from Azure AD app gallery
 
@@ -138,7 +138,7 @@ As an administrator, you can also consent to an application's delegated permissi
 ![Grant Permissions button](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Granting explicit consent by using the **Grant admin consent** button is now required for single-page applications (SPAs) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+> Granting explicit consent by using the **Grant admin consent** button is now required for single-page applications (SPAs) that use MSAL.js. Otherwise, the application fails when the access token is requested.
 
 App-only permissions always require a tenant administrator's consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message appears. The message says the user isn't able to consent.
 

@@ -88,7 +88,7 @@ To disable the encryption, see [Disable encryption and remove the encryption ext
 
 ### Enable encryption on existing or running VMs with the Azure CLI
 
-Use the [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) command to enable encryption on a running IaaS virtual machine in Azure.
+Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) command to enable encryption on a running IaaS virtual machine in Azure.
 
 - **Encrypt a running VM:**
 
@@ -108,7 +108,7 @@ Use the [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enab
      > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
   https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
-- **Verify the disks are encrypted:** To check on the encryption status of an IaaS VM, use the [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) command.
+- **Verify the disks are encrypted:** To check on the encryption status of an IaaS VM, use the [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) command.
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
@@ -184,6 +184,9 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 
 ## Enable encryption on a newly added data disk
 You can [add a new disk to a Windows VM using PowerShell](attach-disk-ps.md), or [through the Azure portal](attach-managed-disk-portal.md).
+
+ >[!NOTE]
+ > Newly added data disk encryption must be enabled via Powershell, or CLI only. Currently, the Azure portal does not support enabling encryption on new disks.
 
 ### Enable encryption on a newly added disk with Azure PowerShell
  When using PowerShell to encrypt a new disk for Windows VMs, a new sequence version should be specified. The sequence version has to be unique. The script below generates a GUID for the sequence version. In some cases, a newly added data disk might be encrypted automatically by the Azure Disk Encryption extension. Auto encryption usually occurs when the VM reboots after the new disk comes online. This is typically caused because "All" was specified for the volume type when disk encryption previously ran on the VM. If auto encryption occurs on a newly added data disk, we recommend running the Set-AzVmDiskEncryptionExtension cmdlet again with new sequence version. If your new data disk is auto encrypted and you do not wish to be encrypted, decrypt all drives first then re-encrypt with a new sequence version specifying OS for the volume type.
@@ -265,7 +268,7 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
      Disable-AzVMDiskEncryption -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM" -VolumeType "all"
      ```
 
-- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) command. 
+- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
@@ -289,7 +292,7 @@ You can remove the encryption extension using Azure PowerShell or the Azure CLI.
      Remove-AzVMDiskEncryptionExtension -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM"
      ```
 
-- **Disable encryption with the Azure CLI:** To remove encryption, use the [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete) command.
+- **Disable encryption with the Azure CLI:** To remove encryption, use the [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) command.
 
      ```azurecli-interactive
      az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForWindows"

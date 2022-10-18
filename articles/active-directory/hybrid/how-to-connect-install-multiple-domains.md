@@ -4,7 +4,7 @@ description: This document describes setting up and configuring multiple top lev
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: curtand
 
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 03/09/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -128,7 +128,7 @@ By using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <y
 
 ![Screenshot that shows the federation settings updated on the original domain.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-And the IssuerUri on the new domain has been set to `https://bmfabrikam.com/adfs/services/trust`
+And the IssuerUri on the new domain has been set to `https://bmcontoso.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 

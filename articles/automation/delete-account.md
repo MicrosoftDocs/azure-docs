@@ -1,6 +1,6 @@
 ---
-title: Delete your Azure Automation account
-description: This article tells how to delete your Automation account across the different configuration scenarios.
+title: Manage your Azure Automation account
+description: This article tells how to delete and your Automation account across the different configuration scenarios and restore a deleted Automation account
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,9 +9,13 @@ ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
-# How to delete your Azure Automation account
+# Manage your Azure Automation account
 
 After you enable an Azure Automation account to help automate IT or business process, or enable its other features to support operations management of your Azure and non-Azure machines such as Update Management, you may decide to stop using the Automation account. If you have enabled features that depend on integration with an Azure Monitor Log Analytics workspace, there are more steps required to complete this action.
+
+This article tells you how to completely remove your Automation account through the Azure portal, using Azure PowerShell, the Azure CLI, or the REST API and restore your deleted Azure Automation account.
+
+## Delete your Azure Automation account
 
 Removing your Automation account can be done using one of the following methods based on the supported deployment models:
 
@@ -24,9 +28,9 @@ Removing your Automation account can be done using one of the following methods 
 * Unlink the Log Analytics workspace from the Automation account and delete the Automation account.
 * Delete the feature from your linked workspace, unlink the account from the workspace, and then delete the Automation account.
 
-This article tells you how to completely remove your Automation account through the Azure portal, using Azure PowerShell, the Azure CLI, or the REST API.
 
-## Prerequisite
+### Prerequisite
+
 Verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource, which prevents accidental deletion or modification of critical resources. If you've deployed the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Remove any locks before deleting the Automation account.
 
 > [!NOTE]
@@ -155,6 +159,42 @@ While it attempts to unlink the Automation account, you can track the progress u
 ### Step 3. Delete Automation account
 
 After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#delete-a-standalone-automation-account) section to delete the account.
+
+## Restore a deleted Automation account
+
+You can recover a deleted automation account from Azure portal.
+
+To recover an Automation account, ensure that the following conditions are met:
+- You've created the Automation account with the Azure Resource Manager deployment model and deleted within the past 30 days.
+- Before you attempt to recover a deleted Automation account, ensure that resource group for that account exists.
+
+> [!NOTE]
+> * If the resource group of the Automation account is deleted, to recover, you must recreate the resource group with the same name. 
+> * Though the resource group isn't present, you can see the Automation account in the deleted list. If the resource group isn't present, the account restore operation fails with the error *Account restore failed*.
+
+### Recover a deleted Automation account
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your Automation account.
+1. On the **Automation Accounts** page, select **Manage deleted accounts**.
+   
+   :::image type="content" source="media/restore-deleted-account/automation-accounts-main-page-inline.png" alt-text="Screenshot showing the selection of Manage deleted accounts option." lightbox="media/restore-deleted-account/automation-accounts-main-page-expanded.png":::
+
+1. In the **Manage deleted automation accounts** pane, select **Subscription** from the drop-down list.
+   
+   :::image type="content" source="media/restore-deleted-account/select-subscription-inline.png" alt-text="Screenshot showing the selection of subscription." lightbox="media/restore-deleted-account/select-subscription-expanded.png":::
+
+   Deleted accounts list in that subscription is displayed.
+
+1. Select the checkbox for the accounts you want to restore and click **Recover**.
+
+   :::image type="content" source="media/restore-deleted-account/recover-automation-account-inline.png" alt-text="Screenshot showing the recovery of deleted Automation account." lightbox="media/restore-deleted-account/recover-automation-account-expanded.png":::
+
+   A notification appears to confirm that account is restored.
+
+   :::image type="content" source="media/restore-deleted-account/notification-inline.png" alt-text="Screenshot showing the notification of restoring the deleted Automation account." lightbox="media/restore-deleted-account/notification-expanded.png":::
+
+
 
 ## Next steps
 

@@ -2,8 +2,8 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 02/16/2022
-ms.custom: template-quickstart, mode-other, devx-track-azurecli 
+ms.date: 10/12/2022
+ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -19,52 +19,48 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
+* An identity (user or service principal) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli) and connect your cluster to Azure Arc.
+
+  > [!IMPORTANT]
+  >
+  > * The identity must have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+  > * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) can be used for this identity. This role is useful for at-scale onboarding, as it has only the granular permissions required to connect clusters to Azure Arc, and doesn't have permission to update, delete, or modify any other clusters or other Azure resources.
+
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
 * Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
-  ```
+  ```azurecli
   az extension add --name connectedk8s
   ```
-
-* [Log in to Azure CLI](/cli/azure/authenticate-azure-cli) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
-  * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
-  * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
 
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
   * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
   * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
-  * If you want to connect a OpenShift cluster to Azure Arc, execute the following command one time on your cluster before running `az connectedk8s connect`:
-
-    ```
-    oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
-    ```
 
     >[!NOTE]
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
 
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
 
+* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
+* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
 
-* [Azure PowerShell version 5.9.0 or later](/powershell/azure/install-az-ps)
+* [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-az-ps)
 
 * Install the **Az.ConnectedKubernetes** PowerShell module:
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ConnectedKubernetes
     ```
-
-    > [!IMPORTANT]
-    > While the **Az.ConnectedKubernetes** PowerShell module is in preview, you must install it separately using
-    > the `Install-Module` cmdlet.
 
 * [Log in to Azure PowerShell](/powershell/azure/authenticate-azureps) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
   * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
@@ -74,9 +70,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
   * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
-  * If you want to connect a OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `New-AzConnectedKubernetes`:
+  * If you want to connect an OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `New-AzConnectedKubernetes`:
 
-    ```
+    ```bash
     oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
     ```
 
@@ -88,23 +84,6 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 * Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ---
-
-## Meet network requirements
-
-> [!IMPORTANT]
-> Azure Arc agents require the following outbound URLs on `https://:443` to function.
-> For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
-
-| Endpoint (DNS) | Description |
-| ----------------- | ------------- |
-| `https://management.azure.com` (for Azure Cloud), `https://management.usgovcloudapi.net` (for Azure US Government) | Required for the agent to connect to Azure and register the cluster. |
-| `https://<region>.dp.kubernetesconfiguration.azure.com` (for Azure Cloud), `https://<region>.dp.kubernetesconfiguration.azure.us` (for Azure US Government) | Data plane endpoint for the agent to push status and fetch configuration information. |
-| `https://login.microsoftonline.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
-| `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
-| `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
-| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
-|`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
-|`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 
 ## Register providers for Azure Arc-enabled Kubernetes
 
@@ -150,6 +129,30 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 ---
 
+## Meet network requirements
+
+> [!IMPORTANT]
+> Azure Arc agents require the following outbound URLs on `https://:443` to function.
+> For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
+
+| Endpoint (DNS) | Description |
+| ----------------- | ------------- |
+| `https://management.azure.com` (for Azure Cloud), `https://management.usgovcloudapi.net` (for Azure US Government) | Required for the agent to connect to Azure and register the cluster. |
+| `https://<region>.dp.kubernetesconfiguration.azure.com` (for Azure Cloud), `https://<region>.dp.kubernetesconfiguration.azure.us` (for Azure US Government) | Data plane endpoint for the agent to push status and fetch configuration information. |
+| `https://login.microsoftonline.com`, `https://<region>.login.microsoft.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us`, `<region>.login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
+| `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
+| `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
+| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
+|`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`*.servicebus.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+
+> [!NOTE]
+> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+
+> [!IMPORTANT]
+> To view and manage connected clusters in the Azure portal, be sure that your network allows traffic to `*.arc.azure.net`.
+
 ## Create a resource group
 
 Run the following command:
@@ -162,7 +165,7 @@ az group create --name AzureArcTest --location EastUS --output table
 
 Output:
 
-```
+```output
 Location    Name
 ----------  ------------
 eastus      AzureArcTest
@@ -176,7 +179,7 @@ New-AzResourceGroup -Name AzureArcTest -Location EastUS
 
 Output:
 
-```
+```output
 ResourceGroupName : AzureArcTest
 Location          : eastus
 ProvisioningState : Succeeded
@@ -201,7 +204,7 @@ az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 
 Output:
 
-```
+```output
 Helm release deployment succeeded
 
     {
@@ -239,6 +242,9 @@ Helm release deployment succeeded
 > [!TIP]
 > The above command without the location parameter specified creates the Azure Arc-enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc-enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
 
+> [!IMPORTANT]
+> In some cases, deployment may fail due to a timeout error. Please see our [troubleshooting guide](troubleshooting.md#helm-timeout-error) for details on how to resolve this issue.
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -247,7 +253,7 @@ New-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName AzureArc
 
 Output:
 
-```
+```output
 Location Name          Type
 -------- ----          ----
 eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
@@ -269,7 +275,7 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
     export NO_PROXY=<cluster-apiserver-ip-address>:<port>
     ```
 
-2. Run the connect command with proxy parameters specified:
+2. Run the connect command with the `proxy-https` and `proxy-http` parameters specified. If your proxy server is set up with both HTTP and HTTPS, be sure to use `--proxy-http` for the HTTP proxy and `--proxy-https` for the HTTPS proxy. If your proxy server only uses HTTP, you can use that value for both parameters.
 
     ```azurecli
     az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
@@ -299,6 +305,22 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
 
 ---
 
+For outbound proxy servers where only a trusted certificate needs to be provided without the proxy server endpoint inputs, `az connectedk8s connect` can be run with just the `--proxy-cert` input specified. In case multiple trusted certificates are expected, the combined certificate chain can be provided in a single file using the `--proxy-cert` parameter.
+
+### [Azure CLI](#tab/azure-cli)
+
+Run the connect command with the `--proxy-cert` parameter specified:
+
+```azurecli
+az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-cert <path-to-cert-file>
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+The ability to pass in the proxy certificate only without the proxy server endpoint details is not yet supported via PowerShell.
+
+---
+
 ## Verify cluster connection
 
 Run the following command:
@@ -311,7 +333,7 @@ az connectedk8s list --resource-group AzureArcTest --output table
 
 Output:
 
-```
+```output
 Name           Location    ResourceGroup
 -------------  ----------  ---------------
 AzureArcTest1  eastus      AzureArcTest
@@ -325,7 +347,7 @@ Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
 
 Output:
 
-```
+```output
 Location Name          Type
 -------- ----          ----
 eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
@@ -342,7 +364,7 @@ Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace
 
 1. View these deployments and pods using:
 
-   ```
+   ```bash
    kubectl get deployments,pods -n azure-arc
    ```
 
@@ -350,7 +372,7 @@ Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace
 
    Output:
 
-   ```
+   ```output
     NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
     deployment.apps/cluster-metadata-operator   1/1     1            1           13d
     deployment.apps/clusterconnect-agent        1/1     1            1           13d
@@ -388,6 +410,14 @@ You can delete the Azure Arc-enabled Kubernetes resource, any associated configu
 az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
+If the deletion process fails, use the following command to force deletion (adding `-y` if you want to bypass the confirmation prompt):
+
+```azurecli
+az connectedk8s delete -g AzureArcTest1 -n AzureArcTest --force
+```
+
+This command can also be used if you experience issues when creating a new cluster deployment (due to previously created resources not being completely removed).
+
 >[!NOTE]
 > Deleting the Azure Arc-enabled Kubernetes resource using the Azure portal removes any associated configuration resources, but *does not* remove any agents running on the cluster. Best practice is to delete the Azure Arc-enabled Kubernetes resource using `az connectedk8s delete` rather than deleting the resource in the Azure portal.
 
@@ -408,4 +438,4 @@ Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName Azure
 
 Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
 > [!div class="nextstepaction"]
-> [Deploy configurations using GitOps](tutorial-use-gitops-connected-cluster.md)
+> [Deploy configurations using GitOps with Flux v2](tutorial-use-gitops-flux2.md)

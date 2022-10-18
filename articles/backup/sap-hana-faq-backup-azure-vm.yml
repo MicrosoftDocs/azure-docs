@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 02/08/2022
+  ms.date: 08/10/2022
   author: v-amallick
   ms.author: v-amallick
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
@@ -15,7 +15,7 @@ sections:
   - name: Backup
     questions:
       - question: |
-          How many full backups are supported per day?
+          How many backups are supported per day?
         answer: |
           You can have one schedule full backup and multiple on-demand backups in a day.
 
@@ -199,13 +199,19 @@ sections:
            - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md)
            - [Performance tiers for Azure managed disks](../virtual-machines/disks-change-performance.md)
            - [M-series](../virtual-machines/m-series.md)
-           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 
           >[!Note]
           >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
 
   - name: Restore
     questions:
+
+      - question: |
+          How many restores are supported per day?
+        answer: |
+          You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is cancelled or fails, it's also considered as a restore attempt.
+           
       - question: |
           Why can't I see the HANA system I want my database to be restored to?
         answer: |
@@ -225,6 +231,10 @@ sections:
           Can I use a backup of a database running on SLES to restore to an RHEL HANA system or vice versa?
         answer: |
           Yes, you can use streaming backups triggered on a HANA database running on SLES to restore it to an RHEL HANA system and vice versa. That is, cross OS restore is possible using streaming backups. However, you'll have to ensure that the HANA system you want to restore to, and the HANA system used for restore, are both compatible for restore according to SAP. Refer to SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see which restore types are compatible.
+      - question: |
+          Can I download only a subset of files during restore as files?
+        answer: |
+          Yes, you can download files partially as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
           
   - name: Policy
     questions:
@@ -264,7 +274,16 @@ sections:
           |Daily fulls + logs     |   -      |    The previous fulls that aren't on the same day of the week are marked for deletion but kept until the log retention period     |    The previous fulls that aren't on the same day of the week are marked for deletion but kept until the log retention period     |
           |Weekly fulls + daily differentials + logs     |   The previous weekly fulls retention is recalculated as per latest policy. The previous differentials are immediately deleted      |    -     |    The previous differentials are immediately deleted     |
           |Weekly fulls + daily incrementals + logs     |     The previous weekly fulls retention is recalculated as per latest policy. The previous incrementals are immediately deleted    |     The previous incrementals are immediately deleted    |    -     |
-          
+
+      - question: |
+          How can I manage the size of /opt/msawb folder created in the root partition?
+        answer: |
+          You could manage the space in the root folder using one of the following options:
+          - Create an own LV for */opt/msawb*.
+          - Create a soft *link*/*symlink* to another location/folder on the same/different disk.
+          - Increase the space on the root partition.
+
+
 additionalContent: |
 
   ## Next steps

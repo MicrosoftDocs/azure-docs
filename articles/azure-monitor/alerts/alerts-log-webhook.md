@@ -5,7 +5,7 @@ author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 2/23/2022
 ---
 
 # Webhook actions for log alert rules
@@ -43,14 +43,17 @@ The following sample payload is for a standard webhook when it's used for log al
             "alertContextVersion": "1.0"
         },
         "alertContext": {
-            "properties": null,
+            "properties": {
+              "name1": "value1",
+              "name2": "value2"
+            },
             "conditionType": "LogQueryCriteria",
             "condition": {
                 "windowSize": "PT10M",
                 "allOf": [
                     {
                         "searchQuery": "Heartbeat",
-                        "metricMeasure": null,
+                        "metricMeasureColumn": "CounterValue",
                         "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
                         "operator": "LowerThan",
                         "threshold": "1",

@@ -1,11 +1,11 @@
 ---
 title: Azure PowerShell Script Sample - Create WAF custom  rules
 description: Azure PowerShell Script Sample - Create Web Application Firewall custom  rules
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: sample
 ms.date: 6/7/2019
-ms.author: victorh 
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 

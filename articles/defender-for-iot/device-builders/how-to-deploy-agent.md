@@ -2,7 +2,7 @@
 title: Select and deploy security agents
 description: Learn about how select and deploy Defender for IoT security agents on IoT devices.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Select and deploy a security agent on your IoT device

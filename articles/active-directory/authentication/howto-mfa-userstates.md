@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 08/17/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management 
@@ -54,9 +54,9 @@ All users start out *Disabled*. When you enroll users in per-user Azure AD Multi
 To view and manage user states, complete the following steps to access the Azure portal page:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator.
-1. Search for and select *Azure Active Directory*, then select **Users** > **All users**.
-1. Select **Per-user MFA**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
-    [![Select Multi-Factor Authentication from the Users window in Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Search for and select **Azure Active Directory**, then select **Users** > **All users**.
+1. Select **Per-user MFA**. 
+   :::image type="content" border="true" source="media/howto-mfa-userstates/selectmfa-cropped.png" alt-text="Screenshot of select Multi-Factor Authentication from the Users window in Azure AD.":::
 1. A new page opens that displays the user state, as shown in the following example.
    ![Screenshot that shows example user state information for Azure AD Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
 

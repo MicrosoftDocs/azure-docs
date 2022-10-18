@@ -1,7 +1,7 @@
 ---
 title: Publish modules to private module registry
 description: Publish Bicep modules to private module registry and use the modules.
-ms.date: 01/04/2022
+ms.date: 04/01/2022
 ms.topic: quickstart
 ms.custom: mode-api
 #Customer intent: As a developer new to Azure deployment, I want to learn how to publish Bicep modules to private module registry.
@@ -9,13 +9,13 @@ ms.custom: mode-api
 
 # Quickstart: Publish Bicep modules to private module registry
 
-Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization.  To learn more, see [Create private registry for Bicep modules](./private-module-registry.md).
+Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization.  To learn more, see [Create private registry for Bicep modules](./private-module-registry.md). To contribute to the public module registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
 
 ## Prerequisites
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-To work with module registries, you must have [Bicep CLI](./install.md#deployment-environment) version **0.4.1008** or later. To use with [Azure CLI](/cli/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-az-ps), you must also have Azure PowerShell version **7.0.0** or later.
+To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008** or later. To use with [Azure CLI](/cli/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-az-ps), you must also have Azure PowerShell version **7.0.0** or later.
 
 A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). To create one, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md).
 
@@ -204,4 +204,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bicep in Microsoft Learn](learn-bicep.md)
+> [Learn modules for Bicep](learn-bicep.md)

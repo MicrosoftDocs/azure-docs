@@ -36,9 +36,9 @@ The deployment script resource is only available in the regions where Azure Cont
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same Bicep file as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
+If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts).
 
 ## Configure the minimum permissions
 
@@ -73,7 +73,7 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 - **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. There are two ways to specify the deployment script principal:
 
   - Specify a [user-assigned managed identity]() in the `identity` property (see [Sample Bicep files](#sample-bicep-files)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To login with a different identity, use the second method in this list.
-  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az_login) in the deployment script.
+  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
 
   If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
@@ -148,7 +148,7 @@ Property value details:
 
 - `arguments`: Specify the parameter values. The values are separated by spaces.
 
-  Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
+  Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
     to Azure Container Instance, and the command property is an array of string.
 
   If the arguments contain escaped characters, double escaped the characters. For example, in the previous sample Bicep, The argument is `-name \"John Dole\"`. The escaped string is `-name \\"John Dole\\"`.
@@ -399,10 +399,10 @@ Timeout             : PT1H
 
 Using Azure CLI, you can manage deployment scripts at subscription or resource group scope:
 
-- [az deployment-scripts delete](/cli/azure/deployment-scripts#az_deployment_scripts_delete): Delete a deployment script.
-- [az deployment-scripts list](/cli/azure/deployment-scripts#az_deployment_scripts_list): List all deployment scripts.
-- [az deployment-scripts show](/cli/azure/deployment-scripts#az_deployment_scripts_show): Retrieve a deployment script.
-- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az_deployment_scripts_show_log): Show deployment script logs.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts#az-deployment-scripts-delete): Delete a deployment script.
+- [az deployment-scripts list](/cli/azure/deployment-scripts#az-deployment-scripts-list): List all deployment scripts.
+- [az deployment-scripts show](/cli/azure/deployment-scripts#az-deployment-scripts-show): Retrieve a deployment script.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts#az-deployment-scripts-show-log): Show deployment script logs.
 
 The list command output is similar to:
 
@@ -464,7 +464,7 @@ The list command output is similar to:
 ]
 ```
 
-### Use Rest API
+### Use REST API
 
 You can get the deployment script resource deployment information at the resource group level and the subscription level by using REST API:
 
@@ -616,7 +616,7 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a Microsoft Learn module:
+In this article, you learned how to use deployment scripts. To walk through a Learn module:
 
 > [!div class="nextstepaction"]
-> [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts)
+> [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)

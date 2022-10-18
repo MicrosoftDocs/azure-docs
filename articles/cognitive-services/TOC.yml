@@ -17,15 +17,20 @@
     href: cognitive-services-apis-create-account-cli.md
   - name: Create a new resource using the client library
     href: cognitive-services-apis-create-account-client-library.md
+  - name: Create a new resource using Bicep
+    displayName: Resource Manager, ARM, Template
+    href: create-account-bicep.md
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: create-account-resource-manager-template.md  
-  - name: Create a new resource with commitment tier pricing 
-    href: commitment-tier.md  
 - name: How-To
   items:
   - name: Plan and manage costs 
     href: plan-manage-costs.md
+  - name: Increase rate limit
+    href: autoscale.md
+  - name: Use commitment tier pricing 
+    href: commitment-tier.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
   - name: Manage resources
@@ -34,7 +39,9 @@
     items:
     - name: Containers
       items:
-      - name: Cognitive Services containers
+      - name: Cognitive Services containers documentation
+        href: containers/index.yml
+      - name: Cognitive Services containers overview
         href: cognitive-services-container-support.md
       - name: Container image tags and releases notes
         href: ./containers/container-image-tags.md
@@ -62,18 +69,20 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Azure Kubernetes Service (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
-      - name: Cognitive Services containers documentation
-        href: containers/index.yml
   - name: Security
     items:
-    - name: Cognitive Services security
-      href: cognitive-services-security.md
-    - name: Virtual networks for Cognitive Services
-      href: cognitive-services-virtual-networks.md
-    - name: Configure customer-managed keys
-      href: ./encryption/cognitive-services-encryption-keys-portal.md
+    - name: Security features
+      href: security-features.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
+    - name: Use environment variables with Cognitive Services
+      href: cognitive-services-environment-variables.md
+    - name: Configure customer-managed keys
+      href: ./encryption/cognitive-services-encryption-keys-portal.md
+    - name: Use virtual networks
+      href: cognitive-services-virtual-networks.md
+    - name: Use Azure key vault
+      href: use-key-vault.md
     - name: Configure data loss prevention
       href: cognitive-services-data-loss-prevention.md
     - name: Security baseline
@@ -82,7 +91,7 @@
       href: ./security-controls-policy.md
   - name: Use with big data
     items:
-    - name: Cognitive Services for Big Data
+    - name: Cognitive Services for big data
       href: ./big-data/cognitive-services-for-big-data.md
     - name: Getting started
       href: ./big-data/getting-started.md
@@ -113,11 +122,11 @@
   - name: .NET
     href: /dotnet/api/overview/azure/cognitiveservices/management
   - name: Node.js
-    href: /javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest
+    href: /javascript/api/@azure/arm-cognitiveservices/
   - name: Python
-    href: /python/api/overview/azure/cognitiveservices/management?view=azure-python
+    href: /python/api/azure-mgmt-cognitiveservices/
   - name: Java
-    href: /java/api/overview/azure/cognitiveservices/resourcemanagement?view=azure-java-stable
+    href: /java/api/com.microsoft.azure.management.cognitiveservices
   - name: Go
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go@v52.5.0+incompatible/services/cognitiveservices/mgmt/2017-04-18/cognitiveservices
   - name: Azure CLI
@@ -136,7 +145,11 @@
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?query=cognitive%20services
   - name: Responsible use of AI
-    href: responsible-use-of-ai-overview.md
+    items:
+    - name: Responsible use of AI overview
+      href: responsible-use-of-ai-overview.md
+    - name: Limited Access features
+      href: cognitive-services-limited-access.md
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance

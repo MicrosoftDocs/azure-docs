@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep

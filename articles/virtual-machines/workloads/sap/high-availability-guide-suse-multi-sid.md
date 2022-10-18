@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/24/2022
+ms.date: 03/25/2022
 ms.author: radeltch
 ---
 
@@ -96,47 +96,12 @@ To achieve high availability, SAP NetWeaver requires highly available NFS shares
 
 The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
-The following list shows the configuration of the (A)SCS and ERS load balancer for this multi-SID cluster example with three SAP systems. You will need separate frontend IP, health probes, and load-balancing rules for each ASCS and ERS instance for each of the SIDs. Assign all VMs, that are part of the ASCS/ASCS cluster to one backend pool.  
+The presented configuration for this multi-SID cluster example with three SAP systems shows a load balancer with:
 
-### (A)SCS
-
-* Frontend configuration
-  * IP address for NW1:  10.3.1.14
-  * IP address for NW2:  10.3.1.16
-  * IP address for NW3:  10.3.1.13
-* Probe Ports
-  * Port 620<strong>&lt;nr&gt;</strong>, therefore for NW1, NW2, and NW3 probe ports 620**00**, 620**10** and 620**20**
-* Load-balancing rules - 
-* create one for each instance, that is, NW1/ASCS, NW2/ASCS and NW3/ASCS.
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-### ERS
-
-* Frontend configuration
-  * IP address for NW1 10.3.1.15
-  * IP address for NW2 10.3.1.17
-  * IP address for NW3 10.3.1.19
-* Probe Port
-  * Port 621<strong>&lt;nr&gt;</strong>, therefore for NW1, NW2, and N# probe ports 621**02**, 621**12** and 621**22**
-* Load-balancing rules - create one for each instance, that is, NW1/ERS, NW2/ERS and NW3/ERS.
-  * If using Standard Load Balancer, select **HA ports**
-  * If using Basic Load Balancer, create Load balancing rules for the following ports
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
-    * 5<strong>&lt;nr&gt;</strong>13 TCP
-    * 5<strong>&lt;nr&gt;</strong>14 TCP
-    * 5<strong>&lt;nr&gt;</strong>16 TCP
-
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
+* Frontend IP addresses for ASCS: 10.3.1.14 (NW1), 10.3.1.16 (NW2) and 10.3.1.13 (NW3)  
+* Frontend IP addresses for ERS:  10.3.1.15 (NW1), 10.3.1.17 (NW2) and 10.3.1.19 (NW3)
+* Probe port 62000 for NW1 ASCS, 62010 for NW2 ASCS and 62020 for NW3 ASCS
+* Probe port 62102 for NW1 ASCS, 62112 for NW2 ASCS and 62122 for NW3 ASCS
 
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  

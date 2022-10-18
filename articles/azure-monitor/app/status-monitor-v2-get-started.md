@@ -2,10 +2,9 @@
 title: Azure Application Insights Agent - getting started | Microsoft Docs
 description: A quickstart guide for Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: yingqunpku
-ms.author: quying
 ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: abinetabate
 ---
 
 # Get started with Azure Monitor Application Insights Agent for on-premises servers
@@ -22,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Install prerequisites
 
-- To enable monitoring you will require a connection string. A connection string is displayed on the Overview blade of your Application Insights resource. For more information, see page [Connection Strings](./sdk-connection-string.md?tabs=net#finding-my-connection-string).
+- To enable monitoring you will require a connection string. A connection string is displayed on the Overview blade of your Application Insights resource. For more information, see page [Connection Strings](./sdk-connection-string.md?tabs=net#find-your-connection-string).
 
 > [!NOTE]
 > As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.

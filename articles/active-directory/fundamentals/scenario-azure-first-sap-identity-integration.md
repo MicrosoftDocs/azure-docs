@@ -29,7 +29,7 @@ This document provides advice on the technical design and configuration of SAP p
 | [IPS](https://help.sap.com/viewer/f48e822d6d484fa5ade7dda78b64d9f5/Cloud/en-US/2d2685d469a54a56b886105a06ccdae6.html) | SAP Cloud Identity Services - Identity Provisioning Service.  IPS helps to synchronize identities between different stores / target systems.                                                           |
 | [XSUAA](https://blogs.sap.com/2019/01/07/uaa-xsuaa-platform-uaa-cfuaa-what-is-it-all-about/)                          | Extended Services for Cloud Foundry User Account and Authentication.  XSUAA is a multi-tenant OAuth authorization server within the SAP BTP.                                                                   |
 | [CF](https://www.cloudfoundry.org/)                                                                                   | Cloud Foundry. Cloud Foundry is the environment on which SAP built their multi-cloud offering for BTP (AWS, Azure, GCP, Alibaba).                                                                                      |
-| [Fiori](https://www.sap.com/products/fiori/develop.html)                                                              | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
+| [Fiori](https://www.sap.com/products/fiori.html)                                                              | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
 
 ## Overview
 
@@ -131,7 +131,7 @@ While that could be a valid reason for using "User assignment required", it does
 
 #### Summary of implementation
 
-On the Azure AD Enterprise Application representing the federation relation with IAS, disable "[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)". This also means you can safely skip [assignment of users as detailed in Microsoft Docs](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md#assign-the-azure-ad-test-user).
+On the Azure AD Enterprise Application representing the federation relation with IAS, disable "[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)". This also means you can safely skip [assignment of users](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md#assign-the-azure-ad-test-user).
 
 ### 3 - Use Azure AD groups for Authorization through Role Collections in IAS/BTP
 

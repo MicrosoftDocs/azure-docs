@@ -5,7 +5,7 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/4/2019
+ms.date: 3/18/2022
 ms.author: caya
 ---
 
@@ -29,6 +29,7 @@ For an Ingress resource to be observed by AGIC, it **must be annotated** with `k
 | [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` (seconds) | `30` | |
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
+| [appgw.ingress.kubernetes.io/rewrite-rule-set](#rewrite-rule-set) | `string` | `nil`  | |
 
 ## Backend Path Prefix
 
@@ -265,4 +266,38 @@ spec:
         backend:
           serviceName: go-server-service
           servicePort: 443
+```
+
+## Rewrite Rule Set
+
+This annotation allows you to assign an existing rewrite rule set to the corresponding request routing rule.
+
+### Usage
+
+```yaml
+appgw.ingress.kubernetes.io/rewrite-rule-set: <rewrite rule set name>
+```
+
+### Example
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: go-server-ingress-bkprefix
+  namespace: test-ag
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    appgw.ingress.kubernetes.io/rewrite-rule-set: add-custom-response-header
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Exact
+        backend:
+          service:
+            name: go-server-service
+            port:
+              number: 8080
 ```

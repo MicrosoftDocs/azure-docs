@@ -9,12 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 03/21/2022
 
 ---
 
 # Convert data format of utterances
-LUIS provides the following conversions of a user utterance before prediction"
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+LUIS provides the following conversions of a user utterance before prediction.
 
 * Speech to text using [Cognitive Services Speech](../Speech-Service/overview.md) service.
 
@@ -29,10 +32,10 @@ Conversion of speech to text in LUIS allows you to send spoken utterances to an 
 You do not need to create a **Bing Speech API** key for this integration. A **Language Understanding** key created in the Azure portal works for this integration. Do not use the LUIS starter key.
 
 ### Pricing Tier
-This integration uses a different [pricing](luis-limits.md#key-limits) model than the usual Language Understanding pricing tiers.
+This integration uses a different [pricing](luis-limits.md#resource-usage-and-limits) model than the usual Language Understanding pricing tiers.
 
 ### Quota usage
-See [Key limits](luis-limits.md#key-limits) for information.
+See [Key limits](luis-limits.md#resource-usage-and-limits) for information.
 
 ## Next steps
 

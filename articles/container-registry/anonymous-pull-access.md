@@ -2,8 +2,9 @@
 title: Enable anonymous pull access
 description: Optionally enable anonymous pull access to make content in your Azure container registry publicly available
 ms.topic: how-to
-ms.date: 09/17/2021
-ms.custom: ""
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Make your container registry content publicly available
@@ -28,7 +29,7 @@ By default, access to pull or push content from an Azure container registry is o
 ## Configure anonymous pull access 
 
 ### Enable anonymous pull access
-Update a registry using the [az acr update](/cli/azure/acr#az_acr_update) command and pass the `--anonymous-pull-enabled` parameter. By default, anonymous pull is disabled in the registry.
+Update a registry using the [az acr update](/cli/azure/acr#az-acr-update) command and pass the `--anonymous-pull-enabled` parameter. By default, anonymous pull is disabled in the registry.
           
 ```azurecli
 az acr update --name myregistry --anonymous-pull-enabled

@@ -141,6 +141,10 @@ The following table lists common and recommended alert rules for ExpressRoute.
 | ARP availability down | Dimension name: Peering Type, Aggregation type: Avg, Operator: Less than, Threshold value: 100% | When ARP availability is down for a peering type. |
 | BGP availability down | Dimension name: Peer, Aggregation type: Avg, Operator: Less than, Threshold value: 100% | When BGP availability is down for a peer. |
 
+>[!NOTE]
+>During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
+>
+
 ### Alerts for ExpressRoute gateway connections
 
 1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.

@@ -3,7 +3,7 @@ title: Apache Hadoop components and versions - Azure HDInsight 3.6
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight 3.6.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 08/05/2022
 ---
 
 # HDInsight 3.6 component versions
@@ -22,7 +22,6 @@ The table below lists the support timeframe for HDInsight 3.6 cluster types.
 | HDInsight 3.6 Kafka             | 1.1               | June 30, 2021                     | September 30, 2022                | October 1, 2022 |
 | HDInsight 3.6 HBase             | 1.1               | June 30, 2021                     | September 30, 2022                | October 1, 2022 |
 | HDInsight 3.6 Interactive Query | 2.1               | June 30, 2021                     | September 30, 2022                | October 1, 2022 |
-| HDInsight 3.6 Storm             | 1.1               | June 30, 2021                     | September 30, 2022                | October 1, 2022 |
 | HDInsight 3.6  ML Services      | 9.3               | -                                 | -                                 | December 31, 2020 |
 | HDInsight 3.6 Spark             | 2.2               | -                                 | -                                 | June 30, 2020 |
 | HDInsight 3.6 Spark             | 2.1               | -                                 | -                                 | June 30, 2020 |
@@ -44,7 +43,6 @@ The OSS component versions associated with HDInsight 3.6 are listed in the follo
 | Apache Sqoop           | 1.4.6                       |
 | Apache Oozie           | 4.2.0                       |
 | Apache Zookeeper       | 3.4.6                       |
-| Apache Storm           | 1.1.0                       |
 | Apache Mahout          | 0.9.0+                      |
 | Apache Phoenix         | 4.7.0                       |
 | Apache Spark           | 2.3.2.                      |

@@ -7,7 +7,7 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.reviewer: amhindma
-ms.date: 11/11/2021
+ms.date: 03/15/2022
 ---
 
 # Configure virtual machine offer listing details
@@ -23,7 +23,7 @@ Offer listing content is not required to be in English as long as the offer desc
 The name entered here should be descriptive because it will be the title of your offer listing. This field is autofilled with the name that you entered in the **Offer alias** box when you created the offer. The name:
 
 - Can include trademark and copyright symbols.
-- Must be 50 characters or less.
+- Must be 200 characters or less.
 - Can't include emojis.
 
 ### Search results summary
@@ -90,6 +90,9 @@ If applicable, provide the **Name**, **Email**, and **Phone** of the contact for
 ## Marketplace media
 
 Provide logos, screenshots, and videos to use with your offer. These will appear on the search results and detail pages in the Azure Marketplace. All images must be in PNG format. Blurry images will cause your submission to be rejected.
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.

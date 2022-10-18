@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop FSLogix profile containers files - Azure
-description: This article describes FSLogix profile containers within Azure Virtual Desktop and Azure files.
+description: This article describes FSLogix profile containers within Azure Virtual Desktop and Azure Files.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
@@ -89,11 +89,4 @@ To ensure your Azure Virtual Desktop environment follows best practices:
 
 ## Next steps
 
-Use the following guides to set up a Azure Virtual Desktop environment.
-
-- To start building out your desktop virtualization solution, see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
-- To create a host pool within your Azure Virtual Desktop tenant, see [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md).
-- To set up fully managed file shares in the cloud, see [Set up Azure Files share](/azure/storage/files/storage-files-active-directory-enable/).
-- To configure FSLogix profile containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
-- To assign users to a host pool, see [Manage app groups for Azure Virtual Desktop](manage-app-groups.md).
-- To access your Azure Virtual Desktop resources from a web browser, see [Connect to Azure Virtual Desktop](./user-documentation/connect-web.md).
+To learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).

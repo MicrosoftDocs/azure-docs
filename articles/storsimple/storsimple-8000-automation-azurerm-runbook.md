@@ -4,11 +4,13 @@ description: Learn how to use Azure Automation Runbook to manage your StorSimple
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 10/23/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 ---
 
 # Use Azure Automation runbooks to manage StorSimple devices
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 This article describes how Azure Automation runbooks are used to manage your StorSimple 8000 series device in Azure portal. A sample runbook is included to walk you through the steps of configuring your environment to execute this runbook.
 
@@ -58,7 +60,7 @@ To create an automation module for the StorSimple 8000 series device management,
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
     ```
 
-5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands:
+5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows PowerShell window, type the following commands:
 
     ```powershell
         # set path variables

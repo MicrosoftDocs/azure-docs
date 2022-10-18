@@ -76,4 +76,9 @@ To help understand some of the features and components of these best practices, 
 
 ## Next steps
 
-If you need to get started with AKS, follow one of the quickstarts to deploy an Azure Kubernetes Service (AKS) cluster using the [Azure CLI](kubernetes-walkthrough.md) or [Azure portal](kubernetes-walkthrough-portal.md).
+If you need to get started with AKS, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+
+<!-- LINKS - internal -->
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md

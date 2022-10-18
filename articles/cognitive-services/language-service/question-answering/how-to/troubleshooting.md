@@ -3,8 +3,8 @@ title: Troubleshooting - question answering
 description: The curated list of the most frequently asked questions regarding question answering will help you adopt the feature faster and with better results.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: troubleshooting
 ms.date: 11/02/2021
 ---

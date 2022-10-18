@@ -2,10 +2,8 @@
 title: Azure Application Insights Agent overview | Microsoft Docs
 description: An overview of Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: yingqunpku
-ms.author: quying
 ms.date: 09/16/2019
-
+ms.reviewer: abinetabate
 ---
 
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
@@ -18,7 +16,7 @@ It replaces Status Monitor.
 Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
 
 > [!NOTE]
-> The module currently supports codeless instrumentation of .NET and .NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
+> The module currently supports codeless instrumentation of ASP.NET and ASP.NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
 
 ## PowerShell Gallery
 
@@ -40,11 +38,6 @@ Application Insights Agent is located here: https://www.powershellgallery.com/pa
 - [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus)
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
-
-## Troubleshooting
-- [Troubleshooting](status-monitor-v2-troubleshoot.md)
-- [Known issues](status-monitor-v2-troubleshoot.md#known-issues)
-
 
 ## FAQ
 
@@ -69,8 +62,18 @@ Each of these options is described in the [detailed instructions](status-monitor
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
 
+## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
+
+### 2.0.0-beta3
+
+- Update ApplicationInsights .NET/.NET Core SDK to 2.20.1-redfield.
+- Enable SQL query collection.
 
 ### 2.0.0-beta2
 

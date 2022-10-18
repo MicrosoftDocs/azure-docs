@@ -10,8 +10,8 @@ metadata:
   ms.service: load-balancer
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
+  author: mbender-ms
+  ms.author: mbender
   ms.date: 05/07/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -34,10 +34,14 @@ landingContent:
             url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
             url: skus.md
+          - text: Upgrade guidance from basic to standard Load Balancer
+            url: load-balancer-basic-upgrade-guidance.md
       - linkListType: learn
         links:
+          - text: Introduction to Azure Load Balancer
+            url: /training/modules/intro-to-azure-load-balancer/
           - text: Improve application scalability and resiliency by using Azure Load Balancer
-            url: /learn/modules/improve-app-scalability-resiliency-with-load-balancer/
+            url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
 
   # Card (optional)
   - title: Get started
@@ -68,8 +72,6 @@ landingContent:
             url: load-balancer-multivip-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Configure load balancing and outbound rules in Load Balancer (Azure CLI)
-            url: ./quickstart-load-balancer-standard-public-cli.md#create-outbound-rule-configuration
           - text: Create an Internet facing load balancer with IPv6 (PowerShell)
             url: load-balancer-ipv6-internet-ps.md
           - text: Configure the distribution mode
@@ -129,3 +131,17 @@ landingContent:
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
             url: load-balancer-faqs.yml
+
+  # Card
+  - title: Learn about Load Balancer architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load-balancing options
+            url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Networking on Azure and AWS
+            url: /azure/architecture/aws-professional/networking
+          - text: Windows N-tier application on Azure
+            url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
+          - text: Oracle databse migration to Azure
+            url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure

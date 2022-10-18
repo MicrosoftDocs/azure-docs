@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 11/25/2021
+ms.date: 09/08/2022
 ms.author: jianleishen
 ---
 
@@ -42,7 +42,7 @@ For a full list of sections and properties available for defining datasets, see 
 | type             | The type property of the dataset must be set to **DelimitedText**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`.  | Yes      |
 | columnDelimiter  | The character(s) used to separate columns in a file. <br>The default value is **comma  `,`**. When the column delimiter is defined as empty string, which means no delimiter, the whole line is taken as a single column.<br>Currently, column delimiter as empty string is only supported for mapping data flow but not Copy activity.  | No       |
-| rowDelimiter     | The single character or "\r\n" used to separate rows in a file. <br>The default value is any of the following values **on read: ["\r\n", "\r",  "\n"]**, and **"\n" or "\r\n" on write** by mapping data flow and Copy activity respectively. <br>When the row delimiter is set to no delimiter (empty string), the column delimiter must be set as no delimiter (empty string) as well, which means to treat the entire content as a single value.<br>Currently, row delimiter as empty string is only supported for mapping data flow but not Copy activity. | No       |
+| rowDelimiter     |  For Copy activity, the single character or "\r\n" used to separate rows in a file. The default value is any of the following values **on read: ["\r\n", "\r", "\n"]**; **on write: "\r\n"**. "\r\n" is only supported in copy command.<br>For Mapping data flow, the single or two characters used to separate rows in a file. The default value is any of the following values **on read: ["\r\n", "\r", "\n"]**; **on write: "\n"**.<br>When the row delimiter is set to no delimiter (empty string), the column delimiter must be set as no delimiter (empty string) as well, which means to treat the entire content as a single value.<br>Currently, row delimiter as empty string is only supported for mapping data flow but not Copy activity. | No       |
 | quoteChar        | The single character to quote column values if it contains column delimiter. <br>The default value is **double quotes** `"`. <br>When `quoteChar` is defined as empty string, it means there is no quote char and column value is not quoted, and `escapeChar` is used to escape the column delimiter and itself. | No       |
 | escapeChar       | The single character to escape quotes inside a quoted value.<br>The default value is **backslash `\`**. <br>When `escapeChar` is defined as empty string, the `quoteChar` must be set as empty string as well, in which case make sure all column values don't contain delimiters. | No       |
 | firstRowAsHeader | Specifies whether to treat/make the first row as a header line with names of columns.<br>Allowed values are **true** and **false** (default).<br>When first row as header is false, note UI data preview and lookup activity output auto generate column names as Prop_{n} (starting from 0), copy activity requires [explicit mapping](copy-activity-schema-and-type-mapping.md#explicit-mapping) from source to sink and locates columns by ordinal (starting from 1), and mapping data flow lists and locates columns with name as Column_{n} (starting from 1).  | No       |
@@ -152,7 +152,7 @@ Supported **delimited text write settings** under `formatSettings`:
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to delimited text format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), and you can read delimited text format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
+In mapping data flows, you can read and write to delimited text format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) and [SFTP](connector-sftp.md#mapping-data-flow-properties), and you can read delimited text format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
 ### Source properties
 
@@ -168,6 +168,7 @@ The below table lists the properties supported by a delimited text source. You c
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+| Maximum columns | The default value is 20480. Customize this value when the column number is over 20480 | no | Integer | maxColumns |
 
 > [!NOTE]
 > Data flow sources support for list of files is limited to 1024 entries in your file. To include more files, use wildcards in your file list.
@@ -183,9 +184,10 @@ The associated data flow script is:
 ```
 source(
     allowSchemaDrift: true,
-    validateSchema: false,
-    multiLineRow: true,
-    wildcardPaths:['*.csv']) ~> CSVSource
+	validateSchema: false,
+	ignoreNoFilesFound: false,
+	multiLineRow: true,
+	wildcardPaths:['*.csv']) ~> CSVSource
 ```
 
 > [!NOTE]

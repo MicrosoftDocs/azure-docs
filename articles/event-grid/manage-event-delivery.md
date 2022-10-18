@@ -23,6 +23,8 @@ To set a dead letter location, you need a storage account for holding events tha
 > [!NOTE]
 > - Create a storage account and a blob container in the storage before running commands in this article.
 > - The Event Grid service creates blobs in this container. The names of blobs will have the name of the Event Grid subscription with all the letters in upper case. For example, if the name of the subscription is My-Blob-Subscription, names of the dead letter blobs will have MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). This behavior is to protect against differences in case handling between Azure services.
+> - In the above example .../2019/8/8/5/... represents the non-zero padded date and hour (UTC): .../YYYY/MM/DD/HH/...
+> - The dead letter blobs created will contain one or more events in an array. An important behavior to consider when processing dead letters.
 
 
 ### Azure CLI
@@ -126,6 +128,9 @@ New-AzEventGridSubscription `
 
 > [!NOTE]
 > If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 10 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after 10 attempts, whichever happens first, the event is dead-lettered.  
+
+## Managed identity
+If you enable managed identity for dead-lettering, you'll need to add the managed identity to the appropriate role-based access control (RBAC) role on the Azure Storage account that will hold the dead-lettered events. For more information, see [Supported destinations and Azure roles](add-identity-roles.md#supported-destinations-and-azure-roles).
 
 ## Next steps
 

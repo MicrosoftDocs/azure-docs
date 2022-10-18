@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 08/22/2022
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -17,6 +17,8 @@ This article helps you programmatically create Azure subscriptions for a Microso
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
+If you need to create an Azure MCA subscription across Azure Active Directory tenants, see [Programmatically create MCA subscriptions across Azure Active Directory tenants](programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md).
+
 When you create an Azure subscription programmatically, that subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -25,7 +27,7 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. You can also give the same role to a service principal name (SPN). For more information about roles and assigning permission to them, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) or [Azure CLI](/cli/azure/ad/sp#az_ad_sp_list). 
+If you're using an SPN to create subscriptions, use the ObjectId of the Azure AD Application Registration as the Service Principal ObjectId using [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true) or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-list). 
 
 If you don't know whether you have access to a Microsoft Customer Agreement account, see [Check access to a Microsoft Customer Agreement](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 
@@ -329,7 +331,7 @@ The following example creates a subscription named *Dev Team subscription* for t
 ### [REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
+PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
 ```
 
 ### Request body
@@ -364,7 +366,7 @@ You can do a GET on the same URL to get the status of the request.
 ### Request
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
 ```
 
 ### Response
@@ -411,7 +413,7 @@ You get the subscriptionId as part of the response from the command.
 
 First, install the extension by running `az extension add --name account` and `az extension add --name alias`.
 
-Run the [az account alias create](/cli/azure/account/alias#az_account_alias_create) following command.
+Run the [az account alias create](/cli/azure/account/alias#az-account-alias-create) following command.
 
 ```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
@@ -462,7 +464,7 @@ The following template creates a subscription. For `billingScope`, provide the i
             "scope": "/", 
             "name": "[parameters('subscriptionAliasName')]",
             "type": "Microsoft.Subscription/aliases",
-            "apiVersion": "2020-09-01",
+            "apiVersion": "2021-10-01",
             "properties": {
                 "workLoad": "Production",
                 "displayName": "[parameters('subscriptionAliasName')]",
@@ -485,7 +487,7 @@ param subscriptionAliasName string
 @description('Provide the full resource ID of billing scope to use for subscription creation.')
 param billingScope string
 
-resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2021-10-01' = {
   scope: tenant()
   name: subscriptionAliasName
   properties: {
@@ -607,3 +609,4 @@ resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01
 * Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
 * For more information about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).
 * To change the management group for a subscription, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
+* For advanced subscription creation scenarios using REST API, see [Alias - Create](/rest/api/subscription/2021-10-01/alias/create).

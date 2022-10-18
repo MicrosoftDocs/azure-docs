@@ -1,11 +1,11 @@
 ---
 title: Support and help options for Azure Communication Services
 description: Learn about the various help and support options available for Azure Communication Services.
-author: ProbablePrime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services

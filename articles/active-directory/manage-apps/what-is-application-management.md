@@ -1,17 +1,15 @@
 ---
 title: What is application management?
 description: An overview of managing the lifecycle of an application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/22/2021
-ms.author: davidmu
-ms.reviewer: sureshja, napuri
+ms.author: jomondi
 ---
 
 # What is application management in Azure Active Directory?
@@ -20,7 +18,7 @@ Application management in Azure Active Directory (Azure AD) is the process of cr
 
 In this article, you learn these important aspects of managing the lifecycle of an application:
 
-- **Develop, add, or connect** – You take different paths depending on whether you are developing your own application, using a pre-integrated application, or connecting to an on-premises application.
+- **Develop, add, or connect** – You take different paths depending on whether you're developing your own application, using a pre-integrated application, or connecting to an on-premises application.
 - **Manage access** – Access can be managed by using single sign-on (SSO), assigning resources, defining the way access is granted and consented to, and using automated provisioning.
 - **Configure properties** – Configure the requirements for signing into the application and how the application is represented in user portals.
 - **Secure the application** – Manage configuration of permissions, multifactor authentication (MFA), conditional access, tokens, and certificates.
@@ -45,7 +43,6 @@ If you develop your own business application, you can register it with Azure AD 
 
 If you want to make your application available through the gallery, you can [submit a request to have it added](../manage-apps/v2-howto-app-gallery-listing.md).
 
-
 ### On-premises applications
 
 If you want to continue using an on-premises application, but take advantage of what Azure AD offers, connect it with Azure AD using [Azure AD Application Proxy](../app-proxy/application-proxy.md). Application Proxy can be implemented when you want to publish on-premises applications externally. Remote users who need access to internal applications can then access them in a secure manner.
@@ -64,19 +61,19 @@ To [manage access](what-is-access-management.md) for an application, you want to
 
 You can [manage user consent settings](configure-user-consent.md) to choose whether users can allow an application or service to access user profiles and organizational data. When applications are granted access, users can sign in to applications integrated with Azure AD, and the application can access your organization's data to deliver rich data-driven experiences.
 
-Users often are unable to consent to the permissions an application is requesting. Configure the [admin consent workflow](configure-admin-consent-workflow.md) to allow users to provide a justification and request an administrator's review and approval of an application.
+Users often are unable to consent to the permissions an application is requesting. Configure the admin consent workflow to allow users to provide a justification and request an administrator's review and approval of an application. To learn how to configure admin consent workflow in your Azure AD tenant, see [Configure admin consent workflow](configure-admin-consent-workflow.md).
 
 As an administrator, you can [grant tenant-wide admin consent](grant-admin-consent.md) to an application. Tenant-wide admin consent is necessary when an application requires permissions that regular users aren't allowed to grant, and allows organizations to implement their own review processes. Always carefully review the permissions the application is requesting before granting consent. When an application has been granted tenant-wide admin consent, all users are able to sign into the application unless it has been configured to require user assignment.
 
 ### Single sign-on
 
-Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For a simple example of how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Quickstart: Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md).
+Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For more information on how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](add-application-portal-setup-sso.md).
 
 ### User, group, and owner assignment
 
 By default, all users can access your enterprise applications without being assigned to them. However, if you want to assign the application to a set of users, your application requires user assignment. For a simple example of how to create and assign a user account to an application, see [Quickstart: Create and assign a user account](add-application-portal-assign-users.md). 
 
-If included in your subscription, [assign groups to an application](assign-user-or-group-access-portal.md) so that you can delegate ongoing access management to the group owner. 
+If included in your subscription, [assign groups to an application](assign-user-or-group-access-portal.md) so that you can delegate ongoing access management to the group owner.
 
 [Assigning owners](assign-app-owners.md) is a simple way to grant the ability to manage all aspects of Azure AD configuration for an application. As an owner, a user can manage the organization-specific configuration of the application.
 
@@ -94,7 +91,7 @@ Azure AD provides customizable ways to deploy applications to users in your orga
 
 ## Configure properties
 
-When you add an application to your Azure AD tenant, you have the opportunity to [configure properties](add-application-portal-configure.md) that affect the way users can sign in. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application.
+When you add an application to your Azure AD tenant, you have the opportunity to configure properties that affect the way users can interact with the application. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application. For more information about the properties that can be configured, see [Properties of an enterprise application](application-properties.md).
 
 ## Secure the application
 
@@ -128,7 +125,7 @@ Your Azure AD reporting and monitoring solution depends on your legal, security,
 
 ## Clean up
 
-You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it is no longer needed for the organization. For a simple example of how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
+You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it's no longer needed for the organization. For a simple example of how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
 
 ## Next steps
 

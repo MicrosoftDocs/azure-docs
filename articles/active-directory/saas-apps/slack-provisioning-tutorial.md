@@ -2,14 +2,18 @@
 title: 'Tutorial: User provisioning for Slack - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
 services: active-directory
-author: ArvindHarinder1
-manager: CelesteDG
+documentationcenter: ''
+author: twimmers
+writer: Thwimmer
+manager: beatrizd
+ms.assetid: 7fa2a1b1-7ed3-4c51-ae17-f5d4ee88488c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/06/2020
-ms.author: arvinh
+ms.author: Thwimmer
 ---
 
 # Tutorial: Configure Slack for automatic user provisioning
@@ -51,9 +55,9 @@ Add Slack from the Azure AD application gallery to start managing provisioning t
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Slack, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
-
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 ## Step 4. Configure automatic user provisioning to Slack 
 

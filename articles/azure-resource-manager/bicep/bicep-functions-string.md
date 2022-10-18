@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 07/05/2022
 ---
 
 # String functions for Bicep
@@ -55,7 +55,7 @@ The output from the preceding example with the default values is:
 
 ## base64ToJson
 
-`base64tojson`
+`base64ToJson(base64Value)`
 
 Converts a base64 representation to a JSON object.
 
@@ -160,7 +160,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## contains
 
-`contains (container, itemToFind)`
+`contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
@@ -553,6 +553,49 @@ The output from the preceding example with the default values is:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
+## join
+
+`join(inputArray, delimiter)`
+
+Joins a string array into a single string, separated using a delimiter.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray | Yes |An array of string. |An array of strings to join. |
+| delimiter | Yes |The delimiter to use for splitting the string. |
+
+### Return value
+
+A string.
+
+### Examples
+
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
+
+```bicep
+var arrayString = [
+  'one'
+  'two'
+  'three'
+]
+
+output firstOutput string = join(arrayString, ',')
+output secondOutput string = join(arrayString, ';')
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
+
+This function requires **Bicep version 0.8.2 or later**.
+
 <a id="json"></a>
 
 ## json
@@ -565,7 +608,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## last
 
-`last (arg1)`
+`last(arg1)`
 
 Returns last character of the string, or the last element of the array.
 
@@ -624,7 +667,7 @@ An integer that represents the last position of the item to find. The value is z
 
 ### Examples
 
-The following example shows how to use the indexOf and lastIndexOf functions:
+The following example shows how to use the `indexOf` and `lastIndexOf` functions:
 
 ```bicep
 output firstT int = indexOf('test', 't')
@@ -1182,7 +1225,7 @@ The output from the preceding example with the default values is:
 
 ## trim
 
-`trim (stringToTrim)`
+`trim(stringToTrim)`
 
 Removes all leading and trailing white-space characters from the specified string.
 
@@ -1216,7 +1259,7 @@ The output from the preceding example with the default values is:
 
 ## uniqueString
 
-`uniqueString (baseString, ...)`
+`uniqueString(baseString, ...)`
 
 Creates a deterministic hash string based on the values provided as parameters.
 
@@ -1283,7 +1326,7 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 
 ## uri
 
-`uri (baseUri, relativeUri)`
+`uri(baseUri, relativeUri)`
 
 Creates an absolute URI by combining the baseUri and the relativeUri string.
 

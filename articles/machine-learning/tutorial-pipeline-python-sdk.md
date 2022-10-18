@@ -1,416 +1,327 @@
 ---
-title: 'Tutorial: ML pipelines for training'
+title: "Tutorial: ML pipelines with Python SDK v2"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
+description: Use Azure Machine Learning to create your production-ready  ML project in a cloud-based Python Jupyter Notebook using Azure ML Python SDK v2. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: tutorial
-author: nibaccam
-ms.author: nibaccam
-ms.date: 01/28/2022
-ms.custom: devx-track-python
+author: msdpalam
+ms.author: meeral
+ms.reviewer: sgilley
+ms.date: 08/29/2022
+ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
+#Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
 
-# Tutorial: Build an Azure Machine Learning pipeline for image classification
+# Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook
 
-In this tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to prepare data and train a machine learning model. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation.  
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-The example trains a small [Keras](https://keras.io/) convolutional neural network to classify images in the [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist) dataset. 
+> [!NOTE]
+> For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
+> 
 
-In this tutorial, you complete the following tasks:
+In this tutorial, you'll use Azure Machine Learning (Azure ML) to create a production ready machine learning (ML) project, using AzureML Python SDK v2.
+
+You'll learn how to use the AzureML Python SDK v2 to:
 
 > [!div class="checklist"]
-> * Configure workspace 
-> * Create an Experiment to hold your work
-> * Provision a ComputeTarget to do the work
-> * Create a Dataset in which to store compressed data
-> * Create a pipeline step to prepare the data for training
-> * Define a runtime Environment in which to perform training
-> * Create a pipeline step to define the neural network and perform the training
-> * Compose a Pipeline from the pipeline steps
-> * Run the pipeline in the experiment
-> * Review the output of the steps and the trained neural network
-> * Register the model for further use
-
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+> 
+> * Connect to your Azure ML workspace
+> * Create Azure ML data assets
+> * Create reusable Azure ML components
+> * Create, validate and run Azure ML pipelines
+> * Deploy the newly-trained model as an endpoint
+> * Call the Azure ML endpoint for inferencing
 
 ## Prerequisites
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
-* A Python environment in which you've installed both the `azureml-core` and `azureml-pipeline` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
+    * Create a workspace.
+    * Create a cloud-based compute instance to use for your development environment.
+    * Create a cloud-based compute cluster to use for training your model.
+* Complete the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md) to clone the **SDK v2/tutorials** folder.
+
+
+## Open the notebook
+
+1. Open the **tutorials** folder that was cloned into your **Files** section from the [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md).
+    
+1. Select the **e2e-ml-workflow.ipynb** file from your **tutorials/azureml-examples/tutorials/e2e-ds-experience/** folder. 
+
+    :::image type="content" source="media/tutorial-pipeline-python-sdk/expand-folder.png" alt-text="Screenshot shows the open tutorials folder.":::
+
+1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to use for running the notebook.
 
 > [!Important]
-> Currently, the most recent Python release compatible with `azureml-pipeline` is Python 3.8. If you've difficulty installing the `azureml-pipeline` package, ensure that `python --version` is a compatible release. Consult the documentation of your Python virtual environment manager (`venv`, `conda`, and so on) for instructions.
+> The rest of this article contains the same content as you see in the notebook.  
+>
+> Switch to the Jupyter Notebook now if you want to run the code while you read along.
+> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar
 
-## Start an interactive Python session
+## Introduction
 
-This tutorial uses the Python SDK for Azure ML to create and control an Azure Machine Learning pipeline. The tutorial assumes that you'll be running the code snippets interactively in either a Python REPL environment or a Jupyter notebook. 
+In this tutorial, you'll create an Azure ML pipeline to train a model for credit default prediction. The pipeline handles the data preparation, training and registering the trained model.  You'll then run the pipeline, deploy the model and use it.
 
-* This tutorial is based on the `image-classification.ipynb` notebook found in the `python-sdk/tutorial/using-pipelines` directory of the [AzureML Examples](https://github.com/azure/azureml-examples) repository. The source code for the steps themselves is in the `keras-mnist-fashion` subdirectory.
+The image below shows the pipeline as you'll see it in the AzureML portal once submitted. It's a rather simple pipeline we'll use to walk you through the AzureML SDK v2.
 
+The two steps are first data preparation and second training. 
 
-## Import types
+:::image type="content" source="media/tutorial-pipeline-python-sdk/pipeline-overview.jpg" alt-text="Diagram shows overview of the pipeline.":::
 
-Import all the Azure Machine Learning types that you'll need for this tutorial:
+## Set up the pipeline resources
 
-```python
-import os
-import azureml.core
-from azureml.core import (
-    Workspace,
-    Experiment,
-    Dataset,
-    Datastore,
-    ComputeTarget,
-    Environment,
-    ScriptRunConfig
-)
-from azureml.data import OutputFileDatasetConfig
-from azureml.core.compute import AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-from azureml.pipeline.steps import PythonScriptStep
-from azureml.pipeline.core import Pipeline
+The Azure ML framework can be used from CLI, Python SDK, or studio interface. In this example, you'll use the AzureML Python SDK v2 to create a pipeline. 
 
-# check core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
-```
+Before creating the pipeline, you'll set up the resources the pipeline will use:
 
-The Azure ML SDK version should be 1.37 or greater. If it isn't, upgrade with `pip install --upgrade azureml-core`.
+* The data asset for training
+* The software environment to run the pipeline
+* A compute resource to where the job will run
 
-## Configure workspace
+## Connect to the workspace
 
-Create a workspace object from the existing Azure Machine Learning workspace.
+Before we dive in the code, you'll need to connect to your Azure ML workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. 
 
-```python
-workspace = Workspace.from_config()
-```
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=import-mlclient)]
+
+In the next cell, enter your Subscription ID, Resource Group name and Workspace name. To find your Subscription ID:
+1. In the upper right Azure Machine Learning studio toolbar, select your workspace name.
+1. You'll see the values you need for **<SUBSCRIPTION_ID>**, **<RESOURCE_GROUP>**, and **<AML_WORKSPACE_NAME>**.
+1. Copy a value, then close the window and paste that into your code.  Open the tool again to get the next value.
+
+:::image type="content" source="media/tutorial-pipeline-python-sdk/find-info.png" alt-text="Screenshot shows how to find values needed for your code.":::
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client)]
+
+The result is a handler to the workspace that you'll use to manage other resources and jobs.
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+> Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (in the notebook below, that will happen during dataset registration).
 
-## Create the infrastructure for your pipeline 
+## Register data from an external url
 
-Create an `Experiment` object to hold the results of your pipeline runs:
+The data you use for training is usually in one of the locations below:
 
-```python
-exp = Experiment(workspace=workspace, name="keras-mnist-fashion")
-```
+* Local machine
+* Web
+* Big Data Storage services (for example, Azure Blob, Azure Data Lake Storage, SQL)
+ 
+Azure ML uses a `Data` object to register a reusable definition of data, and consume data within a pipeline. In the section below, you'll consume some data from web url as one example. Data from other sources can be created as well. `Data` assets from other sources can be created as well.
 
-Create a `ComputeTarget` that represents the machine resource on which your pipeline will run. The simple neural network used in this tutorial trains in just a few minutes even on a CPU-based machine. If you wish to use a GPU for training, set `use_gpu` to `True`. Provisioning a compute target generally takes about five minutes.
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=credit_data)]
 
-```python
-use_gpu = False
+This code just created a `Data` asset, ready to be consumed as an input by the pipeline that you'll define in the next sections. In addition, you can register the data to your workspace so it becomes reusable across pipelines.
 
-# choose a name for your cluster
-cluster_name = "gpu-cluster" if use_gpu else "cpu-cluster"
+Registering the data asset will enable you to:
 
-found = False
-# Check if this compute target already exists in the workspace.
-cts = workspace.compute_targets
-if cluster_name in cts and cts[cluster_name].type == "AmlCompute":
-    found = True
-    print("Found existing compute target.")
-    compute_target = cts[cluster_name]
-if not found:
-    print("Creating a new compute target...")
-    compute_config = AmlCompute.provisioning_configuration(
-        vm_size= "STANDARD_NC6" if use_gpu else "STANDARD_D2_V2"
-        # vm_priority = 'lowpriority', # optional
-        max_nodes=4,
-    )
+* Reuse and share the data asset in future pipelines
+* Use versions to track the modification to the data asset
+* Use the data asset from Azure ML designer, which is Azure ML's GUI for pipeline authoring
 
-    # Create the cluster.
-    compute_target = ComputeTarget.create(workspace, cluster_name, compute_config)
-
-    # Can poll for a minimum number of nodes and for a specific timeout.
-    # If no min_node_count is provided, it will use the scale settings for the cluster.
-    compute_target.wait_for_completion(
-        show_output=True, min_node_count=None, timeout_in_minutes=10
-    )
-# For a more detailed view of current AmlCompute status, use get_status().print(compute_target.get_status().serialize())
-```
+Since this is the first time that you're making a call to the workspace, you may be asked to authenticate. Once the authentication is complete, you'll then see the dataset registration completion message.
 
-> [!Note]
-> GPU availability depends on the quota of your Azure subscription and upon Azure capacity. See [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md).
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-credit_data)]
 
-### Create a dataset for the Azure-stored data
+In the future, you can fetch the same dataset from the workspace using `credit_dataset = ml_client.data.get("<DATA ASSET NAME>", version='<VERSION>')`.
 
-Fashion-MNIST is a dataset of fashion images divided into 10 classes. Each image is a 28x28 grayscale image and there are 60,000 training and 10,000 test images. As an image classification problem, Fashion-MNIST is harder than the classic MNIST handwritten digit database. It's distributed in the same compressed binary form as the original [handwritten digit database](http://yann.lecun.com/exdb/mnist/) .
+## Create a compute resource to run your pipeline
 
-To create a `Dataset` that references the Web-based data, run:
+Each step of an Azure ML pipeline can use a different compute resource for running the specific job of that step. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-```python
-data_urls = ["https://data4mldemo6150520719.blob.core.windows.net/demo/mnist-fashion"]
-fashion_ds = Dataset.File.from_files(data_urls)
-
-# list the files referenced by fashion_ds
-print(fashion_ds.to_path())
-```
+In this section, you'll provision a Linux [compute cluster](how-to-create-attach-compute-cluster.md?tabs=python). See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
-This code completes quickly. The underlying data remains in the Azure storage resource specified in the `data_urls` array.
-
-## Create the data-preparation pipeline step
-
-The first step in this pipeline will convert the compressed data files of `fashion_ds` into a dataset in your own workspace consisting of CSV files ready for use in training. Once registered with the workspace, your collaborators can access this data for their own analysis, training, and so on 
-
-```python
-datastore = workspace.get_default_datastore()
-prepared_fashion_ds = OutputFileDatasetConfig(
-    destination=(datastore, "outputdataset/{run-id}")
-).register_on_complete(name="prepared_fashion_ds")
-```
+For this tutorial you only need a basic cluster, so we'll  use a Standard_DS3_v2 model with 2 vCPU cores, 7 GB RAM and create an Azure ML Compute.  
 
-The above code specifies a dataset that is based on the output of a pipeline step. The underlying processed files will be put in the workspace's default datastore's blob storage at the path specified in `destination`. The dataset will be registered in the workspace with the name `prepared_fashion_ds`. 
+> [!TIP]
+> If you already have a compute cluster, replace "cpu-cluster" in the code below with the name of your cluster.  This will keep you from creating another one.
 
-### Create the pipeline step's source
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=cpu_cluster)]
 
-The code that you've executed so far has create and controlled Azure resources. Now it's time to write code that does the first step in the domain. 
+## Create a job environment for pipeline steps
 
-If you're following along with the example in the [AzureML Examples repo](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/using-pipelines), the source file is already available as `keras-mnist-fashion/prepare.py`. 
+So far, you've created a development environment on the compute instance, your development machine. You'll also need an environment to use for each step of the pipeline. Each step can have its own environment, or you can use some common environments for multiple steps.
 
-If you're working from scratch, create a subdirectory called `kera-mnist-fashion/`. Create a new file, add the following code to it, and name the file `prepare.py`. 
+In this example, you'll create a conda environment for your jobs, using a conda yaml file.
+First, create a directory to store the file in.
 
-```python
-# prepare.py
-# Converts MNIST-formatted files at the passed-in input path to a passed-in output path
-import os
-import sys
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=dependencies_dir)]
 
-# Conversion routine for MNIST binary format
-def convert(imgf, labelf, outf, n):
-    f = open(imgf, "rb")
-    l = open(labelf, "rb")
-    o = open(outf, "w")
+Now, create the file in the dependencies directory.
 
-    f.read(16)
-    l.read(8)
-    images = []
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=conda.yml)]
 
-    for i in range(n):
-        image = [ord(l.read(1))]
-        for j in range(28 * 28):
-            image.append(ord(f.read(1)))
-        images.append(image)
-
-    for image in images:
-        o.write(",".join(str(pix) for pix in image) + "\n")
-    f.close()
-    o.close()
-    l.close()
-
-# The MNIST-formatted source
-mounted_input_path = sys.argv[1]
-# The output directory at which the outputs will be written
-mounted_output_path = sys.argv[2]
-
-# Create the output directory
-os.makedirs(mounted_output_path, exist_ok=True)
-
-# Convert the training data
-convert(
-    os.path.join(mounted_input_path, "mnist-fashion/train-images-idx3-ubyte"),
-    os.path.join(mounted_input_path, "mnist-fashion/train-labels-idx1-ubyte"),
-    os.path.join(mounted_output_path, "mnist_train.csv"),
-    60000,
-)
-
-# Convert the test data
-convert(
-    os.path.join(mounted_input_path, "mnist-fashion/t10k-images-idx3-ubyte"),
-    os.path.join(mounted_input_path, "mnist-fashion/t10k-labels-idx1-ubyte"),
-    os.path.join(mounted_output_path, "mnist_test.csv"),
-    10000,
-)
-```
-
-The code in `prepare.py` takes two command-line arguments: the first is assigned to `mounted_input_path` and the second to `mounted_output_path`. If that subdirectory doesn't exist, the call to `os.makedirs` creates it. Then, the program converts the training and testing data and outputs the comma-separated files to the `mounted_output_path`.
-
-### Specify the pipeline step
-
-Back in the Python environment you're using to specify the pipeline, run this code to create a `PythonScriptStep` for your preparation code:
-
-```python
-script_folder = "./keras-mnist-fashion"
-
-prep_step = PythonScriptStep(
-    name="prepare step",
-    script_name="prepare.py",
-    # On the compute target, mount fashion_ds dataset as input, prepared_fashion_ds as output
-    arguments=[fashion_ds.as_named_input("fashion_ds").as_mount(), prepared_fashion_ds],
-    source_directory=script_folder,
-    compute_target=compute_target,
-    allow_reuse=True,
-)
-```
-
-The call to `PythonScriptStep` specifies that, when the pipeline step is run:
-
-* All the files in the `script_folder` directory are uploaded to the `compute_target`
-* Among those uploaded source files, the file `prepare.py` will be run
-* The `fashion_ds` and `prepared_fashion_ds` datasets will be mounted on the `compute_target` and appear as directories
-* The path to the `fashion_ds` files will be the first argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_input_path`
-* The path to the `prepared_fashion_ds` will be the second argument to `prepare.py`. In `prepare.py`, this argument is assigned to `mounted_output_path`
-* Because `allow_reuse` is `True`, it won't be rerun until its source files or inputs change
-* This `PythonScriptStep` will be named `prepare step`
-
-Modularity and reuse are key benefits of pipelines. Azure Machine Learning can automatically determine source code or Dataset changes. The output of a step that isn't affected will be reused without rerunning the steps again if `allow_reuse` is `True`. If a step relies on a data source external to Azure Machine Learning that may change (for instance, a URL that contains sales data), set `allow_reuse` to `False` and the pipeline step will run every time the pipeline is run. 
-
-## Create the training step
-
-Once the data has been converted from the compressed format to CSV files, it can be used for training a convolutional neural network.
-
-### Create the training step's source
-
-With larger pipelines, it's a good practice to put each step's source code in a separate directory (`src/prepare/`, `src/train/`, and so on) but for this tutorial, just use or create the file `train.py` in the same `keras-mnist-fashion/` source directory.
-
-:::code language="python" source="~/azureml-examples-main/python-sdk/tutorials/using-pipelines/keras-mnist-fashion/train.py" highlight="16-19,84-89,104-119":::
-
-Most of this code should be familiar to ML developers: 
+The specification contains some usual packages, that you'll use in your pipeline (numpy, pip), together with some Azure ML specific packages (azureml-defaults, azureml-mlflow).
 
-* The data is partitioned into train and validation sets for training, and a separate test subset for final scoring
-* The input shape is 28x28x1 (only 1 because the input is grayscale), there will be 256 inputs in a batch, and there are 10 classes
-* The number of training epochs will be 10
-* The model has three convolutional layers, with max pooling and dropout, followed by a dense layer and softmax head
-* The model is fitted for 10 epochs and then evaluated
-* The model architecture is written to `outputs/model/model.json` and the weights to `outputs/model/model.h5`
-
-Some of the code, though, is specific to Azure Machine Learning. `run = Run.get_context()` retrieves a [`Run`](/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=True) object, which contains the current service context. The `train.py` source uses this `run` object to retrieve the input dataset via its name (an alternative to the code in `prepare.py` that retrieved the dataset via the `argv` array of script arguments). 
-
-The `run` object is also used to log the training progress at the end of every epoch and, at the end of training, to log the graph of loss and accuracy over time.
-
-### Create the training pipeline step
-
-The training step has a slightly more complex configuration than the preparation step. The preparation step used only standard Python libraries. More commonly, you'll need to modify the runtime environment in which your source code runs. 
-
-Create a file `conda_dependencies.yml` with the following contents:
-
-```yml
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-core
-  - azureml-dataset-runtime
-  - keras==2.4.3
-  - tensorflow==2.4.3
-  - numpy
-  - scikit-learn
-  - pandas
-  - matplotlib
-```
-
-The `Environment` class represents the runtime environment in which a machine learning task runs. Associate the above specification with the training code with:
-
-```python
-keras_env = Environment.from_conda_specification(
-    name="keras-env", file_path="./conda_dependencies.yml"
-)
-
-train_cfg = ScriptRunConfig(
-    source_directory=script_folder,
-    script="train.py",
-    compute_target=compute_target,
-    environment=keras_env,
-)
-```
-
-Creating the training step itself uses code similar to the code used to create the preparation step:
-
-```python
-train_step = PythonScriptStep(
-    name="train step",
-    arguments=[
-        prepared_fashion_ds.read_delimited_files().as_input(name="prepared_fashion_ds")
-    ],
-    source_directory=train_cfg.source_directory,
-    script_name=train_cfg.script,
-    runconfig=train_cfg.run_config,
-)
-```
-
-## Create and run the pipeline
-
-Now that you've specified data inputs and outputs and created your pipeline's steps, you can compose them into a pipeline and run it:
-
-```python
-pipeline = Pipeline(workspace, steps=[prep_step, train_step])
-run = exp.submit(pipeline)
-```
-
-The `Pipeline` object you create runs in your `workspace` and is composed of the preparation and training steps you've specified. 
-
-> [!Note]
-> This pipeline has a simple dependency graph: the training step relies on the preparation step and the preparation step relies on the `fashion_ds` dataset. Production pipelines will often have much more complex dependencies. Steps may rely on multiple upstream steps, a source code change in an early step may have far-reaching consequences, and so on. Azure Machine Learning tracks these concerns for you. You need only pass in the array of `steps` and Azure Machine Learning takes care of calculating the execution graph.
-
-The call to `submit` the `Experiment` completes quickly, and produces output similar to:
-
-```dotnetcli
-Submitted PipelineRun 5968530a-abcd-1234-9cc1-46168951b5eb
-Link to Azure Machine Learning Portal: https://ml.azure.com/runs/abc-xyz...
-```
-
-You can monitor the pipeline run by opening the link or you can block until it completes by running:
-
-```python
-run.wait_for_completion(show_output=True)
-```
-
-> [!IMPORTANT]
-> The first pipeline run takes roughly *15 minutes*. All dependencies must be downloaded, a Docker image is created, and the Python environment is provisioned and created. Running the pipeline again takes significantly less time because those resources are reused instead of created. However, total run time for the pipeline depends on the workload of your scripts and the processes that are running in each pipeline step.
-
-Once the pipeline completes, you can retrieve the metrics you logged in the training step: 
-
-```python
-run.find_step_run("train step")[0].get_metrics()
-```
-
-If you're satisfied with the metrics, you can register the model in your workspace:
-
-```python
-run.find_step_run("train step")[0].register_model(
-    model_name="keras-model",
-    model_path="outputs/model/",
-    datasets=[("train test data", fashion_ds)],
-)
-```
+The Azure ML packages aren't mandatory to run Azure ML jobs. However, adding these packages will let you interact with Azure ML for logging metrics and registering models, all inside the Azure ML job. You'll use them in the training script later in this tutorial.
+
+Use the *yaml* file to create and register this custom environment in your workspace:
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=custom_env_name)]
+
+## Build the training pipeline
+
+Now that you have all assets required to run your pipeline, it's time to build the pipeline itself, using the Azure ML Python SDK v2.
+
+Azure ML pipelines are reusable ML workflows that usually consist of several components. The typical life of a component is:
+
+* Write the yaml specification of the component, or create it programmatically using `ComponentMethod`.
+* Optionally, register the component with a name and version in your workspace, to make it reusable and shareable.
+* Load that component from the pipeline code.
+* Implement the pipeline using the component's inputs, outputs and parameters
+* Submit the pipeline.
+
+## Create component 1: data prep (using programmatic definition)
+
+Let's start by creating the first component. This component handles the preprocessing of the data. The preprocessing task is performed in the *data_prep.py* python file.
+
+First create a source folder for the data_prep component:
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=data_prep_src_dir)]
+
+This script performs the simple task of splitting the data into train and test datasets. 
+Azure ML mounts datasets as folders to the computes, therefore, we created an auxiliary `select_first_file` function to access the data file inside the mounted input folder.
+
+[MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=def-main)]
+
+Now that you have a script that can perform the desired task, create an Azure ML Component from it. 
+
+You'll use the general purpose **CommandComponent** that can run command line actions. This command line action can directly call system commands or run a script. The inputs/outputs are specified on the command line via the `${{ ... }}` notation.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=data_prep_component)]
+
+Optionally, register the component in the workspace for future re-use.
+
+
+## Create component 2: training (using yaml definition)
+
+The second component that you'll create will consume the training and test data, train a tree based model and return the output model. You'll use Azure ML logging capabilities to record and visualize the learning progress.
+
+You used the `CommandComponent` class to create your first component. This time you'll use the yaml definition to define the second component. Each method has its own advantages. A yaml definition can actually be checked-in along the code, and would provide a readable history tracking. The programmatic method using `CommandComponent` can be easier with built-in class documentation and code completion.
+
+
+Create the directory for this component:
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train_src_dir)]
+
+As you can see in this training script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
+
+
+For the environment of this step, you'll use one of the built-in (curated) Azure ML environments. The tag `azureml`, tells the system to use look for the name in curated environments.
+
+First, create the *yaml* file describing the component:
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train.yml)]
+
+Now create and register the component:
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=train_component)]
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-train_component)]
+
+## Create the pipeline from components
+
+Now that both your components are defined and registered, you can start implementing the pipeline.
+
+Here, you'll use *input data*, *split ratio* and *registered model name* as input variables. Then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
+
+The python functions returned by `load_component()` work as any regular python function that we'll use within a pipeline to call each step.
+
+To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifies the Azure ML pipelines. In the decorator, we can specify the pipeline description and default resources like compute and storage. Like a python function, pipelines can have inputs. You can then create multiple instances of a single pipeline with different inputs.
+
+Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=pipeline)]
+
+Now use your pipeline definition to instantiate a pipeline with your dataset, split rate of choice and the name you picked for your model.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=registered_model_name)]
+
+## Submit the job 
+
+It's now time to submit the job to run in Azure ML. This time you'll use `create_or_update`  on `ml_client.jobs`.
+
+Here you'll also pass an experiment name. An experiment is a container for all the iterations one does on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure ML studio.
+
+Once completed, the pipeline will register a model in your workspace as a result of training.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=returned_job)]
+
+An output of "False" is expected from the above cell.  You can track the progress of your pipeline, by using the link generated in the cell above.
+
+When you select on each component, you'll see more information about the results of that component. 
+There are two important parts to look for at this stage:
+* `Outputs+logs` > `user_logs` > `std_log.txt`
+This section shows the script run sdtout.
+
+    :::image type="content" source="media/tutorial-pipeline-python-sdk/user-logs.jpg" alt-text="Screenshot of std_log.txt." lightbox="media/tutorial-pipeline-python-sdk/user-logs.jpg":::
+
+
+* `Outputs+logs` > `Metric`
+This section shows different logged metrics. In this example. mlflow `autologging`, has automatically logged the training metrics.
+
+    :::image type="content" source="media/tutorial-pipeline-python-sdk/metrics.jpg" alt-text="Screenshot shows logged metrics.txt." lightbox="media/tutorial-pipeline-python-sdk/metrics.jpg":::
+
+## Deploy the model as an online endpoint
+
+Now deploy your machine learning model as a web service in the Azure cloud, an [`online endpoint`](concept-endpoints.md).
+To deploy a machine learning service, you usually need:
+
+* The model assets (filed, metadata) that you want to deploy. You've already registered these assets in your training component.
+* Some code to run as a service. The code executes the model on a given input request. This entry script receives data submitted to a deployed web service and passes it to the model, then returns the model's response to the client. The script is specific to your model. The entry script must understand the data that the model expects and returns. When using a MLFlow model, as in this tutorial, this script is automatically created for you
+
+## Create a new online endpoint
+
+Now that you have a registered model and an inference script, it's time to create your online endpoint. The endpoint name needs to be unique in the entire Azure region. For this tutorial, you'll create a unique name using [`UUID`](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=online_endpoint_name)]
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=endpoint)]
+
+Once you've created an endpoint, you can retrieve it as below:
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-endpoint)]
+
+## Deploy the model to the endpoint
+
+Once the endpoint is created, deploy the model with the entry script. Each endpoint can have multiple deployments and direct traffic to these deployments can be specified using rules. Here you'll create a single deployment that handles 100% of the incoming traffic. We have chosen a color name for the deployment, for example, *blue*, *green*, *red* deployments, which is arbitrary.
+
+You can check the *Models* page on the Azure ML studio, to identify the latest version of your registered model. Alternatively, the code below will retrieve the latest version number for you to use.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=latest_model_version)]
+
+Deploy the latest version of the model.  
+
+> [!NOTE]
+> Expect this deployment to take approximately 6 to 8 minutes.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=model)]
+
+### Test with a sample query
+
+Now that the model is deployed to the endpoint, you can run inference with it.
+
+Create a sample request file following the design expected in the run method in the score script.
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=sample-request.json)]
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=write-sample-request)]
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client.online_endpoints.invoke)]
 
 ## Clean up resources
 
-Don't complete this section if you plan to run other Azure Machine Learning tutorials.
+If you're not going to use the endpoint, delete it to stop using the resource.  Make sure no other deployments are using an endpoint before you delete it.
 
-### Stop the compute instance
+> [!NOTE]
+> Expect this step to take approximately 6 to 8 minutes.
 
-[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
-
-### Delete everything
-
-If you don't plan to use the resources you created, delete them, so you don't incur any charges:
-
-1. In the Azure portal, in the left menu, select **Resource groups**.
-1. In the list of resource groups, select the resource group you created.
-1. Select **Delete resource group**.
-1. Enter the resource group name. Then, select **Delete**.
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties, and then select **Delete**.
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client.online_endpoints.begin_delete)]
 
 ## Next steps
 
-In this tutorial, you used the following types:
-
-* The `Workspace` represents your Azure Machine Learning workspace. It contained:
-    * The `Experiment` that contains the results of training runs of your pipeline
-    * The `Dataset` that lazily loaded the data held in the Fashion-MNIST datastore
-    * The `ComputeTarget` that represents the machine(s) on which the pipeline steps run
-    * The `Environment` that is the runtime environment in which the pipeline steps run
-    * The `Pipeline` that composes the `PythonScriptStep` steps into a whole
-    * The `Model` that you registered after being satisfied with the training process
-    
-The `Workspace` object contains references to other resources (notebooks, endpoints, and so on) that weren't used in this tutorial. For more, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
-
-The `OutputFileDatasetConfig` promotes the output of a run to a file-based dataset. For more information on datasets and working with data, see [How to access data](./how-to-access-data.md).
-
-For more on compute targets and environments, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md) and [What are Azure Machine Learning environments?](concept-environments.md)
-
-The `ScriptRunConfig` associates a `ComputeTarget` and `Environment` with Python source files. A `PythonScriptStep` takes that `ScriptRunConfig` and defines its inputs and outputs, which in this pipeline was the file dataset built by the `OutputFileDatasetConfig`. 
-
-For more examples of how to build pipelines by using the machine learning SDK, see the [example repository](https://github.com/Azure/azureml-examples).
+> [!div class="nextstepaction"]
+> Learn more about [Azure ML logging](./how-to-use-mlflow-cli-runs.md).

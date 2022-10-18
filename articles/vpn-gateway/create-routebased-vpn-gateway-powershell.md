@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 03/11/2022
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
@@ -26,7 +26,7 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group. If you are running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. If you are running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS

@@ -22,9 +22,9 @@ Follow these steps to configure the necessary information in Synapse Studio.
 ### Step 1: Create a Log Analytics workspace
 
 Consult one of the following resources to create this workspace:
-- [Create a workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md)
-- [Create a workspace with Azure CLI](../../azure-monitor/logs/resource-manager-workspace.md)
-- [Create and configure a workspace in Azure Monitor by using PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
+- [Create a workspace in the Azure portal.](../../azure-monitor/logs/quick-create-workspace.md)
+- [Create a workspace with Azure CLI.](../../azure-monitor/logs/resource-manager-workspace.md)
+- [Create and configure a workspace in Azure Monitor by using PowerShell.](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
 ### Step 2: Prepare an Apache Spark configuration file
 
@@ -124,7 +124,12 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
-### Step 3: Upload your Apache Spark configuration to an Apache Spark pool
+### Step 3: Upload your Apache Spark configuration to an Apache Spark pool 
+
+> [!NOTE]
+>
+> This step will be replaced by step 4.
+
 You can upload the configuration file to your Azure Synapse Analytics Apache Spark pool. In Synapse Studio:
 
    1. Select **Manage** > **Apache Spark pools**.
@@ -139,6 +144,21 @@ You can upload the configuration file to your Azure Synapse Analytics Apache Spa
 > [!NOTE] 
 >
 > All the Apache Spark applications submitted to the Apache Spark pool will use the configuration setting to push the Apache Spark application metrics and logs to your specified workspace.
+
+
+### Step 4: Create an Apache Spark Configuration
+
+You can create an Apache Spark Configuration to your workspace, and when you create Notebook or Apache spark job definition can select the Apache Spark configuration that you want to use with your Apache Spark pool. When you select it, the details of the configuration are displayed.
+
+   1. Select **Manage** > **Apache Spark configurations**.
+   2. Click on **New** button to create a new Apache Spark configuration, or click on **Import** a local .json file to your workspace.
+   3. **New Apache Spark configuration** page will be opened after you click on **New** button.
+   4. For **Name**, you can enter your preferred and valid name.
+   5. For **Description**, you can input some description in it.
+   6. For **Annotations**, you can add annotations by clicking the **New** button, and also you can delete existing annotations by selecting and clicking **Delete** button.
+   7. For **Configuration properties**, customize the configuration by clicking **Add** button to add properties. If you do not add a property, Azure Synapse will use the default value when applicable. 
+
+      ![Screenshot that create spark configuration.](./media/apache-spark-azure-log-analytics/create-spark-configuration.png)
 
 ## Submit an Apache Spark application and view the logs and metrics
 
@@ -163,6 +183,14 @@ val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
 logger.info("info message")
 logger.warn("warn message")
 logger.error("error message")
+//log exception
+try {
+      1/0
+ } catch {
+      case e:Exception =>logger.warn("Exception", e)
+}
+// run job for task level metrics
+val data = sc.parallelize(Seq(1,2,3,4)).toDF().count()
 ```
 
 Example for PySpark:
@@ -240,23 +268,23 @@ Users can query to evaluate metrics and logs at a set frequency, and fire an ale
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-When you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Azure AD tenants.
+When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (A M P L S)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Azure AD tenants.
 
-You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
+You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (A M P L S):
 
-1. If there is no existing AMPLS, you can follow [Azure Monitor Private Link connection setup](../../azure-monitor/logs/private-link-security.md) to create one.
-2. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
+1. If there is no existing A M P L S, you can follow [Azure Monitor Private Link connection setup](../../azure-monitor/logs/private-link-security.md) to create one.
+2. Navigate to your A M P L S in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
 3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes**, and **continue**.
    > [!div class="mx-imgBorder"]
-   > ![Create AMPLS managed private endpoint 1](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
+   > ![Screenshot of create A M P L S managed private endpoint 1.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
 4. Choose your Azure Monitor Private Link Scope you created, and click **Create** button.
    > [!div class="mx-imgBorder"]
-   > ![Create AMPLS managed private endpoint 2](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
+   > ![Screenshot of create A M P L S managed private endpoint 2.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
 5. Wait a few minutes for private endpoint provisioning.
-6. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
+6. Navigate to your A M P L S in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
 
 > [!NOTE] 
->  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](../../azure-monitor/logs/private-link-security.md) for a deeper review of these limits. 
+>  - The A M P L S object has a number of limits you should consider when planning your Private Link setup. See [A M P L S limits](../../azure-monitor/logs/private-link-security.md) for a deeper review of these limits. 
 >  - Check if you have [right permission](../security/synapse-workspace-access-control-overview.md) to create managed private endpoint.
 
 ## Next steps

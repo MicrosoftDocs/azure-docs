@@ -6,7 +6,7 @@ metadata:
   keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
   documentationcenter: ''
   author: billmath
-  manager: karenhoran
+  manager: amycolannino
   ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
   ms.service: active-directory
   ms.workload: identity
@@ -62,6 +62,21 @@ sections:
           What versions of Azure AD Connect and Pass-through Authentication Agent do you need?
         answer: |
           For this feature to work, you need version 1.1.750.0 or later for Azure AD Connect and 1.5.193.0 or later for the Pass-through Authentication Agent. Install all the software on servers with Windows Server 2012 R2 or later.
+       
+      - question: |
+          Why is my connector still using an older version and not auto-upgraded to latest version?
+        answer: |
+          This may be due to either the updater service not working correctly or if there are no new updates available that the service can install.
+          The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AzureADConnect-Agent -> Updater -> Admin). 
+         
+         
+          Only major versions are released for auto-upgrade. We recommend updating your Agent manually only if it's necessary. For example, you cannot wait for a major release, because you must fix a known problem or you want to use a new feature. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Pass-through Authentication agent: Version release history](./reference-connect-pta-version-history.md).
+
+          To manually upgrade a connector:
+
+          - Download the latest version of the Agent. (You will find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs..
+          - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+          - Run the installer. The upgrade process is quick and does not require providing any credentials and the Agent will not be re-registered.
 
       - question: |
           What happens if my user's password has expired and they try to sign in by using Pass-through Authentication?
@@ -76,7 +91,7 @@ sections:
           The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user will be able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
 
           For more details please check the documentation below:
-          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md#revocation)
+          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md)
 
      
       - question: |

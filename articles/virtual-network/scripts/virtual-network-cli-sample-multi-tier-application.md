@@ -3,42 +3,43 @@ title: Create a VNet for multi-tier applications - Azure CLI script sample
 description: Create a virtual network for multi-tier applications - Azure CLI script sample.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 03/20/2018
-ms.author: kumud 
+ms.date: 02/03/2022
+ms.author: mbender 
 ms.custom: devx-track-azurecli
-
 ---
 
 # Create a virtual network for multi-tier applications using an Azure CLI script sample
 
 This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you have two virtual machines, one in each subnet, that you can deploy web server and MySQL software to.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/bash), or from a local Azure CLI installation. If you use the CLI locally, this script requires that you are running version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you are running the CLI locally, you also need to run `az login` to create a connection with Azure.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
+### Run the script
 
-## Clean up deployment 
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh" id="FullScript":::
 
-Run the following command to remove the resource group, VM, and all related resources:
+## Clean up deployment
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name MyResourceGroup --yes
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to create a resource group, virtual network, and network security groups. Each command in the following table links to command-specific documentation:
 

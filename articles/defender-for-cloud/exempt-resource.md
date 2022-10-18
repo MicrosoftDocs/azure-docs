@@ -2,18 +2,19 @@
 title: Exempt a Microsoft Defender for Cloud recommendation from a resource, subscription, management group, and secure score
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 ms.topic: how-to
+ms.custom: ignite-2022
+ms.author: benmansheim
+author: bmansheim
 ms.date: 01/02/2022
 ---
 
 # Exempting resources and recommendations from your secure score 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 A core priority of every security team is to ensure analysts can focus on the tasks and incidents that matter to the organization. Defender for Cloud has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The **exempt** option is one such feature.
 
 When you investigate your security recommendations in Microsoft Defender for Cloud, one of the first pieces of information you review is the list of affected resources.
 
-Occasionally, a resource will be listed that you feel shouldn't be included. Or a recommendation will show in a scope where you feel it doesn't belong. The resource might have been remediated by a process not tracked by Defender for Cloud. The recommendation might be inappropriate for a specific subscription. Or perhaps your organization has simply decided to accept the risks related to the specific resource or recommendation.
+Occasionally, a resource will be listed that you feel shouldn't be included. Or a recommendation will show in a scope where you feel it doesn't belong. The resource might have been remediated by a process not tracked by Defender for Cloud. The recommendation might be inappropriate for a specific subscription. Or perhaps your organization has decided to accept the risks related to the specific resource or recommendation.
 
 In such cases, you can create an exemption for a recommendation to:
 
@@ -26,11 +27,11 @@ In such cases, you can create an exemption for a recommendation to:
 | Aspect                          | Details                                                                                                                                                                                                                                                                                                                            |
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]                                                                                                                                                                                                                                             |
-| Pricing:                        | This is a premium Azure Policy capability that's offered at no additional cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.                                                                                                                                                                 |
+| Pricing:                        | This is a premium Azure Policy capability that's offered at no more cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.                                                                                                                                                                 |
 | Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limitations:                    | Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
+| Limitations:                    | Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives can't be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)                                                                                                                                                                                         |
-|                                 |                                                                                                                                                                                                                                                                                                                                    |
+
 
 ## Define an exemption
 
@@ -40,7 +41,7 @@ To fine-tune the security recommendations that Defender for Cloud makes for your
 - Mark **one or more resources** as "mitigated" or "risk accepted" for a specific recommendation.
 
 > [!NOTE]
-> Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, Azure Security Benchmark or any of the supplied regulatory standard initiatives. Recommendations that are generated from any custom initiatives assigned to your subscriptions cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md).
+> Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, Microsoft cloud security benchmark or any of the supplied regulatory standard initiatives. Recommendations that are generated from any custom initiatives assigned to your subscriptions cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md).
 
 > [!TIP]
 > You can also create exemptions using the API. For an example JSON, and an explanation of the relevant structures see [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
@@ -115,7 +116,7 @@ To keep track of how your users are exercising this capability, we've created an
 
 The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Defender for Cloud. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
-The inventory page includes many filters to let you narrow the list of resources to the ones of most interest for any given scenario. One such filter is the **Contains exemptions**. Use this filter to find all resources that have been exempted from one or more recommendation.
+The inventory page includes many filters to let you narrow the list of resources to the ones of most interest for any given scenario. One such filter is the **Contains exemptions**. Use this filter to find all resources that have been exempted from one or more recommendations.
 
 :::image type="content" source="media/exempt-resource/inventory-filter-exemptions.png" alt-text="Defender for Cloud's asset inventory page and the filter to find resources with exemptions":::
 

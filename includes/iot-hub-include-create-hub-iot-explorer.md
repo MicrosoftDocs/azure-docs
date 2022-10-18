@@ -19,13 +19,13 @@ To create an IoT hub and a resource group:
     
     To run the CLI commands in the rest of this quickstart: copy the command syntax, paste it into your Cloud Shell window or CLI console, edit variable values, and press Enter.
 
-1. Run [az extension add](/cli/azure/extension#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
+1. Run [az extension add](/cli/azure/extension#az-extension-add) to install or upgrade the *azure-iot* extension to the current version.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot
     ```
 
-1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
+1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *eastus* location. 
     >[!NOTE]
     > You can optionally set an alternate location. To see available locations, run `az account list-locations`. This tutorial uses *eastus* as shown in the example command. 
 
@@ -33,7 +33,7 @@ To create an IoT hub and a resource group:
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. Run the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
+1. Run the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
 
     *YourIotHubName*. Replace this placeholder and the surrounding braces in the following command, using the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. Use your IoT hub name in the rest of this quickstart wherever you see the placeholder.
 
@@ -48,11 +48,11 @@ To create an IoT hub and a resource group:
 In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub and to view the device telemetry. In this section, you configure IoT Explorer to connect to the IoT hub you just created and to read plug and play models from the public model repository. 
 
 > [!NOTE]
-> You can also use the Azure CLI to register a device. Use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the primary connection string for the device. Once you note down the device connection string, you can skip ahead to [Run the device sample](#run-the-device-sample).
+> You can also use the Azure CLI to register a device. Use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the primary connection string for the device. Once you note down the device connection string, you can skip ahead to [Run the device sample](#run-the-device-sample).
 
 To add a connection to your IoT hub:
 
-1. Run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) command to get the connection string for your IoT hub.
+1. Run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string for your IoT hub.
 
     ```azurecli
     az iot hub connection-string  show --hub-name {YourIoTHubName}

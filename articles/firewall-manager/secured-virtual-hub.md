@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/07/2022
 ms.author: victorh
 ---
 
@@ -13,7 +13,10 @@ ms.author: victorh
 
 A virtual hub is a Microsoft-managed virtual network that enables connectivity from other resources. When a virtual hub is created from a Virtual WAN in the Azure portal, a virtual hub VNet and gateways (optional) are created as its components.
 
-A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policies configured by Azure Firewall Manager. Use secured virtual hubs to easily create hub-and-spoke and transitive architectures with native security services for traffic governance and protection. 
+A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policies configured by Azure Firewall Manager. Use secured virtual hubs to easily create hub-and-spoke and transitive architectures with native security services for traffic governance and protection.
+
+> [!IMPORTANT]
+> Currently, Azure Firewall in secured virtual hubs (vWAN) is not supported in Qatar.
 
 You can use a secured virtual hub to filter traffic between virtual networks (V2V), virtual networks and branch offices (B2V) and traffic to the Internet (B2I/V2I). A secured virtual hub provides automated routing. There's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
 
@@ -23,13 +26,13 @@ You can choose the required security providers to protect and govern your networ
 
 Using Firewall Manager in the Azure portal, you can either create a new secured virtual hub, or convert an existing virtual hub that you previously created using Azure Virtual WAN.
 
-## Gated public preview   
+## Public preview features
 
-The below features are currently in gated public preview.
+The following features are in public preview:
 
 | Feature | Description |
 | ---------- | --------- |
-| Routing Intent and Policies enabling Inter-hub security | This feature allows customers to configure internet-bound, private or inter-hub traffic flow through the Azure Firewall. Please review [Routing Intent and Policies](../virtual-wan/how-to-routing-policies.md) to learn more. |
+| Routing Intent and Policies enabling Inter-hub security | This feature allows you to configure internet-bound, private or inter-hub traffic flow through Azure Firewall. For more information, see [Routing Intent and Policies](../virtual-wan/how-to-routing-policies.md). |
 
 ## Next steps
 

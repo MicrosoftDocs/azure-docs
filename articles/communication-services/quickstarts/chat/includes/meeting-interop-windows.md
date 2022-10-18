@@ -42,7 +42,7 @@ Install-Package Azure.Communication.Identity -Version 1.0.1
 5. With the Communication Services resource procured in pre-requisites, add the connectionstring to the **ChatTeamsInteropQuickStart/MainPage.xaml.cs** file. 
 
 ``` csharp
-//ACS resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
+//Azure Communication Services resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
 private const string connectionString_ = "";
 ```
 

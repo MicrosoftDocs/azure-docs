@@ -2,7 +2,7 @@
 title: Move an Azure Event Hubs dedicated cluster to another region | Microsoft Docs
 description: This article shows you how to move an Azure Event Hubs dedicated cluster from the current region to another region. 
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/09/2022
 ---
 
 # Move an Azure Event Hubs dedicated cluster to another region
@@ -18,7 +18,7 @@ To get started, export a Resource Manager template. This template contains setti
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** and then select your Event Hubs dedicated cluster.
-3. Select > **Settings** > **Export template**.
+3. On the **Event Hubs Cluster** page, select **Export template** in the **Automation** section on the left menu. 
 4. Choose **Download** in the **Export template** page.
 
     :::image type="content" source="./media/move-cluster-across-regions/download-template.png" alt-text="Download Resource Manager template" lightbox="./media/move-cluster-across-regions/download-template.png":::
@@ -34,8 +34,9 @@ Deploy the template to create an Event Hubs dedicated cluster in the target regi
 
 1. In the Azure portal, select **Create a resource**.
 2. In **Search the Marketplace**, type **template deployment**, and select **Template deployment (deploy using custom templates)**.
-5. Select **Build your own template in the editor**.
-6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
+1. On the **Template deplyment** page, select **Create**. 
+1. Select **Build your own template in the editor**.
+1. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
 1. Update the value of the `location` property to point to the new region. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
 1. Select **Save** to save the template. 
 1. On the **Custom deployment** page, follow these steps: 

@@ -6,62 +6,53 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
-ms.author: timlt
-author: timlt
-ms.date: 12/20/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/14/2022
 ---
 
 # Tutorial: Deploy and walk through the in-store analytics application template
 
 For many retailers, environmental conditions within their stores are a key differentiator from their competitors. Retailers want to maintain pleasant conditions within their stores for the benefit of their customers.  
 
-You can use the IoT Central in-store analytics condition monitoring application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights to help the retailer reduce operating costs and create a great experience for their customers.
+You can use the IoT Central _in-store analytics checkout_ application template to build an end-to-end solution. The application template lets you digitally connect to and monitor a retail store environment using different kinds of sensor devices. These sensor devices generate telemetry that you can convert into business insights to help the retailer reduce operating costs and create a great experience for their customers.
 
 Use the application template to:
 
-- Connect different kinds of IoT sensors to an IoT Central application instance.
-- Monitor and manage the health of the sensor network and any gateway devices in the environment.
-- Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
-- Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
-- Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
+1. Connect different kinds of IoT sensors to an IoT Central application instance.
+2. Monitor and manage the health of the sensor network and any gateway devices in the environment.
+3. Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
+4. Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
+5. Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
 
 The application template comes with a set of device templates and uses a set of simulated devices to populate the dashboard.
 
-Use the IoT Central *in-store analytics* application template and the guidance in this article to develop an end-to-end in-store analytics solution.
-
 :::image type="content" source="media/tutorial-in-store-analytics-create-app/store-analytics-architecture-frame.png" alt-text="Azure IoT Central Store Analytics.":::
 
-1. Set of IoT sensors sending telemetry data to a gateway device.
-1. Gateway devices sending telemetry and aggregated insights to IoT Central.
-1. Continuous data export to the desired Azure service for manipulation.
-1. Data can be structured in the desired format and sent to a storage service.
-1. Business applications can query data and generate insights that power retail operations.
-
-## Condition monitoring sensors
+### Condition monitoring sensors (1)
 
 An IoT solution starts with a set of sensors capturing meaningful signals from within a retail store environment. It is reflected by different kinds of sensors on the far left of the architecture diagram above.
 
-## Gateway devices
+### Gateway devices (2)
 
 Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable.
 
-## IoT Central application
+### IoT Central application
 
 The Azure IoT Central application ingests data from different kinds of IoT sensors and gateway devices within the retail store environment and generates a set of meaningful insights.
 
 Azure IoT Central also provides a tailored experience to the store operator enabling them to remotely monitor and manage the infrastructure devices.
 
-## Data transform
+### Data transform (3)
 
-The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure PaaS (Platform-as-a Service) services that can perform data manipulation and enrich these insights before landing them in a business application. 
+The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure PaaS (Platform-as-a Service) services that can perform data manipulation and enrich these insights before landing them in a business application.
 
-## Business application
+### Business application (4)
 
 The IoT data can be used to power different kinds of business applications deployed within a retail environment. A retail store manager or staff member can use these applications to visualize business insights and take meaningful actions in real time. To learn how to build a real-time Power BI dashboard for your retail team, follow the [tutorial](./tutorial-in-store-analytics-create-app.md).
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
->
 > - Use the Azure IoT Central **In-store analytics - checkout** template to create a retail store application
 > - Customize the application settings
 > - Create and customize IoT device templates
@@ -70,15 +61,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- There are no specific prerequisites required to deploy this app.
-- You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create in-store analytics application
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/iotc-retail-homepage.png" alt-text="Connected logistics template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab.
 
 1. Select **Create app** under **In-store analytics - checkout**.
 
@@ -102,7 +91,7 @@ To select a predefined application theme:
 
 3. Select **Save**.
 
-Rather than use a predefined theme, you can create a custom theme. If you want to use a set of sample images to customize the application and complete the tutorial, download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/retail).
+Rather than use a predefined theme, you can create a custom theme. If you want to use a set of sample images to customize the application and complete the tutorial, download the [Contoso sample images](https://github.com/Azure-Samples/iot-central-docs-samples/tree/main/retail).
 
 To create a custom theme:
 
@@ -118,9 +107,7 @@ To create a custom theme:
 
 1. Optionally, replace the default **Browser colors** by adding HTML hexadecimal color codes. For the **Header**, add *#008575*.  For the **Accent**, add *#A1F3EA*. 
 
-1. Select **Save**. 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/select-application-logo.png" alt-text="Azure IoT Central customized logo.":::
+1. Select **Save**.
 
     After you save, the application updates the browser colors, the logo in the masthead, and the browser icon.
 
@@ -154,8 +141,6 @@ To add a RuuviTag device template to your application:
 
 1. Select **Next: Review**.
 
-    :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png" alt-text="Screenshot that highlights the Next: Customize button.":::
-
 1. Select **Create**. The application adds the RuuviTag device template.
 
 1. Select **Device templates** on the left pane. The page displays all device templates included in the application template, and the RuuviTag device template you just added.
@@ -182,7 +167,7 @@ To customize the built-in interfaces of the RuuviTag device template:
 
     :::image type="content" source="media/tutorial-in-store-analytics-create-app/ruuvitag-device-summary-view.png" alt-text="Azure IoT Central RuuviTag device template summary view.":::
 
-1. Select **Customize** in the RuuviTag device template menu. 
+1. Select **RuvviTag** model in the RuuviTag device template menu. 
 
 1. Scroll in the list of capabilities and find the `RelativeHumidity` telemetry type. It's the row item with the editable **Display name** value of *RelativeHumidity*.
 
@@ -202,13 +187,11 @@ For the `RelativeHumidity` telemetry type, make the following changes:
 
 To add a cloud property to a device template in your application:
 
-1. Select **Cloud Properties** in the RuuviTag device template menu.
-
-1. Select **Add Cloud Property**. 
-
 Specify the following values to create a custom property to store the location of each device:
 
 1. Enter the value *Location* for the **Display Name**. This value is automatically copied to the **Name** field, which is a friendly name for the property. You can use the copied value or change it.
+
+1. Select **Capability Type** as **Cloud Property**.
 
 1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device.
 

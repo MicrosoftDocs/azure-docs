@@ -3,7 +3,7 @@ title: Integrate Azure Service Bus with Azure Private Link Service
 description: Learn how to integrate Azure Service Bus with Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 01/04/2022
+ms.date: 08/26/2022
 ms.topic: article 
 ms.custom: devx-track-azurepowershell
 ---
@@ -59,7 +59,7 @@ If you already have an existing namespace, you can create a private endpoint by 
         > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
     
         :::image type="content" source="./media/service-bus-ip-filtering/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/service-bus-ip-filtering/selected-networks.png":::    
-    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the Service Bus namespace accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
         :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 5. To allow access to the namespace via private endpoints, select the **Private endpoint connections** tab at the top of the page
@@ -70,36 +70,30 @@ If you already have an existing namespace, you can create a private endpoint by 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
     3. Enter a **name** for the private endpoint. 
-    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
-    6. Select **Next: Resource >** button at the bottom of the page.
+    1. Enter a **name for the network interface**. 
+    1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
+    1. Select **Next: Resource >** button at the bottom of the page.
 
-        ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. On the **Resource** page, follow these steps:
-    1. For connection method, if you select **Connect to an Azure resource in my directory**, follow these steps:   
-        1. Select the **Azure subscription** in which your **Service Bus namespace** exists. 
-        2. For **Resource type**, Select **Microsoft.ServiceBus/namespaces** for the **Resource type**.
-        3. For **Resource**, select a Service Bus namespace from the drop-down list. 
-        4. Confirm that the **Target subresource** is set to **namespace**.
-        5. Select **Next: Configuration >** button at the bottom of the page. 
-        
-            ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)
-    2. If you select **Connect to an Azure resource by resource ID or alias**, follow these steps:
-        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Service Bus namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. See the following image for an example. 
-        2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access. 
-        3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection. 
-        4. Then, select **Next: Configuration >** button at the bottom of the page. 
+        :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard.":::
+8. On the **Resource** page, review settings, and select **Next: Virtual Network** at the bottom of the page.
 
-            ![Create Private Endpoint - connect using resource ID](./media/private-link-service/connect-resource-id.png)
-9. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create private endpoint wizard.":::
+9. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
-    3. Select **Next: Tags >** button at the bottom of the page. 
+    1. Notice that the **network policy for private endpoints** is disabled. If you want to enable it, select **edit**, update the setting, and select **Save**. 
+    1. For **Private IP configuration**, by default, **Dynamically allocate IP address** option is selected. If you want to assign a static IP address, select **Statically allocate IP address***.  
+    1. For **Application security group**, select an existing application security group or create one that's to be associated with the private endpoint. 
+    1. Select **Next: DNS >** button at the bottom of the page. 
 
-        ![Create Private Endpoint - Configuration page](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
-11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-configuration-page.png" alt-text="Screenshot showing the Virtual Network page of the Create private endpoint wizard.":::
+10. On the **DNS** page, select whether you want the private endpoint to be integrated with a private DNS zone, and then select **Next: Tags**.  
+
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-dns-page.png" alt-text="Screenshot showing the DNS page of the Create private endpoint wizard.":::
+1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
+1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
-    ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-review-create-page.png" alt-text="Screenshot showing the Review and Create page of the Create private endpoint wizard.":::
 12. Confirm that the private endpoint is created. If you are the owner of the resource and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
@@ -224,7 +218,7 @@ There are four provisioning states:
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens. 
 
     ![Delete connection page](./media/private-link-service/delete-connection-page.png)
-3. You should see the status changed to **Disconnected**. Then, you will see the endpoint disappear from the list. 
+3. You should see the status changed to **Disconnected**. Then, the endpoint will disappear from the list. 
 
 ## Validate that the private link connection works
 

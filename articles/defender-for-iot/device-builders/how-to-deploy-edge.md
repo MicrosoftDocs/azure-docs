@@ -2,7 +2,7 @@
 title: Deploy IoT Edge security module
 description: Learn about how to deploy a Defender for IoT security agent on IoT Edge.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Deploy a security module on your IoT Edge device
@@ -34,7 +34,7 @@ Use the following steps to deploy a Defender for IoT security module for IoT Edg
 
 1. From the Azure portal, open **Marketplace**.
 
-1. Select **Internet of Things**, then search for **Microsoft Defender for IoT** and select it.
+1. Select **Internet of Things**, then search for **Azure Security Center for IoT** and select it.
 
    :::image type="content" source="media/howto/edge-onboarding.png" alt-text="Select Defender for IoT":::
 

@@ -50,6 +50,8 @@ To configure the integration of Notion into Azure AD, you need to add Notion fro
 1. In the **Add from the gallery** section, type **Notion** in the search box.
 1. Select **Notion** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 
 ## Configure and test Azure AD SSO for Notion
 
@@ -136,7 +138,7 @@ On the same settings page, under **Email domains** click **Contact support** to 
 
 After your email domains are approved and added, enable SAML SSO using the **Enable SAML** toggle.
 
-After successful testing, you may enforce SAML SSO using the **Enforce SAML** toggle. Please note that your Notion workspace administrastrators retain the ability to log in with email, but all other members will have to use SAML SSO to log in to Notion.
+After successful testing, you may enforce SAML SSO using the **Enforce SAML** toggle. Please note that your Notion workspace administrators retain the ability to log in with email, but all other members will have to use SAML SSO to log in to Notion.
 
 ### Create Notion test user
 

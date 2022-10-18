@@ -53,13 +53,13 @@ wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/ins
 1. Add a reference to the Azure authentication library.
 
    ```bash
-   npm install @azure/ms-rest-nodeauth
+   npm install @azure/identity
    ```
 
    > [!NOTE]
-   > Verify in _package.json_ `@azure/arm-policy` is version **3.1.0** or higher,
-   > `@azure/arm-policyinsights` is version **3.2.0** or higher, and `@azure/ms-rest-nodeauth` is
-   > version **3.0.5** or higher.
+   > Verify in _package.json_ `@azure/arm-policy` is version **5.0.1** or higher,
+   > `@azure/arm-policyinsights` is version **5.0.0** or higher, and `@azure/identity` is
+   > version **2.0.4** or higher.
 
 ## Create a policy assignment
 
@@ -71,17 +71,16 @@ identifies resources that aren't compliant to the conditions set in the policy d
 
    ```javascript
    const argv = require("yargs").argv;
-   const authenticator = require("@azure/ms-rest-nodeauth");
-   const policyObjects = require("@azure/arm-policy");
+   const { DefaultAzureCredential } = require("@azure/identity");
+   const { PolicyClient } = require("@azure/arm-policy");
 
    if (argv.subID && argv.name && argv.displayName && argv.policyDefID && argv.scope && argv.description) {
 
        const createAssignment = async () => {
-           const credentials = await authenticator.interactiveLogin();
-           const client = new policyObjects.PolicyClient(credentials, argv.subID);
-           const assignments = new policyObjects.PolicyAssignments(client);
+           const credentials = new DefaultAzureCredential();
+           const client = new PolicyClient(credentials, argv.subID);
 
-           const result = await assignments.create(
+           const result = await client.policyAssignments.create(
                argv.scope,
                argv.name,
                {
@@ -140,17 +139,16 @@ Now that your policy assignment is created, you can identify resources that aren
 
    ```javascript
    const argv = require("yargs").argv;
-   const authenticator = require("@azure/ms-rest-nodeauth");
-   const policyInsights = require("@azure/arm-policyinsights");
+   const { DefaultAzureCredential } = require("@azure/identity");
+   const { PolicyInsightsClient } = require("@azure/arm-policyinsights");
 
    if (argv.subID && argv.name) {
 
        const getStates = async () => {
 
-           const credentials = await authenticator.interactiveLogin();
-           const client = new policyInsights.PolicyInsightsClient(credentials);
-           const policyStates = new policyInsights.PolicyStates(client);
-           const result = await policyStates.listQueryResultsForSubscription(
+           const credentials = new DefaultAzureCredential();
+           const client = new PolicyInsightsClient(credentials);
+           const result = client.policyStates.listQueryResultsForSubscription(
                "latest",
                argv.subID,
                {
@@ -202,7 +200,7 @@ Azure portal view.
 - If you wish to remove the installed libraries from your application, run the following command.
 
   ```bash
-  npm uninstall @azure/arm-policy @azure/arm-policyinsights @azure/ms-rest-nodeauth yargs
+  npm uninstall @azure/arm-policy @azure/arm-policyinsights @azure/identity yargs
   ```
 
 ## Next steps

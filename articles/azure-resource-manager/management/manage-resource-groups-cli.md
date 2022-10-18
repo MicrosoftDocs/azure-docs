@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom: devx-track-azurecli
 ---
 
-# Manage Azure Resource Manager resource groups by using Azure CLI
+# Manage Azure Resource Groups by using Azure CLI
 
 Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure CLI](manage-resources-cli.md).
 
@@ -25,7 +25,7 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-to create a resource group, use [az group create](/cli/azure/group#az-group-create).
+To create a resource group, use [az group create](/cli/azure/group#az-group-create).
 
 ```azurecli-interactive
 az group create --name demoResourceGroup --location westus
@@ -91,7 +91,7 @@ To get the locks for a resource group, use [az lock list](/cli/azure/lock#az-loc
 az lock list --resource-group exampleGroup
 ```
 
-To delete a lock, use [az lock delete](/cli/azure/lock#az-lock-delete)
+To delete a lock, use [az lock delete](/cli/azure/lock#az-lock-delete).
 
 ```azurecli-interactive
 az lock delete --name exampleLock --resource-group exampleGroup

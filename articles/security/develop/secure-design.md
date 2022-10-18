@@ -61,13 +61,13 @@ with security best practices on Azure:
     assess your own DevOps progression.
 
   - [Top 5 security items to consider before pushing to
-    production](/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
+    production](/training/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
     shows you how to help secure your web applications on Azure and
     protect your apps against the most common and dangerous web
     application attacks.
 
   - [Secure DevOps Kit for
-    Azure](https://azsk.azurewebsites.net/index.html) is a collection of
+    Azure](https://github.com/azsk/AzTS-docs/#readme) is a collection of
     scripts, tools, extensions, and automations that caters to the
     comprehensive Azure subscription and resource security needs of
     DevOps teams that use extensive automation. The Secure DevOps Kit
@@ -150,7 +150,7 @@ Ask security questions like:
     data.
 
 ### Review OWASP top 10
-Consider reviewing the [<span class="underline">OWASP Top 10 Application Security Risks</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+Consider reviewing the [<span class="underline">OWASP Top 10 Application Security Risks</span>](https://owasp.org/www-project-top-ten/).
 The OWASP Top 10 addresses critical security risks to web applications.
 Awareness of these security risks can help you make requirement and
 design decisions that minimize these risks in your application.
@@ -247,10 +247,10 @@ GitHub, Docker Hub, and other sources.
 Azure offers other services that you can use to host websites and web
 applications. For most scenarios, Web Apps is the best choice. For a
 micro service architecture, consider [Azure Service
-Fabric](https://azure.microsoft.com/documentation/services/service-fabric).
+Fabric](../../service-fabric/index.yml).
 If you need more control over the VMs that your code runs on, consider
 [Azure Virtual
-Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Machines](../../virtual-machines/index.yml).
 For more information about how to choose between these Azure services,
 see a [comparison of Azure App Service, Virtual Machines, Service
 Fabric, and Cloud
@@ -266,9 +266,9 @@ have an ongoing plan to monitor, triage, and apply updates or
 configuration changes to the libraries and components you use.
 
 See the [Open Web Application Security Project
-(OWASP)](https://www.owasp.org/index.php/Main_Page) page on [using
+(OWASP)](https://www.owasp.org/) page on [using
 components with known
-vulnerabilities](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities)
+vulnerabilities](https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities)
 for tool suggestions. You can also subscribe to email alerts for
 security vulnerabilities that are related to components you use.
 
@@ -552,7 +552,7 @@ identities for Azure resources, your Azure web app can access secret
 configuration values easily and securely without storing any secrets in
 your source control or configuration. To learn more, see [Manage secrets
 in your server apps with Azure Key
-Vault](/learn/modules/manage-secrets-with-azure-key-vault/).
+Vault](/training/modules/manage-secrets-with-azure-key-vault/).
 
 ### Implement fail-safe measures
 

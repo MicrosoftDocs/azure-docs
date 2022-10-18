@@ -1,9 +1,9 @@
 ---
-author: msftradford
-ms.service: spatial-anchors
+author: pamistel
+ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
-ms.author: parkerra
+ms.author: pamistel
 ---
 ## Next steps
 

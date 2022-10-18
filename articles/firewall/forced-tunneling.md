@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/13/2022
+ms.date: 06/02/2022
 ms.author: victorh
 ---
 
@@ -14,6 +14,9 @@ ms.author: victorh
 When you configure a new Azure Firewall, you can route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have a default route advertised via BGP or using User Defined Route (UDR) to force traffic to an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. To support this configuration, you must create Azure Firewall with Forced Tunnel configuration enabled. This is a mandatory requirement to avoid service disruption. If this is a pre-existing firewall, you must recreate the firewall in Forced Tunnel mode to support this configuration. For more information, see the [Azure Firewall FAQ](firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) about stopping and restarting a firewall in Forced Tunnel mode.
 
 Azure Firewall provides automatic SNAT for all outbound traffic to public IP addresses. Azure Firewall doesn’t SNAT when the destination IP address is a private IP address range per IANA RFC 1918. This logic works perfectly when you egress directly to the Internet. However, with forced tunneling enabled, Internet-bound traffic is SNATed to one of the firewall private IP addresses in the AzureFirewallSubnet. This hides the source address from your on-premises firewall. You can configure Azure Firewall to not SNAT regardless of the destination IP address by adding *0.0.0.0/0* as your private IP address range. With this configuration, Azure Firewall can never egress directly to the Internet. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
+
+> [!IMPORTANT]
+> If you deploy a Secured Virtual Hub in forced tunnel mode, advertising the default route over Express Route or VPN Gateway is not currently supported. A fix is being investigated.
 
 ## Forced tunneling configuration
 

@@ -8,22 +8,26 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 08/01/2022
 ms.author: caoling
 ms.custom: references_regions
+zone_pivot_groups: programming-languages-set-nineteen
 ---
 
 # Deploy and use your voice model
 
 After you've successfully created and trained your voice model, you deploy it to a custom neural voice endpoint. Use the custom neural voice endpoint instead of the usual text-to-speech endpoint for requests with the REST API. Use the speech studio to create a custom neural voice endpoint. Use the REST API to suspend or resume a custom neural voice endpoint. 
 
+> [!NOTE]
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects. This article focuses on the creation of a professional Custom Neural Voice using the Pro project.
+
 ## Create a custom neural voice endpoint
 
 To create a custom neural voice endpoint:
 
 1. On the **Deploy model** tab, select **Deploy model**. 
+1. Select a voice model that you want to associate with this endpoint.  
 1. Enter a **Name** and **Description** for your custom endpoint.
-1. Select a voice model that you want to associate with this endpoint. 
 1. Select **Deploy** to create your endpoint.
 
 In the endpoint table, you now see an entry for your new endpoint. It might take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
@@ -33,8 +37,8 @@ You can suspend and resume your endpoint if you don't use it all the time. When 
 You can also update the endpoint to a new model. To change the model, make sure the new model is named the same as the one you want to update. 
 
 > [!NOTE]
->- Standard subscription (S0) users can create up to 50 endpoints, each with its own custom neural voice.
->- To use your custom neural voice, you must specify the voice model name, use the custom URI directly in an HTTP request, and use the same subscription to pass through the authentication of the text-to-speech service.
+>- You can create up to 50 endpoints with a standard (S0) Speech resource, each with its own custom neural voice.
+>- To use your custom neural voice, you must specify the voice model name, use the custom URI directly in an HTTP request, and use the same Speech resource to pass through the authentication of the text-to-speech service.
 
 After your endpoint is deployed, the endpoint name appears as a link. Select the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code.
 
@@ -47,7 +51,7 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 You can copy your voice model to another project for the same region or another region. For example, you can copy a neural voice model that was trained in one region, to a project for another region.
 
 > [!NOTE]
-> Custom neural voice training is only available in the these regions: East US, Southeast Asia, and UK South. But you can copy a neural voice model from those regions to other regions. For more information, see the [regions for custom neural voice](regions.md#text-to-speech).
+> Custom Neural Voice training is currently only available in some regions. But you can easily copy a neural voice model from those regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#speech-service).
 
 To copy your custom neural voice model to another project:
 
@@ -62,6 +66,13 @@ To copy your custom neural voice model to another project:
 1. Select **Submit** to copy the model.
 1. Select **View model** under the notification message for copy success. 
 1. On the **Train model** tab, select the newly copied model and then select **Deploy model**.
+
+## Switch to a new voice model in your product
+
+Once you've updated your voice model to the latest engine version, or if you want to switch to a new voice in your product, you need to redeploy the new voice model to a new endpoint. Redeploying new voice model on your existing endpoint is not supported. After deployment, switch the traffic to the newly created endpoint. We recommend that you transfer the traffic to the new endpoint in a test environment first to ensure that the traffic works well, and then transfer to the new endpoint in the production environment. During the transition, you need to keep the old endpoint. If there are some problems with the new endpoint during transition, you can switch back to your old endpoint. If the traffic has been running well on the new endpoint for about 24 hours (recommended value), you can delete your old endpoint. 
+
+> [!NOTE]
+> If your voice name is changed and you are using Speech Synthesis Markup Language (SSML), be sure to use the new voice name in SSML.
 
 ## Suspend and resume an endpoint
 
@@ -102,7 +113,7 @@ The application settings that you use as REST API [request parameters](#request-
 
 :::image type="content" source="./media/custom-voice/cnv-endpoint-app-settings-zoom.png" alt-text="Screenshot of custom endpoint app settings in Speech Studio." lightbox="./media/custom-voice/cnv-endpoint-app-settings-full.png":::
 
-* The **Endpoint key** shows the subscription key the endpoint is associated with. Use the endpoint key as the value of your `Ocp-Apim-Subscription-Key` request header. 
+* The **Endpoint key** shows the Speech resource key the endpoint is associated with. Use the endpoint key as the value of your `Ocp-Apim-Subscription-Key` request header. 
 * The **Endpoint URL** shows your service region. Use the value that precedes `voice.speech.microsoft.com` as your service region request parameter. For example, use `eastus` if the endpoint URL is `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1`.
 * The **Endpoint URL** shows your endpoint ID. Use the value appended to the `?deploymentId=` query parameter as the value of your endpoint ID request parameter.
 
@@ -128,20 +139,20 @@ The possible `status` property values are:
 
 ##### Get endpoint example
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
+For information about endpoint ID, region, and Speech resource key parameters, see [request parameters](#request-parameters).
 
 HTTP example:
 
 ```HTTP
 GET api/texttospeech/v3.0/endpoints/<YourEndpointId> HTTP/1.1
-Ocp-Apim-Subscription-Key: YourSubscriptionKey
-Host: <YourServiceRegion>.customvoice.api.speech.microsoft.com
+Ocp-Apim-Subscription-Key: YourResourceKey
+Host: <YourResourceRegion>.customvoice.api.speech.microsoft.com
 ```
 
 cURL example:
 
 ```Console
-curl -v -X GET "https://<YourServiceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>" -H "Ocp-Apim-Subscription-Key: <YourSubscriptionKey >"
+curl -v -X GET "https://<YourResourceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>" -H "Ocp-Apim-Subscription-Key: <YourResourceKey >"
 ```
 
 Response header example:
@@ -181,14 +192,14 @@ Use the [get endpoint](#get-endpoint) operation to poll and track the status pro
 
 ##### Suspend endpoint example
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
+For information about endpoint ID, region, and Speech resource key parameters, see [request parameters](#request-parameters).
 
 HTTP example:
 
 ```HTTP
 POST api/texttospeech/v3.0/endpoints/<YourEndpointId>/suspend HTTP/1.1
-Ocp-Apim-Subscription-Key: YourSubscriptionKey
-Host: <YourServiceRegion>.customvoice.api.speech.microsoft.com
+Ocp-Apim-Subscription-Key: YourResourceKey
+Host: <YourResourceRegion>.customvoice.api.speech.microsoft.com
 Content-Type: application/json
 Content-Length: 0
 ```
@@ -196,7 +207,7 @@ Content-Length: 0
 cURL example:
 
 ```Console
-curl -v -X POST "https://<YourServiceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>/suspend" -H "Ocp-Apim-Subscription-Key: <YourSubscriptionKey >" -H "content-type: application/json" -H "content-length: 0"
+curl -v -X POST "https://<YourResourceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>/suspend" -H "Ocp-Apim-Subscription-Key: <YourResourceKey >" -H "content-type: application/json" -H "content-length: 0"
 ```
 
 Response header example:
@@ -217,14 +228,14 @@ Use the [get endpoint](#get-endpoint) operation to poll and track the status pro
 
 ##### Resume endpoint example
 
-For information about endpoint ID, region, and subscription key parameters, see [request parameters](#request-parameters).
+For information about endpoint ID, region, and Speech resource key parameters, see [request parameters](#request-parameters).
 
 HTTP example:
 
 ```HTTP
 POST api/texttospeech/v3.0/endpoints/<YourEndpointId>/resume HTTP/1.1
-Ocp-Apim-Subscription-Key: YourSubscriptionKey
-Host: <YourServiceRegion>.customvoice.api.speech.microsoft.com
+Ocp-Apim-Subscription-Key: YourResourceKey
+Host: <YourResourceRegion>.customvoice.api.speech.microsoft.com
 Content-Type: application/json
 Content-Length: 0
 ```
@@ -232,7 +243,7 @@ Content-Length: 0
 cURL example:
 
 ```Console
-curl -v -X POST "https://<YourServiceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>/resume" -H "Ocp-Apim-Subscription-Key: <YourSubscriptionKey >" -H "content-type: application/json" -H "content-length: 0"
+curl -v -X POST "https://<YourResourceRegion>.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/endpoints/<YourEndpointId>/resume" -H "Ocp-Apim-Subscription-Key: <YourResourceKey >" -H "content-type: application/json" -H "content-length: 0"
 ```
 
 Response header example:
@@ -246,13 +257,13 @@ For more information, see [response headers](#response-headers).
 
 ##### Request parameters
 
-You use these request parameters with calls to the REST API. See [application settings](#application-settings) for information about where to get your region, endpoint ID, and subscription key in Speech Studio.
+You use these request parameters with calls to the REST API. See [application settings](#application-settings) for information about where to get your region, endpoint ID, and Speech resource key in Speech Studio.
 
 | Name                        | Location     | Required | Type   | Description                                                                    |
 | --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |
-| `YourServiceRegion` | Path   | `True` | string | The Azure region the endpoint is associated with. |
+| `YourResourceRegion` | Path   | `True` | string | The Azure region the endpoint is associated with. |
 | `YourEndpointId` | Path   | `True` | string | The identifier of the endpoint. |
-| `Ocp-Apim-Subscription-Key` | Header | `True` | string | The subscription key the endpoint is associated with. |
+| `Ocp-Apim-Subscription-Key` | Header | `True` | string | The Speech resource key the endpoint is associated with. |
 
 ##### Response headers
 
@@ -272,9 +283,53 @@ The HTTP status code for each response indicates success or common errors.
 | 200              | OK                | The request was successful.                                                                                                                                               |
 | 202              | Accepted          | The request has been accepted and is being processed.                                                                                  |
 | 400              | Bad Request       | The value of a parameter is invalid, or a required parameter is missing, empty, or null. One common issue is a header that is too long. |
-| 401              | Unauthorized      | The request isn't authorized. Check to make sure your subscription key or [token](rest-speech-to-text.md#authentication) is valid and in the correct region.                                                      |
-| 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription.                                                                                            |
+| 401              | Unauthorized      | The request isn't authorized. Check to make sure your Speech resource key or [token](rest-speech-to-text-short.md#authentication) is valid and in the correct region.                                                      |
+| 429              | Too Many Requests | You've exceeded the quota or rate of requests allowed for your Speech resource.                                                                                            |
 | 502              | Bad Gateway       | Network or server-side issue. May also indicate invalid headers.                                                                                                          |
+
+## Use your custom voice
+
+The difference between Custom voice sample codes and [Text-to-speech quickstart codes](get-started-speech-to-text.md) is that `EndpointId` must be filled in Custom Voice. So you should first build and run demo quickly by quickstart codes and then check following Custom voice sample codes to see how to set `EndpointId`.
+
+::: zone pivot="programming-language-csharp"
+```csharp
+var speechConfig = SpeechConfig.FromSubscription(YourResourceKey, YourResourceRegion);      
+speechConfig.SpeechSynthesisVoiceName = "YourCustomVoiceName";
+speechConfig.EndpointId = "YourEndpointId";
+```
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+```cpp
+auto speechConfig = SpeechConfig::FromSubscription(YourResourceKey, YourResourceRegion);
+speechConfig->SetSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig->SetEndpointId("YourEndpointId");
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+```java
+SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourResourceKey, YourResourceRegion);
+speechConfig.setSpeechSynthesisVoiceName("YourCustomVoiceName");
+speechConfig.setEndpointId("YourEndpointId");
+```
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+```ObjectiveC
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:speechKey region:serviceRegion];
+speechConfig.speechSynthesisVoiceName = @"YourCustomVoiceName";
+speechConfig.EndpointId = @"YourEndpointId";
+```
+::: zone-end
+
+::: zone pivot="programming-language-python"
+```Python
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_config.endpoint_id = "YourEndpointId"
+speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
+```
+::: zone-end
 
 ## Next steps
 

@@ -19,7 +19,7 @@ This article shows you how to use PowerShell to get, set, and update the access 
 
 ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
-[Reference](/powershell/module/Az.Storage/) | [Recursive ACL Samples](https://recursiveaclpr.blob.core.windows.net/privatedrop/samplePS.ps1?sv=2019-02-02&st=2020-08-24T17%3A04%3A44Z&se=2021-08-25T17%3A04%3A00Z&sr=b&sp=r&sig=dNNKS%2BZcp%2F1gl6yOx6QLZ6OpmXkN88ZjBeBtym1Mejo%3D) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
+[Reference](/powershell/module/Az.Storage/) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## Prerequisites
 
@@ -184,7 +184,7 @@ $file.ACL
 ```
 
 > [!NOTE]
-> To a set the ACL of a specific group or user, use their respective object IDs. For example, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` or `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+> To a set the ACL of a specific group or user, use their respective object IDs. For example, to set the ACL of a **group**, use `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. To set the ACL of a **user**, use `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 The following image shows the output after setting the ACL of a file.
 
@@ -220,8 +220,6 @@ To see an example that sets ACLs recursively in batches by specifying a batch si
 ## Update ACLs
 
 When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL. To replace the ACL instead of update it, see the [Set ACLs](#set-acls) section of this article.
-
-To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
 This section shows you how to:
 

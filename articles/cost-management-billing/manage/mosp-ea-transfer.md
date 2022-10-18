@@ -1,20 +1,22 @@
 ---
 title: Transfer an Azure subscription to an Enterprise Agreement
-description: This article helps you understand the steps to transfer a Microsoft Customer Agreement or MOSP subscription to an Enterprise Agreement.
+description: This article helps you understand the steps to transfer a Microsoft Customer Agreement subscription or MOSP subscription to an Enterprise Agreement.
 author: bandersmsft
 ms.reviewer: jatracey
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 05/03/2022
 ms.author: banders
 ms.custom:
 ---
 
 # Transfer an Azure subscription to an Enterprise Agreement (EA)
 
-This article helps you understand the steps needed to transfer a Microsoft Customer Agreement or MOSP (pay-as-you-go) subscription to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
+This article helps you understand the steps needed to transfer an individual Microsoft Customer Agreement subscription (Azure offer MS-AZR-0017G pay-as-you-go) or a MOSP (pay-as-you-go) subscription (Azure offer MS-AZR-003P) to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
+
+If you want to transfer a different subscription type to EA, see [Azure subscription and reservation transfer hub](subscription-transfer.md) for supported transfer options.
 
 > [!NOTE]
 > The transfer process doesn't change Azure AD Directory information that the subscriptions are linked to. If you want to make an Azure AD Directory change, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
@@ -88,7 +90,7 @@ Enrollment Number: <EnrollmentNumber>
 
 All Enrollment Administrators can gain access to all of your subscriptions if you proceed.
 Additionally, all Azure subscriptions for which you are the account owner will be converted to your Enterprise Agreement.
-This includes subscriptions which include a monthly credit (e.g. Visual Studio, MPN, BizSpart, etc.) meaning you will lose the monthly credit by proceeding.
+This includes subscriptions which include a monthly credit (e.g. Visual Studio, Microsoft Cloud Partner Program, BizSpart, etc.) meaning you will lose the monthly credit by proceeding.
 All subscriptions based on a Visual Studio subscriber offer (monthly credit for Visual Studio subscribers or Pay-As-You-Go Dev/Test) will be converted to use the Enterprise Dev/Test usage rates and be billed against this enrollment from today onwards.
 If you wish to retain the monthly credits currently associated with any of your subscriptions, please cancel.
 Please see additional details.

@@ -29,19 +29,15 @@ sections:
           We'd like to make more Cognitive Services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
       - question: What will the service-level agreement (SLA) be for Cognitive Services containers?
         answer: |
-          Cognitive Services containers don't have an SLA.
-
-          Customers control Cognitive Services container configurations of resources, so Microsoft won't offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
-
           > [!IMPORTANT]
           > To learn more about service-level agreements for Cognitive Services, [visit our SLA page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
-      - question: Are these containers available in sovereign clouds?
+          
+          Cognitive Services provides SLAs which can be viewed on our SLA page at the link provided above.
+          
+          However, Cognitive Services in containers do not provide an SLA. Customers control Cognitive Services container configurations of resources, so Microsoft won't offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
+      - question: Are these containers available in Sovereign clouds?
         answer: |
-          Not everyone is familiar with the term *sovereign cloud*, so let's begin with definition:
-
-          > The sovereign cloud consists of the [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Germany](../../germany/germany-welcome.md), and [Azure China 21Vianet](/azure/china/overview-operations) clouds.
-
-          Unfortunately, Cognitive Services containers are *not* natively supported in the sovereign clouds. The containers can be run in these clouds, but they'll be pulled from the public cloud and need to send usage data to the public endpoint.
+          Cognitive Services containers can be used in the Sovereign clouds. The containers can be run and can connect to the billing endpoint in these clouds, but container images will need to be pulled from the Public cloud container registry.
   - name: Versioning
     questions:
       - question: How are containers updated to the latest version?
@@ -154,7 +150,7 @@ sections:
 
       - question: Are these containers currently supported on Windows?
         answer: | 
-          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+          Cognitive Services containers are Linux containers, but there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](/virtualization/windowscontainers/deploy-containers/linux-containers).
       
       - question:  How do Cognitive Services containers compare to AWS and Google offerings?
         answer: | 

@@ -1,17 +1,19 @@
 ---
-title: 'Excluding elements from dynamic membership in Azure Virtual Network Manager (Preview)'
-description: Learn how to exclude elements from dynamic membership in Azure Virtual Network Manager.
-author: duongau
-ms.author: duau
+title: 'Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy (Preview)'
+description: Learn how to define dynamic network group membership in Azure Virtual Network Manager with Azure Policy.
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
 ---
 
-# Excluding elements from dynamic membership in Azure Virtual Network Manager (Preview)
+# Define dynamic network group membership in Azure Virtual Network Manager with Azure Policy (Preview)
 
-In this article, you'll learn how to use conditional statements to exclude virtual networks from dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. You'll also learn how to use the advanced editor to update conditional statements of an existing network group.
+In this article, you'll learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. You'll also learn how to use the advanced editor to update conditional statements of an existing network group.
+
+[Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions that define group membership, as opposed to explicit lists of virtual networks. This condition will continue to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is currently in public preview.
@@ -41,16 +43,16 @@ List of supported operators:
 | Operators | Advanced editor |
 | --------- | --------------- |
 | Contains | `"contains": <>` |
-| Does not contain | `"notcontains": <>` |
+| Doesn't contain | `"notcontains": <>` |
 | In | `"in": <>` |
 | Not In | `"notin": <>` |
 | Equals | `"equals": <>` |
-| Does not equal | `"notequals": <>` |
+| Doesn't equal | `"notequals": <>` |
 | Contains any of | `"contains": <>` |
 | Contains all of | `"contains": <>` |
-| Does not contain any of | `"notcontains": <>` |
+| Doesn't contain any of | `"notcontains": <>` |
 | Exists | `"exists": true` |
-| Does not exist | `"exists": false` |
+| Doesn't exist | `"exists": false` |
 
 > [!NOTE]
 > The *Exists* and *Does not exist* operators are only used with the **Tags** parameter.
@@ -68,24 +70,22 @@ Assume you have the following virtual networks in your subscription. Each virtua
 
 To begin using the basic editor to create your conditional statement, you need to create a new network group.
 
-1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under *Settings*. Then select **+ Add** to create a new network group.
+1. Go to your Azure Virtual Network Manager instance and select **Network Groups** under *Settings*. Then select **+ Create** to create a new network group.
 
-1. Enter a **Name** for the network group. Then select the **Conditional statements** tab.
+1. Enter a **Name** and an optional **Description** for the network group, and select **Add**.
+1. Select the network group from the list and select **Create Azure Policy**.
+1. Enter a **Policy name** and leave the **Scope** selections unless changes are needed.
+1. Under **Criteria**, select **Tags** from the drop-down under *Parameter* and then select **Exist** from the drop-down under *Operator*.
 
-1. Select **Tags** from the drop-down under *Parameter* and then select **Exist** from the drop-down under *Operator*.
-
-1. Enter **Prod** under *Condition*, then select **Evaluate**. You should only see VNet-A-EastUS, VNet-B-WestUS, and VNetA show up in the list.
-
-1. Add another conditional statement by selecting the logical operator **AND**. Select **Name** for the *Parameter* and **Contains** for the *Operator*. Enter **VNet-A** into the *Condition* field. Select **Evaluate** to see which virtual network shows up in the list. You should only see VNet-A-EastUS and VNet-A-WestUS.
-
-1. Select **Review + Create** and then select **Create** once validation has passed.
+1. Enter **Prod** under *Condition*, then select **Save**. 
+1. After a few minutes, select your network group and select **Group Members** under *Settings*. You should only see VNet-A-EastUS, VNet-A-WestUS, and VNetA show up in the list.
 
 > [!NOTE] 
-> The **basic editor** is only available during the creation of a network group. 
+> The **basic editor** is only available during the creation of an Azure Policy. 
 
 ## Advanced editor
 
-The advanced editor can be used to select virtual network during the creation of a network group or when updating an existing network group. 
+The advanced editor can be used to select virtual network during the creation of a network group or when updating an existing network group. Based in [JSON](../governance/policy/concepts/assignment-structure.md), the advanced editor is useful for creating and updating complex Azure Policy conditional statements by experienced users.
 
 1. Select the network group created in the previous section. Then select the **Conditional statements** tab.
 
@@ -197,6 +197,9 @@ The `"anyOf"` parameter contains both the conditional statements that are separa
 
 Both `"allOf"` and `"anyOf"` are used in the code. Since the **AND** operator is last in the list, it is on the outer part of the code containing the two conditional statements with the **OR** operator.
 
+> [!NOTE]
+> Conditionals should filter on resource type Microsoft.Network/virtualNetwork to improve efficiency.
+> This condition is prepended for you on any conditionals specified through the portal.
 ## Next steps
 
 - Learn about [Network groups](concept-network-groups.md).
