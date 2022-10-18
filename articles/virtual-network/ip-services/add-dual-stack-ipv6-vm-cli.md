@@ -24,7 +24,7 @@ In this article, you'll add IPv6 support to an existing virtual network. You'll 
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- An existing virtual network, public IP address and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address and a virtual machine, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
+- An existing virtual network, public IP address and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address and a virtual machine, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md).
 
     - The example virtual network used in this article is named **myVNet**. Replace this value with the name of your virtual network.
     
@@ -93,5 +93,3 @@ For more information about IPv6 and IP addresses in Azure, see:
 - [Overview of IPv6 for Azure Virtual Network.](ipv6-overview.md)
 
 - [What is Azure Virtual Network IP Services?](ip-services-overview.md)
-
-
