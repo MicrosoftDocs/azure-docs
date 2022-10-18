@@ -1,5 +1,5 @@
 ---
-title: Configure pre-deployment to use Dynatrace with Azure - Azure partner solutions
+title: Configure pre-deployment to use Dynatrace with Azure
 description: This article describes how to complete the prerequisites for Dynatrace on the Azure portal. 
 ms.topic: conceptual
 author: flang-msft
