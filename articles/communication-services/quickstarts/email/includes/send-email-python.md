@@ -210,4 +210,4 @@ message = EmailMessage(
 )
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced/send-email-attachments)
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
