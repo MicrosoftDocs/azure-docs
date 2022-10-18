@@ -264,7 +264,7 @@ In this section, you'll create a .NET Core console application that receives mes
 
 ### Add code to receive messages from the subscription
 
-In this section, you'll add code to retrieve messages from the queue.
+In this section, you'll add code to retrieve messages from the subscription.
 
 1. Replace the existing contents of `Program.cs` with the the following properties and methods:
 
