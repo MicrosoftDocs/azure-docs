@@ -23,7 +23,7 @@ Language service features utilize AI models. We update the language service with
 
 Our standard (not customized) language service features are built on AI models that we call pre-trained models.
 
-We regularly update the language service with new model versions every few months to improve model accuracy, support, and quality.
+We regularly update the language service with new model versions to improve model accuracy, support, and quality.
 
 Starting in November 2022, API calls using a specified model version number will return a warning header with a reminder to update the modelVersion parameter value to `latest` (or leave the parameter empty). By default, all API requests will use the latest Generally Available (GA) model.
 
