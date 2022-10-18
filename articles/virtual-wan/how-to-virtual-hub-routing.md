@@ -35,7 +35,7 @@ A virtual hub can contain multiple gateways such as a site-to-site VPN gateway, 
 
 1. On the **Associations** page, associate connections to the route table. You'll see **Branches**, **Virtual Networks**, and the **Current settings** of the connections. After configuring settings, move to the Propagations page.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations-settings.png" alt-text="Screenshot shows Associations page with connections to the route table" lightbox="./media/how-to-virtual-hub-routing/associations-settings.png":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations-settings.png" alt-text="Screenshot shows Associations page with connections to the route table." lightbox="./media/how-to-virtual-hub-routing/associations-settings.png":::
 
 1. On the **Propagations** page, select the settings to propagate routes from connections to the route table.
 
