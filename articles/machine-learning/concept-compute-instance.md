@@ -39,7 +39,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. You can also use setup scripts to automate customization |
 
-* Secure your compute instance with **[No public IP (preview)](./how-to-secure-training-vnet.md#no-public-ip)**
+* Secure your compute instance with **[No public IP (preview)](./how-to-secure-training-vnet.md)**.
 * The compute instance is also a secure training compute target similar to [compute clusters](how-to-create-attach-compute-cluster.md), but it is single node. 
 * You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)**.
 * You can also **[use a setup script (preview)](how-to-customize-compute-instance.md)**  for an automated way to customize and configure the compute instance as per your needs.
@@ -78,9 +78,9 @@ You can [Add RStudio](how-to-create-manage-compute-instance.md#add-custom-applic
 |Anaconda Python||
 |Jupyter and extensions||
 |Jupyterlab and extensions||
-[Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)</br>from PyPI|Includes most of the azureml extra packages.  To see the full list, [open a terminal window on your compute instance](how-to-access-terminal.md) and run <br/> `conda list -n azureml_py36 azureml*` |
+[Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install)</br>from PyPI|Includes most of the azureml extra packages.  To see the full list, [open a terminal window on your compute instance](how-to-access-terminal.md) and run <br/> `conda list -n azureml_py36 azureml*` |
 |Other PyPI packages|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
-|Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
+|Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`|
 |Deep learning packages|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning Python samples||

@@ -1,7 +1,7 @@
 ---
-title: Learn how to sign an HTTP request with C#
+title: Learn how to sign an HTTP request with HMAC
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to sign an HTTP request for Azure Communication Services via C#.
+description: Learn how to sign an HTTP request for Azure Communication Services using HMAC.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -11,13 +11,23 @@ ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: identity
+zone_pivot_groups: acs-programming-languages-csharp-python
 ---
 
 # Sign an HTTP request
 
 In this tutorial, you'll learn how to sign an HTTP request with an HMAC signature.
 
-[!INCLUDE [Sign an HTTP request C#](./includes/hmac-header-csharp.md)]
+>[!NOTE]
+>We strongly encourage to use [Azure SDKs](https://github.com/Azure/azure-sdk). Approach described here is a fallback option for cases when Azure SDKs can't be used for any reason.
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Sign an HTTP request with C#](./includes/hmac-header-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Sign an HTTP request with Python](./includes/hmac-header-python.md)]
+::: zone-end
 
 ## Clean up resources
 

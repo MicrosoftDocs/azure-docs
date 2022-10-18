@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 10/20/2022
 ms.author: anfdocs
 ---
 # Using availability zones for high availability in Azure NetApp Files

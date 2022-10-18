@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 10/20/2022
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files

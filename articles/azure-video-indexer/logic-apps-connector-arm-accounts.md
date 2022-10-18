@@ -8,6 +8,8 @@ ms.date: 08/04/2022
 
 # Logic Apps connector with ARM-based AVI accounts
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic. To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
 
 You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for the integration gives you better visibility on the health of your workflow and an easy way to debug it.
@@ -95,8 +97,9 @@ The following image shows the first flow:
     
     Select **Save** (at the top of the page). 
     
-    ![Screenshot of the create SAS URI by path logic.](./media/logic-apps-connector-arm-accounts/create-sas.png)
-        
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/logic-apps-connector-arm-accounts/create-sas.png" alt-text="Screenshot of the create SAS URI by path logic." lightbox="./media/logic-apps-connector-arm-accounts/create-sas.png":::
+ 
     Select **+New Step**.
 1. Generate an access token.
     
@@ -144,7 +147,7 @@ The following image shows the first flow:
 1. Back in your Logic App, create an **Upload video and index** action.
     
     1. Select **Video Indexer(V2)**.
-    1. From Video Indexer(V2) chose **Upload Video and index**.
+    1. From Video Indexer(V2), select **Upload Video and index**.
     1. Set the connection to the Video Indexer account.
 
         |Key| Value|
@@ -198,7 +201,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 1. Get Video Indexer insights.
 
     1. Search for "Video Indexer".
-    1. From **Video Indexer(V2)** chose **Get Video Index** action.
+    1. From **Video Indexer(V2)**, select the **Get Video Index** action.
     
         Set the connection name:
         

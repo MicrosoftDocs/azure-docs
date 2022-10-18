@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/19/2022
 ms.author: normesta
 ms.subservice: blobs
 ---
@@ -105,7 +105,7 @@ The following table provides a summary of protections provided by container-leve
 
 Immutability policies are supported for both new and existing storage accounts. The following table shows which types of storage accounts are supported for each type of policy:
 
-| Type of immutability policy | Scope of policy | Types of storage accounts supported | Supports hierarchical namespace (preview) |
+| Type of immutability policy | Scope of policy | Types of storage accounts supported | Supports hierarchical namespace |
 |--|--|--|--|
 | Time-based retention policy | Version-level scope | General-purpose v2<br />Premium block blob | No |
 | Time-based retention policy | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
@@ -127,12 +127,7 @@ All redundancy configurations support immutable storage. For geo-redundant confi
 
 ### Hierarchical namespace support
 
-Immutable storage support for accounts with a hierarchical namespace is in preview. To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9iuLyDgXDNIkMaAAVSMpJxUMVdIOUNDMlNESUlJRVNWOExJVUoxME1CMS4u).
-
-Keep in mind that you cannot rename or move a blob when the blob is in the immutable state and the account has a hierarchical namespace enabled. Both the blob name and the directory structure provide essential container-level data that cannot be modified once the immutable policy is in place.
-
-> [!IMPORTANT]
-> Immutable storage for Azure Blob Storage in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Accounts that have a hierarchical namespace support immutability policies that are scoped to the container. However, you cannot rename or move a blob when the blob is in the immutable state and the account has a hierarchical namespace enabled. Both the blob name and the directory structure provide essential container-level data that cannot be modified once the immutable policy is in place.
 
 ## Recommended blob types
 

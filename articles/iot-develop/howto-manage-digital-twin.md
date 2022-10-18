@@ -17,7 +17,7 @@ At the time of writing, the digital twin API version is `2020-09-30`.
 
 ## Update a digital twin
 
-An IoT Plug and Play device implements a model described by [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). Solution developers can use the **Update Digital Twin API** to update the state of component and the properties of the digital twin.
+An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl). Solution developers can use the **Update Digital Twin API** to update the state of component and the properties of the digital twin.
 
 The IoT Plug and Play device used as an example in this article implements the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
