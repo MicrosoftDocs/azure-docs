@@ -2,15 +2,15 @@
 title: 'Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft (V5.2)'
 description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft (V5.2).
 services: active-directory
-author: jeevansd
+author: dhivyagana
 manager: CelesteDG
 ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/08/2021
-ms.author: jeedes
+ms.date: 09/23/2022
+ms.author: dhivyag
 ---
 # Tutorial: Azure AD SSO integration with JIRA SAML SSO by Microsoft (V5.2)
 
@@ -70,6 +70,8 @@ To configure the integration of JIRA SAML SSO by Microsoft (V5.2) into Azure AD,
 1. In the **Add from the gallery** section, type **JIRA SAML SSO by Microsoft (V5.2)** in the search box.
 1. Select **JIRA SAML SSO by Microsoft (V5.2)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for JIRA SAML SSO by Microsoft (V5.2)
 
 In this section, you configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V5.2) based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between an Azure AD user and the related user in JIRA SAML SSO by Microsoft (V5.2).
@@ -89,9 +91,9 @@ To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V
 1. On the **Select a Single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** box, type a URL using the following pattern:
     `https://<domain:port>/`
@@ -107,7 +109,7 @@ To configure and test Azure AD single sign-on with JIRA SAML SSO by Microsoft (V
 
 5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
 ### Create an Azure AD test user
 

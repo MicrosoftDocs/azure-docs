@@ -59,7 +59,9 @@ Content-type: application/json
 
 {
     "id": "f5bf2fc6-7135-4d94-a6fe-c26e4543bc5a",
-    "servicePrincipal": "90e10a26-94cd-49d6-8cd7-cacb10f00686",
+    "verifiableCredentialServicePrincipalId": "90e10a26-94cd-49d6-8cd7-cacb10f00686",
+    "verifiableCredentialRequestServicePrincipalId": "870e10a26-94cd-49d6-8cd7-cacb10f00fe",
+    "verifiableCredentialAdminServicePrincipalId": "760e10a26-94cd-49d6-8cd7-cacb10f00ab",
     "status": "Enabled"
 }
 ```
@@ -966,9 +968,9 @@ example:
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`url`| string (url) | url of the logo (optional if image is specified) |
+|`uri`| string (uri) | uri of the logo (optional if image is specified) |
 |`description` | string | the description of the logo |
-|`image` | string | the base-64 encoded image (optional if url is specified) |
+|`image` | string | the base-64 encoded image (optional if uri is specified) |
 
 #### displayConsent type
 

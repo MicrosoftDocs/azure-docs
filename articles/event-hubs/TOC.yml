@@ -181,6 +181,8 @@
       items:
         - name: Get Event Hubs connection string
           href: event-hubs-get-connection-string.md
+        - name: Connect to an event hub (.NET)
+          href: connect-event-hub.md
         - name: Configure processing units for a premium namespace
           href: configure-processing-units-premium-namespace.md
         - name: Add custom data to events
@@ -193,28 +195,32 @@
           href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=/azure/event-hubs/toc.json
         - name: Exchange events between applications using different protocols
           href: event-hubs-exchange-events-different-protocols.md
-        - name: Programming guides
+        - name: Programming language samples
           items:
-            - name: .NET (Azure.Messaging.EventHubs)
+            - name: .NET samples in GitHub
               href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md
-            - name: Java (azure-messaging-eventhubs)
+            - name: Java samples in GitHub (azure-messaging-eventhubs)
               href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
-            - name: Python (azure-eventhub)
+            - name: Python samples in GitHub (azure-eventhub)
               href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
-            - name: JavaScript (azure/event-hubs)
+            - name: JavaScript in GitHub (azure/event-hubs)
               href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
-            - name: .NET (Microsoft.Azure.EventHubs)
-              href: event-hubs-programming-guide.md
     - name: Process data
       items:
         - name: Capture Event Hubs data in Parquet format
           href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=/azure/event-hubs/toc.json
-        - name: Materialize data to Cosmos DB
+        - name: Materialize data to Azure Cosmos DB
           href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=/azure/event-hubs/toc.json
         - name: Filter and ingest Synapse SQL data
           href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=/azure/event-hubs/toc.json
         - name: Filter and ingest to Data Lake Storage Gen2
           href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=/azure/event-hubs/toc.json
+        - name: Enrich data and ingest to event hub
+          href: ../stream-analytics/no-code-enrich-event-hub-data.md?toc=/azure/event-hubs/toc.json
+        - name: Transform and ingest to SQL database
+          href: ../stream-analytics/no-code-transform-filter-ingest-sql.md?toc=/azure/event-hubs/toc.json
+        - name: Filter and ingest to Azure Data Explorer
+          href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
     - name: Integrate with Spring framework
@@ -364,8 +370,8 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-event-hubs
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-hubs
     - name: FAQ
       href: event-hubs-faq.yml
     - name: Azure Roadmap

@@ -217,7 +217,7 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    // https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
+    // https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
     string route = "/translate?api-version=3.0&to=de&to=it&to=ja&to=th";
     // Prompts you for text to translate. If you'd prefer, you can
     // provide a string as textToTranslate.

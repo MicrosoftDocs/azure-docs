@@ -112,6 +112,7 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 |                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
 |                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
+|                    | 14.04   | 3.13.\*-generic<br>4.4.\*-generic|
 | SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122.\*-default, 4.12.14-16.\*-azure|
 |                                 | 12 SP4 | 4.12.\* (includes Azure-tuned kernel) |
 |                                 | 12 SP3 | 4.4.\* |

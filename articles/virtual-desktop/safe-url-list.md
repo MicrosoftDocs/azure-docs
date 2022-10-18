@@ -132,7 +132,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=/azu
 | `*.servicebus.windows.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
 | `aka.ms` | 443 | Microsoft URL shortener | All |
-| `docs.microsoft.com` | 443 | Documentation | All |
+| `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
 | `query.prod.cms.rt.microsoft.com` | 443 | Client updates | Windows Desktop |
 
@@ -145,7 +145,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=/azu
 | `*.servicebus.usgovcloudapi.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
 | `aka.ms` | 443 | Microsoft URL shortener | All |
-| `docs.microsoft.com` | 443 | Documentation | All |
+| `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
 | `query.prod.cms.rt.microsoft.com` | 443 | Client updates | Windows Desktop |
 

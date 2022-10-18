@@ -24,7 +24,9 @@ Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Sele
 # [Public networks](#tab/public-networks)
 
 > [!TIP]
-> RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
+> RDP Shortpath for public networks is currently rolling out now it is generally available. It will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
+>
+> While it is rolling out, it may still be necessary to configure a registry value to enable RDP Shortpath for public networks. For more information, see [Enable the preview of RDP Shortpath for public networks](#enable-the-preview-of-rdp-shortpath-for-public-networks).
 >
 > The steps to configure RDP Shortpath for public networks are provided for session hosts and clients in case these defaults have been changed. 
 
@@ -61,6 +63,29 @@ To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpa
    :::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/azure-virtual-desktop-gpo.png":::
 
 1. Open the policy setting **Enable RDP Shortpath for managed networks** and set it to **Enabled**. If you enable this policy setting, you can also configure the port number that Azure Virtual Desktop session hosts will use to listen for incoming connections. The default port is **3390**.
+
+1. If you need to configure Windows Firewall to allow port 3390, run one of the following commands, depending on whether you want to configure Windows Firewall using Group Policy centrally from your domain, or locally for each session host:
+
+   **AD Domain**:
+   1. Open an elevated PowerShell prompt and run the following command, replacing the value for `$domainName` with your own domain name, the value for `$writableDC` with the hostname of a writeable domain controller, and the value for `$policyName` with the name of an existing Group Policy Object:
+   
+      ```powershell
+      $domainName = "contoso.com"
+      $writableDC = "dc01"
+      $policyName = "RDP Shortpath Policy"
+      $gpoSession = Open-NetGPO -PolicyStore "$domainName\$policyName" -DomainController $writableDC
+      
+      New-NetFirewallRule -DisplayName 'Remote Desktop - RDP Shortpath (UDP-In)' -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP Shortpath traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-RDPShortpath-UDP' -Profile Domain, Private -Service TermService -Protocol UDP -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True -GPOSession $gpoSession
+      
+      Save-NetGPO -GPOSession $gpoSession
+      ```
+
+   **Locally**:
+   1. Open an elevated PowerShell prompt and run the following command:
+   
+      ```powershell
+      New-NetFirewallRule -DisplayName 'Remote Desktop - RDP Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP Shortpath traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-RDPShortpath-UDP' -PolicyStore PersistentStore -Profile Domain, Private -Service TermService -Protocol UDP -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True
+      ```
 
 1. Select OK and restart your session hosts to apply the policy setting.
 
@@ -274,9 +299,17 @@ To configure managed Windows clients using Intune:
 
 1. Apply the configuration profile, then restart your clients.
 
-## Deleting the preview of RDP Shortpath for public networks
+## Enable the preview of RDP Shortpath for public networks
 
-If you've participated in the preview of RDP Shortpath for public networks, you need to delete the following registry key as it is no longer required. Open an elevated PowerShell prompt and run the following command:
+RDP Shortpath for public networks is currently rolling out now it is generally available. While it is rolling out, it may still be necessary to configure a registry value to enable RDP Shortpath for public networks. Open an elevated PowerShell prompt on your session hosts and run the following command:
+
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name ICEControl -PropertyType DWORD -Value 2
+```
+
+## Disable the preview of RDP Shortpath for public networks
+
+If you've participated in the preview of RDP Shortpath for public networks, you need to delete the following registry value as it is no longer required. Open an elevated PowerShell prompt on your session hosts and run the following command:
 
 ```powershell
 Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name ICEControl -Force

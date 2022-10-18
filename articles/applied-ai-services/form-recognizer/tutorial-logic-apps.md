@@ -9,16 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 08/22/2022
 ms.author: bemabonsu
+monikerRange: 'form-recog-2.1.0'
 recommendations: false
 #Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
 ---
 
 # Tutorial: Use Azure Logic Apps with Form Recognizer
 
+**This article applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
+
 > [!IMPORTANT]
 >
 > This tutorial and the Logic App Form Recognizer connector targets Form Recognizer REST API v2.1 and must be used in conjuction with the [FOTT sample labeling tool](https://fott-2-1.azurewebsites.net/).
-
 
 Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. The platform enables you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. A Logic App is the Azure resource you create when you want to develop a workflow. Here are a few examples of what you can do with a Logic App:
 
