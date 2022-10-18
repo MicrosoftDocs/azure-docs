@@ -161,7 +161,7 @@ The YAML files above can be used in az ml compute attach command as the **--file
 
    **Place relevant material here or below this point**
 
-```yml
+```yml 
     azureuser@yogi-aml-compute:~/cloudfiles/code/Users/yogipandey/aml_spark$ az ml compute attach --file attached-spark.yaml --subscription 6560575d-fa06-4e7d-95fb-f962e74efd7a -g yogi-res-group -w yogi-aml-ws
     Class SynapseSparkCompute: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.
 
