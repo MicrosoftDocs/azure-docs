@@ -27,7 +27,7 @@ The workflow will work in the following way:
 4. It will trigger the batch endpoint (default deployment) using the newly created file as input.
 
 > [!IMPORTANT]
-> The proposed Logic App will create a batch deployment job for each file that triggers the event of *blog created*. However, keep in mind that batch deployments distribute the work at the file level. Since this execution is specifying only one file, then, there will not be any parallelization happening in the deployment. Instead, you will be taking advantage of the capability of batch deployments of executing multiple scoring jobs under the same compute cluster.
+> The proposed Logic App will create a batch deployment job for each file that triggers the event of *blog created*. However, keep in mind that batch deployments distribute the work at the file level. Since this execution is specifying only one file, then, there will not be any parallelization happening in the deployment. Instead, you will be taking advantage of the capability of batch deployments of executing multiple scoring jobs under the same compute cluster. If you need to run jobs on folders, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-adf.md).
 
 ## Prerequisites
 
