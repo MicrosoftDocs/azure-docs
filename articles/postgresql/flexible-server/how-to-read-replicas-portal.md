@@ -88,13 +88,13 @@ To promote replica from the Azure portal, follow these steps:
    :::image type="content" source="./media/how-to-read-replicas-portal/confirm-promote.png" alt-text="Confirm to promote replica":::
 
 ## Delete a primary server
-You can only delete primary server once all-read replicas have been deleted. Follow the instruction in [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with steps below.  
+You can only delete primary server once all read replicas have been deleted. Follow the instruction in [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with steps below.  
 
 To delete a server from the Azure portal, follow these steps:
 
 1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
 
-2. Open the **Overview** page for the server. Select **Delete**.
+2. Open the **Overview** page for the server and select **Delete**.
 
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-server.png" alt-text="On the server Overview page, select to delete the primary server":::
 
