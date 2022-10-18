@@ -210,6 +210,50 @@ Multipath I/O enables highly available and fault-tolerant iSCSI network connecti
 
 Install Multipath I/O, enable multipath support for iSCSI devices, and set a default load balancing policy.
 
+```powershell
+# Install Multipath-IO
+Add-WindowsFeature -Name 'Multipath-IO'
+
+# Verify if the installation was successful
+Get-WindowsFeature -Name 'Multipath-IO'
+
+# Enable multipath support for iSCSI devices
+Enable-MSDSMAutomaticClaim -BusType iSCSI
+
+# Set the default load balancing policy based on your requirements. In this example, we set it to round robin        # which should be optimal for most workloads.
+Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
+```
+
+#### Linux
+
+Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for Redhat the command would be `sudo yum install device-mapper-multipath`.
+
+Once you've installed the package, modify **/etc/multipath.conf** based on your needs. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example. For Redhat, you can use `mpathconf --enable` to create **/etc/multipath.conf**.
+
+```
+defaults {
+    user_friendly_names yes		# To create ‘mpathn’ names for multipath devices
+    path_grouping_policy multibus	# To place all the paths in one priority group
+    path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
+    failback immediate			# For immediate failback to highest priority path group with active paths
+    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
+}
+
+# To exclude disks (for example local disks) from multipath topology
+blacklist {
+    wwid 360022480b13867ae2354de779cfc04fb
+    wwid 360022480bdec0186316aaf58e097e057
+}
+devices {
+  device {
+    vendor "MSFT"
+    product "Virtual HD"
+  }
+}
+```
+
+After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command would be `sudo systemctl restart multipath-tools.service` and on Redhat the command would be `sudo systemctl restart multipathd`.
+
 ## Next steps
 
 [Configure Elastic SAN networking (preview)](elastic-san-networking.md)
