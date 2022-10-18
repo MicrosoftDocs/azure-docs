@@ -35,11 +35,9 @@ Before you start:
 
 1. Select **Create Virtual Switch**.
 
-1. Under connection type, select **External Network**.
+1. In the **Connection type** area, select **External network** and ensure that the **Allow management operating system to share this network adapter** option is selected. For example:
 
-1. Ensure the checkbox for **Allow management operating system to share this network adapter** is checked.
-
-   :::image type="content" source="../media/tutorial-install-components/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter.":::
+   :::image type="content" source="../media/tutorial-install-components/external-network.png" alt-text="Screenshot of the External network option.":::
 
 1. Select **OK**.
 
