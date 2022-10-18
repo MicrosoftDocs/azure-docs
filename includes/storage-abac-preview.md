@@ -11,7 +11,7 @@ ms.custom: "include file"
 ---
 
 > [!IMPORTANT]
-> Currently, Azure ABAC is generally available (GA) for controlling access only to Azure blob storage, Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier.
+> Currently, Azure attribute-based access control (Azure ABAC) is generally available (GA) for controlling access only to Azure blob storage, Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier.
 >
 > For a complete list of storage account performance tiers, resource types, and attributes for which ABAC is GA or in preview, see [Status of condition features in Azure Storage](../articles/storage/common/authorize-data-access.md#status-of-condition-features-in-azure-storage).
 >

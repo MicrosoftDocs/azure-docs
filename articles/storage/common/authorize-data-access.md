@@ -39,12 +39,11 @@ Each authorization option is briefly described below:
 
 - **Azure Active Directory (Azure AD) integration** for authorizing requests to blob, queue, and table resources. Microsoft recommends using Azure AD credentials to authorize requests to data when possible for optimal security and ease of use. For more information about Azure AD integration, see the articles for either [blob](../blobs/authorize-access-azure-active-directory.md), [queue](../queues/authorize-access-azure-active-directory.md), or [table](../tables/authorize-access-azure-active-directory.md) resources.
 
-    You can use Azure role-based access control (Azure RBAC) to manage a security principal's permissions to blob, queue, and table resources in a storage account. You can also use Azure attribute-based access control (ABAC) to add conditions to Azure role assignments for blob resources. For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). For more information about ABAC, see [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md).
+    You can use Azure role-based access control (Azure RBAC) to manage a security principal's permissions to blob, queue, and table resources in a storage account. You can also use Azure attribute-based access control (ABAC) to add conditions to Azure role assignments for blob resources. 
 
-> [!IMPORTANT]
-> Currently, Azure ABAC is generally available (GA) for controlling access only to Azure blob storage, Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier.
->
-> For more details about the ABAC preview, see [About the ABAC Preview](#about-the-abac-preview).
+    For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). 
+
+    For more information about ABAC and its availability status, see [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md) and [the Status of condition features in Azure Storage](#status-of-condition-features-in-azure-storage).
 
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
 
