@@ -20,7 +20,7 @@ Front Door's features work best when traffic only flows through Front Door. You 
 > [!NOTE]
 > *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
 
-:::
+::: zone-end
 
 ::: zone pivot="front-door-standard-premium"
 
