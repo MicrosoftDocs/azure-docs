@@ -1,6 +1,6 @@
 ---
 title: Deploy Active Directory-integrated Azure Arc-enabled SQL Managed Instance
-description: Learn how to deploy Active Directory-integrated Azure Arc-enabled SQL Managed Instance.
+description: Learn how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory authentication.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -224,7 +224,7 @@ To prepare for deployment in system-managed keytab mode:
 
 ---
 
-## Set properties for Active Directory authentication in your specification file
+## Set properties for Active Directory authentication
 
 To deploy an Azure Arc-enabled SQL Managed Instance for Azure Arc Active Directory authentication, update your deployment specification file to reference the Active Directory connector instance to use. Referencing the Active Directory connector in the SQL specification file automatically sets up SQL for Active Directory authentication.
 
@@ -266,7 +266,7 @@ To support Active Directory authentication on SQL in system-managed keytab mode,
 
 ---
 
-## Prepare a deployment specification file
+## Prepare your deployment specification file
 
 Next, prepare a YAML specification file to deploy SQL Managed Instance. For the mode you use, enter your deployment values in the specification file.
 
@@ -408,4 +408,5 @@ For both customer-managed keytab mode and system-managed keytab mode, deploy the
 
 ## Next steps
 
-- [Connect to Active Directory-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
+- [Connect to Active Directory-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md)
+- [Upgrade your Active Directory connector](upgrade-active-directory-connector.md)
