@@ -11,7 +11,7 @@ ms.date: 08/05/2022
 
 [!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
-The steps in this document walk-through creating a HDInsight 3.6 cluster using the Azure CLI.
+The steps in this document walk-through creating a HDInsight 4.0 cluster using the Azure CLI.
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
@@ -51,9 +51,9 @@ The steps in this document walk-through creating a HDInsight 3.6 cluster using t
 
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
-    export clusterVersion=3.6
+    export clusterVersion=4.0
     export clusterType=hadoop
-    export componentVersion=Hadoop=2.7
+    export componentVersion=Hadoop=3.1.0
     ```
 
 3. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
