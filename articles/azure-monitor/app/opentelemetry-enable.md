@@ -384,7 +384,7 @@ For information on standard attributes for resources, see [Resource Semantic Con
 
 ## Enable Sampling
 
-You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.75 means approximately 75% of your telemetry will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+You may want to enable sampling to reduce your data ingestion volume which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". This ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your telemetry will be sent. For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 
 #### [.NET](#tab/net)
@@ -398,7 +398,7 @@ dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
 ```csharp
 var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddSource("OTel.AzureMonitor.Demo")
-    .SetSampler(new ApplicationInsightsSampler(0.4F))
+    .SetSampler(new ApplicationInsightsSampler(0.1F))
     .AddAzureMonitorTraceExporter(o =>
     {
      o.ConnectionString = "<Your Connection String>";
@@ -424,8 +424,8 @@ from azure.monitor.opentelemetry.exporter import (
 )
 
 # Sampler expects a sample rate of between 0 and 1 inclusive
-# 0.75 means approximately 75% of your telemetry is sent
-sampler = ApplicationInsightsSampler(0.75)
+# 0.1 means approximately 10% of your telemetry is sent
+sampler = ApplicationInsightsSampler(0.1)
 trace.set_tracer_provider(TracerProvider(sampler=sampler))
 tracer = trace.get_tracer(__name__)
 exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
@@ -1287,13 +1287,13 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 ## Configuration
 
-### Local Storage and Automatic Retries
+### Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write local storage by default when an application loses its connection with Application Insights. It will save the application telemetry for up to XX hours, and continue to retry every XX minutes until XYZ. In some cases, you may wish to disable this feature to optimize application performance.
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry and periodically tries to send it again. The App Insights SDK also uses the same mechanism as mentioned in [Does the SDK create temporary local storage](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) and [built in telemetry channels](telemetry-channels.md).  In some cases, you may wish to disable this feature to optimize application performance.
 
 #### [.NET](#tab/net)
 
-By default, the AzureMonitorExporter will use one of the following locations for local storage (listed in order of precedence):
+By default, the AzureMonitorExporter uses one of the following locations for offline storage (listed in order of precedence):
 
 - Windows
   - %LOCALAPPDATA%\Microsoft\AzureMonitor
