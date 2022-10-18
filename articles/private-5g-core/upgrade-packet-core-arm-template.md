@@ -22,7 +22,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- Contact your Microsoft assigned trials engineer. They'll guide you through the upgrade process and provide you with the required information, including the amount of time you'll need to allow for the upgrade to complete and the new software version number.
+- Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, [update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update).
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Identify the name of the site that hosts the packet core instance you want to upgrade.
 
@@ -65,7 +65,8 @@ The template modifies the version of an existing [**Microsoft.MobileNetwork/pack
 1. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version. 
 
 ## Next steps
-You should use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
+
+Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally after the upgrade.
 
 - [Monitor Azure Private 5G Core with Log Analytics](monitor-private-5g-core-with-log-analytics.md)
 - [Packet core dashboards](packet-core-dashboards.md)
