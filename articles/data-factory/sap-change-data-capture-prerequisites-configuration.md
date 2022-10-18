@@ -1,34 +1,31 @@
 ---
-title: Prerequisites and setup for the SAP CDC connector (preview)
+title: Prerequisites and setup for the SAP CDC connector
 titleSuffix: Azure Data Factory
-description: Learn about the prerequisites and setup for the SAP CDC connector (preview) in Azure Data Factory.
+description: Learn about the prerequisites and setup for the SAP CDC connector in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
-# Prerequisites and setup for the SAP CDC connector (preview)
+# Prerequisites and setup for the SAP CDC connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn about the prerequisites for the SAP CDC connector (preview) in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
+Learn about the prerequisites for the SAP CDC connector in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
 
 ## Prerequisites
 
-To preview the SAP CDC capabilities in Azure Data Factory, be able to complete these prerequisites:
+To use the SAP CDC capabilities in Azure Data Factory, be able to complete these prerequisites:
 
-- In Azure Data Factory Studio, [enable the preview experience](how-to-manage-studio-preview-exp.md#how-to-enabledisable-preview-experience).
 - Set up SAP systems to use the [SAP Operational Data Provisioning (ODP) framework](https://help.sap.com/docs/SAP_LANDSCAPE_TRANSFORMATION_REPLICATION_SERVER/007c373fcacb4003b990c6fac29a26e4/b6e26f56fbdec259e10000000a441470.html?q=SAP%20Operational%20Data%20Provisioning%20%28ODP%29%20framework).
 - Be familiar with Data Factory concepts like integration runtimes, linked services, datasets, activities, data flows, pipelines, and triggers.
 - Set up a self-hosted integration runtime to use for the connector.
-- Set up an SAP CDC (preview) linked service.
-- Set up the Data Factory copy activity with an SAP CDC (preview) source dataset.
-- Debug Data Factory copy activity issues by sending self-hosted integration runtime logs to Microsoft.
-- Be able to run an SAP data replication pipeline frequently.
-- Be able to recover a failed SAP data replication pipeline run.
+- Set up an SAP CDC linked service.
+- Debug issues with the SAP CDC connector by sending self-hosted integration runtime logs to Microsoft.
 - Be familiar with monitoring data extractions on SAP systems.
 
 ## Set up SAP systems to use the SAP ODP framework

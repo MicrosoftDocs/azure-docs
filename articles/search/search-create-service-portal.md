@@ -8,14 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 10/13/2022
 ---
 
 # Create an Azure Cognitive Search service in the portal
 
 [**Azure Cognitive Search**](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps.
 
-You can create search service using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/), or a [Bicep file](search-get-started-bicep.md).
+If you have an Azure subscription, including a [trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), you can create a search service for free. Free services have limitations, but you can complete all of the quickstarts and most tutorials.
+
+The easiest way to create search service is using the [Azure portal](https://portal.azure.com/), which is covered in this article. You can also use [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), the [Management REST API](/rest/api/searchmanagement/), an [Azure Resource Manager service template](https://azure.microsoft.com/resources/templates/azure-search-create/), or a [Bicep file](search-get-started-bicep.md).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -35,7 +37,7 @@ To try search for free, you have two options:
 
 + Alternatively, [activate Azure credits in a Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). A Visual Studio subscription gives you credits every month you can use for paid Azure services. 
 
-Paid (or billable) search becomes effective when you choose a billable tier (Basic or above) and create the resource.
+Paid (or billable) search becomes effective when you choose a billable tier (Basic or above) when creating the resource.
 
 ## Find the Azure Cognitive Search offering
 

@@ -126,6 +126,20 @@ The self-hosted gateway sends telemetry to [Azure Monitor](api-management-howto-
 When [connectivity to Azure](self-hosted-gateway-overview.md#connectivity-to-azure) is temporarily lost, the flow of telemetry to Azure is interrupted and the data is lost for the duration of the outage.
 Consider [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure the ability to observe API traffic and prevent telemetry loss during Azure connectivity outages.
 
+## HTTP(S) proxy
+
+The self-hosted gateway provides support for HTTP(S) proxy by using the traditional `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
+
+Once configured, the self-hosted gateway will automatically use the proxy for all outbound HTTP(S) requests to the backend services.
+
+Starting with version 2.1.5 or above, the self-hosted gateway provides observability related to request proxying:
+
+- [API Inspector](api-management-howto-api-inspector.md) will show additional steps when HTTP(S) proxy is being used and its related interactions.
+- Verbose logs are provided to provide indication of the request proxy behavior.
+
+> [!Warning]
+> Ensure that the [infrastructure requirements](self-hosted-gateway-overview.md#fqdn-dependencies) have been met and that the self-hosted gateway can still connect to them or certain functionality will not work properly.
+
 ## High availability
 The self-hosted gateway is a crucial component in the infrastructure and has to be highly available. However, failure will and can happen.
 
