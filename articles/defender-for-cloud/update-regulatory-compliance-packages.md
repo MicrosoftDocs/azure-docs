@@ -25,7 +25,7 @@ Microsoft tracks the regulatory standards themselves and automatically improves 
 
 ## What regulatory compliance standards are available in Defender for Cloud?
 
-By default, every Azure subscription has the **Microsoft Cloud Security Benchmark** assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction).
+By default, every Azure subscription has the **Microsoft cloud security benchmark** assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
 
 Available regulatory standards:
 
@@ -50,7 +50,7 @@ Available regulatory standards:
 - Australian Government ISM Protected
 - RMIT Malaysia
 
-By default, every AWS connector subscription has the **Microsoft Cloud Security Benchmark (MCSB)** assigned along with the **AWS Foundational Security Best Practices**. MCSB is the Microsoft recommended cloud security best practices based on common compliance frameworks, with detailed guidance for applying to an AWS environment. AWS Foundational Security Best Practices is the AWS-recommended security guidelines.  
+By default, every AWS connector subscription has the **Microsoft cloud security benchmark (MCSB)** assigned along with the **AWS Foundational Security Best Practices**. MCSB is the Microsoft recommended cloud security best practices based on common compliance frameworks, with detailed guidance for applying to an AWS environment. AWS Foundational Security Best Practices is the AWS-recommended security guidelines.  
 
 Available AWS regulatory standards:
 - AWS CIS 1.2.0
@@ -136,6 +136,6 @@ In this article, you learned how to **add compliance standards** to monitor your
 
 For related material, see the following pages:
 
-- [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction)
+- [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 - [Defender for Cloud regulatory compliance dashboard](regulatory-compliance-dashboard.md) - Learn how to track and export your regulatory compliance data with Defender for Cloud and external tools
 - [Working with security policies](tutorial-security-policy.md)

@@ -104,6 +104,6 @@ To learn about how to respond to these attack paths, see [Identify and remediate
 ## Next steps
 
 For related information, see the following:
-- [What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?](concept-attack-path.md)
+- [What are the cloud security graph, attack path analysis, and the cloud security explorer?](concept-attack-path.md)
 - [Identify and remediate attack paths](how-to-manage-attack-path.md)
-- [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md)
+- [Cloud security explorer](how-to-manage-cloud-security-explorer.md)

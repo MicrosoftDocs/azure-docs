@@ -3,7 +3,7 @@ title: Migrate from a Run As account to a managed identity
 description: This article describes how to migrate from a Run As account to a managed identity in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/27/2022
+ms.date: 10/17/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -107,6 +107,7 @@ The following examples of runbook scripts fetch the Resource Manager resources b
 > Enable appropriate RBAC permissions for the system identity of this Automation account. Otherwise, the runbook might fail.
 
   ```powershell
+  try
   {
       "Logging in to Azure..."
       Connect-AzAccount -Identity
@@ -133,6 +134,7 @@ The following examples of runbook scripts fetch the Resource Manager resources b
 # [User-assigned managed identity](#tab/ua-managed-identity)
 
 ```powershell
+try
 { 
 
     "Logging in to Azure..." 
