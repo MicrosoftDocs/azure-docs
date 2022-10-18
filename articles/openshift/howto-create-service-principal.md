@@ -5,7 +5,7 @@ author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
-ms.date: 03/21/2022
+ms.date: 10/18/2022
 topic: how-to
 keywords: azure, openshift, aro, red hat, azure CLI, azure portal
 #Customer intent: I need to create and use an Azure service principal to restrict permissions to my Azure Red Hat OpenShift cluster.
@@ -50,7 +50,7 @@ AZ_SUB_ID=$(az account show --query id -o tsv)
 az ad sp create-for-rbac -n "test-aro-SP" --role contributor --scopes "/subscriptions/${AZ_SUB_ID}/resourceGroups/${AZ_RG}"
 ```
 
-The output is similar to the following example.
+The output is similar to the following example:
 
 ```
 { 
