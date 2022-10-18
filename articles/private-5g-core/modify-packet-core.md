@@ -2,11 +2,11 @@
 title: Modify a packet core instance
 titleSuffix: Azure Private 5G Core Preview
 description: In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+author: b-branco
+ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 09/29/2022
 ms.custom: template-how-to
 ---
 
@@ -17,7 +17,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 ## Prerequisites
 
 - If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format. Note that you can't change a packet core instance's **Technology type** field.
-- If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the required values and make they're in the correct format.
+- If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the required values and make sure they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
 ## Modify the packet core instance
