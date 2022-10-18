@@ -50,7 +50,7 @@ Learn how to use pg_azure_storage storage account to manipulate and load data in
     (2 rows)
     ```
     
-    If you have a different container, with multiple files you can filter the output either using regular SQL `WHERE` clauses or by using the `prefix` parameter of `blob_list` UDF, the latter will filter the returned rows on the Azure Blob Storage side.
+    If you have a different container with multiple files, you can filter the output either by using a regular SQL `WHERE` clauses, or by using the `prefix` parameter of the `blob_list` UDF. The latter will filter the returned rows on the Azure Blob Storage side.
     
     
     > [!NOTE]
