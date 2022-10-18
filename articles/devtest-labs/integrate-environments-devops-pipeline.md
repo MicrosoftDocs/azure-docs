@@ -38,7 +38,7 @@ For information about other extension tasks like creating VMs and custom images,
 1. Select the plus sign **+** next to **Agent job**.
 1. Under **Add tasks**, search for and select **Azure DevTest Labs Create Environment**, and then select **Add**.
 1. On the left, select the **Azure DevTest Labs Create Environment** task.
-1. Fill out the **Azure DevTest Labs Create Environment (Preview)** form as follows:
+1. Fill out the **Azure DevTest Labs Create Environment** form as follows:
    
    :::image type="content" source="./media/integrate-environments-devops-pipeline/new-release-pipeline-environment.png" alt-text="Screenshot shows the fields needed for Azure Pipelines environment for Azure DevTest Labs." border="false":::
 
