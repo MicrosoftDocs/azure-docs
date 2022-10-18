@@ -3,7 +3,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/28/2022
+ ms.date: 10/18/2022
  ms.author: cherylmc
 
 #Customer intent: this file is used for both virtual wan and vpn gateway articles.
@@ -11,7 +11,7 @@
 1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 1. Download the VPN client profile package from the Azure portal, or use the 'New-AzVpnClientConfiguration' cmdlet in PowerShell.
 1. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
-1. Export the point-to-site client certificate that you created and uploaded. While many of the steps in this section of the article can apply to both VPN Gateway and Virtual WAN configurations, the procedure is different for this step. Use the link that pertains to your environment.
+1. Export the point-to-site client certificate that you created. While many of the steps in this section of the article can apply to both VPN Gateway and Virtual WAN configurations, the procedure is different for this step. Use the link that pertains to your environment.
 
    * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions
    * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) instructions
