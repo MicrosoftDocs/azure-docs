@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: reference
 ms.service: iot-hub
-ms.date: 09/13/2022
+ms.date: 10/18/2022
 ---
 
 # Monitor device status
@@ -20,7 +20,9 @@ The following table introduces three ways to monitor your device connection stat
 | Event Grid | 60 seconds | Low | Low |
 | Custom device heartbeat pattern | Custom | High | High |
 
-Because of its reliability, low cost, and ease of use we recommend Event Grid as the preferred monitoring solution for most customers. However, there are certain limitations to monitoring with Event Grid that may disqualify it for some IoT solutions. Use this article to understand the benefits and limitations of each option.
+Because of its reliability, low cost, and ease of use we recommend Event Grid as the preferred monitoring solution for most customers.
+
+However, there are certain limitations to monitoring with Event Grid that may disqualify it for some IoT solutions. Use this article to understand the benefits and limitations of each option.
 
 ## Device twin connectionState
 
@@ -35,7 +37,9 @@ For these reasons, we recommend that you only use the **connectionState** field 
 
 ## Event Grid
 
-We recommend subscribing to the **deviceConnected** and **deviceDisconnected** events on Event Grid to get alerts and monitor the device connection state.
+We recommend Event Grid as the preferred monitoring solution for most customers.
+
+Subscribe to the **deviceConnected** and **deviceDisconnected** events on Event Grid to get alerts and monitor the device connection state.
 
 Use the following articles to learn how to integrate device connected and disconnected events in your IoT solution:
 
@@ -47,8 +51,7 @@ Device connection state events are available for devices connecting using either
 * For devices connecting using the Azure IoT SDKs for Java, Node, or Python:
   * MQTT: connection state events are sent automatically.
   * AMQP: a [cloud-to-device link](iot-hub-amqp-support.md#invoke-cloud-to-device-messages-service-client) should be created to reduce delays in reporting connection states.
-* For devices connecting using the .NET SDK, connection state events won't be reported until an initial device-to-cloud message is sent or a cloud-to-device message is received.
-* For devices connecting using the C SDK, connection state events won't be reported.
+* For devices connecting using the Azure IoT SDKs for .NET or C, connection state events won't be reported until an initial device-to-cloud message is sent or a cloud-to-device message is received.
 
 Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging topics. Over AMQP these operations equate to attaching or transferring a message on the appropriate link paths.
 
@@ -63,7 +66,7 @@ Using Event Grid to monitor your device status comes with the following limitati
 * The IoT C SDK doesn't have a connect method. Customers must send telemetry to begin reporting accurate device connection states.
 * Event Grid exposes a public endpoint that can't be hidden.
 
-If any of these limitations impact your ability to use Event Grid for device status monitoring, then you should consider building a custom device heartbeat pattern instead.
+If any of these limitations affect your ability to use Event Grid for device status monitoring, then you should consider building a custom device heartbeat pattern instead.
 
 ## Device heartbeat
 
@@ -76,7 +79,8 @@ If you need to know the connection state of your devices but the limitations of 
 
 Since heartbeat messages are implemented as device-to-cloud messages, they count against your [IoT Hub message quota and throttling limits](iot-hub-devguide-quotas-throttling.md).
 
-## Additional monitoring options
+## Other monitoring options
 
-A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. To learn more about using these services with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). For more specific information about using Azure Monitor or Event Grid to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity](iot-hub-troubleshoot-connectivity.md).
+A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. Azure Monitor dashboards are helpful for seeing the aggregate health of your devices, while Event Grid and heartbeat patterns make it easier to respond to individual device outages.
 
+To learn more about using these services with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). For more specific information about using Azure Monitor or Event Grid to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity](iot-hub-troubleshoot-connectivity.md).
