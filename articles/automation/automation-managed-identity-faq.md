@@ -55,7 +55,7 @@ A Run As account creates an Azure AD app that's used to manage the resources wit
 Run As accounts also have a management overhead that involves creating a service principal, Run As certificate, Run As connection, certificate renewal, and so on. Managed identities eliminate this overhead by providing a secure method for users to authenticate and access resources that support Azure AD authentication without worrying about any certificate or credential management.
 
 ## Can a managed identity be used for both cloud and hybrid jobs?
-Azure Automation supports [system-assigned managed identities](/azure/automation/automation-security-overview#managed-identities) for both cloud and hybrid jobs. Currently, Azure Automation [user-assigned managed identities](/azure/automation/automation-security-overview) can be used for cloud jobs only and can't be used for jobs that run on a hybrid worker.
+Azure Automation supports [system-assigned managed identities](/azure/automation/automation-security-overview#managed-identities) for both cloud and hybrid jobs. Currently, Azure Automation [user-assigned managed identities](/azure/automation/automation-security-overview#managed-identities-preview) can be used for cloud jobs only and can't be used for jobs that run on a hybrid worker.
 
 ## Can I use a Run As account for new Automation account?
 Yes, but only in a scenario where managed identities aren't supported for specific on-premises resources. We'll allow the creation of a Run As account through a [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell).
