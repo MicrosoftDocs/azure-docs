@@ -1,9 +1,8 @@
 ---
-title: Rule groups in Azure Monitor Managed Service for Prometheus (preview)
-description: Description of rule groups in Azure Monitor managed service for Prometheus which alerting and data computation.
+title: Remote-write in Azure Monitor Managed Service for Prometheus (preview)
+description: Describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. 
 author: bwren 
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.date: 10/17/2022
 ---
 
@@ -108,9 +107,12 @@ This step isn't required if you're using an AKS identity. This identity already 
     ```azurecli
     az vmss identity assign -g <AKS-NODE-RESOURCE-GROUP> -n <AKS-VMSS-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
     ```
+
+---
+
 ## Deploy Side car and configure remote write on the Prometheus server
 
-1 Copy the YAML below and save to a file, replacing the following values. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
+1. Copy the YAML below and save to a file, replacing the following values. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
 
     `<AKS-CLUSTER-NAME>`: Name of your AKS cluster
     `<CONTAINER-IMAGE-VERSION>`: `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2`. This is the remote write container image version.
