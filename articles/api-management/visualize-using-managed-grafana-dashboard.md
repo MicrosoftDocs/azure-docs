@@ -51,9 +51,9 @@ To import the dashboard:
 ## Use API Management dashboard
 
 1. In the Managed Grafana workspace, go to **Dashboards** > **Browse** and select your API Management dashboard.
-1. In the dropdowns at the top, select a data store and an Azure subscription, resource group, and API Management instance. If configured, also select an Application Insights instance and a Log Analytics workspace.  
+1. In the dropdowns at the top, make selections for your API Management instance. If configured, select an Application Insights instance and a Log Analytics workspace.  
 
-Review the default visualizations configured for the dashboard, which will appear similar to the following screenshot:
+Review the default visualizations on the dashboard, which will appear similar to the following screenshot:
 
 :::image type="content" source="media/visualize-using-managed-grafana-dashboard/api-management-dashboard.png" alt-text="Screenshot of API Management dashboard in Managed Grafana workspace.":::
 

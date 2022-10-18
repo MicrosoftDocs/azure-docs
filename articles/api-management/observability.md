@@ -50,3 +50,4 @@ The table below summarizes all the observability capabilities supported by API M
 - Get started with [Azure Monitor metrics and logs](api-management-howto-use-azure-monitor.md)
 - Learn how to log requests with [Application Insights](api-management-howto-app-insights.md)
 - Learn how to log events through [Event Hubs](api-management-howto-log-event-hubs.md) 
+- Learn about visualizing Azure Monitor data using [Azure Managed Grafana](visualize-using-managed-grafana-dashboard.md)
