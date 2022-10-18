@@ -77,7 +77,7 @@ If you have questions about configuring a TLS/SSL Certificate on an IIS server, 
 
 ## Deploy the user portal on a separate server
 
-If the server where Azure AD Multi-Factor Authentication Server is running is not internet-facing, you should install the user portal on a **separate, internet-facing server**.
+If the server where Azure AD Multi-Factor Authentication Server is running isn't internet-facing, you should install the user portal on a **separate, internet-facing server**.
 
 If your organization uses the Microsoft Authenticator app as one of the verification methods, and want to deploy the user portal on its own server, complete the following requirements:
 
@@ -88,11 +88,11 @@ If your organization uses the Microsoft Authenticator app as one of the verifica
 * Secure the user portal with a TLS/SSL certificate.
 * Secure the Azure AD Multi-Factor Authentication Web Service SDK with a TLS/SSL certificate.
 * Ensure that the user portal can connect to the Azure AD Multi-Factor Authentication Web Service SDK over TLS/SSL.
-* Ensure that the user portal can authenticate to the Azure AD Multi-Factor Authentication Web Service SDK using the credentials of a service account in the "PhoneFactor Admins" security group. This service account and group should exist in Active Directory if the Azure AD Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure AD Multi-Factor Authentication Server if it is not joined to a domain.
+* Ensure that the user portal can authenticate to the Azure AD Multi-Factor Authentication Web Service SDK using the credentials of a service account in the "PhoneFactor Admins" security group. This service account and group should exist in Active Directory if the Azure AD Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure AD Multi-Factor Authentication Server if it isn't joined to a domain.
 
 Installing the user portal on a server other than the Azure AD Multi-Factor Authentication Server requires the following steps:
 
-1. **On the MFA Server**, browse to the installation path (Example: C:\Program Files\Multi-Factor Authentication Server), and copy the file **MultiFactorAuthenticationUserPortalSetup64** to a location accessible to the internet-facing server where you will install it.
+1. **On the MFA Server**, browse to the installation path (Example: C:\Program Files\Multi-Factor Authentication Server), and copy the file **MultiFactorAuthenticationUserPortalSetup64** to a location accessible to the internet-facing server where you'll install it.
 2. **On the internet-facing web server**, run the  MultiFactorAuthenticationUserPortalSetup64 install file as an administrator, change the Site if desired and change the Virtual directory to a short name if you would like.
 3. Bind a TLS/SSL Certificate to the site in IIS.
 
@@ -116,7 +116,7 @@ If you have questions about configuring a TLS/SSL Certificate on an IIS server, 
 
 Now that the user portal is installed, you need to configure the Azure AD Multi-Factor Authentication Server to work with the portal.
 
-1. In the Azure AD Multi-Factor Authentication Server console, click the **User Portal** icon. On the Settings tab, enter the URL to the user portal in the **User Portal URL** textbox. If email functionality has been enabled, this URL is included in the emails that are sent to users when they are imported into the Azure AD Multi-Factor Authentication Server.
+1. In the Azure AD Multi-Factor Authentication Server console, click the **User Portal** icon. On the Settings tab, enter the URL to the user portal in the **User Portal URL** textbox. If email functionality has been enabled, this URL is included in the emails that are sent to users when they're imported into the Azure AD Multi-Factor Authentication Server.
 2. Choose the settings that you want to use in the User Portal. For example, if users are allowed to choose their authentication methods, ensure that **Allow users to select method** is checked, along with the methods they can choose from.
 3. Define who should be Administrators on the **Administrators** tab. You can create granular administrative permissions using the checkboxes and dropdowns in the Add/Edit boxes.
 
@@ -128,27 +128,27 @@ Optional configuration:
 
 ![MFA Server User Portal configuration](./media/howto-mfaserver-deploy-userportal/config.png)
 
-Azure AD Multi-Factor Authentication server provides several options for the user portal. The following table provides a list of these options and an explanation of what they are used for.
+Azure AD Multi-Factor Authentication server provides several options for the user portal. The following table provides a list of these options and an explanation of what they're used for.
 
 | User Portal Settings | Description |
 |:--- |:--- |
 | User Portal URL | Enter the URL of where the portal is being hosted. |
 | Primary authentication | Specify the type of authentication to use when signing in to the portal. Either Windows, Radius, or LDAP authentication. |
-| Allow users to log in | Allow users to enter a username and password on the sign-in page for the User portal. If this option is not selected, the boxes are grayed out. |
+| Allow users to log in | Allow users to enter a username and password on the sign-in page for the User portal. If this option isn't selected, the boxes are grayed out. |
 | Allow user enrollment | Allow a user to enroll in Multi-Factor Authentication by taking them to a setup screen that prompts them for additional information such as telephone number. Prompt for backup phone allows users to specify a secondary phone number. Prompt for third-party OATH token allows users to specify a third-party OATH token. |
-| Allow users to initiate One-Time Bypass | Allow users to initiate a one-time bypass. If a user sets this option up, it will take effect the next time the user signs in. Prompt for bypass seconds provides the user with a box so they can change the default of 300 seconds. Otherwise, the one-time bypass is only good for 300 seconds. |
+| Allow users to initiate One-Time Bypass | Allow users to initiate a one-time bypass. If a user sets up this option, it will take effect the next time the user signs in. Prompt for bypass seconds provides the user with a box so they can change the default of 300 seconds. Otherwise, the one-time bypass is only good for 300 seconds. |
 | Allow users to select method | Allow users to specify their primary contact method. This method can be phone call, text message, mobile app, or OATH token. |
 | Allow users to select language | Allow users to change the language that is used for the phone call, text message, mobile app, or OATH token. |
 | Allow users to activate mobile app | Allow users to generate an activation code to complete the mobile app activation process that is used with the server.  You can also set the number of devices they can activate the app on, between 1 and 10. |
 | Use security questions for fallback | Allow security questions in case two-step verification fails. You can specify the number of security questions that must be successfully answered. |
 | Allow users to associate third-party OATH token | Allow users to specify a third-party OATH token. |
-| Use OATH token for fallback | Allow for the use of an OATH token in case two-step verification is not successful. You can also specify the session timeout in minutes. |
+| Use OATH token for fallback | Allow for the use of an OATH token in case two-step verification isn't successful. You can also specify the session timeout in minutes. |
 | Enable logging | Enable logging on the user portal. The log files are located at: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
 > [!IMPORTANT]
 > Starting in March of 2019 the phone call options will not be available to MFA Server users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
-These settings become visible to the user in the portal once they are enabled and they are signed in to the user portal.
+The user can see these settings after they sign in to the user portal.
 
 ![Manage your MFA Server account using the user portal](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
@@ -156,7 +156,7 @@ These settings become visible to the user in the portal once they are enabled an
 
 If you want your users to sign in and enroll, you must select the **Allow users to log in** and **Allow user enrollment** options under the Settings tab. Remember that the settings you select affect the user sign-in experience.
 
-For example, when a user signs in to the user portal for the first time, they are then taken to the Azure AD Multi-Factor Authentication User Setup page. Depending on how you have configured Azure AD Multi-Factor Authentication, the user may be able to select their authentication method.
+For example, when a user signs in to the user portal for the first time, they're then taken to the Azure AD Multi-Factor Authentication User Setup page. Depending on how you have configured Azure AD Multi-Factor Authentication, the user may be able to select their authentication method.
 
 If they select the Voice Call verification method or have been pre-configured to use that method, the page prompts the user to enter their primary phone number and extension if applicable. They may also be allowed to enter a backup phone number.
 
