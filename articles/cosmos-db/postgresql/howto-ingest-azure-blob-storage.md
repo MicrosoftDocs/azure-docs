@@ -36,7 +36,7 @@ Learn how to use pg_azure_storage storage account to manipulate and load data in
 
 1. List public container contents
     
-    We can easily see what files are present in the `github` container of the `pgquickstart` Azure Blob Storage account by using the `azure_storage.blob_list(account, container)` function.
+    There's a demonstration Azure Blob Storage account and container pre-created for this how-to. The container's name is `github`, and it's in the `pgquickstart` account. We can easily see which files are present in the container by using the `azure_storage.blob_list(account, container)` function.
     
     ```sql
     SELECT path, bytes, pg_size_pretty(bytes), content_type FROM azure_storage.blob_list('pgquickstart','github');
