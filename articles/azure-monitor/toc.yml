@@ -228,6 +228,9 @@ items:
       - name: Rule groups
         displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Remote-write
+        displayName: Prometheus
+        href: essentials/prometheus-remote-write-managed-identity.md
       - name: Configure Grafana
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
