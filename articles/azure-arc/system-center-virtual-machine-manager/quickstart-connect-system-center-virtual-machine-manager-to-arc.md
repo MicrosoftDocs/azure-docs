@@ -16,6 +16,9 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 
 ## Prerequisites
 
+>[!Note]
+>If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed. 
+
 | **Requirement** | **Details** |
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
