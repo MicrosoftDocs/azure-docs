@@ -70,17 +70,17 @@ The following examples show how you can secure different types of origins.
 
 # [App Service and Azure Functions](#tab/app-service-azure-functions)
 
-You can use [App Service access restrictions](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) to perform IP address filtering as well as header filtering. The capabilty is provided by the platform, and you don't need to change your application or host.
+You can use [App Service access restrictions](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) to perform IP address filtering as well as header filtering. The capability is provided by the platform, and you don't need to change your application or host.
 
 # [Application Gateway](#tab/application-gateway)
 
-Application Gateway is deployed into your virtual network. Configure a network security group rule to restrict inbound access on ports 80 and 443 to the *AzureFrontDoor.Backend* service tag, and ensure that inbound traffic on ports 80 and 443 is disallowed from the *Internet* service tag.
+Application Gateway is deployed into your virtual network. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
 
 Use a custom WAF rule to check the `X-Azure-FDID` header value.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
 
 # [IIS](#tab/iis)
 
-When you run [Microsoft Internet Information Services (IIS)](https://www.iis.net/) on an Azure-hosted virtual machine, you should create a network security group in the virtual network that hosts the virtual machine. Add a network security group rule to restrict inbound access on ports 80 and 443 to the *AzureFrontDoor.Backend* service tag, and ensure that inbound traffic on ports 80 and 443 is disallowed from the *Internet* service tag.
+When you run [Microsoft Internet Information Services (IIS)](https://www.iis.net/) on an Azure-hosted virtual machine, you should create a network security group in the virtual network that hosts the virtual machine. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
 
 Use an IIS configuration file like in the following example to inspect the `X-Azure-FDID` header on your incoming requests:
 
@@ -105,7 +105,7 @@ Use an IIS configuration file like in the following example to inspect the `X-Az
 
 # [AKS NGINX controller](#tab/aks-nginx)
 
-When you run [AKS with an NGINX ingress controller](../aks/ingress-basic.md), you should create a network security group in the virtual network that hosts the AKS cluster. Add a network security group rule to restrict inbound access on ports 80 and 443 to the *AzureFrontDoor.Backend* service tag, and ensure that inbound traffic on ports 80 and 443 is disallowed from the *Internet* service tag.
+When you run [AKS with an NGINX ingress controller](../aks/ingress-basic.md), you should create a network security group in the virtual network that hosts the AKS cluster. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
 
 Use a Kubernetes ingress configuration file like in the following example to inspect the `X-Azure-FDID` header on your incoming requests:
 
