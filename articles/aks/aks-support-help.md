@@ -13,7 +13,7 @@ Here are suggestions for where you can get help when developing your Azure Kuber
 
 ## Self help troubleshooting
 
-:::image type="content" source="./media/logos/doc-logo.png" alt-text="Image of self help content icon.":::
+:::image type="icon" source="./media/logos/doc-logo.png" alt-text="":::
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Kubernetes Service. Use these articles to troubleshoot deployment failures, security-related problems, connection issues and more.
 
@@ -21,7 +21,7 @@ For a full list of self help troubleshooting content, see [Azure Kubernetes Serv
 
 ## Post a question on Microsoft Q&A
 
-:::image type="content" source="./media/logos/microsoft-logo.png" alt-text="Image of Microsoft Q&A icon.":::
+:::image type="icon" source="./media/logos/microsoft-logo.png" alt-text="":::
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure's preferred destination for community support.
 
@@ -43,7 +43,7 @@ If you can't find an answer to your problem using search, submit a new question 
 
 ## Create an Azure support request
 
-:::image type="content" source="./media/logos/azure-logo.png" alt-text="Image of Azure support icon.":::
+:::image type="icon" source="./media/logos/azure-logo.png" alt-text="":::
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
@@ -53,7 +53,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Create a GitHub issue
 
-:::image type="content" source="./media/logos/github-logo.png" alt-text="Image of GitHub icon.":::
+:::image type="icon" source="./media/logos/github-logo.png" alt-text="":::
 
 If you need help with the language and tools used to develop and manage Azure Kubernetes Service, open an issue in its repository on GitHub.
 
@@ -70,7 +70,7 @@ If you need help with the language and tools used to develop and manage Azure Ku
 
 ## Stay informed of updates and new releases
 
-:::image type="content" source="./media/logos/updates-logo.png" alt-text="Image of Stay informed icon.":::
+:::image type="icon" source="./media/logos/updates-logo.png" alt-text="":::
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
 
