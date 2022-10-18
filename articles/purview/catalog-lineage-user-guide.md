@@ -93,7 +93,7 @@ Microsoft Purview supports asset level lineage for the datasets and processes. T
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage-inline.png" alt-text="Screenshot showing how to select View columns in the lineage page." lightbox="./media/catalog-lineage-user-guide/view-columns-from-lineage.png"border="true":::
 
-## Manual lineage (Preview)
+## Manual lineage (preview)
 
 Data lineage in Microsoft Purview is [automated](#lineage-collection) for many assets in on-premises, multicloud, and SaaS environments. While we continue to add more automated sources, manual lineage allows you to document lineage metadata for sources where automation isn't yet supported, without using any code.
 
@@ -115,15 +115,15 @@ To add manual lineage for any of your assets, follow these steps:
 
 ### Known limitations of manual lineage
 
-1. Current asset picker experience allows selecting only one asset at a time.
-1. Column level manual lineage is currently not supported.
-1. Data curation access required for both source and target assets.
-1. These asset types don't currently allow manual lineage because they support automated lineage:
-    1. Azure Data Factory
-    1. Synapse pipelines
-    1. Power BI datasets
-    1. Teradata stored procedure
-    1. Azure SQL stored procedure
+* Current asset picker experience allows selecting only one asset at a time.
+* Column level manual lineage is currently not supported.
+* Data curation access required for both source and target assets.
+* These asset types don't currently allow manual lineage because they support automated lineage:
+    * Azure Data Factory
+    * Synapse pipelines
+    * Power BI datasets
+    * Teradata stored procedure
+    * Azure SQL stored procedure
 
 ## Dataset column lineage
 
