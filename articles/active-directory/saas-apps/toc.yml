@@ -774,6 +774,8 @@
         href: envimmis-tutorial.md
       - name: Envoy
         href: envoy-tutorial.md
+      - name: e2open CM-Global
+        href: eopen-cm-tutorial.md
       - name: E2open LSP
         href: e2open-lsp-tutorial.md
       - name: EPHOTO DAM
@@ -839,8 +841,8 @@
       items:
       - name: Fabric
         href: fabric-tutorial.md
-      - name: F5
-        href: headerf5-tutorial.md
+      - name: F5 BIG-IP Easy Button for header-based SSO
+        href: f5-big-ip-headers-easy-button.md
       - name: F5 BIG-IP Easy Button for SSO to Oracle EBS
         href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
       - name: F5 BIG-IP Easy Button for SSO to Oracle JD Edwards using Azure AD
@@ -1671,8 +1673,6 @@
         href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
-      - name: Oracle PeopleSoft - Protected by F5 BIG-IP APM
-        href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
       - name: OrgChart Now
         href: orgchartnow-tutorial.md
       - name: OrgVitality SSO

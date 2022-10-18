@@ -46,6 +46,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/headerf5-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/fundamentals/whats-new-microsoft-365-government.md",
       "redirect_url": "/azure/active-directory/fundamentals/whats-new",
       "redirect_document_id": true
