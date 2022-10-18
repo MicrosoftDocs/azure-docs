@@ -43,7 +43,7 @@ Each authorization option is briefly described below:
 
 > [!IMPORTANT]
 > Azure ABAC is currently only generally available (GA) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers.
-> See the next section [About the ABAC Preview](#about-the-abac-preview) for the current feature status of ABAC.
+> See the next section, [About the ABAC Preview](#about-the-abac-preview) for the current feature status of ABAC.
 >
 > Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -65,8 +65,10 @@ Each authorization option is briefly described below:
 >
 > Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> See the table below for the current status of ABAC for each feature.
+
+### Status of condition features in Azure Storage
+
+The table below shows the current status of ABAC for each condition feature.
 
 | Performance tier| Resource type  | Attribute type | Attribute | Availability |
 |--|--|--|--|--|
