@@ -104,13 +104,13 @@ Follow these steps to create a new console application for speech recognition.
                 return;
             }
     
-            SpeechSynthesisResult speechRecognitionResult = speechSynthesizer.SpeakTextAsync(text).get();
+            SpeechSynthesisResult speechSynthesisResult = speechSynthesizer.SpeakTextAsync(text).get();
     
-            if (speechRecognitionResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
+            if (speechSynthesisResult.getReason() == ResultReason.SynthesizingAudioCompleted) {
                 System.out.println("Speech synthesized to speaker for text [" + text + "]");
             }
-            else if (speechRecognitionResult.getReason() == ResultReason.Canceled) {
-                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechRecognitionResult);
+            else if (speechSynthesisResult.getReason() == ResultReason.Canceled) {
+                SpeechSynthesisCancellationDetails cancellation = SpeechSynthesisCancellationDetails.fromResult(speechSynthesisResult);
                 System.out.println("CANCELED: Reason=" + cancellation.getReason());
     
                 if (cancellation.getReason() == CancellationReason.Error) {
