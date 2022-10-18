@@ -108,7 +108,8 @@ This section shows you how to create a .NET Core console application to send mes
     //TODO: Replace the "<NAMESPACE-NAME>" and "<QUEUE-NAME>" placeholders.
     client = new ServiceBusClient(
         "<NAMESPACE-NAME>.servicebus.windows.net",
-        new DefaultAzureCredential());
+        new DefaultAzureCredential(),
+        clientOptions);
     sender = client.CreateSender("<QUEUE-NAME>");
     
     // create a batch 
@@ -173,7 +174,10 @@ This section shows you how to create a .NET Core console application to send mes
     // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
     
     // TODO: Replace the <NAMESPACE CONNECTION STRING> and <QUEUE NAME> placeholders
-    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+    var clientOptions = new ServiceBusClientOptions()
+    { 
+        TransportType = ServiceBusTransportType.AmqpWebSockets
+    };
     client = new ServiceBusClient("<NAMESPACE CONNECTION STRING>", clientOptions);
     sender = client.CreateSender("<QUEUE NAME>");
     
@@ -352,8 +356,14 @@ In this section, you'll add code to retrieve messages from the queue.
     // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
 
     // TODO: Replace the <NAMESPACE NAME> placeholder
-    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-    client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", new DefaultAzureCredential());
+    var clientOptions = new ServiceBusClientOptions()
+    {
+        TransportType = ServiceBusTransportType.AmqpWebSockets
+    };
+    client = new ServiceBusClient(
+        "<NAMESPACE-NAME>.servicebus.windows.net",
+        new DefaultAzureCredential(),
+        clientOptions);
 
     // create a processor that we can use to process the messages
     processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
@@ -403,7 +413,10 @@ In this section, you'll add code to retrieve messages from the queue.
     // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
 
     // TODO: Replace the <NAMESPACE CONNECTION STRING> and <QUEUE NAME> placeholders
-    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+    var clientOptions = new ServiceBusClientOptions()
+    {
+        TransportType = ServiceBusTransportType.AmqpWebSockets
+    };
     client = new ServiceBusClient("<NAMESPACE CONNECTION STRING>", clientOptions);
 
     // create a processor that we can use to process the messages
@@ -461,8 +474,12 @@ In this section, you'll add code to retrieve messages from the queue.
     // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
 
     // TODO: Replace the <NAMESPACE NAME> and <QUEUE NAME> placeholders
-    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-    client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", new DefaultAzureCredential());
+    var clientOptions = new ServiceBusClientOptions() 
+    {
+        TransportType = ServiceBusTransportType.AmqpWebSockets
+    };
+    client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", 
+        new DefaultAzureCredential(), clientOptions);
     
     // create a processor that we can use to process the messages
     processor = client.CreateProcessor("<QUEUE NAME>", new ServiceBusProcessorOptions());
@@ -534,7 +551,10 @@ In this section, you'll add code to retrieve messages from the queue.
     //
     // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
     // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+    var clientOptions = new ServiceBusClientOptions()
+    {
+        TransportType = ServiceBusTransportType.AmqpWebSockets
+    };
     client = new ServiceBusClient("<QUEUE CONNECTION STRING>", clientOptions);
             
     // create a processor that we can use to process the messages
