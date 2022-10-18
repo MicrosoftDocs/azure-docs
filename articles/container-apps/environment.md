@@ -20,7 +20,7 @@ Reasons to deploy container apps to the same environment include situations when
 
 - Manage related services
 - Deploy different applications to the same virtual network
-- Instrument Dapr applications which communicate via the Dapr service invocation API
+- Instrument Dapr applications that communicate via the Dapr service invocation API
 - Have applications to share the same Dapr configuration
 - Have applications share the same log analytics workspace
 
