@@ -97,7 +97,7 @@
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
-    - name: High availability and resiliency with availability zones and cross-zone replication
+    - name: High availability and resiliency with availability zones
       items: 
       - name: Using availability zones for high availability 
         href: using-availability-zones.md
@@ -301,7 +301,7 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
-    - name: Manage availability zones and cross-zone replication
+    - name: Manage availability zones
       items:
       - name: Manage availability zone volume placement
         href: manage-availability-zone-volume-placement.md
