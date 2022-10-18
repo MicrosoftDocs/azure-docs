@@ -55,7 +55,7 @@ Tables have the following limitations:
 
 ## Authentication
 
-Authentication for the logs ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-logs-ingestion-portal.md).
+Authentication for the Logs Ingestion API is performed at the DCE, which uses standard Azure Resource Manager authentication. A common strategy is to use an application ID and application key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-logs-ingestion-portal.md).
 
 ## Source data
 
@@ -97,7 +97,7 @@ The body of the call includes the custom data to be sent to Azure Monitor. The s
 
 ## Sample call
 
-For sample data and an API call using the logs ingestion API, see either [Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-logs-ingestion-portal.md) or [Send custom logs to Azure Monitor Logs using Resource Manager templates](tutorial-logs-ingestion-api.md)
+For sample data and an API call using the Logs Ingestion API, see either [Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-logs-ingestion-portal.md) or [Send custom logs to Azure Monitor Logs using Resource Manager templates](tutorial-logs-ingestion-api.md).
 
 ## Limits and restrictions
 
