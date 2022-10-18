@@ -72,7 +72,7 @@ While you can use pre-made custom policy *starter pack* to write custom policies
         </TrustFrameworkPolicy>
 
     ```
-    Replace `yourtenant` with the subdomain name of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
+    Replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
 
 1. To declare a claim, add the following code in `BuildingBlocks` section of the `ContosoCustomPolicy.XML` file: 
 

@@ -25,7 +25,7 @@ In this article, you'll learn how to write a custom policy that collects user in
 - Define TechnicalProfiles.
 - Configure ClaimsTransformations to manipulate the Claims you declare.
 - Configure ContentDefinitions.
-- Configure and show user interfaces to the user by using Self-Asserted Technical Profiles and DisplayControls.
+- Configure and show user interfaces to the user by using Self-Asserted Technical Profiles and DisplayClaims.
 - Call Technical Profiles in a given sequence by using Orchestration Steps.    
 
 ## Prerequisites
@@ -72,6 +72,7 @@ Declare additional claims alongside *objectId* and *message*:
             <DataType>string</DataType>
             <DefaultPartnerClaimTypes>
                 <Protocol Name="OAuth2" PartnerClaimType="unique_name" />
+                <!--- OpenID Connect protocol partner Claim Types specifies that the label 'name' should be used by default instead of 'displayName'-->
                 <Protocol Name="OpenIdConnect" PartnerClaimType="name" />
                 <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" />
             </DefaultPartnerClaimTypes>
@@ -182,7 +183,7 @@ To set values for *objectId*, *displayName* and *message* claims, you configure 
     ```xml
         <TechnicalProfiles>
             <TechnicalProfile Id="ClaimGenerator">
-                <DisplayName>Claim Generator Technical Profile</DisplayName>
+                <DisplayName>Generate Object ID, displayName and message Claims Technical Profile.</DisplayName>
                 <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
                 <OutputClaims>
                     <OutputClaim ClaimTypeReferenceId="objectId"/>
@@ -269,11 +270,251 @@ Replace the contents of the `OutputClaims` element of the `RelyingParty` section
     <OutputClaim ClaimTypeReferenceId="message"/>
 ```
 
+After you complete [step 6](#step-6---update-relying-party), the `ContosoCustomPolicy.XML` file should look similar to the following code:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" 
+    PolicySchemaVersion="0.3.0.0" TenantId="yourtenant.onmicrosoft.com" 
+    PolicyId="B2C_1A_ContosoCustomPolicy" 
+    PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_ContosoCustomPolicy">
+    
+    <BuildingBlocks>
+        <ClaimsSchema>
+            <ClaimType Id="objectId">
+                <DisplayName>unique object Id for subject of the claims being returned</DisplayName>
+                <DataType>string</DataType>
+            </ClaimType>
+            <ClaimType Id="message">
+                <DisplayName>Will hold Hello World message</DisplayName>
+                <DataType>string</DataType>
+            </ClaimType>
+
+            <ClaimType Id="givenName">
+                <DisplayName>Given Name</DisplayName>
+                <DataType>string</DataType>
+                <DefaultPartnerClaimTypes>
+                    <Protocol Name="OAuth2" PartnerClaimType="given_name"/>
+                    <Protocol Name="OpenIdConnect" PartnerClaimType="given_name"/>
+                    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"/>
+                </DefaultPartnerClaimTypes>
+                <UserHelpText>Your given name (also known as first name).</UserHelpText>
+                <UserInputType>TextBox</UserInputType>
+            </ClaimType>
+            <ClaimType Id="surname">
+                <DisplayName>Surname</DisplayName>
+                <DataType>string</DataType>
+                <DefaultPartnerClaimTypes>
+                    <Protocol Name="OAuth2" PartnerClaimType="family_name"/>
+                    <Protocol Name="OpenIdConnect" PartnerClaimType="family_name"/>
+                    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"/>
+                </DefaultPartnerClaimTypes>
+                <UserHelpText>Your surname (also known as family name or last name).</UserHelpText>
+                <UserInputType>TextBox</UserInputType>
+            </ClaimType>
+            <ClaimType Id="displayName">
+                <DisplayName>Display Name</DisplayName>
+                <DataType>string</DataType>
+                <DefaultPartnerClaimTypes>
+                    <Protocol Name="OAuth2" PartnerClaimType="unique_name"/>
+                    <Protocol Name="OpenIdConnect" PartnerClaimType="name"/>
+                    <Protocol Name="SAML2" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"/>
+                </DefaultPartnerClaimTypes>
+                <UserHelpText>Your display name.</UserHelpText>
+                <UserInputType>TextBox</UserInputType>
+            </ClaimType>
+        </ClaimsSchema>
+        <ClaimsTransformations>
+            <ClaimsTransformation Id="GenerateRandomObjectIdTransformation" TransformationMethod="CreateRandomString">
+                <InputParameters>
+                    <InputParameter Id="randomGeneratorType" DataType="string" Value="GUID"/>
+                </InputParameters>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="outputClaim"/>
+                </OutputClaims>
+            </ClaimsTransformation>
+
+            <ClaimsTransformation Id="CreateDisplayNameTransformation" TransformationMethod="FormatStringMultipleClaims">
+                <InputClaims>
+                    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputClaim1"/>
+                    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="inputClaim2"/>
+                </InputClaims>
+                <InputParameters>
+                    <InputParameter Id="stringFormat" DataType="string" Value="{0} {1}"/>
+                </InputParameters>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="displayName" TransformationClaimType="outputClaim"/>
+                </OutputClaims>
+            </ClaimsTransformation>
+
+            <ClaimsTransformation Id="CreateMessageTransformation" TransformationMethod="FormatStringClaim">
+                <InputClaims>
+                    <InputClaim ClaimTypeReferenceId="displayName" TransformationClaimType="inputClaim"/>
+                </InputClaims>
+                <InputParameters>
+                    <InputParameter Id="stringFormat" DataType="string" Value="Hello {0}"/>
+                </InputParameters>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="outputClaim"/>
+                </OutputClaims>
+            </ClaimsTransformation> 
+        </ClaimsTransformations>
+        <ContentDefinitions>
+            <ContentDefinition Id="SelfAssertedContentDefinition">
+                <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+                <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+                <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
+            </ContentDefinition>
+        </ContentDefinitions>
+    </BuildingBlocks>
+    <!--Claims Providers Here-->
+    <ClaimsProviders>
+        <ClaimsProvider>
+            <DisplayName>Token Issuer</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="JwtIssuer">
+                    <DisplayName>JWT Issuer</DisplayName>
+                    <Protocol Name="None"/>
+                    <OutputTokenFormat>JWT</OutputTokenFormat>
+                    <Metadata>
+                        <Item Key="client_id">{service:te}</Item>
+                        <Item Key="issuer_refresh_token_user_identity_claim_type">objectId</Item>
+                        <Item Key="SendTokenResponseBodyWithJsonNumbers">true</Item>
+                    </Metadata>
+                    <CryptographicKeys>
+                        <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer"/>
+                        <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_TokenEncryptionKeyContainer"/>
+                    </CryptographicKeys>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+
+        <ClaimsProvider>
+            <DisplayName>Trustframework Policy Engine TechnicalProfiles</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="TpEngine_c3bd4fe2-1775-4013-b91d-35f16d377d13">
+                    <DisplayName>Trustframework Policy Engine Default Technical Profile</DisplayName>
+                    <Protocol Name="None"/>
+                    <Metadata>
+                        <Item Key="url">{service:te}</Item>
+                    </Metadata>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+
+        <ClaimsProvider>
+            <DisplayName>Claim Generator Technical Profiles</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="ClaimGenerator">
+                    <DisplayName>Generate Object ID, displayName and  message Claims Technical Profile.</DisplayName>
+                    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+                    <OutputClaims>
+                        <OutputClaim ClaimTypeReferenceId="objectId"/>
+                        <OutputClaim ClaimTypeReferenceId="displayName"/>
+                        <OutputClaim ClaimTypeReferenceId="message"/>
+                    </OutputClaims>
+                    <OutputClaimsTransformations>
+                        <OutputClaimsTransformation ReferenceId="GenerateRandomObjectIdTransformation"/>
+                        <OutputClaimsTransformation ReferenceId="CreateDisplayNameTransformation"/>
+                        <OutputClaimsTransformation ReferenceId="CreateMessageTransformation"/>
+                    </OutputClaimsTransformations>
+                </TechnicalProfile>
+            </TechnicalProfiles>            
+        </ClaimsProvider>
+
+        <ClaimsProvider>
+            <DisplayName>Technical Profiles to collect user's first and last name</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="UserInformationCollector">
+                    <DisplayName>Collect User Input Technical Profile</DisplayName>
+                    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+                    <Metadata>
+                        <Item Key="ContentDefinitionReferenceId">SelfAssertedContentDefinition</Item>
+                    </Metadata>
+                    <DisplayClaims>
+                        <DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>
+                        <DisplayClaim ClaimTypeReferenceId="surname" Required="true"/>
+                    </DisplayClaims>
+                    <OutputClaims>
+                        <OutputClaim ClaimTypeReferenceId="givenName"/>
+                        <OutputClaim ClaimTypeReferenceId="surname"/>
+                    </OutputClaims>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+    </ClaimsProviders>
+
+    <UserJourneys>
+        <UserJourney Id="HelloWorldJourney">
+            <OrchestrationSteps>
+                <OrchestrationStep Order="1" Type="ClaimsExchange">
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="GetUserInformationClaimsExchange" TechnicalProfileReferenceId="UserInformationCollector"/>
+                    </ClaimsExchanges>
+                </OrchestrationStep>
+                <OrchestrationStep Order="2" Type="ClaimsExchange">
+                    <ClaimsExchanges>
+                        <ClaimsExchange Id="GetMessageClaimsExchange" TechnicalProfileReferenceId="ClaimGenerator"/>
+                    </ClaimsExchanges>
+                </OrchestrationStep>
+                <OrchestrationStep Order="3" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer"/>
+            </OrchestrationSteps>
+        </UserJourney>
+    </UserJourneys>
+
+    <RelyingParty><!-- 
+            Relying Party Here that's your policy’s entry point
+            Specify the User Journey to execute 
+            Specify the claims to include in the token that is returned when the policy runs
+        -->
+        <DefaultUserJourney ReferenceId="HelloWorldJourney"/>
+        <TechnicalProfile Id="HelloWorldPolicyProfile">
+            <DisplayName>Hello World Policy Profile</DisplayName>
+            <Protocol Name="OpenIdConnect"/>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+                <OutputClaim ClaimTypeReferenceId="displayName"/>
+                <OutputClaim ClaimTypeReferenceId="message"/>
+            </OutputClaims>
+            <SubjectNamingInfo ClaimType="sub"/>
+        </TechnicalProfile>
+    </RelyingParty>
+</TrustFrameworkPolicy>
+```
+Replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
+
 ## Step 3 - Upload custom policy file
 
+Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file). If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
 
 
 ## Step 4 - Test the custom policy
 
+1. Under **Custom policies**, select **B2C_1A_CONTOSOCUSTOMPOLICY**.
+1. For **Select application** on the overview page of the custom policy, select the web application such as *webapp1* that you previously registered. Make sure that the **Select reply URL** value is set to`https://jwt.ms`.
+1. Select **Run now** button.
+1. Enter **Given Name** and **Surname**, and then select **Continue**. 
+
+    :::image type="content" source="media/custom-policies-series-collect-user-input/screenshot-of-accepting-user-inputs-in-custom-policy.png" alt-text="screenshot of accepting user inputs in custom policy.":::
+
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JSON snippet: 
+
+```json
+    {
+      "typ": "JWT",
+      "alg": "RS256",
+      "kid": "pxLOMWFg...."
+    }.{
+      ...
+      "sub": "c7ae4515-f7a7....",
+      ...
+      "acr": "b2c_1a_contosocustompolicy",
+      ...
+      "name": "Maurice Paulet",
+      "message": "Hello Maurice Paulet"
+    }.[Signature]
+``` 
 
 ## Next steps 
