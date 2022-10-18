@@ -15,6 +15,13 @@ zone_pivot_groups: front-door-tiers
 
 Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door. Otherwise, traffic might bypass Front Door's web application firewall, DDoS protection, and other security features.
 
+::: zone pivot="front-door-classic"
+
+> [!NOTE]
+> *Origin* and *origin group* in this article refers to the backend and backend pool of the Azure Front Door (classic) configuration.
+
+:::
+
 ::: zone pivot="front-door-standard-premium"
 
 Front Door provides several approaches that you can use to restrict your origin traffic.
