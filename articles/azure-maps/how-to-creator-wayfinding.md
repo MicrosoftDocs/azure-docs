@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Creator
 description: How to use the wayfinding service to plot and display routes for indoor maps in Microsoft Azure Maps Creator
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/1/2022
+ms.date: 10/25/2022
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -33,7 +33,7 @@ A routeset is a collection of indoor map data that is used by the wayfinding ser
 
 A routeset is created from a dataset, but is independent from that dataset. This means that if the dataset is deleted, the routeset continues to exist.
 
-Once you have created a routeset, you can then use the wayfinding API to get a route containing each journey leg from one point to another point in the facility.
+Once you've created a routeset, you can then use the wayfinding API to get a route containing each journey leg from one point to another point in the facility.
 
 To create a routeset:
 
@@ -46,7 +46,7 @@ To create a routeset:
 
 1. Copy the value of the **Operation-Location** key from the response header.
 
-This is the status URL that you will use to check the status of the routeset creation in the next section.
+This is the status URL that you'll use to check the status of the routeset creation in the next section.
 
 ### Check the routeset creation status and retrieve the routesetId
 
@@ -66,7 +66,7 @@ To check the status of the routeset creation process and retrieve the routesetId
 
    > https://us.atlas.microsoft.com/routesets/**675ce646-f405-03be-302e-0d22bcfe17e8**?api-version=2022-09-01-preview
 
-Make a note of the `routesetId`, it will be required parameter in all [wayfinding](#get-a-wayfinding-path) requests, as well as when your [Get the facility ID](#get-the-facility-id).
+Make a note of the `routesetId`, it will be required parameter in all [wayfinding](#get-a-wayfinding-path) requests, and when your [Get the facility ID](#get-the-facility-id).
 
 ### Get the facility ID
 
@@ -106,7 +106,7 @@ In this section, you’ll use the wayfinding API to generate a path from the rou
 
 To create a wayfinding query:
 
-1. Execute the following **HTTP GET request** (replace {routesetId} with the routesetId obtained in the [Check the routeset creation status](#check-the-routeset-creation-status) section and the {facilityId} with the facilityId obtained in the [Get the facility ID](#get-the-facility-id)section.):
+1. Execute the following **HTTP GET request** (replace {routesetId} with the routesetId obtained in the [Check the routeset creation status](#check-the-routeset-creation-status-and-retrieve-the-routesetid) section and the {facilityId} with the facilityId obtained in the [Get the facility ID](#get-the-facility-id)section.):
 
     ```http
     https://us.atlas.microsoft.com/wayfinding/path?api-version=2022-09-01-preview&subscription-key={Azure-Maps-Primary-Subscription-key}&routesetid={routeset-ID}&facilityid={facility-ID}&fromPoint={lat,lon}&fromLevel={from-level}&toPoint={lat,lon}&toLevel={to-level}&minWidth={minimun-width}
@@ -169,6 +169,10 @@ To create a wayfinding query:
 The summary displays the estimated travel time in seconds for the total journey. In addition, the estimated time for each section of the journey is displayed at the beginning of each leg.
 
 The wayfinding service calculates the path through specific intervening points. Each geospatial point is displayed, along with its latitude and longitude details.
+
+## Implement the wayfinding service in your map
+
+
 
 [dataset]: /rest/api/maps/v2/dataset
 [tileset]: /rest/api/maps/v2/tileset

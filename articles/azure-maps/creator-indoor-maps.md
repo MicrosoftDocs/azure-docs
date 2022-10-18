@@ -226,7 +226,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Routesets
 
-A [routeset][routeset] is a collection of indoor map data that’s generated from an existing dataset. Once the routeset is created, the [wayfinding](#wayfinding-service) service uses that data to generate paths from one point to another point within an Azure Maps-enabled facility.
+A [routeset][routeset] is a collection of indoor map data that’s generated from an existing dataset. Once the routeset is created, the [wayfinding service](#wayfinding-service) uses that data to generate paths from one point to another point within an Azure Maps-enabled facility.
 
 ## Using indoor maps
 
@@ -264,7 +264,7 @@ For example, the first leg of the path might be from the starting location to th
 
 ##### Wall layer
 
-For wayfinding to work, the imported package must contain a [wall layer][wall layer] that’s specified in the manifest.json file in a drawing package<!-- or the *structure.geojson* file when importing a GeoJSON package-->. The Wayfinding service calculates the shortest path between two selected geospatial points in a facility. The service creates the path by navigating around walls and any other impermeable structures. Without the wall layer, it isn't possible for the wayfinding service to properly navigate.
+For wayfinding to work, the imported package must contain a [wall layer][wall layer] that’s specified in the manifest.json file in a drawing package<!-- or the *structure.geojson* file when importing a GeoJSON package-->. The wayfinding service calculates the shortest path between two selected geospatial points in a facility. The service creates the path by navigating around walls and any other impermeable structures. Without the wall layer, it isn't possible for the wayfinding service to properly navigate.
 
 ##### isRouteble
 
@@ -290,7 +290,7 @@ Other factors that affect how to navigate between floors:
 - Whether or not the user has selected a minimum width that is too narrow for either stairs or elevators. The [wayfinding][wayfind] `MinWidth` property enables you to set the minimum width of openings in the resulting path.
 - Whether or not the stairs or elevators facilitates the shortest path.
 
-For more information on wayfinding, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
+For more information, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
 
 ### Azure Maps integration
 
