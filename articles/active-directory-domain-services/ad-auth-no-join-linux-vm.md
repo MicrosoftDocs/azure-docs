@@ -1,9 +1,8 @@
 ---
-title: AD Authentication without Domain Join Linux VM
-description: Learn how to configure AD User authentication on Linux VM without Active Directory Domain Services Join.
+title: Active Directory authentication non domain joined Linux Virtual Machines
+description: Active Directory authentication non domain joined Linux Virtual Machines.
 services: active-directory-ds
 author: DevOpsStyle
-manager: francesco.dauri
 
 ms.service: active-directory
 ms.subservice: domain-services
@@ -14,7 +13,7 @@ ms.author: tommasosacco
 
 ---
 
-# AD Authentication without Domain Join Linux VM
+# Active Directory authentication non domain joined Linux Virtual Machines
 
 Currently Linux distribution can work as member of Active Directory domains, which gives them access to the AD authentication system. To take advantage of AD authentication in some cases, we can avoid the AD join. To let users sign in on Azure Linux VM with Active Directory account you have different choices. One possibility is to Join in Active Directory the VM. Another possibility is to base the authentication flow through LDAP to your Active Directory without Join the VM on AD. This article shows you how to authenticate with AD credential on your Linux system (CentosOS) based on LDAP.
 
@@ -34,7 +33,7 @@ To complete the authentication flow we assume, you already have:
 * An LDAPS Certificate correctly configured on the Linux VM.
 * A CA Certificate correctly imported into Certificate Store of the Linux VM (the path varies depending on the Linux distro).
 
-## AD Configuration
+## Active Directory User Configuration
 
 To read Users in your Active Directory Domain Services create a ReadOnlyUser in AD. For create a new user follow the steps below:
 
@@ -53,9 +52,11 @@ To read Users in your Active Directory Domain Services create a ReadOnlyUser in 
 Review the information that you provided, and if everything is correct, click Finish.
 
 > [!NOTE]
-> The test environment is based on Windows Server 2016 Domain and Forest level on Windows Server 2019 Operating System. The client used is an Centos 8.5 System.
+> The lab environment is based on:
+> - Windows Server 2016 Domain and Forest Functional Level.
+> - Linux client Centos 8.5.
 
-## Linux VM Configuration
+## Linux Virtual Machines Configuration
 
 > [!NOTE]
 > You must run these command with sudo permission
@@ -69,9 +70,9 @@ yum install -y sssd sssd-tools sssd-ldap openldap-clients
 After the installation check if LDAP search works. In order to check it try an LDAP search following the example below:
 
 ```console
-ldapsearch -H ldaps://<ip-domain-controller-or-domain> -x \
+ldapsearch -H ldaps://contoso.com -x \
         -D CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com -w Read0nlyuserpassword \
-        -b CN=Users,DC=<domain>,DC=<extension>
+        -b CN=Users,DC=contoso,DC=com
 ```
 
 If the LDAP query works fine, you will obtain an output with some information like follow:
@@ -110,7 +111,11 @@ dSCorePropagationData: 16010101000000.0Z
 ```
 
 > [!NOTE]
-> If your obtain an error the password used is wrong. Ensure to use the correct password.
+> If your get and error run the following command:
+> ldapsearch -H ldaps://contoso.com -x \
+>       -D CN=ReadOnlyUser,CN=Users,DC=contoso,DC=com -w Read0nlyuserpassword \
+>       -b CN=Users,DC=contoso,DC=com -d 3
+> Troubleshoot according to the output.
 
 ## Create sssd.conf file
 
@@ -171,7 +176,7 @@ resolver_provider = ldap
 Save the file with *ESC + wq!* command.
 
 > [!NOTE]
-> If you don't have a valid TSL certificate under */etc/pki/tls/* called *cacerts.pem* the bind doesn't work
+> If you don't have a valid TLS certificate under */etc/pki/tls/* called *cacerts.pem* the bind doesn't work
 
 ## Change permission for sssd.conf and create the obfuscated password
 
@@ -211,12 +216,12 @@ systemctl restart sssd
 
 ## Test the configuration
 
-The final step is to check that the flow works properly. To check this, try logging in with one of your AD users in Active Directory. We tried with a user called *Francesca*. If the configuration is correct, you will get the following result:
+The final step is to check that the flow works properly. To check this, try logging in with one of your AD users in Active Directory. We tried with a user called *ADUser*. If the configuration is correct, you will get the following result:
 
 ```console
-[root@centos8 ~]su - Francesca@contoso.com
+[centosuser@centos8 ~]su - ADUser@contoso.com
 Last login: Wed Oct 12 15:13:39 UTC 2022 on pts/0
-[Francesca@Centos8 ~]$ exit
+[ADUser@Centos8 ~]$ exit
 
 ```
 Now you are ready to use AD authentication on your Linux VM.

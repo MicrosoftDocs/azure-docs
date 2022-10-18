@@ -125,7 +125,7 @@
           href: join-suse-linux-vm.md
     - name: AD authentication through LDAP Linux
       items:
-        - name: AD User authentication through LDAP on Linux VM
+        - name: Active Directory authentication non domain joined Linux Virtual Machines
           href: ad-auth-no-join-linux-vm.md
     - name: Deploy applications
       items:
