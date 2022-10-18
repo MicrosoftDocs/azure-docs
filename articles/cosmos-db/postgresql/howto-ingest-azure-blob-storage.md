@@ -6,7 +6,7 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 10/18/2022
 ---
 
 # How to ingest data using Azure Blob Storage
@@ -15,219 +15,223 @@ ms.date: 10/14/2022
 
 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/#features) (ABS) is a cloud-native scalable, durable and secure storage service. These characteristics of ABS make it a good choice of storing and moving existing data into the cloud.
 
-Learn how to use pg_azure_storage storage account to manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
+This article shows how to use the pg_azure_storage PostgreSQL extension to
+manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from
+Azure Blob Storage.
 
-## Steps to use ABS with Azure Cosmos DB for PostgreSQL
+## Prepare database and blob storage
 
-1. Loading your data into Azure Blob Storage
-
-    Follow [migrate your on-premises data to cloud storage](../../storage/common/storage-use-azcopy-migrate-on-premises-data.md) to learn how to get your datasets efficiently into Azure Blob Storage.
-
-    > [!NOTE]
-    >
-    > Selecting "Container (anonymous read access for containers and blobs)" will allow you to ingest files from Azure Blob Storage using their public URLs and enumerating the container contents without the need to configure an account key in pg_azure_storage. Containers set to access level "Private (no anonymous access)" or "Blob (anonymous read access for blobs only)" will require an access key.
-
-
-1. Create the extension in our database
+To load data from Azure Blob Storage, install the `pg_azure_storage` PostgreSQL
+extension in your database:
     
-    ```sql
-    SELECT * FROM create_extension('azure_storage');
-    ``` 
+```sql
+SELECT * FROM create_extension('azure_storage');
+``` 
 
-1. List public container contents
-    
-    There's a demonstration Azure Blob Storage account and container pre-created for this how-to. The container's name is `github`, and it's in the `pgquickstart` account. We can easily see which files are present in the container by using the `azure_storage.blob_list(account, container)` function.
-    
-    ```sql
-    SELECT path, bytes, pg_size_pretty(bytes), content_type FROM azure_storage.blob_list('pgquickstart','github');
-    ```
-    
-    ```
-         path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
-    ---------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
-     events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
-     users.csv.gz  |  5382831 | 2022-10-12 18:49:18+00 | 0x8DAAC8277D84814 | application/x-gzip |                  | f49886ee815cba1904858f8504c9f6ea
-    (2 rows)
-    ```
-    
-    You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter will filter the returned rows on the Azure Blob Storage side.
-    
-    
-    > [!NOTE]
-    >
-    > Listing container contents requires an account and access key or a container with enabled anonymous access.
-    
-    
-    ```sql
-    SELECT * FROM azure_storage.blob_list('pgquickstart','github','e');
-    ```
-    
-    ```
-         path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
-    ---------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
-     events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
-    (1 row)
-    ```
-    
-    ```sql
-    SELECT * FROM azure_storage.blob_list('pgquickstart','github') WHERE path LIKE 'e%';
-    ```
-    
-    ```
-         path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
-    ---------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
-     events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
-    (1 row)
-    ```
+We've prepared a public demonstration dataset for this article. To use your own
+dataset, follow [migrate your on-premises data to cloud
+storage](../../storage/common/storage-use-azcopy-migrate-on-premises-data.md)
+to learn how to get your datasets efficiently into Azure Blob Storage.
+
+> [!NOTE]
+>
+> Selecting "Container (anonymous read access for containers and blobs)" will allow you to ingest files from Azure Blob Storage using their public URLs and enumerating the container contents without the need to configure an account key in pg_azure_storage. Containers set to access level "Private (no anonymous access)" or "Blob (anonymous read access for blobs only)" will require an access key.
+
+## List container contents
+
+There's a demonstration Azure Blob Storage account and container pre-created for this how-to. The container's name is `github`, and it's in the `pgquickstart` account. We can easily see which files are present in the container by using the `azure_storage.blob_list(account, container)` function.
+
+```sql
+SELECT path, bytes, pg_size_pretty(bytes), content_type FROM azure_storage.blob_list('pgquickstart','github');
+```
+
+```
+     path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
+---------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
+ events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
+ users.csv.gz  |  5382831 | 2022-10-12 18:49:18+00 | 0x8DAAC8277D84814 | application/x-gzip |                  | f49886ee815cba1904858f8504c9f6ea
+(2 rows)
+```
+
+You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter will filter the returned rows on the Azure Blob Storage side.
 
 
-1. Load data using the `COPY` command
-
-    Start by creating a sample schema.
-
-    ```sql
-    CREATE TABLE github_users
-    (
-    	user_id bigint,
-    	url text,
-    	login text,
-    	avatar_url text,
-    	gravatar_id text,
-    	display_login text
-    );
-    
-    CREATE TABLE github_events
-    (
-    	event_id bigint,
-    	event_type text,
-    	event_public boolean,
-    	repo_id bigint,
-    	payload jsonb,
-    	repo jsonb,
-    	user_id bigint,
-    	org jsonb,
-    	created_at timestamp
-    );
-    
-    CREATE INDEX event_type_index ON github_events (event_type);
-    CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
-
-    SELECT create_distributed_table('github_users', 'user_id');
-    SELECT create_distributed_table('github_events', 'user_id');
-    ```
-
-    Loading data into the tables becomes as simple as calling the `COPY` command.
-
-    
-    ```sql
-    -- download users and store in table
-    
-    COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz';
-    
-    -- download events and store in table
-    
-    COPY github_events FROM 'https://pgquickstart.blob.core.windows.net/github/events.csv.gz';
-    ```
-    
-    Notice how the extension recognized that the URLs provided to the copy command are from Azure Blob Storage, the files we pointed were gzip compressed and that was also automatically handled for us.
-
-    The `COPY` command supports more parameters and formats. In the above example, the format and compression were auto-selected based on the file extensions. You can however provide the format directly similar to the regular `COPY` command.
-
-    ```sql
-    COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz' WITH (FORMAT 'csv');
-    ```
-
-    Currently the extension supports the following file formats:
-
-    |format|description|
-    |------|-----------|
-    |csv|Comma-separated values format used by PostgreSQL COPY|
-    |tsv|Tab-separated values, the default PostgreSQL COPY format|
-    |binary|Binary PostgreSQL COPY format|
-    |text|A file containing a single text value (for example, large JSON or XML)|
-    
-
-1. Accessing and importing file content using `blob_get`
-
-    The `COPY` command is convenient but is limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
-
-    ```sql
-    SELECT * FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users) LIMIT 3;
-    ```
-
-    ```
-     user_id |                    url                    |    login     |                 avatar_url                  | gravatar_id | display_login
-    ---------+-------------------------------------------+--------------+---------------------------------------------+-------------+---------------
-          21 | https://api.github.com/users/technoweenie | technoweenie | https://avatars.githubusercontent.com/u/21? |             | technoweenie
-          22 | https://api.github.com/users/macournoyer  | macournoyer  | https://avatars.githubusercontent.com/u/22? |             | macournoyer
-          38 | https://api.github.com/users/atmos        | atmos        | https://avatars.githubusercontent.com/u/38? |             | atmos
-    (3 rows)
-    ```
-
-    > [!NOTE]
-    >
-    > In the above query, the file is fully fetched before `LIMIT 3` is applied.
-
-    With this function, you can manipulate data on the fly in complex queries, and do imports as `INSERT FROM SELECT`.
-
-    ```sql
-    INSERT INTO github_users
-         SELECT user_id, url, UPPER(login), avatar_url, gravatar_id, display_login
-           FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users)
-          WHERE gravatar_id IS NOT NULL;
-    ```
-
-    ```
-    INSERT 0 264308
-    ```
-
-    In the above command, we filtered the data to accounts with a `gravatar_id` present and upper cased their logins on the fly.
-
-1. Options for `blob_get`
-
-    In some situations, you may need to control exactly what `blob_get` attempts to do by using the `decoder`, `compression` and `options` parameters.
-
-    Decoder can be set to `auto` (default) or any of the following values:
-
-    |format|description|
-    |------|-----------|
-    |csv|Comma-separated values format used by PostgreSQL COPY|
-    |tsv|Tab-separated values, the default PostgreSQL COPY format|
-    |binary|Binary PostgreSQL COPY format|
-    |text|A file containing a single text value (for example, large JSON or XML)|
-
-    `compression` can be either `auto` (default), `none` or `gzip`.
-
-    Finally, the `options` parameter is of type `jsonb`. There are four utility functions that help building values for it.
-    Each utility function is designated for the decoder matching its name.
-
-    |decoder|options function  |
-    |-------|------------------|
-    |csv    |`options_csv_get` |
-    |tsv    |`options_tsv`     |
-    |binary |`options_binary`  |
-    |text   |`options_copy`    |
-
-    By looking at the function definitions, you can see which parameters are supported by which decoder.
-
-    `options_csv_get` - delimiter, null_string, header, quote, escape, force_not_null, force_null, content_encoding
-    `options_tsv` - delimiter, null_string, content_encoding
-    `options_copy` - delimiter, null_string, header, quote, escape, force_quote, force_not_null, force_null, content_encoding.
-    `options_binary` - content_encoding
-
-    Knowing the above, we can discard recordings with null `gravatar_id` during parsing.
-
-    ```sql
-    INSERT INTO github_users
-         SELECT user_id, url, UPPER(login), avatar_url, gravatar_id, display_login
-           FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users,
-                                        options := azure_storage.options_csv_get(force_not_null := ARRAY['gravatar_id']));
-    ```
+> [!NOTE]
+>
+> Listing container contents requires an account and access key or a container with enabled anonymous access.
 
 
-    ```
-    INSERT 0 264308
-    ```
+```sql
+SELECT * FROM azure_storage.blob_list('pgquickstart','github','e');
+```
+
+```
+     path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
+---------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
+ events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
+(1 row)
+```
+
+```sql
+SELECT * FROM azure_storage.blob_list('pgquickstart','github') WHERE path LIKE 'e%';
+```
+
+```
+     path      |  bytes   |     last_modified      |       etag        |    content_type    | content_encoding |           content_hash
+---------------+----------+------------------------+-------------------+--------------------+------------------+----------------------------------
+ events.csv.gz | 41691786 | 2022-10-12 18:49:51+00 | 0x8DAAC828B970928 | application/x-gzip |                  | 473b6ad25b7c88ff6e0a628889466aed
+(1 row)
+```
+
+## Load data from ABS
+
+### Load data with the COPY command
+
+Start by creating a sample schema.
+
+```sql
+CREATE TABLE github_users
+(
+	user_id bigint,
+	url text,
+	login text,
+	avatar_url text,
+	gravatar_id text,
+	display_login text
+);
+
+CREATE TABLE github_events
+(
+	event_id bigint,
+	event_type text,
+	event_public boolean,
+	repo_id bigint,
+	payload jsonb,
+	repo jsonb,
+	user_id bigint,
+	org jsonb,
+	created_at timestamp
+);
+
+CREATE INDEX event_type_index ON github_events (event_type);
+CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
+
+SELECT create_distributed_table('github_users', 'user_id');
+SELECT create_distributed_table('github_events', 'user_id');
+```
+
+Loading data into the tables becomes as simple as calling the `COPY` command.
+
+```sql
+-- download users and store in table
+
+COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz';
+
+-- download events and store in table
+
+COPY github_events FROM 'https://pgquickstart.blob.core.windows.net/github/events.csv.gz';
+```
+
+Notice how the extension recognized that the URLs provided to the copy command are from Azure Blob Storage, the files we pointed were gzip compressed and that was also automatically handled for us.
+
+The `COPY` command supports more parameters and formats. In the above example, the format and compression were auto-selected based on the file extensions. You can however provide the format directly similar to the regular `COPY` command.
+
+```sql
+COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz' WITH (FORMAT 'csv');
+```
+
+Currently the extension supports the following file formats:
+
+|format|description|
+|------|-----------|
+|csv|Comma-separated values format used by PostgreSQL COPY|
+|tsv|Tab-separated values, the default PostgreSQL COPY format|
+|binary|Binary PostgreSQL COPY format|
+|text|A file containing a single text value (for example, large JSON or XML)|
+
+### Load data with blob_get()
+
+The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
+
+```sql
+SELECT * FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users) LIMIT 3;
+```
+
+```
+ user_id |                    url                    |    login     |                 avatar_url                  | gravatar_id | display_login
+---------+-------------------------------------------+--------------+---------------------------------------------+-------------+---------------
+      21 | https://api.github.com/users/technoweenie | technoweenie | https://avatars.githubusercontent.com/u/21? |             | technoweenie
+      22 | https://api.github.com/users/macournoyer  | macournoyer  | https://avatars.githubusercontent.com/u/22? |             | macournoyer
+      38 | https://api.github.com/users/atmos        | atmos        | https://avatars.githubusercontent.com/u/38? |             | atmos
+(3 rows)
+```
+
+> [!NOTE]
+>
+> In the above query, the file is fully fetched before `LIMIT 3` is applied.
+
+With this function, you can manipulate data on the fly in complex queries, and do imports as `INSERT FROM SELECT`.
+
+```sql
+INSERT INTO github_users
+     SELECT user_id, url, UPPER(login), avatar_url, gravatar_id, display_login
+       FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users)
+      WHERE gravatar_id IS NOT NULL;
+```
+
+```
+INSERT 0 264308
+```
+
+In the above command, we filtered the data to accounts with a `gravatar_id` present and upper cased their logins on the fly.
+
+#### Options for blob_get()
+
+In some situations, you may need to control exactly what `blob_get` attempts to do by using the `decoder`, `compression` and `options` parameters.
+
+Decoder can be set to `auto` (default) or any of the following values:
+
+|format|description|
+|------|-----------|
+|csv|Comma-separated values format used by PostgreSQL COPY|
+|tsv|Tab-separated values, the default PostgreSQL COPY format|
+|binary|Binary PostgreSQL COPY format|
+|text|A file containing a single text value (for example, large JSON or XML)|
+
+`compression` can be either `auto` (default), `none` or `gzip`.
+
+Finally, the `options` parameter is of type `jsonb`. There are four utility functions that help building values for it.
+Each utility function is designated for the decoder matching its name.
+
+|decoder|options function  |
+|-------|------------------|
+|csv    |`options_csv_get` |
+|tsv    |`options_tsv`     |
+|binary |`options_binary`  |
+|text   |`options_copy`    |
+
+By looking at the function definitions, you can see which parameters are supported by which decoder.
+
+`options_csv_get` - delimiter, null_string, header, quote, escape, force_not_null, force_null, content_encoding
+`options_tsv` - delimiter, null_string, content_encoding
+`options_copy` - delimiter, null_string, header, quote, escape, force_quote, force_not_null, force_null, content_encoding.
+`options_binary` - content_encoding
+
+Knowing the above, we can discard recordings with null `gravatar_id` during parsing.
+
+```sql
+INSERT INTO github_users
+     SELECT user_id, url, UPPER(login), avatar_url, gravatar_id, display_login
+       FROM azure_storage.blob_get('pgquickstart', 'github', 'users.csv.gz', NULL::github_users,
+                                    options := azure_storage.options_csv_get(force_not_null := ARRAY['gravatar_id']));
+```
+
+
+```
+INSERT 0 264308
+```
+
+## Access private storage
 
 1. Obtain your account name and access key
 
@@ -285,8 +289,8 @@ Learn how to use pg_azure_storage storage account to manipulate and load data in
     SELECT * FROM azure_storage.account_user_remove('mystorageaccount', 'support');
     ```
 
-    Congratulations, you just learned how to load data into Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
-
 ## Next steps
+
+Congratulations, you just learned how to load data into Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
 
 Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
