@@ -277,6 +277,25 @@ Go back to the sample app. It shows you that a credential successfully issued.
 
   :::image type="content" source="media/verifiable-credentials-configure-issuer/credentials-issued.png" alt-text="Screenshot that shows a successfully issued verifiable credential.":::
 
+## Verifiable credential names 
+
+Your verifiable credential contains **Megan Bowen** for the first name and last name values in the credential. These values were hardcoded in the sample application, and were added to the verifiable credential at the time of issuance in the payload. 
+
+In real scenarios, your application pulls the user details from an identity provider. The following code snippet shows where the name is set in the sample application. 
+
+```csharp
+//file: IssuerController.cs
+[HttpGet("/api/issuer/issuance-request")]
+public async Task<ActionResult> issuanceRequest()
+  {
+    ...
+    // Here you could change the payload manifest and change the first name and last name.
+    payload["claims"]["given_name"] = "Megan";
+    payload["claims"]["family_name"] = "Bowen";
+    ...
+}
+  ```
+
 ## Next steps
 
 In the [next step](verifiable-credentials-configure-verifier.md), learn how a third-party application, also known as a relying party application, can verify your credentials with its own Azure AD tenant verifiable credentials API service.

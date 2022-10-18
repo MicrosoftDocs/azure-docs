@@ -65,22 +65,6 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 1. To save the changes, select **Save**.
 
-<<<<<<< HEAD
-=======
-### Set access policies for the Verifiable credentials service request service principal
-
-The Verifiable credentials service request is the Request Service API, and it needs access to Key Vault in order to sign issuance and presentation requests. 
-
-1. Select **+ Add Access Policy** and select the service principal **Verifiable Credentials Service Request** with AppId **3db474b9-6a0c-4840-96ac-1fceb342124f**.
-
-1. For **Key permissions**, select permissions **Get** and **Sign**. 
-
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/set-key-vault-sp-access-policy.png" alt-text="screenshot of key vault granting access to a security principal":::
-
-1. To save the changes, select **Add**.
-
-
->>>>>>> 6766b146f4bba091b860244512b0a6cfd910838f
 ## Set up Verified ID
 
 To set up Verified ID, follow these steps:
@@ -119,7 +103,7 @@ If you ever are in need of manually resetting the permissions, the access policy
 | Verifiable Credentials Service | bb2a64ee-5d29-4b07-a491-25806dc854d3 | Get, Sign |
 | Verifiable Credentials Service Request | 3db474b9-6a0c-4840-96ac-1fceb342124f | Sign |
 
-:::image type="content" source="media/verifiable-credentials-configure-tenant/sp-key-vault-sp-access-policy.png" alt-text="Screenshot of key vault access policies for security principals":::
+:::image type="content" source="media/verifiable-credentials-configure-tenant/sp-key-vault-admin-access-policy.png" alt-text="Screenshot of key vault access policies for security principals":::
 
 ## Register an application in Azure AD
 
