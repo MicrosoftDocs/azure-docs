@@ -42,13 +42,13 @@ Learn more about the [Microsoft cloud security benchmark](/security/benchmark/az
 
 ### Attack path analysis and contextual security capabilities in Defender for Cloud (Preview)
 
-The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud in preview.
+The new cloud security graph, attack path analysis and contextual cloud security capabilities are now available in Defender for Cloud in preview.
 
 One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all.
 
 Defender for Cloud's new cloud security graph and attack path analysis capabilities give security teams the ability to assess the risk behind each security issue. Security teams can also identify the highest risk issues that need to be resolved soonest. Defender for Cloud works with security teams to reduce the risk of an impactful breach to their environment in the most effective way.
 
-Learn more about the new [Cloud Security Graph, Attack Path Analysis and the Cloud Security Explorer](concept-attack-path.md).
+Learn more about the new [cloud security graph, attack path analysis and the cloud security explorer](concept-attack-path.md).
 
 ### Agentless scanning for Azure and AWS machines (Preview)
 
@@ -147,7 +147,7 @@ We are announcing the addition of the new Defender Cloud Security Posture Manage
 - Governance
 - Regulatory compliance
 - Cloud security graph
-- Attack Path Analysis
+- Attack path analysis
 - Agentless scanning for machines
 
 You can learn more about the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md).
