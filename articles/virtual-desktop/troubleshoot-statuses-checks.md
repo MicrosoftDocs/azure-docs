@@ -53,7 +53,9 @@ To resolve a firewall-related issue, add a rule that allows outbound connections
 If your local hosts file is blocking the required URLs, make sure none of the required URLs are in the **Hosts** file on your device. You can find the Hosts file location at the following registry key and value:
 
 **Key:** HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+
 **Type:** REG_EXPAND_SZ
+
 **Name:** DataBasePath
 
 If the session host doesn't pass the *MetaDataServiceCheck* health check, then the service can't access the IMDS endpoint. To resolve this issue, you'll need to do the following things:
