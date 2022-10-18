@@ -27,7 +27,7 @@ We regularly update the language service with new model versions to improve mode
 
 Starting in November 2022, API calls using a specified model version number will return a warning header with a reminder to update the modelVersion parameter value to `latest` (or leave the parameter empty). By default, all API requests will use the latest Generally Available (GA) model.
 
-After April 30, 2023, customers will no longer be able to specify a version number for GA models within an API call. Instead, users should select the `modelVersion` parameter value as `latest` to utilize the latest and highest quality models. This will also ensure that users can avoid an interruption in implementation. As our models get smarter and more agile, it’s possible that some of your model results may change. After April 2023, any API calls using a specified model version number will return an error.
+We recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. 
 
 Preview models will continue to use static model versioning with specified model version numbers. However, note that preview capabilities in APIs do not maintain a minimum retirement period and can be deprecated at any time.
 
