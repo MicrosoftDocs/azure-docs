@@ -336,11 +336,11 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     ```
 
-1. Append the following code to the end of the Program` class. The important steps are outlined below, with additional information in the code comments.
+1. Append the following code to the end of the `Program` class. The important steps are outlined below, with additional information in the code comments.
     
     ### [Passwordless (Recommended)](#tab/passwordless)
 
-    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
+    * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue.
     * Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object.
     * Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object.
@@ -352,7 +352,7 @@ In this section, you'll add code to retrieve messages from the queue.
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //
-    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
     // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
 
     // TODO: Replace the <NAMESPACE NAME> placeholder
