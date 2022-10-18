@@ -219,7 +219,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ## Run the container in disconnected environments
 
-You must request access to use containers disconnected from the internet. For more information, see [Request access to run containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-run-containers-in-disconnected-environments).
+You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
 > [!NOTE]
 > For general container requirements, see [Container requirements and recommendations](#container-requirements-and-recommendations).
