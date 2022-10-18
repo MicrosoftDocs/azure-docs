@@ -8,13 +8,13 @@ ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.date: 07/01/2022
 
-# Customer intent:  As a data analyst, I want to use the native machine learning capabilities of Log Analytics to gain insights from my log data without having to export data outside of Azure Monitor.
+# Customer intent:  As a data analyst, I want to use the native machine learning capabilities of Azure Monitor Logs to gain insights from my log data without having to export data outside of Azure Monitor.
 
 ---
 
-# Tutorial: Detect and analyze anomalies with machine learning in Log Analytics using KQL 
+# Tutorial: Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor Logs  
 
-The Kusto Query Language (KQL) includes machine learning operators, functions and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Use these KQL capabilities in Log Analytics to perform advanced data analysis powered by Kusto’s distributed database running at high scales, without the overhead of exporting data to external machine learning tools.
+The Kusto Query Language (KQL) includes machine learning operators, functions and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Use these KQL capabilities to perform advanced data analysis in Azure Monitor Logs without the overhead of exporting data to external machine learning tools.
 
 In this tutorial, you learn how to:
 
@@ -41,7 +41,7 @@ let starttime = 21d; // The start date of the time series, counting back from th
 let endtime = 0d; // The end date of the time series, counting back from the current date
 let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
-| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 am of the first day and ending at 11:59 of the last day in the time range
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 12:00 AM of the last day in the time range
 | where IsBillable == "true" // Include only billable data in the result set
 | make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // Creates the time series, listed by data type 
 | render timechart // Renders results in a timechart
@@ -67,7 +67,7 @@ let starttime = 21d; // Start date for the time series, counting back from the c
 let endtime = 0d; // End date for the time series, counting back from the current date
 let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
-| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 11:59 PM of the last day in the time range
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 12:00 AM of the last day in the time range
 | where IsBillable == "true" // Includes only billable data in the result set
 | make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // Creates the time series, listed by data type
 | extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage) // Scores and extracts anomalies based on the output of make-series 
@@ -120,7 +120,7 @@ let starttime = 21d; // Start date for the time series, counting back from the c
 let endtime = 0d; // End date for the time series, counting back from the current date
 let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
-| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 11:59 PM of the last day in the time range
+| where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 12:00 AM of the last day in the time range
 | where IsBillable == "true" // Includes only billable data in the result set
 | make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
 | extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // Scores and extracts anomalies based on the output of make-series, excluding the last value in the series 
@@ -164,7 +164,7 @@ Looking at the query results, you can see the following differences:
 - There are 24,892,147 instances of ingestion from the *CH1-GEARAMAAKS* resource on all other days in the query time range, and no ingestion of data from this resource on June 15. Data from the *CH1-GEARAMAAKS* resource accounts for 73.36% of the total ingestion on other days in the query time range and 0% of the total ingestion on June 15.
 - There are 2,168,448 instances of ingestion from the *NSG-TESTSQLMI519* resource on all other days in the query time range, and 110,544 instances of ingestion from this resource on June 15. Data from the *NSG-TESTSQLMI519* resource accounts for 6.39% of the total ingestion on other days in the query time range and 25.61% of ingestion on June 15. 
  
-Notice that, on average, there are 108,422 instances of ingestion from the *NSG-TESTSQLMI519* resource during the 20 days that make up the *other days* period (divide 2,168,448 by 20). Therefore, the ingestion from the *NSG-TESTSQLMI519* resource on June 15 isn't significantly different from the ingestion from this resource on other days. However, because there's no ingestion from *CH1-GEARAMAAKS* on July 15, the ingestion from *NSG-TESTSQLMI519* makes up a significantly greater percentage of the total ingestion on the anomaly date as compared to other days.
+Notice that, on average, there are 108,422 instances of ingestion from the *NSG-TESTSQLMI519* resource during the 20 days that make up the *other days* period (divide 2,168,448 by 20). Therefore, the ingestion from the *NSG-TESTSQLMI519* resource on June 15 isn't significantly different from the ingestion from this resource on other days. However, because there's no ingestion from *CH1-GEARAMAAKS* on June 15, the ingestion from *NSG-TESTSQLMI519* makes up a significantly greater percentage of the total ingestion on the anomaly date as compared to other days.
 
 The *PercentDiffAB* column shows the absolute percentage point difference between A and B (|PercentA - PercentB|), which is the main measure of the difference between the two sets. By default, the `diffpatterns()` plugin returns difference of over 5% between the two data sets, but you can tweak this threshold. For example, to return only differences of 20% or more between the two data sets, you can set `| evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate", "~", 0.20)` in the query above. The query now returns only one result:
 
@@ -175,5 +175,7 @@ The *PercentDiffAB* column shows the absolute percentage point difference betwee
 
 ## Next steps
 
-> Learn more about [log queries in Azure Monitor](/azure-monitor/logs/log-query-overview).
-> [Tutorial: Use Kusto queries](/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
+Learn more about: 
+
+- [Log queries in Azure Monitor](/azure-monitor/logs/log-query-overview).
+- [Tutorial: Use Kusto queries](/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
