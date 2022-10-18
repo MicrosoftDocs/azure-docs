@@ -109,7 +109,7 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-#### Sign-in and connect your app code to Azure using DefaultAzureCredential
+#### Sign in and connect your app code to Azure using DefaultAzureCredential
 
 You can authorize access to data in your storage account using the following steps:
 
@@ -149,7 +149,7 @@ You can authorize access to data in your storage account using the following ste
     from azure.identity import DefaultAzureCredential
     ```
 
-3. Add this code inside the `try` block. When the code runs on your local workstation, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio Code.
+3. Add this code inside the `try` block. When the code runs on your local workstation, `DefaultAzureCredential` uses the developer credentials of the prioritized tool you're logged into to authenticate to Azure. Examples of these tools include Azure CLI or Visual Studio Code.
 
     :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/blob-quickstart.py" id="Snippet_CreateServiceClientDAC":::
 
