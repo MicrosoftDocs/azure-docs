@@ -285,10 +285,34 @@
         href: appliance-catalog/neousys-nuvo-5006lp.md
   - name: Alert reference
     href: alert-engine-messages.md
+  - name: API reference
+    items:
+    - name: Working with Defender for IoT APIs
+      href: references-work-with-defender-for-iot-apis.md
+    - name: Sensor API reference
+      items:
+      - name: Authentication and password management
+        href: api/sensor-auth-apis.md
+      - name: Inventory management
+        href: api/sensor-inventory-apis.md
+      - name: Alert management
+        href: api/sensor-alert-apis.md
+      - name: Vulnerability management
+        href: api/sensor-vulnerability-apis.md
+    - name: General management API reference
+      items:
+      - name: Authentication and password management
+        href: api/management-auth-apis.md
+      - name: Appliance management
+        href: api/management-appliances-apis.md
+      - name: Alert management
+        href: api/management-alert-apis.md
+      - name: Inventory management
+        href: api/management-inventory-apis.md
+      - name: Partner integration
+        href: api/management-integration-apis.md
   - name: Sensor health message reference
     href: sensor-health-messages.md
-  - name: Defender for IoT APIs
-    href: references-work-with-defender-for-iot-apis.md
   - name: Defender for IoT CLI commands
     href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions
