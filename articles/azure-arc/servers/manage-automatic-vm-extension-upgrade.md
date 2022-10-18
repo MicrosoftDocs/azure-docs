@@ -118,6 +118,9 @@ To disable automatic upgrades, set `-EnableAutomaticUpgrade:$false` as shown in 
 Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name extensionName -EnableAutomaticUpgrade:$false
 ```
 
+> [!TIP]
+> The cmdlets above come from the [Az.ConnectedMachine](/powershell/module/az.connectedmachine) PowerShell module. You can install this PowerShell module with `Install-Module Az.ConnectedMachine` on your computer or in Azure Cloud Shell.
+
 ---
 
 ## Extension upgrades with multiple extensions
