@@ -45,7 +45,6 @@ From the **Basics** tab, provide the following information:
 |Cluster name|Enter a globally unique name.|
 |Region|From the drop-down list, select a region where the cluster is created.|
 |Availability zone|Optionally specify an availability zone in which to deploy your cluster.|
-
 |Cluster type|Click **Select cluster type** to open a list. From the list, select the wanted cluster type. HDInsight clusters come in different types. They correspond to the workload or technology that the cluster is tuned for. There's no supported method to create a cluster that combines multiple types.|
 |Version|From the drop-down list, select a **version**. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).|
 |Cluster login username|Provide the username, default is **admin**.|
