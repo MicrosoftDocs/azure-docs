@@ -11,7 +11,7 @@
     href: concept-identity-protection-security-overview.md
   - name: What are risks?
     href: concept-identity-protection-risks.md
-  - name: Identity Protection policies
+  - name: Risk-based access policies
     href: concept-identity-protection-policies.md
   - name: What is the sign-in experience?
     href: concept-identity-protection-user-experience.md

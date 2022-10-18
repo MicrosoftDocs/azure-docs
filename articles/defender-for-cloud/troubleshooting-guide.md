@@ -4,6 +4,7 @@ description: This guide is for IT professionals, security analysts, and cloud ad
 author: bmansheim
 ms.author: benmansheim
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 07/17/2022
 ---
 # Microsoft Defender for Cloud Troubleshooting Guide
@@ -57,7 +58,7 @@ GCP connector issues:
 
 ## Troubleshooting the Log Analytics agent
 
-Defender for Cloud uses the Log Analytics agent to [collect and store data](./enable-data-collection.md). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
+Defender for Cloud uses the Log Analytics agent to [collect and store data](./monitoring-components.md#log-analytics-agent). The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
 
 Alert types:
 

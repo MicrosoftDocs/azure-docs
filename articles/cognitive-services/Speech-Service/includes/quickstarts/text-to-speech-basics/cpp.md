@@ -46,12 +46,13 @@ Follow these steps to create a new console application and install the Speech SD
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
 
-    std::string getEnvironmentVariable(const char* name);
+    std::string GetEnvironmentVariable(const char* name);
 
     int main()
     {
-        auto speechKey = getEnvironmentVariable("SPEECH_KEY");
-        auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
 
         if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
             std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
@@ -94,7 +95,7 @@ Follow these steps to create a new console application and install the Speech SD
         std::cin.get();
     }
 
-    std::string getEnvironmentVariable(const char* name)
+    std::string GetEnvironmentVariable(const char* name)
     {
     #if defined(_MSC_VER)
         size_t requiredSize = 0;
@@ -116,6 +117,9 @@ Follow these steps to create a new console application and install the Speech SD
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
 
 [Build and run your new console application](/cpp/build/vscpp-step-2-build) to start speech synthesis to the default speaker.
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
