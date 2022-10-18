@@ -14,7 +14,7 @@ To protect your ADO-based resources, you can connect your ADO organizations on t
 
 By connecting your Azure DevOps repositories to Defender for Cloud, you'll extend Defender for Cloud's enhanced security features to your ADO resources. These features include:
 
-- **Defender for Cloud's Cloud Security Posture Management (CSPM) features** - Assesses your Azure DevOps resources according to ADO-specific security recommendations. You can also learn about all the [recommendations for DevOps](recommendations-reference.md) resources. These recommendations are also used to calculate in your secure score. Resources are assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature that helps you manage your Azure DevOps resources alongside your Azure resources.
+- **Defender for Cloud's Cloud Security Posture Management (CSPM) features** - Assesses your Azure DevOps resources according to ADO-specific security recommendations. You can also learn about all the [recommendations for DevOps](recommendations-reference.md) resources. Resources are assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature that helps you manage your Azure DevOps resources alongside your Azure resources.
 
 - **Defender for Cloud's Workload Protection features** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your Azure DevOps resources.
 
