@@ -57,6 +57,8 @@ You can prepare recordings of individual utterances and the matching transcript 
 
 To produce a good voice model, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
+For data format examples, refer to the sample training set on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/Sample%20Data). The sample training set includes the sample script and the associated audios.
+
 > [!TIP]
 > To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [record voice samples to create a custom neural voice](record-custom-voice-samples.md).
 

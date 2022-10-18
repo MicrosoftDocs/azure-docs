@@ -5,7 +5,7 @@ author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 10/13/2022
 ms.author: mmitrik
 ---
 
@@ -15,14 +15,15 @@ This tutorial provides an overview of how to use DICOMweb&trade; Standard APIs w
 
 The DICOM service supports a subset of DICOMweb&trade; Standard that includes:
 
-* Store (STOW-RS)
-* Retrieve (WADO-RS)
-* Search (QIDO-RS)
+* [Store (STOW-RS)](dicom-services-conformance-statement.md#store-stow-rs)
+* [Retrieve (WADO-RS)](dicom-services-conformance-statement.md#retrieve-wado-rs)
+* [Search (QIDO-RS)](dicom-services-conformance-statement.md#search-qido-rs)
+* [Delete](dicom-services-conformance-statement.md#delete)
 
 Additionally, the following non-standard API(s) are supported:
 
-* Delete
-* Change Feed
+* [Change Feed](dicom-change-feed-overview.md)
+* [Extended Query Tags](dicom-extended-query-tags-overview.md)
 
 To learn more about our support of DICOM Web Standard APIs, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md) reference document.
 
@@ -34,7 +35,7 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 
 ## Overview of various methods to use with DICOM service
 
-Because DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+Because DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Services Conformance Statement](dicom-services-conformance-statement.md).
 
 To see language-specific examples, refer to the examples below. You can view Postman collection examples in several languages including:
 
@@ -50,7 +51,7 @@ To see language-specific examples, refer to the examples below. You can view Pos
 * PowerShell
 * Python
 * Ruby 
-* Swift.
+* Swift
 
 ### C#
 

@@ -12,20 +12,22 @@ ms.custom: template-how-to
 
 # Load test secured endpoints with Azure Load Testing Preview
 
-In this article, you learn how to load test applications with Azure Load Testing Preview that require authentication. Azure Load Testing enables you to [authenticate with endpoints by using shared secrets or credentials](#authenticate-with-a-shared-secret-or-credentials), or to [authenticate with client certificates](#authenticate-with-client-certificates).
+In this article, you learn how to load test secured applications with Azure Load Testing Preview. Secured applications require authentication to access the endpoint. Azure Load Testing enables you to [authenticate with endpoints by using shared secrets or credentials](#authenticate-with-a-shared-secret-or-credentials), or to [authenticate with client certificates](#authenticate-with-client-certificates).
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure Load Testing resource. To create a load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource).
+* If you're using client certificates, an Azure key vault. To create a key vault, see the quickstart [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+
 ## Authenticate with a shared secret or credentials
 
 In this scenario, the application endpoint requires that you use a shared secret, such as an access token, an API key, or user credentials to authenticate. In the JMeter script, you have to provide this security information with each application request. For example, to load test a web endpoint that uses OAuth 2.0, you add an `Authorization` header, which contains the access token, to the HTTP request.
 
-To avoid storing, and disclosing, security information in the JMeter script, Azure Load Testing enables you to securely store secrets in Azure Key Vault or in the CI/CD secrets store. By using a custom JMeter function `GetSecret`, you can retrieve the secret value and pass it to the application endpoint.
-
-The following diagram shows how to use shared secrets or credentials to authenticate with an application endpoint in your load test.
+The following diagram shows how to use shared secrets or credentials to authenticate with an application endpoint in your load test. To avoid storing, and disclosing, security information in the JMeter script, you can securely store secrets in Azure Key Vault or in the CI/CD secrets store. In the JMeter script, you then use a custom JMeter function `GetSecret` to retrieve the secret value. Finally, you specify the secret value in the JMeter request to the application endpoint.
 
 :::image type="content" source="./media/how-to-test-secured-endpoints/load-test-authentication-with-shared-secret.png" alt-text="Diagram that shows how to use shared-secret authentication with Azure Load Testing.":::
 
@@ -116,20 +118,20 @@ The following diagram shows how to use shared secrets or credentials to authenti
 1. Update the JMeter script to retrieve the secret value:
 
     1. Create a user-defined variable that retrieves the secret value with the `GetSecret` custom function:
-        <!-- Add screenshot -->
 
-    1. Update the JMeter sampler component to pass the secret in the request. For example, to provide an OAuth2 access token, you configure the `Authentication` HTTP header:
-        <!-- Add screenshot -->
+        :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-user-defined-variables.png" alt-text="Screenshot that shows how to add a user-defined variable that uses the GetSecret function in JMeter.":::
 
+    1. Update the JMeter sampler component to pass the secret in the request. For example, to provide an OAuth2 access token, you configure the `Authorization` HTTP header:
+
+        :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter.":::
+        
 When you now run your load test, the JMeter script can retrieve the secret information from the secrets store and authenticate with the application endpoint.
 
 ## Authenticate with client certificates
 
 In this scenario, the application endpoint requires that you use a client certificate to authenticate. Azure Load Testing supports Public Key Certificate Standard #12 (PKCS12) type of certificates. You can use only one client certificate in a load test.
 
-To avoid storing, and disclosing, the client certificate alongside the JMeter script, Azure Load Testing uses Azure Key Vault to store the certificate. When you run the load test, Azure Load Testing passes the certificate to JMeter, which uses it to authenticate with the application endpoint. You don't have to update the JMeter script to use the client certificate.
-
-The following diagram shows how to use a client certificate to authenticate with an application endpoint in your load test.
+The following diagram shows how to use a client certificate to authenticate with an application endpoint in your load test. To avoid storing, and disclosing, the client certificate alongside the JMeter script, you store the certificate in Azure Key Vault. When you run the load test, Azure Load Testing reads the certificate from the key vault, and automatically passes it to JMeter. JMeter then transparently passes the certificate in all application requests. You don't have to update the JMeter script to use the client certificate.
 
 :::image type="content" source="./media/how-to-test-secured-endpoints/load-test-authentication-with-client-certificate.png" alt-text="Diagram that shows how to use client-certificate authentication with Azure Load Testing.":::
 

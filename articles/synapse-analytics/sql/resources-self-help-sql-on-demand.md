@@ -8,7 +8,7 @@ ms.date: 09/01/2022
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
@@ -821,7 +821,7 @@ The error "Column `column name` of the type `type name` is not compatible with t
 
 ### <a id="resolving-azure-cosmos-db-path-has-failed-with-error"></a>Resolve: Azure Cosmos DB path has failed with error
 
-If you get the error "Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+If you get the error "Resolving Azure Cosmos DB path has failed with error 'This request is not authorized to perform this operation'," check to see if you used private endpoints in Azure Cosmos DB. To allow serverless SQL pool to access an analytical store with private endpoints, you must [configure private endpoints for the Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
 
 ### Azure Cosmos DB performance issues
 
@@ -950,7 +950,7 @@ Check the following issues if you experience slow query execution:
 - Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
 - Make sure that you don't have networking issues that can cause the slow streaming of result set
 - Make sure that the client application has enough resources (for example, not using 100% CPU).
-- Make sure that the storage account or Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
+- Make sure that the storage account or Azure Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
 
 See best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 
