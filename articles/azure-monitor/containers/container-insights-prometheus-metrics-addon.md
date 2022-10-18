@@ -60,7 +60,7 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 #### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
-- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/azure/azure-cli-extensions-overview).
+- The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Azure CLI version 2.41.0 or higher is required for this feature.
 
 #### Install metrics addon
