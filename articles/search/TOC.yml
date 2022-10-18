@@ -31,6 +31,8 @@
     href: search-get-started-dotnet.md
   - name: Java
     href: search-get-started-java.md
+  - name: Java (New)
+    href: search-get-started-java-new.md
   - name : JavaScript
     href: search-get-started-javascript.md
   - name: REST
@@ -143,8 +145,6 @@
       href: search-query-overview.md
     - name: Relevance scoring
       href: index-similarity-and-scoring.md
-    - name: Semantic ranking
-      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
@@ -458,9 +458,11 @@
       href: search-normalizers.md
   - name: Relevance
     items:
-    - name: Configure scoring
+    - name: Similarity ranking
       href: index-ranking-similarity.md
-    - name: Add a scoring profile
+    - name: Semantic ranking
+      href: semantic-ranking.md
+    - name: Scoring profiles 
       href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:
