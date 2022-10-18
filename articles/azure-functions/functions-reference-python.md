@@ -22,13 +22,13 @@ As a Python developer, you might also be interested in one of the following arti
 
 ## Programming model
 
-Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the *\__init\__.py* file. You can also [specify an alternate entry point](#alternate-entry-point).
+Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the *\_\__init\_\__.py* file. You can also [specify an alternate entry point](#alternate-entry-point).
 
 Data from triggers and bindings is bound to the function via method attributes that use the `name` property defined in the *function.json* file. For example, the  following _function.json_ file describes a simple function triggered by an HTTP request named `req`:
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-Based on this definition, the *\__init\__.py* file that contains the function code might look like the following example:
+Based on this definition, the *\_\__init\_\__.py* file that contains the function code might look like the following example:
 
 ```python
 def main(req):
@@ -406,7 +406,7 @@ The *host.json* file must also be updated to include an HTTP `routePrefix` value
 }
 ```
 
-Update the Python code file *__init__.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
+Update the Python code file *\_\__init\_\__.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
 
 # [ASGI](#tab/asgi)
 
