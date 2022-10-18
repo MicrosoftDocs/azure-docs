@@ -74,7 +74,7 @@ ms.custom: "include file"
 
 
 
-**Data ingestion volume rate**
+ <id="data-ingestion-volume-rate">**Data ingestion volume rate**</id>
 
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The volume rate limit intends to isolate Azure Monitor customers from sudden ingestion spikes in multitenancy environment. A default ingestion volume rate threshold of 500 MB (compressed) is defined in workspaces, this is translated to approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. The volume rate limit applies to data ingested from Azure resources via [Diagnostic settings](../articles/azure-monitor/essentials/diagnostic-settings.md). When volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 30 minutes and drop it if operation fails. It doesn't apply to data ingested from [agents](../articles/azure-monitor/agents/agents-overview.md) or [Data Collector API](../articles/azure-monitor/logs/data-collector-api.md).
 
