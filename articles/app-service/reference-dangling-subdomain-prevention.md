@@ -31,13 +31,15 @@ After the reservation expires, the DNS is free to be claimed by any subscription
 
 Subscription 'A' and subscription 'B' are the only subscriptions belonging to tenant 'AB'. Subscription 'A' contains an App Service app 'test' with DNS name 'test'.azurewebsites.net'. Upon deletion of the app, a reservation is taken on DNS name 'test.azurewebsites.net'.
 
-During the reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.azurewebsites.net' by creating a classic cloud service named 'test'. No other subscriptions will be allowed to claim it. After the reservation period is complete, any subscription in Azure can now claim 'test.azurewebsites.net'.
+During the reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.azurewebsites.net' by creating a web app named 'test'. No other subscriptions will be allowed to claim it. After the reservation period is complete, any subscription in Azure can now claim 'test.azurewebsites.net'.
 
 
 ## Domain verification token
 
-When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT record with the Domain Verification ID. When such a TXT record exists, no other Azure Subscription can validate the Custom Domain or take it over.
+When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT record with the Domain Verification ID. When such a TXT record exists, no other Azure Subscription can validate the Custom Domain or take it over unless they add their token verification ID to the DNS entries.
 
 These records prevent the creation of another App Service app using the same name from your CNAME entry. Without the ability to prove ownership of the domain name, threat actors can't receive traffic or control the content.
 
 DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation. Be aware that the DNS records take time to propagate.
+
+To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id)
