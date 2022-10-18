@@ -21,7 +21,7 @@ ms.custom: devx-track-python, ignite-2022
 > * [Python Examples](samples-python.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 
-Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub repository. This article provides:
+Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos) GitHub repository. This article provides:
 
 * Links to the tasks in each of the Python example project files.
 * Links to the related API reference content.
