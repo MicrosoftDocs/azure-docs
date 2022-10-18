@@ -4,7 +4,7 @@ description: This tutorial covers how to use the Azure portal to deploy a Linux 
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 08/03/2022
+ms.date: 10/17/2022
 ms.author: kendownie
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
@@ -144,7 +144,7 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
 ### Disable secure transfer
 
-Because the NFS protocol doesn't support encryption and relies instead on network-level security, you'll need to disable secure transfer.
+Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer.
 
 1. Select **Home** and then **Storage accounts**.
 
