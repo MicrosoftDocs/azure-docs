@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services Unmixed Audio Recording API quickstart 
 titleSuffix: An Azure Communication Services quickstart document
-description: Private Preview quickstart for Unmixed Audio Call Recording APIs.
+description: quickstart for Unmixed Audio Call Recording APIs
 author: dbasantes
 services: azure-communication-services
 ms.author: bharat
@@ -12,11 +12,11 @@ ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
 ms.custom: mode-api
 ---
-# Unmixed Audio Call Recording Quickstart
+# Unmixed Audio Recording Quickstart
 
 [!INCLUDE [Private Preview](../../includes/private-preview-include-section.md)]
 
-This quickstart gets you started recording voice and video calls. This quickstart assumes you've already used the [Calling client SDK](get-started-with-video-calling.md) to build the end-user calling experience. Using the **Calling Server APIs and SDKs** you can enable and manage recordings. 
+This quickstart gets you started with Call Recording for voice and video calls. To start using the Call Recording APIs, you must have a call in place. Make sure you're familiar with [Calling client SDK](get-started-with-video-calling.md) and/or [Call Automation](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) to build the end-user calling experience. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Test Unmixed Audio Recording with C#](./includes/call-recording-samples/private-preview-unmixed-audio-recording-server-csharp.md)]

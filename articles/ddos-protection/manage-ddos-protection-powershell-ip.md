@@ -18,7 +18,8 @@ In this quickstart, you'll enable DDoS IP protection and link it to a public IP 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell installed locally or Azure Cloud Shell
+- Azure PowerShell installed locally or Azure Cloud Shell 
+- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 9.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -36,6 +37,8 @@ New-AzResourceGroup -Name MyResourceGroup -Location eastus
 #Creates the IP address and enables DDoS IP Protection
 New-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup -Sku Standard -Location "East US" -AllocationMethod Static -DdosProtectionMode Enabled   
 ```
+> [!NOTE]
+> DDoS IP Protection is enabled only on Public IP Standard SKU.
 
 ### Enable DDoS IP Protection for an existing public IP address
 

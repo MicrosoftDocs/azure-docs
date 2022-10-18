@@ -16,7 +16,7 @@ ms.custom: data4ml, event-tier1-build-2022, ignite-2022
 
 # Connect to data with the Azure Machine Learning studio
 
-In this article, learn how to access your data with the [Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md). Connect to your data in storage services on Azure with [Azure Machine Learning datastores](how-to-access-data.md), and then package that data for tasks in your ML workflows with [Azure Machine Learning datasets](how-to-create-register-datasets.md).
+In this article, learn how to access your data with the [Azure Machine Learning studio](https://ml.azure.com). Connect to your data in storage services on Azure with [Azure Machine Learning datastores](how-to-access-data.md), and then package that data for tasks in your ML workflows with [Azure Machine Learning datasets](how-to-create-register-datasets.md).
 
 The following table defines and summarizes the benefits of datastores and datasets. 
 
