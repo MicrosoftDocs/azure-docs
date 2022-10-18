@@ -42,7 +42,7 @@ Templates are available to launch the workflow authoring experience. However, a 
 
 ## Workflow connectors
 
-Workflow connectors are a common set of actions applicable across some workflows. They can be used in any workflow in Microsoft Purview to create processes customized to your organization. To view the list of existing workflow connectors in Microsoft Purview, see [Workflow connectors](how-to-use-workflow-connectors.md)
+Workflow connectors are a common set of actions applicable across some workflows. They can be used in any workflow in Microsoft Purview to create processes customized to your organization. To view the list of existing workflow connectors in Microsoft Purview, see [Workflow connectors](how-to-use-workflow-connectors.md).
 
 ## Workflow scope
 
