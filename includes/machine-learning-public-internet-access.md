@@ -18,7 +18,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Inbound | 44224 | AzureMachineLearning | Create, update, and delete of Azure Machine Learning compute instance. It isn't required if you use No Public IP option.|
 | Outbound | 80, 443 | AzureActiveDirectory | Authentication using Azure AD. |
 | Outbound | 443, 8787, 18881 | AzureMachineLearning | Using Azure Machine Learning services. |
-| Outbound | 443 | BatchNodeManagement.<region> | Communication with Azure Batch back-end for computes. |
+| Outbound | 443 | BatchNodeManagement.region | Communication with Azure Batch back-end for computes. Replace `region` with the Azure region of your workspace. |
 | Outbound | 443 | AzureResourceManager | Creation of Azure resources with Azure Machine Learning. |
 | Outbound | 443, 445 (*)| Storage.region | Access data stored in the Azure Storage Account for compute cluster and compute instance. This outbound can be used to exfiltrate data. For more information, see [Data exfiltration protection](/azure/machine-learning/how-to-prevent-data-loss-exfiltration).<br>(*) 445 is only required if you have a firewall between your virtual network for Azure ML and a private endpoint for your storage accounts.|
 | Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
