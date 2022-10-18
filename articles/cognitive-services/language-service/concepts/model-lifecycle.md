@@ -19,7 +19,6 @@ Language service features utilize AI models. We update the language service with
 
 ## Prebuilt features
 
-### Expiration timeline
 
 Our standard (not customized) language service features are built on AI models that we call pre-trained models.
 
