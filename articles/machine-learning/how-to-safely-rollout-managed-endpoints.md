@@ -84,17 +84,6 @@ cd cli
 
 The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` in the `cli` directory, and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
-### Set an endpoint name
-
-To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
-
-For Unix, run this command:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
-
-> [!NOTE]
-> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
-
 # [Python](#tab/python)
 
 ### Clone the examples repository
@@ -129,35 +118,102 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 ---
 
-## Confirm your existing deployment
+## Define the endpoint and deployment
 
-This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md) and you have an existing endpoint and deployment.
+Online endpoints are used for online (real-time) inferencing. Online endpoints contain deployments that are ready to receive data from clients and can send responses back in real time.
 
 # [Azure CLI](#tab/azure-cli)
 
-You can view the status of your existing endpoint and deployment by running:
+### Create online endpoint
 
-```azurecli
-az ml online-endpoint show --name $ENDPOINT_NAME 
+To create an online endpoint:
 
-az ml online-deployment show --name blue --endpoint $ENDPOINT_NAME 
-```
+1. Set your endpoint name:
+
+   For Unix, run this command (replace `YOUR_ENDPOINT_NAME` with a unique name):
+
+   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+
+    > [!NOTE]
+    > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`.
+
+1. Create the endpoint in the cloud, run the following code:
+
+   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_endpoint":::
+
+### Create the 'blue' deployment
+
+A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a deployment named `blue` for your endpoint, run the following command:
+
+   :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_blue":::
+
+# [Python](#tab/python)
+
+### Create online endpoint
+
+To create an online endpoint, we'll use `ManagedOnlineEndpoint`. This class allows users to configure the following key aspects:
+
+* `name` - Name of the endpoint. Needs to be unique at the Azure region level
+* `auth_mode` - The authentication method for the endpoint. Key-based authentication and Azure ML token-based authentication are supported. Key-based authentication doesn't expire but Azure ML token-based authentication does. Possible values are `key` or `aml_token`.
+* `identity`- The managed identity configuration for accessing Azure resources for endpoint provisioning and inference.
+    * `type`- The type of managed identity. Azure Machine Learning supports `system_assigned` or `user_assigned` identity.
+    * `user_assigned_identities` - List (array) of fully qualified resource IDs of the user-assigned identities. This property is required if `identity.type` is user_assigned.
+* `description`- Description of the endpoint.
+
+1. Configure the endpoint:
+
+   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_endpoint)]
+
+1. Create the endpoint:
+
+   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_endpoint)]
+
+### Create the 'blue' deployment
+
+A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class. This class allows user to configure the following key aspects.
+
+**Key aspects of deployment**
+* `name` - Name of the deployment.
+* `endpoint_name` - Name of the endpoint to create the deployment under.
+* `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
+* `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.
+* `code_configuration` - the configuration for the source code and scoring script
+    * `path`- Path to the source code directory for scoring the model
+    * `scoring_script` - Relative path to the scoring file in the source code directory
+* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+* `instance_count` - The number of instances to use for the deployment
+
+1. Configure blue deployment:
+
+   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=configure_deployment)]
+
+1. Create the deployment:
+
+   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=create_deployment)]
+
+   [!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=deployment_traffic)]
+
+---
+
+## Confirm your existing deployment
+
+<!-- This article assumes that your deployment is as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md) and you have an existing endpoint and deployment. -->
+
+# [Azure CLI](#tab/azure-cli)
+
+The `show` command contains information in `provisioning_status` for endpoint and deployment:
+
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment called `blue`.
 
 # [Python](#tab/python)
 
-### Test the endpoint with sample data
+Check the status to see whether the model was deployed without error:
 
-Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
-
-* `endpoint_name` - Name of the endpoint
-* `request_file` - File with request data
-* `deployment_name` - Name of the specific deployment to test in an endpoint
-
-We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
-
-[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_deployment)]
+```python
+ml_client.online_endpoints.get(name=online_endpoint_name)
+```
 
 ---
 
