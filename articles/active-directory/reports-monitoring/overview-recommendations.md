@@ -90,6 +90,20 @@ Any role can enable the Azure AD recommendations preview, but you'll need one of
 
 Some recommendations have a list of impacted resources associated. This list of resources gives you more context on how the recommendation applies to you and/or which resources you need to address. The only action recorded in the audit log is completing recommendations. Actions taken on a recommendation are collected in the audit log. To view these logs, go to **Azure AD** > **Audit logs** and filter the service to "Azure AD recommendations."
 
+Some recommendations are only available with specific licenses. The table below provides the required license for each available recommendation. The impacted resources and available documentation are also provided.
+
+| Recommendation | Required license | Impacted resources | Learn content |
+|---- |---- |---- |---- |
+| Convert per-user MFA to Conditional Access MFA | P2 | Users | [Migrate to CA MFA](recommendation-turn-off-per-user-mfa.md)  |
+| Integrate 3rd party applications | P2 | Tenant level | [Integrate 3rd party apps](recommendation-integrate-third-party-apps.md) |
+| Migrate applications from AD FS to Azure AD | P2 | Users | [Migrate from AD FS to Azure AD](recommendation-migrate-apps-from-adfs-to-azure-ad.md) |
+| Migrate to Microsoft Authenticator | P2 | Users | [Migrate to Microsoft Authenticator](recommendation-migrate-to-authenticator.md) |
+| Minimize MFA prompts from known devices | P2 | Users | [Minimize MFA prompts](recommendation-migrate-apps-from-adfs-to-azure-ad.md) |
+| Remove unused applications | P2 | Applications |  |
+| Remove unused credentials from applications | P2 | Applications |  |
+| Renew expiring application credentials | P2 | Applications |  |
+| Renew expiring service principal credentials | P2 | Applications |  |
+
 ## How to access Azure AD recommendations (preview)
 
 To enable the Azure AD recommendations preview:
