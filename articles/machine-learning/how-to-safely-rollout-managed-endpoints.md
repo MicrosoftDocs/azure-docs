@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: how-to, devplatv2, cliv2, event-tier1-build-2022, sdkv2
 ---
 
-# Safe rollout for managed online endpoints
+# Safe rollout for online endpoints
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -82,7 +82,7 @@ cd cli
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
 
-The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
+The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` in the `cli` directory, and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
 ### Set an endpoint name
 
@@ -248,7 +248,7 @@ The following command mirrors 10% of the traffic to the `green` deployment:
 
 Mirroring has the following limitations:
 * You can only mirror traffic to one deployment.
-* Mirrored traffic is not currently supported with K8s.
+* Mirrored traffic isn't currently supported with K8s.
 * The maximum mirrored traffic you can configure is 50%. This limit is to reduce the impact on your endpoint bandwidth quota.
 
 Also note the following behavior:
