@@ -15,7 +15,7 @@ When developing locally, make sure that the user account that connects to Azure 
 The following example assigns the `Azure Service Bus Data Owner` role to your user account, which provides full access to Azure Service Bus resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to gives users only the minimum permissions needed for a more secure production environments.
 
 > [!IMPORTANT]
-> In most cases it will take a minute or two for the role assignment to propagate in Azure, but in rare cases it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
+> In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
 
 ### [Azure portal](#tab/roles-azure-portal)
 
