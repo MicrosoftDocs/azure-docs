@@ -39,10 +39,10 @@ The following diagram and table provide information about the building blocks of
 | 2 | Title | The title changes based on whether the users are going through the user or admin consent flow. In user consent flow, the title will be “Permissions requested” while in the admin consent flow the title will have an additional line “Accept for your organization”. |
 | 3 | App logo | This image should help users have a visual cue of whether this app is the app they intended to access. This image is provided by application developers and the ownership of this image isn't validated. |
 | 4 | App name | This value should inform users which application is requesting access to their data. Note this name is provided by the developers and the ownership of this app name isn't validated.|
-| 5 | Publisher name and verification | The blue "verified" badge means that the app publisher has verified their identity using a Microsoft Partner Network account and has completed the verification process. If the app is publisher verified, the publisher name is displayed.  If the app is not publisher verified, "Unverified" is displayed instead of a publisher name. For more information, read about [Publisher Verification](publisher-verification-overview.md). Selecting the publisher name displays more app info as available, such as the publisher name, publisher domain, date created, certification details, and reply URLs. |
+| 5 | Publisher name and verification | The blue "verified" badge means that the app publisher has verified their identity using a Microsoft Partner Network account and has completed the verification process. If the app is publisher verified, the publisher name is displayed.  If the app isn't publisher verified, "Unverified" is displayed instead of a publisher name. For more information, read about [Publisher Verification](publisher-verification-overview.md). Selecting the publisher name displays more app info as available, such as the publisher name, publisher domain, date created, certification details, and reply URLs. |
 | 6 |  Microsoft 365 Certification | The Microsoft 365 Certification logo means that an app has been vetted against controls derived from leading industry standard frameworks, and that strong security and compliance practices are in place to protect customer data.  For more information, read about [Microsoft 365 Certification](/microsoft-365-app-certification/docs/enterprise-app-certification-guide).|
 | 7 | Publisher information  | Displays whether the application is published by Microsoft. |
-| 8 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it is best to request access, to the permissions with the least privilege. |
+| 8 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it's best to request access, to the permissions with the least privilege. |
 | 9 | Permission description | This value is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
 | 10 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
 | 11 | Report it here | This link is used to report a suspicious app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
@@ -52,9 +52,9 @@ The following diagram and table provide information about the building blocks of
 The following section describes the common scenarios and the expected consent experience for each of them.
 ### App requires a permission within the user's scope of authority
 
-In this consent scenario, the user accesses an app which requires a permission set that is within the user's scope of authority. The user is directed to the user consent flow.
+In this consent scenario, the user accesses an app that requires a permission set that is within the user's scope of authority. The user is directed to the user consent flow.
 
-Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. The check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
+Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. The check box will only show for the Global Admin role, so Cloud Admin and App Admin won't see this checkbox.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 
@@ -64,13 +64,13 @@ Users will see the traditional consent prompt.
 
 ### App requires a permission outside of the user's scope of authority
 
-In this consent scenario, the user accesses an app which requires at least one permission that is outside the user's scope of authority.
+In this consent scenario, the user accesses an app that requires at least one permission that is outside the user's scope of authority.
 
 Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 
-Non-admin users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app.
+Non-admin users will be blocked from granting consent to the application, and they'll be told to ask their admin for access to the app.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 
@@ -82,7 +82,7 @@ Admin users will see the admin consent prompt. The title and the permission desc
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_3a.png" alt-text="Consent prompt for scenario 3a":::
 
-Non-admin users will be blocked from granting consent to the application, and they will be told to ask their admin for access to the app.
+Non-admin users will be blocked from granting consent to the application, and they'll be told to ask their admin for access to the app.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 
@@ -103,7 +103,7 @@ This section outlines the common issues with the consent experience and possible
 - 403 error
 
   - Is this a [delegated scenario](permissions-consent-overview.md)? What permissions does a user have? 
-  - Are necessary permissions added to leverage the endpoint? 
+  - Are necessary permissions added to use the endpoint? 
   - Check the [token](https://jwt.ms/) to see if it has necessary claims to call the endpoint.
   - What permissions have been consented to? Who consented? 
 

@@ -64,14 +64,14 @@ There are other ways in which applications can be granted authorization for app-
 One way that applications are granted permissions is through consent. Consent is a process where users or admins authorize an application to access a protected resource. For example, when a user attempts to sign into an application for the first time, the application can request permission to see the user's profile and read the contents of the user's mailbox. The user sees the list of permissions the app is requesting through a consent prompt. Other scenarios where users may see a consent prompt include:
 
 - When previously granted consent is revoked
-- When the application is coded to specifically to prompt for consent during every sign-in
+- When the application is coded to specifically prompt for consent during every sign-in
 - When the application uses incremental or dynamic consent to ask for some permissions upfront and more permission later as needed. 
 
 The key details of a consent prompt are the list of permissions the application requires and the publisher information. For more information about the consent prompt and the consent experience for both admins and end-users, see [application consent experience](application-consent-experience.md).
 
 ### User consent
 
-User consent happens when a user attempts to sign into an application. The user provides their sign-in credentials. These credentials are checked to determine whether consent has already been granted. If no previous record of user or admin consent for the required permissions exists, the user is shown a consent prompt and asked to grant the application the requested permissions. In many cases, an admin may be required to grant consent on behalf of the user.
+User consent happens when a user attempts to sign into an application. The user provides their sign-in credentials. These credentials are checked to determine whether consent has already been granted. If no previous record of user or admin consent for the required permissions exists, the user is shown a consent prompt, and asked to grant the application the requested permissions. In many cases, an admin may be required to grant consent on behalf of the user.
 
 ### Administrator consent
 

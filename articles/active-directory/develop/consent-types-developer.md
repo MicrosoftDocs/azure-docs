@@ -16,21 +16,21 @@ ms.reviewer: jawoods, ludwignick, phsignor
 # Requesting for permissions through consent
 
 
-Applications in Microsoft identity platform rely on consent in order to gain access to necessary resources or APIs. There are consent types that your application may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will consent to these permissions for your application or API to access their data. 
+Applications in Microsoft identity platform rely on consent in order to gain access to necessary resources or APIs. There are consent types that your application may need to know about in order to be successful. If you're defining permissions, you'll also need to understand how your users will consent to these permissions for your application or API to access their data. 
 
-In this article, you'll learn about the different types of consent and how to request permissions for you application through consent.
+In this article, you'll learn about the different types of consent and how to request permissions for your application through consent.
 
 ## Static user consent 
 
 In the static user consent scenario, you must specify all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) hasn't granted consent for this app, then Microsoft identity platform will prompt the user to provide consent at this time.
 
-Static permissions also enables administrators to consent on behalf of all users in the organization.
+Static permissions also enable administrators to consent on behalf of all users in the organization.
 
 While static permissions of the application defined in the Azure portal keep the code nice and simple, it presents some possible issues for developers:
 
 - The application needs to request all the permissions it would ever need upon the user's first sign-in. This can lead to a long list of permissions that discourages end users from approving the app's access on initial sign-in.
 
-- The application needs to know all of the resources it would ever access ahead of time. It is difficult to create apps that could access an arbitrary number of resources.
+- The application needs to know all of the resources it would ever access ahead of time. It's difficult to create apps that could access an arbitrary number of resources.
 
 ## Incremental and dynamic user consent
 
@@ -62,9 +62,9 @@ The `scope` parameter is a space-separated list of delegated permissions that th
 After the user enters their credentials, the Microsoft identity platform checks for a matching record of *user consent*. If the user hasn't consented to any of the requested permissions in the past, and if the administrator hasn't consented to these permissions on behalf of the entire organization, the Microsoft identity platform asks the user to grant the requested permissions.
 
 
-In the following example, the `offline_access` ("Maintain access to data you have given it access to") permission and `User.Read` ("Sign you in and read your profile") permission are automatically included in the initial consent to an application.  These permissions are generally required for proper application functionality. The `offline_access` permission gives the application access to refresh tokens that are critical for native apps and web apps. The `User.Read` permission gives access to the `sub` claim. It allows the client or application to correctly identify the user over time and access rudimentary user information.
+In the following example, the `offline_access` ("Maintain access to data you have given it access to") permission and `User.Read` ("Sign you in and read your profile") permission are automatically included in the initial consent to an application.  These permissions are required for proper application functionality. The `offline_access` permission gives the application access to refresh tokens that are critical for native apps and web apps. The `User.Read` permission gives access to the `sub` claim. It allows the client or application to correctly identify the user over time and access rudimentary user information.
 
-![Example screenshot that shows work account consent.](./media/v2-permissions-and-consent/work_account_consent.png)
+![Example screenshot that shows work account consent.](./media//request-permissions-through-consent.png)
 
 When the user approves the permission request, consent is recorded. The user doesn't have to consent again when they later sign in to the application.
 
@@ -76,7 +76,7 @@ Requesting consent for an entire tenant requires admin consent. Admin consent do
 
 When your application requests [delegated permissions that require admin consent](scopes-oidc.md#admin-restricted-permissions), the user receives an error message that says they're unauthorized to consent to your app's permissions. The user is required to ask their admin for access to the app. If the admin grants consent for the entire tenant, the organization's users don't see a consent page for the application unless the previously granted permissions are revoked or the application requests for a new permission incrementally.
 
-Administrators using the same application will see the admin consent prompt, with a checkbox that allows them to grant the application access to the requested data on behalf of the users for the entire tenant. For more information on the user and admin consent experience, see [Application consent experience](application-consent-experience.md)
+Administrators using the same application will see the admin consent prompt. The admin consent prompt provides a checkbox that allows them to grant the application access to the requested data on behalf of the users for the entire tenant. For more information on the user and admin consent experience, see [Application consent experience](application-consent-experience.md)
 
 Examples of delegated permissions for Microsoft Graph that require admin consent are:
 
@@ -88,7 +88,7 @@ To view the full list of Microsoft graph permissions, see [Microsoft graph permi
 
 You can also configure permissions on your own resources to require admin consent. For more information on how to add scopes that require admin consent, see [Add a scope that requires admin consent](quickstart-configure-app-expose-web-apis.md#add-a-scope-requiring-admin-consent)
 
-Some organizations may change the default user consent policy for the tenant. When your application requests access to permissions they are evaluated against these policies. The user may need to request admin consent even when not required by default. To learn how administrators manage consent policies for applications, see [Manage app consent policies](../manage-apps/manage-app-consent-policies.md)
+Some organizations may change the default user consent policy for the tenant. When your application requests access to permissions they're evaluated against these policies. The user may need to request admin consent even when not required by default. To learn how administrators manage consent policies for applications, see [Manage app consent policies](../manage-apps/manage-app-consent-policies.md)
 
 >[!NOTE] 
 >In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, scope=User.Read is equivalent to https://graph.microsoft.com/User.Read.
@@ -99,11 +99,11 @@ Application permissions always require admin consent. Application permissions do
 
 ### Admin consent Multi-tenant applications
 
-In case the application requesting the permission is a multi-tenant application, its application registration only exists in the tenant where it was created, therefore permissions can't be configured in the local tenant. If the application requests permissions that require admin consent, the administrator needs to consent on behalf of the users. To consent to these permissions, the administrators need to login to the application themselves, so the admin consent sign-in experience is triggered. To learn how to set up the admin consent experience for multi-tenant applications, see [Enable multi-tenant log-ins](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
+In case the application requesting the permission is a multi-tenant application, its application registration only exists in the tenant where it was created, therefore permissions can't be configured in the local tenant. If the application requests permissions that require admin consent, the administrator needs to consent on behalf of the users. To consent to these permissions, the administrators need to log in to the application themselves, so the admin consent sign-in experience is triggered. To learn how to set up the admin consent experience for multi-tenant applications, see [Enable multi-tenant log-ins](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
 
 An administrator can grant consent for an application with the following options.
 
-### Recommended: Sign the user in to your app
+### Recommended: Sign the user into your app
 
 Typically, when you build an application that requires admin consent, the application needs a page or view in which the admin can approve the app's permissions. This page can be:
 
@@ -113,7 +113,7 @@ Typically, when you build an application that requires admin consent, the applic
 
 In many cases, it makes sense for the application to show the "connect" view only after a user has signed in with a work Microsoft account or school Microsoft account.
 
-When you sign the user in to your app, you can identify the organization to which the admin belongs before you ask them to approve the necessary permissions. Although this step isn't strictly necessary, it can help you create a more intuitive experience for your organizational users. 
+When you sign the user into your app, you can identify the organization to which the admin belongs before you ask them to approve the necessary permissions. Although this step isn't strictly necessary, it can help you create a more intuitive experience for your organizational users. 
 
 To sign the user in, follow the [Microsoft identity platform protocol tutorials](active-directory-v2-protocols.md).
 

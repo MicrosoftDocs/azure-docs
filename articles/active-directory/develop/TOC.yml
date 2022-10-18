@@ -42,7 +42,7 @@
         - name: Delegated access
           href: delegated-access.md
         - name: Scopes and permissions
-          href: scope-oidc.md
+          href: scopes-oidc.md
         - name: Requesting permissions through consent
           href: consent-types-developer.md
         - name: Application consent experiences

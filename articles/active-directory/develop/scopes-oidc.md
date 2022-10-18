@@ -35,13 +35,13 @@ Because of these types of permission definitions, the resource has fine-grained 
 
 When a resource's functionality is chunked into small permission sets, third-party apps can be built to request only the permissions that they need to perform their function. Users and administrators can know what data the app can access. And they can be more confident that the app isn't behaving with malicious intent. Developers should always abide by the principle of least privilege, asking for only the permissions they need for their applications to function.
 
-In OAuth 2.0, these types of permission sets are called *scopes*. They're also often referred to as *permissions*. In the Microsoft identity platform, a permission is represented as a string value. An app requests the permissions it needs by specifying the permission in the `scope` query parameter. Identity platform supports several well-defined [OpenID Connect scopes](#openid-connect-scopes) as well as resource-based permissions (each permission is indicated by appending the permission value to the resource's identifier or application ID URI). For example, the permission string `https://graph.microsoft.com/Calendars.Read` is used to request permission to read users calendars in Microsoft Graph.
+In OAuth 2.0, these types of permission sets are called *scopes*. They're also often referred to as *permissions*. In the Microsoft identity platform, a permission is represented as a string value. An app requests the permissions it needs by specifying the permission in the `scope` query parameter. Identity platform supports several well-defined [OpenID Connect scopes](#openid-connect-scopes) and resource-based permissions (each permission is indicated by appending the permission value to the resource's identifier or application ID URI). For example, the permission string `https://graph.microsoft.com/Calendars.Read` is used to request permission to read users calendars in Microsoft Graph.
 
 In requests to the authorization server, for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, `scope=User.Read` is equivalent to `https://graph.microsoft.com/User.Read`.
 
 ## Admin-restricted permissions
 
-Some high-privilege  in Microsoft resources can be set to *admin-restricted*. If your app requires scopes for admin-restricted permissions, an organization's administrator must consent to those scopes on behalf of the organization's users.The following section gives examples of these kinds of permissions:
+Some high-privilege  at Microsoft resources can be set to *admin-restricted*. If your app requires scopes for admin-restricted permissions, an organization's administrator must consent to those scopes on behalf of the organization's users. The following section gives examples of these kinds of permissions:
 
 - Read all user's full profiles by using `User.Read.All`
 - Write data to an organization's directory by using `Directory.ReadWrite.All`
@@ -55,7 +55,6 @@ Although a consumer user might grant an application access to this kind of data,
 If the application requests application permissions and an administrator grants these permissions this grant isn't done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are used only by daemon services and other non-interactive applications that run in the background. For more information on the direct access scenario, see [Access scenarios in the Microsoft identity platform](permissions-consent-overview.md).
 
 For a step by step guide on how to expose scopes in a web API, see [Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
-
 
 ## OpenID Connect scopes
 
@@ -104,17 +103,17 @@ The scope parameter value is constructed by using the identifier URI for the res
 
 Using `scope={resource-identifier}/.default` is functionally the same as `resource={resource-identifier}` on the v1.0 endpoint (where `{resource-identifier}` is the identifier URI for the API, for example `https://graph.microsoft.com` for Microsoft Graph).
 
-The `.default` scope can be used in any OAuth 2.0 flow and to initiate [admin consent](v2-admin-consent.md). It's use is required in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).
+The `.default` scope can be used in any OAuth 2.0 flow and to initiate [admin consent](v2-admin-consent.md). Its use is required in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
 Clients can't combine static (`.default`) consent and dynamic consent in a single request. So `scope=https://graph.microsoft.com/.default Mail.Read` results in an error because it combines scope types.
 
 ### .default when the user has already given consent
 
-The `.default` scope is functionally identical to the behavior of the `resource`-centric v1.0 endpoint. It carries the consent behavior of the v1.0 endpoint as well. That is, `.default` triggers a consent prompt only if consent has not been granted for any delegated permission between the client and the resource, on behalf of the signed-in user.
+The `.default` scope is functionally identical to the behavior of the `resource`-centric v1.0 endpoint. It carries the consent behavior of the v1.0 endpoint as well. That is, `.default` triggers a consent prompt only if consent hasn't been granted for any delegated permission between the client and the resource, on behalf of the signed-in user.
 
-If consent does exists, the returned token contains all scopes granted for that resource for the signed-in user. However, if no permission has been granted for the requested resource (or if the `prompt=consent` parameter has been provided), a consent prompt is shown for all required permissions configured on the client application registration, for all APIs in the list.
+If consent exists, the returned token contains all scopes granted for that resource for the signed-in user. However, if no permission has been granted for the requested resource (or if the `prompt=consent` parameter has been provided), a consent prompt is shown for all required permissions configured on the client application registration, for all APIs in the list.
 
-For example, if the scope `https://graph.microsoft.com/.default` is requested, your application is requesting an access token for the Microsoft Graph API. If at least one delegated permission has been granted for Microsoft Graph on behalf of the signed-in user, the sign-in will continue and all Microsoft Graph delegated permissions which have been granted for that user will be included in the access token. If no permissions have been granted for the requested resource (Microsoft Graph, in this example), then a consent prompt will be presented for all required permissions configured on the application, for all APIs in the list.
+For example, if the scope `https://graph.microsoft.com/.default` is requested, your application is requesting an access token for the Microsoft Graph API. If at least one delegated permission has been granted for Microsoft Graph on behalf of the signed-in user, the sign-in will continue and all Microsoft Graph delegated permissions that have been granted for that user will be included in the access token. If no permissions have been granted for the requested resource (Microsoft Graph, in this example), then a consent prompt will be presented for all required permissions configured on the application, for all APIs in the list.
 
 #### Example 1: The user, or tenant admin, has granted permissions
 
@@ -132,7 +131,7 @@ When the client requests a token for `scope=https://graph.microsoft.com/.default
 
 In this example, the user has already consented to `Mail.Read` for the client. The client has registered for the `Contacts.Read` scope. 
 
-The client first performs a sign-in with `scope=https://graph.microsoft.com/.default`. Based on the `scopes` parameter of the response, the application's code detects that only `Mail.Read` has been granted. The client then initiates a second sign-in using `scope=https://graph.microsoft.com/.default`, and this time forces consent using `prompt=consent`. If the user is allowed to consent for all the permissions that the application registered, they will be shown the consent prompt. (If not, they will be shown an error message or the [admin consent request](../manage-apps/configure-admin-consent-workflow.md) form.) Both `Contacts.Read` and `Mail.Read` will be in the consent prompt. If consent is granted and the sign-in continues, the token returned is for Microsoft Graph, and contains `Mail.Read` and `Contacts.Read`.
+The client first performs a sign-in with `scope=https://graph.microsoft.com/.default`. Based on the `scopes` parameter of the response, the application's code detects that only `Mail.Read` has been granted. The client then initiates a second sign-in using `scope=https://graph.microsoft.com/.default`, and this time forces consent using `prompt=consent`. If the user is allowed to consent for all the permissions that the application registered, they'll be shown the consent prompt. (If not, they'll be shown an error message or the [admin consent request](../manage-apps/configure-admin-consent-workflow.md) form.) Both `Contacts.Read` and `Mail.Read` will be in the consent prompt. If consent is granted and the sign-in continues, the token returned is for Microsoft Graph, and contains `Mail.Read` and `Contacts.Read`.
 
 ### Using the .default scope with the client
 
