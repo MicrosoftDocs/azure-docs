@@ -17,6 +17,9 @@ ms.date: 09/29/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Hyperscale (Citus) is now Azure Cosmos DB for PostgreSQL. To learn more about this change, see [Where is Hyperscale (Citus)?](../../postgresql/hyperscale/moved.md).
+
 Azure Cosmos DB for PostgreSQL is a managed service for PostgreSQL extended
 with the [Citus open source](https://github.com/citusdata/citus) superpower of
 *distributed tables*. This superpower enables you to build highly scalable
