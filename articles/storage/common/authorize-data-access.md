@@ -42,11 +42,9 @@ Each authorization option is briefly described below:
     You can use Azure role-based access control (Azure RBAC) to manage a security principal's permissions to blob, queue, and table resources in a storage account. You can also use Azure attribute-based access control (ABAC) to add conditions to Azure role assignments for blob resources. For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). For more information about ABAC, see [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md).
 
 > [!IMPORTANT]
-> Azure ABAC is currently only generally available (GA) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers.
-> See the next section, [About the ABAC Preview](#about-the-abac-preview) for the current feature status of ABAC.
+> Currently, Azure ABAC is generally available (GA) for controlling access only to Azure blob storage, Data Lake Storage Gen2, and Azure Queues using `request` and `resource` attributes in the standard storage account performance tier.
 >
-> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> For more details about the ABAC preview, see [About the ABAC Preview](#about-the-abac-preview).
 
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
 
