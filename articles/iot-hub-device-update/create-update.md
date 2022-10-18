@@ -39,13 +39,13 @@ Once you have your update files, create an import manifest to describe the updat
 
 Using the Azure CLI, run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Compatibility Properties, Update Handler and associated properties, and file(s)**. See [Import schema and API information](import-schema.md) for details on what values you can use for each item. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
 
-    ```azurecli
+```azurecli
     az iot device-update update init v5
     --update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
     --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
     --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> 
     --file path=<replace with path(s) to your update file(s), including the full file name> 
-    ```
+```
 
 _For handler properties, you may need to escape certain characters in your JSON. For example, use `'\'` to escape double-quotes if you are running the Azure CLI in PowerShell._
 
