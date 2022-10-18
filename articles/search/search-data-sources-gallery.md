@@ -2722,7 +2722,10 @@ Secure enterprise search connector for reliably indexing content from Microsoft 
 
 [More details](https://www.raytion.com/connectors/raytion-yammer-connector)
 
+:::column-end:::
+:::column span="":::
 
+---
 
 ### Zendesk Guide 
 
