@@ -56,7 +56,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Volume name**      
         Specify the name for the volume that you are creating. 
 
-        Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoft.netapp) for naming conventions on volumes. Additionally, you cannot use `default` or `bin` as the volume name.
+        Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetapp) for naming conventions on volumes. Additionally, you cannot use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
