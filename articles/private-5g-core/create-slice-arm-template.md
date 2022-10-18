@@ -47,10 +47,16 @@ The following Azure resource is defined in the template.
 
 2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
-    - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
-    - **Slice name:** enter the name of the network slice.
-    - **Slice Service Type:** enter the slice/service type (SST) value. If the slice will be used by 4G UEs, enter a value of 1.
-    - **Slice Differentiator:** enter the slice differentiator (SD) value. If the slice will be used by 4G UEs, leave this field blank.
+    | Field | Value |
+    |--|--|
+    | **Subscription** | Select the Azure subscription you used to create your private mobile network. |
+    | **Resource group** | Select the resource group containing the mobile network resource representing your private mobile network. |
+    | **Region** | Select **East US**. |
+    | **Location** | Enter *eastus*. |
+    | **Existing Mobile Network Name** | Enter the name of the Mobile Network resource representing your private mobile network. |
+    | **Slice Name** | Enter the name of the network slice. |
+    | **Sst** | Enter the slice/service type (SST) value. If the slice will be used by 4G UEs, enter a value of 1. |
+    | **Sd** | Enter the slice differentiator (SD) value. If the slice will be used by 4G UEs, leave this field blank. |
 
 3. Select **Review + create**.
 4. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.

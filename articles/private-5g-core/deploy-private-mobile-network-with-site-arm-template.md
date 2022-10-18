@@ -77,8 +77,8 @@ The following Azure resources are defined in the template.
     |**Service Name**     | Leave this field unchanged.        |
     |**Sim Policy Name**     | Leave this field unchanged.        |
     |**Slice Name**     | Enter the name of the network slice.        |
-    |**Slice Service Type**     |  Enter the slice/service type (SST) value. If the site will support 4G technology, enter a value of 1.        |
-    |**Slice Differentiator**     | Enter the slice differentiator (SD) value. If the site will support 4G technology, leave this field blank.       |
+    |**Sst**     |  Enter the slice/service type (SST) value. If the site will support 4G technology, enter a value of 1.        |
+    |**Sd**     | Enter the slice differentiator (SD) value. If the site will support 4G technology, leave this field blank.       |
     |**Sim Group Name**     | If you want to provision SIMs, enter the name of the SIM group to which the SIMs will be added. Otherwise, leave this field blank.        |
     |**Sim Resources**     | If you want to provision SIMs, paste in the contents of the JSON file containing your SIM information. Otherwise, leave this field unchanged.       |
     | **Platform Type** | Ensure **AKS-HCI** is selected. |
