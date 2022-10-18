@@ -38,4 +38,4 @@ Learn more about [Entra Permission Management](other-threat-protections.md#entra
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [New AWS Connector in Microsoft Defender for Cloud](episode-eighteen.md)

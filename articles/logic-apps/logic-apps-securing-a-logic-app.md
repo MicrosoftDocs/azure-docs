@@ -29,7 +29,7 @@ For more information about security in Azure, review these topics:
 
 * [Azure encryption overview](../security/fundamentals/encryption-overview.md)
 * [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md)
-* [Azure Security Benchmark](../security/benchmarks/overview.md)
+* [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 <a name="secure-operations"></a>
 
