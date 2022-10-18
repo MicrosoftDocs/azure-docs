@@ -48,7 +48,7 @@ The Azure Cosmos DB platform provides a set of five well-defined, business use-c
 | `TWO` | Local region | `Strong` |
 | `THREE` | Local region | `Strong` |
 
-Unlike Apache and DSE Cassandra, Azure Cosmos DB durably commits a quorom write by default. At least three out of four (3/4) nodes commit the write to disk, and NOT just a commit log in memory.
+Unlike Apache and DSE Cassandra, Azure Cosmos DB durably commits a quorum write by default. At least three out of four (3/4) nodes commit the write to disk, and NOT just an in-memory commit log.
 
 ### `ONE`, `LOCAL_ONE`, or `ANY` write consistency in Apache Cassandra
 
@@ -78,7 +78,7 @@ Always durably commits a quorum write by default, hence all read consistencies c
 | `TWO` | Local region | `Eventual` |
 | `THREE` | Local region | `Strong` |
 
-Azure Cosmos DB has no notion of write consitency to only two nodes, hence we treat this the same as quorom for most cases. For read consistency `TWO`, this is equivalent to write with quorum and read from one.
+Azure Cosmos DB has no notion of write consistency to only two nodes, hence we treat this consistency similar to quorum for most cases. For read consistency `TWO`, this consistency is equivalent to write with `QUOROM` and read from `ONE`.
 
 ### `Serial`, or `Local_Serial` write consistency in Apache Cassandra
 
@@ -93,13 +93,13 @@ Azure Cosmos DB has no notion of write consitency to only two nodes, hence we tr
 | `TWO` | Local region | `Strong` |
 | `THREE` | Local region | `Strong` |
 
-Serial only applies to lightweight transactions. Azure Cosmos DB follows a durably commited paxos algorithm by default, and hence `Serial` consistency is similar to quorum.
+Serial only applies to lightweight transactions. Azure Cosmos DB follows a [durably committed algorithm](https://www.microsoft.com/research/publication/revisiting-paxos-algorithm/) by default, and hence `Serial` consistency is similar to quorum.
 
 ### Other regions for single-region write
 
 Azure Cosmos DB facilitates five consistency settings, including strong, across multiple regions where single-region writes is configured. This facilitation occurs as long as regions are within 2,000 miles of each other.
 
-Azure Cosmos DB does not have an applicable mapping to Apache Cassandra as all nodes/regions are writes and a strong consistencey guarantee is not possible across all regions.
+Azure Cosmos DB doesn't have an applicable mapping to Apache Cassandra as all nodes/regions are writes and a strong consistency guarantee isn't possible across all regions.
 
 ### Other regions for multi-region write
 
@@ -146,13 +146,13 @@ Apache Cassandra, the setting of `EACH_QUORUM` or `QUORUM` gives a strong consis
 
 The following graphic illustrates a global strong consistency setting in Apache Cassandra between two regions 1 and 2. After data is written to region 1, the write needs to be persisted in a quorum number of nodes in both region 1, and region 2 before an acknowledgment is received by the application.
 
-:::image type="content" source="./media/consistency-mapping/write-global-consistency-theirs.svg" alt-text="Global consistency in Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/write-global-consistency-theirs.svg" alt-text="Diagram of global write consistency in Apache Cassandra.":::
 
 ## Global strong consistency for write requests in Azure Cosmos DB for Apache Cassandra
 
 In Azure Cosmos DB consistency is set at the account level. With `Strong` consistency in Azure Cosmos DB for Cassandra, data is replicated synchronously to the read regions for the account. The further apart the regions for the Azure Cosmos DB account are, the higher the latency of the consistent write operations.
 
-:::image type="content" source="./media/consistency-mapping/write-global-consistency-ours.svg" alt-text="Global consistency in Azure Cosmos DB for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/write-global-consistency-ours.svg" alt-text="Diagram of global write consistency in Azure Cosmos DB for Apache Cassandra.":::
 
 How the number of regions affects your read or write request:
 
@@ -166,49 +166,49 @@ How the number of regions affects your read or write request:
 
 A consistency level of `ANY`, `ONE`, `TWO`, `THREE`, `LOCAL_QUORUM`, `Serial` or `Local_Serial`? Consider a write request with `LOCAL_QUORUM` with an `RF` of `4` in a six-node datacenter. `Quorum = 4/2 + 1 = 3`.
 
-:::image type="content" source="./media/consistency-mapping/write-not-global-consistency-theirs.svg" alt-text="Non Global consistency for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/write-not-global-consistency-theirs.svg" alt-text="Diagram of non-global write consistency in Apache Cassandra.":::
 
 ## Weaker consistency for write requests in Azure Cosmos DB for Apache Cassandra
 
 When a write request is sent with any of the consistency levels lower than `Strong`, a success response is returned as soon as the local region persists the write in at least three out of four replicas.
 
-:::image type="content" source="./media/consistency-mapping/write-not-global-consistency-ours.svg" alt-text="Non Global consistency in Azure Cosmos DB for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/write-not-global-consistency-ours.svg" alt-text="Diagram of non-global write consistency in Azure Cosmos DB for Apache Cassandra.":::
 
 ## Global strong consistency for read requests in Apache Cassandra
 
 With a consistency of `EACH_QUORUM`, a consistent read can be achieved in Apache Cassandra. In, a multi-region setup for `EACH_QUORUM` if the quorum number of nodes isn't met in each region, then the read will be unsuccessful.
 
-:::image type="content" source="./media/consistency-mapping/read-global-consistency-theirs.svg" alt-text="Read Global consistency in Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/read-global-consistency-theirs.svg" alt-text="Diagram of  global read consistency in Apache Cassandra.":::
 
 ## Global strong consistency for read requests in Azure Cosmos DB for Apache Cassandra
 
 The read request is served from two replicas in the specified region. Since the write already took care of persisting to a quorum number of regions (and all regions if every region was available), simply reading from two replicas in the specified region provides Strong consistency.  This strong consistency requires `EACH_QUORUM` to be specified in the driver when issuing the read against a region for the Cosmos DB account along with Strong Consistency as the default consistency level for the account.
 
-:::image type="content" source="./media/consistency-mapping/read-global-consistency-ours.svg" alt-text="Read Global consistency in Azure Cosmos DB for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/read-global-consistency-ours.svg" alt-text="Diagram of  global read consistency in Azure Cosmos DB for Apache Cassandra.":::
 
 ## Local strong consistency in Apache Cassandra
 
 A read   request with a consistency level of `TWO`, `THREE`, or `LOCAL_QUORUM` will give us strong consistency reading from local region. With a consistency level of `LOCAL_QUORUM`, you need a response from two nodes in the specified datacenter for a successful read.
 
-:::image type="content" source="./media/consistency-mapping/read-local-strong-consistency-theirs.svg" alt-text="Read Local strong consistency for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/read-local-strong-consistency-theirs.svg" alt-text="Diagram of local strong read consistency in Apache Cassandra.":::
 
 ## Local strong consistency in Azure Cosmos DB for Apache Cassandra
 
 In Azure Cosmos DB for Cassandra, having a consistency level of `TWO`, `THREE` or `LOCAL_QUORUM` will give a local strong consistency for a read request. Since the write path guarantees replicating to a minimum of three out of four replicas, a read from two replicas in the specified region will guarantee a quorum read of the data in that region.
 
-:::image type="content" source="./media/consistency-mapping/read-local-strong-consistency-ours.svg" alt-text="Read Local strong consistency in Azure Cosmos DB for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/read-local-strong-consistency-ours.svg" alt-text="Diagram of local strong read consistency in Azure Cosmos DB for Apache Cassandra.":::
 
 ## Eventual consistency in Apache Cassandra
 
 A consistency level of `LOCAL_ONE`, `One` and `ANY with LOCAL_ONE` will result in eventual consistency. This consistency is used in cases where the focus is on latency.
 
-:::image type="content" source="./media/consistency-mapping/read-eventual-consistency-theirs.svg" alt-text="Read eventual consistency for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/read-eventual-consistency-theirs.svg" alt-text="Diagram of eventual read consistency in Apache Cassandra.":::
 
 ## Eventual consistency in Azure Cosmos DB for Apache Cassandra?
 
 A consistency level of `LOCAL_ONE`, `ONE` or `Any` will give you eventual consistency. With eventual consistency, a read is served from just one of the replicas in the specified region.
 
-:::image type="content" source="./media/consistency-mapping/read-eventual-consistency-ours.svg" alt-text="Read eventual consistency in Azure Cosmos DB for Apache Cassandra":::
+:::image type="content" source="./media/consistency-mapping/read-eventual-consistency-ours.svg" alt-text="Diagram of eventual read consistency in Azure Cosmos DB for Apache Cassandra.":::
 
 ## Override consistency level for read operations in Azure Cosmos DB for Cassandra
 
