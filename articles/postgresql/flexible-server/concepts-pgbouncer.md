@@ -48,7 +48,7 @@ For more details on the PgBouncer configurations, please see [pgbouncer.ini](htt
 PgBouncer also provides an **internal* database that you can connect to called `pgbouncer`. Once you connect to the pgbouncer database you can execute `SHOW` commands that provide information on the current state of pgbouncer.
 
 Steps to connect to `pgbouncer` database
-1. Set `pgBouncer.stats_users` parameter to the name of an existing user, and apply the changes.
+1. Set `pgBouncer.stats_users` parameter to the name of an existing user (ex. "myUser"), and apply the changes.
 1. Connect to `pgbouncer` database as this user and port as `6432`
 
 ```sql
