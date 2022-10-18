@@ -19,15 +19,13 @@ Use the following steps to register a new source.
 
 1. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
 
-   :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Screenshot of the Microsoft Purview governance portal":::
+   :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Screenshot of the Microsoft Purview governance portal.":::
 
 1. Select a source type. This example uses Azure Blob Storage. Select **Continue**.
 
-   :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Screenshot showing selecting a data source type in the Register sources page":::
+   :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Screenshot showing selecting a data source type in the Register sources page.":::
 
 1. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list.
-
-   :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Screenshot of the form for data source information":::
 
 1. Select **Register**.
 
