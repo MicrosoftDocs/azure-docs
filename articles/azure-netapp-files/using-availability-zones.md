@@ -28,14 +28,12 @@ The use of high availability (HA) architectures with availability zones are now 
 
 Azure NetApp Files lets you deploy volumes in availability zones. The Azure NetApp Files [availability zone volume placement](manage-availability-zone-volume-placement.md) feature lets you deploy volumes in the logical availability zone of your choice, in alignment with Azure compute and other services in the same zone.  
 
-The following diagram summarizes availability zone volume placement for Azure NetApp Files:   
-
-:::image type="content" source="../media/azure-netapp-files/availability-zone-volume-placement.png" alt-text="Diagram that summarizes availability zone volume placement for Azure NetApp Files." lightbox="../media/azure-netapp-files/availability-zone-volume-placement.png":::
+Azure NetApp Files deployments will occur in the availability of zone of choice if the Azure NetApp Files is present in that availability zone and if it has sufficient capacity. 
 
 >[!IMPORTANT]
->Azure NetApp Files availability zone volume placement provides zonal placement. It doesn't provide proximity placement towards compute. As such, it doesn’t provide lowest latency guarantee, VM-to-storage latencies are within the availability zone latency envelopes. 
+>Azure NetApp Files availability zone volume placement provides zonal placement. It doesn't provide proximity placement towards compute. As such, it doesn’t provide lowest latency guarantee. VM-to-storage latencies are within the availability zone latency envelopes. 
 
-Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones. Many applications are built for HA across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
+Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones. Many applications are built for high availability across multiple availability zones using application-based replication and failover technologies, like [SQL Server Always-On Availability Groups (AOAG)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server), [SAP HANA with HANA System Replication (HSR)](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md), and [Oracle with Data Guard](../virtual-machines/workloads/oracle/oracle-reference-architecture.md#high-availability-for-oracle-databases). 
 
 ## Azure regions with availability zones
 
