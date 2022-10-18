@@ -8,7 +8,7 @@ ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/02/2021
+ms.date: 10/18/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -34,7 +34,8 @@ Your motivation for a deployment across Azure Availability Zones should be that 
 
 Consider the following when you use Availability Zones:
 
-- There are no guarantees regarding the distances between various Availability Zones within an Azure region.
+- The maximum network roundtrip latency between Azure Availability Zones is stated in the document [Regions and availability zones](../../../availability-zones/az-overview.md).
+- Be aware that the experienced network roundtrip latency is not necessarily indicative to the real geographical distance of the datacenters that form the different zones. The network roundtrip latency is also influenced by the cable connectivities and the routing of the cables between these different datacenters.
 - Availability Zones are not an ideal DR solution. Natural disasters can cause widespread damage in world regions, including heavy damage to power infrastructures. The distances between various zones might not be large enough to constitute a proper DR solution.
 - The network latency across Availability Zones is not the same in all Azure regions. In some cases, you can deploy and run the SAP application layer across different zones because the network latency from one zone to the active DBMS VM is acceptable. But in some Azure regions, the latency between the active DBMS VM and the SAP application instance, when deployed in different zones, might not be acceptable for SAP business processes. In these cases, the deployment architecture needs to be different, with an active/active architecture for the application, or an active/passive architecture where cross-zone network latency is too high.
 - When deciding where to use Availability Zones, base your decision on the network latency between the zones. Network latency plays an important role in two areas:
