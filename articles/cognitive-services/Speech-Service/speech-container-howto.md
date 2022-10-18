@@ -219,9 +219,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ## Run the container in disconnected environments
 
-Starting in container version 3.0.0, select customers can run speech-to-text containers in an environment without internet accessibility. For more information, see [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md).
+You must request access to use containers disconnected from the internet. For more information, see [Request access to run containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-run-containers-in-disconnected-environments).
 
-Starting in container version 2.0.0, select customers can run neural-text-to-speech containers in an environment without internet accessibility. For more information, see [Run Cognitive Services containers in disconnected environments](../containers/disconnected-containers.md).
+> [!NOTE]
+> For general container requirements, see [Container requirements and recommendations](#container-requirements-and-recommendations).
 
 # [Speech-to-text](#tab/stt)
 
