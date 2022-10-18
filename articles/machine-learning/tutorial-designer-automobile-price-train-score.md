@@ -69,7 +69,7 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 
 1. Select **Create a new pipeline using classic prebuilt components**.
 
-1. Click the pencile icon besides the automtatically geneate pipeline draft name, rename it to *Automobile price prediction*. The name doesn't need to be unique.
+1. Click the pencil icon besides the automatically geneated pipeline draft name, rename it to *Automobile price prediction*. The name doesn't need to be unique.
 
 ![Screenshot of pencil icon to change pipeline draft name.](./media/tutorial-designer-automobile-price-train-score/change-pipeline-draft-name.png) 
 
