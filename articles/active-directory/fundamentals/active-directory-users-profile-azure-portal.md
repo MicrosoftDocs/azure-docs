@@ -56,7 +56,7 @@ There are six categories of profile details you may be able to edit.
 
 - **Contact info:** Add any relevant contact information for the user.
 
-- **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided.*Minors* are 12 and under, *Not adult* are 13-18 years old, and *Adults* are 18 and over. The combination of age group and consent provided by parent options determine the Legal age group classification. The Legal age group classification may limit the user's access and authority.
+- **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided. *Minors* are 12 and under, *Not adult* are 13-18 years old, and *Adults* are 18 and over. The combination of age group and consent provided by parent options determine the Legal age group classification. The Legal age group classification may limit the user's access and authority.
 
 - **Settings:** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
 
