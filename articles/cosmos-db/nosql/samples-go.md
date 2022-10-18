@@ -28,7 +28,7 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
 
 ## Prerequisites
 
-- An Azure Cosmos DB Account. You options are:
+- An Azure Cosmos DB Account. Your options are:
     * Within an Azure active subscription:
         * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
         * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
