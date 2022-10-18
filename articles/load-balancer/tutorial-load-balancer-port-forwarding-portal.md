@@ -89,14 +89,14 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 9. Follow the steps 1 through 7 to create another VM with the following values and all the other settings the same as **myVM1**:
 
-    | Setting | VM 2 |
+    | Setting | Value |
     | ------- | ----- |
     | **Basics** |    |
     | **Instance details** |   |
-    | Virtual machine name | **myVM2** |
-    | Availability zone | **2** |
+    | Virtual machine name | Enter *myVM2* |
+    | Availability zone | Select **Zone 2** |
     | **Administrator account** |   |
-    | Authentication type | **SSH public key** |
+    | Authentication type | Select **SSH public key** |
     | SSH public key source | Select **Use existing key stored in Azure**. |
     | Stored Keys | Select **myKey**. |
     | **Inbound port rules** |  |
