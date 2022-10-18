@@ -33,7 +33,7 @@ The model we are going to work with was built using TensorFlow along with the Re
 * It works with images of size 244x244 (tensors of `(224, 224, 3)`).
 * It requires inputs to be scaled to the range `[0,1]`.
 
-A sample of this model is provided in the repository in the path `azureml-examples/sdk/python/endpoints/batch/imagenet-classifier`. 
+A sample of this model can be downloaded from `https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip`.
 
 ## Image classification with batch deployments
 
@@ -41,24 +41,46 @@ In this example, we are going to learn how to deploy a deep learning model that 
 
 ### Registering the model
 
-Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
+Batch Endpoint can only deploy registered models so we need to register it. You can skip this step if the model you are trying to deploy is already registered.
+
+1. Downloading a copy of the model:
+
+    # [Azure ML CLI](#tab/cli)
+    
+    ```azurecli
+    wget https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip
+    mkdir -p imagenet-classifier
+    unzip model.zip -d imagenet-classifier
+    ```
+    
+    # [Azure ML SDK for Python](#tab/sdk)
+
+    ```python
+    import os
+    from zipfile import ZipFile
+    
+    os.mkdirs("imagenet-classifier", exits_ok=True)
+    with ZipFile(file, 'r') as zip:
+      model_path = zip.extractall(path="imagenet-classifier")
+    ```
+    
+2. Register the model:
    
-# [Azure ML CLI](#tab/cli)
+    # [Azure ML CLI](#tab/cli)
 
-```azurecli
-MODEL_NAME='imagenet-classifier'
-az ml model create --name $MODEL_NAME --type "custom_model" --path "imagenet-classifier/model"
-```
+    ```azurecli
+    MODEL_NAME='imagenet-classifier'
+    az ml model create --name $MODEL_NAME --type "custom_model" --path "imagenet-classifier/model"
+    ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+    # [Azure ML SDK for Python](#tab/sdk)
 
-```python
-model_name = 'imagenet-classifier'
-model = ml_client.models.create_or_update(
-    Model(path='imagenet-classifier/model', type=AssetTypes.CUSTOM_MODEL)
-)
-```
----
+    ```python
+    model_name = 'imagenet-classifier'
+    model = ml_client.models.create_or_update(
+        Model(path=model_path, type=AssetTypes.CUSTOM_MODEL)
+    )
+    ```
 
 ### Creating a scoring script
 
