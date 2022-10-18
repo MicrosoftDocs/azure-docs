@@ -37,7 +37,7 @@ The following request attributes can be added to an exclusion:
 * Request cookie name
 * Query string args name
 * Request body POST args name
-* Request body JSON args name
+* Request body JSON args name *(supported on DRS 2.0 or greater)*
 
 The values of the fields you use aren't evaluated against WAF rules, but their names are evaluated. The exclusion lists disable inspection of the field's value. However, the field names are still evaluated. For more information, see [Excluding other request attributes](#exclude-other-request-attributes).
 
