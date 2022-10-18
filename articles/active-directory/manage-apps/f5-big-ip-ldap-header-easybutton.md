@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 In this article, learn to secure header & LDAP based applications using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
-Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
+Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including: 
 
 * [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
 
