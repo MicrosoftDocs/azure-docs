@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/17/2022
+ms.date: 10/18/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -369,7 +369,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    PS C:\> $p.device.webproxy
 
    isEnabled      : True 
-   connectionURI  : null,
+   connectionURI  : null
    authentication : None
    username       :
    password       :
