@@ -20,12 +20,12 @@ ms.custom: scenarios:getting-started, engagement-fy23
 
 Azure Active Directory (Azure AD) supports two types of authentication for service principals: **password-based authentication** (app secret) and **certificate-based authentication**. While app secrets can easily be created in the Azure portal, it's recommended that your application uses a certificate.
 
-For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. This article shows you how to use Windows PowerShell to create and export a self-signed certificate.
+For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. In this how-to, you'll use Windows PowerShell to create and export a self-signed certificate.
 
 > [!CAUTION]
-> Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority, such as [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview).
+> Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
 
-The parameters created for the certificate include the cryptographic and hash algorithms, the certificate validity period, and domain name. The certificate can then be exported with or without its private key depending on your application needs. 
+While creating the certificate using PowerShell, you can specify parameters like cryptographic and hash algorithms, certificate validity period, and domain name. The certificate can then be exported with or without its private key depending on your application needs. 
 
 The application that initiates the authentication session requires the private key while the application that confirms the authentication requires the public key. So, if you're authenticating from your PowerShell desktop app to Azure AD, you only export the public key (*.cer* file) and upload it to the Azure portal. The PowerShell app uses the private key from your local certificate store to initiate authentication and obtain access tokens for Microsoft Graph.
 
@@ -39,7 +39,7 @@ This article uses the `New-SelfSignedCertificate` PowerShell cmdlet to create th
 + The certificate is valid for only one year.
 + The certificate is supported for use for both client and server authentication.
 
-To customize the start and expiry date and other properties of the certificate, refer to [`New-SelfSignedCertificate`](/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2019-ps&preserve-view=true).
+To customize the start and expiry date and other properties of the certificate, refer to [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2019-ps&preserve-view=true).
 
 
 ## Create and export your public certificate
