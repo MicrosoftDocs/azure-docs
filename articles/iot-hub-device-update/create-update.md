@@ -15,8 +15,7 @@ Learn how to obtain a new update and prepare the update for importing into Devic
 ## Prerequisites
 
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
-* An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub.
-* [PowerShell 5](/powershell/scripting/install/installing-powershell) or later (includes Linux, macOS, and Windows installs)
+* [Azure Command-Line Interface (CLI)](https://learn.microsoft.com/cli/azure/) installed.
 * Supported browsers:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -33,22 +32,22 @@ When creating an update to be deployed using Device Update for IoT Hub, start wi
 
 ## Create a basic Device Update import manifest
 
-Once you have your update files, create an import manifest to describe the update. If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md). While it is possible to author an import manifest JSON manually using a text editor, this guide will use PowerShell as example.
+Once you have your update files, create an import manifest to describe the update. If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md). While it is possible to author an import manifest JSON manually using a text editor, the Azure Command Line Interface (CLI) simplifies the process greatly, and is used in the examples below.
 
 > [!TIP]
 > Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also just view sample import manifest files from those tutorials for reference.
 
-1. Install the [Azure Command-Line Interface (CLI)](https://learn.microsoft.com/cli/azure/) if you haven't already done so.
+Using the Azure CLI, run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Compatibility Properties, Update Handler and associated properties, and file(s)**. See [Import schema and API information](import-schema.md) for details on what values you can use for each item. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
 
-2. Run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Compatibility Properties, Update Handler and associated properties, and file(s)**. See [Import schema and API information](import-schema.md) for details on what values you can use for each item. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
-
-    ```azurecli
+```azurecli
     az iot device-update update init v5
     --update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
     --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
     --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> 
     --file path=<replace with path(s) to your update file(s), including the full file name> 
-    ```
+```
+
+_For handler properties, you may need to escape certain characters in your JSON. For example, use `'\'` to escape double-quotes if you are running the Azure CLI in PowerShell._
 
 Once you've created your import manifest and saved it as a JSON file, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
 
