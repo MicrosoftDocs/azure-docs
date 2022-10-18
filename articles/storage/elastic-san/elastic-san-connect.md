@@ -181,11 +181,34 @@ To create multiple sessions to each volume, you must configure the target and co
 
 You can then re-run the commands from the single session configuration or use the following script.
 
+Verify the number of sessions your volume has with eitehr `iscsicli SessionList` or `mpclaim -s -d`
+
 #### Linux
 
 To establish multiple sessions to a volume, create a single session first. Then, get the session ID and create as many sessions as needed with the session ID.
 
-The following example shows how to get the session ID
+To get the session ID, run `iscsiadm -m session` and you should see output similar to the following:
+
+```
+tcp:[15] <name>:port,-1 <iqn>
+```
+In the previous example, 15 is the session ID.
+
+With the session ID, you can create as many additional sessions as you need with the following command, replace $max with your desired number of additional sessions. However, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot.
+
+```
+for i in `seq 1 $max`; do sudo iscsiadm -m session -r 1 --op new; done
+```
+
+You can verify the number of sessions using `sudo multipath -ll`
+
+### Multipath I/O
+
+Multipath I/O enables highly available and fault-tolerant iSCSI network connections. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
+
+#### Windows
+
+Install Multipath I/O, enable multipath support for iSCSI devices, and set a default load balancing policy.
 
 ## Next steps
 
