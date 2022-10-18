@@ -30,7 +30,7 @@ Front Door provides several approaches that you can use to restrict your origin 
 
 When you use the premium SKU of Front Door, you can use Private Link to send traffic to your origin. [Learn more about Private Link origins.](private-link.md)
 
-You should configure your origin to disallow traffic that doesn't come through Private Link. The way that you do this depends on the type of Private Link origin you use:
+You should configure your origin to disallow traffic that doesn't come through Private Link. The way that you restrict traffic depends on the type of Private Link origin you use:
 
 - Azure App Service and Azure Functions automatically disable access through public internet endpoints when you use Private Link. For more information, see [Using Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 - Azure Storage provides a firewall, which you can use to deny traffic from the internet. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
@@ -58,7 +58,7 @@ You should also allow traffic from Azure's [basic infrastructure services](../vi
 
 ### Front Door identifier
 
-IP address filtering alone isn't sufficient to secure traffic to your origin, because other Azure customers use the same IP addresses. You shuold also configure your origin to ensure that traffic has originated from *your* Front Door profile.
+IP address filtering alone isn't sufficient to secure traffic to your origin, because other Azure customers use the same IP addresses. You should also configure your origin to ensure that traffic has originated from *your* Front Door profile.
 
 Azure generates a unique identifier for each Front Door profile. You can find the identifier in the Azure portal, by looking for the *Front Door ID* value in the Overview page of your profile.
 
