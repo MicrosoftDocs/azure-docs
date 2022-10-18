@@ -24,7 +24,7 @@ For more information, see [configurable token lifetimes](active-directory-config
 
 To get started, download the latest [Azure AD PowerShell Module Public Preview release](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Next, run the `Connect-AzureAD` command to sign in to your Azure AD admin account. Run this command each time you start a new session.
+Next, run the `Connect-AzureAD` command to sign in to your Azure Active Directory (Azure AD) admin account. Run this command each time you start a new session.
 
 ```powershell
 Connect-AzureAD -Confirm
