@@ -148,7 +148,7 @@ You can also now hunt for vulnerable devices on the Microsoft Sentinel **Entity 
 
 :::image type="content" source="media/release-notes/entity-behavior-iot-devices-alerts.png" alt-text="Screenshot of the Entity behavior page in Microsoft Sentinel.":::
 
-For more information, see [Investigate further with IoT device entities](azure/sentinel/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) and [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
+For more information, see [Investigate further with IoT device entities](/azure/sentinel/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) and [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
 
 ### Updates to the Microsoft Defender for IoT solution in Microsoft Sentinel's content hub
 
