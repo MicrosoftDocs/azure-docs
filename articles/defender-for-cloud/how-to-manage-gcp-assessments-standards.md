@@ -2,7 +2,7 @@
 title: Manage GCP assessments and standards
 description: Learn how to create custom security assessments and standards for your GCP environment.
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/18/2022
 ---
 
 # Manage GCP assessments and standards

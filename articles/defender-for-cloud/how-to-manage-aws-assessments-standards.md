@@ -2,7 +2,7 @@
 title: Manage AWS assessments and standards
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/18/2022
 ---
 
 # Manage AWS assessments and standards
@@ -80,9 +80,9 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select **Save**.
 
-## Create a new custom assessment to your AWS account
+## Create a new custom assessment for your AWS account
 
-**To create a new custom assessment to your AWS account**:
+**To create a new custom assessment for your AWS account**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
