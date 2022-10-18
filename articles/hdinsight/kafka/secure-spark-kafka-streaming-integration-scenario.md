@@ -8,7 +8,7 @@ ms.date: 10/20/2022
 
 # Secure Spark and Kafka – Spark streaming integration scenario
 
-Learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
+In this document you can learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
 
 **Pre-requisites**
 
@@ -169,9 +169,7 @@ In the Spark cluster, add entries in `/etc/hosts` in spark worker nodes, for Kaf
     ```
 1. Get the spark-streaming jar ready. 
 
-Build your own jar that reads from a kafka topic by following the example and instructions here
-
-`DirectKafkaWorkCount`
+1. Build your own jar that reads from a Kafka topic by following the example and instructions [here](https://github.com/apache/spark/blob/branch-2.3/examples/src/main/scala/org/apache/spark/examples/streaming/DirectKafkaWordCount.scala) for `DirectKafkaWorkCount`
 
 > [!Note]
 > For convenience, this sample jar used in this example was built from https://github.com/markgrover/spark-secure-kafka-app by following these steps.
