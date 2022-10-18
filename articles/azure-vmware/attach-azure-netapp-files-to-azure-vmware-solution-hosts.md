@@ -45,15 +45,16 @@ Before you begin the prerequisites, review the [Performance best practices](#per
 
 Azure VMware Solution currently supports the following regions:
 
-**America**   : East US, West US, Central US, South Central US, North Central US, Canada East, Canada Central .
-
-**Europe**    : West Europe, North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
-
 **Asia**      : Southeast Asia, Japan West.
 
 **Australia** : Australia East, Australia Southeast.
 
 **Brazil**    : Brazil South.
+
+**Europe**    : West Europe, North Europe, UK West, UK South, France Central, Switzerland West, Germany West Central.
+
+**North America**   : East US, West US, Central US, South Central US, North Central US, Canada East, Canada Central .
+
 
 The list of supported regions will expand as the preview progresses. 
 
