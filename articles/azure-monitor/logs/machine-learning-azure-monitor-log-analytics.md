@@ -177,5 +177,5 @@ The *PercentDiffAB* column shows the absolute percentage point difference betwee
 
 Learn more about: 
 
-- [Log queries in Azure Monitor](/azure-monitor/logs/log-query-overview).
+- [Log queries in Azure Monitor](logs/log-query-overview).
 - [How to use Kusto queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
