@@ -106,6 +106,9 @@ For example, if you wanted to map a string column based upon a parameter `column
 
 :::image type="content" source="media/data-flow/parameterize-column-name.png" alt-text="Passing in a column name as a parameter":::
 
+> [!NOTE]
+> In dataflow, string interpolations are not supported and one needs to concatenate the dynamic expression into a string value for dynamic logic purpose.
+
 ## Next steps
 * [Execute data flow activity](control-flow-execute-data-flow-activity.md)
 * [Control flow expressions](control-flow-expression-language-functions.md)
