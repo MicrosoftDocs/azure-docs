@@ -21,7 +21,7 @@ Some example scenarios for the implementation of Azure Cognitive Services in cal
 - Post-call analytics: Post-call analysis to create insights into customer conversations to improve understanding and support continuous improvement of call handling, optimization of quality assurance and compliance control as well as other insight driven optimizations.
 
 > [!TIP]
-> Try the [Post-call transcription and analytics quickstart](/azure/cognitive-services/speech-service/call-center-quickstart).
+> Try the [Language Studio](https://language.cognitive.azure.com) or [Speech Studio](https://aka.ms/speechstudio/callcenter) for a demonstration on how to use the Language and Speech services to analyze call center conversations. 
 > 
 > To deploy a call center transcription solution to Azure with a no-code approach, try the [Ingestion Client](/azure/cognitive-services/speech-service/ingestion-client).
 
@@ -71,4 +71,4 @@ You can find an overview of all Language service features and customization opti
 
 * [Post-call transcription and analytics quickstart](/azure/cognitive-services/speech-service/call-center-quickstart)
 * [Try out the Language Studio](https://language.cognitive.azure.com)
-* [Try out the Speech Studio](https://speech.microsoft.com)
+* [Try out the Speech Studio](https://aka.ms/speechstudio/callcenter)

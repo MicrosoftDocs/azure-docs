@@ -2,7 +2,9 @@
 title: Quickstart - Create registry - Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
 ms.topic: quickstart
-ms.date: 06/12/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli, mode-api
 ---
 # Quickstart: Create a private container registry using the Azure CLI
@@ -29,11 +31,11 @@ az group create --name myResourceGroup --location eastus
 
 In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
-Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
+Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 lowercase alphanumeric characters. In the following example, *mycontainerregistry* is used. Update this to a unique value.
 
 ```azurecli
 az acr create --resource-group myResourceGroup \
-  --name myContainerRegistry007 --sku Basic
+  --name mycontainerregistry --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
@@ -42,10 +44,10 @@ When the registry is created, the output is similar to the following:
 {
   "adminUserEnabled": false,
   "creationDate": "2019-01-08T22:32:13.175925+00:00",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry",
   "location": "eastus",
-  "loginServer": "mycontainerregistry007.azurecr.io",
-  "name": "myContainerRegistry007",
+  "loginServer": "mycontainerregistry.azurecr.io",
+  "name": "mycontainerregistry",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
   "sku": {
