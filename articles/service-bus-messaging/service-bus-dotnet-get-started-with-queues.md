@@ -459,6 +459,7 @@ In this section, you'll add code to retrieve messages from the queue.
     ```csharp
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
+    using Azure.Identity;
     
     // the client that owns the connection and can be used to create senders and receivers
     ServiceBusClient client;
