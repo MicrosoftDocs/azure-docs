@@ -73,7 +73,7 @@ You can promote replicas to become stand-alone servers serving read-write reques
 > [!IMPORTANT]
 > Promotion of replicas cannot be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
-To stop replication between a primary server and a read replica from the Azure portal, follow these steps:
+To promote replica from the Azure portal, follow these steps:
 
 1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
 
@@ -88,11 +88,7 @@ To stop replication between a primary server and a read replica from the Azure p
    :::image type="content" source="./media/how-to-read-replicas-portal/confirm-promote.png" alt-text="Confirm to promote replica":::
 
 ## Delete a primary server
-
-To delete a primary server, you use the same steps as to delete a standalone Azure Database for PostgreSQL server.
-
-> [!IMPORTANT]
-> When you delete a primary server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
+You can only delete primary server once all-read replicas have been deleted. Follow the instruction in [Delete a replica](#Delete a replica) section to delete replicas and then proceed with steps below.  
 
 To delete a server from the Azure portal, follow these steps:
 
