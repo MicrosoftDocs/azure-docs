@@ -488,4 +488,4 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
     "packetLossRateAvg":    "0",
 ```
 ### Error Codes
-The `participantEndReason` will contain a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, per Endpoint. See [troubleshooting in Azure communication Calling SDK error codes](https://docs.microsoft.com/azure/communication-services/concepts/troubleshooting-info?tabs=csharp%2Cios%2Cdotnet#calling-sdk-error-codes)
+The `participantEndReason` will contain a value from the set of Calling SDK error codes. You can refer to these codes to troubleshoot issues during the call, per Endpoint. See [troubleshooting in Azure communication Calling SDK error codes](../troubleshooting-info.md?tabs=csharp%2cios%2cdotnet#calling-sdk-error-codes)

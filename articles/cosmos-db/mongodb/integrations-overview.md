@@ -70,7 +70,7 @@ Read more about [how to choose the right compute service on Azure](/azure/archit
 
 ### Azure Cognitive Search
 Azure Cognitive Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
-Here's how you can [index data from the Azure Cosmos DB for MongoDB account](/azure/search/search-howto-index-cosmosdb-mongodb) to use with Azure Cognitive Search.
+Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure Cognitive Search.
 
 ## Improve database security
 
@@ -95,4 +95,4 @@ Azure AD managed identities eliminate the need for developers to manage credenti
 
 Learn about other key integrations:
 * [Monitor Azure Cosmos DB with Azure Monitor.](/azure/cosmos-db/monitor-cosmos-db?tabs=azure-diagnostics.md)
-* [Set up analytics with Azure Synapse Link.](/azure/cosmos-db/configure-synapse-link)
+* [Set up analytics with Azure Synapse Link.](../configure-synapse-link.md)

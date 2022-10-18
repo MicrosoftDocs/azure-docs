@@ -61,7 +61,7 @@ There are many ways to implement an N-tier architecture. The following diagrams 
 
 ### PaaS web application
 
-This reference architecture shows running an Azure App Service application in a single region. This architecture shows a set of proven practices for a web application that uses [Azure App Service](/azure/app-service/) and [Azure SQL Database](/azure/sql-database/).
+This reference architecture shows running an Azure App Service application in a single region. This architecture shows a set of proven practices for a web application that uses [Azure App Service](../app-service/index.yml) and [Azure SQL Database](/azure/sql-database/).
 A standby region is set up for failover scenarios.
 
 Azure Traffic Manager routes incoming requests to Application Gateway in one of the regions. During normal operations, it routes requests to Application Gateway in the active region. If that region becomes unavailable, Traffic Manager fails over to Application Gateway in the standby region.
