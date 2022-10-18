@@ -56,7 +56,7 @@ Use the table below to find which model versions are supported by each feature:
 \*\* Latest preview version
 
 > [!IMPORTANT]
-> The versions listed for deprecation will be unavailable for use after October 30, 2022. All GA versions listed will be deprecated on April 30, 2023. GA model version numbers will no longer be available, so be sure to mark `latest` as the `modelVersion` parameter value (or leave the parameter empty).
+> The versions listed for deprecation will be unavailable for use after October 30, 2022.
 
 ## Custom features
 
