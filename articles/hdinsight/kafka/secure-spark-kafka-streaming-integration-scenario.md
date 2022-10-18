@@ -42,12 +42,12 @@ Set up on Kafka cluster:
 1. Create topics `alicetopic2`, `bobtopic2`
 1. Produce data to topics `alicetopic2`, `bobtopic2`
 1. Set up Ranger policy to allow `alicetest` user to read from `alicetopic*`
-1. Set up Ranger policy to allow `bobadmin` user to read from *
+1. Set up Ranger policy to allow `bobadmin` user to read from `*`
 
 
 ### Scenarios to be executed on Spark cluster
 1. Consume data from `alicetopic2` as `alicetest` user. The spark job would run successfully and the count of the words in the topic should be output in the YARN UI. The Ranger audit records in kafka cluster would show that access is allowed.
-1. Consume data from `bobtopic2` as `alicetest `user. The spark job would fail with “org.apache.kafka.common.errors.TopicAuthorizationException: Not authorized to access topics: [bobtopic2]”. The Ranger audit records in kafka cluster would show that the access is Denied.
+1. Consume data from `bobtopic2` as `alicetest` user. The spark job would fail with `org.apache.kafka.common.errors.TopicAuthorizationException: Not authorized to access topics: [bobtopic2]`. The Ranger audit records in kafka cluster would show that the access is denied.
 1. Consume data from `alicetopic2` as `bobadmin` user. The spark job would run successfully and the count of the words in the topic should be output in the YARN UI. The Ranger audit records in kafka cluster would show that access is allowed.
 1. Consume data from `bobtopic2` as `bobadmin` user. The spark job would run successfully and the count of the words in the topic should be output in the YARN UI. The Ranger audit records in kafka cluster would show that access is allowed.
 
@@ -60,8 +60,8 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
 
 1. Add a Ranger policy for `alicetest` with consume access to topics with wildcard pattern `alicetopic*`
 
-    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" alt-text="Screenshot showing how to add ranger policyfor alicetest":::
-1. Add a Ranger policy for `bobadmin` with all accesses to all topics with wildcard pattern
+    :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for alicetest.png" alt-text="Screenshot showing how to add ranger policy for alicetest":::
+1. Add a Ranger policy for `bobadmin` with all accesses to all topics with wildcard pattern `*`
 
     :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-bobadmin.png" alt-text="Screenshot showing how to add ranger policy for bobadmin":::
     
@@ -103,13 +103,13 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
       principal="bobadmin@SECUREHADOOPRC.ONMICROSOFT.COM";
     };
     ```
-1. Create topics alicetopic2 and `bobtopic2` as `bobadmin`
+1. Create topics `alicetopic2` and `bobtopic2` as `bobadmin`
 
     ```
     sshuser@hn0-umasec:~$ java -jar -Djava.security.auth.login.config=bobadmin_jaas.conf kafka-producer-consumer.jar create alicetopic2 $KAFKABROKERS
     sshuser@hn0-umasec:~$ java -jar -Djava.security.auth.login.config=bobadmin_jaas.conf kafka-producer-consumer.jar create bobtopic2 $KAFKABROKERS
     ```
-1. Produce data to alicetopic2 as `bobadmin`
+1. Produce data to `alicetopic2` as `bobadmin`
 
     ```
     sshuser@hn0-umasec:~$ java -jar -Djava.security.auth.login.config=bobadmin_jaas.conf kafka-producer-consumer.jar producer alicetopic2 $KAFKABROKERS
@@ -122,11 +122,11 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
 
 ### Set up steps to be performed on Spark cluster
 
-In the Spark cluster, add entries in /etc/hosts in spark worker nodes, for kafka worker nodes, create keytabs, jaas_config files, and perform a spark-submit to submit a spark job to read from the kafka topic:
+In the Spark cluster, add entries in `/etc/hosts` in spark worker nodes, for Kafka worker nodes, create keytabs, jaas_config files, and perform a spark-submit to submit a spark job to read from the kafka topic:
  
 1. ssh into spark cluster with sshuser credentials
 
-1. Make entries for the kafka worker nodes in /etc/hosts of the spark cluster.
+1. Make entries for the kafka worker nodes in `/etc/hosts` of the spark cluster.
 
     > [!Note]
     > Make the entry of these kafka worker nodes in every spark node (head node + worker node). You can get these details from kafka cluster in /etc/hosts of head node of Kafka.
@@ -155,7 +155,7 @@ In the Spark cluster, add entries in /etc/hosts in spark worker nodes, for kafka
       principal="bobadmin@SECUREHADOOPRC.ONMICROSOFT.COM";
     };
     ```
-1. Create an alicetest_jaas.conf as shown in below sample
+1. Create an `alicetest_jaas.conf` as shown in below sample
     ```
     KafkaClient {
       com.sun.security.auth.module.Krb5LoginModule required
@@ -169,8 +169,9 @@ In the Spark cluster, add entries in /etc/hosts in spark worker nodes, for kafka
     ```
 1. Get the spark-streaming jar ready. 
 
-Build your own jar that reads from a kafka topic by following the example and instructions here:
-DirectKafkaWorkCount
+Build your own jar that reads from a kafka topic by following the example and instructions here
+
+`DirectKafkaWorkCount`
 
 > [!Note]
 > For convenience, this sample jar used in this example was built from https://github.com/markgrover/spark-secure-kafka-app by following these steps.
@@ -187,12 +188,12 @@ A sample jar -  add a jar file.
 
 ## Scenario 1
 
-From Spark cluster, read from kafka topic alicetopic2 as user alicetest is allowed
+From Spark cluster, read from kafka topic `alicetopic2` as user `alicetest` is allowed
 
-1. Run a `kdestroy` command to remove the Kerberos tickets in Credential Cache by issuing following command
+1. Run a `kdestroy` command to remove the Kerberos tickets in credential cache by issuing following command
 
     ```
-    kdestroy
+    sshuser@hn0-umaspa:~$ kdestroy
     ```
 1. Run the command `kinit` with `alicetest`
 
@@ -200,7 +201,7 @@ From Spark cluster, read from kafka topic alicetopic2 as user alicetest is allow
     sshuser@hn0-umaspa:~$ kinit alicetest@SECUREHADOOPRC.ONMICROSOFT.COM -t alicetest.keytab
     ```
      
-1. Run a `spark-submit` command to read from kafka topic `alicetopic2` as alicetest
+1. Run a `spark-submit` command to read from kafka topic `alicetopic2` as `alicetest`
  
     ```
     spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages <list of packages the jar depends on> --repositories <repository for the dependency packages> --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicetest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class <classname to execute in jar> --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" <path to jar> <kafkabrokerlist> <topicname> false
@@ -211,7 +212,7 @@ From Spark cluster, read from kafka topic alicetopic2 as user alicetest is allow
     sshuser@hn0-umaspa:~$ spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.3.2.3.1.0.4-1 --repositories http://repo.hortonworks.com/content/repositories/releases/ --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicetest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class com.cloudera.spark.examples.DirectKafkaWordCount --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" /home/sshuser/spark-secure-kafka-app/target/spark-secure-kafka-app-1.0-SNAPSHOT.jar 10.3.16.118:9092 alicetopic2 false
     ```
 
-    If you see the below error, which denotes the DNS (Domain Name Server) issue. Make sure to check Kafka worker nodes entry in /etc/hosts file in Spark cluster.
+    If you see the below error, which denotes the DNS (Domain Name Server) issue. Make sure to check Kafka worker nodes entry in `/etc/hosts` file in Spark cluster.
     
     ```
     Caused by: GSSException: No valid credentials provided (Mechanism level: Server not found in Kerberos database (7))
@@ -243,15 +244,20 @@ From Spark cluster, read from kafka topic alicetopic2 as user alicetest is allow
     
 ## Scenario 2
 
-From Spark cluster, read Kafka topic bobtopic2 as user alicetest is denied
+From Spark cluster, read Kafka topic `bobtopic2` as user `alicetest` is denied
 
-1. Run `kdestroy` command to remove the Kerberos tickets in Credential Cache by issuing following command `kinit` with `alicetest`
+1. Run `kdestroy` command to remove the Kerberos tickets in credential cache by issuing following command
+
+    ```
+    sshuser@hn0-umaspa:~$ kdestroy
+    ```
+1. Run the command `kinit` with `alicetest`
 
     ```
     sshuser@hn0-umaspa:~$ kinit alicetest@SECUREHADOOPRC.ONMICROSOFT.COM -t alicetest.keytab
     ```
 
-1. Run spark-submit command to read from kafka topic "bobtopic2" as alicetest
+1. Run spark-submit command to read from kafka topic `bobtopic2` as `alicetest`
  
     ```
     spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages <list of packages the jar depends on> --repositories <repository for the dependency packages> --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicetest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class <classname to execute in jar> --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" <path to jar> <kafkabrokerlist> <topicname> false
@@ -263,7 +269,7 @@ From Spark cluster, read Kafka topic bobtopic2 as user alicetest is denied
     sshuser@hn0-umaspa:~$ spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.3.2.3.1.0.4-1 --repositories http://repo.hortonworks.com/content/repositories/releases/ --files alicetest_jaas.conf#alicetest_jaas.conf,alicetest.keytab#alicestest.keytab --driver-java-options "-Djava.security.auth.login.config=./alicetest_jaas.conf" --class com.cloudera.spark.examples.DirectKafkaWordCount --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./alicetest_jaas.conf" /home/sshuser/spark-secure-kafka-app/target/spark-secure-kafka-app-1.0-SNAPSHOT.jar 10.3.16.118:9092 bobtopic2 false
     ```
      
-1. From yarn UI, access the yarn job output you can see that alicetest user is unable to read from bobtopic1 and the job fails.
+1. From yarn UI, access the yarn job output you can see that `alicetest` user is unable to read from `bobtopic2` and the job fails.
 
     :::image type="content" source="./media/hdinsight-spark-kafka/bobtopic-job-fail.png" alt-text="Screenshot showing YARN-job-output":::
     
@@ -273,12 +279,12 @@ From Spark cluster, read Kafka topic bobtopic2 as user alicetest is denied
     
 ## Scenario 3
 
-From Spark cluster, read from kafka topic alicetopic2 as user `bobadmin` is allowed
+From Spark cluster, read from kafka topic `alicetopic2` as user `bobadmin` is allowed
 
-1. Run`kdestroy` command to remove the Kerberos tickets in Credential Cache.
-
-    `kdestroy`
- 
+1. Run `kdestroy` command to remove the Kerberos tickets in credential cache
+    ```
+    sshuser@hn0-umaspa:~$ kdestroy
+    ```
 1. Run `kinit` command with `bobadmin`
 
     ```
@@ -296,7 +302,7 @@ From Spark cluster, read from kafka topic alicetopic2 as user `bobadmin` is allo
     spark-submit --num-executors 1 --master yarn --deploy-mode cluster --packages org.apache.spark:spark-streaming-kafka-0-10_2.11:2.3.2.3.1.0.4-1 --repositories http://repo.hortonworks.com/content/repositories/releases/ --files bobadmin_jaas.conf#bobadmin_jaas.conf,bobadmin.keytab#bobadmin.keytab --driver-java-options "-Djava.security.auth.login.config=./bobadmin_jaas.conf" --class com.cloudera.spark.examples.DirectKafkaWordCount --conf "spark.executor.extraJavaOptions=-Djava.security.auth.login.config=./bobadmin_jaas.conf" /home/sshuser/spark-secure-kafka-app/target/spark-secure-kafka-app-1.0-SNAPSHOT.jar wn0-umasec:9092, wn1-umasec:9092 alicetopic2 false
     ```
  
-1. From YARN UI, access the yarn job output you can see that `bobtest` user is able to read from alicetopic2 and the count of words is seen in the output.
+1. From YARN UI, access the yarn job output you can see that `bobadmin` user is able to read from `alicetopic2` and the count of words is seen in the output.
 
     :::image type="content" source="./media/hdinsight-spark-kafka/bobtest-user-reads-from-bobtopic2.png" alt-text="Screenshot showing bobtest user reads from bobtopic":::
     
@@ -306,11 +312,12 @@ From Spark cluster, read from kafka topic alicetopic2 as user `bobadmin` is allo
 
 ## Scenario 4
 
-From Spark cluster, read from Kafka topic bobtopic2 as user bobadmin2 is allowed.
+From Spark cluster, read from Kafka topic `bobtopic2` as user `bobadmin` is allowed.
 
 1. Remove the Kerberos tickets in Credential Cache by running following command
-
-    `kdestroy`
+    ```
+    sshuser@hn0-umaspa:~$ kdestroy
+    ```
 
 1. Run `kinit` with `bobadmin`
     ```
@@ -331,4 +338,3 @@ From Spark cluster, read from Kafka topic bobtopic2 as user bobadmin2 is allowed
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
 
     :::image type="content" source="./media/hdinsight-spark-kafka/audit-logs-with-sucess-state-spark-kafka.png" alt-text="Screenshot showing for scenario 4 audit logs with success state":::
-
