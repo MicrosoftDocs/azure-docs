@@ -16,7 +16,7 @@ This article discusses how to view the featured clothing insight and how the fea
 
 You can view the following short video that discusses how to view and use the featured clothing insight.
 
-> [!VIDEO https://www.youtube.com/watch?v=x33fND286eE]
+[An intro video](https://www.youtube.com/watch?v=x33fND286eE).
 
 ## Viewing featured clothing
 
