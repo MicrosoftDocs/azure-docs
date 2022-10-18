@@ -34,8 +34,6 @@ To create a namespace:
         > [!IMPORTANT]
         > If you want to use [Topics and subscriptions](../../../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions aren't supported in the Basic pricing tier. 
 
-
-
         If you selected the **Premium** pricing tier, specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../../../articles/service-bus-messaging/service-bus-premium-messaging.md).
 
     1. Select **Review + create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
@@ -45,6 +43,6 @@ To create a namespace:
 4. Select **Go to resource** on the deployment page. 
 
     :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/deployment-alert.png" alt-text="Image showing the deployment succeeded page with the Go to resource link.":::
-6. You see the home page for your service bus namespace. 
+5. You see the home page for your service bus namespace. 
 
     :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Image showing the home page of the Service Bus namespace created." :::
