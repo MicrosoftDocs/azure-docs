@@ -375,6 +375,12 @@ Use the following steps to sign into the device, fetch the status of the webProx
    password       :
    ```
 
+1. Set the webProxy URI.
+
+   ```azurepowershell
+   $p.device.webproxy.connectionURI = "<specify a URI depending on the geographic location of the device>"
+   ```
+
 1. Run the package with the updated webProxy property.
 
    ```azurepowershell
@@ -398,7 +404,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    ```output
      "webProxy":  {
                       "isEnabled":  true,
-                      "connectionURI":  null,
+                      "connectionURI":  "http://10.128.24.15:8080",
                       "authentication":  "None",
                       "username":  null,
                       "password":  null
