@@ -24,7 +24,7 @@ Our standard (not customized) language service features are built on AI models t
 
 We regularly update the language service with new model versions to improve model accuracy, support, and quality.
 
-Starting in November 2022, API calls using a specified model version number will return a warning header with a reminder to update the modelVersion parameter value to `latest` (or leave the parameter empty). By default, all API requests will use the latest Generally Available (GA) model.
+By default, all API requests will use the latest Generally Available (GA) model.
 
 We recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. 
 
