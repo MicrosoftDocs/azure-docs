@@ -33,7 +33,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 ## Disable CSI storage drivers on a new or existing cluster
 
-To disable CSI storage drivers on a new cluster, use one of the following depending on the storage system:
+To disable CSI storage drivers on a new cluster, include one of the following parameters depending on the storage system:
 
 * `--disable-disk-driver` allows you to disable the [Azure Disks CSI driver][azure-disk-csi].
 * `--disable-file-driver` allows you to disable the [Azure Files CSI driver][azure-files-csi].
@@ -52,7 +52,7 @@ az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable
 
 ## Enable CSI storage drivers on an existing cluster
 
-To enable CSI storage drivers on a new cluster, use one of the following depending on the storage system:
+To enable CSI storage drivers on a new cluster, include one of the following parameters depending on the storage system:
 
 * `--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi].
 * `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi].

@@ -38,41 +38,6 @@ Review the prerequisites listed in the [CSI storage drivers overview][csi-storag
 
 Perform the steps in this [link][csi-blob-storage-open-source-driver-uninstall-steps] if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
 
-## Enable CSI driver on a new or existing AKS cluster
-
-Using the Azure CLI, you can enable the Blob storage CSI driver on a new or existing AKS cluster before you configure a persistent volume for use by pods in the cluster.
-
-To enable the driver on a new cluster, include the `--enable-blob-driver` parameter with the `az aks create` command as shown in the following example:
-
-```azurecli
-az aks create --enable-blob-driver -n myAKSCluster -g myResourceGroup
-```
-
-To enable the driver on an existing cluster, include the `--enable-blob-driver` parameter with the `az aks update` command as shown in the following example:
-
-```azurecli
-az aks update --enable-blob-driver -n myAKSCluster -g myResourceGroup
-```
-
-You're prompted to confirm there isn't an open-source Blob CSI driver installed. After confirming, it may take several minutes to complete this action. Once it's complete, you should see in the output the status of enabling the driver on your cluster. The following example is resembles the section indicating the results of the previous command:
-
-```output
-"storageProfile": {
-    "blobCsiDriver": {
-      "enabled": true
-    },
-```
-
-## Disable CSI driver on an existing AKS cluster
-
-Using the Azure CLI, you can disable the Blob storage CSI driver on an existing AKS cluster after you remove the persistent volume from the cluster.
-
-To disable the driver on an existing cluster, include the `--disable-blob-driver` parameter with the `az aks update` command as shown in the following example:
-
-```azurecli
-az aks update --disable-blob-driver -n myAKSCluster -g myResourceGroup
-```
-
 ## Use a persistent volume with Azure Blob storage
 
 A [persistent volume][persistent-volume] (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect by using the Network File System (NFS) or blobfuse. This article shows you how to dynamically create an Azure Blob storage container for use by multiple pods in an AKS cluster.
