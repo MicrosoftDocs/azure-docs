@@ -1,16 +1,16 @@
 ---
 title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
-description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
+description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/10/2022
+ms.date: 10/18/2022
 author: mgoedtel
 
 ---
 
-# Use Azure Blob storage Container Storage Interface (CSI) driver (preview)
+# Use Azure Blob storage Container Storage Interface (CSI) driver
 
-The Azure Blob storage Container Storage Interface (CSI) driver (preview) is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
+The Azure Blob storage Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
 By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
@@ -20,59 +20,27 @@ Mounting Azure Blob storage as a file system into a container or pod, enables yo
 * Images, documents, and streaming video or audio
 * Disaster recovery data
 
-The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver (preview), the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver (preview) is enabled on AKS, there are two built-in storage classes: *azureblob-fuse-premium* and *azureblob-nfs-premium*.
+The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver is enabled on AKS, there are two built-in storage classes: *azureblob-fuse-premium* and *azureblob-nfs-premium*.
 
 To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks]. To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS][compare-access-with-nfs].
 
-## Azure Blob storage CSI driver (preview) features
+## Azure Blob storage CSI driver features
 
-Azure Blob storage CSI driver (preview) supports the following features:
+Azure Blob storage CSI driver supports the following features:
 
 - BlobFuse and Network File System (NFS) version 3.0 protocol
 
 ## Before you begin
 
-- The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-- Install the aks-preview Azure CLI extension version 0.5.85 or later.
-
-- If the open-source CSI Blob storage driver is installed on your cluster, uninstall it before enabling the preview driver.
+Review the prerequisites listed in the [CSI storage drivers overview][csi-storage-driver-overview] article to verify the requirements before using this feature.
 
 ### Uninstall open-source driver
 
 Perform the steps in this [link][csi-blob-storage-open-source-driver-uninstall-steps] if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
 
-## Install the Azure CLI aks-preview extension
-
-The following steps are required to install and register the Azure CLI aks-preview extension and driver in your subscription.
-
-1. To use the Azure CLI aks-preview extension for enabling the Blob storage CSI driver (preview) on your AKS cluster, run the following command to install it:
-
-    ```azurecli
-    az extension add --name aks-preview
-    ```
-
-2. Run the following command to register the CSI driver (preview):
-    
-    ```azurecli
-    az feature register --name EnableBlobCSIDriver --namespace Microsoft.ContainerService 
-    ```
-
-3. To register the provider, run the following command:
-
-    ```azurecli
-    az provider register -n Microsoft.ContainerService
-    ```
-
-When newer versions of the extension are released, run the following command to upgrade the extension to the latest release:
-
-```azurecli
-az extension update --name aks-preview
-```
-
 ## Enable CSI driver on a new or existing AKS cluster
 
-Using the Azure CLI, you can enable the Blob storage CSI driver (preview) on a new or existing AKS cluster before you configure a persistent volume for use by pods in the cluster.
+Using the Azure CLI, you can enable the Blob storage CSI driver on a new or existing AKS cluster before you configure a persistent volume for use by pods in the cluster.
 
 To enable the driver on a new cluster, include the `--enable-blob-driver` parameter with the `az aks create` command as shown in the following example:
 
@@ -120,7 +88,7 @@ A storage class is used to define how an Azure Blob storage container is created
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
 
-When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage driver (preview).
+When you use storage CSI drivers on AKS, there are two additional built-in StorageClasses that use the Azure Blob CSI storage driver.
 
 The reclaim policy on both storage classes ensures that the underlying Azure Blob storage is deleted when the respective PV is deleted. The storage classes also configure the container to be expandable by default, as the `set allowVolumeExpansion` parameter is set to **true**.
 
@@ -290,3 +258,4 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [az-tags]: ../azure-resource-manager/management/tag-resources.md
 [azure-csi-blob-storage-dynamic]: azure-csi-blob-storage-dynamic.md
 [azure-csi-blob-storage-static]: azure-csi-blob-storage-static.md
+[csi-storage-driver-overview]: csi-storage-drivers.md
