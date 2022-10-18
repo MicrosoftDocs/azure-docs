@@ -7,7 +7,7 @@ ms.date: 03/21/2022
 
 ---
 
-# Monitor health of Log Analytics workspace in Azure Monitor
+# Monitor health of a Log Analytics workspace in Azure Monitor
 
 To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace by using data in the [Operation](/azure/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace. It contains error messages and warnings that occur in your workspace. We recommend that you create alerts for issues with the level of Warning and Error.
 
