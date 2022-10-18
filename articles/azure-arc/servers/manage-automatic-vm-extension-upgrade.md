@@ -11,7 +11,7 @@ Automatic extension upgrade is available for Azure Arc-enabled servers that have
 
 Automatic extension upgrade has the following features:
 
-- You can opt in and out of automatic upgrades at any time. By default,all extensions are opted into automatic extension upgrades.
+- You can opt in and out of automatic upgrades at any time. By default, all extensions are opted into automatic extension upgrades.
 - Each supported extension is enrolled individually, and you can choose which extensions to upgrade automatically.
 - Supported in all Azure Arc regions.
 
@@ -63,12 +63,12 @@ Automatic extension upgrade is enabled by default when you install extensions on
 Use the following steps to configure automatic extension upgrades in using the Azure portal:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and type **Servers - Azure Arc** into the search bar.
-   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-search-arc-server.png" alt-text="Screenshot of Azure portal showing user typing in Servers - Azure Arc" border="true":::
+   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-search-arc-server.png" alt-text="Screenshot of Azure portal showing user typing in Servers - Azure Arc." border="true":::
 1. Select **Servers - Azure Arc** under the Services category, then select the individual server you wish to manage.
 1. In the navigation pane, select the **Extensions** tab to see a list of all extensions installed on the server.
-   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-navigation-extensions.png" alt-text="Screenshot of an Azure Arc-enabled server in the Azure portal showing where to navigate to extensions" border="true":::
+   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-navigation-extensions.png" alt-text="Screenshot of an Azure Arc-enabled server in the Azure portal showing where to navigate to extensions." border="true":::
 1. The **Automatic upgrade** column in the table shows whether upgrades are enabled, disabled, or not supported for each extension. Select the checkbox next to the extensions for which you want automatic upgrades enabled, then select **Enable automatic upgrade** to turn on the feature. Select **Disable automatic upgrade** to turn off the feature.
-   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-enable-auto-upgrade.png" alt-text="Screenshot of Azure portal showing how to select extensions and enable automatic upgrades" border="true":::
+   :::image type="content" source="media/manage-automatic-vm-extension-upgrade/portal-enable-auto-upgrade.png" alt-text="Screenshot of Azure portal showing how to select extensions and enable automatic upgrades." border="true":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -133,7 +133,7 @@ If multiple extension upgrades are available for a machine, the upgrades may be 
 
 You can use the Azure Activity Log to identify extensions that were automatically upgraded. You can find the Activity Log tab on individual Azure Arc-enabled server resources, resource groups, and subscriptions. Extension upgrades are identified by the `Upgrade Extensions on Azure Arc machines (Microsoft.HybridCompute/machines/upgradeExtensions/action)` operation.
 
-To view automatic extension upgrade history, search for the **Azure Activity Log** in the Azure Portal. Select **Add filter** and choose the Operation filter. For the filter criteria, search for "Upgrade Extensions on Azure Arc machines" and select that option. You can optionally add a second filter for **Event initiated by** and set "Azure Regional Service Manager" as the filter criteria to only see automatic upgrade attempts and exclude upgrades manually initiated by users.
+To view automatic extension upgrade history, search for the **Azure Activity Log** in the Azure portal. Select **Add filter** and choose the Operation filter. For the filter criteria, search for "Upgrade Extensions on Azure Arc machines" and select that option. You can optionally add a second filter for **Event initiated by** and set "Azure Regional Service Manager" as the filter criteria to only see automatic upgrade attempts and exclude upgrades manually initiated by users.
 
 :::image type="content" source="media/manage-automatic-vm-extension-upgrade/azure-activity-log-extension-upgrade.png" alt-text="Azure Activity Log showing attempts to automatically upgrade extensions on Azure Arc-enabled servers." border="true":::
 
