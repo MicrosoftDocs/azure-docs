@@ -1289,7 +1289,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 ### Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry and periodically tries to send it again. The App Insights SDK also uses the same mechanism as mentioned in [Does the SDK create temporary local storage](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) and [built in telemetry channels](telemetry-channels.md).  In some cases, you may wish to disable this feature to optimize application performance.
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry for 48 hours (except Python, which is 7 days) and periodically tries to send it again. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK does not have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. In some cases, you may wish to disable this feature to optimize application performance. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
 #### [.NET](#tab/net)
 
