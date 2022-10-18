@@ -226,7 +226,7 @@ EmailRecipients emailRecipients = new EmailRecipients(toAddressList)
     .setBcc(bccAddressList);
 ```
 
-You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
 
 
 ### Send an email message with attachments
