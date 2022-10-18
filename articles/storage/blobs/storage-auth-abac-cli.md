@@ -7,23 +7,15 @@ author: jimmart-dev
 ms.service: storage
 ms.topic: tutorial
 ms.author: jammart
-ms.reviewer: 
+ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/04/2022
+ms.date: 10/18/2022
 
 #Customer intent:
 
 ---
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI
-
-> [!IMPORTANT]
-> Currently, Azure ABAC is generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using `request` and `resource` attributes in the standard storage account performance tier. It is still in preview for premium storage accounts and for the security principal attribute in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
->
-> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is generally available or in preview.
->
-> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more fine-grained access control by adding a role assignment condition.
 
@@ -32,6 +24,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Add a condition to a role assignment
 > - Restrict access to blobs based on a blob index tag
+
+[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
 
 ## Prerequisites
 

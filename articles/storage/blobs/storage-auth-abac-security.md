@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/18/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -15,17 +15,11 @@ ms.subservice: blobs
 
 # Security considerations for Azure role assignment conditions in Azure Blob Storage
 
-> [!IMPORTANT]
-> Currently, Azure ABAC is generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using `request` and `resource` attributes in the standard storage account performance tier. It is still in preview for premium storage accounts and for the security principal attribute in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
->
-> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is generally available or in preview.
->
-> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 To fully secure resources using [Azure attribute-based access control (Azure ABAC)](storage-auth-abac.md), you must also protect the [attributes](storage-auth-abac-attributes.md) used in the [Azure role assignment conditions](../../role-based-access-control/conditions-format.md). For instance, if your condition is based on a file path, then you should beware that access can be compromised if the principal has an unrestricted permission to rename a file path.
 
 This article describes security considerations that you should factor into your role assignment conditions.
+
+[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
 
 ## Use of other authorization mechanisms
 

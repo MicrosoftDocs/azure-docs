@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/18/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
@@ -60,17 +60,13 @@ Each authorization option is briefly described below:
 
 ## About the ABAC Preview
 
-> [!IMPORTANT]
-> Azure ABAC is currently only generally available (GA) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers.
->
-> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
 
 ### Status of condition features in Azure Storage
 
 The table below shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
 
-| Performance tier| Resource type  | Attribute type | Attribute | Availability |
+| Performance tier | Resource types | Attribute types | Specific attributes | Availability |
 |--|--|--|--|--|
 | Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
 | Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource<br/>Principal | all      | Preview |

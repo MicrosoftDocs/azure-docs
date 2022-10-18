@@ -10,22 +10,16 @@ ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/04/2022
+ms.date: 10/18/2022
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
 # Example Azure role assignment conditions for Blob Storage
 
-> [!IMPORTANT]
-> Currently, Azure ABAC is generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using `request` and `resource` attributes in the standard storage account performance tier. It is still in preview for premium storage accounts and for the security principal attribute in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
->
-> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is generally available or in preview.
->
-> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 This article list some examples of role assignment conditions for controlling access to Azure Blob Storage.
+
+[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
 
 ## Prerequisites
 
