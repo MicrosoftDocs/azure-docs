@@ -365,7 +365,7 @@ If you make changes to `script.py` that require additional dependencies, or you 
 
 ### Submit the experiment
 
-Since the generated code isn’t driven by automated ML anymore, instead of creating and submitting an AutoML Job, you need to create a [`Command Job`](/how-to-train-sdk) and provide the generated code (script.py) to it. 
+Since the generated code isn’t driven by automated ML anymore, instead of creating and submitting an AutoML Job, you need to create a `Command Job` and provide the generated code (script.py) to it. 
 
 The following example contains the parameters and regular dependencies needed to run a Command Job, such as compute, environment, etc.
 ```python
