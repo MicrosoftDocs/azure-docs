@@ -42,11 +42,11 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 * A registered model that uses a GPU.
 
-    * To learn how to register models, see [Deploy Models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+    * To learn how to register models, see [Deploy Models](../how-to-deploy-managed-online-endpoints.md).
 
     * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](../how-to-train-tensorflow.md).
 
-* A general understanding of [How and where to deploy models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* A general understanding of [How and where to deploy models](../how-to-deploy-managed-online-endpoints.md).
 
 ## Connect to your workspace
 
@@ -136,7 +136,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](../how-to-deploy-managed-online-endpoints.md).
 
 ## Define the conda environment
 
