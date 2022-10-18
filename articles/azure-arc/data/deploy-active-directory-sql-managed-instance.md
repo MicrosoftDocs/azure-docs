@@ -29,18 +29,18 @@ The customer-managed keytab Active Directory connector and the system-managed ke
 
 ### [Customer-managed keytab mode](#tab/customer-managed-keytab-mode)
 
-For an Active Directory customer-managed keytab deployment, you must also provide:
+For an Active Directory customer-managed keytab deployment, you must provide:
 
 - An Active Directory user account for SQL
-- Service Principal Names (SPNs) under the user account
-- DNS A (forward) record for the primary (and optional secondary) endpoint of SQL
+- Service principal names (SPNs) under the user account
+- DNS A (forward) record for the primary endpoint of SQL (and optionally, a secondary endpoint)
 
 ### [System-managed keytab mode](#tab/system-managed-keytab-mode)
 
-For an Active Directory system-managed keytab deployment, you must also provide:
+For an Active Directory system-managed keytab deployment, you must provide:
 
 - A unique name of an Active Directory user account for SQL
-- DNS A (forward) record for the primary (and optional secondary) endpoint of SQL
+- DNS A (forward) record for the primary endpoint of SQL (and optionally, a secondary endpoint)
 
 ---
 
@@ -54,31 +54,31 @@ To prepare for deployment in customer-managed keytab mode:
 
 1. **Identify a DNS name for the SQL endpoints**: Choose unique DNS names for the SQL endpoints that clients will connect to from outside the Kubernetes cluster.
 
-   - The DNS names should be in the Active Directory domain or its descendant domains.
-   - The examples in these instructions use `sqlmi-primary.contoso.local` for the primary DNS name and `sqlmi-secondary.contoso.local` for the secondary DNS name.
+   - The DNS names should be in the Active Directory domain or in its descendant domains.
+   - The examples in this article use `sqlmi-primary.contoso.local` for the primary DNS name and `sqlmi-secondary.contoso.local` for the secondary DNS name.
 
-1. **Identify the port numbers for the SQL endpoints**: Provide a port number for each of the SQL endpoints.
+1. **Identify the port numbers for the SQL endpoints**: Enter a port number for each of the SQL endpoints.
 
-   - The port numbers must be in the acceptable range of port numbers for Kubernetes cluster.
-   - The examples in these instructions use `31433` for the primary port number and `31434` for the secondary port number.
+   - The port numbers must be in the acceptable range of port numbers for your Kubernetes cluster.
+   - The examples in this article use `31433` for the primary port number and `31434` for the secondary port number.
 
-1. **Create an Active Directory account for the SQL managed instance**: Choose a name for the Active Directory account to represent your SQL managed instance.
+1. **Create an Active Directory account for the managed instance**: Choose a name for the Active Directory account to represent your managed instance.
 
    - The name must be unique in the Active Directory domain.
-   - The examples in these instructions use `sqlmi-account` for the Active Directory account name.
+   - The examples in this article use `sqlmi-account` for the Active Directory account name.
 
    To create the account:
 
-   1. On the domain controller, open the Active Directory Users and Computers tool. Create an account to represent the SQL managed instance.
-   1. Enter an account password that complies with the Active Directory domain password policy. You'll use this password in some of the next steps.
-   1. Ensure that the account is enabled. The account does not need any special permissions.  
+   1. On the domain controller, open the Active Directory Users and Computers tool. Create an account to represent the managed instance.
+   1. Enter an account password that complies with the Active Directory domain password policy. You'll use this password in some of the steps in the next sections.
+   1. Ensure that the account is enabled. The account doesn't need any special permissions.  
 
-1. **Create DNS records for the SQL endpoints in the Active Directory DNS servers**: In one of the Active Directory DNS servers, create A records (forward lookup records) for the DNS name you chose in step 1. 
+1. **Create DNS records for the SQL endpoints in the Active Directory DNS servers**: In one of the Active Directory DNS servers, create A records (forward lookup records) for the DNS name you chose in step 1.
 
    - The DNS records should point to the IP address that the SQL endpoint will listen on for connections from outside the Kubernetes cluster.
-   - You don't need to create PTR records (reverse lookup records) in association with the A records.
+   - You don't need to create reverse-lookup Pointer (PTR) records in association with the A records.
 
-1. **Create Service Principal Names (SPNs)**: For SQL to be able to accept Active Directory authentication against the SQL endpoints, you must register two SPNs in the account you created in the preceding step. Two SPNs must be registered for the primary endpoint. If you want Active Directory authentication for the secondary endpoint, the SPNs must also be registered for the secondary endpoint.
+1. **Create SPNs**: For SQL to be able to accept Active Directory authentication against the SQL endpoints, you must register two SPNs in the account you created in the preceding step. Two SPNs must be registered for the primary endpoint. If you want Active Directory authentication for the secondary endpoint, the SPNs must also be registered for the secondary endpoint.
 
    To create and register SPNs:
 
@@ -119,10 +119,8 @@ To prepare for deployment in customer-managed keytab mode:
 
 1. **Generate a keytab file that has entries for the account and SPNs**: For SQL to be able to authenticate itself to Active Directory and accept authentication from Active Directory users, provide a keytab file by using a Kubernetes secret.
 
-   - The keytab file contains encrypted entries for the Active Directory account generated for the managed instance and the SPNs.
-
-   - SQL Server will use this file as its credential against Active Directory.
-
+   - The keytab file contains encrypted entries for the Active Directory account that's generated for the managed instance and the SPNs.
+   - SQL Server uses this file as its credential against Active Directory.
    - You can choose from multiple tools to generate a keytab file:
 
      - `adutil`: Available for Linux (see [Introduction to adutil](/sql/linux/sql-server-linux-ad-auth-adutil-introduction))
@@ -153,7 +151,7 @@ To prepare for deployment in customer-managed keytab mode:
       - `--secondary-port`: The secondary SQL endpoint port number (optional). Example: `31434`
       - `--secondary-dns-name`: The DNS name for the secondary SQL endpoint (optional).
 
-      Choose a name for the Kubernetes secret that hosts the keytab. Use the namespace where the SQL managed instance is deployed.
+      Choose a name for the Kubernetes secret that hosts the keytab. Use the namespace where the managed instance is deployed.
 
    1. Run the following command to create a keytab:
 
@@ -173,9 +171,9 @@ To prepare for deployment in customer-managed keytab mode:
       klist -kte <keytab file>
       ```
 
-1. **Deploy the Kubernetes secret for the keytab**: Use the Kubernetes secret specification file generated in the previous step to deploy the secret.
+1. **Deploy the Kubernetes secret for the keytab**: Use the Kubernetes secret specification file you create in the preceding step to deploy the secret.
 
-   The specification file should look like the following example:
+   The specification file looks similar to this example:
 
     ```yaml
     apiVersion: v1
@@ -207,39 +205,38 @@ To prepare for deployment in system-managed keytab mode:
 1. **Identify a DNS name for the SQL endpoints**: Choose unique DNS names for the SQL endpoints that clients will connect to from outside the Kubernetes cluster.
 
    - The DNS names should be in the Active Directory domain or its descendant domains.
-   - The examples in these instructions use `sqlmi-primary.contoso.local` for the primary DNS name and `sqlmi-secondary.contoso.local` for the secondary DNS name.
+   - The examples in this article use `sqlmi-primary.contoso.local` for the primary DNS name and `sqlmi-secondary.contoso.local` for the secondary DNS name.
 
-1. **Identify the port numbers for the SQL endpoints**: Provide a port number for each of the SQL endpoints.
+1. **Identify the port numbers for the SQL endpoints**: Enter a port number for each of the SQL endpoints.
 
-   - The port numbers must be in the acceptable range of port numbers for Kubernetes cluster.
-   - The examples in these instructions use `31433` for the primary port number and `31434` for the secondary port number.
+   - The port numbers must be in the acceptable range of port numbers for your Kubernetes cluster.
+   - The examples in this article use `31433` for the primary port number and `31434` for the secondary port number.
 
-1. **Choose an Active Directory account name for SQL**: Choose a name for the Active Directory account that will represent your SQL.
+1. **Choose an Active Directory account name for SQL**: Choose a name for the Active Directory account that will represent your managed instance.
 
-   - This name should be unique in the Active Directory domain and the account must NOT pre-exist in the domain. The system will generate this account in the domain.
-
-   - The examples in these instructions use `sqlmi-account` for the Active Directory account name.
+   - This name should be unique in the Active Directory domain, and the account must *not* already exist in the domain. This account is automatically generated in the domain.
+   - The examples in this article use `sqlmi-account` for the Active Directory account name.
 
 1. **Create DNS records for the SQL endpoints in the Active Directory DNS servers**: In one of the Active Directory DNS servers, create A records (forward lookup records) for the DNS names chosen in step 1.
 
    - The DNS records should point to the IP address that the SQL endpoint will listen on for connections from outside the Kubernetes cluster.
-   - You don't need to create PTR records (reverse lookup records) in association with the A records.
+   - You don't need to create reverse-lookup Pointer (PTR) records in association with the A records.
 
 ---
 
-## Set properties for Active Directory authentication
+## Set properties for Active Directory authentication in your specification file
 
-To deploy an Azure Arc-enabled SQL Managed Instance for Azure Arc Active Directory authentication, the deployment specification must reference the Active Directory connector instance to use. Referencing the Active Directory connector in the SQL specification automatically sets up SQL to do Active Directory authentication.
+To deploy an Azure Arc-enabled SQL Managed Instance for Azure Arc Active Directory authentication, update your deployment specification file to reference the Active Directory connector instance to use. Referencing the Active Directory connector in the SQL specification file automatically sets up SQL for Active Directory authentication.
 
 ### [Customer-managed keytab mode](#tab/customer-managed-keytab-mode)
 
-To support Active Directory authentication on SQL in customer-managed keytab mode, the deployment specification file uses the following properties:
+To support Active Directory authentication on SQL in customer-managed keytab mode, set the following properties in your deployment specification file. Some properties are required and some are optional.
 
 #### Required
 
 - `spec.security.activeDirectory.connector.name`: The name of the preexisting Active Directory connector custom resource to join for Active Directory authentication. If you enter a value for this property, Active Directory authentication is implemented.
 - `spec.security.activeDirectory.accountName`: The name of the Active Directory account for the managed instance.
-- `spec.security.activeDirectory.keytabSecret`: The name of the Kubernetes secret that hosts the pre-created keytab file by users. This secret must be in the same namespace as the managed instance. This parameter is required only for the Active Directory deployment in customer-managed keytab mode.
+- `spec.security.activeDirectory.keytabSecret`: The name of the Kubernetes secret that hosts the pre-created keytab file for users. This secret must be in the same namespace as the managed instance. This parameter is required only for the Active Directory deployment in customer-managed keytab mode.
 - `spec.services.primary.dnsName`: Enter a DNS name for the primary SQL endpoint.
 - `spec.services.primary.port`: Enter a port number for the primary SQL endpoint.
 
@@ -251,12 +248,12 @@ To support Active Directory authentication on SQL in customer-managed keytab mod
 
 ### [System-managed keytab mode](#tab/system-managed-keytab-mode)
 
-To support Active Directory authentication on SQL in system-managed keytab mode, the deployment specification file uses the following properties:
+To support Active Directory authentication on SQL in system-managed keytab mode, set the following properties in your deployment specification file. Some properties are required and some are optional.
 
 #### Required
 
 - `spec.security.activeDirectory.connector.name`: The name of the preexisting Active Directory connector custom resource to join for Active Directory authentication. If you enter a value for this property, Active Directory authentication is implemented.
-- `spec.security.activeDirectory.accountName`: The name of the Active Directory account for the SQL managed instance. This account is automatically generated for this managed instance and must not exist in the domain before you deploy SQL.
+- `spec.security.activeDirectory.accountName`: The name of the Active Directory account for the managed instance. This account is automatically generated for this managed instance and must not exist in the domain before you deploy SQL.
 - `spec.services.primary.dnsName`: Enter a DNS name for the primary SQL endpoint.
 - `spec.services.primary.port`: Enter a port number for the primary SQL endpoint.
 
@@ -274,7 +271,7 @@ To support Active Directory authentication on SQL in system-managed keytab mode,
 Next, prepare a YAML specification file to deploy SQL Managed Instance. For the mode you use, enter your deployment values in the specification file.
 
 > [!NOTE]
-> In the specification file for both modes, the `admin-login-secret` value in the YAML example provides basic authentication. You can use the parameter value to log in to the SQL managed instance, and then create logins for Active Directory users and groups. For more information, see [Connect to Active Directory-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
+> In the specification file for both modes, the `admin-login-secret` value in the YAML example provides basic authentication. You can use the parameter value to log in to the managed instance, and then create logins for Active Directory users and groups. For more information, see [Connect to Active Directory-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
 
 ### [Customer-managed keytab mode](#tab/customer-managed-keytab-mode)
 
@@ -401,10 +398,14 @@ For both customer-managed keytab mode and system-managed keytab mode, deploy the
 
     ```console
     kubectl apply -f <specification file name>
+    ```
 
+    Your command might look like the following example:
 
+    ```console
+    kubectl apply -f sqlmi.yaml
     ```
 
 ## Next steps
 
-- [Connect to Active Directory integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
+- [Connect to Active Directory-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
