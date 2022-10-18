@@ -3,7 +3,7 @@ title: Overview of Cloud Security Posture Management (CSPM)
 description: Learn more about the new Defender CSPM plan and the other enhanced security features that can be enabled for your multicloud environment through the Defender Cloud Security Posture Management (CSPM) plan.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/20/2022
+ms.date: 10/18/2022
 ---
 
 # Cloud Security Posture Management (CSPM)
@@ -60,11 +60,14 @@ Learn more about [cloud security explorer](concept-attack-path.md#what-is-cloud-
 
 ## Attack path analysis
 
-Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans expose exploitable paths that attackers may use to breach your environment to reach your high-impact assets. Attack path analysis exposes those attack paths and suggests recommendations as to how best remediate the issues that will break the attack path and prevent successful breach.
+Attack path analysis is a graph-based algorithm that scans the cloud security graph. The scans:
 
-By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more. Attack path analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+- expose exploitable paths that attackers may use to breach your environment and reach your high-impact assets
+- provide recommendations for ways to prevent successful breaches
 
-Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis)
+By taking your environment's contextual information into account such as, internet exposure, permissions, lateral movement, and more, this analysis identifies issues that may lead to a breach on your environment, and helps you to remediate the highest risk ones first.
+
+Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis).
 
 ## Agentless scanning for machines 
 
