@@ -41,6 +41,18 @@ The model has been trained using an `XGBBoost` classifier and all the required p
 
 [!INCLUDE [clone repo & set defaults](../../../includes/machine-learning-cli-prepare.md)]
 
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in the following notebooks:
+
+   # [Azure ML CLI](#tab/cli)
+   
+   Follow this documentation when running on the Azure ML CLI.
+   
+   # [Azure ML SDK for Python](#tab/sdk)
+   
+   In the cloned repository, open the notebook: `azureml-examples/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb`.
+
 ## Steps
 
 Follow these steps to deploy an MLflow model to a batch endpoint for running batch inference over new data:
@@ -84,15 +96,16 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    ```bash
    MODEL_NAME='heart-classifier'
-   az ml model create --name $$MODEL_NAME --type "mlflow_model" --path "resources/heart-classifier-mlflow"
+   az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classifier-mlflow/model"
    ```
    
    # [Azure ML SDK for Python](#tab/sdk)
    
    ```python
    model_name = 'heart-classifier'
+   model_local_path = "heart-classifier-mlflow/model"
    model = ml_client.models.create_or_update(
-        Model(path='resources/heart-classifier-mlflow', type=AssetTypes.MLFLOW_MODEL)
+        Model(name=model_name, path=model_local_path, type=AssetTypes.MLFLOW_MODEL)
    )
    ```
    
