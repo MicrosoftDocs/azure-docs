@@ -70,7 +70,7 @@ For example, the following command links an IoT hub named *MyExampleHub* using a
 az iot dps linked-hub create --dps-name MyExampleDps --resource-group MyResourceGroup --connection-string "HostName=MyExampleHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XNBhoasdfhqRlgGnasdfhivtshcwh4bJwe7c0RIGuWsirW0=" --location westus
 ```
 
-DPS also supports creating linked IoT Hubs using the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
+DPS also supports linking IoT Hubs using the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
 
 ## Update a linked IoT hub
 
@@ -118,7 +118,7 @@ When you delete a linked IoT hub from your DPS instance it will no longer be ava
 
 * For enrollments that don't explicitly set the IoT hubs to apply allocation policy to, a deleted linked IoT hub is no longer available for allocation.
 
-* For enrollments that do explicitly set the IoT hubs to apply allocation policy to, you'll need to manually or programmatically remove the IoT hub from the enrollment settings for it to be removed from participation in allocation.
+* For enrollments that do explicitly set the IoT hubs to apply allocation policy to, you'll need to manually or programmatically remove the IoT hub from the enrollment settings for it to be removed from participation in allocation. Failure to do so may result in an error when a device tries to provision through the enrollment.
 
 ### Use Azure portal to delete a linked IoT hub
 
