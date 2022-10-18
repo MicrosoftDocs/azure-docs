@@ -361,7 +361,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
 When you've configured your AutoML Job to the desired settings, you can submit the job.
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
 
 ---
 
