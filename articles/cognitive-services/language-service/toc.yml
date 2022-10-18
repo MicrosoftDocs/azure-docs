@@ -874,6 +874,8 @@ items:
       href: question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
       href: question-answering/tutorials/multiple-domains.md
+    - name: Add your Question Answering project to Power Virtual Agents
+      href: question-answering/tutorials/power-virtual-agents.md
   - name: Reference
     items: 
     - name: General
@@ -1099,7 +1101,7 @@ items:
     - name: REST API
       items:
         - name: Document summarization
-          href: https://go.microsoft.com/fwlink/?linkid=2195178
+          href: https://go.microsoft.com/fwlink/?linkid=2211684
         - name: Conversation summarization
           href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs

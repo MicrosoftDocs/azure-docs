@@ -40,7 +40,7 @@ sections:
           We'd like to make more Cognitive Services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
       - question: How do I get access to disconnected container?
         answer: |
-          Fill out and submit the request form to request access to the container. Access is limited to customers that meet the following requirements:
+          Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the container. Access is limited to customers that meet the following requirements:
 
             * Your organization must have an enterprise agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.  
             * Valid business scenario/use case - Disconnected containers are expected to run fully offline hence, your use cases must meet one of below or similar requirements: 
