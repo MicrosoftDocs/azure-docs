@@ -62,7 +62,7 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 > [!NOTE]
 > Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource manager template or an Azure Policy definition.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource Manager template or an Azure Policy definition.
 
 ## Destination limitations
 
@@ -306,7 +306,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing logs
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those log, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). The schema for Azure Blob Storage resource logs is found in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
 
@@ -314,14 +314,14 @@ To get the list of SMB and REST operations that are logged, see [Storage logged 
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure Blob Storage service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 ### Log authenticated requests
 
  The following types of authenticated requests are logged:
 
 - Successful requests
-- Failed requests, including timeout, throttling, network, authorization, and other errors
+- Failed requests, including time out, throttling, network, authorization, and other errors
 - Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 

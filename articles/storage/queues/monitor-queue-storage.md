@@ -58,7 +58,7 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 | **StorageWrite** | Write operations on objects. |
 | **StorageDelete** | Delete operations on objects. |
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource manager template or an Azure Policy definition.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource Manager template or an Azure Policy definition.
 
 ## Destination limitations
 
@@ -302,7 +302,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ****
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those log, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). The schema for Azure Queue Storage resource logs is found in [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md).
 
@@ -312,7 +312,7 @@ Log entries are created only if there are requests made against the service endp
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its queue endpoint but not in its table or blob endpoints, only logs that pertain to Queue Storage are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 
 ### Log authenticated requests
@@ -332,7 +332,7 @@ The following types of anonymous requests are logged:
 
 - Successful requests
 - Server errors
-- Time-out errors for both client and server
+- Time out errors for both client and server
 - Failed `GET` requests with the error code 304 (`Not Modified`)
 
 All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-queue-storage-reference.md).

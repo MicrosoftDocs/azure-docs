@@ -1,4 +1,4 @@
----
+---Azure
 title: Monitoring Azure Files | Microsoft Docs
 description: Learn how to monitor the performance and availability of Azure Files. Monitor Azure Files data, learn about configuration, and analyze metric and log data.
 author: normesta
@@ -67,7 +67,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings.md#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
-- You can't send logs to the same storage account that you are monitoring with this setting. 
+- You can't send logs to the same storage account that you're monitoring with this setting. 
 
   This would lead to recursive logs in which a log entry describes the writing of another log entry. You must create an account or use another existing account to store log information.
 
@@ -298,7 +298,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing logs
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those log, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those logs, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). The schema for Azure Files resource logs is found in [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
@@ -306,7 +306,7 @@ To get the list of SMB and REST operations that are logged, see [Storage logged 
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure File service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 
 ### Log authenticated requests
@@ -411,7 +411,7 @@ The following table lists some example scenarios to monitor and the proper metri
 2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
 4. Click **Add condition** to add a condition.
-5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
+5. You'll see a list of signals supported for the storage account, select the **Transactions** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
 7. Click the **Dimension values** drop-down and select the appropriate response types for your file share.
 
@@ -442,7 +442,7 @@ The following table lists some example scenarios to monitor and the proper metri
 10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
     > [!TIP]
-    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you're using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
 11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
@@ -454,7 +454,7 @@ The following table lists some example scenarios to monitor and the proper metri
 2. In the **Monitoring** section, click **Alerts** and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
 4. Click **Add condition** to add a condition.
-5. You will see a list of signals supported for the storage account, select the **File Capacity** metric.
+5. You'll see a list of signals supported for the storage account, select the **File Capacity** metric.
 6. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #8**.
 
    > [!NOTE]
@@ -473,7 +473,7 @@ The following table lists some example scenarios to monitor and the proper metri
 2. In the Monitoring section, click **Alerts** and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
 4. Click **Add condition** to add a condition.
-5. You will see a list of signals supported for the storage account, select the **Egress** metric.
+5. You'll see a list of signals supported for the storage account, select the **Egress** metric.
 6. For **premium file shares**, click the **Dimension name** drop-down and select **File Share**. For **standard file shares**, skip to **step #8**.
 
    > [!NOTE]
