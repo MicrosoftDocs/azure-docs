@@ -7,9 +7,9 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 09/14/2022
 ms.author: jammart
-ms.subservice: common
+ms.subservice: queues
 ---
 
 # Authorize access to queues using Azure Active Directory

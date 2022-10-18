@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 08/28/2022
+ms.date: 10/05/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -40,6 +40,8 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
+Some of the built-in DRS rules are disabled by default because they've been replaced by newer rules in the Microsoft Threat Intelligence Collection. For example, rule ID 942440, *SQL Comment Sequence Detected.*, has been disabled, and replaced by the Microsoft Threat Intelligence Collection rule 99031002. The replaced rule reduces the risk of false positive detections from legitimate requests.
+
 ### <a name="anomaly-scoring-mode"></a>Anomaly scoring
 
 When you use DRS 2.0 or later, your WAF uses *anomaly scoring*. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: *Critical*, *Error*, *Warning*, or *Notice*. The severity affects a numeric value for the request, which is called the *anomaly score*:
@@ -55,7 +57,7 @@ If the anomaly score is 5 or greater, WAF blocks the request.
 
 For example, a single *Critical* rule match is enough for the WAF to block a request, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic.
 
-When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visiblity into the complete set of rules that a specific request matched.
+When your WAF uses older version of the default rule set (before DRS 2.0), your WAF runs in the traditional mode. Traffic that matches any rule is considered independently of any other rule matches. In traditional mode, you don't have visibility into the complete set of rules that a specific request matched.
 
 The version of the DRS that you use also determines which content types are supported for request body inspection. For more information, see [What content types does WAF support?](waf-faq.yml#what-content-types-does-waf-support-) in the FAQ.
 

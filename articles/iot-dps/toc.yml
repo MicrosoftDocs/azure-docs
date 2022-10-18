@@ -28,18 +28,18 @@ items:
     href: quick-create-simulated-device-tpm.md
 - name: Tutorials
   items:
-  - name: 1 - Provision sets of devices with enrollment groups
+  - name: Provision sets of devices with enrollment groups
     items:
      - name: Provision devices with symmetric keys
        href: how-to-legacy-device-symm-key.md
-     - name: Use custom allocation policies
-       href: tutorial-custom-allocation-policies.md
      - name: Provision multiple X.509 devices
        href: tutorial-custom-hsm-enrollment-group-x509.md
-  - name: 2 - Provision devices to multiple hubs
+  - name: Provision devices to multiple hubs
     items:
      - name: Link multiple hubs to DPS
        href: tutorial-provision-multiple-hubs.md
+     - name: Use custom allocation policies
+       href: tutorial-custom-allocation-policies.md
      - name: Provision for geolatency
        href: how-to-provision-multitenant.md
 - name: Concepts
@@ -52,6 +52,8 @@ items:
     href: concepts-x509-attestation.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
+  - name: Custom allocation policies
+    href: concepts-custom-allocation.md
   - name: Control access to DPS
     items:
     - name: Overview
@@ -82,8 +84,6 @@ items:
     items:
     - name: How to send additional data from devices
       href: how-to-send-additional-data.md
-    - name: Provision devices using custom allocation policies
-      href: how-to-use-custom-allocation-policies.md
     - name: Create an X.509 enrollment group with DPS service SDK
       href: quick-enroll-device-x509.md
     - name: Create a TPM individual enrollment with DPS service SDK

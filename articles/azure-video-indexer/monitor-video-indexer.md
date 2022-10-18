@@ -20,6 +20,9 @@ Keep the headings in this order.
 <!-- IMPORTANT STEP 1.  Do a search and replace of Azure Video Indexer with the name of your service. That will make the template easier to read -->
 
 # Monitoring Azure Video Indexer
+
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 <!-- REQUIRED. Please keep headings in this order -->
 <!-- Most services can use this section unchanged. Add to it if there are any unique charges if your service has significant monitoring beyond Azure Monitor. -->
 
@@ -66,12 +69,13 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 
 | Category | Description  |
 |:---|:---|
-|Audit | Read/Write operations| 
+|Audit | Read/Write operations|
+|Indexing Logs| Monitor the indexing process from upload to indexing and Re-indexing when needed|
 
 :::image type="content" source="./media/monitor/toc-diagnostics-save.png" alt-text="Screenshot of diagnostic settings." lightbox="./media/monitor/toc-diagnostics-save.png":::
 
 :::image type="content" source="./media/monitor/diagnostics-settings-destination.png" alt-text="Screenshot of where to send lots." lightbox="./media/monitor/diagnostics-settings-destination.png":::
-<!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
+<!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://learn.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
 
 The metrics and logs you can collect are discussed in the following sections.
 
@@ -113,6 +117,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 ### Sample Kusto queries
 
+#### Audit related sample queries 
 <!-- REQUIRED if you support logs. Please keep headings in this order -->
 <!-- Add sample Log Analytics Kusto queries for your service. -->
 
@@ -138,6 +143,35 @@ VIAudit
 | where  Status == "Failure"
 | parse Description with "ErrorType: " ErrorType ". Message: " ErrorMessage ". Trace" *
 | project TimeGenerated, OperationName, ErrorMessage, ErrorType, CorrelationId, _ResourceId
+```
+
+#### Indexing realted sample queries
+
+```kusto
+// Display Video Indexer Account logs of all failed indexing operations. 
+VIIndexing
+// | where AccountId == "<AccountId>"  // to filter on a specific accountId, uncomment this line
+| where Status == "Failure"
+| summarize count() by bin(TimeGenerated, 1d)
+| render columnchart
+```
+
+```kusto
+// Video Indexer top 10 users by operations 
+// Render timechart of top 10 users by operations, with an optional account id for filtering. 
+// Trend of top 10 active Upn's
+VIIndexing
+// | where AccountId == "<AccountId>"  // to filter on a specific accountId, uncomment this line
+| where OperationName in ("IndexingStarted", "ReindexingStarted")
+| summarize count() by Upn
+| top 10 by count_ desc
+| project Upn
+| join (VIIndexing
+| where TimeGenerated > ago(30d)
+| where OperationName in ("IndexingStarted", "ReindexingStarted")
+| summarize count() by Upn, bin(TimeGenerated,1d)) on Upn
+| project TimeGenerated, Upn, count_
+| render timechart
 ```
 
 ## Alerts

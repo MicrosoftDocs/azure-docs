@@ -20,9 +20,7 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 - An Azure subscription.
 - Register the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
 - An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- The ACSS application **Azure SAP Workloads Management** also needs Contributor role access to the resource groups for the SAP system. There are two options to grant access:
-    - If your Azure account has **Owner** or **User Access Admin** role access, you can automatically grant access to the application when deploying or registering the SAP system.
-    - If your Azure account doesn't have Owner or User Access Admin role access, you must enable access for the ACSS application. 
+- A **User-assigned managed identity** which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
 
 ## Deployment types
@@ -83,6 +81,24 @@ There are three deployment options that you can select for your infrastructure, 
     1. For **SSH public key source**, select a source for the public key. You can choose to generate a new key pair, use an existing key stored in Azure, or use an existing public key stored on your local computer. If you don't have keys already saved, it's recommended to generate a new key pair.
 
     1. For **Key pair name**, enter a name for the key pair.
+    
+    1. If you choose to use an **Existing public key stored in azure**, select the key in **Stored Keys** input
+    
+    1. Provide the corresponding SSH private key from **local file** stored on your computer or **copy paste** the private key.
+    
+    1. If you choose to use an **Existing public key**, you can either Provide the SSH public key from **local file** stored on your computer or **copy paste** the public key.
+    
+    1. Provide the corresponding SSH private key from **local file** stored on your computer or **copy paste** the private key.
+   
+1. Under **Configuration Details**, enter the FQDN for you SAP System .
+
+    1. For **SAP FQDN**, provide FQDN for you system such "sap.contoso.com"
+
+1. Under **User assigned managed identity**, provide the identity which ACSS will use to deploy infrastructure.
+
+    1. For **Managed identity source**, choose if you want to create a new identity or use an existing identity.
+
+    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY.
 
 1. Select **Next: Virtual machines**.
 

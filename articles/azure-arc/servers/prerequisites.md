@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 07/05/2022
+ms.date: 10/11/2022
 ms.topic: conceptual 
 ---
 
@@ -28,17 +28,17 @@ The following versions of the Windows and Linux operating system are officially 
   * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
 * Windows IoT Enterprise
 * Azure Stack HCI
-* Ubuntu 16.04, 18.04, and 20.04 LTS
-* Debian 10
+* Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
+* Debian 10 and 11
 * CentOS Linux 7 and 8
+* Rocky Linux 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
 * Red Hat Enterprise Linux (RHEL) 7 and 8
 * Amazon Linux 2
 * Oracle Linux 7 and 8
 
-> [!NOTE] 
+> [!NOTE]
 > On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
-
 
 > [!WARNING]
 > If the Linux hostname or Windows computer name uses a reserved word or trademark, attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
@@ -54,7 +54,7 @@ The following versions of the Windows and Linux operating system are officially 
 Windows operating systems:
 
 * NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
-* Windows PowerShell 5.1 is required. [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
+* Windows PowerShell 4.0 or later is required. No action is required for Windows Server 2012 R2 and above. For Windows Server 2012 and Windows Server 2008 R2, [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
 
 Linux operating systems:
 

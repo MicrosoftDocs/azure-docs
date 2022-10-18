@@ -93,7 +93,7 @@ The `iotedge-config` tool will also make the module deployments to your IoT Edge
 
 To use the `iotedge-config` tool to create and configure your hierarchy, follow the steps below in the **top layer IoT Edge for Linux on Windows device**:
 
-1. Log in to [Azure Bash Shell](/azure/cloud-shell/quickstart.md) and start a new bash session.
+1. Log in to [Azure Bash Shell](../cloud-shell/quickstart.md) and start a new bash session.
 
 1. Make a directory for your tutorial's resources:
 
@@ -242,6 +242,15 @@ Each device needs its corresponding configuration bundle. You can use a USB driv
     sudo iotedge check
     ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 If you want a closer look at what modifications are being made to your device's configuration file, see [the configure IoT Edge on devices section of the how-to guide](how-to-connect-downstream-iot-edge-device.md#configure-parent-device).
 
 ##### Lower-layer device configuration
@@ -340,7 +349,7 @@ You can view the status of your modules using the command:
 
    This command will output all the edgeAgent reported properties. Here are some helpful ones for monitoring the status of the device: *runtime status*, *runtime start time*, *runtime last exit time*, *runtime restart count*.
 
-You can also see the status of your modules on the [Azure portal](https://portal.azure.com/). Navigate to the **IoT Edge** section of your IoT Hub to see your devices and modules.
+You can also see the status of your modules on the [Azure portal](https://portal.azure.com/). Navigate to the **Devices** section of your IoT Hub to see your devices and modules.
 
 Once you're satisfied with your module deployments, you're ready to proceed.
 

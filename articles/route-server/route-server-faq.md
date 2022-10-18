@@ -105,6 +105,10 @@ You can still use Route Server to direct traffic between subnets in different vi
 
 Azure Route Server supports ***NO_ADVERTISE*** BGP Community. If an NVA advertises routes with this community string to the route server, the route server won't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes to be sent from Azure Route Server to ExpressRoute.
 
+### Can Azure Route Server provide transit between ExpressRoute and a Point-to-Site (P2S) VPN gateway connection if the Branch-to-Branch setting is enabled?
+
+No, Azure Route Server provides transit only between ExpressRoute and a Site-to-Site (S2S) VPN gateway connections if the Branch-to-Branch setting is enabled.
+
 ## <a name = "limitations"></a>Route Server Limits
 
 Azure Route Server has the following limits (per deployment).

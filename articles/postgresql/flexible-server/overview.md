@@ -7,18 +7,17 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.date: 08/11/2022
-ms.custom: "mvc, references_regions"
+ms.custom: mvc, references_regions, ignite-2022
 ---
 
 # Overview - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
+[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
 - [Single Server](../overview-single-server.md)
 - [Flexible Server](./overview.md) 
-- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
@@ -91,49 +90,49 @@ The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a 
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup (Preview) |
-| --- | --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| China East 3 | :heavy_check_mark: | :x: | :x:|
-| China North 3 | :heavy_check_mark: | :x: | :x:|
-| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
-| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| France South | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Germany West Central | :x: $$ | :x: $ | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Jio India West | :heavy_check_mark: (v3 only)| :x: | :x: |
-| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
-| Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Norway East | :heavy_check_mark: | :x: | :x: |
-| Qatar Central | :heavy_check_mark: | :x: | :x: |
-| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South India | :x: $$ | :x: | :heavy_check_mark: |
-| Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: |
-| Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :x: $ ** | :x: |
-| Switzerland West | :heavy_check_mark: | :x: | :x: |
-| UAE North | :heavy_check_mark: | :x: | :x: |
-| US Gov Arizona | :heavy_check_mark: | :x: | :x: |
-| US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| UK West | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West US 2 | :x: $$ | :x: $ | :heavy_check_mark:|
-| West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
+| Region | V3/V4 compute availability | Zone-Redundant HA | Same-Zone HA | Geo-Redundant backup |
+| --- | --- | --- | --- |--- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
+| Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| China East 3 | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: | 
+| China North 3 | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: | 
+| East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| France South | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Germany West Central | :x: $$ | :x: $ | :heavy_check_mark: |:x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Jio India West | :heavy_check_mark: (v3 only)| :x: | :heavy_check_mark: |:x: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :x: | :heavy_check_mark: |:x: |
+| Qatar Central | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| South India | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: | :heavy_check_mark: |
+| Sweden Central | :heavy_check_mark: | :x: | :heavy_check_mark: |:x: |
+| Switzerland North | :heavy_check_mark: | :x: $ ** | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland West | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| UAE North | :heavy_check_mark: | :x: | :heavy_check_mark: | :x: |
+| US Gov Arizona | :heavy_check_mark: | :x: | :heavy_check_mark: |:x: |
+| US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UK West | :x: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :x: $$ | :x: $ | :heavy_check_mark: | :heavy_check_mark:|
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 
 

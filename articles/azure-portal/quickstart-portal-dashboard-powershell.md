@@ -34,7 +34,23 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 You'll be using several pieces of information repeatedly. Create variables to store the information.
 
 ```azurepowershell-interactive
-# Na
+# Name of resource group used throughout this article
+$resourceGroupName = 'myResourceGroup'
+
+# Azure region
+$location = 'centralus'
+
+# Dashboard Title
+$dashboardTitle = 'Simple VM Dashboard'
+
+# Dashboard Name
+$dashboardName = $dashboardTitle -replace '\s'
+
+# Your Azure Subscription ID
+$subscriptionID = (Get-AzContext).Subscription.Id
+
+# Name of test VM
+$vmName = 'myVM1'
 ```
 
 ## Create a resource group

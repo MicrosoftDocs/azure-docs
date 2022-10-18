@@ -35,6 +35,8 @@
   items:
   - name: Role definitions
     href: role-definitions.md
+  - name: Role assignments
+    href: role-assignments.md
   - name: Scope
     href: scope-overview.md
   - name: Best practices
@@ -43,7 +45,7 @@
     items:
     - name: Condition format
       href: conditions-format.md
-    - name: Example conditions
+    - name: Example conditions for Blob Storage
       href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions prerequisites
       href: conditions-prerequisites.md
@@ -177,5 +179,5 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-active-directory
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-active-directory

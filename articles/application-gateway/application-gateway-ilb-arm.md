@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 01/11/2022
+ms.date: 09/13/2022
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -35,7 +35,7 @@ This article walks you through the steps to configure a Standard v1 Application 
 ## Create an application gateway
 
 The difference between using Azure Classic and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
-With Resource Manager, all items that make an application gateway is configured individually and then put together to create the application gateway resource.
+With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 Here are the steps that are needed to create an application gateway:
 

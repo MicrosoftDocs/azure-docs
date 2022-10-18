@@ -55,7 +55,7 @@ resourceGroupName=myResourceGroupName
 snapshotName=mySnapshot
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
-#Know more about SAS here: https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1
+#Know more about SAS here: https://learn.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1
 sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the underlying VHD file.
