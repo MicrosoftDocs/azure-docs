@@ -76,11 +76,26 @@ The pipeline will look as follows:
 
 :::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="High level diagram of the pipeline we are creating.":::
 
+It is composed of the following activities:
+
+* __Run Batch-Endpoint__: It's a Web Activity that uses the batch endpoint URI to invoke it. It passes the input data URI where the data is located and the expected output file.
+* __Wait for job__: It's a loop activity that checks the status of the created job and waits for its completion, either as **Completed** or **Failed**. This activity, in turns, uses the following activities:
+  * __Check status__: It's a Web Activity that queries the status of the job resource that was returned as a response of the __Run Batch-Endpoint__ activity. 
+  * __Wait__: It's a Wait Activity that controls the polling frequency of the job's status. We set a default of 120 (2 minutes).
+
+The pipeline requires the following parameters to be configured:
+
+| Parameter             | Description  | Sample value |
+| --------------------- | -------------|------------- |
+| `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
+| `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
+| `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
+| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
+| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+
 # [Using a Service Principal](#tab/sp)
 
 :::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="High level diagram of the pipeline we are creating.":::
-
----
 
 It is composed of the following activities:
 
@@ -93,23 +108,11 @@ It is composed of the following activities:
 
 The pipeline requires the following parameters to be configured:
 
-# [Using a Managed Identity](#tab/mi)
-
 | Parameter             | Description  | Sample value |
 | --------------------- | -------------|------------- |
 | `tenant_id`           | Tenant ID where the endpoint is deployed  | `00000000-0000-0000-00000000` |
 | `client_id`           | The client ID of the service principal used to invoke the endpoint  | `00000000-0000-0000-00000000` |
 | `client_secret`       | The client secret of the service principal used to invoke the endpoint  | `ABCDEFGhijkLMNOPQRstUVwz` |
-| `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
-| `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
-| `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
-| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
-| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
-
-# [Using a Service Principal](#tab/sp)
-
-| Parameter             | Description  | Sample value |
-| --------------------- | -------------|------------- |
 | `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 | `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
@@ -150,11 +153,11 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 
   > [!TIP]
   > For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../../data-factory/control-flow-execute-pipeline-activity.md). In that case, do not configure the parameters in the created pipeline but pass them when you are executing the pipeline.
+  > 
   > :::image type="content" source="./media/how-to-use-batch-adf/pipeline-run.png" alt-text="Parameters expected for the resulting pipeline when invoked from the outside.":::
 
 7. Your pipeline is ready to be used.
 
-  
 
 ## Limitations
 
