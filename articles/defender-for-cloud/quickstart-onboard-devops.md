@@ -55,7 +55,7 @@ By connecting your Azure DevOps repositories to Defender for Cloud, you'll exten
 1. Select **Authorize**.
     
     > [!NOTE]
-    > The authorization will auto-login using the session from your browser tab. After you select **Authorize**, if you do not see the Azure DevOps organizations you expect to see, check whether you are logged in to MDC in one browser tab and logged in to Azure DevOps in another browser tab.
+    > The authorization will automatically login using the session from your browser's tab. After you select **Authorize**, if you don't see the Azure DevOps organizations you expect to see, check whether you are logged in to Microsoft Defender for Cloud in one browser tab and logged in to Azure DevOps in another browser tab.
 
 1. In the popup screen, read the list of permission requests, and select **Accept**.
 
