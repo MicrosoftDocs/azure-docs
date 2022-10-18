@@ -104,7 +104,7 @@ COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.
 COPY github_events FROM 'https://pgquickstart.blob.core.windows.net/github/events.csv.gz';
 ```
 
-Notice how the extension recognized that the URLs provided to the copy command are from Azure Blob Storage, the files we pointed were gzip compressed and that was also automatically handled for us. The pg_azure_storage extension allows much more flexibility, to learn more see [how to ingest data from Azure Blob Storage](./howto-ingest-azure-blob-storage.md).
+Notice how the extension recognized that the URLs provided to the copy command are from Azure Blob Storage, the files we pointed were gzip compressed and that was also automatically handled for us.
 
 We can review details of our distributed tables, including their sizes, with
 the `citus_tables` view:
