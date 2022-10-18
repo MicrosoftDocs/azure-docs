@@ -43,7 +43,7 @@ There are three types of rule collections:
 - Network
 - Application
 
-Rule collection types must match their parent rule collection group category. For example, a DNAT rule collection can only be part of a DNAT rule collection group.
+Rule types must match their parent rule collection category. For example, a DNAT rule can only be part of a DNAT rule collection.
 
 ## Rules
 
