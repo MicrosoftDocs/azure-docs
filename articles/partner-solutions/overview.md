@@ -12,7 +12,7 @@ ms.author: franlanglois
 
 # Azure Native ISV Services overview
 
-Azure Native ISV Services enables customers to easily provision, manage, and tightly integrate most used ISV software and services on Azure. Currently, there are six services publicly available across these areas: observability, data, networking, and storage. For a list of all our current ISV partner service, see [Extend Azure with Azure Native ISV Services](partners.md).
+Azure Native ISV Services enables customers to easily provision, manage, and tightly integrate most used ISV software and services on Azure. Currently, several services are publicly available across these areas: observability, data, networking, and storage. For a list of all our current ISV partner service, see [Extend Azure with Azure Native ISV Services](partners.md).
 
 ## Features of Azure Native ISV Services
 
@@ -26,6 +26,6 @@ A comprehensive list of features of Azure Native ISV Services is listed below.
 
 ### Integrations
 
+- Log and metrics: Use Microsoft Azure Monitor for collecting telemetry across all Azure environments.
 - VNet injection: provides private data plane access to Azure Native ISV services from customers’ virtual networks.
 - Unified billing: Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license purchase is required to use Azure Native ISV Services.
-- Log and metrics: Use Microsoft Azure Monitor for collecting telemetry across all Azure environments.
