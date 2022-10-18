@@ -7,12 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
 # Form Recognizer layout model
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 The Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
@@ -111,6 +114,7 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
     }
 ]
 ```
+
 ### Paragraph roles<sup> 🆕</sup>
 
 The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
@@ -143,6 +147,7 @@ The Layout model may flag certain paragraphs with their specialized type or `rol
 }
 
 ```
+
 ### Pages
 
 The pages collection is the very first object you see in the service response.
@@ -162,6 +167,7 @@ The pages collection is the very first object you see in the service response.
     }
 ]
 ```
+
 ### Text lines and words
 
 Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
@@ -202,6 +208,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
     ]
 }
 ```
+
 ### Tables and table headers
 
 Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding `polygon` is output along with information whether it's recognized as a `columnHeader` or not. The API also works with rotated tables. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top level `content` that contains the full text from the document.
@@ -228,6 +235,7 @@ Layout API extracts tables in the `pageResults` section of the JSON output. Docu
 }
 
 ```
+
 ### Select page numbers or ranges for text extraction
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
