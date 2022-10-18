@@ -111,7 +111,7 @@ Add the following code at the end of the `index.js` file to include the required
 
 ### Add variables for names
 
-Add the following variables to manage unique database and container names and the [partition key (pk)](/azure/cosmos-db/partitioning-overview).
+Add the following variables to manage unique database and container names and the [partition key (pk)](../partitioning-overview.md).
 
 :::code language="javascript" source="~/cosmos-db-sql-api-javascript-samples/001-quickstart/index.js" range="13-19":::
 

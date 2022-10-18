@@ -19,7 +19,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 | MLOps | Basic model management and deployment; CPU only deployments | Entity versioning (model, data, workflows), workflow automation, integration with CICD tooling, CPU and GPU deployments [and more](../articles/machine-learning/concept-model-management-and-deployment.md) |
 | Model format | Proprietary format, Studio (classic) only | Multiple supported formats depending on training job type |
 | Automated model training and hyperparameter tuning |  Not supported | [Supported](../articles/machine-learning/concept-automated-ml.md). Code-first and no-code options. | 
-| Data drift detection | Not supported | [Supported](/azure/machine-learning/v1/how-to-monitor-datasets) |
+| Data drift detection | Not supported | [Supported](../articles/machine-learning/v1/how-to-monitor-datasets.md) |
 | Data labeling projects | Not supported | [Supported](../articles/machine-learning/how-to-create-image-labeling-projects.md) |
 | Role-Based Access Control (RBAC) | Only contributor and owner role | [Flexible role definition and RBAC control](../articles/machine-learning/how-to-assign-roles.md) |
 | AI Gallery | Supported ([https://gallery.azure.ai/](https://gallery.azure.ai/)) | Unsupported <br><br> Learn with [sample Python SDK notebooks](https://github.com/Azure/MachineLearningNotebooks). |
