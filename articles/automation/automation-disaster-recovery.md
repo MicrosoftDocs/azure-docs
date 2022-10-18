@@ -19,7 +19,7 @@ You must have a disaster recovery strategy to handle a region-wide service outag
 
 ## Enable disaster recovery
 
-Every Automation account that you [create](/azure/automation/quickstarts/create-azure-automation-account-portal) requires a location that you must use for deployment. This would be the primary region for your Automation account and it includes Assets, runbooks created for the Automation account, job execution data, and logs. For disaster recovery, the replica  Automation account must be already deployed and ready in the secondary region. 
+Every Automation account that you [create](/azure/automation/quickstarts/create-azure-automation-account-portal.md) requires a location that you must use for deployment. This would be the primary region for your Automation account and it includes Assets, runbooks created for the Automation account, job execution data, and logs. For disaster recovery, the replica  Automation account must be already deployed and ready in the secondary region. 
 
 - Begin by [creating a replica Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal.md#create-automation-account)
 in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
