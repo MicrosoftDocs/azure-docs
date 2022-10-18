@@ -83,7 +83,7 @@ Run the following steps in Azure CLI to create an Environment and configure reso
 
 1. Create an environment by using a *catalog-item* ('infra-as-code' template) from the list of available catalog items.
     ```azurecli
-    az devcenter dev environment create -g <resource-group-name> --dev-center-name <devcenter-name> 
+    az devcenter dev environment create --dev-center-name <devcenter-name> 
         --project-name <project-name> -n <name> --environment-type <environment-type-name> 
         --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> 
     ```
@@ -91,7 +91,7 @@ Run the following steps in Azure CLI to create an Environment and configure reso
     If the specific *catalog-item* requires any parameters use `--deployment-parameters` and provide the parameters as a json-string or json-file, for example:  
     ```json
     $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
-    az devcenter dev environment create -g <resource-group-name> --dev-center-name <devcenter-name> 
+    az devcenter dev environment create --dev-center-name <devcenter-name> 
         --project-name <project-name> -n <name> --environment-type <environment-type-name> 
         --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> 
         --parameters $params

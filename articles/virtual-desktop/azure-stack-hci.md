@@ -109,7 +109,7 @@ Now that you've set up Azure Virtual Desktop for Azure Stack HCI, here are a few
 
 You can add new session hosts to an existing host pool that was created either manually or using the custom template. Use the **Quick Deploy** [(AddHciVirtualMachinesQuickDeployTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/QuickDeploy/AddHciVirtualMachinesQuickDeployTemplate.json) template to get started.
 
-For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+For information on how to deploy a custom template, see [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 > [!NOTE]
 > For more session host configurations, use the **Full Configuration** [(AddHciVirtualMachinesTemplate.json)](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/AddHciVirtualMachinesTemplate.json) template, which offers all the features that can be used to deploy Azure Virtual Desktop on Azure Stack HCI. Learn more at [RDS-Templates](https://github.com/Azure/RDS-Templates/blob/master/ARM-wvd-templates/HCI/Readme.md).
