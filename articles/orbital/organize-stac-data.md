@@ -138,13 +138,13 @@ To catalog more data sources or to catalog your own data source, consider the fo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Kubernetes Service [Container Security](https://learn.microsoft.com/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
-- API Management Service [Security baseline](https://learn.microsoft.com/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
-- [Azure Database for PostgreSQL Security](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-security) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
+- Azure Kubernetes Service [Container Security](/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
+- API Management Service [Security baseline](/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
+- [Azure Database for PostgreSQL Security](/azure/postgresql/flexible-server/concepts-security) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 As this solution is intended for learning and development, we have used minimal configuration for the Azure resources. This minimal configuration runs a sample solution on a sample dataset.
 
