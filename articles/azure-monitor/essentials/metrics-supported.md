@@ -4,6 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
+ms.custom: ignite-2022
 ms.date: 09/12/2022
 ms.author: robb
 ms.reviewer: priyamishra
@@ -227,7 +228,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IngressFailedRequests|Yes|Failed Requests|Count|Average|Count of failed requests by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressRequests|Yes|Requests|Count|Average|Count of requests by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressResponseStatus|Yes|Response Status|Count|Average|HTTP response status returned by Azure Spring Cloud. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories|Hostname, HttpStatus|
-|IngressResponseTime|Yes|Response Time|Seconds|Average|Http response time return by Azure Spring Cloud|Hostname, HttpStatus||jvm.gc.max.data.size|Yes|jvm.gc.max.data.size|Bytes|Average|Max size of old generation memory pool|Deployment, AppName, Pod|
+|IngressResponseTime|Yes|Response Time|Seconds|Average|Http response time return by Azure Spring Cloud|Hostname, HttpStatus|
+|jvm.gc.max.data.size|Yes|jvm.gc.max.data.size|Bytes|Average|Max size of old generation memory pool|Deployment, AppName, Pod|
 |jvm.gc.memory.allocated|Yes|jvm.gc.memory.allocated|Bytes|Maximum|Incremented for an increase in the size of the young generation memory pool after one GC to before the next|Deployment, AppName, Pod|
 |jvm.gc.memory.promoted|Yes|jvm.gc.memory.promoted|Bytes|Maximum|Count of positive increases in the size of the old generation memory pool before GC to after GC|Deployment, AppName, Pod|
 |jvm.gc.pause.total.count|Yes|jvm.gc.pause.total.count|Count|Total|GC Pause Count|Deployment, AppName, Pod|
@@ -271,7 +273,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|TotalJob|Yes|Total Jobs|Count|Total|The total number of jobs|Runbook, Status|
+|TotalJob|Yes|Total Jobs|Count|Total|The total number of jobs|Runbook Name, Status|
 |TotalUpdateDeploymentMachineRuns|Yes|Total Update Deployment Machine Runs|Count|Total|Total software update deployment machine runs in a software update deployment run|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
 |TotalUpdateDeploymentRuns|Yes|Total Update Deployment Runs|Count|Total|Total software update deployment runs|SoftwareUpdateConfigurationName, Status|
 
@@ -1730,7 +1732,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |AddRegion|Yes|Region Added|Count|Count|Region Added|Region|
 |AutoscaleMaxThroughput|No|Autoscale Max Throughput|Count|Maximum|Autoscale Max Throughput|DatabaseName, CollectionName|
-|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc https://learn.microsoft.com/azure/cosmos-db/concepts-limits. After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
+|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Azure Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more information, see [Azure Cosmos DB service quotas](../../cosmos-db/concepts-limits.md). After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|No|Cassandra Connection Closures|Count|Total|Number of Cassandra connections that were closed, reported at a 1 minute granularity|Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|No|Cassandra Connector Average ReplicationLatency|MilliSeconds|Average|Cassandra Connector Average ReplicationLatency|No Dimensions|
 |CassandraConnectorReplicationHealthStatus|No|Cassandra Connector Replication Health Status|Count|Count|Cassandra Connector Replication Health Status|NotStarted, ReplicationInProgress, Error|
@@ -1767,7 +1769,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IntegratedCacheItemHitRate|No|IntegratedCacheItemHitRate|Percent|Average|Number of point reads that used the integrated cache divided by number of point reads routed through the dedicated gateway with eventual consistency|Region, |
 |IntegratedCacheQueryExpirationCount|No|IntegratedCacheQueryExpirationCount|Count|Average|Number of queries evicted from the integrated cache due to TTL expiration|Region, |
 |IntegratedCacheQueryHitRate|No|IntegratedCacheQueryHitRate|Percent|Average|Number of queries that used the integrated cache divided by number of queries routed through the dedicated gateway with eventual consistency|Region, |
-|MetadataRequests|No|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode, |
+|MetadataRequests|No|Metadata Requests|Count|Count|Count of metadata requests. Azure Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode, |
 |MongoCollectionCreate|No|Mongo Collection Created|Count|Count|Mongo Collection Created|ResourceName, ChildResourceName, |
 |MongoCollectionDelete|No|Mongo Collection Deleted|Count|Count|Mongo Collection Deleted|ResourceName, ChildResourceName, |
 |MongoCollectionThroughputUpdate|No|Mongo Collection Throughput Updated|Count|Count|Mongo Collection Throughput Updated|ResourceName, ChildResourceName, |
@@ -2012,11 +2014,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |Availability|Yes|Availability|Percent|Average|The availability rate of the service.|No Dimensions|
-|CosmosDbCollectionSize|Yes|Cosmos DB Collection Size|Bytes|Total|The size of the backing Cosmos DB collection, in bytes.|No Dimensions|
-|CosmosDbIndexSize|Yes|Cosmos DB Index Size|Bytes|Total|The size of the backing Cosmos DB collection's index, in bytes.|No Dimensions|
-|CosmosDbRequestCharge|Yes|Cosmos DB RU usage|Count|Total|The RU usage of requests to the service's backing Cosmos DB.|Operation, ResourceType|
-|CosmosDbRequests|Yes|Service Cosmos DB requests|Count|Sum|The total number of requests made to a service's backing Cosmos DB.|Operation, ResourceType|
-|CosmosDbThrottleRate|Yes|Service Cosmos DB throttle rate|Count|Sum|The total number of 429 responses from a service's backing Cosmos DB.|Operation, ResourceType|
+|CosmosDbCollectionSize|Yes|Azure Cosmos DB Collection Size|Bytes|Total|The size of the backing Azure Cosmos DB collection, in bytes.|No Dimensions|
+|CosmosDbIndexSize|Yes|Azure Cosmos DB Index Size|Bytes|Total|The size of the backing Azure Cosmos DB collection's index, in bytes.|No Dimensions|
+|CosmosDbRequestCharge|Yes|Azure Cosmos DB RU usage|Count|Total|The RU usage of requests to the service's backing Azure Cosmos DB.|Operation, ResourceType|
+|CosmosDbRequests|Yes|Service Azure Cosmos DB requests|Count|Sum|The total number of requests made to a service's backing Azure Cosmos DB.|Operation, ResourceType|
+|CosmosDbThrottleRate|Yes|Service Azure Cosmos DB throttle rate|Count|Sum|The total number of 429 responses from a service's backing Azure Cosmos DB.|Operation, ResourceType|
 |IoTConnectorDeviceEvent|Yes|Number of Incoming Messages|Count|Sum|The total number of messages received by the Azure IoT Connector for FHIR prior to any normalization.|Operation, ConnectorName|
 |IoTConnectorDeviceEventProcessingLatencyMs|Yes|Average Normalize Stage Latency|Milliseconds|Average|The average time between an event's ingestion time and the time the event is processed for normalization.|Operation, ConnectorName|
 |IoTConnectorMeasurement|Yes|Number of Measurements|Count|Sum|The number of normalized value readings received by the FHIR conversion stage of the Azure IoT Connector for FHIR.|Operation, ConnectorName|
@@ -3166,7 +3168,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ScheduledMessages|No|Count of scheduled messages in a Queue/Topic.|Count|Average|Count of scheduled messages in a Queue/Topic.|EntityName|
 |ServerErrors|No|Server Errors.|Count|Total|Server Errors for Microsoft.ServiceBus.|EntityName, |
 |ServerSendLatency|Yes|Server Send Latency.|Milliseconds|Average|Server Send Latency.|EntityName|
-|Size|No|Size|Bytes|Average|Size of an Queue/Topic in Bytes.|EntityName|
+|Size|No|Size|Bytes|Average|Size of a Queue/Topic in Bytes.|EntityName|
 |SuccessfulRequests|No|Successful Requests|Count|Total|Total successful requests for a namespace|EntityName, |
 |ThrottledRequests|No|Throttled Requests.|Count|Total|Throttled Requests for Microsoft.ServiceBus.|EntityName, MessagingErrorSubCode|
 |UserErrors|No|User Errors.|Count|Total|User Errors for Microsoft.ServiceBus.|EntityName, |

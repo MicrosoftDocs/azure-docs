@@ -66,6 +66,9 @@ There are multiple ways to turn off default outbound access:
 
     * Flexible scale sets are secure by default. Any instances created via Flexible scale sets won't have the default outbound access IP associated to it. For more information, see [Flexible orchestration mode for virtual machine scale sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
 
+>[!Important]
+> When a backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
+
 ## If I need outbound access, what is the recommended way?
 
 NAT gateway is the recommended approach to have explicit outbound connectivity. A firewall can also be used to provide this access.

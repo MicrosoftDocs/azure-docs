@@ -360,7 +360,7 @@ To check that the alert was set up properly, we can add `throw "Testing the aler
 
 First we'll need a new **Automation Account**. An Automation Account is similar to a solution that can host multiple runbooks.
 
-The procedure is [here](/azure/automation/quickstarts/create-azure-automation-account-portal). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
+The procedure is [here](../automation/quickstarts/create-azure-automation-account-portal.md). Here we can select to use a system-assigned managed identity directly in the `advanced` tab.
 
 For reference, the Automation team has a [good tutorial](../automation/learn/powershell-runbook-managed-identity.md) to get started on PowerShell runbooks.
 
