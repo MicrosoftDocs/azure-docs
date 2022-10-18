@@ -259,43 +259,43 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 Run the following command to verify that the agent is deployed successfully.
 
 ```
-kubectl get ds omsagent --namespace=kube-system
+kubectl get ds ama-logs --namespace=kube-system
 ```
 
 The output should resemble the following, which indicates that it was deployed properly:
 
 ```output
-User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
+User@aksuser:~$ kubectl get ds ama-logs --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```
 
 If there are Windows Server nodes on the cluster then you can run the following command to verify that the agent is deployed successfully.
 
 ```
-kubectl get ds omsagent-win --namespace=kube-system
+kubectl get ds ama-logs-windows --namespace=kube-system
 ```
 
 The output should resemble the following, which indicates that it was deployed properly:
 
 ```output
-User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+User@aksuser:~$ kubectl get ds ama-logs-windows --namespace=kube-system
 NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
-omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+ama-logs-windows           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
 ```
 
 To verify deployment of the solution, run the following command:
 
 ```
-kubectl get deployment omsagent-rs -n=kube-system
+kubectl get deployment ama-logs-rs -n=kube-system
 ```
 
 The output should resemble the following, which indicates that it was deployed properly:
 
 ```output
-User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
+User@aksuser:~$ kubectl get deployment ama-logs-rs -n=kube-system
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-omsagent   1         1         1            1            3h
+ama-logs-rs   1         1         1            1            3h
 ```
 
 ## View configuration with CLI

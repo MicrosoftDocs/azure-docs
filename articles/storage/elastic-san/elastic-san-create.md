@@ -38,7 +38,7 @@ Use either the Azure PowerShell module or the Azure CLI to register your subscri
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
-Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
+Register-AzProviderFeature -FeatureName ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
 ```
 
 It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
@@ -133,7 +133,7 @@ New-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSANName $sanName 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -n volumeGroupName 
+az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -n $volumeGroupName 
 ```
 
 ---
@@ -174,7 +174,7 @@ New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -Volu
 Replace `$volumeName` with the name you'd like the volume to use, then run the following script:
 
 ```azurecli
-az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroupName -v volumeGroupName -n $volumeName --size-gib 2000
+az elastic-san volume create --elastic-san-name $sanName -g $resourceGroupName -v $volumeGroupName -n $volumeName --size-gib 2000
 ```
 ---
 

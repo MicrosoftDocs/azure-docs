@@ -13,6 +13,10 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (October 2022)
+
+- Support for export of errors and notifications from the portal for software inventory and agentless dependency.
+
 ## Update (September 2022)
 
 - Support for pausing and resuming ongoing replications without having to do a complete replication again. You can also retry VM migrations without the need to do a full initial replication again. 

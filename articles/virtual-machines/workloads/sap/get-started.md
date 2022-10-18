@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/29/2022
+ms.date: 10/18/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,7 +64,9 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-- September 29, 2022: Announ cing HANA Large Instances being in sunset mode in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) and [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md). Adding some statements around Azure VMware and Azure Active Directory support status in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md)
+- October 18, 2022: Clarify some considerations around using Azure Availability Zones in [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md)
+- October 17, 2022: Change in [HA for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) and [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to add guidance for setting up parameter `AUTOMATED_REGISTER`    
+- September 29, 2022: Announcing HANA Large Instances being in sunset mode in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) and [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md). Adding some statements around Azure VMware and Azure Active Directory support status in [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md)
 - September 27, 2022: Minor changes in [HA for SAP ASCS/ERS with NFS simple mount](./high-availability-guide-suse-nfs-simple-mount.md) on SLES 15 for SAP Applications to adjust mount instructions
 - September 14, 2022 Release of updated SAP on Oracle guide with new and updated content [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 - September 8, 2022: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) to add instructions for deploying /hana/shared (only) on NFS on Azure Files
