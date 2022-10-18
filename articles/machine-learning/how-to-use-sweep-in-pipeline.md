@@ -9,10 +9,10 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/26/2022
-ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
+ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022, ignite-2022
 ---
 
-# How to do hyperparameter tuning in pipeline (V2) (preview)
+# How to do hyperparameter tuning in pipeline (v2)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -59,7 +59,7 @@ In Azure Machine Learning Python SDK v2, you can enable hyperparameter tuning fo
 
 Below code snippet shows how to enable sweep for `train_model`.
 
-[!notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb?name=enable-sweep)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb?name=enable-sweep)]
 
  We first load `train_component_func` defined in `train.yml` file. When creating `train_model`, we add `c_value`, `kernel` and `coef0` into search space(line 15-17). Line 30-35 defines the primary metric, sampling algorithm etc.
 
@@ -81,8 +81,8 @@ If a child jobs failed, select the name of that child job to enter detail page o
 
 ## Sample notebooks
 
-- [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
-- [Run hyperparameter sweep on a command job](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb)
+- [Build pipeline with sweep node](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1c_pipeline_with_hyperparameter_sweep/pipeline_with_hyperparameter_sweep.ipynb)
+- [Run hyperparameter sweep on a command job](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb)
 
 ## Next steps
 

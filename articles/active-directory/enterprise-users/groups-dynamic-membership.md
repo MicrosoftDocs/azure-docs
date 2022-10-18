@@ -104,7 +104,7 @@ dirSyncEnabled |true false |user.dirSyncEnabled -eq true
 | memberOf | Any string value (valid group object ID) | user.memberof -any (group.objectId -in ['value']) |
 | mobile |Any string value or *null* | user.mobile -eq "value" |
 | objectId |GUID of the user object | user.objectId -eq "11111111-1111-1111-1111-111111111111" |
-| onPremisesDistinguishedName (preview)| Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
+| onPremisesDistinguishedName | Any string value or *null* | user.onPremisesDistinguishedName -eq "value" |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. | user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111" |
 | passwordPolicies |None<br>DisableStrongPassword<br>DisablePasswordExpiration<br>DisablePasswordExpiration, DisableStrongPassword | user.passwordPolicies -eq "DisableStrongPassword" |
 | physicalDeliveryOfficeName |Any string value or *null* | user.physicalDeliveryOfficeName -eq "value" |

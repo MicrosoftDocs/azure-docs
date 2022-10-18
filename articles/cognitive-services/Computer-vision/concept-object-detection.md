@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 09/20/2022
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, ignite-2022
 ---
 
 # Object detection
 
 Object detection is similar to [tagging](concept-tagging-images.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat and person, the Detect operation will list those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
 
-The Detect API applies tags based on the objects or living things identified in the image. There is currently no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the Detect API only finds objects and living things, while the Tag API can also include contextual terms like "indoor", which can't be localized with bounding boxes.
+The object detection function applies tags based on the objects or living things identified in the image. There is currently no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the object detection function only finds objects and living things, while the tag function can also include contextual terms like "indoor", which can't be localized with bounding boxes.
 
 Try out the capabilities of object detection quickly and easily in your browser using Vision Studio.
 
@@ -30,6 +30,8 @@ Try out the capabilities of object detection quickly and easily in your browser 
 The following JSON response illustrates what the Analyze API returns when detecting objects in the example image.
 
 ![A woman using a Microsoft Surface device in a kitchen](./Images/windows-kitchen.jpg)
+
+#### [Version 3.2](#tab/3-2)
 
 ```json
 {
@@ -79,14 +81,54 @@ The following JSON response illustrates what the Analyze API returns when detect
          "confidence":0.855
       }
    ],
-   "requestId":"a7fde8fd-cc18-4f5f-99d3-897dcd07b308",
+   "requestId":"25018882-a494-4e64-8196-f627a35c1135",
    "metadata":{
-      "width":1260,
       "height":473,
+      "width":1260,
       "format":"Jpeg"
-   }
+   },
+   "modelVersion":"2021-05-01"
 }
 ```
+
+#### [Version 4.0](#tab/4-0)
+
+```json
+{
+    "metadata":
+    {
+        "width": 1260,
+        "height": 473
+    },
+    "objectsResult":
+    {
+        "values":
+        [
+            {
+                "name": "kitchen appliance",
+                "confidence": 0.501,
+                "boundingBox": {"x":730,"y":66,"w":135,"h":85}
+            },
+            {
+                "name": "computer keyboard",
+                "confidence": 0.51,
+                "boundingBox": {"x":523,"y":377,"w":185,"h":46}
+            },
+            {
+                "name": "Laptop",
+                "confidence": 0.85,
+                "boundingBox": {"x":471,"y":218,"w":289,"h":226}
+            },
+            {
+                "name": "person",
+                "confidence": 0.855,
+                "boundingBox": {"x":654,"y":0,"w":584,"h":473}
+            }
+        ]
+    }
+}
+```
+---
 
 ## Limitations
 
@@ -98,6 +140,14 @@ It's important to note the limitations of object detection so you can avoid or m
 
 ## Use the API
 
-The object detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Objects` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"objects"` section.
+#### [Version 3.2](#tab/3-2)
+
+The object detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Objects` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
+
+#### [Version 4.0](#tab/4-0)
+
+The object detection feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Objects` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
+
+---
 
 * [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
