@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) MLTable YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mltable
+ms.subservice: mldata
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
@@ -34,7 +34,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
 | `type` | const | `mltable` to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe | `mltable` | `mltable`|
 | `paths` | array | Paths can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. |`file`, `folder`, `pattern`  | |
-| `transformations`| array | Defined sequence of transformations that are applied to data loaded from defined paths. |`read_delimited`, `read_parquet` , `read_json_lines` , `take` to take the first N rows from dataset, `take_random_sample` to take a random sample of records in the dataset approximately by the probability specified, `skip` to skip the first N records from top of the dataset, `drop_columns`, `keep_columns`,... || 
+| `transformations`| array | Defined sequence of transformations that are applied to data loaded from defined paths. |`read_delimited`, `read_parquet` , `read_json_lines` , `read_delta_lake`, `take` to take the first N rows from dataset, `take_random_sample` to take a random sample of records in the dataset approximately by the probability specified, `drop_columns`, `keep_columns`,... || 
 
 ## Examples
 
@@ -66,7 +66,6 @@ These are transforms that all mltable-artifact files support:
 
 - `take`: Takes the first *n* records of the table
 - `take_random_sample`: Takes a random sample of the table where each record has a *probability* of being selected. The user can also include a *seed*.
-- `skip`: This skips the first *n* records of the table
 - `drop_columns`: Drops the specified columns from the table. This transform supports regex so that users can drop columns matching a particular pattern.
 - `keep_columns`: Keeps only the specified columns in the table. This transform supports regex so that users can keep columns matching a particular pattern.
 
@@ -141,6 +140,23 @@ transformations:
 If user doesn't define options for `read_parquet` transformation, default options will be selected (see below).
 
 - `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
+
+## MLTable transformations: read_delta_lake
+```yaml
+type: mltable
+
+paths:
+- abfss://my_delta_files
+
+transforms:
+ - read_delta_lake:
+      timestamp_as_of: '2022-08-26T00:00:00Z'
+```
+
+### Delta lake transformations
+
+- `timestamp_as_of`: Timestamp to be specified for timetravel on the specific Delta Lake data.
+- `version_as_of`:Version to be specified for timetravel on the specific Delta Lake data.
 
 ## Next steps
 
