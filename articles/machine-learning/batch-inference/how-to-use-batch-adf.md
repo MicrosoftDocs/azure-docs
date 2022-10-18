@@ -43,7 +43,7 @@ You can use a service principal or a [managed identity](../../active-directory/m
 # [Using a Managed Identity](#tab/mi)
 
 1. You can use Azure Data Factory managed identity to communicate with Batch Endpoints. In this case, you only need to make sure that your Azure Data Factory resource was deployed with a managed identity.
-2. If you don't have an Azure Data Factory resource or it was already deployed without a managed identity, please follow the following steps to create it: [Managed identity for Azure Data Factory](../../data-factory/data-factory-service-identity#system-assigned-managed-identity).
+2. If you don't have an Azure Data Factory resource or it was already deployed without a managed identity, please follow the following steps to create it: [Managed identity for Azure Data Factory](../../data-factory/data-factory-service-identity.md#system-assigned-managed-identity).
 
    > [!WARNING]
    > Notice that changing the resource identity once deployed is not possible in Azure Data Factory. Once the resource is created, you will need to recreate it if you need to change the identity of it.
