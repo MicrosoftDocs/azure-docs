@@ -12,7 +12,7 @@ ms.date: 09/30/2022
     - Contributor for the target Azure SQL Database
     - Reader role for the Azure Resource Groups containing the target Azure SQL Database.
     - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
-    - As an alternative to using the above built-in roles, you can assign a custom role as defined in [this article.](/azure/dms/resource-custom-roles-sql-db-ads)  
+    - As an alternative to using the above built-in roles, you can assign a custom role as defined in [this article.](/azure/dms/resource-custom-roles-sql-database-ads)  
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
 * Create a target [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
