@@ -39,7 +39,7 @@ Each authorization option is briefly described below:
 
 - **Azure Active Directory (Azure AD) integration** for authorizing requests to blob, queue, and table resources. Microsoft recommends using Azure AD credentials to authorize requests to data when possible for optimal security and ease of use. For more information about Azure AD integration, see the articles for either [blob](../blobs/authorize-access-azure-active-directory.md), [queue](../queues/authorize-access-azure-active-directory.md), or [table](../tables/authorize-access-azure-active-directory.md) resources.
 
-    You can use Azure role-based access control (Azure RBAC) to manage a security principal's permissions to blob, queue, and table resources in a storage account. You can additionally use Azure attribute-based access control (ABAC) to add conditions to Azure role assignments for blob resources. For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). For more information about ABAC, see [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md).
+    You can use Azure role-based access control (Azure RBAC) to manage a security principal's permissions to blob, queue, and table resources in a storage account. You can also use Azure attribute-based access control (ABAC) to add conditions to Azure role assignments for blob resources. For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). For more information about ABAC, see [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md).
 
 > [!IMPORTANT]
 > Azure ABAC is currently only generally available (GA) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers.
@@ -68,14 +68,14 @@ Each authorization option is briefly described below:
 
 ### Status of condition features in Azure Storage
 
-The table below shows the current status of ABAC for each condition feature.
+The table below shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
 
 | Performance tier| Resource type  | Attribute type | Attribute | Availability |
 |--|--|--|--|--|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | all       | all                 | Preview         |
-| Standard | Data Lake Storage Gen2 | Resource    | snapshot              | Preview         |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Principal   | all                 | Preview         |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource<br/>Principal | all      | Preview |
+| Standard | Data Lake Storage Gen2                      | Resource                           | snapshot | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Principal                          | all      | Preview |
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
