@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<SUBDOMAIN>.advocacy.sproutsocial.com` |
 
     > [!Note]
-    > This value is not the real. Update this value with the actual Sign-on URL. Contact [Employee Advocacy by Sprout Social Client support team]((mailto:support@getbambu.com)) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > This value is not the real. Update this value with the actual Sign-on URL. Contact [Employee Advocacy by Sprout Social Client support team](mailto:support@getbambu.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Employee Advocacy by Sprout Social application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
