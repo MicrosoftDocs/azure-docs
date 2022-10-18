@@ -47,7 +47,7 @@ The *AzureFrontDoor.Backend* service tag provides a list of the IP addresses tha
 You should also allow traffic from Azure's [basic infrastructure services](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through the virtualized host IP addresses `168.63.129.16` and `169.254.169.254`.
 
 > [!WARNING]
-> Front Door's backend IP space changes regularly. Ensure that you use the *AzureFrontDoor.Backend* service tag rather than hard-coding IP addresses.
+> Front Door's IP address space changes regularly. Ensure that you use the *AzureFrontDoor.Backend* service tag instead of hard-coding IP addresses.
 
 ### Front Door identifier
 
@@ -59,9 +59,23 @@ When Front Door makes a request to your origin, it adds the `X-Azure-FDID` reque
 
 ### Example configuration
 
-Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
+The following examples show how you can secure different types of origins.
+
+# [App Service and Azure Functions](#tab/app-service-azure-functions)
+
+You can use [App Service access restrictions](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) to perform IP address filtering as well as header filtering. The capabilty is provided by the platform, and you don't need to change your application or host.
+
+# [Application Gateway](#tab/application-gateway)
+
+Application Gateway is deployed into your virtual network. Configure a network security group rule to restrict inbound access on ports 80 and 443 to the *AzureFrontDoor.Backend* service tag, and ensure that inbound traffic on ports 80 and 443 is disallowed from the *Internet* service tag.
+
+Use a custom WAF rule to check the `X-Azure-FDID` header value.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
 
 # [IIS](#tab/iis)
+
+When you run [Microsoft Internet Information Services (IIS)](https://www.iis.net/) on an Azure-hosted virtual machine, you should create a network security group in the virtual network that hosts the virtual machine. Add a network security group rule to restrict inbound access on ports 80 and 443 to the *AzureFrontDoor.Backend* service tag, and ensure that inbound traffic on ports 80 and 443 is disallowed from the *Internet* service tag.
+
+Use an IIS configuration file like in the following example to inspect the `X-Azure-FDID` header on your incoming requests:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -83,8 +97,10 @@ Here's an example for [Microsoft Internet Information Services (IIS)](https://ww
 ```
 
 # [AKS NGINX controller](#tab/aks-nginx)
-    
-Here's an example for [AKS NGINX ingress controller](../aks/ingress-basic.md):
+
+When you run [AKS with an NGINX ingress controller](../aks/ingress-basic.md), you should create a network security group in the virtual network that hosts the AKS cluster. Add a network security group rule to restrict inbound access on ports 80 and 443 to the *AzureFrontDoor.Backend* service tag, and ensure that inbound traffic on ports 80 and 443 is disallowed from the *Internet* service tag.
+
+Use a Kubernetes ingress configuration file like in the following example to inspect the `X-Azure-FDID` header on your incoming requests:
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -101,14 +117,6 @@ metadata:
 spec:
   #section omitted on purpose
 ```
-
-# [App Service and Azure Functions](#tab/app-service-azure-functions)
-
-Note that some services like Azure App Service provide this [header based filtering](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) capability without needing to change your application or host.
-
-# [Application Gateway](#tab/application-gateway)
-
-If using Application Gateway as a backend to Azure Front Door, then the check on the `X-Azure-FDID` header can be done in a custom WAF rule.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
 
 ---
 
