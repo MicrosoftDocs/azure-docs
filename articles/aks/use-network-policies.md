@@ -60,7 +60,7 @@ Azure Network Policy Manager(NPM) doesn't support IPv6. Otherwise, Azure NPM ful
 
 ## Scale:
 
-Azure NPM for Linux Pods will use at most ~1.25 GB of memory with 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us if you'd like to increase your memory limit.
+With the current limits set on Azure NPM for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us if you'd like to increase your memory limit.
 
 ## Create an AKS cluster and enable Network Policy
 
