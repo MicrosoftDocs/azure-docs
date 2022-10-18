@@ -35,15 +35,15 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 
 Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
-You can use a service principal or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simpliflies the the use of secrets.
+You can use a service principal or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simplifies the use of secrets.
 
 > [!IMPORTANT]
-> When your data is store in cloud locations instead of Azure Machine Learning Data Stores, the identity of the compute is used to read the data instead of the identity used to invoke the endpoint.
+> When your data is stored in cloud locations instead of Azure Machine Learning Data Stores, the identity of the compute is used to read the data instead of the identity used to invoke the endpoint.
 
 # [Using a Managed Identity](#tab/mi)
 
-1. You can use Azure Data Factory managed identity to communicate with Batch Endpoints. In this case, you only need to make sure that your Azure Data Factory resource was deployed with a Managed Identity.
-2. If you don't have an Azure Data Factory resource or it was already deployed without a Managed Indentity, please follow the following steps to create it: [Managed identity for Azure Data Factory](../../data-factory/data-factory-service-identity#system-assigned-managed-identity).
+1. You can use Azure Data Factory managed identity to communicate with Batch Endpoints. In this case, you only need to make sure that your Azure Data Factory resource was deployed with a managed identity.
+2. If you don't have an Azure Data Factory resource or it was already deployed without a managed identity, please follow the following steps to create it: [Managed identity for Azure Data Factory](../../data-factory/data-factory-service-identity#system-assigned-managed-identity).
 
    > [!WARNING]
    > Notice that changing the resource identity once deployed is not possible in Azure Data Factory. Once the resource is created, you will need to recreate it if you need to change the identity of it.
@@ -133,7 +133,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 2. Select __Pipeline__ > __Import from pipeline template__
-3. You will be prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint.zip).
+3. You will be prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-SP.zip).
 4. A preview of the pipeline will show up in the portal. Click __Use this template__.
 5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
 6. Configure the parameters of the batch deployment you are using:
