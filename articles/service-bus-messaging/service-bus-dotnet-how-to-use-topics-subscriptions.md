@@ -247,7 +247,7 @@ In this section, you'll create a .NET console application that receives messages
     Install-Package Azure.Identity
     ```
 
-:::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
 
 ### [Connection String](#tab/connection-string)
 
@@ -477,7 +477,7 @@ In this section, you'll add code to retrieve messages from the subscription.
     // regularly.
     //
     // Create the clients that we'll use for sending and processing messages.
-    // TODO: Replace the <CONNECTION-STRING-VALUE> placeholder
+    // TODO: Replace the <NAMESPACE-NAME> placeholder
     client = new ServiceBusClient(
         "<NAMESPACE-NAME>.servicebus.windows.net",
         new DefaultAzureCredential());

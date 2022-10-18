@@ -74,7 +74,6 @@ This section shows you how to create a .NET console application to send messages
     > [!IMPORTANT]
     > Make sure to update the `queueName` variable and the `queueNamespace` values in the code snippets with the values from the Service Bus you created.
 
-    * Declares the required variables, such as the `queuename` and the `client` and `sender` objects. 
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     * Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
     * Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
@@ -262,7 +261,7 @@ In this section, you'll create a .NET console application that receives messages
     Install-Package Azure.Identity
     ```
 
-:::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
 
 ### [Connection String](#tab/connection-string)
 
@@ -286,8 +285,6 @@ In this section, you'll add code to retrieve messages from the queue.
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
-    Replace the `<QUEUE-NAME>` with the name of your queue.
-    
     ```csharp
     using System.Threading.Tasks;
     using Azure.Identity;
@@ -353,9 +350,9 @@ In this section, you'll add code to retrieve messages from the queue.
     // regularly.
     //
     // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    // If you use the default AmqpTcp, make sure that ports 5671 and 5672 are open.
 
-    // TODO: Replace the <NAMESPACE NAME> placeholder
+    // TODO: Replace the <NAMESPACE-NAME> placeholder
     var clientOptions = new ServiceBusClientOptions()
     {
         TransportType = ServiceBusTransportType.AmqpWebSockets
@@ -471,15 +468,15 @@ In this section, you'll add code to retrieve messages from the queue.
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //
-    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443.
+    // If you use the default AmqpTcp, make sure that ports 5671 and 5672 are open.
 
-    // TODO: Replace the <NAMESPACE NAME> and <QUEUE-NAME> placeholders
+    // TODO: Replace the <NAMESPACE-NAME> and <QUEUE-NAME> placeholders
     var clientOptions = new ServiceBusClientOptions() 
     {
         TransportType = ServiceBusTransportType.AmqpWebSockets
     };
-    client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", 
+    client = new ServiceBusClient("<NAMESPACE-NAME>.servicebus.windows.net", 
         new DefaultAzureCredential(), clientOptions);
     
     // create a processor that we can use to process the messages
@@ -542,9 +539,6 @@ In this section, you'll add code to retrieve messages from the queue.
     
     // the sender used to publish messages to the queue
     ServiceBusSender sender;
-    
-    // number of messages to be sent to the queue
-    const int numOfMessages = 3;
     
     // The Service Bus client types are safe to cache and use as a singleton for the lifetime
     // of the application, which is best practice when messages are being published or read
