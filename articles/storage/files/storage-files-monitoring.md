@@ -61,7 +61,7 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource manager template or an Azure Policy definition.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource Manager template or an Azure Policy definition.
 
 ## Destination limitations
 

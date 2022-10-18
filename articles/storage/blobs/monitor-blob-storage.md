@@ -321,7 +321,7 @@ The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of pl
  The following types of authenticated requests are logged:
 
 - Successful requests
-- Failed requests, including time out, throttling, network, authorization, and other errors
+- Failed requests, including time-out, throttling, network, authorization, and other errors
 - Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
@@ -336,7 +336,7 @@ Requests made by the Blob storage service itself, such as log creation or deleti
 
 - Successful requests
 - Server errors
-- Timeout errors for both client and server
+- Time out errors for both client and server
 - Failed GET requests with the error code 304 (Not Modified)
 
 All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
