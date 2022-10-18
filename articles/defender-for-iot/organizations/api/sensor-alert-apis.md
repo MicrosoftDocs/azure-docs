@@ -295,7 +295,7 @@ This section lists the values supported as event *type* and *title* values for t
 | CAMP_MEMORY_WRITE_OPERATION                          | Common ASCII Message Protocol Memory Write Operation |
 | MUTED_ALERT                                          | Event Detected and Muted                             |
 | DHCP_UPDATE                                          | Address Update                                      |
-| DIP_FAILURE                                          | Data Intelligance Package Installation Failure       |
+| DIP_FAILURE                                          | Data Intelligence Package Installation Failure       |
 | DELETE_DEVICE_SCHEDULE                               | Inactive Devices Scheduled for deletion              |
 | PLC_OPERATING_MODE_CHANGED                           | PLC Operating Mode Change Detected                   |
 | HARDWARE_UPDATE_BY_IDENTIFIER                        | Address Update                                       |
