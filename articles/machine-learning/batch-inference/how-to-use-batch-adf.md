@@ -24,7 +24,8 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 ## Prerequisites
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-* An Azure Data Factory resource created and configured. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](../../data-factory/quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
+* An Azure Data Factory resource created and configured. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](../../data-factory/quickstart-create-data-factory-portal.md) to create one.  
+* After creating it, browse to the data factory in the Azure portal:
 
    :::image type="content" source="./../../data-factory/media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
@@ -34,7 +35,26 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 
 Azure Data Factory can invoke the REST APIs of batch endpoints by using the [Web Invoke](../../data-factory/control-flow-web-activity.md) activity. Batch endpoints support Azure Active Directory for authorization and hence the request made to the APIs require a proper authentication handling.
 
-We recommend to using a service principal for authentication and interaction with batch endpoints in this scenario. 
+You can use a service principal or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate against Batch Endpoints. We recommend using a managed identity as it simpliflies the the use of secrets.
+
+> [!IMPORTANT]
+> When your data is store in cloud locations instead of Azure Machine Learning Data Stores, the identity of the compute is used to read the data instead of the identity used to invoke the endpoint.
+
+# [Using a Managed Identity](#tab/mi)
+
+1. You can use Azure Data Factory managed identity to communicate with Batch Endpoints. In this case, you only need to make sure that your Azure Data Factory resource was deployed with a Managed Identity.
+2. If you don't have an Azure Data Factory resource or it was already deployed without a Managed Indentity, please follow the following steps to create it: [Managed identity for Azure Data Factory](../../data-factory/data-factory-service-identity#system-assigned-managed-identity).
+
+   > [!WARNING]
+   > Notice that changing the resource identity once deployed is not possible in Azure Data Factory. Once the resource is created, you will need to recreate it if you need to change the identity of it.
+
+3. Once deployed, grant access for the managed identity of the resource you created to your Azure Machine Learning workspace as explained at [Grant access](../../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access). In this example the service principal will require:
+
+   1. Permission in the workspace to read batch deployments and perform actions over them.
+   1. Permissions to read/write in data stores.
+   2. Permissions to read in any cloud location (storage account) indicated as a data input.
+
+# [Using a Service Principal](#tab/sp)
 
 1. Create a service principal following the steps at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. Create a secret to use for authentication as explained at [Option 2: Create a new application secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
@@ -44,6 +64,7 @@ We recommend to using a service principal for authentication and interaction wit
 
    1. Permission in the workspace to read batch deployments and perform actions over them.
    1. Permissions to read/write in data stores.
+---
 
 ## About the pipeline
 
@@ -51,7 +72,15 @@ We are going to create a pipeline in Azure Data Factory that can invoke a given 
 
 The pipeline will look as follows:
 
+# [Using a Managed Identity](#tab/mi)
+
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="High level diagram of the pipeline we are creating.":::
+
+# [Using a Service Principal](#tab/sp)
+
 :::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="High level diagram of the pipeline we are creating.":::
+
+---
 
 It is composed of the following activities:
 
@@ -64,6 +93,8 @@ It is composed of the following activities:
 
 The pipeline requires the following parameters to be configured:
 
+# [Using a Managed Identity](#tab/mi)
+
 | Parameter             | Description  | Sample value |
 | --------------------- | -------------|------------- |
 | `tenant_id`           | Tenant ID where the endpoint is deployed  | `00000000-0000-0000-00000000` |
@@ -74,6 +105,18 @@ The pipeline requires the following parameters to be configured:
 | `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
 | `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
 | `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+
+# [Using a Service Principal](#tab/sp)
+
+| Parameter             | Description  | Sample value |
+| --------------------- | -------------|------------- |
+| `endpoint_uri`        | The endpoint scoring URI  | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
+| `api_version`         | The API version to use with REST API calls. Defaults to `2020-09-01-preview`  | `2020-09-01-preview` |
+| `poll_interval`       | The number of seconds to wait before checking the job status for completion. Defaults to `120`.  | `120` |
+| `endpoint_input_uri`  | The endpoint's input data. Multiple data input types are supported. Ensure that the manage identity you are using for executing the job has access to the underlying location. Alternative, if using Data Stores, ensure the credentials are indicated there.  | `azureml://datastores/.../paths/.../data/` |
+| `endpoint_output_uri` | The endpoint's output data file. It must be a path to an output file in a Data Store attached to the Machine Learning workspace. Not other type of URIs is supported. | `azureml://datastores/azureml/paths/batch/predictions.csv` |
+
+---
 
 > [!WARNING]
 > Remember that `endpoint_output_uri` should be the path to a file that doesn't exist yet. Otherwise, the job will fail with the error *the path already exists*.
@@ -87,18 +130,31 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 
 1. Open Azure Data Factory Studio and under __Factory Resources__ click the plus sign.
 2. Select __Pipeline__ > __Import from pipeline template__
-3. You will be prompted to select a `zip` file. Uses [the following template](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint.zip).
+3. You will be prompted to select a `zip` file. Uses [the following template if using managed identities](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint-MI.zip) or [the following one if using a service principal](https://azuremlexampledata.blob.core.windows.net/data/templates/batch-inference/Run-BatchEndpoint.zip).
 4. A preview of the pipeline will show up in the portal. Click __Use this template__.
 5. The pipeline will be created for you with the name __Run-BatchEndpoint__.
 6. Configure the parameters of the batch deployment you are using:
 
+  # [Using a Managed Identity](#tab/mi)
+  
+  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params-mi.png" alt-text="Parameters expected for the resulting pipeline.":::
+  
+  # [Using a Service Principal](#tab/sp)
+
   :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="Parameters expected for the resulting pipeline.":::
+  
+  ---
+  
+  > [!WARNING]
+  > Ensure that your batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
 
-> [!WARNING]
-> Ensure that your batch endpoint has a default deployment configured before submitting a job to it. The created pipeline will invoke the endpoint and hence a default deployment needs to be created and configured.
+  > [!TIP]
+  > For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../../data-factory/control-flow-execute-pipeline-activity.md). In that case, do not configure the parameters in the created pipeline but pass them when you are executing the pipeline.
+  > :::image type="content" source="./media/how-to-use-batch-adf/pipeline-run.png" alt-text="Parameters expected for the resulting pipeline when invoked from the outside.":::
 
-> [!TIP]
-> For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../../data-factory/control-flow-execute-pipeline-activity.md).
+7. Your pipeline is ready to be used.
+
+  
 
 ## Limitations
 
