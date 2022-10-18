@@ -136,7 +136,7 @@ The following table provides the list of supported conditions for app consent po
 
 To learn more:
 
-* [Configure app consent policies using Microsoft Graph](/graph/api/resources/permissiongrantpolicy)
+* [Manage app consent policies using Microsoft Graph](/graph/api/resources/permissiongrantpolicy)
 * [Configure user consent settings](configure-user-consent.md)
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Learn how to manage consent to applications and evaluate consent requests](manage-consent-requests.md)
