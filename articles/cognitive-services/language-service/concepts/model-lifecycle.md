@@ -15,41 +15,31 @@ ms.author: aahi
 
 # Model lifecycle
 
-Language service features utilize AI models that are versioned. We update the language service with new model versions to improve accuracy, support, and quality. As models become older, they're retired. Use this article for information on that process, and what you can expect for your applications.
+Language service features utilize AI models. We update the language service with new model versions to improve accuracy, support, and quality. As models become older, they are retired. Use this article for information on that process, and what you can expect for your applications.
 
 ## Prebuilt features
 
-### Expiration timeline
 
-Our standard (not customized) language service features are built upon AI models that we call pre-trained models. We update the language service with new model versions every few months to improve model accuracy, support, and quality.
+Our standard (not customized) language service features are built on AI models that we call pre-trained models.
 
-As new models and functionalities become available, older less accurate models are deprecated. To ensure you're using the latest model version and avoid interruptions to your applications, we highly recommend using the default model-version parameter (`latest`) in your API calls. After their deprecation date, pre-built model versions will no longer be functional, and your implementation may be broken.
+We regularly update the language service with new model versions to improve model accuracy, support, and quality.
 
-Stable (not preview) model versions are deprecated six months after the release of another stable model version. Features in preview don't maintain a minimum retirement period and may be deprecated at any time.
-
+By default, all API requests will use the latest Generally Available (GA) model.
 
 #### Choose the model-version used on your data
 
-By default, API requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used (not recommended).
+We recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. 
 
-> [!TIP] 
-> If you’re using the SDK for C#, Java, JavaScript or Python, see the reference documentation for information on the appropriate model-version parameter.
+Preview models used for preview features do not maintain a minimum retirement period and may be deprecated at any time.
 
-For synchronous endpoints, use the `model-version` query parameter. For example:
-
-`POST <your-language-resource-endpoint>/language/:analyze-text?api-version=2022-05-01&model-version=2022-06-01`.
-
-For asynchronous endpoints, use the `model-version` property in the request body under task properties. 
- 
-The model-version used in your API request will be included in the response object.
+By default, API and SDK requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used (not recommended).
 
 > [!NOTE]
 > If you are using an model version that is not listed in the table, then it was subjected to the expiration policy.
 
 Use the table below to find which model versions are supported by each feature:
 
-
-| Feature                                             | Supported versions          | Model versions to be deprecated |
+| Feature                                             | Supported versions          | Model versions to be deprecated October 30, 2022|
 |-----------------------------------------------------|-----------------------------|------------------------|
 | Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01*` | `2019-10-01`, `2020-04-01`                       |
 | Language Detection                                  | `2021-11-20*`               | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05`                       |
