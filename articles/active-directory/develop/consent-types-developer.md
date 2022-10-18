@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/17/2022
-ms.author: marsma
+ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
 ---
 # Requesting for permissions through consent
