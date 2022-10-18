@@ -28,7 +28,7 @@ By default, all API requests will use the latest Generally Available (GA) model.
 
 We recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. 
 
-Preview models will continue to use static model versioning with specified model version numbers. However, note that preview capabilities in APIs do not maintain a minimum retirement period and can be deprecated at any time.
+Preview models used for preview features do not maintain a minimum retirement period and may be deprecated at any time.
 
 By default, API and SDK requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used (not recommended).
 
