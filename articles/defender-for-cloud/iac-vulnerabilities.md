@@ -30,7 +30,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
     ```yml
     with:
-        categories: 'Iac"
+        categories: 'IaC'
     ```
 
     > [!NOTE] 
