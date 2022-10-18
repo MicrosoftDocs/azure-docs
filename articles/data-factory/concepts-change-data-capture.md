@@ -77,13 +77,12 @@ When you debug the pipeline, this feature works the same. The checkpoint will be
 
 In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
 
-## How to start
+## Tutorials
 
 The followings are the tutorials to start the change data capture in Azure Data Factory and Azure Synapse Analytics.
 
-- [[SAP CDC tutorial in ADF](sap-change-data-capture-introduction-architecture.md)
-
-- [[Incrementally copy data from a source data store to a destination data store tutorial](tutorial-incremental-copy-overview.md)
+- [SAP CDC tutorial in ADF](sap-change-data-capture-introduction-architecture.md#sap-cdc-capabilities)
+- [Incrementally copy data from a source data store to a destination data store tutorials](tutorial-incremental-copy-overview.md)
 
 
 ## Next steps
