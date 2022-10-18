@@ -58,7 +58,7 @@ A simple WebSocket client follows a client<->server architecture, as the below s
 
 1. When the client starts a WebSocket handshake, the service tries to invoke the `connect` event handler for WebSocket handshake. Developers can use this handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
 2. When the client is successfully connected, the service invokes a `connected` event handler. It works as a notification and doesn't block the client from sending messages. Developers can use this handler to do data storage and can respond with messages to the client. The service also pushes a `connected` event to all concerning event listeners, if any.
-3. When the client sends messages, the service triggers a `message` event to the event handler to handle the messages sent. This event is a general event containing the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler. The service also pushes a `message` event to all concerning event listeners, if any. If the service can't find any registered servers to receive the messages, the service drops the connection.
+3. When the client sends messages, the service triggers a `message` event to the event handler to handle the messages sent. This event is a general event containing the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler. If the event handler returns non-successful response code for, the service drops the client connection. The service also pushes a `message` event to all concerning event listeners, if any. If the service can't find any registered servers to receive the messages, the service also drops the connection.
 4. When the client disconnects, the service tries to trigger the `disconnected` event to the event handler once it detects the disconnect. The service also pushes a `disconnected` event to all concerning event listeners, if any.
 
 #### Scenarios
@@ -155,7 +155,7 @@ As the above example shows, `client2` sends data directly to `client1` by publis
 
 Client events fall into two categories:
 * Synchronous events (blocking)
-    Synchronous events block the client workflow. When an event handler returns non-successful response code for such an event, the service drops the client connection.
+    Synchronous events block the client workflow.
     * `connect`: This event is for event handler only. When the client starts a WebSocket handshake, the event is triggered and developers can use `connect` event handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
     * `message`: This event is triggered when a client sends a message.
 * Asynchronous events (non-blocking)
