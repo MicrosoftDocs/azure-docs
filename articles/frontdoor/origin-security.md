@@ -68,7 +68,7 @@ When Front Door makes a request to your origin, it adds the `X-Azure-FDID` reque
 
 The following examples show how you can secure different types of origins.
 
-# [App Service and Azure Functions](#tab/app-service-azure-functions)
+# [App Service and Functions](#tab/app-service-functions)
 
 You can use [App Service access restrictions](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) to perform IP address filtering as well as header filtering. The capability is provided by the platform, and you don't need to change your application or host.
 
