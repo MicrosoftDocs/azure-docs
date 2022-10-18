@@ -88,7 +88,7 @@ To promote replica from the Azure portal, follow these steps:
    :::image type="content" source="./media/how-to-read-replicas-portal/confirm-promote.png" alt-text="Confirm to promote replica":::
 
 ## Delete a primary server
-You can only delete primary server once all-read replicas have been deleted. Follow the instruction in [Delete a replica](#Delete a replica) section to delete replicas and then proceed with steps below.  
+You can only delete primary server once all-read replicas have been deleted. Follow the instruction in [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with steps below.  
 
 To delete a server from the Azure portal, follow these steps:
 
