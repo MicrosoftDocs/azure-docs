@@ -213,6 +213,8 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 - **Using 'Require one of the selected controls' with 'require authentication strength' control** - After you select authentication strengths grant control and additional controls, all the selected controls must be satisfied in order to gain access to the resource. Using **Require one of the selected controls** isn't applicable, and will default to requiring all the controls in the policy.
 
+- **Authentication loop** - when the user is required to use Microsoft Authenticator (Phone Sign-in) but the user is not registered for this method, they will be given instructions on how to set up the Microsoft Authenticator, that does not include how to enable Passwordless sign-in. As a result, the user can get into an authentication loop. To avoid this issue, make sure the user is registered for the method before the Conditional Access policy is enforced. Phone Sign-in can be registered using the steps outlined here: [Add your work or school account to the Microsoft Authenticator app](https://support.microsoft.com/en-us/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c)
+
 ## Limitations
 
 - **Conditional Access policies are only evaluated after the initial authentication** -  As a result, authentication strength will not restrict a user's initial authentication. Suppose you are using the built-in phishing-resistant MFA strength. A user can still type in their password, but they will be required to use a phishing-resistant method such as FIDO2 security key before they can continue.

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 07/06/2022
+ms.date: 10/18/2022
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
@@ -20,8 +20,7 @@ The Anomaly Detector API enables you to monitor and detect abnormalities in your
 
 ![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
-Using the Anomaly Detector doesn't require any prior experience in machine learning, and the REST API enables you to easily integrate the service into your applications and processes.
-
+Using Anomaly Detector doesn't require any prior experience in machine learning, and the REST API enables you to easily integrate the service into your applications and processes.
 
 ## Features
 
@@ -57,7 +56,6 @@ After signing up:
 1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/anomaly-detection-best-practices.md) when preparing your data to get the best results.
 1. Send a request to the Anomaly Detector API with your data.
 1. Process the API response by parsing the returned JSON message.
-
 
 ## Algorithms
 

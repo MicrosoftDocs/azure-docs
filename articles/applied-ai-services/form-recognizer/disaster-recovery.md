@@ -15,6 +15,14 @@ ms.author: lajanuar
 
 # Back up and recover your Form Recognizer models
 
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+::: moniker-end
+
 ::: moniker range=">= form-recog-2.1.0"
 
 When you create a Form Recognizer resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Form Recognizer resources in different regions and the ability to sync custom models across regions.
@@ -187,7 +195,7 @@ The following code snippets use cURL to make API calls outlined in the steps abo
 
 ### Track copy operation progress
 
-You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetOperation) API to list all document model operations (succeeded, in-progress, failed) associated with your Form Recognizer resource. Operation information only persists for 24 hours. Here is a list of the operations (operationId) that can be returned:
+You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetOperation) API to list all document model operations (succeeded, in-progress, or failed) associated with your Form Recognizer resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
 
 * documentModelBuild
 * documentModelCompose
@@ -195,7 +203,7 @@ You can use the [**Get operation**](https://westus.dev.cognitive.microsoft.com/d
 
 ### Track the target model ID
 
-If the operation was successful, the document model can be accessed using [**getModel**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel)(get a single model) or [**GetModels**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels)(get a list of models) APIs.
+If the operation was successful, the document model can be accessed using the [**getModel**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModel) (get a single model), or [**GetModels**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetModels) (get a list of models) APIs.
 
 ::: moniker-end
 
@@ -253,7 +261,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 ```
 
 > [!NOTE]
-> The Copy API transparently supports the [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) feature. This doesn't require any special treatment, but note that if you're copying between an unencrypted resource to an encrypted resource, you need to include the request header `x-ms-forms-copy-degrade: true`. If this header is not included, the copy operation will fail and return a `DataProtectionTransformServiceError`.
+> The Copy API transparently supports the [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) feature. This operation doesn't require any special treatment, but note that if you're copying between an unencrypted resource to an encrypted resource, you need to include the request header `x-ms-forms-copy-degrade: true`. If this header is not included, the copy operation will fail and return a `DataProtectionTransformServiceError`.
 
 ### Track operation progress
 
@@ -323,7 +331,7 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 |"Authorization failure due to missing or invalid authorization claims".| Occurs when the `copyAuthorization` payload or content is modified from what was returned by the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
 |"Couldn't retrieve authorization metadata".| Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds won't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
 |"Data transfer request isn't allowed as it downgrades to a less secure data protection scheme".| Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
-|"Couldn't fetch information for Cognitive resource with ID...". | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.</br>Ensure the resource is valid and exists in the specified region, i.e., 'westus2'|
+|"Couldn't fetch information for Cognitive resource with ID...". | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. Verify and reissue the copy request to resolve this issue.</br> Ensure the resource is valid and exists in the specified region, such as, `westus2`|
 
 ::: moniker-end
 
