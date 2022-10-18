@@ -4,7 +4,7 @@ description: This article explains how to respond to recommendations in Microsof
 ms.topic: how-to
 ms.author: benmansheim
 author: bmansheim
-ms.date: 11/09/2021
+ms.date: 10/18/2022
 ---
 # Implement security recommendations in Microsoft Defender for Cloud
 
@@ -41,7 +41,7 @@ To implement a **Fix**:
 
     :::image type="content" source="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png" alt-text="Recommendations list highlighting recommendations with Fix action" lightbox="./media/implement-security-recommendations/microsoft-defender-for-cloud-recommendations-fix-action.png":::
 
-1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Remediate**.
+1. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and select **Fix**.
 
     > [!NOTE]
     > Some of the listed resources might be disabled, because you don't have the appropriate permissions to modify them.
@@ -51,7 +51,8 @@ To implement a **Fix**:
     ![Quick fix.](./media/implement-security-recommendations/microsoft-defender-for-cloud-quick-fix-view.png)
 
     > [!NOTE]
-    > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the **Fix**.
+    > The implications are listed in the grey box in the **Fixing resources** window that opens after clicking **Fix**. They list what changes happen when proceeding with the **Fix**.
+:::image type="content" source="media/implement-security-recommendations/fixing-resources-window.png" alt-text="screen shot showing fixing resources window." lightbox="media/implement-security-recommendations/fixing-resources-window.png":::
 
 1. Insert the relevant parameters if necessary, and approve the remediation.
 
