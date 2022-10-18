@@ -87,7 +87,7 @@ Declare additional claims alongside *objectId* and *message*:
 - **DisplayName** specifies the label for the UI control that appears on the user interface if you want to collect the value of the claim from the user.
 
 
-## Step 2 - Configure Claims Transformations 
+## Step 2 - Define Claims Transformations 
 
 A [ClaimsTransformation](claimstransformations.md) contains a function that you use to convert a given claim into another one. For instance, you can change a string claim from lower case to upper case. Leant more about [Claims transformations supported by Azure AD B2C](claimstransformations.md#claims-transformations-reference). 
 
@@ -160,6 +160,120 @@ To add content definition, add the following code in `BuildingBlocks` section of
 
 ## Step 4 - Configure Technical Profiles  
 
-In a custom policy, a [TechnicalProfile](technicalprofiles.md) is the element that implements functionality. Now that you've made declarations such as Claims and Claims Transformations, you need Technical Profiles to execute your declarations. A technical profile are declared inside the `ClaimsProvider` elements.
+In a custom policy, a [TechnicalProfile](technicalprofiles.md) is the element that implements functionality. Now that you've defined Claims and Claims Transformations, you need Technical Profiles to execute your definitions. A technical profile are declared inside the `ClaimsProvider` elements.
 
-Azure AD B2C provides a set of technical profiles. Each technical profile performs a specific role. For instance, you use a [REST technical profile](restful-technical-profile.md) to make an HTTP call to a service endpoint. Learn more about the [types of technical profiles](technicalprofiles.md) that Azure AD B2C custom policies provide.      
+Azure AD B2C provides a set of technical profiles. Each technical profile performs a specific role. For instance, you use a [REST technical profile](restful-technical-profile.md) to make an HTTP call to a service endpoint. You can use A claims transformation technical profile to execute operation you define in a Claims Transformation. Learn more about the [types of technical profiles](technicalprofiles.md) that Azure AD B2C custom policies provide.
+
+### Set values for your claims 
+ 
+To set values for *objectId*, *displayName* and *message* claims, you configure a technical profile that calls the *GenerateRandomObjectIdTransformation*, *CreateDisplayNameTransformation*, and *CreateMessageTransformation* Claims Transformations. 
+
+1. Add the following `ClaimsProvider` as a child of the `ClaimsProviders` section. 
+    
+    ```xml
+        <ClaimsProvider>
+        
+            <DisplayName>Technical Profiles to generate claims</DisplayName>
+        </ClaimsProvider>
+    
+    ``` 
+1. To set values for *objectId*, *displayName* and *message* claims, add the following code inside the `ClaimsProvider` element you just created:
+   
+    ```xml
+        <TechnicalProfiles>
+            <TechnicalProfile Id="ClaimGenerator">
+                <DisplayName>Claim Generator Technical Profile</DisplayName>
+                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="objectId"/>
+                    <OutputClaim ClaimTypeReferenceId="displayName"/>
+                    <OutputClaim ClaimTypeReferenceId="message"/>
+                </OutputClaims>
+                <OutputClaimsTransformations>
+                    <OutputClaimsTransformation ReferenceId="GenerateRandomObjectIdTransformation"/>
+                    <OutputClaimsTransformation ReferenceId="CreateDisplayNameTransformation"/>
+                    <OutputClaimsTransformation ReferenceId="CreateMessageTransformation"/>
+                </OutputClaimsTransformations>
+            </TechnicalProfile>
+        </TechnicalProfiles>
+    ``` 
+
+### Collect user inputs 
+
+You generate the *displayName* claim from *givenName* and *surname*, so you've to collect it as a user input. To collect a user input, you use a type of Technical Profile called [Self-Asserted](self-asserted-technical-profile.md). When you configure a Self-asserted technical profile, you need to reference the Content Definitions as Self-asserted technical profile is responsible to present a user interface.
+
+1. Add the following `ClaimsProvider` as a child of the `ClaimsProviders` section. 
+    
+    ```xml
+        <ClaimsProvider>
+        
+            <DisplayName>Technical Profiles to collect user's first and last name </DisplayName>
+        </ClaimsProvider>
+    ```
+
+1. Add the following code inside the `ClaimsProvider` element you just created: 
+
+    ```xml
+        <TechnicalProfiles>
+            <TechnicalProfile Id="UserInformationCollector">
+                <DisplayName>Collect User Input Technical Profile</DisplayName>
+                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+                <Metadata>
+                    <Item Key="ContentDefinitionReferenceId">SelfAssertedContentDefinition</Item>
+                </Metadata>
+                <DisplayClaims>
+                    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>
+                    <DisplayClaim ClaimTypeReferenceId="surname" Required="true"/>
+                </DisplayClaims>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="givenName"/>
+                    <OutputClaim ClaimTypeReferenceId="surname"/>
+                </OutputClaims>
+            </TechnicalProfile>
+        </TechnicalProfiles>
+    ```
+
+    Notice the two DisplayClaims for the *givenName* and *surname* claims. Both of the claims are marked as required, so the user must enter values before they submit the form presented to them. 
+
+## Step 5 - Define User Journeys
+
+You use user journeys to define order in which the technical profiles are called. You use the `OrchestrationSteps` element to specify the steps in a user journey. 
+
+Replace the existing contents of the `HelloWorldJourney` User Journey with the following code: 
+
+```xml
+    <OrchestrationSteps>
+        <OrchestrationStep Order="1" Type="ClaimsExchange">
+            <ClaimsExchanges>
+                <ClaimsExchange Id="GetUserInformationClaimsExchange" TechnicalProfileReferenceId="UserInformationCollector"/>
+            </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+            <ClaimsExchanges>
+                <ClaimsExchange Id="GetMessageClaimsExchange" TechnicalProfileReferenceId="ClaimGenerator"/>
+            </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="3" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer"/>
+    </OrchestrationSteps>
+```
+
+According to the orchestration steps, we collect user inputs, set values for *objectId*, *displayName* and *message* claims, and finally send the Jwt token. 
+
+## Step 6 - Update Relying Party 
+
+Replace the contents of the `OutputClaims` element of the `RelyingParty` section with the following code: 
+
+```xml
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="displayName"/>
+    <OutputClaim ClaimTypeReferenceId="message"/>
+```
+
+## Step 3 - Upload custom policy file
+
+
+
+## Step 4 - Test the custom policy
+
+
+## Next steps 
