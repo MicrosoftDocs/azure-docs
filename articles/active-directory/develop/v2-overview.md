@@ -18,7 +18,7 @@ ms.custom: identityplatformtop40, contperf-fy21q2, engagement-fy23
 
 # What is the Microsoft identity platform?
 
-The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts. It provides authorized access to your own APIs or Microsoft APIs like Microsoft Graph.
+The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts. It authorizes access to your own APIs or Microsoft APIs like Microsoft Graph.
 
 There are several components that make up the Microsoft identity platform:
 
