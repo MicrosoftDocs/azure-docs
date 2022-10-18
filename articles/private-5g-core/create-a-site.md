@@ -69,7 +69,7 @@ In this step, you'll create the mobile network site resource representing the ph
     Once you've finished filling out the fields, select **Attach**.
 
 1. Repeat the previous step for each additional data network you want to configure.
-1. Select **Submit**. Note that you can only connect the packet core instance to a single data network.
+1. Select **Submit**.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
