@@ -46,14 +46,14 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links: 
-        - text: Provision for geolatency
-          url: how-to-provision-multitenant.md
+          - text: Provision for geolatency
+            url: how-to-provision-multitenant.md
+          - text: Create custom allocation policies
+            url: tutorial-custom-allocation-policies.md
       - linkListType: how-to-guide
         links:
           - text: Link multiple hubs to DPS
             url: how-to-use-allocation-policies.md
-          - text: Create custom allocation policies
-            url: tutorial-custom-allocation-policies.md
 
   - title: Develop with SDKs
     linkLists:
