@@ -309,7 +309,7 @@ Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdut
 
 2. Run below commands to sign in, list, upload and download files in the seismic store.
 
-     - Initialize
+    1. Initialize
 
        ```code
          (sdutilenv) > python sdutil config init
@@ -322,27 +322,27 @@ Microsoft Energy Data Services instance is using OSDU&trade; M12 Version of sdut
          Should display sign in success message. Credentials expiry set to 1 hour.
        ```
 
-     - Sign in
+    2. Sign in
 
        ```bash
          python sdutil config init
          python sdutil auth login
        ```
 
-     - List files in your seismic store
+    3. List files in your seismic store
 
        ```bash
          python sdutil ls sd://<tenant> # e.g. sd://<instance-name>-<datapartition>
          python sdutil ls sd://<tenant>/<subproject> # e.g. sd://<instance-name>-<datapartition>/test
        ```
 
-     - Upload a file from your local machine to the seismic store
+    4. Upload a file from your local machine to the seismic store
 
        ```bash
          python sdutil cp local-dir/file-name-at-source.txt sd://<datapartition>/test/file-name-at-destination.txt
        ```
 
-     - Download a file from the seismic store to your local machine
+    5. Download a file from the seismic store to your local machine
 
        ```bash
          python sdutil cp sd://<datapartition>/test/file-name-at-ddms.txt local-dir/file-name-at-destination.txt
