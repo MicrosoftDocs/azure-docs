@@ -18,6 +18,10 @@ By connecting your GitHub repositories to Defender for Cloud, you'll extend Defe
 
 - **Defender for Cloud's Cloud Workload Protection features** - Extends Defender for Cloud's threat detection capabilities and advanced defenses to your GitHub resources.
 
+## Prerequisites
+
+- An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 
 ## Availability
 
