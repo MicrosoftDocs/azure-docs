@@ -99,7 +99,7 @@ This section shows you how to create a .NET Core console application to send mes
     ServiceBusSender sender;
 
     // number of messages to be sent to the topic
-    private const int numOfMessages = 3;
+    const int numOfMessages = 3;
 
     // The Service Bus client types are safe to cache and use as a singleton for the lifetime
     // of the application, which is best practice when messages are being published or read
@@ -161,14 +161,14 @@ This section shows you how to create a .NET Core console application to send mes
     ServiceBusSender sender;
 
     // number of messages to be sent to the topic
-    private const int numOfMessages = 3;
+    const int numOfMessages = 3;
 
     // The Service Bus client types are safe to cache and use as a singleton for the lifetime
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //TODO: Replace the "<NAMESPACE-NAME>" and "<QUEUE-NAME>" placeholders.
     client = new ServiceBusClient("<NAMESPACE CONNECTION STRING>");
-    sender = client.CreateSender("<QUEUE-NAME>");
+    sender = client.CreateSender("<TOPIC-NAME>");
 
     // create a batch 
     using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
@@ -351,7 +351,9 @@ In this section, you'll add code to retrieve messages from the queue.
     //
     // Create the clients that we'll use for sending and processing messages.
     // TODO: Replace the <CONNECTION STRING VALUE> placeholder
-    client = new ServiceBusClient(new DefaultAzureCredential()>);
+    client = new ServiceBusClient(
+        "<NAMESPACE-NAME>.servicebus.windows.net",
+        new DefaultAzureCredential());
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC NAME> and <SUBSCRIPTION NAME> placeholders
@@ -477,7 +479,9 @@ In this section, you'll add code to retrieve messages from the queue.
     //
     // Create the clients that we'll use for sending and processing messages.
     // TODO: Replace the <CONNECTION STRING VALUE> placeholder
-    client = new ServiceBusClient(new DefaultAzureCredential()>);
+    client = new ServiceBusClient(
+        "<NAMESPACE-NAME>.servicebus.windows.net",
+        new DefaultAzureCredential());
 
     // create a processor that we can use to process the messages
     // TODO: Replace the <TOPIC NAME> and <SUBSCRIPTION NAME> placeholders
