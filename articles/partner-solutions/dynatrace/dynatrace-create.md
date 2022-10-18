@@ -1,5 +1,5 @@
 ---
-title: Create Dynatrace for Azure resource - Azure partner solutions
+title: Create Dynatrace for Azure resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 ms.topic: quickstart
 author: flang-msft
