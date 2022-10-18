@@ -43,15 +43,7 @@ The model has been trained using an `XGBBoost` classifier and all the required p
 
 ### Follow along in Jupyter Notebooks
 
-You can follow along this sample in the following notebooks:
-
-   # [Azure ML CLI](#tab/cli)
-   
-   Follow this documentation when running on the Azure ML CLI.
-   
-   # [Azure ML SDK for Python](#tab/sdk)
-   
-   In the cloned repository, open the notebook: `azureml-examples/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb`.
+You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: `azureml-examples/sdk/python/endpoints/batch/mlflow-for-batch-tabular.ipynb`.
 
 ## Steps
 
