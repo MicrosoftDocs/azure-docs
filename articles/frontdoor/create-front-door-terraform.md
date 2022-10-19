@@ -25,6 +25,7 @@ The steps in this article were tested with the following Terraform and Terraform
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- IP address or FQDN of a website or web application.
 
 ## Implement the Terraform code
 
@@ -183,6 +184,7 @@ The steps in this article were tested with the following Terraform and Terraform
     ```terraform
     variable "location" {
       type = string
+      default = "westus2"
     }
     
     variable "resource_group_name" {
@@ -249,8 +251,6 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 
 # [Portal](#tab/Portal)
 
-You can also use the Azure portal to validate the deployment.
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Resource groups** from the left pane.
@@ -261,13 +261,17 @@ You can also use the Azure portal to validate the deployment.
 
     :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
+
+Run the following command:
 
 ```azurecli-interactive
 az resource list --resource-group FrontDoor
 ```
 
 # [PowerShell](#tab/PowerShell)
+
+Run the following command:
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceGroupName FrontDoor
