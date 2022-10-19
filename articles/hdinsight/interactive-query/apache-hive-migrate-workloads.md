@@ -65,7 +65,7 @@ This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/disp
    > [!NOTE]
    > This utility uses client `beeline` to execute SQL scripts in `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql`.
    >
-   > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](/azure/azure-sql/database/connect-query-portal) require keyword `GO` after each command.
+   > SQL Syntax in these scripts isn't necessarily compatible to other client tools. For example, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](/azure/azure-sql/database/connect-query-portal) require keyword `GO` after each command.
    >
    > If any script fails due to resource capacity or transaction timeouts, scale up the SQL Database.
 
@@ -108,7 +108,7 @@ STACK_VERSION=$(hdp-select status hive-server2 | awk '{ print $3; }')
 
 **Problem**
 
-In certain situations when running a Hive query, you might receive `java.lang.ClassNotFoundException` stating  `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` class is not found. This error occurs  happen when customer migrates from HDInsight 3.6 to HDInsight 4.0. The SerDe class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` which is a part of `hive-contrib-1.2.1000.2.6.5.3033-1.jar` in HDInsight 3.6 is removed and we're using `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` class, which is a part of `hive-exec jar` in HDI-4.0. `hive-exec jar` will load to HS2 by default when we start the service.
+In certain situations when running a Hive query, you might receive `java.lang.ClassNotFoundException` stating  `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` class isn't found. This error occurs  happen when customer migrates from HDInsight 3.6 to HDInsight 4.0. The SerDe class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe`, which is a part of `hive-contrib-1.2.1000.2.6.5.3033-1.jar` in HDInsight 3.6 is removed and we're using `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` class, which is a part of `hive-exec jar` in HDI-4.0. `hive-exec jar` will load to HS2 by default when we start the service.
 
 **STEPS TO TROUBLESHOOT**
 
@@ -129,7 +129,7 @@ In certain situations when running a Hive query, you might receive `java.lang.Cl
     sshuser@hn0-alters:~$ grep -Hrni "org.apache.hadoop.hive.serde2.MultiDelimitSerDe" /usr/hdp/4.1.9.7/hive/lib/
     Binary file /usr/hdp/4.1.9.7/hive/lib/hive-exec-3.1.0.4.1-SNAPSHOT.jar matches
     ```
-1. From this output we can confirm that no jar contains the class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` and hive-exec jar contains `org.apache.hadoop.hive.serde2.MultiDelimitSerDe`.
+1. From the above output, we can confirm that no jar contains the class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` and hive-exec jar contains `org.apache.hadoop.hive.serde2.MultiDelimitSerDe`.
 1. Try to create the table with row format DerDe as `ROW FORMAT SERDE org.apache.hadoop.hive.serde2.MultiDelimitSerDe`
 1. This command will fix the issue. If you've already created the table, you can rename it using the below commands
     ```
