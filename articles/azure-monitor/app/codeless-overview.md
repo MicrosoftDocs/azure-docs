@@ -20,34 +20,29 @@ Application Insights is integrated with various resource providers and works on 
 
 As we're adding new integrations, the auto-instrumentation capability matrix becomes complex. The table below shows you the current state of the matter as far as support for various resource providers, languages, and environments go.
 
-|Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
-|---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows - Publish as Code   | GA, OnBD* | GA          | GA              | GA, OnBD*       | Not supported   |
-|Azure App Service on Windows - Publish as Docker | Public Preview | Public Preview | Public Preview | Not supported  | Not supported   |
-|Azure App Service on Linux             | N/A             | Public Preview  | GA              | GA              | Not supported   |
-|Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
-|Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)      |
-|Azure Spring Cloud                     | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
-|Azure Kubernetes Service (AKS)         | N/A             | Not supported   | Through agent   | Not supported   | Not supported   |
-|Azure VMs Windows                      | Public Preview  | Public Preview  | Through agent   | Not supported   | Not supported   |
-|On-Premises VMs Windows                | GA, opt-in      | Public Preview  | Through agent   | Not supported   | Not supported   |
-|Standalone agent - any env.            | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
+|Environment/Resource Provider                    | .NET                                                                                                                       | .NET Core                                                                                                                  | Java                                                                                                                       | Node.js                                                          | Python  |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|---------|
+|Azure App Service on Windows - Publish as Code   | :white_check_mark: <sup>[1](#OnBD)</sup> [link](./azure-web-apps-net.md)                                                                    | :white_check_mark: [^1] [link](./azure-web-apps-net-core.md)                                                               | :white_check_mark: [link](./azure-web-apps-java.md)                                                                        | :white_check_mark: [^1] [link](./azure-web-apps-nodejs.md)       | :x:     |
+|Azure App Service on Windows - Publish as Docker | :white_check_mark: [^2] [link](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) | :white_check_mark: [^2] [link](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) | :white_check_mark: [^2] [link](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) | :x:                                                              | :x:     |
+|Azure App Service on Linux                       | :no_entry: [^3]                                                                                                                     | :white_check_mark: [^2] [link](./azure-web-apps-net-core.md?tabs=linux)                                                    | :white_check_mark: [link](./azure-web-apps-java.md)                                                                        | :white_check_mark: [link](./azure-web-apps-nodejs.md?tabs=linux) | :x:     |
+|Azure Functions - basic                          | GA, OnBD*                                       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
+|Azure Functions - dependencies                   | :x:                                   | :x:   | Public Preview  | :x:   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)      |
+|Azure Spring Cloud                               | :x:                                   | :x:   | GA              | :x:   | —    |
+|Azure Kubernetes Service (AKS)                   | :no_entry: [^3]                                          | Not supported   | Through agent   | Not supported   | Not supported   |
+|Azure VMs Windows                                | Public Preview                                  | Public Preview  | Through agent   | Not supported   | Not supported   |
+|On-Premises VMs Windows                          | GA, opt-in                                      | Public Preview  | Through agent   | Not supported   | Not supported   |
+|Standalone agent - any env.                      | :x:                                   | :x:   | GA              | Not supported   | Not supported   |
 
-*OnBD is short for On by Default - the Application Insights will be enabled automatically once you deploy your app in supported environments. 
+[^1]: Application Insights will be enabled automatically.
+[^2]: This feature is in public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+[^3]: This combination is not available.
 
-## Azure App Service
+<a name="OnBD">1</a>: Application Insights is enabled automatically.
 
-### Windows
+<a name="Preview">2</a>: This feature is in public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-Application monitoring on Azure App Service on Windows is available for **[ASP.NET](./azure-web-apps-net.md)** (enabled by default), **[ASP.NET Core](./azure-web-apps-net-core.md)**, **[Java](./azure-web-apps-java.md)** (in public preview), and **[Node.js](./azure-web-apps-nodejs.md)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
+<a name="NA">3</a>: This combination is not available.
 
-> [!NOTE]
-> Application monitoring for apps on Windows Containers on App Service [is in public preview for .NET Core, .NET Framework, and Java](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html).
-
-### Linux
-You can enable monitoring for **[Java](./azure-web-apps-java.md?)**, **[Node.js](./azure-web-apps-nodejs.md?tabs=linux)**, and **[ASP.NET Core](./azure-web-apps-net-core.md?tabs=linux)(Preview)** apps running on Linux in App Service through the portal. 
-
-For [Python](./opencensus-python.md), use the SDK.
 
 ## Azure Functions
 
