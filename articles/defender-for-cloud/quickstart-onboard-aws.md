@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 10/11/2022
+ms.date: 10/19/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other, ignite-2022
 ---
@@ -212,7 +212,7 @@ The authentication between Microsoft Defender for Cloud and AWS is federated aut
 1. IAM roles with a federated principal (connected to the identity providers)
 The diagram below describes the authentication flow.
 
-:::image type="content" source="media/quickstart-onboard-aws/authentication-design-flow.png" alt-text="diagram that shows authentication design flow." lightbox="media/quickstart-onboard-aws/authentication-design-flow.png":::
+:::image type="content" source="media/quickstart-onboard-aws/authentication-design-flow2.png" alt-text="diagram that shows authentication design flow." lightbox="media/quickstart-onboard-aws/authentication-design-flow.png":::
 
 1. Microsoft Defender for Cloud CSPM service acquires an AAD token.  
     1. This token is signed by AAD using RS256 algorithm.
