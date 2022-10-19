@@ -79,7 +79,7 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 - Include the root path to selectively exclude paths that don't need to be indexed. This approach is recommended as it lets Azure Cosmos DB proactively index any new property that may be added to your model.
 
-- Exclude the root path to selectively include paths that need to be indexed. The partition key path isn't indexed by default with the exclude strategy and should be explicitly included if needed.
+- Exclude the root path to selectively include paths that need to be indexed. The partition key property path isn't indexed by default with the exclude strategy and should be explicitly included if needed.
 
 - For paths with regular characters that include: alphanumeric characters and _ (underscore), you don't have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally, it doesn't make any difference if you escape every path or just the ones that have special characters.
 
