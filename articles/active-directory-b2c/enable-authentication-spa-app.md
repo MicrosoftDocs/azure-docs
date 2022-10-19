@@ -109,7 +109,7 @@ The resources referenced by the *index.html* file are detailed in the following 
 |[`ui.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | Controls the UI elements. |
 | | |
 
-To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet.
+To render the SPA index file, in the *myApp* folder, create a file named *index.html*, which contains the following HTML snippet:
 
 ```html
 <!DOCTYPE html>
@@ -442,7 +442,7 @@ To call your web API by using the token you acquired, do the following:
 
 ## Step 10: Add the UI elements reference
 
-The SPA app uses JavaScript to control the UI elements. For example, it displays the sign-in and sign-out buttons, and renders the users ID token claims to the screen.
+The SPA app uses JavaScript to control the UI elements. For example, it displays the sign-in and sign-out buttons, and renders the users' ID token claims to the screen.
 
 To add the UI elements reference, do the following:
 
