@@ -2,7 +2,7 @@
 title: Manage AWS assessments and standards
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 ---
 
 # Manage AWS assessments and standards
@@ -207,7 +207,7 @@ When building a KQL query, you should use the following table structure:
                  }
 ```
 
-> [!NOTE
+> [!NOTE]
 > The `Record` field contains the data structure as it is returned from the AWS API. Use this field to define conditions which will determine if the resource is healthy or unhealthy.
 >
 > You can access internal properties of `Record` filed using a dot notation. For example: `| extend EncryptionType = Record.Encryption.Type`.
