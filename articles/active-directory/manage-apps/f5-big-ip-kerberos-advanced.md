@@ -148,7 +148,7 @@ By default, Azure AD issues tokens for users granted access to an application. T
 
 3. Select users and groups, and then select **Assign**.   
 
-## Configure Active Directory Kerberos Constrained Delegation
+## Configure Active Directory Kerberos constrained delegation
 
 For the BIG-IP APM to perform SSO to the back-end application on behalf of users, configure KCD in the target Active Directory domain. Delegating authentication also requires the BIG-IP APM is provisioned with a domain service account.
 
