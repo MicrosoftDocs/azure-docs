@@ -68,7 +68,7 @@ ws_basic = Workspace(
 ml_client.workspaces.begin_create(ws_basic) # use MLClient to connect to the subscription and resource group and create workspace
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/resources/workspace/workspace.ipynb) shows more ways to create an Azure ML workspace using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/workspace/workspace.ipynb) shows more ways to create an Azure ML workspace using SDK v2.
 
 ---
 
@@ -113,7 +113,7 @@ cluster_basic = AmlCompute(
 ml_client.begin_create_or_update(cluster_basic)
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/resources/compute/compute.ipynb) shows more ways to create compute using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/compute/compute.ipynb) shows more ways to create compute using SDK v2.
 
 ---
 
@@ -157,7 +157,7 @@ blob_datastore1 = AzureBlobDatastore(
 ml_client.create_or_update(blob_datastore1)
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/resources/datastores/datastore.ipynb) shows more ways to create datastores using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/resources/datastores/datastore.ipynb) shows more ways to create datastores using SDK v2.
 
 ---
 
@@ -250,7 +250,7 @@ my_env = Environment(
 ml_client.environments.create_or_update(my_env) # use the MLClient to connect to workspace and create/register the environment
 ```
 
-This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
+This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/assets/environment/environment.ipynb) shows more ways to create custom environments using SDK v2.
 
 ---
 

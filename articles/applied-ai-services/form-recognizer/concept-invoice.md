@@ -7,13 +7,16 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
 # Form Recognizer invoice model
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
  The invoice model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key fields and line items from sales invoices.  Invoices can be of various formats and quality including phone-captured images, scanned documents, and digital PDFs. The API analyzes invoice text; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation. The model currently supports both English and Spanish invoices.
 
@@ -102,7 +105,6 @@ See how data, including customer information, vendor details, and line items, is
 | PaymentTerm | String | The terms of payment for the invoice | |
 | SubTotal | Number | Subtotal field identified on this invoice | Integer |
 | TotalTax | Number | Total tax field identified on this invoice | Integer |
-| TotalVAT | Number | Total VAT field identified on this invoice | Integer |
 | InvoiceTotal | Number (USD) | Total new charges associated with this invoice | Integer |
 | AmountDue |  Number (USD) | Total Amount Due to the vendor | Integer |
 | ServiceAddress | String | Explicit service address or property address for the customer | |
@@ -128,7 +130,6 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
 | Date | Date| Date corresponding to each line item. Often it's a date the line item was shipped | 3/4/2021| 2021-03-04 |
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
-| VAT | Number | Stands for Value added tax. VAT is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 

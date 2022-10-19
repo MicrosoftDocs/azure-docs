@@ -59,6 +59,8 @@
           href: tutorial-create-notebook.md
         - name: Import notebooks from GitHub
           href: tutorial-import-notebooks.md
+    - name: Deploy app on AKS cluster using Bicep
+      href: tutorial-deploy-app-bicep-aks.md
 - name: Samples
   items:
     - name: .NET
@@ -71,6 +73,8 @@
       href: samples-nodejs.md
     - name: Python
       href: samples-python.md
+    - name: Go
+      href: samples-go.md
     - name: PowerShell
       href: powershell-samples.md
     - name: Azure CLI
