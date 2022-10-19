@@ -81,7 +81,6 @@ Azure Monitor can collect data from resources outside of Azure by using the meth
 | Virtual machines | Use agents to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Overview of Azure Monitor agents](agents/agents-overview.md). |
 | REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](logs/data-collector-api.md) for Logs. See [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) for Metrics. |
 
-
 ## Next steps
 
 - Read more about the [Azure Monitor data platform that stores the logs and metrics collected by insights and solutions](data-platform.md).

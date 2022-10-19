@@ -3,14 +3,14 @@ title: "Migrate your face data across subscriptions - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide shows you how to migrate your stored face data from one Face subscription to another.
 services: cognitive-services
-author: nitinme
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: nitinme
+ms.author: pafarley
 ms.devlang: csharp
 ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 ---
