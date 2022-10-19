@@ -100,6 +100,10 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. Continue building your workflow.
 
+1. When you're ready, save your changes, which automatically publishes your logic app resource live to Azure. On the designer toolbar, select **Save**.
+
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png" alt-text="Screenshot showing the designer with top part of a workflow. On the toolbar, 'Save' is selected.":::
+
 ## Update a Consumption workflow with a template
 
 1. In the [Azure portal](https://portal.azure.com), go to your Consumption logic app resource.
@@ -141,15 +145,13 @@ This how-to guide shows how to use these templates as provided or edit them to f
 1. Continue building your workflow.
 
    > [!TIP]
-   > If you haven't saved your changes, you can discard your work and return to your previous workflow. On the designer toolbar, select **Discard**.
+   >
+   > If you haven't saved your changes, you can discard your work and return to 
+   > your previous workflow. On the designer toolbar, select **Discard**.
 
-## Deploy a logic app workflow built from a template
+1. When you're ready, save your changes, which automatically publishes your logic app resource live to Azure. On the designer toolbar, select **Save**.
 
-After you make your changes to the template, you can save your changes. This action automatically publishes your logic app resource live to Azure.
-
-On the designer toolbar, select **Save**.
-
-:::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png" alt-text="Screenshot showing the designer with top part of a workflow visible. On the toolbar, 'Save' is selected.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png" alt-text="Screenshot showing the designer with top part of a workflow visible. On the toolbar, 'Save' is selected.":::
 
 ## Next steps
 
