@@ -27,7 +27,7 @@ Azure Data Factory allows the creation of pipelines that can orchestrate multipl
 * An Azure Data Factory resource created and configured. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](../../data-factory/quickstart-create-data-factory-portal.md) to create one.  
 * After creating it, browse to the data factory in the Azure portal:
 
-   :::image type="content" source="./../../data-factory/media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="./../../data-factory/media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 * Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
@@ -74,7 +74,7 @@ The pipeline will look as follows:
 
 # [Using a Managed Identity](#tab/mi)
 
-:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="High level diagram of the pipeline we are creating.":::
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram-mi.png" alt-text="Diagram that shows th high level structure of the pipeline we are creating.":::
 
 It is composed of the following activities:
 
@@ -95,7 +95,7 @@ The pipeline requires the following parameters to be configured:
 
 # [Using a Service Principal](#tab/sp)
 
-:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="High level diagram of the pipeline we are creating.":::
+:::image type="content" source="./media/how-to-use-batch-adf/pipeline-diagram.png" alt-text="Diagram that shows th high level structure of the pipeline we are creating.":::
 
 It is composed of the following activities:
 
@@ -140,11 +140,11 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
 
   # [Using a Managed Identity](#tab/mi)
   
-  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params-mi.png" alt-text="Parameters expected for the resulting pipeline.":::
+  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params-mi.png" alt-text="Screenshot of the pipeline parameters expected for the resulting pipeline.":::
   
   # [Using a Service Principal](#tab/sp)
 
-  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="Parameters expected for the resulting pipeline.":::
+  :::image type="content" source="./media/how-to-use-batch-adf/pipeline-params.png" alt-text="Screenshot of the pipeline parameters expected for the resulting pipeline.":::
   
   ---
   
@@ -154,7 +154,7 @@ To create this pipeline in your existing Azure Data Factory, follow these steps:
   > [!TIP]
   > For best reusability, use the created pipeline as a template and call it from within other Azure Data Factory pipelines by leveraging the [Execute pipeline activity](../../data-factory/control-flow-execute-pipeline-activity.md). In that case, do not configure the parameters in the created pipeline but pass them when you are executing the pipeline.
   > 
-  > :::image type="content" source="./media/how-to-use-batch-adf/pipeline-run.png" alt-text="Parameters expected for the resulting pipeline when invoked from the outside.":::
+  > :::image type="content" source="./media/how-to-use-batch-adf/pipeline-run.png" alt-text="Screenshot of the pipeline parameters expected for the resulting pipeline when invoked from another pipeline.":::
 
 7. Your pipeline is ready to be used.
 
