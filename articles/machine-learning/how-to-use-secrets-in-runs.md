@@ -65,7 +65,7 @@ Before following the steps in this article, make sure you have the following pre
 
     ```python
     from azure.identity import DefaultAzureCredential
-    from azure.keyvault.secret import SecretClient
+    from azure.keyvault.secrets import SecretClient
 
     credential = DefaultAzureCredential()
 
