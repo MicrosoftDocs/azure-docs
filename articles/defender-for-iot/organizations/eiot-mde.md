@@ -56,17 +56,17 @@ View and manage your IoT devices in the [Microsoft 365 Defender portal](https://
 
     <!--For example: TBD image-->
 
-For more information, see [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview?view=o365-worldwide).
+For more information, see [Device inventory](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
 ## View related alerts, recommendations, and vulnerabilities
 
 After onboarding to a Defender for IoT plan, view detected data and security assessments in the following locations:
 
-- View alerts from <TBD>. For more information, see [Alerts queue in Microsoft 365 Defender](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response?view=o365-worldwide).
+- View alerts from `<tbd>`. For more information, see [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
-- View recommendations from <TBD>. For more information, see [Security recommendations](https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation?view=o365-worldwide).
+- View recommendations from `<tbd>`. For more information, see [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 
-- View vulnerabilities from <TBD>. For more information, see [Vulnerabilities in my organization](https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses?view=o365-worldwide).
+- View vulnerabilities from `<tbd>`. For more information, see [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses).
 
 
 ## Cancel your Defender for IoT plan

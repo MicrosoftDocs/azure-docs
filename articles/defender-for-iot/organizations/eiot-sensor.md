@@ -182,7 +182,7 @@ In the **Sites and sensors** page, Enterprise IoT sensors are all automatically 
 
 Once you've validated your setup, the **Device inventory** page will start to populate with all of your devices after 15 minutes.
 
-View your devices and network information in the Defender for IoT **Device inventory** page on the [Azure portal](how-to-manage-device-inventory-for-organizations.md) or in [Defender for Endpoint](/microsoft-365/security/defender-endpoint/machines-view-overview?view=o365-worldwide).
+View your devices and network information in the Defender for IoT **Device inventory** page on the [Azure portal](how-to-manage-device-inventory-for-organizations.md) or in [Defender for Endpoint](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
 ## Delete an Enterprise IoT network sensor (optional)
 
