@@ -2,11 +2,11 @@
 title: Quickstart - Add a bot to your chat app
 titleSuffix: A quickstart on how to use Azure Chat SDK with Azure Bot Services 
 description: This quickstart shows you how to build chat experience with a bot using Communication Services Chat SDK and Bot Services. 
-author: gelli
-manager: juramir
+author: tariqzafar
+manager: potsang
 services: azure-communication-services
-ms.author: gelli
-ms.date: 01/25/2022
+ms.author: tariqzafar
+ms.date: 10/18/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -15,10 +15,9 @@ ms.custom: mode-other
 # Quickstart: Add a bot to your chat app
 
 > [!IMPORTANT]
-> This functionality is in private preview, and restricted to a limited number of Azure Communication Services early adopters. You can [submit this form to request participation in the preview](https://forms.office.com/r/HBm8jRuuGZ) and we will review your scenario(s) and evaluate your participation in the preview.
+> This functionality is in public preview.
 >
-> Private Preview APIs and SDKs are provided without a service-level agreement, and are not appropriate for production workloads and should only be used with test users and test data. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
+
 
 In this quickstart, we'll learn how to build conversational AI experiences in our chat application using 'Communication Services-Chat' messaging channel available under Azure Bot Services. We'll create a bot using BotFramework SDK and learn how to integrate this bot into our chat application that is built using Communication Services Chat SDK.
 
@@ -147,14 +146,17 @@ With the Azure Communication Services resource, we can configure the Azure Commu
    :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="DemoApp Launch Acs Chat" lightbox="./media/demoapp-launch-acs-chat.png":::
 
    
-2. Choose from the dropdown list the Azure Communication Services resource that you want to connect with.
+2. Click on the connect button to see a list of ACS resources available under your subscriptions.
 
-   :::image type="content" source="./media/smaller-demoapp-connect-acsresource.png" alt-text="DemoApp Connect Acs Resource" lightbox="./media/demoapp-connect-acsresource.png":::
+   :::image type="content" source="./media/bot-connect-acs-chat-channel.png" alt-text="DemoApp Connect Acs Resource" lightbox="./media/bot-connect-acs-chat-channel.png":::
 
+3. Once you have selected the required ACS resource from the resources dropdown list, press on apply button.
 
-3. Once the provided resource details are verified, you'll see the **bot's Azure Communication Services ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
+   :::image type="content" source="./media/bot-choose-resource.png" alt-text="DemoApp Save Acs Resource mapping" lightbox="./media/bot-choose-resource.png":::
 
-   :::image type="content" source="./media/smaller-demoapp-bot-detail.png" alt-text="DemoApp Bot Detail" lightbox="./media/demoapp-bot-detail.png":::
+4. Once the provided resource details are verified, you'll see the **bot's Azure Communication Services ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
+
+   :::image type="content" source="./media/acs-chat-channel-saved.png" alt-text="DemoApp Bot Detail" lightbox="./media/acs-chat-channel-saved.png":::
 
 
 ## Step 4 - Create a chat app and add bot as a participant
@@ -283,6 +285,8 @@ Besides simple text message, bot is also able to receive and send many other act
 - Message delete 
 - Typing indicator  
 - Event activity
+- Various attachments including Adaptive cards
+- Bot channel data
 
 ### Send a welcome message when a new user is added to the thread
 With the current Echo Bot logic, it accepts input from the user and echoes it back. If you would like to add additional logic such as responding to a participant added Azure Communication Services event, copy the following code snippets and paste into the source file: [EchoBot.cs](https://github.com/microsoft/BotBuilder-Samples/blob/main/samples/csharp_dotnetcore/02.echo-bot/Bots/EchoBot.cs)
@@ -350,6 +354,71 @@ And on the Azure Communication Services User side, the Azure Communication Servi
  "messageType": "Text"
 }
 ```
+
+## Supported bot activity fields
+
+### Bot to user flow
+
+#### Activities
+
+- Message activity
+- Typing activity
+
+#### Message Activity Fields
+- `Text`
+- `Attachments`
+- `AttachmentLayout`
+- `SuggestedActions`
+- `From.Name` (Converted to ACS SenderDisplayName)
+- `ChannelData` (Converted to ACS Chat Metadata. If any `ChannelData` mapping values are objects, then they'll be serialized in JSON format and sent as a string)
+
+### User to bot flow
+
+#### Activities and fields
+
+- Message activity
+  - `Id` (ACS Chat message Id)
+  - `TimeStamp`
+  - `Text`
+  - `Attachments`
+- Conversation update activity
+    - `MembersAdded`
+    - `MembersRemoved`
+    - `TopicName`
+- Message update activity
+    - `Id` (Updated ACS Chat message Id)
+    - `Text`
+    - `Attachments`
+- Message delete activity
+    - `Id` (Deleted ACS Chat message Id)
+- Event activity
+    - `Name`
+    - `Value`
+- Typing activity
+
+#### Other common fields
+
+- `Recipient.Id` and `Recipeint.Name` (ACS Chat user id and display name)
+- `From.Id` and `From.Name` (ACS Chat user id and display name)
+- `Conversation.Id` (ACS Chat thread id)
+- `ChannelId` (AcsChat if empty)
+- `ChannelData` (ACS Chat message metadata)
+
+## Support for Single tenant and Managed Identity bots
+
+ACS Chat channel supports single tenant and managed identity bots as well. Please refer to setting correctly [bot identity information](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-authentication?view=azure-bot-service-4.0&tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information) to configure your bot web app.
+
+Additionally, for managed identity bots you might have to [update bot service identity](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-authentication?view=azure-bot-service-4.0&tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service) according to the steps  described here.
+
+## Bot handoff patterns
+
+Sometimes it may be necessary to handoff the chat thread from a bot to a human agent if the bot couldn't understand or answer a question or the customer is not satisfied with the bot's answer, they may request to be connected to a human agent. In such cases it may be necessary to [transition conversation from bot to human](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0) and those patterns can be put to use.
+
+## Upcoming features in GA (General Availability)
+
+- Support for some more activities like Command activity and Invoke activity.
+- Support for more bot activity fields in both user to bot and bot to user directions.
+- EUDB compliance.
 
 ## Next steps
 
