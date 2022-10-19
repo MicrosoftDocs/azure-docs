@@ -14,6 +14,6 @@ ms.date: 07/26/2022
 
 <sup>1</sup> If your NVA advertises more routes than the limit, the BGP session will get dropped. In the event BGP session is dropped between the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure.
 
-<sup>2</sup> Please be aware of the ExpressRoute Private Peering [limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#:~:text=for%20an%20ExpressRoute%20connection-,1%2C000,-Maximum%20number%20of%20IPv6) of 1000 routes per connection from Virtual Network Gateway towards ExpressRoute circuit. For instance, the total number of routes from all Virtual Network Address Spaces + ARS Branch-to-branch, must not exceed 1000.
+<sup>2</sup> Please be aware of the ExpressRoute Private Peering [limit](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) of 1000 routes per connection from Virtual Network Gateway towards ExpressRoute circuit. For instance, the total number of routes from all Virtual Network Address Spaces + ARS Branch-to-branch, must not exceed 1000.
 
 <sup>3</sup> The number of VMs that Azure Route Server can support isn't a hard limit, and it depends on how the Route Server infrastructure is deployed within an Azure Region.
