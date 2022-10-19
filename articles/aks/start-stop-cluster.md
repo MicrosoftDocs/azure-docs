@@ -11,11 +11,11 @@ ms.custom: devx-track-azurepowershell
 # Stop and Start an Azure Kubernetes Service (AKS) cluster
 
 Your AKS workloads may not need to run continuously, for example a development cluster that is used only during business hours. This leads to times where your Azure Kubernetes Service (AKS) cluster might be idle, running no more than the system components. You can reduce the cluster footprint by [scaling all the `User` node pools to 0](scale-cluster.md#scale-user-node-pools-to-0), but your [`System` pool](use-system-pools.md) is still required to run the system components while the cluster is running.
-To optimize your costs further during these periods, you can completely turn off (stop) your cluster. This action will stop your control plane and agent nodes altogether, allowing you to save on all the compute costs, while maintaining all your objects and cluster state stored for when you start it again. You can then pick up right where you left of after a weekend or to have your cluster running only while you run your batch jobs.
+To optimize your costs further during these periods, you can completely turn off (stop) your cluster. This action will stop your control plane and agent nodes altogether, allowing you to save on all the compute costs, while maintaining all your objects (except standalone pods) and cluster state stored for when you start it again. You can then pick up right where you left of after a weekend or to have your cluster running only while you run your batch jobs.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][kubernetes-walkthrough-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 ### Limitations
 
@@ -25,6 +25,7 @@ When using the cluster start/stop feature, the following restrictions apply:
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, the cluster state cannot be recovered. For more information, see the [AKS Support Policies](support-policies.md).
 - You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
 - The customer provisioned PrivateEndpoints linked to private cluster need to be deleted and recreated again when you start a stopped AKS cluster.
+- Because the stop process drains all nodes, any standalone pods (i.e. pods not managed by a Deployment, StatefulSet, DaemonSet, Job, etc.) will be deleted.
 
 ## Stop an AKS Cluster
 
@@ -62,10 +63,10 @@ You can use the [Stop-AzAksCluster][stop-azakscluster] cmdlet to stop a running 
 Stop-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
-You can verify your cluster is stopped using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows as `Stopped` as shown in the following output:
+You can verify your cluster is stopped using the [Get-AzAksCluster][get-azakscluster] cmdlet and confirming the `ProvisioningState` shows as `Succeeded` as shown in the following output:
 
 ```Output
-ProvisioningState       : Stopped
+ProvisioningState       : Succeeded
 MaxAgentPools           : 100
 KubernetesVersion       : 1.20.7
 ...
@@ -79,6 +80,9 @@ If the `ProvisioningState` shows `Stopping` that means your cluster hasn't fully
 > If you are using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) the stop operation can take longer as the drain process will take more time to complete.
 
 ## Start an AKS Cluster
+
+> [!CAUTION]
+> It is important that you don't repeatedly start/stop your cluster. Repeatedly starting/stopping your cluster may result in errors. Once your cluster is stopped, you should wait 15-30 minutes before starting it up again. 
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -144,8 +148,9 @@ If the `ProvisioningState` shows `Starting` that means your cluster hasn't fully
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update

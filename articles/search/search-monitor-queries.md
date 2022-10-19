@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 07/11/2022
 ---
 
 # Monitor query requests in Azure Cognitive Search
 
-This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
+This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to get the query strings entered by application users.
 
-The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
+The Azure portal shows basic metrics about query latency, query load (QPS), and throttling. Historical data that feeds into these metrics can be accessed in the portal for 30 days. For longer retention, or to report on operational data and query strings, you must enable a [diagnostic setting](monitor-azure-cognitive-search.md) that specifies a storage option for persisting logged operations and metrics.
 
 Conditions that maximize the integrity of data measurement include:
 
@@ -23,7 +23,7 @@ Conditions that maximize the integrity of data measurement include:
 
 + Use a single replica and partition, if possible, to create a contained and isolated environment. If you use multiple replicas, query metrics are averaged across multiple nodes, which can lower the precision of results. Similarly, multiple partitions mean that data is divided, with the potential that some partitions might have different data if indexing is also underway. When tuning query performance, a single node and partition gives a more stable environment for testing.
 
-> [!Tip]
+> [!TIP]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
@@ -96,25 +96,25 @@ In the following screenshot, the first number is the count (or number of metrics
 
 For a quick look at the current numbers, the **Monitoring** tab on the service Overview page shows three metrics (**Search latency**, **Search queries per second (per search unit)**, **Throttled Search Queries Percentage**) over fixed intervals measured in hours, days, and weeks, with the option of changing the aggregation type.
 
-For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](../azure-monitor/essentials/tutorial-metrics-explorer.md).
+For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](../azure-monitor/essentials/tutorial-metrics.md).
 
 1. Under the Monitoring section, select **Metrics** to open the metrics explorer with the scope set to your search service.
 
-1. Under Metric, choose one from the dropdown list and review the list of available aggregations for a preferred type. The aggregation defines how the collected values will be sampled over each time interval.
+2. Under Metric, choose one from the dropdown list and review the list of available aggregations for a preferred type. The aggregation defines how the collected values will be sampled over each time interval.
 
    ![Metrics explorer for QPS metric](./media/search-monitor-usage/metrics-explorer-qps.png "Metrics explorer for QPS metric")
 
-1. In the top-right corner, set the time interval.
+3. In the top-right corner, set the time interval.
 
-1. Choose a visualization. The default is a line chart.
+4. Choose a visualization. The default is a line chart.
 
-1. Layer additional aggregations by choosing **Add metric** and selecting different aggregations.
+5. Layer additional aggregations by choosing **Add metric** and selecting different aggregations.
 
-1. Zoom into an area of interest on the line chart. Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area, and release the button. The chart will zoom in on that time range.
+6. Zoom into an area of interest on the line chart. Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area, and release the button. The chart will zoom in on that time range.
 
 ## Return query strings entered by users
 
-When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
+When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](monitor-azure-cognitive-search.md), specifying a log analytics workspace or another storage option.
 
 1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
 
@@ -184,4 +184,4 @@ If you specified an email notification, you will receive an email from "Microsof
 If you haven't done so already, review the fundamentals of search service monitoring to learn about the full range of oversight capabilities.
 
 > [!div class="nextstepaction"]
-> [Monitor operations and activity in Azure Cognitive Search](search-monitor-usage.md)
+> [Monitor operations and activity in Azure Cognitive Search](monitor-azure-cognitive-search.md)

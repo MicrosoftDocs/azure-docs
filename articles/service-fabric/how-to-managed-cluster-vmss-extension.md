@@ -1,8 +1,12 @@
 ---
 title: Add a virtual machine scale set extension to a Service Fabric managed cluster node type
 description: Here's how to add a virtual machine scale set extension a Service Fabric managed cluster node type
-ms.topic: article
-ms.date: 8/02/2021
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Virtual machine scale set extension support on Service Fabric managed cluster node type(s)
@@ -16,38 +20,40 @@ Alternately, you can add a virtual machine scale set extension on a Service Fabr
 
 ```json
 {
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "apiVersion": "[variables('sfApiVersion')]",
-    "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-    "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-    ],
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "isPrimary": true,
-        "vmInstanceCount": 3,
-        "dataDiskSizeGB": 100,
-        "vmSize": "Standard_D2",
-        "vmImagePublisher": "MicrosoftWindowsServer",
-        "vmImageOffer": "WindowsServer",
-        "vmImageSku": "2019-Datacenter",
-        "vmImageVersion": "latest",
-        "vmExtensions": [{
-            "name": "ExtensionA",
-            "properties": {
-                "publisher": "ExtensionA.Publisher",
-                "type": "KeyVaultForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                }
-            }
-        }]
-    }
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "apiVersion": "[variables('sfApiVersion')]",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "isPrimary": true,
+    "vmInstanceCount": 3,
+    "dataDiskSizeGB": 100,
+    "vmSize": "Standard_D2",
+    "vmImagePublisher": "MicrosoftWindowsServer",
+    "vmImageOffer": "WindowsServer",
+    "vmImageSku": "2019-Datacenter",
+    "vmImageVersion": "latest",
+    "vmExtensions": [
+      {
+        "name": "ExtensionA",
+        "properties": {
+          "publisher": "ExtensionA.Publisher",
+          "type": "KeyVaultForWindows",
+          "typeHandlerVersion": "1.0",
+          "autoUpgradeMinorVersion": true,
+          "settings": {
+          }
+        }
+      }
+    ]
+  }
 }
 ```
 
-For more information on configuring Service Fabric managed cluster node types, see [managed cluster node type](/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
+For more information on configuring Service Fabric managed cluster node types, see [managed cluster node type](/azure/templates/microsoft.servicefabric/2022-01-01/managedclusters/nodetypes).
 
 ## Next steps
 

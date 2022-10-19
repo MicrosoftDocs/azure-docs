@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
+ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -3,37 +3,39 @@ title: Quickstart – Azure Key Vault Python client library – manage secrets
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/03/2020
+ms.date: 01/22/2022
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: "devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
-
+ms.devlang: python
+ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Azure Key Vault secret client library for Python
 
-Get started with the Azure Key Vault secret client library for Python. Follow the steps below to install the package and try out example code for basic tasks. By using Key Vault to store secrets, you avoid storing secrets in your code, which increases the security of your app.
+Get started with the Azure Key Vault secret client library for Python. Follow these steps to install the package and try out example code for basic tasks. By using Key Vault to store secrets, you avoid storing secrets in your code, which increases the security of your app.
 
 [API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-secrets/)
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ or 3.6+](/azure/developer/python/configure-local-development-environment)
-- [Azure CLI](/cli/azure/install-azure-cli)
+- [Python 2.7+ or 3.6+](/azure/developer/python/configure-local-development-environment).
+- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) in a Linux terminal window.
+This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) in a Linux terminal window.
 
 
 ## Set up your local environment
-This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
+This quickstart is using Azure Identity library with Azure CLI or Azure PowerShell to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
 
 ### Sign in to Azure
 
-1. Run the `login` command.
+### [Azure CLI](#tab/azure-cli)
 
-    ```azurecli-interactive
+1. Run the `az login` command.
+
+    ```azurecli
     az login
     ```
 
@@ -43,6 +45,23 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
     authorization code displayed in your terminal.
 
 2. Sign in with your account credentials in the browser.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Run the `Connect-AzAccount` command.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    If the PowerShell can open your default browser, it will do so and load an Azure sign-in page.
+
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
+    authorization code displayed in your terminal.
+
+2. Sign in with your account credentials in the browser.
+
+---
 
 ### Install the packages
 
@@ -65,21 +84,27 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
+### Set the KEY_VAULT_NAME environmental variable
+
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../../../includes/key-vault-set-environmental-variables.md)]
+
 ### Grant access to your key vault
 
 Create an access policy for your key vault that grants secret permission to your user account.
 
-```console
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --secret-permissions delete get list set
 ```
 
-#### Set environment variables
+### [Azure PowerShell](#tab/azure-powershell)
 
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
-
-```bash
-export KEY_VAULT_NAME=<your-key-vault-name>
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets delete,get,list,set
 ```
+
+---
 
 ## Create the sample code
 
@@ -89,7 +114,6 @@ Create a file named *kv_secrets.py* that contains this code.
 
 ```python
 import os
-import cmd
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
@@ -129,16 +153,16 @@ Make sure the code in the previous section is in a file named *kv_secrets.py*. T
 python kv_secrets.py
 ```
 
-- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
+- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` or `Set-AzKeyVaultAccessPolicy` command](#grant-access-to-your-key-vault).
 - Re-running the code with the same secret name may produce the error, "(Conflict) Secret \<name\> is currently in a deleted but recoverable state." Use a different secret name.
 
 ## Code details
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
+In this quickstart, the logged in user is used to authenticate to key vault, which is the preferred method for local development. For applications deployed to Azure, a managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
+In this example, the name of your key vault is expanded using the value of the "KVUri" variable, in the format: "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
 
 ```python
 credential = DefaultAzureCredential()
@@ -167,7 +191,7 @@ retrieved_secret = client.get_secret(secretName)
 
 The secret value is contained in `retrieved_secret.value`.
 
-You can also retrieve a secret with the the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
+You can also retrieve a secret with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell command [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
 ### Delete a secret
 
@@ -180,7 +204,7 @@ deleted_secret = poller.result()
 
 The `begin_delete_secret` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show).
+You can verify that the secret had been removed with the Azure CLI command [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) or the Azure PowerShell command [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
 Once deleted, a secret remains in a deleted but recoverable state for a time. If you run the code again, use a different secret name.
 
@@ -190,14 +214,23 @@ If you want to also experiment with [certificates](../certificates/quick-create-
 
 Otherwise, when you're finished with the resources created in this article, use the following command to delete the resource group and all its contained resources:
 
+### [Azure CLI](#tab/azure-cli)
+
 ```azurecli
-az group delete --resource-group KeyVault-PythonQS-rg
+az group delete --resource-group myResourceGroup
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name myResourceGroup
+```
+
+---
 
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/security-features.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 08/20/2021
+ms.date: 12/03/2021
 ---
 
 # Publishing guide by offer type
@@ -22,6 +22,8 @@ You can configure a single offer type in different ways to enable different publ
 
 Be sure to review the online store and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 
+To publish your offers to [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/), you need to have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
+
 ## List of offer types
 
 The following table shows the commercial marketplace offer types in Partner Center.
@@ -32,7 +34,7 @@ The following table shows the commercial marketplace offer types in Partner Cent
 | [**Azure Container**](marketplace-containers.md) | Use the Azure Container offer type when your solution is a Docker container image provisioned as a Kubernetes-based Azure container service. |
 | [**Azure virtual machine**](marketplace-virtual-machines.md) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |
 | [**Consulting service**](./plan-consulting-service-offer.md) | Consulting services help to connect customers with services to support and extend their use of Azure, Dynamics 365, or Power Suite services.|
-| [**Dynamics 365**](marketplace-dynamics-365.md) | Publish AppSource offers that build on or extend Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps, and Finance and Operations apps.|
+| [**Dynamics 365**](marketplace-dynamics-365.md) | Publish AppSource offers that build on or extend Dynamics 365 products.|
 | [**IoT Edge module**](marketplace-iot-edge.md) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
 | [**Managed service**](./plan-managed-service-offer.md) | Create managed service offers and manage customer-delegated subscriptions or resource groups through [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Power BI app**<br/>**Microsoft 365**](marketplace-dynamics-365.md) | Publish AppSource offers that build on or extend Power BI and Microsoft 365.|

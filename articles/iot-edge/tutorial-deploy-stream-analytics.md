@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
 description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.date: 05/03/2021
 ms.topic: tutorial
 ms.service: iot-edge
@@ -159,7 +159,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
 1. In the Azure portal, navigate to your IoT hub.
 
-1. Go to **IoT Edge**, and then open the details page for your IoT Edge device.
+1. Select **Devices** under the **Device management** menu, and then open the details page for your IoT Edge device.
 
 1. Select **Set modules**.  
 

@@ -1,17 +1,17 @@
 ---
-title: Functional validation of a Dynamics 365 Operations offer in Microsoft AppSource (Azure Marketplace)
-description: Functionally validate a Dynamics 365 Operations offer in Microsoft AppSource (Azure Marketplace).
+title: Functional validation of a Dynamics 365 Operations Apps offer in Microsoft AppSource (Azure Marketplace)
+description: Functionally validate a Dynamics 365 Operations Apps offer in Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: vamahtan
-ms.author: vamahtan
-ms.date: 05/19/2021
+author: trkeya
+ms.author: trkeya
+ms.date: 12/03/2021
 ---
 
-# Dynamics 365 for Operations functional validation
+# Dynamics 365 Operations Apps functional validation
 
-Publishing a Dynamics 365 for Operations offer in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) requires two functional validations:
+Publishing a Dynamics 365 Operations Apps offer in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) requires two functional validations:
 
 - Upload a demonstration video of the Dynamics 365 environment that shows basic functionality.
 - Present screenshots that demonstrate the solution's [Lifecycle Services](https://lcs.dynamics.com/) (LCS) environment.
@@ -46,13 +46,13 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
     > [!NOTE]
     > It is acceptable to use an existing marketing video if it meets the guidelines.
 
-2. Take the following screenshots of the [LCS](https://lcs.dynamics.com/) environment that match the offer or solution you want to publish. They must be clear enough for the certification team to read the text. Save the screenshots as JPG files.
+2. Take the following screenshots of the [LCS](https://lcs.dynamics.com/) environment that match the offer or solution you want to publish. They must be clear enough for the certification team to read the text. Save the screenshots as JPG files. You may provide [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) permission to your LCS environment so we can verify the setup in lieu of providing screenshots.
 
     1. Go to **LCS** > **Business Process Modeler** > **Project library**. Take screenshots of all the Process steps. Include the **Diagrams** and **Reviewed** columns, as shown here:
 
        :::image type="content" source="media/dynamics-365-operations/project-library.png" alt-text="Shows the project library window.":::
 
-      2. Go to **LCS** > **Solution Management** > **Test Solution Package**. Take screenshots that include the package overview and contents shown in these examples:
+    2. Go to **LCS** > **Solution Management** > **Test Solution Package**. Take screenshots that include the package overview and contents shown in these examples:
 
     | Field | Image |
     | --- | --- |
@@ -70,7 +70,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
     1. Create a text document that includes the demo video address and screenshots, or save the screenshots as separate JPG files.
     2. Add the text and images to a .zip file in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) on the offer's **Supplemental content** tab.
 
-    [![Shows the project library window](media/dynamics-365-operations/supplemental-content.png)](media/dynamics-365-operations/supplemental-content.png#lightbox)
+    [ ![Illustrates a zip file uploaded to the Supplemental content page.](./media//dynamics-365-operations/supplemental-content-workspaces.png) ](./media//dynamics-365-operations/supplemental-content-workspaces.png#lightbox)
 
 ## Next steps
 

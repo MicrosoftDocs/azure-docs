@@ -1,14 +1,16 @@
 ---
-title: Process change feed in Azure Blob Storage | Microsoft Docs
+title: Process change feed in Azure Blob Storage
+titleSuffix: Azure Storage
 description: Learn how to process change feed logs in a .NET client application
-author: tamram
+author: normesta
 
-ms.author: tamram
-ms.date: 09/08/2020
+ms.author: normesta
+ms.date: 03/03/2022
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -27,7 +29,6 @@ To learn more about the change feed, see [Change feed in Azure Blob Storage](sto
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
-
 
 ## Read records
 
@@ -214,4 +215,5 @@ The start time that you provide is rounded down to the nearest hour and the end 
 
 ## Next steps
 
-Learn more about change feed logs. See [Change feed in Azure Blob Storage](storage-blob-change-feed.md)
+- [Data protection overview](data-protection-overview.md)
+- [Change feed in Azure Blob Storage](storage-blob-change-feed.md)

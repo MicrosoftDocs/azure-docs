@@ -4,7 +4,7 @@ description: Learn how to create a storage account for use with Azure Data Lake 
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 04/27/2021
+ms.date: 10/14/2021
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
@@ -38,20 +38,17 @@ To create a premium block blob account, select **Premium**. Then, in the **Premi
 
 ## Enable the hierarchical namespace
 
-Unlock Data Lake Storage capabilities by selecting the **enable hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. You must enable this setting when you create the account. You can't enable it afterwards.
+Unlock Data Lake Storage capabilities by selecting the **enable hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. 
 
 The following image shows this setting in the **Create storage account** page.
 
 > [!div class="mx-imgBorder"]
 > ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-If you have an existing storage account that you want to use with Data Lake Storage and the hierarchical namespace setting is disabled, you must migrate the data to a new storage account that has the setting enabled.
-
-> [!NOTE]
-> **Data protection** and hierarchical namespace can't be enabled simultaneously.
+To enable Data Lake Storage capabilities on an existing account, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 ## Next steps
 
 - [Storage account overview](../common/storage-account-overview.md)
-- [Using Azure Data Lake Storage Gen2 for big data requirements](data-lake-storage-data-scenarios.md)
+- [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md)
 - [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

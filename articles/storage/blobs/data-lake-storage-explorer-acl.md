@@ -1,12 +1,12 @@
 ---
 title: 'Storage Explorer: Set ACLs in Azure Data Lake Storage Gen2'
 description: Use the Azure Storage Explorer to manage access control lists (ACLs) in storage accounts that has hierarchical namespace (HNS) enabled.
-author: normesta
+author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/17/2021
-ms.author: normesta
+ms.date: 10/28/2021
+ms.author: jammart
 ms.reviewer: stewu
 ---
 
@@ -26,26 +26,36 @@ This article shows you how to modify the ACL of file or directory and how to app
 
 - Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
+- You must have one of the following security permissions:
+
+  - Your user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account, parent resource group or subscription.
+
+  - You are the owning user of the target container, directory, or blob to which you plan to apply ACL settings.
+
 > [!NOTE]
 > Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
 
 ## Sign in to Storage Explorer
 
-When you first start Storage Explorer, the **Microsoft Azure Storage Explorer - Connect** window appears. While Storage Explorer provides several ways to connect to storage accounts, only one way is currently supported for managing ACLs.
+When you first start Storage Explorer, the **Microsoft Azure Storage Explorer - Connect to Azure Storage** window appears. While Storage Explorer provides several ways to connect to storage accounts, only one way is currently supported for managing ACLs.
 
-|Task|Purpose|
-|---|---|
-|Add an Azure Account | Redirects you to your organization's sign-in page to authenticate you to Azure. Currently this is the only supported authentication method if you want to manage and set ACLs.|
-|Use a connection string or shared access signature URI | Can be used to directly access a container or storage account with a SAS token or a shared connection string. |
-|Use a storage account name and key| Use the storage account name and key of your storage account to connect to Azure storage.|
+In the **Select Resource** panel, select **Subscription**.
 
-Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
+:::image type="content" source="./media/data-lake-storage-explorer-acl/storage-explorer-connect-sml.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Select Resource pane" lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-connect-lrg.png":::
 
-![Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Add an Azure Account option and the Sign in button.](media/quickstart-storage-explorer/storage-explorer-connect.png)
+In the **Select Azure Environment** panel, select an Azure environment to sign in to. You can sign in to global Azure, a national cloud or an Azure Stack instance. Then select **Next**.
 
-When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
+:::image type="content" alt-text="Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Select Azure Environment option." source="./media/data-lake-storage-explorer-acl/storage-explorer-select-sml.png"  lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-select-sml.png":::
 
-![Microsoft Azure Storage Explorer - Connect window](media/quickstart-storage-explorer/storage-explorer-main-page.png)
+Storage Explorer will open a webpage for you to sign in.
+
+After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Open Explorer**.
+
+:::image type="content" alt-text="Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Account Management pane and Open Explorer button." source="./media/data-lake-storage-explorer-acl/storage-explorer-account-panel-sml.png"  lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-account-panel-sml.png":::
+
+When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
+
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - Connect window" source="./media/data-lake-storage-explorer-acl/storage-explorer-main-page-sml.png" lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-main-page-lrg.png":::
 
 ## Manage an ACL
 

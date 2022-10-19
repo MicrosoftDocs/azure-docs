@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Create a Universal Windows Platform (UWP) app that uses the Microsoft identity platform for authentication | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Create a Universal Windows Platform (UWP) app that uses the Microsoft identity platform for authentication"
 description: In this tutorial, you build a UWP application that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: jmprieur
@@ -110,6 +109,7 @@ This section shows how to use the Microsoft Authentication Library to get a toke
     using Microsoft.Graph;
     using System.Diagnostics;
     using System.Threading.Tasks;
+    using System.Net.Http.Headers;
     ```
 
 1. Replace your `MainPage` class with the following code:
@@ -365,7 +365,7 @@ Configure API permissions for your application:
 
 ## Enable integrated authentication on federated domains (optional)
 
-To enable Integrated Windows authentication when it's used with a federated Azure AD domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
+To enable integrated Windows authentication when it's used with a federated Azure AD domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
 
 1. Open *Package.appxmanifest*.
 1. Select **Capabilities**, and enable the following settings:
@@ -375,7 +375,7 @@ To enable Integrated Windows authentication when it's used with a federated Azur
    * **Shared User Certificates**
 
 > [!IMPORTANT]
-> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need Integrated Windows authentication with a federated Azure AD domain.
+> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need integrated Windows authentication with a federated Azure AD domain.
 
 ## Alternate approach to using WithDefaultRedirectURI()
 

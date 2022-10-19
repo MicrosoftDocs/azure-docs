@@ -3,17 +3,16 @@ title: Email notifications in Privileged Identity Management (PIM) - Azure Activ
 description: Describes email notifications in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: mtillman
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 08/24/2021
-ms.author: curtand
-ms.reviewer: hanki
+ms.date: 10/07/2021
+ms.author: amsliu
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---

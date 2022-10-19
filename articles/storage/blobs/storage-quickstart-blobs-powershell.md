@@ -1,21 +1,20 @@
 ---
-title: Quickstart - Create a blob with PowerShell
+title: 'Quickstart: Upload, download, and list blobs - Azure PowerShell'
 titleSuffix: Azure Storage
 description: In this quickstart, you use Azure PowerShell in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: tamram
-
+author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 03/31/2020
-ms.author: tamram 
-ms.custom: devx-track-azurepowershell
+ms.date: 03/31/2022
+ms.author: shaas
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Upload, download, and list blobs with PowerShell
 
-Use the Azure PowerShell module to create and manage Azure resources. Creating or managing Azure resources can be done from the PowerShell command line or in scripts. This guide describes using PowerShell to transfer files between local disk and Azure Blob storage.
+Use the Azure PowerShell module to create and manage Azure resources. You can create or manage Azure resources from the PowerShell command line or in scripts. This guide describes using PowerShell to transfer files between local disk and Azure Blob storage.
 
 ## Prerequisites
 
@@ -35,9 +34,9 @@ Blobs are always uploaded into a container. You can organize groups of blobs lik
 
 Set the container name, then create the container by using [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Set the permissions to `blob` to allow public access of the files. The container name in this example is *quickstartblobs*.
 
-```powershell
-$containerName = "quickstartblobs"
-New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
+```azurepowershell-interactive
+$ContainerName = 'quickstartblobs'
+New-AzStorageContainer -Name $ContainerName -Context $Context -Permission Blob
 ```
 
 ## Upload blobs to the container
@@ -46,35 +45,40 @@ Blob storage supports block blobs, append blobs, and page blobs. VHD files that 
 
 To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). This operation creates the blob if it doesn't exist, or overwrites the blob if it exists.
 
-The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_TestImages* folder on the local disk to the container you created.
+The following examples upload *Image001.jpg* and *Image002.png* from the *D:\Images* folder on the local disk to the container you created.
 
-```powershell
+```azurepowershell-interactive
 # upload a file to the default account (inferred) access tier
-Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
-  -Container $containerName `
-  -Blob "Image001.jpg" `
-  -Context $ctx
-
-# upload a file to the Hot access tier
-Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
-  -Container $containerName `
-  -Blob "Image001.jpg" `
-  -Context $ctx `
-  -StandardBlobTier Hot
-
-# upload another file to the Cool access tier
-Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
-  -Container $containerName `
-  -Blob "Image002.png" `
-  -Context $ctx `
-  -StandardBlobTier Cool
-
+$Blob1HT = @{
+  File             = 'D:\Images\Image001.jpg'
+  Container        = $ContainerName
+  Blob             = "Image001.jpg"
+  Context          = $Context
+  StandardBlobTier = 'Hot'
+}
+Set-AzStorageBlobContent @Blob1HT
+  
+ # upload another file to the Cool access tier
+ $Blob2HT = @{
+  File             = 'D:\Images\Image002.jpg'
+  Container        = $ContainerName
+  Blob             = 'Image002.png'
+  Context          = $Context
+  StandardBlobTier = 'Cool'
+ }
+ Set-AzStorageBlobContent @Blob2HT
+  
 # upload a file to a folder to the Archive access tier
-Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
-  -Container $containerName `
-  -Blob "Foldername/Image003.jpg" `
-  -Context $ctx `
-  -StandardBlobTier Archive
+$Blob3HT = @{
+  File             = 'D:\Images\FolderName\Image003.jpg'
+  Container        = $ContainerName
+  Blob             = 'FolderName/Image003.jpg'
+  Context          = $Context
+  StandardBlobTier = 'Archive'
+}
+Set-AzStorageBlobContent @Blob3HT
+
+
 ```
 
 Upload as many files as you like before continuing.
@@ -83,28 +87,35 @@ Upload as many files as you like before continuing.
 
 Get a list of blobs in the container by using [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). This example shows just the names of the blobs uploaded.
 
-```powershell
-Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
+```azurepowershell-intereactive
+Get-AzStorageBlob -Container $ContainerName -Context $Context |
+  Select-Object -Property Name
 ```
 
 ## Download blobs
 
 Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) to download the blob.
 
-This example downloads the blobs to *D:\\_TestImages\Downloads* on the local disk.
+This example downloads the blobs to *D:\Images\Downloads* on the local disk.
 
 ```powershell
-# download first blob
-Get-AzStorageBlobContent -Blob "Image001.jpg" `
-  -Container $containerName `
-  -Destination "D:\_TestImages\Downloads\" `
-  -Context $ctx
+# Download first blob
+$DLBlob1HT = @{
+  Blob        = 'Image001.jpg'
+  Container   = $ContainerName
+  Destination = 'D:\Images\Downloads\'
+  Context     = $Context
+}
+Get-AzStorageBlobContent @DLBlob1HT
 
-# download another blob
-Get-AzStorageBlobContent -Blob "Image002.png" `
-  -Container $containerName `
-  -Destination "D:\_TestImages\Downloads\" `
-  -Context $ctx
+# Download another blob
+$DLBlob2HT = @{
+  Blob        = 'Image002.png'
+  Container   = $ContainerName
+  Destination = 'D:\Images\Downloads\'
+  Context     = $Context  
+}
+Get-AzStorageBlobContent @DLBlob2HT
 ```
 
 ## Data transfer with AzCopy
@@ -115,20 +126,23 @@ The following example uses AzCopy to upload a local file to a blob. Remember to 
 
 ```powershell
 azcopy login
-azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
+azcopy copy 'D:\Images\Image001.jpg' "https://$StorageAccountName.blob.core.windows.net/$ContainerName/NewGaphic.jpg"
 ```
 
 ## Clean up resources
 
 Remove all of the assets you've created. The easiest way to remove the assets is to delete the resource group. Removing the resource group also deletes all resources included within the group. In the following example, removing the resource group removes the storage account and the resource group itself.
 
-```powershell
-Remove-AzResourceGroup -Name $resourceGroup
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $ResourceGroup 
 ```
 
 ## Next steps
 
-In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, explore Azure PowerShell samples for Blob storage.
+In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, select an option below.
+
+> [!div class="nextstepaction"]
+> [Manage block blobs with PowerShell](blob-powershell.md)
 
 > [!div class="nextstepaction"]
 > [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -7,13 +7,15 @@ ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.date: 11/08/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurepowershell
-
+ms.custom: mimckitt, devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create a virtual machine scale set with Azure PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
+> [!NOTE]
+> The following article is for Uniform virtual machine scale sets. We recommend using Flexible virtual machine scale sets for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
 
 A virtual machine scale set allows you to deploy and manage a set of autoscaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with Azure PowerShell.
 

@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2021
+ms.date: 09/23/2021
 ---
 
 # How to get featured in Microsoft AppSource and Azure Marketplace
 
 Azure Marketplace and AppSource have **featured apps** sections, where you can get your app featured:
 
-* First, if you have a TRIAL, CONSULTING or TRANSACTION offer, you may be eligible for the **Commercial marketplace featured category placement benefit** through [commercial marketplace benefits](./gtm-your-marketplace-benefits.md). Once eligible, your commercial marketplace listing will automatically be featured in one of the categories found on the left-hand side of your listing. The category and timing of your featured placement will be based on availability. In order to make your marketplace listing even more robust, check out this video on [Best practices for optimizing your listing (microsoft.com)](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4).
+* First, if you have a CONSULTING or TRANSACTION offer, you may be eligible for the **Commercial marketplace featured category placement benefit** through [commercial marketplace benefits](./gtm-your-marketplace-benefits.md). Once eligible, your commercial marketplace listing will automatically be featured in one of the categories found on the left-hand side of your listing. The category and timing of your featured placement will be based on availability. In order to make your marketplace listing even more robust, check out this video on [Best practices for optimizing your listing (microsoft.com)](https://partner.microsoft.com/asset/detail/best-practices-for-optimizing-your-listing-mp4).
 * Second, review the list of best practices and criteria below to earn a spot.
 
 The featured apps selection algorithm generates a score to an app by Microsoft, just like a person's credit score in the US.  The weekly selection of featured apps will be based on a calculation of app and service performance.

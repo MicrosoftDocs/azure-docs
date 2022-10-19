@@ -6,11 +6,16 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 09/10/2021
+ms.date: 06/03/2022
 ms.author: rabhaiya
 ---
 
 # Receive device data through Azure IoT Hub
+
+> [!IMPORTANT]
+> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and replaced with the [MedTech service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md) for enhanced service quality and functionality.
+> 
+> All new users are directed to deploy and use the MedTech service feature within the Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md).
 
 Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into Azure API for FHIR. The [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) to Azure IoT Connector for FHIR. Azure IoT Connector for FHIR can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to Azure IoT Connector for FHIR.
 
@@ -41,7 +46,7 @@ Setting up a message routing consists of two steps.
 ### Add an endpoint
 This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint) CLI command, based on your preference.
 
-Here is the list of parameters to use with the command to create an endpoint:
+Here's the list of parameters to use with the command to create an endpoint:
 
 |PowerShell Parameter|CLI Parameter|Description|
 |---|---|---|
@@ -49,20 +54,20 @@ Here is the list of parameters to use with the command to create an endpoint:
 |Name|hub-name|Name of your IoT Hub resource.|
 |EndpointName|endpoint-name|Use a name that you would like to assign to the endpoint being created.|
 |EndpointType|endpoint-type|Type of endpoint that IoT Hub needs to connect with. Use literal value of "EventHub" for PowerShell and "eventhub" for CLI.|
-|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
-|EndpointSubscriptionId|endpoint-subscription-id|Subscription ID for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
+|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for the FHIR Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
+|EndpointSubscriptionId|endpoint-subscription-id|Subscription ID for your Azure IoT Connector for the FHIR Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
 |ConnectionString|connection-string|Connection string to your Azure IoT Connector for FHIR. Use the value you obtained in the previous step.|
 
 ### Add a message route
-This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az_iot_hub_route_create) CLI command, based on your preference.
+This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI command, based on your preference.
 
-Here is the list of parameters to use with the command to add a message route:
+Here's the list of parameters to use with the command to add a message route:
 
 |PowerShell Parameter|CLI Parameter|Description|
 |---|---|---|
 |ResourceGroupName|g|Resource group name of your IoT Hub resource.|
 |Name|hub-name|Name of your IoT Hub resource.|
-|EndpointName|endpoint-name|Name of the endpoint you have created above.|
+|EndpointName|endpoint-name|Name of the endpoint you've created above.|
 |RouteName|route-name|A name you want to assign to message route being created.|
 |Source|source-type|Type of data to send to the endpoint. Use literal value of "DeviceMessages" for PowerShell and "devicemessages" for CLI.|
 
@@ -88,7 +93,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR using Postman. For more information, see [Access the FHIR service using Postman](./../use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with the heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR using Postman. For more information, see [Access the FHIR service using Postman](./../fhir/use-postman.md), and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with the heart rate value submitted in the above sample message.
 
 > [!TIP]
 > Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.
@@ -108,4 +113,4 @@ Learn how to configure IoT Connector using device and FHIR mapping templates.
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR mapping templates](iot-mapping-templates.md)
 
-*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

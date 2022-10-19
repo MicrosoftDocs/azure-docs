@@ -44,6 +44,8 @@ To configure the integration of SAP Business ByDesign into Azure AD, you need to
 1. In the **Add from the gallery** section, type **SAP Business ByDesign** in the search box.
 1. Select **SAP Business ByDesign** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO
 
 Configure and test Azure AD SSO with SAP Business ByDesign using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SAP Business ByDesign.
@@ -192,4 +194,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-* Once you configure the SAP Business ByDesign you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the SAP Business ByDesign you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

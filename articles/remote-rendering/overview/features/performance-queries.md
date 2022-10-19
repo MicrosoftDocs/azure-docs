@@ -18,7 +18,7 @@ Client-side application performance might be a bottleneck, too. For an in-depth 
 
 ## Client/server timeline
 
-Before going into detail regarding the various latency values, it is worthwhile to have a look at the synchronization points between client and server on the timeline:
+Before going into detail regarding the various latency values, it's worthwhile to have a look at the synchronization points between client and server on the timeline:
 
 ![Pipeline timeline](./media/server-client-timeline.png)
 
@@ -66,7 +66,7 @@ The retrieved `FrameStatistics` object holds the following members:
 | VideoFramesReceived | The number of frames received from the server in the last second. |
 | VideoFrameReusedCount | Number of received frames in the last second that were used on the device more than once. Non-zero values indicate that frames had to be reused and reprojected either due to network jitter or excessive server rendering time. |
 | VideoFramesSkipped | Number of received frames in the last second that were decoded, but not shown on display because a newer frame has arrived. Non-zero values indicate that network jittering caused multiple frames to be delayed and then arrive on the client device together in a burst. |
-| VideoFramesDiscarded | Very similar to **VideoFramesSkipped**, but the reason for being discarded is that a frame came in so late that it can't even be correlated with any pending pose anymore. If this discarding happens, there is some severe network contention.|
+| VideoFramesDiscarded | Very similar to **VideoFramesSkipped**, but the reason for being discarded is that a frame came in so late that it can't even be correlated with any pending pose anymore. If this discarding happens, there's some severe network contention.|
 | VideoFrameMinDelta | Minimum amount of time between two consecutive frames arriving during the last second. Together with VideoFrameMaxDelta, this range gives an indication of jitter caused either by the network or video codec. |
 | VideoFrameMaxDelta | Maximum amount of time between two consecutive frames arriving during the last second. Together with VideoFrameMinDelta, this range gives an indication of jitter caused either by the network or video codec. |
 
@@ -76,7 +76,7 @@ The sum of all latency values is typically much larger than the available frame 
 
 Lastly,`TimeSinceLastPresent`, `VideoFrameMinDelta`, and `VideoFrameMaxDelta` give an idea of the variance of incoming video frames and local present calls. High variance means instable frame rate.
 
-None of the values above gives clear indication of pure network latency (the red arrows in the illustration), because the exact time that the server is busy rendering needs to be subtracted from the roundtrip value `LatencyPoseToReceive`. The server-side portion of the overall latency is information that is unavailable to the client. However, the next paragraph explains how this value is approximated through additional input from the server and exposed through the `NetworkLatency` value.
+None of the values above gives clear indication of pure network latency (the red arrows in the illustration), because the exact time that the server is busy rendering needs to be subtracted from the roundtrip value `LatencyPoseToReceive`. The server-side portion of the overall latency is information that is unavailable to the client. However, the next paragraph explains how this value is approximated through extra input from the server and exposed through the `NetworkLatency` value.
 
 ## Performance assessment queries
 
@@ -118,11 +118,12 @@ Contrary to the `FrameStatistics` object, the `PerformanceAssessment` object con
 | UtilizationGPU | Total server GPU utilization in percent |
 | MemoryCPU | Total server main memory utilization in percent |
 | MemoryGPU | Total dedicated video memory utilization in percent of the server GPU |
-| NetworkLatency | The approximate average roundtrip network latency in milliseconds. In the illustration above, this value corresponds to the sum of the red arrows. The value is computed by subtracting actual server rendering time from the `LatencyPoseToReceive` value of `FrameStatistics`. While this approximation is not accurate, it gives some indication of the network latency, isolated from the latency values computed on the client. |
-| PolygonsRendered | The number of triangles rendered in one frame. This number also includes the triangles that are culled later during rendering. That means, this number does not vary a lot across different camera positions, but performance can vary drastically, depending on the triangle culling rate.|
+| NetworkLatency | The approximate average roundtrip network latency in milliseconds. In the illustration above, this value corresponds to the sum of the red arrows. The value is computed by subtracting actual server rendering time from the `LatencyPoseToReceive` value of `FrameStatistics`. While this approximation isn't accurate, it gives some indication of the network latency, isolated from the latency values computed on the client. |
+| PolygonsRendered | The number of triangles rendered in one frame. This number also includes the triangles that are culled later during rendering. That means, this number doesn't vary a lot across different camera positions, but performance can vary drastically, depending on the triangle culling rate.|
+| PointsRendered | The number of points in point clouds rendered in one frame. Same culling criteria as mentioned above for `PolygonsRendered` apply here.|
 
 To help you assess the values, each portion comes with a quality classification like **Great**, **Good**, **Mediocre**, or **Bad**.
-This assessment metric provides a rough indication of the server's health, but it should not be seen as absolute. For example, assume you see a 'mediocre' score for the GPU time. It is considered mediocre because it gets close to the limit for the overall frame time budget. In your case however, it might be a good value nonetheless, because you are rendering a complex model.
+This assessment metric provides a rough indication of the server's health, but it shouldn't be seen as absolute. For example, assume you see a 'mediocre' score for the GPU time. It's considered mediocre because it gets close to the limit for the overall frame time budget. In your case however, it might be a good value nonetheless, because you're rendering a complex model.
 
 ## Statistics debug output
 

@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -56,7 +57,7 @@ public static void Main(string[] args)
 
         // Uncomment the following line to enable downloading of files from the storage account.
         // This is commented out initially to support the tutorial at 
-        // https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
+        // https://learn.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
         await DownloadFilesAsync();
     }
     catch (Exception ex)
@@ -68,7 +69,7 @@ public static void Main(string[] args)
     {
         // The following function will delete the container and all files contained in them.
         // This is commented out initially as the tutorial at 
-        // https://docs.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
+        // https://learn.microsoft.com/azure/storage/blobs/storage-blob-scalable-app-download-files
         // has you upload only for one tutorial and download for the other.
         if (!exception)
         {

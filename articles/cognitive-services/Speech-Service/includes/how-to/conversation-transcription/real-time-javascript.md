@@ -1,26 +1,26 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/20/2020
-ms.author: pafarley
+ms.date: 01/24/2022
+ms.author: eur
 ---
 
-## Install the Speech SDK
+## Prerequisites
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser </a>
+## Set up the environment
+
+Before you can do anything, you need to install the Speech SDK for JavaScript. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript).
 
 ## Create voice signatures
 
-(You can skip this step if you do not want to use pre-enrolled user profiles to identify specific participants.)
+If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. This isn't required if you don't want to use pre-enrolled user profiles to identify specific participants.
 
-If you want to enroll user profiles, the first step is to create voice signatures for the conversation participants so that they can be identified as unique speakers. The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between thirty seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of **one person's** voice so that a unique voice profile is created.
+The input `.wav` audio file for creating voice signatures must be 16-bit, 16 kHz sample rate, in single channel (mono) format. The recommended length for each audio sample is between 30 seconds and two minutes. An audio sample that is too short will result in reduced accuracy when recognizing the speaker. The `.wav` file should be a sample of one person's voice so that a unique voice profile is created.
 
-The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in JavaScript. Note that you need to substitute real information for your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
+The following example shows how to create a voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in JavaScript. You must insert your `subscriptionKey`, `region`, and the path to a sample `.wav` file.
 
 ```javascript
 const fs = require('fs');
@@ -60,7 +60,7 @@ Running this script returns a voice signature string in the variable `voiceSigna
 
 The following sample code demonstrates how to transcribe conversations in real time for two speakers. It assumes you've already created voice signature strings for each speaker as shown above. Substitute real information for `subscriptionKey`, `region`, and the path `filepath` for the audio you want to transcribe.
 
-If you do not use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
+If you don't use pre-enrolled user profiles, it will take a few more seconds to complete the first recognition of unknown users as speaker1, speaker2, etc.
 
 > [!NOTE]
 > Make sure the same `subscriptionKey` is used across your application for signature creation, or you will encounter errors. 
@@ -72,6 +72,7 @@ This sample code does the following:
 * Creates a `ConversationTranscriber` using the constructor.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above.
 * Registers to events and begins transcription.
+* If you want to differentiate speakers without providing voice samples, please enable `DifferentiateGuestSpeakers` feature as in [Conversation Transcription Overview](../../../conversation-transcription.md). 
 
 ```javascript
 (function() {
@@ -83,16 +84,11 @@ This sample code does the following:
     var region = "your-region";
     var filepath = "audio-file-to-transcribe.wav"; // 8-channel audio
     
-    // create the push stream and write file to it
-    var pushStream = sdk.AudioInputStream.createPushStream();
-    fs.createReadStream(filepath).on('data', function(arrayBuffer) {
-        pushStream.write(arrayBuffer.slice());
-    }).on('end', function() {
-        pushStream.close();
-    });
-    
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
-    var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    var audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(filepath));
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber
@@ -144,3 +140,7 @@ This sample code does the following:
     });
 }()); 
 ```
+
+See more samples on GitHub:
+- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
+- [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)

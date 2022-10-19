@@ -1,6 +1,6 @@
 ---
 title: Install `arcdata` extension
-description: Install the `arcdata` extension for Azure (az) CLI
+description: Install the `arcdata` extension for Azure (`az`) CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -42,4 +42,4 @@ az extension update --name arcdata
 
 ## Next steps
 
-[Create the Azure Arc data controller](create-data-controller.md)
+[Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

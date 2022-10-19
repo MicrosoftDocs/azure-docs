@@ -2,7 +2,11 @@
 title: Serverless containers in Azure
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 ms.topic: overview
-ms.date: 03/22/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: "seodec18, mvc"
 ---
 
@@ -59,7 +63,7 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-For Windows container deployments, use images based on common [Windows base images](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
+For Windows container deployments, use images based on common [Windows base images](./container-instances-faq.yml#what-windows-base-os-images-are-supported-).
 
 ## Co-scheduled groups
 

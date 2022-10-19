@@ -4,11 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Ping Identity
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -177,12 +178,12 @@ Follow these steps to create identity mapping:
 5. In the **Attribute-Mapping** table, specify the required mappings. For example,
 
    Attribute name | Header name |
-   |-------|--------|
-   |upn | x-userprinciplename |
-   |email   |    x-email  |
-   |oid   | x-oid  |
-   |scp   |     x-scope |
-   |amr    |    x-amr    |
+   |---|---|
+   | 'upn' | x-userprincipalname |
+   | 'email' | x-email |
+   | 'oid' | x-oid |
+   | 'scp' | x-scope |
+   | 'amr' | x-amr |
 
 6. Select **Save**
 

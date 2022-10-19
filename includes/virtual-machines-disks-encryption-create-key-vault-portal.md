@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/25/2021
+ ms.date: 06/16/2022
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -19,7 +19,7 @@ Setting up customer-managed keys for your disks will require you to create resou
     [![Screenshot of the Azure portal with the search dialog box expanded.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
-    > Your Azure key vault, disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed.
+    > Your disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed. Azure Key Vaults may be used from a different subscription but must be in the same region and tenant as your disk encryption set.
 
 1. Select **+Create** to create a new Key Vault.
 1. Create a new resource group.
@@ -67,3 +67,11 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 1. Select **Review + Create** and then **Create**.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="Screenshot of the disk encryption creation pane. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::
+
+1. Navigate to the disk encryption set once it is deployed, and select the displayed alert.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png" alt-text="Screenshot of user selecting the 'To associate a disk, image, or snapshot with this disk encryption set, you must grant permissions to the key vault' alert." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png":::
+
+1. This will grant your key vault permissions to the disk encryption set.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png" alt-text="Screenshot of confirmation that permissions have been granted." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png":::

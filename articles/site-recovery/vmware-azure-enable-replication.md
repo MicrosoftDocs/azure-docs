@@ -1,11 +1,11 @@
 ---
 title: Enable VMware VMs for disaster recovery using Azure Site Recovery
 description: This article describes how to enable VMware VM replication for disaster recovery using the Azure Site Recovery service
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.date: 05/27/2021
 ---
 
@@ -26,7 +26,7 @@ This article assumes that your system meets the following criteria:
 
 ### Resolve common issues
 
-- Each disk should be smaller than 4 TB.
+- Each disk should be smaller than 4 TB when replicating to unmanaged disks and smaller than 32 TB when replicating to managed disks.
 - The operating system disk should be a basic disk, not a dynamic disk.
 - For generation 2 UEFI-enabled virtual machines, the operating system family should be Windows, and the boot disk should be smaller than 300 GB.
 

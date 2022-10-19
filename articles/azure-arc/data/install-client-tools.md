@@ -20,7 +20,7 @@ This article points you to resources to install the tools to manage Azure Arc-en
 >
 > [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)] 
 
-The [`arcdata` extension for Azure CLI (`az`)](reference/reference-az-arcdata-dc.md) replaces `azdata` for Azure Arc-enabled data services.
+The [`arcdata` extension for Azure CLI (`az`)](about-arcdata-extension.md) replaces `azdata` for Azure Arc-enabled data services.
 
 ## Tools for creating and managing Azure Arc-enabled data services
 
@@ -33,9 +33,9 @@ The following table lists common tools required for creating and managing Azure 
 | Azure Data Studio | Yes | Rich experience tool for connecting to and querying a variety of databases including Azure SQL, SQL Server, PostrgreSQL, and MySQL. Extensions to Azure Data Studio provide an administration experience for Azure Arc-enabled data services. | [Install](/sql/azure-data-studio/download-azure-data-studio) |
 | Azure Arc extension for Azure Data Studio | Yes | Extension for Azure Data Studio that provides a management experience for Azure Arc-enabled data services.| Install from the extensions gallery in Azure Data Studio.|
 | PostgreSQL extension in Azure Data Studio | No | PostgreSQL extension for Azure Data Studio that provides management capabilities for PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Install from extensions gallery in Azure Data Studio.|
-| Kubernetes CLI (kubectl)<sup>2</sup> | Yes | Command-line tool for managing the Kubernetes cluster ([More info](https://kubernetes.io/docs/tasks/tools/install-kubectl/)). | [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |
-| curl <sup>3</sup> | Required for some sample scripts. | Command-line tool for transferring data with URLs. | [Windows](https://curl.haxx.se/windows/) \| Linux: install curl package |
-| oc | Required for Red Hat OpenShift and Azure Redhat OpenShift deployments. |`oc` is the Open Shift command line interface (CLI). | [Installing the CLI](https://docs.openshift.com/container-platform/4.6/cli_reference/openshift_cli/getting-started-cli.html#installing-the-cli)
+| Kubernetes CLI (kubectl)<sup>2</sup> | Yes | Command-line tool for managing the Kubernetes cluster ([More info](https://kubernetes.io/docs/tasks/tools/install-kubectl/)). | [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) \| [macOS](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/) |
+| `curl` <sup>3</sup> | Required for some sample scripts. | Command-line tool for transferring data with URLs. | [Windows](https://curl.haxx.se/windows/) \| Linux: install curl package |
+| `oc` | Required for Red Hat OpenShift and Azure Redhat OpenShift deployments. |`oc` is the Open Shift command line interface (CLI). | [Installing the CLI](https://docs.openshift.com/container-platform/4.6/cli_reference/openshift_cli/getting-started-cli.html#installing-the-cli)
 
 
 
@@ -43,8 +43,8 @@ The following table lists common tools required for creating and managing Azure 
 
 <sup>2</sup> You must use `kubectl` version 1.19 or later. Also, the version of `kubectl` should be plus or minus one minor version of your Kubernetes cluster. If you want to install a specific version on `kubectl` client, see [Install `kubectl` binary via curl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl) (on Windows 10, use cmd.exe and not Windows PowerShell to run curl).
 
-<sup>3</sup> If you are using PowerShell, curl is an alias to the Invoke-WebRequest cmdlet.
+<sup>3</sup> For PowerShell, `curl` is an alias to the Invoke-WebRequest cmdlet.
 
 ## Next steps
 
-[Create the Azure Arc data controller](create-data-controller.md)
+[Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

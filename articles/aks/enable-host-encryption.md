@@ -4,15 +4,19 @@ description: Learn how to configure a host-based encryption in an Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 04/26/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 
 ---
 
 # Host-based encryption on Azure Kubernetes Service (AKS)
 
-With host-based encryption, the data stored on the VM host of your AKS agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. This means the temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on those disks. By default, when using AKS, OS and data disks are encrypted at rest with platform-managed keys, meaning that the caches for these disks are also by default encrypted at rest with platform-managed keys.  You can specify your own managed keys following [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service](azure-disk-customer-managed-keys.md). The cache for these disks will then also be encrypted using the key that you specify in this step.
+With host-based encryption, the data stored on the VM host of your AKS agent nodes' VMs is encrypted at rest and flows encrypted to the Storage service. This means the temp disks are encrypted at rest with platform-managed keys. The cache of OS and data disks is encrypted at rest with either platform-managed keys or customer-managed keys depending on the encryption type set on those disks. 
 
+By default, when using AKS, OS and data disks use server-side encryption with platform-managed keys. The caches for these disks are also encrypted at rest with platform-managed keys. You can specify your own managed keys following [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service](azure-disk-customer-managed-keys.md). The cache for these disks will then also be encrypted using the key that you specify in this step.
+
+Host-based encryption is different than server-side encryption (SSE), which is used by Azure Storage. Azure-managed disks use Azure Storage to automatically encrypt data at rest when saving data. Host-based encryption uses the host of the VM to handle encryption before the data flows through Azure Storage.
 
 ## Before you begin
 
@@ -26,7 +30,7 @@ This feature can only be set at cluster creation or node pool creation time.
 - Ensure you have the CLI extension v2.23 or higher version installed.
 - Ensure you have the `EncryptionAtHost` feature flag under `Microsoft.Compute` enabled.
 
-### Register `EncryptionAtHost`  preview features
+### Register `EncryptionAtHost` feature
 
 To create an AKS cluster that uses host-based encryption, you must enable the `EncryptionAtHost` feature flags on your subscription.
 

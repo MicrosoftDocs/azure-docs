@@ -2,8 +2,8 @@
 title: Use Azure Policy to secure your cluster
 description: Use Azure Policy to secure an Azure Kubernetes Service (AKS) cluster.
 ms.service: container-service
-ms.topic: how-to 
-ms.date: 09/01/2021
+ms.topic: how-to
+ms.date: 09/12/2022
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ This article shows you how to apply policy definitions to your cluster and verif
 
 ## Prerequisites
 
-- An existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+- This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 - The Azure Policy Add-on for AKS installed on an AKS cluster. Follow these [steps to install the Azure Policy Add-on][azure-policy-addon].
 
 ## Assign a built-in policy definition or initiative
@@ -31,9 +31,7 @@ To apply a policy definition or initiative, use the Azure portal.
 1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative. You can also add additional namespaces to exclude from evaluation. For this example, keep the default values.
 1. Select **Review + create** then **Create** to submit the policy assignment.
 
-## Create and assign a custom policy definition (preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Create and assign a custom policy definition
 
 Custom policies allow you to define rules for using Azure. For example, you can enforce:
 - Security practices
@@ -47,7 +45,7 @@ Custom policy definitions are written in JSON. To learn more about creating a cu
 > [!NOTE]
 > Azure Policy now utilizes a new property known as *templateInfo* that allows users to define the source type for the constraint template. By defining *templateInfo* in policy definitions, users don’t have to define *constraintTemplate* or *constraint* properties. Users still need to define *apiGroups* and *kinds*. For more information on this, see [Understanding Azure Policy effects][azure-policy-effects-audit].
 
-Once your custom policy definition has been created, see [Assign a policy definition][azure-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
+Once your custom policy definition has been created, see [Assign a policy definition][custom-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
 
 ## Validate a Azure Policy is running
 
@@ -108,7 +106,7 @@ kubectl apply -f nginx-privileged.yaml
 As expected the pod fails to be scheduled, as shown in the following example output:
 
 ```console
-$ kubectl apply -f privileged.yaml
+$ kubectl apply -f nginx-privileged.yaml
 
 Error from server ([denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}): error when creating "privileged.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}
 ```
@@ -182,8 +180,9 @@ For more information about how Azure Policy works:
 
 <!-- LINKS - internal -->
 [aks-policies]: policy-reference.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [azure-policy]: ../governance/policy/overview.md
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks

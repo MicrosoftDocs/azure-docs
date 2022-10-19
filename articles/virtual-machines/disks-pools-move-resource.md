@@ -4,9 +4,10 @@ description: Learn how to move an Azure disk pool to a different subscription.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: ignite-fall-2021
 ---
 
 # Move a disk pool (preview) to a different subscription

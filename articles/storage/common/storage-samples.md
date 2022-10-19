@@ -1,9 +1,8 @@
 ---
 title: Azure Storage code samples | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Python, Node.js, Azure CLI, and C++ storage client libraries.
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
@@ -47,9 +46,9 @@ To explore the Node.js samples, download the [Node.js Storage Client Library](ht
 
 To explore the C++ samples, get the [Azure Storage Client Library for C++](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage) from GitHub.
 
-- [Get started with Azure Blobs](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
-- [Get started with Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
-- [Get started with Azure Files](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
+- [Get started with Azure Blobs](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp)
+- [Get started with Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp)
+- [Get started with Azure Files](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp)
 
 ## Azure CLI
 
@@ -57,7 +56,6 @@ To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/insta
 
 - [Get started with the Azure CLI](/cli/azure/get-started-with-azure-cli)
 - [Azure Storage samples using the Azure CLI](../blobs/storage-samples-blobs-cli.md)
-- [Popular articles on using the Azure CLI with Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## API reference and source code
 

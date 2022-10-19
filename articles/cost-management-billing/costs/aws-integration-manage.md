@@ -1,5 +1,6 @@
 ---
-title: Manage AWS costs and usage in Azure Cost Management
+title: Manage AWS costs and usage in Cost Management
+titleSuffix: Microsoft Cost Management
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders
@@ -13,7 +14,7 @@ ms.custom:
 
 # Manage AWS costs and usage in Azure
 
-After you've set up and configured AWS Cost and Usage report integration for Azure Cost Management, you're ready to start managing your AWS costs and usage. This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
+After you've set up and configured AWS Cost and Usage report integration for Cost Management, you're ready to start managing your AWS costs and usage. This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 
 If you haven't already configured the integration, see [Set up and configure AWS Usage report integration](aws-integration-set-up-configure.md).
 
@@ -146,7 +147,7 @@ This error means that Cost Management is unable to call the AWS AssumeRole API. 
 
 **Error code:** _AccessDeniedReportDefinitions_
 
-This error means that Cost Management is unable to see the Cost and Usage report definitions. This permission is used to validate that the CUR is defined as expected by Azure Cost Management. See [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+This error means that Cost Management is unable to see the Cost and Usage report definitions. This permission is used to validate that the CUR is defined as expected by Cost Management. See [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
 
 ### Collection failed with Access Denied - List reports
 

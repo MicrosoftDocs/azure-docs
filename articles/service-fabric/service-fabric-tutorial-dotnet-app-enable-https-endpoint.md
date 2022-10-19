@@ -1,11 +1,14 @@
 ---
 title: Add an HTTPS endpoint using Kestrel
 description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service using Kestrel and deploy the application to a cluster.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Add an HTTPS endpoint to an ASP.NET Core Web API front-end service using Kestrel
 
 This tutorial is part three of a series.  You will learn how to enable HTTPS in an ASP.NET Core service running on Service Fabric. When you're finished, you have a voting application with an HTTPS-enabled ASP.NET Core web front-end listening on port 443. If you don't want to manually create the voting application in [Build a .NET Service Fabric application](service-fabric-tutorial-deploy-app-to-party-cluster.md), you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application.
@@ -265,6 +268,13 @@ if ($cert -eq $null)
     $keyName=$cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
 
     $keyPath = "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\"
+
+    if ($keyName -eq $null){
+      $privateKey = [System.Security.Cryptography.X509Certificates.RSACertificateExtensions]::GetRSAPrivateKey($cert)      
+      $keyName = $privateKey.Key.UniqueName
+      $keyPath = "C:\ProgramData\Microsoft\Crypto\Keys"
+    }
+
     $fullPath=$keyPath+$keyName
     $acl=(Get-Item $fullPath).GetAccessControl('Access')
 
@@ -361,7 +371,7 @@ First, export the certificate to a PFX file. Open the certlm.msc application and
 
 In the export wizard, choose **Yes, export the private key** and choose the Personal Information Exchange (PFX) format.  Export the file to *C:\Users\sfuser\votingappcert.pfx*.
 
-Next, install the certificate on the remote cluster using [these provided Powershell scripts](./scripts/service-fabric-powershell-add-application-certificate.md).
+Next, install the certificate on the remote cluster using [these provided PowerShell scripts](./scripts/service-fabric-powershell-add-application-certificate.md).
 
 > [!Warning]
 > A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.

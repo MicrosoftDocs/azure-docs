@@ -3,12 +3,12 @@ title: Add Azure role assignment conditions using Azure Resource Manager templat
 description: Learn how to add attribute-based access control (ABAC) conditions in Azure role assignments using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/29/2021
+ms.date: 10/19/2022
 ms.author: rolyon
 ---
 
@@ -23,7 +23,13 @@ An [Azure role assignment condition](conditions-overview.md) is an additional ch
 
 ## Prerequisites
 
-For information about the prerequisites to add role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
+You must use the following versions:
+
+- `2020-03-01-preview` or later
+- `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
+- `2022-04-01` is the first stable version
+
+For more information about the prerequisites to add role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
 ## Add a condition
 
@@ -66,7 +72,7 @@ To use the template, you must specify the following input:
         {
             "name": "[parameters('roleAssignmentGuid')]",
             "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2020-04-01-preview", // API version to call the role assignment PUT.
+            "apiVersion": "2022-04-01", // API version to call the role assignment PUT.
             "properties": {
                 "roleDefinitionId": "[variables('StorageBlobDataReader')]",
                 "principalId": "[parameters('principalId')]",
@@ -80,7 +86,7 @@ To use the template, you must specify the following input:
 }
 ```
 
-The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) commands for how to start the deployment at a resource group scope.
+The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) commands for how to start the deployment at a resource group scope.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName example-group -TemplateFile rbac-test.json -principalId $principalId -principalType "User"
@@ -92,6 +98,6 @@ az deployment group create --resource-group example-group --template-file rbac-t
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
 - [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
 - [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md)

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
+ms.date: 08/05/2022
 ---
 
 # Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure 
@@ -107,7 +107,7 @@ The preceding diagram can be interpreted as follows:
    
    - You can also use [service principal](./connector-azure-sql-data-warehouse.md#service-principal-authentication) or [SQL authentication](./connector-azure-sql-data-warehouse.md#sql-authentication).
 
-- When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) to make it easier to centrally manage and rotate keys without having to modify Azure Data Factory linked services. This is also one of the [best practices for CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
+- When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) to make it easier to centrally manage and rotate keys without having to modify Azure Data Factory linked services. This is also one of the [best practices for CI/CD](./continuous-integration-delivery.md#best-practices-for-cicd). 
 
 ### Migrate initial snapshot data 
 

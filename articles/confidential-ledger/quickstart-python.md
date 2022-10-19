@@ -1,23 +1,23 @@
 ---
-title: Quickstart – Microsoft Azure Confidential Ledger Python client library
-description: Learn to use the Microsoft Azure Confidential Ledger client library for Python
+title: Quickstart – Microsoft Azure confidential ledger Python client library
+description: Learn to use the Microsoft Azure confidential ledger client library for Python
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: "devx-track-python, devx-track-azurepowershell"
+ms.custom: devx-track-python, devx-track-azurepowershell, mode-api
 ---
 
-# Quickstart: Microsoft Azure Confidential Ledger client library for Python
+# Quickstart: Microsoft Azure confidential ledger client library for Python
 
-Get started with the Microsoft Azure Confidential Ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Microsoft Azure confidential ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
-Microsoft Azure Confidential Ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
+Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
+[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-confidentialledger/latest/azure.confidentialledger.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
 
 ## Prerequisites
 
@@ -43,13 +43,13 @@ Install the Azure Active Directory identity client library:
 pip install azure-identity
 ```
 
-Install the Confidential Ledger control plane client library.
+Install the Azure confidential ledger control plane client library.
 
 ```terminal
 pip install azure.mgmt.confidentialledger
 ```
 
-Install the Confidential Ledger data plane client library.
+Install the Azure confidential ledger data plane client library.
 
 ```terminal
 pip install azure.confidentialledger 
@@ -63,11 +63,11 @@ pip install azure.confidentialledger
 
 [!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
 
-## Create your python app
+## Create your Python app
 
 ### Initialization
 
-We can now start writing our python application.  First, we'll import the required packages.
+We can now start writing our Python application.  First, we'll import the required packages.
 
 ```python
 # Import the Azure authentication library
@@ -82,7 +82,7 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 # import the data plane sdk
 
 from azure.confidentialledger import ConfidentialLedgerClient
-from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient
 ```
 
 Next, we'll use the [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate the app.
@@ -94,7 +94,7 @@ credential = DefaultAzureCredential()
 We'll finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
-  > Each ledger must have a globally unique name. Replace \<your-unique-keyvault-name\> with the name of your ledger in the following example.
+  > Each ledger must have a globally unique name. Replace \<your-unique-ledger-name\> with the name of your ledger in the following example.
 
 ```python
 resource_group = "myResourceGroup"
@@ -156,10 +156,10 @@ print (f"- ID: {myledger.id}")
 
 Now that we have a ledger, we'll interact with it using the data plane client library (azure.confidentialledger). 
 
-First, we will generate and save a Confidential Ledger certificate.  
+First, we will generate and save a confidential ledger certificate.  
 
 ```python
-identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
+identity_client = ConfidentialLedgerCertificateClient(identity_url)
 network_identity = identity_client.get_ledger_identity(
      ledger_id=ledger_name
 )
@@ -169,7 +169,7 @@ with open(ledger_tls_cert_file_name, "w") as cert_file:
     cert_file.write(network_identity.ledger_tls_certificate)
 ```
 
-Now we can use the network certificate, along with the ledger URL and our credentials, to create a Confidential Ledger client.
+Now we can use the network certificate, along with the ledger URL and our credentials, to create a confidential ledger client.
 
 ```python
 ledger_client = ConfidentialLedgerClient(
@@ -179,18 +179,18 @@ ledger_client = ConfidentialLedgerClient(
 )
 ```
 
-We are prepared to write to the ledger.  We will do so using the `append_to_ledger` function.
+We are prepared to write to the ledger.  We will do so using the `create_ledger_entry` function.
 
 ```python
-append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
+append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
 print(append_result.transaction_id)
 ```
 
 The print function will return the transaction ID of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
 
 ```python
-entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
-print(entry.contents)
+latest_entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
 The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction ID.
@@ -198,6 +198,7 @@ The print function will return "Hello world!", as that is the message in the led
 ## Full sample code
 
 ```python
+import time
 from azure.identity import DefaultAzureCredential
 
 ## Import control plane sdk
@@ -208,7 +209,8 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 # import data plane sdk
 
 from azure.confidentialledger import ConfidentialLedgerClient
-from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient
+from azure.confidentialledger import TransactionState
 
 # Set variables
 
@@ -217,7 +219,7 @@ ledger_name = "<unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
-ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 
 # Authentication
 
@@ -248,7 +250,7 @@ ledger_properties = ConfidentialLedger(**properties)
 
 # Create a ledger
 
-foo = confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
+confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
 
 # Get the details of the ledger you just created
 
@@ -265,7 +267,7 @@ print (f"- ID: {myledger.id}")
 #
 # Create a CL client
 
-identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
+identity_client = ConfidentialLedgerCertificateClient(identity_url)
 network_identity = identity_client.get_ledger_identity(
      ledger_id=ledger_name
 )
@@ -282,19 +284,19 @@ ledger_client = ConfidentialLedgerClient(
 )
 
 # Write to the ledger
-append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
+append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
 print(append_result.transaction_id)
-
+  
 # Read from the ledger
-entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
-print(entry.contents)
+entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
 ## Clean up resources
 
-Other Microsoft Azure Confidential Ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+Other Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az_group_delete) command to delete the resource group and all its contained resources:
+Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az-group-delete) command to delete the resource group and all its contained resources:
 
 ```azurecli
 az group delete --resource-group myResourceGroup
@@ -302,4 +304,4 @@ az group delete --resource-group myResourceGroup
 
 ## Next steps
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)

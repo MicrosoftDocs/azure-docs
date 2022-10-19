@@ -5,27 +5,29 @@ author: manoskow
 manager: chpalm
 services: azure-communication-services
 
-ms.author: manoskow
-ms.date: 06/30/2021
+ms.author: prakulka
+ms.date: 11/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Troubleshooting in Azure Communication Services
 
-This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/telephony-sms/handle-sms-events.md) to capture SMS delivery details.
+This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support.
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support. 
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
 * **MS-CV ID**: This ID is used to troubleshoot calls and messages.
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
+* **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
+Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
 ## Access your MS-CV ID
 
@@ -74,7 +76,7 @@ chat_client = ChatClient(
 ---
 
 ## Access your server call ID
-When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you will need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
+When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you'll need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
 
 #### JavaScript
 ```
@@ -139,6 +141,11 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+## Access your short code program brief ID
+The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
+
+:::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+---
 
 ## Enable and access call logs
 
@@ -192,6 +199,113 @@ These can be accessed by looking at where your app is keeping its local data. Th
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
+## Finding Azure Active Directory information
+
+* **Getting Directory ID**
+* **Getting Application ID**
+* **Getting User ID**
+
+## Getting Directory ID 
+To find your Directory (tenant) ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
+
+    ![Screenshot of how to copy Azure Active Directory tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
+
+## Getting Application ID 
+To find your Application ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **App registrations** in Azure AD, select your application.
+1. Copy the **Application ID** and store it in your application code.
+
+   ![Screenshot of how to copy Azure Active Directory application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
+
+   The directory (tenant) ID can also be found in the application overview page.
+
+## Getting User ID
+To find your User ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Users** in Azure AD, select your user.
+1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
+
+   ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
+
+## Getting immutable resource ID 
+Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. Open your Communication Service resource.
+1. From the left-pane, select **Overview**, and switch to a **JSON view**
+    :::image type="content" source="./media/troubleshooting/switch-communication-resource-to-json.png" alt-text="Screenshot of how to switch Communication Resource overview to a JSON view.":::
+1. From **Resource JSON** page, copy the `immutableResourceId` value, and provide it to your support team.
+    :::image type="content" source="./media/troubleshooting/communication-resource-id-json.png" alt-text="Screenshot of Resource JSON.":::
+
+## Verification of Teams license eligibility to use Azure Communication Services support for Teams users
+
+There are two ways to verify your Teams License eligibility to use Azure Communication Services support for Teams users:
+
+* **Verification via Teams web client**
+* **Checking your current Teams license via Microsoft Graph API**
+
+#### Verification via Teams web client 
+To verify your Teams License eligibility via Teams web client, follow the steps listed below:
+
+1. Open your browser and navigate to [Teams web client](https://teams.microsoft.com/).
+1. Sign in with credentials that have a valid Teams license. 
+1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://teams.live.com/v2/ domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
+
+#### Checking your current Teams license via Microsoft Graph API
+You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Follow the steps below to use the Graph Explorer tool to view licenses assigned to a user:
+
+1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+1. Sign in to Graph Explorer using the credentials.
+    :::image type="content" source="./media/troubleshooting/graph-explorer-sign-in.png" alt-text="Screenshot of how to sign in to Graph Explorer.":::
+1. In the query box, enter the following API and click **Run Query** :
+    <!-- { "blockType": "request" } -->
+    ```http
+    https://graph.microsoft.com/v1.0/me/licenseDetails
+    ```
+    :::image type="content" source="./media/troubleshooting/graph-explorer-query-box.png" alt-text="Screenshot of how to enter API in Graph Explorer.":::
+
+    Or you can query for a particular user by providing the user ID using the following API:
+    <!-- { "blockType": "request" } -->
+    ```http
+    https://graph.microsoft.com/v1.0/users/{id}/licenseDetails
+    ```
+1.  The **Response preview**  pane displays output as follows:
+
+    Note that the response object shown here might be shortened for readability.
+    <!-- {
+    "blockType": "response",
+    "truncated": true,
+    "isCollection": true
+    } -->
+    ```http
+    {
+        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('071cc716-8147-4397-a5ba-b2105951cc0b')/assignedLicenses",
+        "value": [
+            {
+                "skuId": "b05e124f-c7cc-45a0-a6aa-8cf78c946968",
+                "servicePlans":[
+                    {
+                        "servicePlanId":"57ff2da0-773e-42df-b2af-ffb7a2317929",
+                        "servicePlanName":"TEAMS1",
+                        "provisioningStatus":"Success",
+                        "appliesTo":"User"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
+
 
 ## Calling SDK error codes
 
@@ -219,9 +333,33 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 | -------- | ---------------| ---------------|
 | 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
 | 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
-| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists, please file a support request. |
 | 503 | Service Unavailable | File a support request through the Azure portal. |
+
+## SMS error codes
+
+The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the "DeliveryStatusDetails" field in the SMS delivery report. 
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 2000 | Message Delivered Successfully |  |
+| 4000 | Message is rejected due to fraud detection | Ensure you aren't exceeding the maximum number of messages allowed for your number|
+| 4001 | Message is rejected due to invalid Source/From number format| Ensure the To number is in E.164 format and From number format is in E.164 or Short code format |
+| 4002 | Message is rejected due to invalid Destination/To number format| Ensure the To number is in E.164 format |
+| 4003 | Message failed to deliver due to unsupported destination| Check if the destination you're trying to send to is supported |
+| 4004 | Message failed to deliver since Destination/To number doesn't exist| Ensure the To number you're sending to is valid |
+| 4005 | Message is blocked by Destination carrier|  |
+| 4006 | The Destination/To number isn't reachable| Try resending the message at a later time |
+| 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
+| 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
+| 4009 | Message is rejected by Microsoft Entitlement System| Most often it happens if fraudulent activity is detected. Please contact support for more details |
+| 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
+| 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
+| 5002 | Message Delivery Timeout|  Try resending the message |
+| 9999 | Message failed to deliver due to unknown error/failure|  Try resending the message |
+
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)
 - [Metrics](metrics.md)
+- [Service limits](service-limits.md)

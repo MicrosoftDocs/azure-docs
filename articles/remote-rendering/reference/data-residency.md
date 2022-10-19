@@ -1,8 +1,8 @@
 ---
 title: Data residency
 description: Describes data residency when using Azure Remote Rendering.
-author: rapete
-ms.author: rapete
+author: florianborn71
+ms.author: flborn
 ms.date: 02/04/2021
 ms.topic: reference
 ---

@@ -27,7 +27,7 @@ landingContent:
             url: logic-apps-overview.md
           - text: Single-tenant versus multi-tenant and integration service environment
             url: single-tenant-overview-compare.md
-          - text: What is Azure Arc enabled Logic Apps?
+          - text: What is Azure Arc-enabled Logic Apps?
             url: azure-arc-enabled-logic-apps-overview.md
       - linkListType: concept
         links:
@@ -42,11 +42,13 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
-            url: /learn/modules/intro-to-logic-apps/
+            url: /training/modules/intro-to-logic-apps/
       - linkListType: video
         links:
           - text: Introducing Azure Logic Apps
-            url: https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps
+            url: /Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
+          - text: Connect and extend your mainframe to the cloud with Logic Apps
+            url: /Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps
           - text: Azure Logic Apps - Code & API free integration
             url: https://www.youtube.com/watch?v=Z3qaBQS0w20
 
@@ -66,7 +68,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Route and process data automatically
-            url: /learn/modules/route-and-process-data-logic-apps
+            url: /training/modules/route-and-process-data-logic-apps
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -154,7 +156,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create and deploy with Resource Manager templates
-            url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
+            url: /training/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
             url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
   # Card (optional)

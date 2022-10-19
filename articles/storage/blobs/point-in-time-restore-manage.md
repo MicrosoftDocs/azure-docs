@@ -3,12 +3,12 @@ title: Perform a point-in-time restore on block blob data
 titleSuffix: Azure Storage
 description: Learn how to use point-in-time restore to restore a set of block blobs to their previous state at a given point in time.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/29/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,6 +18,9 @@ ms.custom: devx-track-azurepowershell
 You can use point-in-time restore to restore one or more sets of block blobs to a previous state. This article describes how to enable point-in-time restore for a storage account and how to perform a restore operation.
 
 To learn more about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+
+> [!NOTE]
+> Point-in-time restore is supported for general-purpose v2 storage accounts in the standard performance tier only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
 
 > [!CAUTION]
 > Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers and blobs to protect against accidental deletion. For more information, see [Soft delete for containers](soft-delete-container-overview.md) and [Soft delete for blobs](soft-delete-blob-overview.md).
@@ -83,7 +86,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account.
+To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command to enable point-in-time restore and the other required data protection settings for the storage account.
 
 The following example enables soft delete and sets the soft-delete retention period to 14 days, enables change feed and versioning, and enables point-in-time restore with a restore period of 7 days. When running the example, remember to replace the values in angle brackets with your own values:
 
@@ -111,7 +114,10 @@ When you perform a restore operation with PowerShell or Azure CLI, you should sp
 
 You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to ten lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
 
-The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
+The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum. A few examples for how to structure your restore ranges:
+
+ - To include the entire container named myContainer in the range for a restore use start range _myContainer_ and end range _myContainer-0_. This shows how adding '-0' as a suffix to the container name for the end range value includes everything in the container for the restore.
+ - To include an entire virtual directory hierarchy, such as directory myFolder inside container myContainer, use start range _myContainer/myFolder/_ and end range _myContainer/myFolder0_. Adding '0' as a suffix to virtual directory names for the end range includes all files with a prefix 'myContainer/myFolder/' for the restore.
 
 Wildcard characters are not supported in a lexicographical range. Any wildcard characters are treated as standard characters.
 
@@ -172,9 +178,9 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 # [Azure CLI](#tab/azure-cli)
 
-To restore all containers and blobs in the storage account with Azure CLI, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and provide the restore point as a UTC date/time value.
+To restore all containers and blobs in the storage account with Azure CLI, call the [az storage blob restore](/cli/azure/storage/blob#az-storage-blob-restore) command and provide the restore point as a UTC date/time value.
 
-The following example asynchronously restores all containers in the storage account to their state 12 hours before a specified date and time. To check the status of the restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show):
+The following example asynchronously restores all containers in the storage account to their state 12 hours before a specified date and time. To check the status of the restore operation, call [az storage account show](/cli/azure/storage/account#az-storage-account-show):
 
 ```azurecli
 az storage blob restore \
@@ -184,7 +190,7 @@ az storage blob restore \
     --no-wait
 ```
 
-To check the properties of a restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show) and expand the **blobRestoreStatus** property. The following example shows how to check the **status** property.
+To check the properties of a restore operation, call [az storage account show](/cli/azure/storage/account#az-storage-account-show) and expand the **blobRestoreStatus** property. The following example shows how to check the **status** property.
 
 ```azurecli
 az storage account show \
@@ -290,7 +296,7 @@ To run the restore operation synchronously and block on execution until it is co
 
 # [Azure CLI](#tab/azure-cli)
 
-To restore a range of blobs, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and specify a lexicographical range of container and blob names for the `--blob-range` parameter. To specify multiple ranges, provide the `--blob-range` parameter for each distinct range.
+To restore a range of blobs, call the [az storage blob restore](/cli/azure/storage/blob#az-storage-blob-restore) command and specify a lexicographical range of container and blob names for the `--blob-range` parameter. To specify multiple ranges, provide the `--blob-range` parameter for each distinct range.
 
 For example, to restore the blobs in a single container named *container1*, you can specify a range that starts with *container1* and ends with *container2*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *container2*, only the container named *container1* will be restored.
 

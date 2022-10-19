@@ -36,7 +36,9 @@
             href: data-box-deploy-copy-data-via-copy-service.md
           - name: To managed disks
             href: data-box-deploy-copy-data-from-vhds.md
-        - name: 4 - Return, upload, verify
+        - name: 4 - Prepare to ship
+          href: data-box-deploy-prepare-to-ship.md
+        - name: 5 - Return, upload, verify
           href: data-box-deploy-picked-up.md
       - name: Export data from Azure
         items: 
@@ -124,6 +126,8 @@
           href: data-box-troubleshoot-data-upload.md
         - name: Data Box Blob storage issues
           href: data-box-troubleshoot-rest.md    
+        - name: Data Box time sync issues
+          href: data-box-troubleshoot-time-sync.md
  
   - name: Data Box Disk 
     items:
@@ -173,7 +177,7 @@
           href: data-box-disk-troubleshoot-data-copy.md
         - name: Validation issues
           href: data-box-disk-troubleshoot.md
-        - name: Review upload errors
+        - name: Data upload issues
           href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  
@@ -219,6 +223,8 @@
         href: data-box-heavy-system-requirements.md
       - name: Understand limits
         href: data-box-heavy-limits.md
+      - name: FAQ
+        href: data-box-faq.yml
     - name: How to
       items:
       - name: Manage via Azure portal
@@ -262,3 +268,7 @@
       href: https://azure.microsoft.com/pricing/details/databox/
     - name: Data Box Disk pricing
       href: https://azure.microsoft.com/pricing/details/databox/disk/
+    - name: Data Box partners
+      href: https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf
+    - name: Data Box hardware additional terms
+      href: data-box-hardware-additional-terms.md

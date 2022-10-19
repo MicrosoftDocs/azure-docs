@@ -26,7 +26,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 * If your provider is not an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a [cloud exchange provider](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## Network requirements
-* **Redundancy at each peering location**: Microsoft requires redundant BGP sessions to be set up between Microsoft’s routers and the peering routers on each ExpressRoute circuit (even when you have just [one physical connection to a cloud exchange](expressroute-faqs.md#onep2plink)).
+* **Redundancy at each peering location**: Microsoft requires redundant BGP sessions to be set up between Microsoft's routers and the peering routers on each ExpressRoute circuit (even when you have just [one physical connection to a cloud exchange](expressroute-faqs.md#onep2plink)).
 * **Redundancy for Disaster Recovery**: Microsoft strongly recommends you set up at least two ExpressRoute circuits in different peering locations to avoid a single point of failure.
 * **Routing**: depending on how you connect to the Microsoft Cloud, you or your provider needs to set up and manage the BGP sessions for [routing domains](expressroute-circuit-peerings.md). Some Ethernet connectivity providers or cloud exchange providers may offer BGP management as a value-add service.
 * **NAT**: Microsoft only accepts public IP addresses through Microsoft peering. If you are using private IP addresses in your on-premises network, you or your provider needs to translate the private IP addresses to the public IP addresses [using the NAT](expressroute-nat.md).
@@ -43,8 +43,8 @@ If you plan to enable Microsoft 365 on ExpressRoute, review the following docume
 * [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Network and migration planning for Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
 * [Microsoft 365 integration with on-premises environments](/microsoft-365/enterprise/microsoft-365-integration)
-* [Stay up to date with Office 365 IP Address changes](/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide)
-* [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
+* [Stay up to date with Office 365 IP Address changes](/microsoft-365/enterprise/microsoft-365-ip-web-service)
+* ExpressRoute on Office 365 advanced training videos
 
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

@@ -2,7 +2,8 @@
 title: Message replication task patterns - Azure Service Bus | Microsoft Docs
 description: This article provides detail guidance for implementing specific message replication task patterns
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
+ms.devlang: csharp
 ---
 
 # Message replication tasks patterns

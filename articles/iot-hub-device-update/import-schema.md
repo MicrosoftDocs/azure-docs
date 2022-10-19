@@ -3,152 +3,221 @@ title: Importing updates into Device Update for IoT Hub - schema and other infor
 description: Schema and other related information (including objects) that is used when importing updates into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 2/25/2021
+ms.date: 06/27/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Importing updates into Device Update for IoT Hub - schema and other information
-If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [How-To guide](import-update.md) first. If you're interested in the details of the schema used when constructing an import manifest, as well as information about related objects, see below.
+# Importing updates into Device Update for IoT Hub: schema and other information
 
-## Import manifest schema
+If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [how-to guide](import-update.md) first. If you're interested in the details of import manifest schema, or information about API permissions, see below.
 
-| Name | Type | Description | Restrictions |
-| --------- | --------- | --------- | --------- |
-| UpdateId | `UpdateId` object | Update identity. |
-| UpdateType | string | Update type: <br/><br/> * Specify `microsoft/apt:1` when performing a package-based update using reference agent.<br/> * Specify `microsoft/swupdate:1` when performing an image-based update using reference agent.<br/> * Specify `microsoft/simulator:1` when using sample agent simulator.<br/> * Specify a custom type if developing a custom agent. | Format: <br/> `{provider}/{type}:{typeVersion}`<br/><br/> Maximum of 32 characters total |
-| InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <br/> * Specify **value** of SWVersion for update type `microsoft/swupdate:1`.<br/> * Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.<br/> * Specify a custom string if developing a custom agent.<br/> | Maximum of 64 characters |
-| Compatibility | Array of `CompatibilityInfo` [objects](#compatibilityinfo-object) | Compatibility information of device compatible with this update. | Maximum of 10 items |
-| CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
-| ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface. | Must be `2.0` |
-| Files | Array of `File` objects | Update payload files | Maximum of 5 files |
+The import manifest JSON schema is hosted at [SchemaStore.org](https://json.schemastore.org/azure-deviceupdate-import-manifest-4.0.json).
 
-## UpdateId Object
+## Schema
 
-| Name | Type | Description | Restrictions |
-| --------- | --------- | --------- | --------- |
-| Provider | string | Provider part of the update identity. | 1-64 characters, alphanumeric, dot and dash. |
-| Name | string | Name part of the update identity. | 1-64 characters, alphanumeric, dot and dash. |
-| Version | version | Version part of the update identity. | 2 to 4 part, dot separated version number between 0 and 2147483647. Leading zeroes will be dropped. |
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**$schema**|`string`|JSON schema reference.|No|
+|**updateId**|`updateId`|Unique update identifier.|Yes|
+|**description**|`string`|Optional update description.<br><br>Maximum length: 512 characters|No|
+|**compatibility**|`compatibility`|List of device property sets this update is compatible with.|Yes|
+|**instructions**|`instructions`|Update installation instructions.|Yes|
+|**files**|`file` `[0-10]`|List of update payload files. Sum of all file sizes may not exceed 2 GB. May be empty or null if all instruction steps are reference steps.|No|
+|**manifestVersion**|`string`|Import manifest schema version. Must be 4.0.|Yes|
+|**createdDateTime**|`string`|Date & time import manifest was created in ISO 8601 format.<br><br>Example: `"2020-10-02T22:18:04.9446744Z"`|Yes|
 
-## File Object
+Additional properties aren't allowed.
 
-| Name | Type | Description | Restrictions |
-| --------- | --------- | --------- | --------- |
-| Filename | string | Name of file | Must be no more than 255 characters. Must be unique within an update |
-| SizeInBytes | Int64 | Size of file in bytes. | Maximum of 2 GB per individual file, or 2 GB collectively per update |
-| Hashes | `Hashes` object | JSON object containing hash(es) of the file |
+## updateId object
 
-## CompatibilityInfo Object
+The *updateID* object is a unique identifier for each update.
 
-| Name | Type | Description | Restrictions |
-| --- | --- | --- | --- |
-| DeviceManufacturer | string | Manufacturer of the device the update is compatible with. | 1-64 characters, alphanumeric, dot and dash. |
-| DeviceModel | string | Model of the device the update is compatible with. | 1-64 characters, alphanumeric, dot and dash. |
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**provider**|`string`|Entity who is creating or directly responsible for the update. It can be a company name.<br><br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
+|**name**|`string`|Identifier for a class of update. It can be a device class or model name.<br><br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
+|**version**|`string`|Two- to four-part dot-separated numerical version numbers. Each part must be a number between 0 and 2147483647 and leading zeroes will be dropped.<br><br>Pattern: `^\d+(?:\.\d+)+$`<br>Examples: `"1.0"`, `"2021.11.8"`|Yes|
 
-## Hashes Object
+Additional properties aren't allowed.
 
-| Name | Required | Type | Description |
-| --------- | --------- | --------- | --------- |
-| Sha256 | True | string | Base64-encoded hash of the file using the SHA-256 algorithm. |
-
-## Example import request body
-
-If you are using the sample import manifest output from the [How to add a new update](./import-update.md#review-the-generated-import-manifest) page, and want to call the Device Update [REST API](/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
+For example:
 
 ```json
 {
-  "importManifest": {
-    "url": "http://<your Azure Storage location file path>/importManifest.json",
-    "sizeInBytes": <size of import manifest file>,
-    "hashes": {
-      "sha256": "<hash of import manifest file>"
+  "updateId": {
+    "provider": "Contoso",
+    "name": "Toaster",
+    "version": "1.0"
+  }
+}
+```
+
+## compatibility object
+
+The *compatibility* object describes the properties of a device that this update is compatible with.
+
+* **Type**: `object`
+* **Minimum Properties**: `1`
+* **Maximum Properties**: `5`
+
+Each property is a name-value pair of type string.
+
+* **Minimum Property Name Length**: `1`
+* **Maximum Property Name Length**: `32`
+* **Minimum Property Value Length**: `1`
+* **Maximum Property Value Length**: `64`
+
+The same exact set of compatibility properties can't be used with more than one update provider and name combination.
+
+For example:
+
+```json
+{
+  "compatibility": [
+    {
+      "deviceManufacturer": "Contoso",
+      "deviceModel": "Toaster"
     }
-  },
-  "files": [
-    {
-      "filename": "file1.json",
-      "url": "http://<your Azure Storage location file path>/file1.json"
-    },
-    {
-          "filename": "file2.zip",
-          "url": "http://<your Azure Storage location file path>/file2.zip"
-    },
   ]
 }
 ```
 
-## OAuth authorization when calling import APIs
+## instructions object
 
-**azure_auth**
+The *instructions* object provides the update installation instructions. The instructions object contains a list of steps to be performed. Steps can either be code to execute or a pointer to another update.
 
-Azure Active Directory OAuth2 Flow
-Type: oauth2
-Flow: any 
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**steps**|`array[1-10]`|Each element in the array must be either an [inlineStep object](#inlinestep-object) or a [referenceStep object](#referencestep-object).|Yes|
 
-Authorization URL: https://login.microsoftonline.com/common/oauth2/authorize
+Additional properties aren't allowed.
 
-**Scopes**
+For example:
 
-| Name | Description |
-| --- | --- |
-| `https://api.adu.microsoft.com/user_impersonation` | Impersonate your user account |
-| `https://api.adu.microsoft.com/.default`  | Client credential flows |
-
-
-**Permissions**
-
-If an Azure AD application is used to sign the user in, the scope needs to have /user_impersonation. 
-
-You will need to add permissions to your Azure AD app (in the API permissions tab in Azure AD Application view) to use Azure Device Update API. Request API permission to Azure Device Update (located in "APIs my organization uses") and grant the delegated user_impersonation permission.
-
-ADU accepts tokens acquiring tokens using any of the Azure AD supported flows for users, applications, or managed identities. However, some of the flows require additional Azure AD application setup: 
-
-* For public client flows make sure to enable mobile and desktop flows.
-* For implicit flows make sure to add a Web platform and select "Access tokens" for the authorization endpoint.
-
-**Example using Azure CLI:**
-
-```azurecli
-az login
-
-az account get-access-token --resource 'https://api.adu.microsoft.com/'
+```json
+{
+  "instructions": {
+    "steps": [
+      {
+        "type": "inline",
+        ...
+      },
+      {
+        "type": "reference",
+        ...
+      }
+    ]
+  }
+}
 ```
 
-**Examples to acquire a token using PowerShell MSAL library:**
+## inlineStep object
 
-_Using user credentials_ 
+An *inline* step object is an installation instruction step that performs code execution.
 
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**type**|`string`|Instruction step type that performs code execution. Must be `inline`.<br><br>Defaults to `inline` if no value is provided.|No|
+|**description**|`string`|Optional instruction step description.<br><br>Maximum length: 64 characters|No|
+|**handler**|`string`|Identity of the handler on the device that can execute this step.<br><br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: 5 characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:1`, `microsoft/apt:1` |Yes|
+|**files**|`string` `[1-10]`| Names of update files defined as [file objects](#file-object) that the agent will pass to the handler. Each element in the array must have length between 1 and 255 characters. |Yes|
+|**handlerProperties**|`inlineStepHandlerProperties`|JSON object that agent will pass to handler as arguments.|No|
 
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
+Additional properties aren't allowed.
+
+For example:
+
+```json
+{
+  "steps": [
+    {
+      "description": "pre-install script",
+      "handler": "microsoft/script:1",
+      "handlerProperties": {
+        "arguments": "--pre-install"
+      },
+      "files": [
+        "configure.sh"
+      ]
+    }
+  ]
+}
 ```
 
-_Using user credentials with device code_
+## referenceStep object
 
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+A *reference* step object is an installation instruction step that installs another update.
 
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**type**|`referenceStepType`|Instruction step type that installs another update. Must be `reference`.|Yes|
+|**description**|`stepDescription`|Optional instruction step description.<br><br>Maximum length: 64 characters |No|
+|**updateId**|`updateId`|Unique update identifier.|Yes|
+
+Additional properties aren't allowed.
+
+For example:
+
+```json
+{
+  "steps": [
+    {
+      "type": "reference",
+      "updateId": {
+        "provider": "Contoso",
+        "name": "Toaster.HeatingElement",
+        "version": "1.0"
+      }
+    }
+  ]
+}
 ```
 
-_Using app credentials_
+## file object
 
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$cert = '<client_certificate>'
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/.default'
+A *file* object is an update payload file, for example, binary, firmware, script, etc. Each file object must be unique within an update.
 
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**filename**|`string`|Update payload file name.<br><br>Maximum length: 255 characters|Yes|
+|**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
+|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
+
+Additional properties aren't allowed.
+
+For example:
+
+```json
+{
+  "files": [
+    {
+      "filename": "configure.sh",
+      "sizeInBytes": 7558,
+      "hashes": {...}
+    }
+  ]
+}
+```
+
+## fileHashes object
+
+Base64-encoded file hashes with the algorithm name as key. At least the SHA-256 algorithm must be specified, and other algorithms may be specified if supported by the agent. For an example of how to calculate the hash correctly, see the Get-AduFileHashes function in [AduUpdate.psm1 script](https://github.com/Azure/iot-hub-device-update/blob/main/tools/AduCmdlets/AduUpdate.psm1).
+
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**sha256**|`string`|Base64-encoded file hash value using SHA-256 algorithm.|Yes|
+
+Additional properties are allowed.
+
+For example:
+
+```json
+{
+  "hashes": {
+    "sha256": "/CD7Sn6fiknWa3NgcFjGlJ+ccA81s1QAXX4oo5GHiFA="
+  }
+}
 ```
 
 ## Next steps

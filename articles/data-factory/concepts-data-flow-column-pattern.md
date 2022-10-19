@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/23/2021
 ---
 
 # Using column patterns in mapping data flow
@@ -46,6 +46,12 @@ You can build pattern matching inside of complex hierarchical structures as well
 
 :::image type="content" source="media/data-flow/patterns-hierarchy.png" alt-text="Screenshot shows hierarchical column pattern.":::
 
+#### Flattening structures
+
+When your data has complex structures like arrays, hierarchical structures, and maps, you can use the [Flatten transformation](data-flow-flatten.md) to unroll arrays and denormalize your data. For structures and maps, use the derived column transformation with column patterns to form your flattened relational table from the hierarchies. You can use the column patterns that would look like this sample, which flattens the geography hierarchy into a relational table form:
+
+:::image type="content" source="media/data-flow/column-pattern-004.png" alt-text="Screenshot shows the Derived column's flatten structure.":::
+
 ## Rule-based mapping in select and sink
 
 When mapping columns in source and select transformations, you can add either fixed mapping or rule-based mappings. Match based on the `name`, `type`, `stream`, `origin`, and `position` of columns. You can have any combination of fixed and rule-based mappings. By default, all projections with greater than 50 columns will default to a rule-based mapping that matches on every column and outputs the inputted name. 
@@ -78,9 +84,10 @@ If your defined projection has a hierarchy, you can use rule-based mapping to ma
 
 The above example matches on all subcolumns of complex column `a`. `a` contains two subcolumns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
 
-## Pattern matching expression values.
+## Pattern matching expression values
 
-* `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`.
+* `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`
+* `$0` translates to the current column name match at run time for scalar types. For hierarchical types, `$0` represents the current matched column hierarchy path.
 * `name` represents the name of each incoming column
 * `type` represents the data type of each incoming column. The list of data types in the data flow type system can be found [here.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` represents the name associated with each stream, or transformation in your flow
@@ -88,5 +95,5 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 * `origin` is the transformation where a column originated or was last updated
 
 ## Next steps
-* Learn more about the mapping data flow [expression language](data-flow-expression-functions.md) for data transformations
+* Learn more about the mapping data flow [expression language](data-transformation-functions.md) for data transformations
 * Use column patterns in the [sink transformation](data-flow-sink.md) and [select transformation](data-flow-select.md) with rule-based mapping

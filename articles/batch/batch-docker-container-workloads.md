@@ -3,6 +3,7 @@ title: Container workloads
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
 ms.date: 08/18/2021
+ms.devlang: csharp, python
 ms.custom: "seodec18, devx-track-csharp"
 ---
 # Run container applications on Azure Batch
@@ -69,7 +70,7 @@ These images are only supported for use in Azure Batch pools and are geared for 
 
 You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
-For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://www.docker.com/blog/docker-enterprise-edition/).
+For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://docker-docs.netlify.app/ee/).
 
 Additional considerations for using a custom Linux image:
 
@@ -87,6 +88,8 @@ The advantage of prefetching container images is that when tasks first start run
 ### Pool without prefetched container images
 
 To configure a container-enabled pool without prefetched container images, define `ContainerConfiguration` and `VirtualMachineConfiguration` objects as shown in the following examples. These examples use the Ubuntu Server for Azure Batch container pools image from the Marketplace.
+
+**Note**: Ubuntu server version used in the example is for illustration purposes. Feel free to change the node_agent_sku_id to the version you are using.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(

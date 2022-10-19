@@ -71,13 +71,23 @@
     "redirect_document_id": false
   },  
   {
+    "source_path": "event-hubs-dotnet-framework-getstarted-send.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-standard-get-started-send-legacy.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },    
+  {
     "source_path": "event-hubs-dotnet-framework-api-overview.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
     "redirect_document_id": false
   },
   {
     "source_path": "event-hubs-dotnet-framework-getstarted-receive-eph.md",
-    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
     "redirect_document_id": false
   },
   {
@@ -148,6 +158,11 @@
   {
     "source_path": "event-hubs-performance-scale.md",
     "redirect_url": "/azure/event-hubs/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-programming-guide.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples",
     "redirect_document_id": false
   },
   {
@@ -248,6 +263,11 @@
   {
     "source_path": "policy-samples.md",
     "redirect_url": "/azure/event-hubs/policy-reference",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "store-captured-data-data-warehouse.md",
+    "redirect_url": "/azure/stream-analytics/event-hubs-parquet-capture-tutorial",
     "redirect_document_id": false
   }
 ]

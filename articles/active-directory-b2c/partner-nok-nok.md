@@ -4,7 +4,8 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Nok Nok with Azure Active Directory B2C to enable passwordless FIDO2 authentication
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity

@@ -1,9 +1,10 @@
 ---
 author: bennage
-ms.service: video-analyzer 
+ms.service: video-analyzer
 ms.topic: include
-ms.date: 05/01/2021
+ms.date: 11/04/2021
 ms.author: christb
+ms.custom: ignite-fall-2021
 ---
 
 > [!NOTE]

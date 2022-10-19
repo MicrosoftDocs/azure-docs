@@ -1,15 +1,14 @@
 ---
-title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
+title: Azure Traffic Manager endpoint monitoring
 description: This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications
 services: traffic-manager
-author: duongau
+author: greg-lindsay
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2021
-ms.author: duau
+ms.date: 11/02/2021
+ms.author: greglin
 ---
 
 # Traffic Manager endpoint monitoring
@@ -38,7 +37,7 @@ To configure endpoint monitoring, you must specify the following settings on you
 
 ## How endpoint monitoring works
 
-When the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. An endpoint is considered healthy if probing agent receives a 200-OK response, or any of the responses configured in the **Expected status code \*ranges**. If the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are done if this setting is 0. The endpoint is marked unhealthy if the number of consecutive failures is higher than the Tolerated Number of Failures setting.
+When the monitoring protocol is set as HTTP or HTTPS, the Traffic Manager probing agent makes a GET request to the endpoint using the protocol, port, and relative path given. An endpoint is considered healthy if probing agent receives a 200-OK response, or any of the responses configured in the **Expected status code ranges**. If the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are done if this setting is 0. The endpoint is marked unhealthy if the number of consecutive failures is higher than the Tolerated Number of Failures setting.
 
 When the monitoring protocol is TCP, the Traffic Manager probing agent creates a TCP connection request using the port specified. If the endpoint responds to the request with a response to establish the connection, that health check is marked as a success. The Traffic Manager probing agent resets the TCP connection. In cases where the response is a different value or no response get received within the timeout period, the Traffic Manager probing agent reattempts according to the Tolerated Number of Failures setting. No reattempts are made if this setting is 0. If the number of consecutive failures is higher than the Tolerated Number of Failures setting, then that endpoint is marked unhealthy.
 
@@ -129,8 +128,11 @@ The timeline in the following figure is a detailed description of the monitoring
 9. **Service comes back online**. The service becomes available. The endpoint keeps its Degraded status in Traffic Manager until the monitoring system does its next health check.
 10. **Traffic to service resumes**. Traffic Manager sends a GET request and receives a 200 OK status response. The service has returned to a healthy state. The Traffic Manager name servers are updated, and they begin to hand out the service's DNS name in DNS responses. Traffic returns to the endpoint as cached DNS responses that return other endpoints expire, and as existing connections to other endpoints are ending.
 
+    > [!IMPORTANT]
+    > Traffic manager deploys multiple probes from multiple locations for each endpoint. Multiple probes increase resiliency for endpoint monitoring. Traffic manager aggregates the average health of the probes rather than rely on a singular probe instance. The redundancy of the probing system is by design. Endpoint values should be looked at holistically and not per probe. The number displayed for probe health is an average. The status should only be a concern if less than 50% (0.5) of probes publish an **up** status.
+
     > [!NOTE]
-    > Because Traffic Manager works at the DNS level, it cannot influence existing connections to any endpoint. When it directs traffic between endpoints (either by changed profile settings, or during failover or failback), Traffic Manager directs new connections to available endpoints. However, other endpoints might continue to receive traffic via existing connections until those sessions are terminated. To enable traffic to drain from existing connections, applications should limit the session duration used with each endpoint.
+    > Because Traffic Manager works at the DNS level, it cannot influence existing connections to any endpoint. When it directs traffic between endpoints (either by changed profile settings, or during failover or failback), Traffic Manager directs new connections to available endpoints. Other endpoints might continue to receive traffic via existing connections until those sessions are terminated. To enable traffic to drain from existing connections, applications should limit the session duration used with each endpoint.
 
 ## Traffic-routing methods
 
@@ -177,9 +179,9 @@ For more information about troubleshooting failed health checks, see [Troublesho
 
 * [Can I use a profile with IPv4 / IPv6 addressed endpoints in a nested profile?](./traffic-manager-faqs.md#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
 
-* [I stopped an web application endpoint in my Traffic Manager profile but I'm not receiving any traffic even after I restarted it. How can I fix this?](./traffic-manager-faqs.md#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+* [I stopped a web application endpoint in my Traffic Manager profile but I'm not receiving any traffic even after I restarted it. How can I fix this?](./traffic-manager-faqs.md#i-stopped-a-web-application-endpoint-in-my-traffic-manager-profile-but-im-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
 
-* [Can I use Traffic Manager even if my application doesn't have support for HTTP or HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+* [Can I use Traffic Manager even if my application doesn't have support for HTTP or HTTPS?](./traffic-manager-faqs.md#can-i-use-traffic-manager-even-if-my-application-doesnt-have-support-for-http-or-https)
 
 * [What specific responses are required from the endpoint when using TCP monitoring?](./traffic-manager-faqs.md#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
 

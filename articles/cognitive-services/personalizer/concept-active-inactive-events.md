@@ -1,8 +1,8 @@
 ---
 title: Active and inactive events - Personalizer
 description: This article discusses the use of active and inactive events within the Personalizer service.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
@@ -10,37 +10,42 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ---
 
-# Active and inactive events
+# Defer event activation
 
-An **active** event is any call to Rank where you know you are going to show the result to the customer and determine the reward score. This is the default behavior.
+Deferred activation of events allows you to create personalized websites or mailing campaigns, considering that the user may never actually see the page or open the email. 
+In these scenarios, the application might need to call Rank before it even knows if the result will be used or displayed to the user at all. If the content is never shown to the user, no default Reward (typically zero) should be assumed for it to learn from.
+Deferred Activation allows you to use the results of a Rank call at one point in time, and decide if the Event should be learned from later on, or elsewhere in your code.
 
-An **inactive** event is a call to Rank where you are not sure if the user will ever see the recommended action, due to business logic. This allows you to discard the event so Personalizer isn't trained with the default reward. Inactive events should not call the Reward API.
+## Typical scenarios for deferred activation
 
-It is important the that the learning loop know the actual type of event. An inactive event will not have a Reward call. An active event should have a Reward call but if the API call is never made, the default reward score is applied. Change the status of an event from inactive to active as soon as you know it will influence the user experience.
+Deferring activation of events is useful in the following example scenarios:
 
-## Typical active events scenario
+* You are pre-rendering a personalized web page for a user, but the user may never get to see it because some business logic may override the action choice of Personalizer.
+* You are personalizing content "below the fold" in a web page, and it is highly possible the content will never be seen by the user.
+* You are personalizing marketing emails, and you need to avoid training from emails that were never opened by users.
+* You personalized a dynamic media channel, and your users may stop playing the channel before it gets to the songs or videos selected by Personalizer. 
 
-When your application calls the Rank API, you receive the action, which the application should show in the **rewardActionId** field.  From that moment, Personalizer expects a Reward call with a reward score that has the same eventId. The reward score is used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. [Default rewards](how-to-settings.md#configure-rewards-for-the-feedback-loop) are set on your Personalizer resource in the Azure portal.
+In general terms, these scenarios happen when:
 
-## Other event type scenarios
+* You're pre-rendering UI that the user might or might not get to see due to UI or time constraints.
+* Your application is doing predictive personalization in which you make Rank calls before you know if you will use the output.
 
-In some scenarios, the application might need to call Rank before it even knows if the result will be used or displayed to the user. This might happen in situations where, for example, the page rendering of promoted content is overwritten by a marketing campaign. If the result of the Rank call was never used and the user never saw it, don't send a corresponding Reward call.
+## How to defer activation, and later activate, events
 
-Typically, these scenarios happen when:
+To defer activation for an event, call [Rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) with `deferActivation = True` in the bequest body.
 
-* You're prerendering UI that the user might or might not get to see.
-* Your application is doing predictive personalization in which Rank calls are made with little real-time context and the application might or might not use the output.
+As soon as you know your users were shown the personalized content or media, and expecting a Reward is reasonable, you must activate that event. To do so call the [Activate API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Activate) with the eventId.
 
-In these cases, use Personalizer to call Rank, requesting the event to be _inactive_. Personalizer won't expect a reward for this event, and it won't apply a default reward.
 
-Later in your business logic, if the application uses the information from the Rank call, just _activate_ the event. As soon as the event is active, Personalizer expects an event reward. If no explicit call is made to the Reward API, Personalizer applies a default reward.
+The [Activate API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Activate) call for that EventID call must be received before the Reward Wait Time time window expires.
 
-## Inactive events
+### Behavior with deferred activation 
 
-To disable training for an event, call Rank by using `learningEnabled = False`.
-
-For an inactive event, learning is implicitly activated if you send a reward for the eventId or call the `activate` API for that eventId.
+Personalizer will learn from events and rewards as follows:
+* If you call Rank with `deferActivation = True`, and *don't* call the `Activate` API for that eventId, and call Reward, Personalizer not learn from the event.
+* If you call Rank with `deferActivation = True`, and *do* call the `Activate` API for that eventId, and call Reward, Personalizer will learn from the event with the specified Reward score.
+* If you call Rank with `deferActivation = True`, and *do* call the `Activate` API for that eventId, but omit calling Reward, Personalizer will learn from the event with the Default Reward score set in configuration.
 
 ## Next steps
-
+* Howe to Configure [Default rewards](how-to-settings.md#configure-rewards-for-the-feedback-loop).
 * Learn [how to determine reward score and what data to consider](concept-rewards.md).

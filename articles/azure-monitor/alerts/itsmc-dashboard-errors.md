@@ -4,7 +4,8 @@ description: Learn about common errors that exist in the IT Service Management C
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 01/18/2021
+ms.date: 2/23/2022
+ms.reviewer: nolavime
 
 ---
 
@@ -47,7 +48,12 @@ The following sections describe common errors that appear in the connector statu
 
 **Cause**: ServiceNow rate limits are too high or too low.
 
-**Resolution**: Increase or cancel the rate limits in the ServiceNow instance, as explained in the [ServiceNow documentation](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
+**Resolution**: Increase or cancel the rate limits in the ServiceNow instance, as explained in the ServiceNow documentation for each release:
+
+* [Rate limit troubleshooting for ServiceNow Orlando](https://docs.servicenow.com/bundle/orlando-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
+* [Rate limit troubleshooting for ServiceNow Paris](https://docs.servicenow.com/bundle/paris-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
+* [Rate limit troubleshooting for ServiceNow Quebec](https://docs.servicenow.com/bundle/quebec-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
+* [Rate limit troubleshooting for ServiceNow Rome](https://docs.servicenow.com/bundle/rome-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html)
 
 ## Invalid refresh token
 
@@ -78,7 +84,7 @@ The following sections describe common errors that appear in the connector statu
 **Cause**: Such an error appears in either of these situations:
 
 * A newly created ITSM Connector instance has yet to finish the initial sync.
-* The connector was not defined correctly.
+* The connector wasn't defined correctly.
 
 **Resolution**: 
 
@@ -87,8 +93,23 @@ The following sections describe common errors that appear in the connector statu
 
 
 ## IP restrictions
-**Error**: "Failed to add ITSM Connection named "XXX" due to Bad Request. Error: Bad request. Invalid parameters provided for connection. Http Exception: Status Code Forbidden."
+**Error**: 
+* "Failed to add ITSM Connection named "XXX" due to Bad Request. Error: Bad request. Invalid parameters provided for connection. Http Exception: Status Code Forbidden."
+* "Failed to update ITSM Connection credentials"
 
-**Cause**: The IP address of ITSM application is not allow ITSM connections from partners ITSM tools.
+**Cause**: The IP address of the ITSM application doesn't allow ITSM connections from partner ITSM tools.
 
-**Resolution**: In order to list the ITSM IP addresses in order to allow ITSM connections from partners ITSM tools, we recommend the to list the whole public IP range of Azure region where their LogAnalytics workspace belongs. [details here](https://www.microsoft.com/download/details.aspx?id=56519) For regions EUS/WEU/EUS2/WUS2/US South Central the customer can list ActionGroup network tag only.
+**Resolution**: To allow ITSM connections from partner ITSM tools, we recommend that the to list includes the entire public IP range of the Azure region of the LogAnalytics workspace. For more information, see this article about [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519). You can only list the ActionGroup network tag in these regions: EUS/WEU/EUS2/WUS2/US South Central.
+
+
+## Authentication
+**Error**: "User Not Authenticated"
+
+**Cause**: This error can occur in two cases:
+  - The token needs to be refreshed.
+  - User integration rights are missing.
+
+**Resolution**:
+- If the integration worked for you previously, the refresh token may have expired. [Sync with the ITSM Connector to generate a new refresh token](./itsmc-resync-servicenow.md). 
+- If the integration never worked, it may be missing integration user rights. See the instructions to [install the user app and create the user role](./itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+

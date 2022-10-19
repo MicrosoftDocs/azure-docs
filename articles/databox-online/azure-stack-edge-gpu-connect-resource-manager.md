@@ -458,7 +458,7 @@ Set the Azure Resource Manager environment and verify that your device to client
         ----  --------------------                      -------------------------
         AzASE https://management.myasegpu.wdshcsso.com/ https://login.myasegpu.wdshcsso.c...     
         ```
-        For more information, go to [Set-AzEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).    
+        For more information, go to [Set-AzEnvironment](/powershell/module/az.accounts/set-azenvironment?view=azps-7.5.0).    
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
 

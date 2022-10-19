@@ -2,23 +2,15 @@
 title: Stream Azure Active Directory logs to Azure Monitor logs | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with Azure Monitor logs
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-editor: ''
-
-ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/09/2021
-ms.author: markvi
+ms.date: 10/03/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
-ms.custom: has-adal-ref
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -28,7 +20,7 @@ Follow the steps in this article to integrate Azure Active Directory (Azure AD) 
 
 Use the integration of Azure AD activity logs in Azure Monitor logs to perform tasks like:
 
- * Compare your Azure AD sign-in logs against security logs published by Azure Security Center.
+ * Compare your Azure AD sign-in logs against security logs published by Microsoft Defender for Cloud.
   
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
 
@@ -83,7 +75,7 @@ If you want to know for how long the activity data is stored in a Premium tenant
     * To send audit logs to the Log Analytics workspace, select the **AuditLogs** check box. 
     * To send sign-in logs to the Log Analytics workspace, select the **SignInLogs** check box.
     * To send non-interactive user sign-in logs to the Log Analytics workspace, select the **NonInteractiveUserSignInLogs** check box.
-    * To send service principle sign-in logs to the Log Analytics workspace, select the **ServicePrincipleSignInLogs** check box.
+    * To send service principal sign-in logs to the Log Analytics workspace, select the **ServicePrincipalSignInLogs** check box.
     * To send managed identity sign-in logs to the Log Analytics workspace, select the **ManagedIdentitySignInLogs** check box.
     * To send provisioning logs to the Log Analytics workspace, select the **ProvisioningLogs** check box.
     * To send Active Directory Federation Services (ADFS) sign-in logs to the Log Analytics workspace, select **ADFSSignInLogs**.

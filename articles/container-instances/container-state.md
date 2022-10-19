@@ -93,7 +93,7 @@ These states are applicable to PUT (create) and POST (start/restart) events.
 
 - **Repairing**: The container group is getting moved in order to repair an unhealthy state.
 
-- **Failed**: The container group failed to reach the **Succeeded** provisioning state. Failure can occur for many reasons (inaccessible network profile, low capacity in the designated region, full consumption of user quota, timeout after 30 minutes, etc.). More information on the failure can be found under `events` in the JSON view.
+- **Failed**: The container group failed to reach the **Succeeded** provisioning state. Failure can occur for many reasons (low capacity in the designated region, full consumption of user quota, timeout after 30 minutes, etc.). More information on the failure can be found under `events` in the JSON view.
     > [!NOTE]
     > A failed state does not mean that the resource is removed or stops attempting to succeed. The container group state will indicate the current state of the group. If you want to ensure the container group does not run after a **Failed** provisioning state, then you will have to stop or delete it.
 

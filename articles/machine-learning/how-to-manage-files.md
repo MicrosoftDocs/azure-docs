@@ -20,7 +20,7 @@ Learn how to create and manage the files in your Azure Machine Learning workspac
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 
 ## <a name="create"></a> Create files
 
@@ -54,7 +54,7 @@ To create a new file in a different folder:
 
 Your workspace contains a **Sample notebooks** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.   Clone these notebooks into your own folder to run and edit them.  
 
-For an example, see [Tutorial: Create your first ML experiment](tutorial-train-models-with-aml.md#azure).
+For an example, see [Tutorial: Create your first ML experiment](tutorial-train-deploy-notebook.md#azure).
 
 ## Share files
 

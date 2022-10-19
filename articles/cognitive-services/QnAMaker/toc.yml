@@ -10,8 +10,8 @@
     href: https://aka.ms/qnamaker-pricing
   - name: What's new
     href: whats-new.md
-  - name: Custom question answering (preview)
-    href: custom-question-answering.md
+  - name: Migrate to custom question answering
+    href: ../language-service/question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Quickstarts
   items:
   - name: Create and Query Knowledgebase
@@ -53,8 +53,8 @@
       href: How-To/manage-knowledge-bases.md
     - name: Add chit-chat
       href: How-to/chit-chat-knowledge-base.md
-    - name: Migrate to new knowledge base
-      href: Tutorials/migrate-knowledge-base.md
+    - name: Export/import knowledge base
+      href: Tutorials/export-knowledge-base.md
       displayName: metadata, pair
     - name: Test Knowledge base
       href: How-To/test-knowledge-base.md
@@ -64,9 +64,6 @@
       href: How-To/edit-knowledge-base.md
     - name: Add metadata tags 
       href: Quickstarts/add-question-metadata-portal.md
-    - name: Add follow-up prompts
-      href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Change default answer
       href: How-To/change-default-answer.md
   - name: Query knowledge base
@@ -81,6 +78,8 @@
   - name: Use Prebuilt API to query over text
     href: How-to/using-prebuilt-api.md
     displayName: prebuilt, query, answer, text, prebuilt api, ingest, no storage, call, response
+  - name: Multi-turn conversations
+    href: how-to/multi-turn.md
   - name: Get suggested alternate questions via active learning
     href: How-to/improve-knowledge-base.md
     displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
@@ -104,8 +103,6 @@
     href: Concepts/data-sources-and-content.md
   - name: Azure role-based access control (Azure RBAC)
     href: Concepts/role-based-access-control.md
-  - name: Precise answering
-    href: reference-precise-answering.md
   - name: Turn on active learning
     href: How-To/use-active-learning.md
   - name: Ranker Process
@@ -116,6 +113,8 @@
     displayName: version control, test, index, publish, monitor usage, create
   - name: Best practices
     href: Concepts/best-practices.md
+  - name: QnA pair concepts
+    href: Concepts/question-answer-set.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
   - name: Using QnA Maker and LUIS
     href: choose-natural-language-processing-service.md
@@ -123,20 +122,20 @@
   items:
   - name: Create FAQ Bot with Azure Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
-  - name: Integrate with Power Virtual Agent
+  - name: Integrate with Power Virtual Agents
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Customize your FAQ bot
     items:
     - name: Create guided conversations with multi-turn prompts
-      href: Tutorials/guided-conversations.md
+      href: ../language-service/question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add multiple domains to bot
-      href: Tutorials/create-faq-bot-for-multiple-domains.md
+      href: ../language-service/question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Enhance knowledge bases with active learning
-      href: Tutorials/active-learning.md
-    - name: Add knowledge bases in multiple languages
-      href: Tutorials/multiple-languages.md
+      href: ../language-service/question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add synonyms to improve relevance
-      href: Tutorials/adding-synonyms.md
+      href: ../language-service/question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Add knowledge bases in multiple languages
+      href: ../language-service/question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Reference
   items:
   - name: REST API

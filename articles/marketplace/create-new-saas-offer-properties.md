@@ -3,11 +3,10 @@ title: Configure your SaaS offer properties in Azure Marketplace
 description: Configure the properties for your software as a service (SaaS) in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/23/2021
 ---
 
 # Configure SaaS offer properties

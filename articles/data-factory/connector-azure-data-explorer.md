@@ -1,14 +1,14 @@
 ---
-title: Copy data to or from Azure Data Explorer
+title: Copy and transform data in Azure Data Explorer
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy or transform data in Azure Data Explorer by using Data Factory or Azure Synapse Analytics.
 ms.author: orspodek
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 07/04/2022
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics
@@ -22,10 +22,15 @@ This article describes how to use the copy activity in Azure Data Factory and Sy
 
 ## Supported capabilities
 
-This Azure Data Explorer connector is supported for the following activities:
+This Azure Data Explorer connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that the copy activity supports as sources or sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -180,7 +185,7 @@ To use user-assigned managed identity authentication, follow these steps:
     - **As source**, grant at least the **Database viewer** role to your database
     - **As sink**, grant at least the **Database ingestor** role to your database
      
-2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity.
+2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](credentials.md) for each user-assigned managed identity.
 
 The following properties are supported for the Azure Data Explorer linked service:
 
@@ -334,6 +339,81 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
         ]
     }
 ]
+```
+
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read from and write to tables in Azure Data Explorer. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use an Azure Data Explorer dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+
+### Source transformation
+
+The below table lists the properties supported by Azure Data Explorer source. You can edit these properties in the **Source options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table | If you select Table as input, data flow will fetch all the data from the table specified in the Azure Data Explorer dataset or in the source options when using inline dataset. | No | String | *(for inline dataset only)*<br>tableName |
+| Query | A read-only request given in a [KQL format](/azure/data-explorer/kusto/query/). Use the custom KQL query as a reference.  | No | String | query |
+| Timeout | The wait time before the query request times out. Default is '172000' (2 days)  | No | Integer | timeout |
+
+#### Azure Data Explorer source script examples
+
+When you use Azure Data Explorer dataset as source type, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	query: 'table | take 10',
+	format: 'query') ~> AzureDataExplorerSource
+
+```
+
+If you use inline dataset, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'table | take 10',
+    store: 'azuredataexplorer') ~> AzureDataExplorerSource
+
+```
+
+### Sink transformation
+
+The below table lists the properties supported by Azure Data Explorer sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table action | Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
+| Pre and Post SQL scripts | Specify multiple [Kusto control commands](/azure/data-explorer/kusto/query/#control-commands) scripts that will execute before (pre-processing) and after (post-processing) data is written to your sink database. | No | String | preSQLs; postSQLs |
+| Timeout | The wait time before the query request times out. Default is '172000' (2 days) | No | Integer | timeout |
+
+
+#### Azure Data Explorer sink script examples
+
+When you use Azure Data Explorer dataset as sink type, the associated data flow script is:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+	validateSchema: false,
+	format: 'table',
+	preSQLs:['pre SQL scripts'],
+	postSQLs:['post SQL script'],
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
+```
+
+If you use inline dataset, the associated data flow script is:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    store: 'azuredataexplorer',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
 ```
 
 ## Lookup activity properties

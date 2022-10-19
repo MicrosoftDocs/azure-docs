@@ -2,7 +2,8 @@
 title: Log alerts from Container insights | Microsoft Docs
 description: This article describes how to create custom log alerts for memory and CPU utilization from Container insights.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 
 ---
 
@@ -24,17 +25,23 @@ To alert for high CPU or memory utilization, or low free disk space on cluster n
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Log query measurements
-Log query alerts can perform two different measurements of the result of a log query, each of which support distinct scenarios for monitoring virtual machines.
+[Log alerts](../alerts/alerts-unified-log.md) can measure two different things, which can be used to monitor virtual machines in different scenarios:
 
-[Metric measurement](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. These are ideal for numeric data such as CPU.
+- [Result count](../alerts/alerts-unified-log.md#result-count): Counts the number of rows returned by the query, and can be used to work with events such as Windows event logs, syslog, application exceptions.
+- [Calculation of a value](../alerts/alerts-unified-log.md#calculation-of-a-value): Makes a calculation based on a numeric column, and can be used to include any number of resources. For example, CPU percentage.
+### Targeting resources and dimensions
 
-[Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple components have the same error condition.
+You can monitor multiple instances’ values with one rule using dimensions. For example, you would use dimensions if you want to monitor the CPU usage on multiple instances running your web site or app, and create an alert for CPU usage of over 80%. 
 
-> [!NOTE]
-> Resource-centric log alert rules, currently in public preview, will simplify log query alerts and replace the functionality currently provided by metric measurement queries. You can use the AKS cluster as a target for the rule which will better identify it as the affected resource. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
+To create resource-centric alerts at scale for a subscription or resource group, you can **Split by dimensions**.  When you want to monitor the same condition on multiple Azure resources, splitting by dimensions splits the alerts into separate alerts by grouping unique combinations using numerical or string columns. Splitting on Azure resource ID column makes the specified resource into the alert target.
 
+You may also decide not to split when you want a condition on multiple resources in the scope. For example, if you want to create an alert if at least five machines in the resource group scope have CPU usage over 80%.
+
+:::image type="content" source="../vm/media/monitor-virtual-machines/log-alert-rule.png" alt-text="Screenshot of a new log alert rule with split by dimensions." lightbox="../vm/media/monitor-virtual-machines/log-alert-rule.png":::
+
+You might want to see a list of the alerts by affected computer. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
 ## Create a log query alert rule
-[Comparison of log query alert measures](../vm/monitor-virtual-machine-alerts.md#comparison-of-log-query-alert-measures) provides a complete walkthrough of log query alert rules for each type of measurement, including a comparison of the log queries supporting each. You can use these same processes to create alert rules for AKS clusters using queries similar to the ones in this article.
+[This example of a log query alert](../vm/monitor-virtual-machine-alerts.md#example-log-query-alert) provides a complete walkthrough of creating a log query alert rule. You can use these same processes to create alert rules for AKS clusters using queries similar to the ones in this article.
 
 ## Resource utilization 
 
@@ -260,7 +267,7 @@ KubePodInventory
 >[!NOTE]
 >To alert on certain pod phases, such as *Pending*, *Failed*, or *Unknown*, modify the last line of the query. For example, to alert on *FailedCount* use: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-The following query returns cluster nodes disks which exceed 90% free space used. To get the cluster ID, first run the following query and copy the value from the `ClusterId` property:
+The following query returns cluster nodes disks that exceed 90% free space used. To get the cluster ID, first run the following query and copy the value from the `ClusterId` property:
 
 ```kusto
 InsightsMetrics

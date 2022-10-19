@@ -4,14 +4,15 @@ description: Migrate from Studio (classic) to Azure Machine Learning for a moder
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 08/23/2021
+ms.date: 10/21/2021
 ---
 
-# Migrate to Azure Machine Learning 
+# Migrate to Azure Machine Learning from ML Studio (classic)
 
 > [!IMPORTANT]
 > Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](./overview-what-is-azure-machine-learning.md) by that date.
@@ -22,7 +23,9 @@ ms.date: 08/23/2021
 
 Learn how to migrate from Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
-This is a guide for a basic "lift and shift" migration. If you want to optimize an existing machine learning workflow, or modernize an ml platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for additional resources including digital survey tools, worksheets, and planning templates.
+This is a guide for a basic "lift and shift" migration. If you want to optimize an existing machine learning workflow, or modernize a machine learning platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for additional resources including digital survey tools, worksheets, and planning templates.
+
+Please work with your Cloud Solution Architect on the migration. 
 
 ![Azure ML adoption framework](./media/migrate-overview/aml-adoption-framework.png)
 
@@ -49,15 +52,17 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
     [!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
-3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table below.
+3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer component-mapping](#studio-classic-and-designer-component-mapping) table below.
 
-4. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md?tabs=azure-portal).
+4. [Create an Azure Machine Learning workspace](quickstart-create-resources.md).
 
 ## Step 2: Define a strategy and plan
 
 1. Define business justifications and expected outcomes.
 1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
 1. Prepare people, processes, and environments for change.
+
+Please work with your Cloud Solution Architect to define your strategy. 
 
 See the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for planning resources including a planning doc template. 
 
@@ -70,7 +75,7 @@ After you've defined a strategy, migrate your first model.
 1. Use the designer to [redeploy web services](migrate-rebuild-web-service.md).
 
     >[!NOTE]
-    > Azure Machine Learning also supports code-first workflows for migrating [datasets](how-to-create-register-datasets.md), [training](how-to-set-up-training-targets.md), and [deployment](how-to-deploy-and-where.md).
+    > Above guidance are built on top of AzureML v1 concepts and features. AzureML has CLI v2 and Python SDK v2. We suggest to rebuild your ML Studio(classic) models using v2 instead of v1. Start with AzureML v2 [here](./concept-v2.md)  
 
 ## Step 4: Integrate client apps
 
@@ -86,16 +91,16 @@ After you've defined a strategy, migrate your first model.
 1. Expand scenarios and migrate additional workloads to Azure Machine Learning.
 
 
-## Studio (classic) and designer module-mapping
+## Studio (classic) and designer component-mapping
 
 Consult the following table to see which modules to use while rebuilding Studio (classic) experiments in the designer.
 
 
 > [!IMPORTANT]
-> The designer implements modules through open-source Python packages rather than C# packages like Studio (classic). Because of this difference, the output of designer modules may vary slightly from their Studio (classic) counterparts.
+> The designer implements modules through open-source Python packages rather than C# packages like Studio (classic). Because of this difference, the output of designer components may vary slightly from their Studio (classic) counterparts.
 
 
-|Category|Studio (classic) module|Replacement designer module|
+|Category|Studio (classic) module|Replacement designer component|
 |--------------|----------------|--------------------------------------|
 |Data input and output|- Enter Data Manually </br> - Export Data </br> - Import Data </br> - Load Trained Model </br> - Unpack Zipped Datasets|- Enter Data Manually </br> - Export Data </br> - Import Data|
 |Data Format Conversions|- Convert to CSV </br> - Convert to Dataset </br> - Convert to ARFF </br> - Convert to SVMLight </br> - Convert to TSV|- Convert to CSV </br> - Convert to Dataset|
@@ -121,9 +126,9 @@ Consult the following table to see which modules to use while rebuilding Studio 
 | Web Service | - Input </br> -   Output | - Input </br>  - Output|
 | Computer Vision| | - Apply Image Transformation </br> - Convert to Image Directory </br> - Init Image Transformation </br> - Split Image Directory  </br> - DenseNet Image Classification   </br>- ResNet Image Classification |
 
-For more information on how to use individual designer modules, see the [designer module reference](algorithm-module-reference/module-reference.md).
+For more information on how to use individual designer components, see the [designer component reference](./component-reference/component-reference.md).
 
-### What if a designer module is missing?
+### What if a designer component is missing?
 
 Azure Machine Learning designer contains the most popular modules from Studio (classic). It also includes new modules that take advantage of the latest machine learning techniques. 
 
@@ -139,9 +144,8 @@ In Studio (classic), **datasets** were saved in your workspace and could only be
 
 ![automobile-price-classic-dataset](./media/migrate-overview/studio-classic-dataset.png)
 
-In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](concept-data.md#reference-data-in-storage-with-datasets).
+In Azure Machine Learning, **datasets** are registered to the workspace and can be used across all of Azure Machine Learning. For more information on the benefits of Azure Machine Learning datasets, see [Secure data access](./v1/concept-data.md).
 
-![automobile-price-aml-dataset](./media/migrate-overview/aml-dataset.png)
 
 ### Pipeline
 
@@ -159,7 +163,7 @@ Studio (classic) used **REQUEST/RESPOND API** for real-time prediction and **BAT
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-Azure Machine Learning uses **real-time endpoints** for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
+Azure Machine Learning uses **real-time endpoints** (managed endpoints) for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
 

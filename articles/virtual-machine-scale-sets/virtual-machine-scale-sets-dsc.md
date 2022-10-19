@@ -13,8 +13,6 @@ ms.custom: mimckitt
 ---
 # Using Virtual Machine Scale Sets with the Azure DSC Extension
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 [Virtual Machine Scale Sets](./overview.md) can be used with the [Azure Desired State Configuration (DSC)](../virtual-machines/extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json) extension handler. Virtual machine scale sets provide a way to deploy and manage large numbers of virtual machines, and can elastically scale in and out in response to load. DSC is used to configure the VMs as they come online so they are running the production software.
 
 ## Differences between deploying to Virtual Machines and Virtual Machine Scale Sets
@@ -94,8 +92,8 @@ The behavior for a virtual machine scale set is identical to the behavior for a 
 ## Next steps
 Examine the [Azure Resource Manager template for the DSC extension](../virtual-machines/extensions/dsc-template.md?toc=/azure/virtual-machines/windows/toc.json).
 
-Learn how the [DSC extension securely handles credentials](../virtual-machines/extensions/dsc-credentials.md?toc=/azure/virtual-machines/windows/toc.json). 
+Learn how the [DSC extension securely handles credentials](../virtual-machines/extensions/dsc-credentials.md?toc=/azure/virtual-machines/windows/toc.json).
 
-For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](../virtual-machines/extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json). 
+For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](../virtual-machines/extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json).
 
-For more information about PowerShell DSC, [visit the PowerShell documentation center](/powershell/scripting/dsc/overview/overview). 
+For more information about PowerShell DSC, [visit the PowerShell documentation center](/powershell/dsc/overview).

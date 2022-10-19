@@ -1,6 +1,6 @@
 ---
 title: Configure local metrics and logs for Azure API Management self-hosted gateway | Microsoft Docs
-description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes custer
+description: Learn how to configure local metrics and logs for Azure API Management self-hosted gateway on a Kubernetes cluster
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -27,6 +27,9 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 ### Deploy StatsD and Prometheus to the cluster
 
 Below is a sample YAML configuration for deploying StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway will publish metrics to the StatsD Service. We will access the Prometheus dashboard via its Service.
+
+> [!NOTE]
+> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: v1
@@ -157,16 +160,16 @@ Now that both StatsD and Prometheus have been deployed, we can update the config
 Here is a sample configuration:
 
 ```yaml
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-        name: contoso-gateway-environment
-    data:
-        config.service.endpoint: "<self-hosted-gateway-management-endpoint>"
-        telemetry.metrics.local: "statsd"
-        telemetry.metrics.local.statsd.endpoint: "10.0.41.179:8125"
-        telemetry.metrics.local.statsd.sampling: "1"
-        telemetry.metrics.local.statsd.tag-format: "dogStatsD"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: contoso-gateway-environment
+data:
+    config.service.endpoint: "<self-hosted-gateway-management-endpoint>"
+    telemetry.metrics.local: "statsd"
+    telemetry.metrics.local.statsd.endpoint: "10.0.41.179:8125"
+    telemetry.metrics.local.statsd.sampling: "1"
+    telemetry.metrics.local.statsd.tag-format: "dogStatsD"
 ```
 
 Update the YAML file of the self-hosted gateway deployment with the above configurations and apply the changes using the below command:
@@ -187,12 +190,12 @@ Now we have everything deployed and configured, the self-hosted gateway should r
 
 Make some API calls through the self-hosted gateway, if everything is configured correctly, you should be able to view below metrics:
 
-| Metric  | Description |
+| Metric        | Description |
 | ------------- | ------------- |
-| Requests  | Number of API requests in the period |
-| DurationInMS | Number of milliseconds from the moment gateway received request until the moment response sent in full |
-| BackendDurationInMS | Number of milliseconds spent on overall backend IO (connecting, sending and receiving bytes)  |
-| ClientDurationInMS | Number of milliseconds spent on overall client IO (connecting, sending and receiving bytes)  |
+| requests_total  | Number of API requests in the period |
+| request_duration_seconds | Number of milliseconds from the moment gateway received request until the moment response sent in full |
+| request_backend_duration_seconds | Number of milliseconds spent on overall backend IO (connecting, sending and receiving bytes)  |
+| request_client_duration_seconds | Number of milliseconds spent on overall client IO (connecting, sending and receiving bytes)  |
 
 ## Logs
 
@@ -233,5 +236,6 @@ Here is a sample configuration of local logging:
 
 ## Next steps
 
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn about [configuring and persisting logs in the cloud](how-to-configure-local-metrics-logs.md)
+* Learn about [configuring and persisting logs in the cloud](how-to-configure-cloud-metrics-logs.md)

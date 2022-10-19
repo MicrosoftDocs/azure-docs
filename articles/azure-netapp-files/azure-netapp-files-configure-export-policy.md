@@ -2,12 +2,12 @@
 title: Configure export policy for Azure NetApp Files NFS or dual-protocol volumes - Azure NetApp Files
 description: Describes how to configure export policy to control access to an NFS volume using Azure NetApp Files
 services: azure-netapp-files
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 07/28/2021
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
@@ -27,7 +27,7 @@ You can create up to five export policy rules.
     * **Allowed Clients**: Specify the value in one of the following formats:  
       * IPv4 address. Example: `10.1.12.24`
       * IPv4 address with a subnet mask expressed as a number of bits. Example: `10.1.12.10/4`
-      * Comma-separated IP addresses. You can enter multiple host IPs in a single rule by separating them with commas. The length limit is 4096 characters. Example: `10.1.12.25,10.1.12.28,10.1.12.29`
+      * Comma-separated IP addresses. You can enter multiple host IPs or subnet masks in a single rule by separating them with commas. The length limit is 4096 characters. Example: `10.1.12.25,10.1.12.28,10.1.12.29,10.1.12.10/4`
 
     * **Access**: Select one of the following access types:  
       * No Access 
@@ -38,7 +38,7 @@ You can create up to five export policy rules.
 
       ![Kerberos security options](../media/azure-netapp-files/kerberos-security-options.png) 
 
-    * **Root Access**: Specify whether the `root` account can access the volume.  By default, Root Access is set to **On**, and the `root` account has access to the volume.
+    * **Root Access**: Specify whether the `root` account can access the volume.  By default, Root Access is set to **On**, and the `root` account has access to the volume.  This option is not available for NFSv4.1 Kerberos volumes.
 
       ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

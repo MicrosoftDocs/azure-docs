@@ -1,41 +1,47 @@
 ---
 title: Understand shared IP addresses
-description: Learn how Azure DevTest Labs uses shared IP addresses to minimize the public IP addresses required to access your lab VMs.
+description: Learn how Azure DevTest Labs uses shared IP addresses to minimize the public IP addresses you need to access your lab VMs.
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 11/08/2021
 ---
 
 # Understand shared IP addresses in Azure DevTest Labs
 
-Azure DevTest Labs lets lab VMs share the same public IP address to minimize the number of public IP addresses required to access your individual lab VMs.  This article describes how shared IPs work and their related configuration options.
+Azure DevTest Labs virtual machines (VMs) can share a public IP address, to minimize the number of public IPs you need to access lab VMs.  This article describes how shared IPs work, and how to configure shared IP addresses.
 
-## Shared IP setting
+## Shared IP settings
 
-When you create a lab, it's created in a subnet of a virtual network.  By default, this subnet is created with **Enable shared public IP** set to *Yes*.  This configuration creates one public IP address for the entire subnet.  For more information about configuring virtual networks and subnets, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
+You create a DevTest Labs lab in a virtual network, which can have one or more subnets. The default subnet has **Enable shared public IP** set to **Yes**.  This configuration creates one public IP address for the entire subnet. Any VMs in this subnet default to using the shared IP.
 
-![New lab subnet](media/devtest-lab-shared-ip/lab-subnet.png)
+For more information about configuring virtual networks and subnets, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
-For existing labs, you can enable this option by selecting **Configuration and policies > Virtual Networks**. Then, select a virtual network from the list and choose **ENABLE SHARED PUBLIC IP** for a selected subnet. You can also disable this option in any lab if you don't want to share a public IP address across lab VMs.
+![Screenshot that shows the Shared I P setting on the Lab Subnet page.](media/devtest-lab-shared-ip/lab-subnet.png)
 
-Any VMs created in this lab default to using a shared IP.  When creating the VM, this setting can be observed in the **Advanced settings** page under **IP address configuration**.
+For existing labs, you can check or set this option by selecting **Configuration and policies** in the lab's left navigation, and then selecting **Virtual networks** under **External resources**. Select a virtual network from the list to see the shared IP settings for its subnets.
 
-![New VM](media/devtest-lab-shared-ip/new-vm.png)
+To change the setting, select a subnet from the list, and then change **Enable shared public IP** to **Yes** or **No**.
 
-- **Shared:** All VMs created as **Shared** are placed into one resource group (RG). A single IP address is assigned for that RG and all VMs in the RG will use that IP address.
-- **Public:** Every VM you create has its own IP address and is created in its own resource group.
-- **Private:** Every VM you create uses a private IP address. You can't connect to this VM directly from the internet with Remote Desktop.
+When creating a VM, you can access this setting on the **Advanced settings** page next to **IP address**.
 
-Whenever a VM with shared IP enabled is added to the subnet, DevTest Labs automatically adds the VM to a load balancer and assigns a TCP port number on the public IP address, forwarding to the RDP port on the VM.  
+![Screenshot that shows the Shared I P setting in Advanced Settings when creating a new V M.](media/devtest-lab-shared-ip/new-vm.png)
 
-## Using the shared IP
+- **Shared:** All VMs you create as **Shared** go into the same resource group. The resource group has one assigned IP address that all VMs in the resource group use.
+- **Public:** Every public VM has its own IP address and resource group.
+- **Private:** Every private VM uses a private IP address. You can't connect to these VMs from the internet by using Remote Desktop protocol (RDP).
 
-- **Linux users:** SSH to the VM by using the IP address or fully qualified domain name, followed by a colon, followed by the port. For example, in the image below, the RDP address to connect to the VM is `mydevtestlab597975021002.eastus.cloudapp.azure.com:50661`.
+When you add a VM with shared IP to a subnet, DevTest Labs automatically adds the VM to a load balancer and assigns the VM a TCP port number on the public IP address. The port number forwards to the secure shell (SSH) port on the VM.
 
-  ![VM example](media/devtest-lab-shared-ip/vm-info.png)
+## Use a shared IP
 
-- **Windows users:** Select the **Connect** button on the Azure portal to download a pre-configured RDP file and access the VM.
+- **Windows users:** Select the **Connect** button on the VM **Overview** page to download a pre-configured RDP file and access the VM.
+
+- **Linux users:** Secure shell (SSH) connects to the VM by using the IP address or fully qualified domain name, followed by a colon, followed by the port number. For example, the following screenshot shows an SSH connection address of `contosolab21000000000000.westus3.cloudapp.azure.com:65013`.
+
+  ![Screenshot that shows the R D P and S S H connection options on a VM Overview page.](media/devtest-lab-shared-ip/vm-info.png)
 
 ## Next steps
 
-* [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md)
-* [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md)
+- [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md)
+- [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md)

@@ -13,7 +13,7 @@ ms.date: 07/28/2021
 
 [Azure Migrate](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
 
-This article summarizes best practices when creating assessments using the Azure Migrate Discovery and assessment tool.
+This article summarizes the best practices when creating assessments using the Azure Migrate Discovery and assessment tool.
 
 Assessments you create with Azure Migrate: Discovery and assessment tool are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate: Discovery and assessment:
 
@@ -32,7 +32,7 @@ Sizing criteria options in Azure Migrate assessments:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD, premium-managed or ultra disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes: CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on CPU and memory utilization data.
+**Performance-based** | Assessments that make recommendations based on collected performance data. | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD, premium-managed or ultra disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes: CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on CPU and memory utilization data.
 **As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure App Service assessment**: Assessment recommendation is based on on-premises web apps configuration data.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
 
 #### Example

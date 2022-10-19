@@ -28,7 +28,7 @@ requirements** built-in policy initiative.
 > compliance in Azure Policy is only a partial view of your overall compliance status. The
 > associations between controls and Azure Policy definitions for this compliance blueprint sample
 > may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
 
 ## A.6.1.2 Segregation of duties
 
@@ -45,7 +45,7 @@ appropriate separation of duties.
 ## A.8.2.1 Classification of information
 
 Azure's
-[SQL Vulnerability Assessment service](../../../../azure-sql/database/sql-vulnerability-assessment.md)
+[SQL Vulnerability Assessment service](/azure/azure-sql/database/sql-vulnerability-assessment)
 can help you discover sensitive data stored in your databases and includes recommendations to
 classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.

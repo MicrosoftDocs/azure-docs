@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 09/03/2021
+ms.date: 07/07/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -51,10 +51,6 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../../../../includes/resource-graph/samples/bycat/azure-policy-guest-configuration.md)]
 
-## Azure Security Center
-
-[!INCLUDE [azure-resource-graph-samples-cat-azure-security-center](../../../../includes/resource-graph/samples/bycat/azure-security-center.md)]
-
 ## Azure Service Health
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-service-health](../../../../includes/resource-graph/samples/bycat/azure-service-health.md)]
@@ -75,9 +71,17 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-general](../../../../includes/resource-graph/samples/bycat/general.md)]
 
+## IoT Defender
+
+[!INCLUDE [azure-resource-graph-samples-cat-iot-defender](../../../../includes/resource-graph/samples/bycat/iot-defender.md)]
+
 ## Management groups
 
 [!INCLUDE [azure-resource-graph-samples-cat-management-groups](../../../../includes/resource-graph/samples/bycat/management-groups.md)]
+
+## Microsoft Defender
+
+[!INCLUDE [azure-resource-graph-samples-cat-microsoft-defender](../../../../includes/resource-graph/samples/bycat/microsoft-defender.md)]
 
 ## Networking
 

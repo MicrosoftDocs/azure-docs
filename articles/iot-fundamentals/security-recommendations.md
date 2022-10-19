@@ -2,23 +2,22 @@
 title:  Security recommendations for Azure IoT | Microsoft Docs
 description: This article summarizes additional steps to ensure security in your Azure IoT Hub solution. 
 author: dsk-2015
-
-ms.service: iot-hub
-services: iot-hub
-ms.topic: article
-ms.date: 11/13/2019
+ms.service: iot-fundamentals
+services: iot-fundamentals
+ms.topic: conceptual
+ms.date: 08/24/2022
 ms.author: dkshir
-ms.custom: [security-recommendations, amqp, mqtt]
+ms.custom: security-recommendations, amqp, mqtt, ignite-2022
 ---
 
 # Security recommendations for Azure Internet of Things (IoT) deployment
 
-This article contains security recommendations for IoT. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, read [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+This article contains security recommendations for IoT. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, read [Shared responsibilities for cloud computing](../security/fundamentals/shared-responsibility.md).
 
-Some of the recommendations included in this article can be automatically monitored by Azure Defender for IoT. Azure Defender for IoT is the first line of defense in protecting your resources in Azure. It periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them.
+Some of the recommendations included in this article can be automatically monitored by Microsoft Defender for IoT, the first line of defense in protecting your resources in Azure. It periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them.
 
-- For more information on Azure Defender for IoT recommendations, see [Security recommendations in Azure Defender for IoT](../security-center/security-center-recommendations.md).
-- For information on Azure Defender for IoT see the [What is Azure Defender for IoT?](../security-center/security-center-introduction.md)
+- For more information on Microsoft Defender for IoT recommendations, see [Security recommendations in Microsoft Defender for IoT](../security-center/security-center-recommendations.md).
+- For information on Microsoft Defender for IoT see the [What is Microsoft Defender for IoT?](../security-center/security-center-introduction.md)
 
 ## General
 
@@ -33,7 +32,7 @@ Some of the recommendations included in this article can be automatically monito
 | Recommendation | Comments |
 |-|----|
 | Define access control for the hub | [Understand and define the type of access](iot-security-deployment.md#securing-the-cloud) each component will have in your IoT Hub solution, based on the functionality. The allowed permissions are *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, and *DeviceConnect*. Default [shared access policies in your IoT hub](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions) can also help define the permissions for each component based on its role. |
-| Define access control for backend services | Data ingested by your IoT Hub solution can be consumed by other Azure services such as [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml), and [Blob storage](../storage/blobs/storage-blobs-introduction.md). Make sure to understand and allow appropriate access permissions as documented for these services. |
+| Define access control for backend services | Data ingested by your IoT Hub solution can be consumed by other Azure services such as [Azure Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml), and [Blob storage](../storage/blobs/storage-blobs-introduction.md). Make sure to understand and allow appropriate access permissions as documented for these services. |
 
 ## Data protection
 
@@ -52,7 +51,7 @@ Some of the recommendations included in this article can be automatically monito
 
 ## Monitoring
 
-| Recommendation | Comments | Supported by Azure Defender |
+| Recommendation | Comments | Supported by Microsoft Defender for IoT |
 |-|----|--|
 | Monitor unauthorized access to your devices |  Use your device operating system's logging feature to monitor any security breaches or physical tampering of the device or its ports. | Yes |
 | Monitor your IoT solution from the cloud | Monitor the overall health of your IoT Hub solution using the [metrics in Azure Monitor](../iot-hub/monitor-iot-hub.md). | Yes |

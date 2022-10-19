@@ -3,9 +3,7 @@ title: "Azure RBAC for Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 04/05/2021
-ms.topic: article
-author: shashankbarsin
-ms.author: shasb
+ms.topic: how-to
 description: "Use Azure RBAC for authorization checks on Azure Arc-enabled Kubernetes clusters."
 ---
 
@@ -38,7 +36,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
+> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc. This feature isn't supported on AKS on Azure Stack HCI.
 
 ## Set up Azure AD applications
 
@@ -47,8 +45,9 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
-    CLUSTERNAME="<clusterName>"
-    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Server" --identifier-uris "https://${CLUSTERNAME}Server" --query appId -o tsv)
+    CLUSTER_NAME="<clusterName>"
+    TENANT_ID="<tenant>"
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/ClientAnyUniqueSuffix" --query appId -o tsv)
     echo $SERVER_APP_ID
     ```
 
@@ -58,7 +57,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az ad app update --id "${SERVER_APP_ID}" --set groupMembershipClaims=All
     ```
 
-1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster.
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster. Please note that this secret is valid for 1 year by default and will need to be [rotated after that](./azure-rbac.md#refresh-the-secret-of-the-server-application). Please refer to [this](/cli/azure/ad/sp/credential?view=azure-cli-latest&preserve-view=true#az-ad-sp-credential-reset) to set a custom expiry duration.
 
     ```azurecli
     az ad sp create --id "${SERVER_APP_ID}"
@@ -82,7 +81,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
     ```azurecli
-    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTERNAME}Client" --native-app --reply-urls "https://${CLUSTERNAME}Client" --query appId -o tsv)
+    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --native-app --reply-urls "api://${TENANT_ID}/ServerAnyUniqueSuffix" --query appId -o tsv)
     echo $CLIENT_APP_ID
     ```
 
@@ -144,7 +143,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
 Enable Azure role-based access control (RBAC) on your Azure Arc-enabled Kubernetes cluster by running the following command:
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
     
@@ -157,6 +156,10 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 1. SSH into every master node of the cluster and take the following steps:
 
+    **If your `kube-apiserver` is a [static pod](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/):**
+
+    1. The `azure-arc-guard-manifests` secret in the `kube-system` namespace contains two files `guard-authn-webhook.yaml` and `guard-authz-webhook.yaml`. Copy these files to the `/etc/guard` directory of the node.
+
     1. Open the `apiserver` manifest in edit mode:
         
         ```console
@@ -164,10 +167,35 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         ```
 
     1. Add the following specification under `volumes`:
-        
+    
         ```yml
         - name: azure-rbac
-          secret:
+            hostPath:
+            path: /etc/guard
+            type: Directory
+        ```
+
+    1. Add the following specification under `volumeMounts`:
+
+        ```yml
+        - mountPath: /etc/guard
+            name: azure-rbac
+            readOnly: true
+        ```
+
+    **If your `kube-apiserver` is a not a static pod:**
+
+    1. Open the `apiserver` manifest in edit mode:
+        
+        ```console
+        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
+        ```
+
+    1. Add the following specification under `volumes`:
+    
+        ```yml
+        - name: azure-rbac
+            secret:
             secretName: azure-arc-guard-manifests
         ```
 
@@ -175,28 +203,28 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
         ```yml
         - mountPath: /etc/guard
-          name: azure-rbac
-          readOnly: true
+            name: azure-rbac
+            readOnly: true
         ```
 
-    1. Add the following `apiserver` arguments:
+1. Add the following `apiserver` arguments:
 
-        ```yml
-        - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
-        - --authentication-token-webhook-cache-ttl=5m0s
-        - --authorization-webhook-cache-authorized-ttl=5m0s
-        - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
-        - --authorization-webhook-version=v1
-        - --authorization-mode=Node,Webhook,RBAC
-        ```
-    
-        If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
+    ```yml
+    - --authentication-token-webhook-config-file=/etc/guard/guard-authn-webhook.yaml
+    - --authentication-token-webhook-cache-ttl=5m0s
+    - --authorization-webhook-cache-authorized-ttl=5m0s
+    - --authorization-webhook-config-file=/etc/guard/guard-authz-webhook.yaml
+    - --authorization-webhook-version=v1
+    - --authorization-mode=Node,RBAC,Webhook
+    ```
 
-        ```yml
-        - --authentication-token-webhook-version=v1
-        ```
+    If the Kubernetes cluster is version 1.19.0 or later, you also need to set the following `apiserver` argument:
 
-    1. Save and close the editor to update the `apiserver` pod.
+    ```yml
+    - --authentication-token-webhook-version=v1
+    ```
+
+1. Save and close the editor to update the `apiserver` pod.
 
 
 ### Cluster created by using Cluster API
@@ -255,7 +283,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         authentication-token-webhook-cache-ttl: 5m0s
         authentication-token-webhook-config-file: /etc/guard/guard-authn-webhook.yaml
         authentication-token-webhook-version: v1
-        authorization-mode: Node,Webhook,RBAC
+        authorization-mode: Node,RBAC,Webhook
         authorization-webhook-cache-authorized-ttl: 5m0s
         authorization-webhook-config-file: /etc/guard/guard-authz-webhook.yaml
         authorization-webhook-version: v1
@@ -320,13 +348,13 @@ Copy the following JSON object into a file called *custom-role.json*. Replace th
 
 1. Create the role definition by running the following command from the folder where you saved *custom-role.json*:
 
-    ```bash
+    ```azurecli
     az role definition create --role-definition @custom-role.json
     ```
 
 1. Create a role assignment by using this custom role definition:
 
-    ```bash
+    ```azurecli
     az role assignment create --role "Arc Deployment Viewer" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID/namespaces/<namespace-name>
     ```
 
@@ -341,7 +369,7 @@ There are two ways to get the *kubeconfig* file that you need to access the clus
 
 Run the following command to start the proxy process:
 
-```console
+```azurecli
 az connectedk8s proxy -n <clusterName> -g <resourceGroupName>
 ```
 
@@ -501,6 +529,19 @@ NAME      STATUS   ROLES    AGE      VERSION
 node-1    Ready    agent    6m36s    v1.18.14
 node-2    Ready    agent    6m42s    v1.18.14
 node-3    Ready    agent    6m33s    v1.18.14
+```
+
+## Refresh the secret of the server application
+
+If the secret for the server application's service principal has expired, you will need to rotate it.
+
+```azurecli
+SERVER_APP_SECRET=$(az ad sp credential reset --name "${SERVER_APP_ID}" --credential-description "ArcSecret" --query password -o tsv)
+```
+
+Update the secret on the cluster. Please add any optional parameters you configured when this command was originally run.
+```azurecli
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id "${SERVER_APP_ID}" --app-secret "${SERVER_APP_SECRET}"
 ```
 
 ## Next steps

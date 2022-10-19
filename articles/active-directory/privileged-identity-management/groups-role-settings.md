@@ -3,33 +3,34 @@ title: Configure privileged access groups settings in PIM - Azure Active Directo
 description: Learn how to configure role-assignable groups settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: daveba
+author: amsliu
+manager: amycolannino
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/14/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Configure privileged access group settings (preview) in Privileged Identity Management
 
-Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM). Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
+Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
 ## Open role settings
 
 Follow these steps to open the settings for an Azure privileged access group role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role or who is assigned as the group owner.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role, the Privileged Role Administrator role, or the group Owner role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
 1. Select **Privileged access (Preview)**.
+    >[!NOTE]
+    > Approver doesn't have to be member of the group, owner of the group or have Azure AD role assigned.
 
 1. Select the group that you want to manage.
 
@@ -59,10 +60,10 @@ Follow these steps to open the settings for an Azure privileged access group rol
 
 In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
 
-- **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any additional recipients.  
-- **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add additional email addresses as additional recipients. If you want to add more than one email address, separate them using a semicolon (;).
-- **Send emails to both default recipients and additional recipients**<br>You can send emails to both default recipient and additional recipient by selecting the default recipient checkbox and adding email addresses for additional recipients.
-- **Critical emails only**<br>For each type of email, you can select the checkbox to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the configured recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
+- **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any other recipients.  
+- **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient check box. You can then add other email addresses as recipients. If you want to add more than one email address, separate them using a semicolon (;).
+- **Send emails to both default recipients and more recipients**<br>You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
+- **Critical emails only**<br>For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
 
 ## Assignment duration
 
@@ -91,7 +92,7 @@ Privileged Identity Management provides optional enforcement of Azure AD Multi-F
 
 ### Require multifactor authentication on active assignment
 
-This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+This option requires admins must complete multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
 To require multifactor authentication when creating an active role assignment, select the **Require Multi-Factor Authentication on active assignment** check box.
 
@@ -105,7 +106,7 @@ For more information, see [Multifactor authentication and Privileged Identity Ma
 
 ## Activation maximum duration
 
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be from one to 24 hours.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
 ## Require justification
 

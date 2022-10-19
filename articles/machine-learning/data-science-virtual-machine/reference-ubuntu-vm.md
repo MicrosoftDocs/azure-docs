@@ -2,13 +2,13 @@
 title: 'Reference: Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine 
 description: Details on tools included in the Ubuntu Data Science Virtual Machine
-author: timoklimmer
+author: jesscioffi
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python
 
-ms.author: tklimmer
-ms.date: 05/12/2021
+ms.author: jcioffi
+ms.date: 06/23/2022
 ms.topic: reference
 
 
@@ -83,9 +83,9 @@ easier to troubleshoot issues, compared to developing on a Spark cluster.
 
 ## IDEs and editors
 
-You have a choice of several code editors, including VS.Code, PyCharm, RStudio, IntelliJ, vi/Vim, Emacs. 
+You have a choice of several code editors, including VS.Code, PyCharm, IntelliJ, vi/Vim, Emacs. 
 
-VS.Code, PyCharm, RStudio, and IntelliJ are graphical editors. To use them, you need to be signed in to a graphical
+VS.Code, PyCharm, and IntelliJ are graphical editors. To use them, you need to be signed in to a graphical
 desktop. You open them by using desktop and application menu shortcuts.
 
 Vim and Emacs are text-based editors. On Emacs, the ESS add-on package makes working with R easier within the Emacs
@@ -144,7 +144,7 @@ Azure Machine Learning is a fully managed cloud service that enables you to buil
 
 After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
-Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
+Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](../index.yml).
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 

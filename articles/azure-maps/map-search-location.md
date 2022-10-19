@@ -1,8 +1,8 @@
 ---
 title: Show search results on a map | Microsoft Azure Maps
 description: In this article, you'll learn how to perform a search request using Microsoft Azure Maps Web SDK and display the results on the map.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps

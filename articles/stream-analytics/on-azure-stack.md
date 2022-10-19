@@ -36,8 +36,8 @@ In addition to having network access to the Azure Stack Hub resources, the IoT E
 
 The following articles show how to set up the IoT Edge runtime on your device or VM:
 
-* [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-install-iot-edge.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge.md)
+* [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 
 
 ## Create an Azure Stream Analytics edge job

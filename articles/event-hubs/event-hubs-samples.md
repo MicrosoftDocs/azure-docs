@@ -2,7 +2,7 @@
 title: Samples - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of samples for Azure Event Hubs that are on GitHub.  
 ms.topic: article
-ms.date: 09/15/2021 
+ms.date: 07/05/2022 
 
 ---
 
@@ -15,6 +15,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 | ------- | ---------------- | 
 | Azure.Messaging.EventHubs version 5 (latest) | [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[Event Hubs Processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
 | Microsoft.Azure.EventHubs version 4 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
+| Samples in the Azure Samples repository | [GitHub location](https://github.com/orgs/Azure-Samples/repositories?q=event-hubs&type=all&language=c%23) |
 
 ## Java samples
 
@@ -22,6 +23,15 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 | ------- | ---------------- | 
 | azure-messaging-eventhubs version 5 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | 
 | azure-eventhubs version 3 (legacy) | [GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
+| Samples in the Azure Samples repository | [GitHub location](https://github.com/orgs/Azure-Samples/repositories?q=event-hubs&type=all&language=java) |
+
+## Spring samples
+
+| Version                                        | Samples location |
+| ------- | ---------------- | 
+| spring-cloud-azure-starter-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/eventhubs/spring-cloud-azure-starter-eventhubs/eventhubs-client) | 
+| spring-cloud-azure-starter-integration-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/eventhubs/spring-cloud-azure-starter-integration-eventhubs/eventhubs-integration) |
+| spring-cloud-azure-stream-binder-eventhubs version 4 | [GitHub location](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/eventhubs/spring-cloud-azure-stream-binder-eventhubs) |
 
 ## Python samples
 

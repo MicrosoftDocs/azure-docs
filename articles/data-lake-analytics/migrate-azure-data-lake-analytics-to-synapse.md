@@ -56,7 +56,7 @@ The document shows you how to do the migration from Azure Data Lake Analytics to
 
 ### Step 4: Cut over from Azure Data Lake Analytics to Azure Synapse Analytics
 
-After you're confident that your applications and workloads are stable, you can begin using Azure Synapse Analytics to satisfy your business scenarios. Turn off any remaining pipelines that are running on Azure Data Lake Analytics and decommission your Azure Data Lake Analytics accounts.
+After you're confident that your applications and workloads are stable, you can begin using Azure Synapse Analytics to satisfy your business scenarios. Turn off any remaining pipelines that are running on Azure Data Lake Analytics and retire your Azure Data Lake Analytics accounts.
 
 <a name="questionnaire"></a>
 ## Questionnaire for Migration Assessment 

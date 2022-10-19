@@ -1,326 +1,90 @@
 ---
-title: Archive Tier support
-description: Learn about Archive Tier Support for Azure Backup
-ms.topic: conceptual
-ms.date: 09/10/2021
-ms.custom: devx-track-azurepowershell
+title: Azure Backup - Archive tier overview 
+description: Learn about Archive tier support for Azure Backup.
+ms.topic: overview
+ms.date: 06/06/2022
+ms.custom: references_regions
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# Archive Tier support
+# Overview of Archive tier in Azure Backup
 
-Customers rely on Azure Backup for storing backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
+Customers rely on Azure Backup to store backup data including their Long-Term Retention (LTR) backup data as per the retention needs defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
-Azure Backup supports backup of long-term retention points in the archive tier, in addition to snapshots and the Standard tier.
+Azure Backup supports backup of Long-Term Retention points in the archive tier, in addition to Snapshots and the Standard tier.
 
-## Scope
+## Support matrix
 
-Supported workloads:
+### Supported workloads
 
-- Azure virtual machines
-  - Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.
-  - Age >= 3 months in Vault-Standard Tier
-  - Retention left >= 6 months
-  - No active daily and weekly dependencies
-- SQL Server in Azure virtual machines
-  - Only full recovery points. Logs and differentials aren't supported.
-  - Age >= 45 days in Vault-Standard Tier
-  - Retention left >= 6 months
-  - No dependencies
+Archive tier supports the following workloads:
 
-Supported clients:
+| Workloads | Operations |
+| --- | --- |
+| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. |
+| SQL Server in Azure Virtual Machines <br><br> SAP HANA in Azure Virtual Machines | Only full recovery points. Logs and differentials aren't supported. <br><br> Age >= 45 days in Vault-standard tier. <br><br> Retention left >= 6 months. <br><br>  No dependencies. |
 
-- The capability is provided using PowerShell
+A recovery point becomes archivable only if all the above conditions are met.
 
 >[!Note]
->Archive Tier support for SQL Servers in Azure VMs is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).    <br><br>    For the remaining regions for SQL Servers in Azure VMs, Archive Tier support is in limited public preview. Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, use this [link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
+>- Archive tier support for Azure Virtual Machines, SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
+>- Archive tier support for Azure Virtual Machines for the remaining regions is in limited public preview. To sign up for limited public preview, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
-## Get started with PowerShell
+### Supported clients
 
-1. Download the [latest](https://github.com/PowerShell/PowerShell/releases) version of PowerShell from GitHub.
+Archive tier supports the following clients:
 
-1. Run the following command in PowerShell:
-  
-    ```azurepowershell
-    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.4.0 -AllowPrerelease -force
-    ```
+- [Azure portal](./use-archive-tier-support.md?pivots=client-portaltier)
+- [PowerShell](./use-archive-tier-support.md?pivots=client-powershelltier)
+- [CLI](./use-archive-tier-support.md?pivots=client-clitier)
 
-1. Connect to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-1. Sign into your subscription:
+### Supported regions
 
-   `Set-AzContext -Subscription "SubscriptionName"`
+| Workloads | Preview | Generally available |
+| --- | --- | --- |
+| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
+| Azure Virtual Machines | US Gov Virginia, US Gov Texas, US Gov Arizona, China North 2, China East 2. | All public regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West, UAE North. |
 
-1. Get the vault:
+## How Azure Backup moves recovery points to the Vault-archive tier?
 
-    `$vault =  Get-AzRecoveryServicesVault -ResourceGroupName "rgName" -Name "vaultName"`
+> [!VIDEO https://www.youtube.com/embed/nQnH5mpiz60?start=416]
 
-1. Get the list of backup items:
+## Archive recommendations (only for Azure Virtual Machines)
 
-    - For Azure virtual machines:
+The recovery points for Azure Virtual Machines are incremental. When you move recovery points to archive tier, they're converted to full recovery points (to ensure that all recovery points in Archive tier are independent and isolated from each other). Thus, overall backup storage (Vault-standard + Vault-archive) may increase.
 
-        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+The amount of storage increase depends on the churn pattern of the Virtual Machines.
 
-    - For SQL Server in Azure virtual machines:
+- The higher the churn in the Virtual Machines, lesser is the overall backup storage when a recovery point is moved to archive tier.
+- If the churn in the Virtual Machine is low, moving to Archive tier may lead to increase in Backup storage. This may offset the price difference between the Vault-standard tier and Vault-archive tier. Therefore, that might increase the overall cost.
 
-        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
+To resolve this, Azure Backup provides recommendation set. The recommendation set returns a list of recovery points, which if moved together to Archive tier ensures cost savings.
 
-1. Get the backup item.
+>[!Note]
+>The cost savings depends on various reasons and might differ for every instance.
 
-    - For Azure virtual machines:
+## Modify protection
 
-        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<vmName>'}`
-
-    - For SQL Server in Azure virtual machines:
-
-        `$bckItm = $BackupItemList | Where-Object {$_.FriendlyName -eq '<dbName>' -and $_.ContainerName -match '<vmName>'}`
-
-1. Add the date range for which you want to view the recovery  points. For example, if you want to view the recovery points from the last 124 days to last 95 days, use the following command:
-
-   ```azurepowershell
-    $startDate = (Get-Date).AddDays(-124)
-    $endDate = (Get-Date).AddDays(-95) 
-
-    ```
-    >[!NOTE]
-    >To view recovery points for a different time range, modify the start and the end date accordingly.
-## Use PowerShell
-
-### Check the archivable status of all the recovery points
-
-You can now check the archivable status of all the recovery points of a backup item using the following cmdlet:
-
-```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() 
-
-$rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].IsReadyForMove}}, @{ Label="ArchivableInfo";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].AdditionalInfo}}
-```
-
-### Check archivable recovery points
-
-```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
-```
-
-This will list all recovery points associated with a particular backup item that are ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
-
-### Check why a recovery point cannot be moved to archive
-
-```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $false -TargetTier VaultArchive
-$rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
-```
-
-Where `$rp[0]` is the recovery point for which you want to check why it's not archivable.
-
-Sample output:
-
-```output
-IsReadyForMove  AdditionalInfo
---------------  --------------
-False           Recovery-Point Type is not eligible for archive move as it is already moved to archive tier
-```
-
-### Check recommended set of archivable points (only for Azure VMs)
-
-The recovery points associated with a virtual machine are incremental in nature. When a particular recovery point is moved to archive, it's converted into a full backup and then moved to archive. So the cost savings associated with moving to archive depends on the churn of the data source.
-
-So Azure Backup has come up with a recommended set of recovery points that might result in cost savings if moved together.
-
->[!NOTE]
->The cost savings depends on a variety of reasons and might not be the same for any two instances.
-
-```azurepowershell
-$RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivableRPGroup -Item $bckItm -VaultId $vault.ID
-```
-
-### Move to archive
-
-```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
-```
-
-Where, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
-
-This command moves an archivable recovery point to archive. It returns a job that can be used to track the move operation both from portal and with PowerShell.
-
-### View archived recovery points
-
-This command returns all the archived recovery points.
-
-```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-```
-
-### Restore with PowerShell
-
-For recovery points in archive, Azure Backup provides an integrated restore methodology.
-
-The integrated restore is a two-step process. The first step involves rehydrating the recovery points stored in archive and temporarily storing it in the vault-standard tier for a duration (also known as the rehydration duration) ranging from a period of 10 to 30 days. The default is 15 days. There are two different priorities of rehydration – Standard and High priority. Learn more about [rehydration priority](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority).
-
->[!NOTE]
->
->- The rehydration duration once selected can't be changed and the rehydrated recovery points stays in the standard tier for the rehydration duration.
->- The additional step of rehydration incurs cost.
-
-For more information about the various restore methods for Azure virtual machines, see [Restore an Azure VM with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
-
-```azurepowershell
-Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
-```
-
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` command requires two additional parameters, **RehydrationDuration** and **RehydrationPriority**.
-
-### View jobs from PowerShell
-
-To view the move and restore jobs, use the following PowerShell cmdlet:
-
-```azurepowershell
-Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
-```
-
-### Move recovery points to archive tier at scale
-
-You can now use sample scripts to perform at scale operations. [Learn more](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) about how to run the sample scripts. You can download the scripts from [here](https://github.com/hiaga/Az.RecoveryServices).
-
-You can perform the following operations using the sample scripts provided by Azure Backup:
-
-- Move all eligible recovery points for a particular database/all databases for a SQL server in Azure VM to the archive tier.
-- Move all recommended recovery points for a particular Azure Virtual Machine to the archive tier.
- 
-You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
-
-## Use the portal
-
-### Check archived recovery point
-
-You can now view all the recovery points that have been moved to archive.
-
-![All recovery points.](./media/archive-tier-support/restore-points.png)
-
-### Restore in the portal
-
-For recovery points that have been moved to archive, restore requires you add the parameters for rehydration duration and rehydration priority.
-
-![Restore in portal.](./media/archive-tier-support/restore-in-portal.png)
-
-### View jobs in the portal
-
-![View jobs in portal.](./media/archive-tier-support/view-jobs-portal.png)
-
-### Modify protection
-
-There are two ways in which you can modify protection for a datasource:
+Azure Backup offers two ways to modify protection for a data-source:
 
 - Modifying an existing policy
 - Protecting the datasource with a new policy
 
-In both cases, the new policy is applied to all the older recovery points, which are in standard tier, and those in archive tier. So older recovery points might get deleted if there's a change in the policy.
+In both scenarios, the new policy is applied to all older recovery points, which are in standard tier and archive tier. So, older recovery points might get deleted if there's a policy change.
 
-When the recovery points are moved to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If a recovery point that hasn’t stayed in archive for 180 days is deleted, it will incur cost equivalent to 180 minus the number of days it has spent in standard tier.
+When you move recovery points to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If a recovery point that hasn’t stayed in archive for 180 days is deleted, it incurs cost equivalent to 180 minus the number of days it has spent in standard tier.
 
-Recovery points that haven't stayed in archive for a minimum of six months will incur early deletion cost on deletion.
+If you delete recovery points that haven't stayed in archive for a minimum of 180 days,  they incur early deletion cost.
 
 ## Stop protection and delete data
 
-Stop protection and delete data deletes all the recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points will lead to early deletion cost.
+Stop protection and delete data deletes all recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points leads to early deletion cost.
 
-## Support matrix
+## Archive tier pricing
 
-| Workloads | Preview | Generally available |
-| --- | --- | --- |
-| SQL Server in Azure VM | South Central US, North Central US, West Europe | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US |
-| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South | None |
-
-## Error codes and troubleshooting steps
-
-There are several error codes that come up when a recovery point can't be moved to archive.
-
-### RecoveryPointTypeNotEligibleForArchive
-
-**Error Message** - Recovery-Point Type is not eligible for Archive Move
-
-**Description** – This error code is shown when the selected recovery point type isn't eligible to be moved to archive.
-
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
-
-### RecoveryPointHaveActiveDependencies
-
-**Error Message** - Recovery-Point having active dependencies for restore is not eligible for Archive Move
-
-**Description –** The selected recovery point has active dependencies and so can’t be moved to archive.
-
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
-
-### MinLifeSpanInStandardRequiredForArchive
-
-**Error Message** - Recovery-Point is not eligible for Archive Move as lifespan spent in Vault-Standard-Tier is lesser than the required minimum
-
-**Description** – The recovery point has to stay in Standard tier for a minimum of three months for Azure virtual machines, and 45 days for SQL Server in Azure virtual machines
-
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
-
-### MinRemainingLifeSpanInArchiveRequired
-
-**Error Message** - Recovery-Point remaining lifespan is lesser than the required minimum.
-
-**Description** – The minimum lifespan required for a recovery point for archive move eligibility is six months.
-
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
-
-### UserErrorRecoveryPointAlreadyInArchiveTier
-
-**Error Message** - Recovery-Point is not eligible for archive move as it has already been moved to archive tier
-
-**Description** – The selected recovery point is already in archive. So it’s not eligible to be moved to archive.
-
-### UserErrorDatasourceTypeIsNotSupportedForRecommendationApi
-
-**Error Message** - Datasource Type is not eligible for Recommendation API.
-
-**Description** – Recommendation API is only applicable for Azure virtual machines. It’s not applicable for the selected datasource type.
-
-### UserErrorRecoveryPointAlreadyRehydrated
-
-**Error Message** - Recovery Point is already rehydrated. Rehydration is not allowed on this RP.
-
-**Description** – The selected recovery point is already rehydrated.
-
-### UserErrorRecoveryPointIsNotEligibleForArchiveMove
-
-**Error Message** -Recovery-Point is not eligible for Archive Move.
-
-**Description** – The selected recovery point isn't eligible for archive move.
-
-### UserErrorRecoveryPointNotRehydrated
-
-**Error** **message** - Archive Recovery Point is not rehydrated. Retry Restore after rehydration completed on Archive RP.
-
-**Description** – The recovery point isn't rehydrated. Try restore after rehydrating the recovery point.
-
-### UserErrorRecoveryPointRehydrationNotAllowed
-
-**Error** **message**- Rehydration is only supported for Archive Recovery Points- Rehydration is only supported for Archive Recovery Points
-
-**Description** – Rehydration isn’t allowed for the selected recovery point.
-
-### UserErrorRecoveryPointRehydrationAlreadyInProgress
-
-**Error message** – Rehydration is already In-Progress for Archive Recovery Point.
-
-**Description** – The rehydration for the selected recovery point is already in progress.
-
-### RPMoveNotSupportedDueToInsufficientRetention
-
-**Error message** - Recovery point cannot be moved to Archive tier due to insufficient retention duration specified in policy
-
-**Recommended Action** - Update policy on the protected item with appropriate retention setting, and try again.
-
-### RPMoveReadinessToBeDetermined
-
-**Error message** - We're still determining if this Recovery Point can be moved.
-
-**Description** – The move readiness of the recovery point is yet to be determined.
-
-**Recommended Action** - Check again after waiting for some time.
+You can view the Archive tier pricing from our [pricing page](azure-backup-pricing.md).
 
 ## Frequently asked questions
 
@@ -330,10 +94,28 @@ The recovery point will remain in archive forever. For more information, see [Im
 
 ### Is Cross Region restore supported from archive tier?
 
-When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
+When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once the backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
 
-While restoring from recovery point in archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
+While restoring from recovery point in Archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
+
+### I can see eligible recovery points for my Virtual Machine, but I can't seeing any recommendation. What can be the reason?
+
+The recovery points for Virtual Machines meet the eligibility criteria. So, there are archivable recovery points. However, the churn in the Virtual Machine may be low, thus there are no recommendations. In this scenario, though you can move the archivable recovery points to archive tier, but it may increase the overall backup storage costs.
+
+### I have stopped protection and retained data for my workload. Can I move the recovery points to archive tier?
+
+No. Once protection is stopped for a particular workload, the corresponding recovery points can't be moved to the archive tier. To move recovery points to archive tier, you need to resume the protection on the data source.
+
+### How do I ensure that all recovery points are moved to Archive tier, if moved via Azure portal?
+
+To ensure that all recovery points are moved to Archive tier, 
+
+1. Select the required workload.
+1. Go to **Move Recovery Points** by following [these steps](./use-archive-tier-support.md?pivots=client-portaltier#move-recommended-recovery-points-for-a-particular-azure-virtual-machine).
+
+If the list of recovery points is blank, then all the eligible/recommended recovery points are moved to the vault Archive tier.
 
 ## Next steps
 
+- [Use Archive tier](use-archive-tier-support.md)
 - [Azure Backup pricing](azure-backup-pricing.md)

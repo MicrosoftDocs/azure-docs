@@ -3,7 +3,7 @@ title: Understanding Azure CDN billing | Microsoft Docs
 description: Learn about the billing structure for content hosted by Azure Content Delivery Network, including billing regions, delivery charges, and to manage costs.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
-ms.author: allensu
+ms.author: duau
 
 ---
 # Understanding Azure CDN billing

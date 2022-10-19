@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/09/2021
 ms.author: jianleishen
 ---
 
@@ -19,12 +19,16 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 ## Supported capabilities
 
-This Informix connector is supported for the following activities:
+This Informix connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9313;|
 
-You can copy data from Informix source to any supported sink data store, or copy from any supported source data store to Informix sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 
 ## Prerequisites
@@ -32,7 +36,7 @@ You can copy data from Informix source to any supported sink data store, or copy
 To use this Informix connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the Informix ODBC driver for the data store on the Integration Runtime machine. For driver installation and setup, refer [Informix ODBC Driver Guide](https://www.ibm.com/support/knowledgecenter/SSGU8G_11.70.0/com.ibm.odbc.doc/odbc.htm) article in IBM Knowledge Center for details, or contact IBM support team for driver installation guidance.
+- Download the 64-bit Client SDK for Informix to create an ODBC connection for the data store on the Integration Runtime machine. For SDK download and setup, refer this [article](https://www.ibm.com/support/pages/informix-client-software-development-kit-client-sdk-and-informix-connect-system-requirements) for details, or contact IBM support team for driver installation guidance.
 
 ## Getting started
 

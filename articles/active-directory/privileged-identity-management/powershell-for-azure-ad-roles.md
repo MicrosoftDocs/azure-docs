@@ -3,25 +3,25 @@ title: PowerShell for Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Manage Azure AD roles using PowerShell cmdlets in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: daveba
+author: amsliu
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/30/2021
-ms.author: curtand
+ms.date: 10/07/2021
+ms.author: amsliu
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # PowerShell for Azure AD roles in Privileged Identity Management
 
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to manage Azure AD roles in Privileged Identity Management (PIM). It also tells you how to get set up with the Azure AD PowerShell module.
+This article tells you how to use PowerShell cmdlets to manage Azure AD roles using Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra. It also tells you how to get set up with the Azure AD PowerShell module.
 
 ## Installation and Setup
 

@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 API Management allows you to secure access to the backend service of an API using client certificates. This guide shows how to manage certificates in an Azure API Management service instance using the Azure portal. It also explains how to configure an API to use a certificate to access a backend service.
 
-You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/2020-06-01-preview/certificate).
+You can also manage API Management certificates using the [API Management REST API](/rest/api/apimanagement/current-ga/certificate).
 
 ## Certificate options
 
@@ -44,12 +44,13 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
-1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list certificates from the vault. To add the policy:
+1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list secrets from the vault. To add the policy:
     1. In the portal, navigate to your key vault.
     1. Select **Settings > Access policies > + Add Access Policy**.
-    1. Select **Certificate permissions**, then select **Get** and **List**.
+    1. Select **Secret permissions**, then select **Get** and **List**.
     1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
 1. Create or import a certificate to the key vault. See [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+1. When adding a key vault certificate to your API Management instance, you must have permissions to list secrets from the key vault.
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
@@ -75,7 +76,11 @@ To add a key vault certificate to API Management:
     > The identity needs permissions to get and list certificate from the key vault. If you haven't already configured access to the key vault, API Management prompts you so it can automatically configure the identity with the necessary permissions.
 1. Select **Add**.
 
+
+
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Add key vault certificate":::
+    
+1. Select **Save**.
 
 ## Upload a certificate
 
@@ -91,6 +96,9 @@ To upload a client certificate to API Management:
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Upload client certificate":::
 
+
+1. Select **Save**.
+
 After the certificate is uploaded, it shows in the **Certificates** window. If you have many certificates, make a note of the thumbprint of the desired certificate in order to configure an API to use a client certificate for [gateway authentication](#configure-an-api-to-use-client-certificate-for-gateway-authentication).
 
 > [!NOTE]
@@ -101,8 +109,8 @@ After the certificate is uploaded, it shows in the **Certificates** window. If y
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **APIs**.
 1. Select an API from the list. 
-2. In the **Design** tab, select the editor icon in the **Backend** section.
-3. In **Gateway credentials**, select **Client cert** and select your certificate from the dropdown.
+1. In the **Design** tab, select the editor icon in the **Backend** section.
+1. In **Gateway credentials**, select **Client cert** and select your certificate from the dropdown.
 1. Select **Save**.
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png" alt-text="Use client certificate for gateway authentication":::
@@ -150,4 +158,3 @@ To delete a certificate, select it and then select **Delete** from the context m
 [Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
-

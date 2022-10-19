@@ -1,13 +1,12 @@
 ---
 title: Image templates in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn how to add image icons and pattern-filled polygons to maps by using the Azure Maps Web SDK. View available image and fill pattern templates.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
 ms.custom: codepen, devx-track-js
 ---
 

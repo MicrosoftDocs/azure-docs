@@ -1,13 +1,12 @@
 ---
 title: Add a polygon extrusion layer to an Android map | Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Android SDK.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -116,7 +115,7 @@ A choropleth map can be rendered using the polygon extrusion layer. Set the `hei
 DataSource source = new DataSource();
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json");
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/US_States_Population_Density.json");
 
 //Add data source to the map.
 map.sources.add(source);
@@ -160,7 +159,7 @@ map.layers.add(layer, "labels");
 val source = DataSource()
 
 //Import the geojson data and add it to the data source.
-source.importDataFromUrl("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json")
+source.importDataFromUrl("https://samples.azuremaps.com/data/geojson/US_States_Population_Density.json")
 
 //Add data source to the map.
 map.sources.add(source)

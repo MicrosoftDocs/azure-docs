@@ -1,19 +1,19 @@
 ---
-title: Azure Active Directory Application Management certificates frequently asked questions
+title: Application Management certificates frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about managing certificates for apps using Azure Active Directory as an Identity Provider (IdP).  
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/19/2021
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: sureshja, saumadan
 ---
 
-# Azure Active Directory (Azure AD) Application Management certificates frequently asked questions
+# Application Management certificates frequently asked questions
 
 This page answers frequently asked questions about managing the certificates for apps using Azure Active Directory (Azure AD) as an Identity Provider (IdP).
 

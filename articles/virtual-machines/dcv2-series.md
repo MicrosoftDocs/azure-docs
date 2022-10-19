@@ -1,12 +1,13 @@
 ---
 title: DCsv2-series - Azure Virtual Machines
 description: Specifications for the DCsv2-series VMs.
-author: mmcrey
+author: linuxelf001
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.author: jushiman
+ms.author: raginjup
+ms.custom: ignite-fall-2021
 ---
 
 # DCsv2-series
@@ -17,7 +18,10 @@ The DCsv2-series virtual machines help protect the confidentiality and integrity
 
 These machines are backed by 3.7 GHz Intel® Xeon E-2288G (Coffee Lake) with SGX technology. With Intel® Turbo Boost Max Technology 3.0 these machines can go up to 5.0 GHz. 
 
-Example use cases include: confidential multiparty data sharing, fraud detection, confidential databases, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
+> [!NOTE]
+> Hyperthreading is disabled for added security posture. Pricing is the same as Dv5 and Dsv5-series per physical core.
+
+Example confidential use cases include: databases, blockchain, multiparty data analytics, fraud detection, anti-money laundering, usage analytics, intelligence analysis and machine learning.
 
 ## Configuration
 
@@ -30,15 +34,17 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
+<br>
 
 ## Technical specifications
 
-| Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
-|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
-| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
-| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
-| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
-| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
+| Size             | Physical Cores | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max NICs | EPC Memory MiB |
+|------------------|------|-------------|------------------------|----------------|----------------------------------------------|---------------------|
+| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 1   | 28                                      |
+| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 1  | 56                                          |
+| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 1  | 112                                          |
+| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 1   | 168                                         |
 
 
 ## Get started
@@ -46,7 +52,6 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 - Create DCsv2 VMs using the [Azure portal](./linux/quick-create-portal.md) or [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 - DCsv2-series VMs are [Generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 - Currently available in the regions listed in [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-- Next generation of DC-series VMs: [Join the Preview Program](https://aka.ms/intelgen3)
 
 ## More sizes and information
 
@@ -57,7 +62,7 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- [More On Disk Types](./disks-types.md#ultra-disk)
+- [More On Disk Types](./disks-types.md#ultra-disks)
 
 Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 

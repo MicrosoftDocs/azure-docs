@@ -52,7 +52,7 @@ You can estimate the total cost by checking how many users in each pricing tier 
 
 To check the number of users in each tier:
 
-1. Go to the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/) and look for the "Apps" and "Apps + Desktops" prices for your region.
+1. Go to the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/#pricing) and look for the "Apps" and "Desktops + apps" prices for your region.
 2. Use the connection volume number you found in step 4 of [Measure monthly activity in a host pool](#measure-monthly-user-activity-in-a-host-pool) to calculate the total user access cost.
    
    If your host pool uses a RemoteApp application group, you'll need to multiply the connection volume by the price value you see in "Apps." In other words, you'll need to use this equation:

@@ -5,7 +5,7 @@ description: Break text into chunks or pages of text based on length in an AI en
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 
@@ -79,7 +79,7 @@ Parameters are case-sensitive.
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
+                "text": "This is the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia...",
                 "languageCode": "en"
             }
         },

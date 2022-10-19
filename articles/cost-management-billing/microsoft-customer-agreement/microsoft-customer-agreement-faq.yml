@@ -1,15 +1,14 @@
 ### YamlMime:FAQ
 metadata:
   title: Microsoft Customer Agreement FAQ - Azure
-  titleSuffix: Azure Cost Management + Billing
+  titleSuffix: Cost Management + Billing
   description: This article provides answers to frequently asked questions about the Microsoft Customer Agreement.
   author: bandersmsft
   ms.service: cost-management-billing
   ms.subservice: microsoft-customer-agreement
-  ms.topic: conceptual
-  ms.date: 08/11/2021
+  ms.topic: faq
+  ms.date: 03/22/2022
   ms.author: banders
-    
 title: Microsoft Customer Agreement FAQ - Azure
 summary: |
 sections:

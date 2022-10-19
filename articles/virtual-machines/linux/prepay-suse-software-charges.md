@@ -4,9 +4,9 @@ description: Learn how you can prepay for software plans to save money over your
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
-ms.subservice: reserved-instances
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 06/17/2022
 ms.author: banders
 ---
 # Prepay for Azure software plans
@@ -36,7 +36,7 @@ The subscription payment method is charged the upfront costs for the reservation
     - Management group - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
     - Single resource group - Applies the reservation discount to the matching resources in the selected resource group only.
 5. Select a product to choose the VM size and the image type. The discount applies to the selected VM size only.
-6. Select a one-year or three-year term.
+6. Select a term. Available term lengths vary by product.
 7. Choose a quantity, which is the number of prepaid VM instances that can get the billing discount.
 8. Add the product to the cart, review and purchase.
 
@@ -53,9 +53,11 @@ Plans are available only for Red Hat Enterprise Linux virtual machines. The disc
 RedHat plan discounts apply only to the VM size that you select at the time of purchase. RHEL plans can't be refunded or exchanged after purchase.
 
 
-## Cancellation and exchanges not allowed
+## Self-service cancellation and exchanges not allowed
 
-You can't cancel or exchange a SUSE or RedHat plan that you bought. Check your usage to make sure you buy the right plan. For help to identify what to buy, see [Understand how the software plan discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
+You can't cancel or exchange a SUSE or RedHat plan that you bought yourself. If you want to cancel or exchange a reservation, you can [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to have Azure support make the cancellation or exchange for you.
+
+Check your usage before purchasing to make sure you buy the right plan. For help to identify what to buy, see [Understand how the software plan discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## Need help? Contact us.
 

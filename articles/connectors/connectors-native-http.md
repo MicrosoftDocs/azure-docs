@@ -1,11 +1,11 @@
 ---
 title: Call service endpoints by using HTTP or HTTPS
-description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps
+description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 05/31/2022
 tags: connectors
 ---
 
@@ -25,7 +25,7 @@ For information about encryption, security, and authorization for outbound calls
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The URL for the target endpoint that you want to call
 
@@ -97,7 +97,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 ## Trigger and action outputs
 
-Here is more information about the outputs from an HTTP trigger or action, which returns this information:
+Here's more information about the outputs from an HTTP trigger or action, which returns this information:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -123,19 +123,19 @@ Here is more information about the outputs from an HTTP trigger or action, which
 
 If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
 
-* [TSL/SSL certificate](#tsl-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TSL/SSL certificate.
+* [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS/SSL certificate.
 
 * [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
 
-<a name="tsl-ssl-certificate-authentication"></a>
+<a name="tls-ssl-certificate-authentication"></a>
 
-### TSL/SSL certificate authentication
+### TLS/SSL certificate authentication
 
 1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
 
-1. For the setting value, provide the thumbprint for your TSL/SSL certificate as the root certificate to be trusted.
+1. For the setting value, provide the thumbprint for your TLS/SSL certificate as the root certificate to be trusted.
 
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>"`
 
 For example, if you're working in Visual Studio Code, follow these steps:
 
@@ -149,11 +149,21 @@ For example, if you're working in Visual Studio Code, follow these steps:
       "Values": {
          <...>
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>",
          <...>
       }
    }
    ```
+
+   > [!NOTE]
+   >
+   > To find the thumbprint, follow these steps:
+   >
+   > 1. On your logic app resource menu, under **Settings**, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** or **Public Key Certificates (.cer)**.
+   > 
+   > 2. Find the certificate that you want to use, and copy the thumbprint.
+   > 
+   > For more information, review [Find the thumbprint - Azure App Service](../app-service/configure-ssl-certificate-in-code.md#find-the-thumbprint).
 
 For more information, review the following documentation:
 
@@ -215,7 +225,7 @@ For example, suppose you have a logic app that sends an HTTP POST request for an
 
 ![Multipart form data](./media/connectors-native-http/http-action-multipart.png)
 
-Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
+Here's the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
 ```json
 "HTTP_action": {
@@ -271,7 +281,7 @@ For *stateless* workflows in single-tenant Azure Logic Apps, HTTP-based actions 
 
 ## Disable asynchronous operations
 
-Sometimes, you might want to the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
+Sometimes, you might want to disable the HTTP action's asynchronous behavior in specific scenarios, for example, when you want to:
 
 * [Avoid HTTP timeouts for long-running tasks](#avoid-http-timeouts)
 * [Disable checking location headers](#disable-location-header-check)
@@ -308,7 +318,7 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the target endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
 
-Here is the same example that shows the HTTP action response that contains `Retry-After`:
+Here's the same example that shows the HTTP action response that contains `Retry-After`:
 
 ```json
 {
@@ -319,6 +329,9 @@ Here is the same example that shows the HTTP action response that contains `Retr
 }
 ```
 
+## Pagination support
+
+Sometimes, the target service responds by returning the results one page at a time. If the response specifies the next page with the **nextLink** or **@odata.nextLink** property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
 
 ## Disable checking location headers
 

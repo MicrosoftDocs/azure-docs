@@ -110,7 +110,7 @@ For more information on working with diagnostic logs with Data Lake Storage Gen1
 
 Enterprise customers demand a data analytics cloud platform that is secure and easy to use. Data Lake Storage Gen1 is designed to help address these requirements through identity management and authentication via Azure Active Directory integration, ACL-based authorization, network isolation, data encryption in transit and at rest, and auditing.
 
-If you want to see new features in Data Lake Storage Gen1, send us your feedback in the [Data Lake Storage Gen1 UserVoice forum](https://feedback.azure.com/forums/327234-data-lake).
+If you want to see new features in Data Lake Storage Gen1, send us your feedback in the [Data Lake Storage Gen1 UserVoice forum](https://feedback.azure.com/d365community/forum/7fd97106-7326-ec11-b6e6-000d3a4f032c).
 
 ## See also
 

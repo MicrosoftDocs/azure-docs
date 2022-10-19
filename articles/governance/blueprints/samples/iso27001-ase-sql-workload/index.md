@@ -45,7 +45,7 @@ composed of:
     used to host one or more web applications, web APIs, or functions
   - An [Azure Key Vault](../../../../key-vault/general/overview.md) instance using a VNet service
     endpoint, for storing secrets used by applications running in the workload environment
-  - An [Azure SQL Database](../../../../azure-sql/database/sql-database-paas-overview.md) server
+  - An [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) server
     instance using a VNet service endpoint, for hosting databases used for applications in the
     workload environment
 

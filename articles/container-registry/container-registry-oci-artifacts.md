@@ -4,7 +4,7 @@ description: Push and pull Open Container Initiative (OCI) artifacts using a pri
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 02/03/2021
+ms.date: 10/11/2022
 ms.author: stevelas
 ---
 
@@ -41,7 +41,7 @@ To read the password from Stdin, use `--password-stdin`.
 
 [Sign in](/cli/azure/authenticate-azure-cli) to the Azure CLI with your identity to push and pull artifacts from the container registry.
 
-Then, use the Azure CLI command [az acr login](/cli/azure/acr#az_acr_login) to access the registry. For example, to authenticate to a registry named *myregistry*:
+Then, use the Azure CLI command [az acr login](/cli/azure/acr#az-acr-login) to access the registry. For example, to authenticate to a registry named *myregistry*:
 
 ```azurecli
 az login
@@ -168,7 +168,7 @@ Create and push a new OCI artifact to the destination registry by using the `ora
 oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
-Run the [az acr build](/cli/azure/acr#az_acr_build) command to build the hello-world image using the new artifact as build context:
+Run the [az acr build](/cli/azure/acr#az-acr-build) command to build the hello-world image using the new artifact as build context:
 
 ```azurecli
 az acr build --registry myregistry --image builds/hello-world:v1 \

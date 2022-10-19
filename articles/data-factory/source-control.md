@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/22/2021
+ms.date: 03/01/2022
 ---
 
 # Source control in Azure Data Factory
@@ -20,6 +20,8 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 - The Azure Resource Manager template required to deploy Data Factory itself is not included.
 
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
+
+You can also reference [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md) to learn more about the larger CI/CD pattern, of which source control is a critical aspect.
 
 > [!NOTE]
 > We have added GitHub public support on Azure Gov, Azure China. Refer to the [announcement blog](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918).
@@ -37,7 +39,7 @@ Below is a list of some of the advantages git integration provides to the author
     -   Ability to revert changes that introduced bugs.
 -   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose changes if your computer crashes, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
 -   **Collaboration and control:** If you have multiple team members contributing to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members may only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
--   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-deployment.md), git integration makes certain actions easier. Some of these actions include:
+-   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-delivery.md), git integration makes certain actions easier. Some of these actions include:
     -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
     -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
 -   **Better Performance:** An average factory with git integration loads 10 times faster than one authoring against the data factory service. This performance improvement is because resources are downloaded via Git.
@@ -78,7 +80,7 @@ When creating a new data factory in the Azure portal, you can configure Git repo
 
 ## Author with Azure Repos Git integration
 
-Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
+Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization?view=azure-devops&preserve-view=true) to create your resources.
 
 > [!NOTE]
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
@@ -97,6 +99,7 @@ The configuration pane shows the following Azure Repos code repository settings:
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Your Azure Repos code repository name. Azure Repos projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | `<your Azure Repos code repository name>` |
 | **Collaboration branch** | Your Azure Repos collaboration branch that is used for publishing. By default, it's `main`. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch name>` |
+| **Publish branch** | The Publish branch is the branch in your repository where publishing related ARM templates are stored and updated. By default, it's `adf_publish`. | `<your publish branch name>` |
 | **Root folder** | Your root folder in your Azure Repos collaboration branch. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into an Azure Repos Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Branch to import resource into** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing |  |
@@ -129,9 +132,10 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
-The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub.
+The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 
-To configure a GitHub repo, you must have administrator permissions for the Azure subscription that you're using.
+> [!NOTE]
+> If you are using Microsoft Edge, GitHub Enterprise version less than 2.1.4 does not work with it. GitHub officially supports >=3.0 and these all should be fine for ADF. As GitHub changes its minimum version, ADF supported versions will also change. 
 
 ### GitHub settings
 
@@ -190,9 +194,6 @@ Once you follow these steps, your factory will be able to connect to both public
 - GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
-
-
-- A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
 
 ## Version control
 
@@ -287,10 +288,19 @@ It imports the code from live mode into collaboration branch. It considers the c
 <u>*Code flow:*</u> ***Live mode -> Collaboration branch***  
 
 1. Remove your current Git repository
-1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
-1. Create a pull request to merge the changes to the collaboration branch 
+1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **Collaboration branch (same branch)**
+1. Create a pull request to merge the changes to the collaboration branch.
+
+> [!NOTE]
+> It is only necessary to create and merge a pull request if you are working in a repository that does not allow direct commits.  In most organizations, submissions into the repository will require review before merging so the best practice is usually to use this approach.  But in some cases no review is required, in which case it isn't necessary to create and merge a pull request, but changes can be directly committed to the collaboration branch.
 
 Choose either method appropriately as needed. 
+
+### All resources showing as new on publish
+
+While publishing, all resources may show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
+
+
 
 ## Switch to a different Git repository
 
@@ -310,4 +320,4 @@ After you remove the association with the current repo, you can configure your G
 ## Next steps
 
 * To learn more about monitoring and managing pipelines, see [Monitor and manage pipelines programmatically](monitor-programmatically.md).
-* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-deployment.md).
+* To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md).

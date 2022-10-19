@@ -3,23 +3,18 @@ title: "Quickstart: Get image insights using the REST API and Java - Bing Visual
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
-
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.custom: devx-track-java
-
+ms.devlang: java
+ms.custom: devx-track-java, mode-api
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Java
 
-> [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
-> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
 
 Use this quickstart to make your first call to the Bing Visual Search API. This Java application uploads an image to the API and displays the information it returns. Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 

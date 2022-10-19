@@ -1,8 +1,12 @@
 ---
 title: Enable TLS with sidecar container
 description: Create an SSL or TLS endpoint for a container group running in Azure Container Instances by running Nginx in a sidecar container
-ms.topic: article
-ms.date: 07/02/2020
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: how-to
+ms.date: 06/17/2022
 ---
 # Enable a TLS endpoint in a sidecar container
 
@@ -12,7 +16,7 @@ You set up an example container group consisting of two containers:
 * An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image.
 * A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS.
 
-In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports.
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container applications that listen on other ports.
 
 See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
@@ -140,7 +144,7 @@ code deploy-aci.yaml
 
 Enter the contents of the base64-encoded files where indicated under `secret`. For example, `cat` each of the base64-encoded files to see its contents. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
 
-```YAML
+```yaml
 api-version: 2019-12-01
 location: westus
 name: app-with-ssl
@@ -187,13 +191,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Deploy the container group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Deploy the container group with the [az container create](/cli/azure/container#az_container_create) command, passing the YAML file as an argument.
+Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -201,7 +205,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### View deployment state
 
-To view the state of the deployment, use the following [az container show](/cli/azure/container#az_container_show) command:
+To view the state of the deployment, use the following [az container show](/cli/azure/container#az-container-show) command:
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table

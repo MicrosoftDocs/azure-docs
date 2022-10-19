@@ -65,11 +65,7 @@ We've seen several instances where other processes in the Windows system have ne
 
 The best recommendation in this scenario is to turn off the other backup program to see whether the backup time for the Azure Backup agent changes. Usually, making sure that multiple backup jobs are not running at the same time is sufficient to prevent them from affecting each other.
 
-For antivirus programs, we recommend that you exclude the following files and locations:
-
-* C:\Program Files\Microsoft Azure Recovery Services Agent\bin\cbengine.exe as a process
-* C:\Program Files\Microsoft Azure Recovery Services Agent\ folders
-* Scratch location (if you're not using the standard location)
+[!INCLUDE [antivirus-scan-exclusion-rules](../../includes/backup-azure-antivirus-scan-exclusion-rules.md)]
 
 <a id="cause3"></a>
 

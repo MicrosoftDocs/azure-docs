@@ -3,7 +3,7 @@ title: Proxy server guidelines Azure Virtual Desktop - Azure
 description: Some guidelines and recommendations for using proxy servers in Azure Virtual Desktop deployments.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 08/08/2022
 ms.author: helohr
 ms.reviewer: denisgun
 manager: femila
@@ -31,9 +31,9 @@ If your organization's network and security policies require proxy servers for w
 
 - Azure service tags on the Azure firewall
 - Proxy server bypass using Proxy Auto Configuration (.PAC) files
-- Bypass list in the local proxy configuration 
-- Using proxy servers for per-user configuration 
-- Using RDP shortpath for the RDP connection while keeping the service traffic over the proxy 
+- Bypass list in the local proxy configuration
+- Using proxy servers for per-user configuration
+- Using RDP Shortpath for the RDP connection while keeping the service traffic over the proxy
 
 ## Recommendations for using proxy servers
 
@@ -43,9 +43,9 @@ Some organizations require that all user traffic goes through a proxy server for
 
 When you use a proxy server, it handles all communication with the Azure Virtual Desktop infrastructure and performs DNS resolution and Anycast routing to the nearest Azure Front Door. If your proxy servers are distant or distributed across an Azure geography, your geographical resolution will be less accurate. Less accurate geographical resolution means connections will be routed to a more distant Azure Virtual Desktop cluster. To avoid this issue, only use proxy servers that are geographically close to your Azure Virtual Desktop cluster.
 
-### Use RDP shortpath for desktop connectivity
+### Use RDP Shortpath for managed networks for desktop connectivity
 
-When you enable RDP shortpath, RDP data will bypass the proxy server, if possible. Bypassing the proxy server ensures optimal routing while using the UDP transport. Other Azure Virtual Desktop traffic, such as brokering, orchestration, and diagnostics will still go through the proxy server. 
+When you enable RDP Shortpath for managed networks, RDP data will bypass the proxy server, if possible. Bypassing the proxy server ensures optimal routing while using the UDP transport. Other Azure Virtual Desktop traffic, such as brokering, orchestration, and diagnostics will still go through the proxy server.
 
 ### Don't use SSL termination on the proxy server
 
@@ -64,6 +64,9 @@ Proxy servers have capacity limits. Unlike regular HTTP traffic, RDP traffic has
 ### Proxy servers for Windows 7 session hosts
 
 Session hosts running on Windows 7 don't support proxy server connections for reverse-connect RDP data. If the session host can't directly connect to the Azure Virtual Desktop gateways, the connection won't work.
+
+> [!IMPORTANT]
+> Azure Virtual Desktop extended support for Windows 7 session host VMs ends on January 10, 2023. To see which operating systems are supported, review [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
 
 ### Proxy servers and  Teams optimization
 

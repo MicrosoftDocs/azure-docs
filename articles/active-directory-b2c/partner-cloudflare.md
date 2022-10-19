@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Cloudflare Web application firewall to protect your applications from malicious attacks 
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/24/2021
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---

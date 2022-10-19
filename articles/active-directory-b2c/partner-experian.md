@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Experian for Identification verification and proofing based on user attributes to prevent fraud.
 services: active-directory-b2c
 author: gargi-sinha
-manager: martinco
+manager: CelesteDG
+ms.reviewer: kengaderdus
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -47,7 +48,7 @@ The Experian integration includes the following components:
 
 - Experian – The Experian service takes inputs provided by the user and verifies the user's identity
 
-- Custom Rest API – This API implements the integration between Azure AD B2C and the Experian service.
+- Custom REST API – This API implements the integration between Azure AD B2C and the Experian service.
 
 The following architecture diagram shows the implementation.
 
@@ -87,7 +88,7 @@ The Experian API call is protected by a client certificate. This client certific
 
 ### Part 3 - Configure the API
 
-Application settings can be [configured in the App service in Azure](../app-service/configure-common.md#configure-app-settings). With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in the App service in Azure](../app-service/configure-common.md#configure-app-settings). With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the REST API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|

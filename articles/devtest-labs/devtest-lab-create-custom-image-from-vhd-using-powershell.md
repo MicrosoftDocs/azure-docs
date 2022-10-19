@@ -1,12 +1,14 @@
 ---
-title: Create a custom image from VHD file using Azure PowerShell
-description: Automate creation of a custom image in Azure DevTest Labs from a VHD file using PowerShell
+title: Create a custom image from VHD file by using Azure PowerShell
+description: Automate creation of a custom image in Azure DevTest Labs from a VHD file by using PowerShell.
 ms.topic: how-to
-ms.date: 06/26/2020 
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 10/24/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Create a custom image from a VHD file using PowerShell
+# Create a custom image from a VHD file with PowerShell
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
 
@@ -16,71 +18,78 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Step-by-step instructions
+## PowerShell steps
 
-The following steps walk you through creating a custom image from a VHD file using PowerShell:
+The following steps walk you through creating a custom image from a VHD file by using Azure PowerShell:
 
-1. At a PowerShell prompt, log in to your Azure account with the following call to the **Connect-AzAccount** cmdlet.
+1. At a PowerShell command prompt, sign in to your Azure account with the **Connect-AzAccount** cmdlet:
 
-	```powershell
-	Connect-AzAccount
-	```
+   ```powershell
+   Connect-AzAccount
+   ```
 
-1.	Select the desired Azure subscription by calling the **Select-AzSubscription** cmdlet. Replace the following placeholder for the **$subscriptionId** variable with a valid Azure subscription ID.
+1. Select your Azure subscription with the **Select-AzSubscription** cmdlet. Replace \<subscription ID> with your subscription ID GUID.
 
-	```powershell
-	$subscriptionId = '<Specify your subscription ID here>'
-	Select-AzSubscription -SubscriptionId $subscriptionId
-	```
+   ```powershell
+   $subscriptionId = '<subscription ID>'
+   Select-AzSubscription -SubscriptionId $subscriptionId
+   ```
 
-1.	Get the lab object by calling the **Get-AzResource** cmdlet. Replace the following placeholders for the **$labRg** and **$labName** variables with the appropriate values for your environment.
+1. Get the lab object by calling the **Get-AzResource** cmdlet. Replace the \<lab resource group name> and \<lab name> placeholders with your own resource group and lab names.
 
-	```powershell
-	$labRg = '<Specify your lab resource group name here>'
-	$labName = '<Specify your lab name here>'
-	$lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-	```
+   ```powershell
+   $labRg = '<lab resource group name>'
+   $labName = '<lab name>'
+   $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+   ```
 
-1.	Replace the following placeholder for the **$vhdUri** variable with the URI to your uploaded VHD file. You can get the VHD file's URI from the storage account's blob blade in the Azure portal.
+1. Replace the placeholder for the **$vhdUri** variable with the URI of your uploaded VHD file. You can get the VHD file's URI from its blob page in the lab's storage account in the Azure portal. An example VHD URI is: `https://acontosolab1234.blob.core.windows.net/uploads/myvhd.vhd`.
 
-	```powershell
-	$vhdUri = '<Specify the VHD URI here>'
-	```
+   ```powershell
+   $vhdUri = '<VHD URI>'
+   ```
 
-1.	Create the custom image using the **New-AzResourceGroupDeployment** cmdlet. Replace the following placeholders for the **$customImageName** and **$customImageDescription** variables to meaningful names for your environment.
+1. Create the custom image by using the **New-AzResourceGroupDeployment** cmdlet. Replace the \<custom image name> and \<custom image description> placeholders with the name and description you want.
 
-	```powershell
-	$customImageName = '<Specify the custom image name>'
-	$customImageDescription = '<Specify the custom image description>'
+   ```powershell
+   $customImageName = '<custom image name>'
+   $customImageDescription = '<custom image description>'
 
-	$parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
+   $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
-	New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
-	```
+   New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+   ```
 
-## PowerShell script to create a custom image from a VHD file
+## Complete PowerShell script
 
-The following PowerShell script can be used to create a custom image from a VHD file. Replace the placeholders (starting and ending with angle brackets) with the appropriate values for your needs.
+Combining the preceding steps produces the following PowerShell script that creates a custom image from a VHD file. To use the script, replace the following placeholders with your own values:
+
+- \<subscription ID>
+- \<lab resource group name>
+- \<lab name>
+- \<VHD URI>
+- \<custom image name>
+- \<custom image description>
 
 ```powershell
 # Log in to your Azure account.
 Connect-AzAccount
 
 # Select the desired Azure subscription.
-$subscriptionId = '<Specify your subscription ID here>'
+$subscriptionId = '<subscription ID>'
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab object.
-$labRg = '<Specify your lab resource group name here>'
-$labName = '<Specify your lab name here>'
+$labRg = '<lab resource group name>'
+$labName = '<lab name>'
 $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
 
 # Set the URI of the VHD file.
-$vhdUri = '<Specify the VHD URI here>'
+$vhdUri = '<VHD URI>'
 
 # Set the custom image name and description values.
-$customImageName = '<Specify the custom image name>'
-$customImageDescription = '<Specify the custom image description>'
+$customImageName = '<custom image name>'
+$customImageDescription = '<custom image description>'
 
 # Set up the parameters object.
 $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
@@ -89,11 +98,7 @@ $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsT
 New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
-## Related blog posts
-
-- [Custom images or formulas?](/azure/devtest-labs/devtest-lab-faq#blog-post)
-- [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
-
 ## Next steps
 
-- [Add a VM to your lab](devtest-lab-add-vm.md)
+- [Compare custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md)
+- [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)

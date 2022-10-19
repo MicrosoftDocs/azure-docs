@@ -2,7 +2,7 @@
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 07/18/2022
 ---
 # Restore encrypted Azure virtual machines
 
@@ -56,7 +56,7 @@ Reinstall the ADE extension so the data disks are open and mounted.
 
 ## Cross Region Restore for an encrypted Azure VM
 
-Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](../best-practices-availability-paired-regions.md). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore) for an encrypted VM.
+Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](../availability-zones/cross-region-replication-azure.md). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
 
 ## Move an encrypted Azure VM
 

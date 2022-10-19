@@ -12,11 +12,10 @@ metadata:
   ms.service: api-management
   ms.workload: mobile
   ms.tgt_pltfrm: na
-  ms.topic: article
+  ms.topic: faq
   ms.date: 11/19/2017
   ms.author: danlep 
-  ms.custom: devx-track-azurepowershell
-    
+  ms.custom: devx-track-azurepowershell, fasttrack-edit
 title: Azure API Management FAQs
 summary: |
   Get the answers to common questions, patterns, and best practices for Azure API Management.
@@ -63,8 +62,9 @@ sections:
       - question: |
           How do I add a user to the Administrators group?
         answer: |
-          Administrators groups is an immutable system group. Azure subscription administrators are members of this group. You cannot add a user to this group. See [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md) for more information.
+          Administrators group is an immutable system group. Azure subscription administrators are members of this group. You can't add a user to this group. See [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md) for more information. 
           
+          You can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
       - question: |
           Why is the policy that I want to add unavailable in the policy editor?
         answer: |
@@ -103,7 +103,7 @@ sections:
         answer: |
           Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
           
-          ### Powershell method
+          ### PowerShell method
           Use the [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
           
           ```powershell
@@ -146,3 +146,9 @@ sections:
           Are there restrictions on or known issues with importing my API?
         answer: |
           [Known issues and restrictions](api-management-api-import-restrictions.md) for Open API(Swagger), WSDL and WADL formats.
+                
+      - question: |
+          How does API Management handle trailing slashes when calling backend services?
+        answer: |
+          Historically and by convention a URL ending with a trailing slash is treated as a Directory, for example "https://contoso.com/sample/" whereas the same URL without the trailing slash "https://contoso.com/sample" would be indicative of a file. This is not mandated, so some systems will consider those two URLs unique, whilst others will consider them the same URL. API Management doesn’t make a distinction thus a single operation "resource" will accept "resource" and "resource/". However, whilst the distinction doesn’t matter to API Management it may matter to the backend host. Some web servers will automatically redirect a URL not ending with a trailing slash, to the same URL ending in a trailing slash. As API Management is the client to the backend (server) an automatic redirect is not always desirable. If needed create a [Rewrite URL policy](api-management-transformation-policies.md#RewriteURL) to ensure a trailing slash is always added to the outbound backend call.
+ 

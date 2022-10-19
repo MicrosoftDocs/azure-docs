@@ -46,6 +46,8 @@ To configure the integration of EasySSO for Confluence into Azure AD, you need t
 1. In the **Add from the gallery** section, type **EasySSO for Confluence** in the search box.
 1. Select **EasySSO for Confluence** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for EasySSO for Confluence
 
 Configure and test Azure AD SSO with EasySSO for Confluence using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in EasySSO for Confluence.
@@ -212,4 +214,4 @@ Should you have any issues digesting the log messages, please contact [EasySSO s
 
 ## Next steps
 
-Once you configure EasySSO for Confluence you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure EasySSO for Confluence you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

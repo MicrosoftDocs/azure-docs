@@ -1,16 +1,26 @@
 ---
-title: 'How to scan Azure files'
-description: This how to guide describes details of how to scan Azure files. 
+title: Connect to and manage Azure Files
+description: This guide describes how to connect to Azure Files in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Files source.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
-# Register and scan Azure Files
+
+# Connect to and manage Azure Files in Microsoft Purview
+
+This article outlines how to register Azure Files, and how to authenticate and interact with Azure Files in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
+
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | Limited** | No |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 Azure Files supports full and incremental scans to capture the metadata and classifications, based on system default and custom classification rules.
 
@@ -18,20 +28,27 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 1. First row values are non-empty
 2. First row values are unique
-3. First row values are neither a date and nor a number
+3. First row values are neither a date nor a number
 
 ## Prerequisites
 
-- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- You need to be a Data Source Administrator to set up and schedule scans, see [Catalog Permissions](catalog-permissions.md) for details.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Setting up authentication for a scan
+* An active [Microsoft Purview account](create-catalog-portal.md).
+
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+
+## Register
+
+This section describes how to register Azure Files in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
+
+### Authentication for registration
 
 Currently there's only one way to set up authentication for Azure file shares:
 
 - Account Key
 
-### Account Key
+#### Account Key to register
 
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
@@ -42,14 +59,14 @@ When authentication method selected is **Account Key**, you need to get your acc
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your storage account
 1. Select **Create** to complete
-1. If your key vault isn't connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault isn't connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan
 
-## Register an Azure Files storage account
+### Steps to register
 
 To register a new Azure Files account in your data catalog, follow these steps:
 
-1. Navigate to your Purview Data Studio.
+1. Navigate to your Microsoft Purview Data Studio.
 1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Files**
@@ -67,17 +84,21 @@ On the **Register sources (Azure Files)** screen, follow these steps:
 
 :::image type="content" source="media/register-scan-azure-files/azure-file-register-source.png" alt-text="register sources options" border="true":::
 
-## Creating and running a scan
+## Scan
+
+Follow the steps below to scan Azure Files to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+
+### Create and run scan
 
 To create and run a new scan, follow these steps:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Files source that you registered.
 
 1. Select **New scan**
 
-1. Select the account key credential to connect to your data source. 
+1. Select the account key credential to connect to your data source.
 
    :::image type="content" source="media/register-scan-azure-files/set-up-scan-azure-file.png" alt-text="Set up scan":::
 
@@ -95,10 +116,12 @@ To create and run a new scan, follow these steps:
 
 1. Review your scan and select **Save and run**.
 
-
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
+
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

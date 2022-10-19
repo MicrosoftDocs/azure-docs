@@ -4,8 +4,9 @@ description: Tutorial on creating near-real time metric alerts on popular log an
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 06/15/2021 
+ms.date: 7/24/2022
 ms.custom: devx-track-azurepowershell
+ms.reviewer: harelbr
 ---
 
 # Create Metric Alerts for Logs in Azure Monitor
@@ -62,10 +63,10 @@ For step-by-step details and samples - see [creating and managing metric alerts]
 - Signal chosen for metric alert for selected *Log Analytics workspace* is of type **Metric**
 - Filter for specific conditions or resource using dimension filters; metrics for logs are multi-dimensional
 - When configuring *Signal Logic*, a single alert can be created to span multiple values of dimension (like Computer)
-- If **not** using Azure portal for creating metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules).
+- If **not** using Azure portal for creating metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules).
 
 > [!NOTE]
-> When creating a metric alert for log via Azure portal - a corresponding rule for converting log data into metric via [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules) is automatically created in the background, *without the need for any user intervention or action*. For metric alert for logs created using means other than Azure portal, see [Resource Template for Metric Alerts for Logs](#resource-template-for-metric-alerts-for-logs) section on sample means of creating a ScheduledQueryRule based log to metric conversion rule before metric alert creation - else there will be no data for the metric alert on logs created.
+> When creating a metric alert for log via Azure portal - a corresponding rule for converting log data into metric via [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules) is automatically created in the background, *without the need for any user intervention or action*. For metric alert for logs created using means other than Azure portal, see [Resource Template for Metric Alerts for Logs](#resource-template-for-metric-alerts-for-logs) section on sample means of creating a ScheduledQueryRule based log to metric conversion rule before metric alert creation - else there will be no data for the metric alert on logs created.
 
 ## Resource Template for Metric Alerts for Logs
 
@@ -225,7 +226,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
             "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
@@ -236,9 +236,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "Microsoft.Insights/scheduledQueryRules",
             "apiVersion": "2018-04-16",
             "location": "[parameters('convertRuleRegion')]",
-            "tags": {
-                "[variables('convertRuleTag')]": "Resource"
-            },
             "properties": {
                 "description": "[parameters('convertRuleDescription')]",
                 "enabled": "[parameters('convertRuleStatus')]",
@@ -530,7 +527,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
             "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
@@ -541,9 +537,6 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "Microsoft.Insights/scheduledQueryRules",
             "apiVersion": "2018-04-16",
             "location": "[parameters('convertRuleRegion')]",
-            "tags": {
-                "[variables('convertRuleTag')]": "Resource"
-            },
             "properties": {
                 "description": "[parameters('convertRuleDescription')]",
                 "enabled": "[parameters('convertRuleStatus')]",

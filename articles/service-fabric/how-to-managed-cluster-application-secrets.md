@@ -2,7 +2,11 @@
 title: Deploy application secrets to a Service Fabric managed cluster
 description: Learn about Azure Service Fabric application secrets and how to deploy them to a managed cluster
 ms.topic: how-to
-ms.date: 8/23/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Deploy application secrets to a Service Fabric managed cluster
@@ -58,26 +62,25 @@ Insert values from above in to this area:
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "properties": {
-        "vmSecrets": [
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "properties": {
+    "vmSecrets": [
+      {
+        "sourceVault": {
+          "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
+        },
+        "vaultCertificates": [
           {
-            "sourceVault": {
-              "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-            },
-            "vaultCertificates": [
-              {
-                "certificateStore": "MY",
-                "certificateUrl": "https://mykeyvault1.vault.azure.net/certificates/{certificatename}/{secret-version}"
-              }
-            ]
+            "certificateStore": "MY",
+            "certificateUrl": "https://mykeyvault1.vault.azure.net/certificates/{certificatename}/{secret-version}"
           }
         ]
-    }    
+      }
+    ]
+  }
 }
 ```
-
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/general/overview.md

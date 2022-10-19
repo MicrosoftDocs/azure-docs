@@ -4,7 +4,7 @@ description: Learn how to upgrade your Log Analytics Dashboard visualizations wi
 ms.topic: article
 author: rboucher
 ms.author: robb
-ms.date: 07/01/2020
+ms.date: 10/27/2021
 ---
 
 # Upgrading your Log Analytics Dashboard visualizations
@@ -66,9 +66,13 @@ As dashboards may contain multiple visualizations from multiple queries, the tim
 
 ### Query data values - 25 values and other grouping
 
-Dashboards can be visually dense and complex. In order to reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. The following chart shows such a case.  
+Dashboards can be visually dense and complex. To reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. The following chart shows such a case.  
 
 ![Screenshot that shows a dashboard with 25 different data types.](media/dashboard-upgrade/values-25-limit.png)
+
+### Query results limit
+
+A query underlying a Log Analytics dashboard can return up to 2000 records.  
 
 ### Dashboard refresh on load
 

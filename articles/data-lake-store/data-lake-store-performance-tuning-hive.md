@@ -82,4 +82,4 @@ Restart all the nodes/service for the config to take effect.
 Here are a few blogs that will help tune your Hive queries:
 * [Optimize Hive queries for Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
 * [Encoding the Hive query file in Azure HDInsight](/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
-* [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)
+* Ignite talk on optimize Hive on HDInsight

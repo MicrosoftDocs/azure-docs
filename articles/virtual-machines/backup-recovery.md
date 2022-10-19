@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 8/03/2020
+ms.date: 10/22/2021
 ms.author: cynthn
 ---
 
@@ -14,32 +14,43 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-You can protect your data by taking backups at regular intervals. There are several backup options available for VMs, depending on your use-case.
+You can protect your data by taking backups at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case.
 
 ## Azure Backup
 
-For backing up Azure VMs running production workloads, use Azure Backup. Azure Backup supports application-consistent backups for both Windows and Linux VMs. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. 
+You'll use Azure Backup for most use-cases involving backup operations on Azure VMs running production workloads. Azure Backup supports application-consistent backups for both Windows and Linux VMs. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore entire VM or specific files.
 
 For a simple, hands-on introduction to Azure Backup for Azure VMs, see the [Azure Backup quickstart](../backup/quick-backup-vm-portal.md).
 
 For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../backup/backup-azure-vms-introduction.md)
 
-
 ## Azure Site Recovery
 
-Azure Site Recovery protects your VMs from a major disaster scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to an Azure region of your choice, it is not restricted to paired regions. 
+Azure Site Recovery protects your VMs from a major disaster scenario. These scenarios may include widespread service interruptions or regional outages caused by natural disasters. You can configure Azure Site Recovery for your VMs so that your applications are recoverable in matter of minutes with a single click. You can replicate to an Azure region of your choice, since recovery isn't restricted to paired regions.
 
 You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure automation runbooks.
 
-You can get started by [replicating your virtual machines](../site-recovery/azure-to-azure-quickstart.md). 
+You can get started by [replicating your virtual machines](../site-recovery/azure-to-azure-quickstart.md).
 
-## Managed snapshots 
+## Managed snapshots
 
-In development and test environments, snapshots provide a quick and simple option for backing up VMs that use Managed Disks. A managed snapshot is a read-only full copy of a managed disk. Snapshots exist independent of the source disk and can be used to create new managed disks for rebuilding a VM. They are billed based on the used portion of the disk. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
+In development and test environments, snapshots provide a quick and simple option for backing up VMs that use managed disks. A managed snapshot is a full, read-only copy of a managed disk. Snapshots exist independently of their source disks.
+
+Snapshots can be used to create new managed disks when a VM is rebuilt. They're billed based on the used portion of the disk. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
 
 For more information on creating snapshots, see:
 
 * [Create copy of VHD stored as a Managed Disk](./windows/snapshot-copy-managed-disk.md)
+
+## Virtual machine restore points
+
+At this time, you can use Azure REST APIs to back up and restore your VMs. This approach is most often used by independent software vendor (ISVs) or organizations with a relatively small number of VMs to manage.
+
+You can use the API to create a VM restore point collection. The restore point collection itself contains individual restore points for specific VMs. Each restore point stores a VM's configuration and a snapshot for each attached managed disk. To save space and costs, you can exclude any disk from your VM restore points.
+
+Once created, VM restore points can then be used to restore individual disks. To restore a VM, restore all relevant disks and attach them to a new VM.
+
+Learn more about [working with VM restore points](virtual-machines-create-restore-points.md) and the [restore point collections](/rest/api/compute/restore-point-collections) API.
 
 ## Next steps
 You can try out Azure Backup by following the [Azure Backup quickstart](../backup/quick-backup-vm-portal.md).

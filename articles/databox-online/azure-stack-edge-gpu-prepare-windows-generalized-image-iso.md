@@ -98,7 +98,7 @@ To create your new virtual machine, follow these steps:
 
    ![New Virtual Machine wizard, Specify Name and Location](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-08.png)
 
-4. Under **Specify Generation**, select **Generation 1**. Then select **Next >**.
+4. Under **Specify Generation**, select **Generation 1** or **Generation 2**. Then select **Next >**.
 
    ![New Virtual Machine wizard, Choose the generation of virtual machine to create](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-09.png)
 

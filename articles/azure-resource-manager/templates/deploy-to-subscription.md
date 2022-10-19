@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 01/19/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -14,6 +14,9 @@ To simplify the management of resources, you can use an Azure Resource Manager t
 > You can deploy to 800 different resource groups in a subscription level deployment.
 
 To deploy templates at the subscription level, use Azure CLI, PowerShell, REST API, or the portal.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [subscription deployments](../bicep/deploy-to-subscription.md).
 
 ## Supported resources
 
@@ -33,10 +36,15 @@ For Azure Policies, use:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For Azure role-based access control (Azure RBAC), use:
+For access control, use:
 
+* [accessReviewScheduleDefinitions](/azure/templates/microsoft.authorization/accessreviewscheduledefinitions)
+* [accessReviewScheduleSettings](/azure/templates/microsoft.authorization/accessreviewschedulesettings)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 For nested templates that deploy to resource groups, use:
 
@@ -48,11 +56,33 @@ For creating new resource groups, use:
 
 For managing your subscription, use:
 
-* [Advisor configurations](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [Change Analysis profile](/azure/templates/microsoft.changeanalysis/profile)
+* [configurations - Advisor ](/azure/templates/microsoft.advisor/configurations)
+* [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
+* [locks](/azure/templates/microsoft.authorization/locks)
+* [profile - Change Analysis ](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
+
+For monitoring, use:
+
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
+* [logprofiles](/azure/templates/microsoft.insights/logprofiles)
+
+For security, use:
+
+* [advancedThreatProtectionSettings](/azure/templates/microsoft.security/advancedthreatprotectionsettings)
+* [alertsSuppressionRules](/azure/templates/microsoft.security/alertssuppressionrules)
+* [assessmentMetadata](/azure/templates/microsoft.security/assessmentmetadata)
+* [assessments](/azure/templates/microsoft.security/assessments)
+* [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
+* [connectors](/azure/templates/microsoft.security/connectors)
+* [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
+* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [pricings](/azure/templates/microsoft.security/pricings)
+* [securityContacts](/azure/templates/microsoft.security/securitycontacts)
+* [settings](/azure/templates/microsoft.security/settings)
+* [workspaceSettings](/azure/templates/microsoft.security/workspacesettings)
 
 Other supported types include:
 
@@ -88,7 +118,7 @@ To deploy to a subscription, use the subscription-level deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -327,37 +357,7 @@ The following example creates a resource group, and deploys a storage account to
 
 The following example assigns an existing policy definition to the subscription. If the policy definition takes parameters, provide them as an object. If the policy definition doesn't take parameters, use the default empty object.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
-    },
-    "policyName": {
-      "type": "string"
-    },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-09-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/policyassign.json":::
 
 To deploy this template with Azure CLI, use:
 
@@ -393,46 +393,7 @@ New-AzSubscriptionDeployment `
 
 You can [define](../../governance/policy/concepts/definition-structure.md) and assign a policy definition in the same template.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2020-09-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-09-01",
-      "name": "location-lock",
-      "dependsOn": [
-        "locationpolicy"
-      ],
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/policydefineandassign.json":::
 
 To create the policy definition in your subscription, and assign it to the subscription, use the following CLI command:
 
@@ -488,6 +449,6 @@ The following example creates a resource group, applies a lock to it, and assign
 
 ## Next steps
 
-* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* For an example of deploying workspace settings for Microsoft Defender for Cloud, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Sample templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments).
 * You can also deploy templates at [management group level](deploy-to-management-group.md) and [tenant level](deploy-to-tenant.md).

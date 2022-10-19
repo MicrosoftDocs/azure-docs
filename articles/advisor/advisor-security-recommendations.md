@@ -6,11 +6,11 @@ ms.date: 01/29/2019
 ---
 # Make resources more secure with Azure Advisor
 
-Azure Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with Azure Security Center to bring you security recommendations. You can get security recommendations from the **Security** tab on the Advisor dashboard.
+Azure Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with Microsoft Defender for Cloud to bring you security recommendations. You can get security recommendations from the **Security** tab on the Advisor dashboard.
 
-Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the controls you need. 
+Defender for Cloud helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It periodically analyzes the security state of your Azure resources. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the controls you need. 
 
-For more information about security recommendations, see [Managing security recommendations in Azure Security Center](../security-center/security-center-recommendations.md).
+For more information about security recommendations, see [Review your security recommendations in Microsoft Defender for Cloud](../defender-for-cloud/review-security-recommendations.md).
 
 ## How to access Security recommendations in Azure Advisor
 
@@ -23,9 +23,9 @@ For more information about security recommendations, see [Managing security reco
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor cost recommendations](advisor-cost-recommendations.md)
-* [Advisor performance recommendations](advisor-performance-recommendations.md)
-* [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
-* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor cost recommendations](advisor-reference-cost-recommendations.md)
+* [Advisor performance recommendations](advisor-reference-performance-recommendations.md)
+* [Advisor reliability recommendations](advisor-reference-reliability-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-reference-operational-excellence-recommendations.md)
 * [Advisor REST API](/rest/api/advisor/)
  

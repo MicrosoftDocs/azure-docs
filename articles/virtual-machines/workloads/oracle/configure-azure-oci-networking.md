@@ -18,7 +18,7 @@ ms.author: rogardle
 To create an [integrated multi-cloud experience](oracle-oci-overview.md), Microsoft and Oracle offer direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through [ExpressRoute](../../../expressroute/expressroute-introduction.md) and [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Through the ExpressRoute and FastConnect interconnection, customers can experience low latency, high throughput, private direct connectivity between the two clouds.
 
 > [!IMPORTANT]
-> Oracle will certify these applications to run in Azure when using the Azure / Oracle Cloud interconnect solution by May 2020.
+> Oracle has certified these applications to run in Azure when using the Azure / Oracle Cloud interconnect solution:
 > * E-Business Suite
 > * JD Edwards EnterpriseOne
 > * PeopleSoft
@@ -28,6 +28,10 @@ To create an [integrated multi-cloud experience](oracle-oci-overview.md), Micros
 The following image shows a high-level overview of the interconnection:
 
 ![Cross-cloud network connection](https://user-images.githubusercontent.com/37556655/115093592-bced0180-9ecf-11eb-976d-9d4c7a1be2a8.png)
+
+> [!NOTE]
+> The ExpressRoute connection seen in the diagram is a regular [ExpressRoute circuit](../../../expressroute/expressroute-introduction.md) and supports all fuctionalities such as Global Reach.
+> 
 
 ## Prerequisites
 
@@ -77,7 +81,7 @@ Once you have completed the network configuration, you can verify the validity o
 
 ## Automation
 
-Microsoft has created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before execution, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Azure Active Directory service principal](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or using the Azure CLI. For more information, see the [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
+Microsoft has created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before execution, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Azure Active Directory service principal](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or using the Azure CLI. For more information, see the [Terraform documentation](https://www.terraform.io/cli/auth).
 
 The Terraform scripts and related documentation to deploy the inter-connect can be found in this [GitHub repository](https://aka.ms/azureociinterconnecttf).
 

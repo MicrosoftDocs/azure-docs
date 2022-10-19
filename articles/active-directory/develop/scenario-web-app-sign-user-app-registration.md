@@ -1,6 +1,5 @@
 ---
-title: Register a web app that signs in users | Azure
-titleSuffix: Microsoft identity platform
+title: Register a web app that signs in users
 description: Learn how to register a web app that signs in users
 services: active-directory
 author: jmprieur
@@ -31,7 +30,7 @@ To register your application, you can use:
 You can use these links to bootstrap the creation of your web application:
 
 - [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
-- [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
+- [ASP.NET](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
 ## Register an app by using the Azure portal
 
@@ -96,8 +95,8 @@ By default, the sample uses:
 
 1. When the **Register an application page** appears, enter your application's registration information:
    1. Enter a **Name** for your application, for example `node-webapp`. Users of your app might see this name, and you can change it later.
-   1. Change **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
-   1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: `http://localhost:3000/redirect`.
+   1. Change **Supported account types** to **Accounts in this organizational directory only**.
+   1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: `http://localhost:3000/auth/redirect`.
    1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the configuration file for this project.
 1. Under **Manage**, select **Certificates & secrets**.

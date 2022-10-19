@@ -45,6 +45,8 @@ To configure the integration of TMWS into Azure AD, you need to add TMWS from th
 1. In the **Add from the gallery** section, enter **Trend Micro Web Security (TMWS)** in the search box.
 1. Select **Trend Micro Web Security (TMWS)** in the search results and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for TMWS
 
 You'll configure and test Azure AD SSO with TMWS by using a test user called B.Simon. For SSO to work, you need to establish a link between an Azure AD user and the related user in TMWS.
@@ -89,8 +91,8 @@ Complete these steps to enable Azure AD SSO in the Azure portal.
     
     | Name | Source attribute|
     | --------------- | --------- |
-    | sAMAccountName | user.onpremisessamaccountname |
-    | uPN | user.userprincipalname |
+    | `sAMAccountName` | `user.onpremisessamaccountname` |
+    | `upn` | `user.userprincipalname` |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. Select the **Download** link next to this certificate name to download the certificate and save it on your computer:
 
@@ -217,4 +219,4 @@ For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.co
 
 ## Next steps
 
-Once you configure TMWS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure TMWS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

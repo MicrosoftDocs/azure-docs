@@ -21,5 +21,5 @@ az acr import \
 ```
 
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-import]: /cli/azure/acr#az_acr_import
+[az-acr-import]: /cli/azure/acr#az-acr-import
 [docker-account]: (https://docs.docker.com/docker-id/)

@@ -1,5 +1,5 @@
 ---
-title: Working with large Azure Virtual Machine Scale Sets
+title: Virtual machine scale sets and placement groups
 description: What you need to know about large Azure virtual machine scale sets in order to use them in your application.
 author: mimckitt
 ms.author: mimckitt
@@ -11,9 +11,10 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
-# Working with large virtual machine scale sets
+# Virtual machine scale sets and placement groups
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+> [!NOTE]
+> This document covers virtual machine scale sets running in Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for virtual machine scale sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 You can now create Azure [virtual machine scale sets](./index.yml) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
 
@@ -35,7 +36,7 @@ To decide whether your application can make effective use of large scale sets, c
 - Layer-4 load balancing with scale sets composed of multiple placement groups requires [Azure Load Balancer Standard SKU](../load-balancer/load-balancer-overview.md). The Load Balancer Standard SKU provides additional benefits, such as the ability to load balance between multiple scale sets. Standard SKU also requires that the scale set has a Network Security Group associated with it, otherwise NAT pools don't work correctly. If you need to use the Azure Load Balancer Basic SKU, make sure the scale set is configured to use a single placement group, which is the default setting.
 - Layer-7 load balancing with the Azure Application Gateway is supported for all scale sets.
 - A scale set is defined with a single subnet - make sure your subnet has an address space large enough for all the VMs you need. By default a scale set overprovisions (creates extra VMs at deployment time or when scaling out, which you are not charged for) to improve deployment reliability and performance. Allow for an address space 20% greater than the number of VMs you plan to scale to.
-- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does means that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Please refer to this link [Availability options](../virtual-machines/availability.md). 
+- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does mean that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Please refer to this link [Availability options](../virtual-machines/availability.md). 
 - Fault domain and placement group ID are shown in the _instance view_ of a scale set VM. You can view the instance view of a scale set VM in the [Azure Resource Explorer](https://resources.azure.com/).
 
 ## Creating a large scale set

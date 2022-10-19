@@ -1,19 +1,20 @@
 ---
-title: Query Delta Lake format using serverless SQL pool (preview)
-description: In this article, you'll learn how to query files stored in Apache Delta Lake format using serverless SQL pool.
+title: Query Delta Lake format using serverless SQL pool
+description: In this article, you'll learn how to query files stored in Delta Lake format using serverless SQL pool.
 services: synapse analytics
-author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 04/27/2021
+ms.date: 07/15/2021
+author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick 
+ms.reviewer: sngun, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
-# Query Delta Lake files (preview) using serverless SQL pool in Azure Synapse Analytics
+# Query Delta Lake files using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using serverless Synapse SQL pool to read Apache Delta Lake files.
+In this article, you'll learn how to write a query using serverless Synapse SQL pool to read Delta Lake files.
 Delta Lake is an open-source storage layer that brings ACID (atomicity, consistency, isolation, and durability) transactions to Apache Spark and big data workloads.
 
 The serverless SQL pool in Synapse workspace enables you to read the data stored in Delta Lake format, and serve it to reporting tools. 
@@ -21,8 +22,6 @@ A serverless SQL pool can read Delta Lake files that are created using Apache Sp
 
 Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports
 on Delta Lake files created by data engineers.
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 ## Quickstart example
 
@@ -126,7 +125,7 @@ With the explicit specification of the result set schema, you can minimize the t
 
 ## Dataset
 
-[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. You can query Parquet files the same way you [read CSV files](query-parquet-files.md). The only difference is that the `FILEFORMAT` parameter should be set to `PARQUET`. Examples in this article show the specifics of reading Parquet files.
+[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. The original `PARQUET` data set is converted to `DELTA` format, and the `DELTA` version is used in the examples.
 
 
 ### Query partitioned data
@@ -177,7 +176,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 
 ## Limitations
 
-This feature is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+- Review the limitations and the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Next steps
 
@@ -188,6 +187,6 @@ If you want to continue building Delta Lake solution, learn how to create [views
 
 - [What is Delta Lake](../spark/apache-spark-what-is-delta-lake.md)
 - [Learn how to use Delta Lake in Apache Spark pools for Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
-- [Azure Databricks Delta Lake best practices](/azure/databricks/best-practices-index)
+- [Azure Databricks Delta Lake best practices](/azure/databricks/delta/best-practices)
 - [Delta Lake Documentation Page](https://docs.delta.io/latest/delta-intro.html)
 - [Know issues and limitations](resources-self-help-sql-on-demand.md#delta-lake)

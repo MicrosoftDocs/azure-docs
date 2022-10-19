@@ -1,16 +1,22 @@
 ---
 title: Software releases for Azure Percept DK OTA updates
 description: Information and download links for the Azure Percept DK over-the-air update packages
-author: EthanChangAED
-ms.author: amiyouss
+author: yvonne-dq
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 10/04/2022
 ms.custom: template-concept
 ---
 
 
 # Software releases for OTA updates
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
+
+
+>[!CAUTION]
+>**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
 
 The OTA update is built for users who tend to always keep the dev kit up to date. That's why only the hard-stop versions and the latest version are provided here. To change your dev kit to a specific (older) version, use the USB cable update. Refer to [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md). Also use the USB update if you want to jump to a much advanced version.
 
@@ -59,19 +65,22 @@ Microsoft would service each dev kit release with OTA packages. However, as ther
 ## Identify the OTA package(s) to be deployed
 
 >[!IMPORTANT]
->If the current version of you dev kit isn't included in any of the releases below, it's NOT supported for OTA update. Please do a USB cable update to get to the latest version.
+>If the current version of your dev kit isn't included in any of the releases below, it's NOT supported for OTA update. Please do a USB cable update to get to the latest version.
+
+>[!CAUTION]
+>Make sure you are using the **old version** of the Device Update for IoT Hub. To do that, navigate to **Device management > Updates** in your IoT Hub, select the **switch to the older version** link in the banner. For more information, please refer to [Update Azure Percept DK over-the-air](./how-to-update-over-the-air.md).
 
 **Latest release:**
 
 |Release|Applicable Version(s)|Download Links|Note|
 |---|---|---|---|
-|July Service Release (2107)|2021.106.111.115|[2021.107.129.116 OTA update package](https://go.microsoft.com/fwlink/?linkid=2169245)||
+|June Service Release (2206)|2021.106.111.115,<br>2021.107.129.116,<br>2021.109.129.108, <br>2021.111.124.109, <br>2022.101.112.106, <br>2022.102.109.102, <br>2022.103.110.103|[2022.106.120.102 OTA update package](<https://download.microsoft.com/download/b/7/1/b71877b8-4882-4447-b3f3-8359ee8341e2/2022.106.120.102 OTA update package.zip>)|Make sure you are using the **old version** of the Device Update for IoT Hub. To do that, navigate to **Device management > Updates** in your IoT Hub, select the **switch to the older version** link in the banner. For more information, please refer to [Update Azure Percept DK over-the-air](./how-to-update-over-the-air.md).|
 
 **Hard-stop releases:**
 
 |Release|Applicable Version(s)|Download Links|Note|
 |---|---|---|---|
-|June Service Release (2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 OTA manifest (for PE-101)](https://go.microsoft.com/fwlink/?linkid=2167127)<br>[2021.106.111.115 OTA manifest (for APDK-101)](https://go.microsoft.com/fwlink/?linkid=2167235) <br>[2021.106.111.115 OTA update package](https://go.microsoft.com/fwlink/?linkid=2167128) |Be sure to use the correct manifest based on "model name" (PE-101/APDK-101)|
+|June Service Release (2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 OTA manifest (for PE-101)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_PE-101_2021.106.111.115_v3.json)<br>[2021.106.111.115 OTA manifest (for APDK-101)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_Azure-Percept-DK_2021.106.111.115_v3.json) <br>[2021.106.111.115 OTA update package](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/Microsoft-Azure-Percept-DK-2021.106.111.115.swu) |Be sure to use the correct manifest based on "model name" (PE-101/APDK-101)|
 
 ## Next steps
 

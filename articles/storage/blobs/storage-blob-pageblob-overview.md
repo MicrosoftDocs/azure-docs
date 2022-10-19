@@ -10,6 +10,7 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -23,7 +24,7 @@ Key features of Azure page blobs are its REST interface, the durability of the u
 
 ## Restrictions
 
-Page blobs can only use the **Hot** access tier, they cannot use either the **Cool** or **Archive** tiers. For more information on access tiers, see [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md).
+Page blobs can only use the **Hot** access tier, they cannot use either the **Cool** or **Archive** tiers. For more information on access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## Sample use cases
 
@@ -162,7 +163,7 @@ If you have a sparsely populated blob, you may want to just download the valid p
 
 # [.NET v12 SDK](#tab/dotnet)
 
-To determine which pages are backed by data, use [PageBlobClient.GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). You can then enumerate the returned ranges and download the data in each range.
+To determine which pages are backed by data, use PageBlobClient.GetPageRanges. You can then enumerate the returned ranges and download the data in each range.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 

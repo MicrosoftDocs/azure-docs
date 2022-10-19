@@ -1,16 +1,16 @@
 ---
-title: Retrieve load balancer metadata using the Azure Instance Metadata Service (IMDS)
+title: Retrieve load balancer metadata using Azure Instance Metadata Service (IMDS)
 titleSuffix: Azure Load Balancer
-description: Get started learning how to retrieve load balancer metadata using the Azure Instance Metadata Service.
+description: Get started learning how to retrieve load balancer metadata using Azure Instance Metadata Service.
 services: load-balancer
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: allensu
+ms.author: mbender
 
 ---
-# Retrieve load balancer metadata using the Azure Instance Metadata Service (IMDS)
+# Retrieve load balancer metadata using Azure Instance Metadata Service (IMDS)
 
 ## Prerequisites
 
@@ -19,6 +19,15 @@ ms.author: allensu
 ## Sample request and response
 > [!IMPORTANT]
 > This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
+
+## Schema breakdown
+
+| Data | Description | Version introduced |
+|------|-------------|--------------------|
+| `publicIpAddresses` | The instance level Public or Private IP of the specific Virtual Machine instance | 2020-10-01
+| `inboundRules` | List of load balancing rules or inbound NAT rules using which the Load Balancer directs traffic to the specific Virtual Machine instance. Frontend IP addresses and the Private IP addresses listed here belong to the Load Balancer.  | 2020-10-01
+| `outboundRules` | List of outbound rules by which the Virtual Machine behind Load Balancer sends outbound traffic. Frontend IP addresses and the Private IP addresses listed here belong to the Load Balancer. | 2020-10-01
+
 ### [Windows](#tab/windows/)
 
 ```powershell

@@ -3,7 +3,7 @@ title: Converting certificate contents to base-64 - Azure HDInsight
 description: Converting service principal certificate contents to base-64 encoded string format in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/31/2019
+ms.date: 05/30/2022
 ms.custom: devx-track-csharp
 ---
 

@@ -1,27 +1,18 @@
 ---
-title: Protecting managed security service provider (MSSPs) intellectual property in Azure Sentinel | Microsoft Docs
-description: Learn about how  managed security service providers (MSSPs) can protect the intellectual property they've created in Azure Sentinel.
-services: sentinel
-documentationcenter: na
+title: Protecting managed security service provider (MSSPs) intellectual property in Microsoft Sentinel | Microsoft Docs
+description: Learn about how  managed security service providers (MSSPs) can protect the intellectual property they've created in Microsoft Sentinel.
 author: batamig
-manager: rkarlin
-editor: ''
-
-ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/12/2021
+ms.custom: mvc, ignite-fall-2021
+ms.date: 11/09/2021
 ms.author: bagol
-
 ---
-# Protecting MSSP intellectual property in Azure Sentinel
 
-This article describes the methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks.
+# Protecting MSSP intellectual property in Microsoft Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+This article describes the methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Microsoft Sentinel, such as Microsoft Sentinel analytics rules, hunting queries, playbooks, and workbooks.
 
 The method you choose will depend on how each of your customers buy Azure; whether you act as a [Cloud Solutions Provider (CSP)](#cloud-solutions-providers-csp), or the customer has an [Enterprise Agreement (EA)/Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg) account. The sections below describe each of these methods separately.
 
@@ -35,21 +26,21 @@ If you need to provide customer users with access to the Azure environment, we r
 
 For example:
 
-- You might grant the customer with access to several resource groups where their applications are located, but still keep the Azure Sentinel workspace in a separate resource group, where the customer has no access.
+- You might grant the customer with access to several resource groups where their applications are located, but still keep the Microsoft Sentinel workspace in a separate resource group, where the customer has no access.
 
 - Use this method to enable customers to view selected workbooks and playbooks, which are separate resources that can reside in their own resource group.
 
-Even with granting access at the resource group level, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Azure Sentinel. For more information, see [Manage access to Azure Sentinel data by resource](resource-context-rbac.md).
+Even with granting access at the resource group level, customers will still have access to log data for the resources they can access, such as logs from a VM, even without access to Microsoft Sentinel. For more information, see [Manage access to Microsoft Sentinel data by resource](resource-context-rbac.md).
 
 > [!TIP]
 > If you need to provide your customers with access to the entire subscription, you may want to see the guidance in [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
 >
 
-### Sample Azure Sentinel CSP architecture
+### Sample Microsoft Sentinel CSP architecture
 
 The following image describes how the permissions described in the [previous section](#cloud-solutions-providers-csp) might work when providing access to CSP customers:
 
-:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Azure Sentinel intellectual property with CSP customers.":::
+:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Microsoft Sentinel intellectual property with CSP customers.":::
 
 In this image:
 
@@ -57,7 +48,7 @@ In this image:
 - Other groups from the MSSP get access to the customer environment via Azure Lighthouse.
 - Customer access to Azure resources is managed by Azure RBAC at the resource group level.
 
-    This allows MSSPs to hide Azure Sentinel components as needed, like Analytics Rules and Hunting Queries.
+    This allows MSSPs to hide Microsoft Sentinel components as needed, like Analytics Rules and Hunting Queries.
 
 For more information, also see the [Azure Lighthouse documentation](../lighthouse/concepts/cloud-solution-provider.md).
 
@@ -65,15 +56,15 @@ For more information, also see the [Azure Lighthouse documentation](../lighthous
 
 If your customer is buying directly from Microsoft, the customer already has full access to the Azure environment, and you cannot hide anything that's in the customer's Azure subscription.
 
-Instead, protect your intellectual property that you've developed in Azure Sentinel as follows, depending on the type of resource you need to protect:
+Instead, protect your intellectual property that you've developed in Microsoft Sentinel as follows, depending on the type of resource you need to protect:
 
 ### Analytics rules and hunting queries
 
-Analytics rules and hunting queries are both contained within Azure Sentinel, and therefore cannot be separated from the Azure Sentinel workspace.
+Analytics rules and hunting queries are both contained within Microsoft Sentinel, and therefore cannot be separated from the Microsoft Sentinel workspace.
 
-Even if a user only has Azure Sentinel Reader permissions, they'll still be able to view the query. In this case, we recommend hosting your Analytics rules and hunting queries in your own MSSP tenant, instead of the customer tenant.
+Even if a user only has Microsoft Sentinel Reader permissions, they'll still be able to view the query. In this case, we recommend hosting your Analytics rules and hunting queries in your own MSSP tenant, instead of the customer tenant.
 
-To do this, you'll need a workspace in your own tenant with Azure Sentinel enabled, and you'll also need to see the customer workspace via [Azure Lighthouse](multiple-tenants-service-providers.md).
+To do this, you'll need a workspace in your own tenant with Microsoft Sentinel enabled, and you'll also need to see the customer workspace via [Azure Lighthouse](multiple-tenants-service-providers.md).
 
 To create an analytic rule or hunting query in the MSSP tenant that references data in the customer tenant, you must use the `workspace` statement as follows:
 
@@ -88,7 +79,7 @@ When adding a `workspace` statement to your analytics rules, consider the follow
 
 - **Create separate alerts for each customer**. When you use this method, we also recommend that you use separate alert rules for each customer and detection, as the workspace statement will be different in each case.
 
-    You can add the customer name to the alert rule name to easily identify the customer where the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
+    You can add the customer name to the alert rule name to easily identify the customer where the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Microsoft Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
     For example:
 
@@ -108,7 +99,7 @@ When adding a `workspace` statement to your analytics rules, consider the follow
 
 ### Workbooks
 
-If you have developed an Azure Sentinel workbook that you don't want your customer to copy, host the workbook in your MSSP tenant. Make sure that you have access to your customer workspaces via Azure Lighthouse, and then make sure to modify the workbook to use those customer workspaces.
+If you have developed a Microsoft Sentinel workbook that you don't want your customer to copy, host the workbook in your MSSP tenant. Make sure that you have access to your customer workspaces via Azure Lighthouse, and then make sure to modify the workbook to use those customer workspaces.
 
 For example:
 
@@ -123,7 +114,7 @@ Exporting your workbook to Power BI:
 - **Makes the workbook visualizations easier to share**. You can send the customer a link to the Power BI dashboard, where they can view the reported data, without requiring Azure access permissions.
 - **Enables scheduling**. Configure Power BI to send emails periodically that contain a snapshot of the dashboard for that time.
 
-For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/visualize/powerbi.md).
+For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md).
 
 ### Playbooks
 
@@ -154,8 +145,8 @@ However, if the playbook needs to access non-Azure resources in the customer’s
 
 For more information, see:
 
-- [Azure Sentinel Technical Playbook for MSSPs](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
-- [Manage multiple tenants in Azure Sentinel as an MSSP](multiple-tenants-service-providers.md)
-- [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
+- [Microsoft Sentinel Technical Playbook for MSSPs](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
+- [Manage multiple tenants in Microsoft Sentinel as an MSSP](multiple-tenants-service-providers.md)
+- [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
 - [Visualize and monitor your data](monitor-your-data.md)
-- [Tutorial: Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md)
+- [Tutorial: Set up automated threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md)

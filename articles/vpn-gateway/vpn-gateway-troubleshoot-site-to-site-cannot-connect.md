@@ -91,6 +91,9 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
 
     `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
+    _For Active/Acive gateways use the following to check the second public IP:_ <br>
+    `https://<YourVirtualNetworkGatewayIP2>:8083/healthprobe`
+
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:
 

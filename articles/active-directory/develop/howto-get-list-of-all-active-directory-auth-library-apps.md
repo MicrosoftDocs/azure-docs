@@ -1,6 +1,5 @@
 ---
-title: "How to: Get a complete list of all apps using Active Directory Authentication Library (ADAL) in your tenant | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Get a complete list of all apps using Active Directory Authentication Library (ADAL) in your tenant"
 description: In this how-to guide, you get a complete list of all apps that are using ADAL in your tenant.
 services: active-directory
 author: SHERMANOUKO
@@ -10,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to 
 ms.workload: identity
-ms.date: 07/22/2021
+ms.date: 03/03/2022
 ms.author: shermanouko
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
@@ -19,23 +18,27 @@ ms.reviewer: aiwang, marsma
 
 # Get a complete list of apps using ADAL in your tenant
 
-Support for Active Directory Authentication Library (ADAL) will end on June 30, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. This article provides guidance on how to use Azure Monitor workbooks to obtain a list of all apps that use ADAL in your tenant.
+Support for Active Directory Authentication Library (ADAL) will end in December, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. For more information, see [Migrate apps to MSAL](msal-migration.md). This article provides guidance on how to use Azure Monitor workbooks to obtain a list of all apps that use ADAL in your tenant.
 
 ## Sign-ins workbook
 
 Workbooks are a set of queries that collect and visualize information that is available in Azure Active Directory (Azure AD) logs. [Learn more about the sign-in logs schema here](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). The Sign-ins workbook in the Azure AD admin portal now has a table to assist you in determining which applications use ADAL and how often they are used. First, we’ll detail how to access the workbook before showing the visualization for the list of applications.
 
-## Step 1: Integrate audit logs with Azure Monitor
+## Step 1: Send Azure AD sign-in events to Azure Monitor
 
-Follow the steps in the [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) before accessing workbook. Only sign-in and audit events created after Azure Monitor integration will be stored.
+Azure AD doesn't send sign-in events to Azure Monitor by default, which the Sign-ins workbook in Azure Monitor requires.
+
+Configure AD to send sign-in events to Azure Monitor by following the steps in [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). In the **Diagnostic settings** configuration step, select the **SignInLogs** check box.
+
+No sign-in event that occurred *before* you configure Azure AD to send the events to Azure Monitor will appear in the Sign-ins workbook.
 
 ## Step 2: Access sign-ins workbook in Azure portal
 
 Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the Azure Monitor integration, access the sign-ins workbook:
 
-   1. Sign into the Azure portal 
-   1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks** 
-   1. In the **Usage** section, open the **Sign-ins** workbook 
+   1. Sign into the Azure portal
+   1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**
+   1. In the **Usage** section, open the **Sign-ins** workbook
 
    :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure Active Directory portal workbooks interface highlighting the sign-ins workbook.":::
 

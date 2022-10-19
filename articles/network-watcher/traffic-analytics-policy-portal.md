@@ -56,7 +56,7 @@ There are separate instructions for each policy below.
 
 The policy audits all existing Azure Resource Manager objects of type "Microsoft.Network/networkWatchers/flowLogs" and checks if Traffic Analytics is enabled via the "networkWatcherFlowAnalyticsConfiguration.enabled" property of the flow logs resource. It flags the flow logs resource which have the property set to false.
 
-If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "traffic analytics" to find the policy
+If you want to see the full definition of the policy, you can visit the [Definitions tab](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "traffic analytics" to find the policy
 
 ### Assignment
 
@@ -88,7 +88,7 @@ Network Watcher is a regional service so this policy will apply to NSGs belongin
  
 Remediation can be assigned while assigning policy or after policy is assigned and evaluated. Remediation will enable Traffic Analytics on all the flagged resources with the provided parameters. Note that if an NSG already has flow Logs enabled into a particular storage ID but it does not have Traffic Analytics enabled, then remediation will enable Traffic Analytics on this NSG with the provided parameters. If for the flagged NSG, the storage ID provided in the parameters is different from the one already enabled for flow logs, then the latter gets overwritten with the provided storage ID in the remediation task. If you don't want to overwrite, use policy *"Configure network security groups to enable Traffic Analytics"* described below.
 
-If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Traffic Analytics" to find the policy. 
+If you want to see the full definition of the policy, you can visit the [Definitions tab](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Traffic Analytics" to find the policy. 
 
 ### Configure network security groups to enable Traffic Analytics
 

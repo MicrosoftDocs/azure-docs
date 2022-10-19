@@ -3,12 +3,12 @@ title: Upgrade to a general-purpose v2 storage account
 titleSuffix: Azure Storage
 description: Upgrade to general-purpose v2 storage accounts using the Azure portal, PowerShell, or the Azure CLI. Specify an access tier for blob data.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/29/2021
-ms.author: tamram   
+ms.author: jammart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -69,7 +69,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only to block blobs within Blob storage. When you upgrade to a general-purpose v2 storage account, you can specify a default account access tier of hot or cool, which indicates the default tier your blob data will be uploaded as if the individual blob access tier parameter is not specified.
 
-Blob access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a hot, cool, or archive tiers. For more information on access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+Blob access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a hot, cool, or archive tiers. For more information on access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/access-tiers-overview.md).
 
 By default, a new storage account is created in the hot access tier, and a general-purpose v1 storage account can be upgraded to either the hot or cool account tier. If an account access tier is not specified on upgrade, it will be upgraded to hot by default. If you are exploring which access tier to use for your upgrade, consider your current data usage scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
 

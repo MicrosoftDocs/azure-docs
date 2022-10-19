@@ -3,7 +3,7 @@ title: Azure Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/04/2020
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -14,6 +14,10 @@ manager: femila
 
 This article provides an overview of the issues you may encounter when setting up an Azure Virtual Desktop environment and provides ways to resolve the issues.
 
+## Troubleshoot deployment and connection issues
+
+[Azure Monitor for Azure Virtual Desktop](azure-monitor.md) is a dashboard built on Azure Monitor workbooks that can quickly troubleshoot and identify issues in your Azure Virtual Desktop environment for you. If you prefer working with Kusto queries, we recommend using the built-in diagnostic feature, [Log Analytics](diagnostics-log-analytics.md), instead.
+
 ## Report issues
 
 To report issues or suggest features for Azure Virtual Desktop with Azure Resource Manager integration, visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum). You can use the Tech Community to discuss best practices or suggest and vote for new features.
@@ -22,9 +26,9 @@ When you make a post asking for help or propose a new feature, make sure you des
 
 ## Escalation tracks
 
-Before doing anything else, make sure to check the [Azure status page](https://status.azure.com/status) and [Azure Service Health](https://azure.microsoft.com/features/service-health/) to make sure your Azure service is running properly.
+Before doing anything else, make sure to check the [Azure status page](https://azure.status.microsoft/status) and [Azure Service Health](https://azure.microsoft.com/features/service-health/) to make sure your Azure service is running properly.
 
-Use the following table to identify and resolve issues you may encounter when setting up an environment using Remote Desktop client. Once your environment's set up, you can use our new [Diagnostics service](diagnostics-role-service.md) to identify issues for common scenarios.
+Use the following table to identify and resolve issues you may encounter when setting up an environment using Remote Desktop client. Once your environment's set up, you can use our new [Diagnostics service]() to identify issues for common scenarios.
 
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|

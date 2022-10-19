@@ -4,9 +4,9 @@ description: Learn how to use Azure Table storage to configure leads for Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: trkeya
-ms.author: trkeya
-ms.date: 08/25/2020
+author: urimsft
+ms.author: uridor
+ms.date: 12/02/2021
 ---
 
 # Use Azure Table storage to manage commercial marketplace leads
@@ -20,7 +20,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 1. In the Azure portal, create a storage account by using the following procedure:
 
     1. Select **+ Create a resource** in the left menu bar. The **New** pane appears to the right.
-    1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
+    1. Select **Storage** in the **New** pane. Search for **Storage account** in the search bar.
     1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
         :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Steps to create an Azure storage account.":::
@@ -35,6 +35,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Access your Azure storage account.":::
 
+1. From your list of resources, select the storage account you would like to use.
 1. From your storage account pane, select **Access keys** and copy the **Connection string** value for the key. Save this value because it's the **Storage Account Connection String** value that you'll need to provide in the publishing portal to receive leads for your Azure Marketplace offer.
 
     Here's an example of a connection string.
@@ -45,8 +46,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure storage key.":::
 
-
-1. From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table, and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
+1. (Optional) From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
@@ -63,7 +63,7 @@ The example creates a flow that automatically sends an email notification when a
 1. Sign in to your Power Automate account.
 1. On the left bar, select **My flows**.
 1. On the top bar, select **+ New**.
-1. In the drop-down list, select **+ Scheduled--from blank**.
+1. In the drop-down list, select **+ Scheduled cloud flow**.
 
    ![My flows + Scheduled--from blank](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
@@ -75,7 +75,7 @@ The example creates a flow that automatically sends an email notification when a
    ![Build a scheduled flow](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 1. Select **+ New step**.
-1. In the **Choose an action** window, search for **get past time**. Then under **Actions**, select **Get past time**.
+1. In the **Choose an operation** window, search for **get past time**. Then under **Actions**, select **Get past time**.
 
    ![Choose an action](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
@@ -91,7 +91,8 @@ The example creates a flow that automatically sends an email notification when a
 
    In the next set of steps, you'll connect to your table and set up the processing logic to handle new leads.
 
-1. Select **+ New step**. Then search for **Get entities** In the **Choose an action** window.
+1. Select **+ New step**. Then search for **Get entities** In the **Choose an operation** window.
+    ![Choose an operation](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-operation-entities.png)
 1. Under **Actions**, select **Get entities (Azure Table Storage)**.
 1. In the **Azure Table Storage** window, provide information for the following boxes and select **Create**:
 
@@ -101,7 +102,7 @@ The example creates a flow that automatically sends an email notification when a
 
       ![Azure Table Storage window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
+1. After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
 
    * **Table**: Select the name of your table (from [Create a table](#create-a-table-in-your-storage-account)). The following image shows the prompt when `marketplaceleads` table is selected for this example.
 
@@ -113,9 +114,9 @@ The example creates a flow that automatically sends an email notification when a
 
 1. Now that you've completed setting up the connection to the Azure table, select **New step** to add a condition to scan the Azure table for new leads.
 
-1. In the **Choose an action** window, select **Actions**. Then select **Condition Control**.
+1. In the **Choose an operation** window, select **Actions**. Then select **Condition Control**.
 
-    ![Choose an action window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
+    ![Choose an action window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-operation.png)
 
 1. In the **Condition** window, select **Choose a value**. Then select **Expression** in the pop-up window.
 

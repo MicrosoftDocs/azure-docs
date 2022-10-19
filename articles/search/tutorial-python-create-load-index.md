@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/25/2021
+ms.date: 11/17/2021
 ms.custom: devx-track-python
 ms.devlang: python
 ---
@@ -58,10 +58,10 @@ The script uses the Azure SDK for Cognitive Search:
 
 1. In Visual Studio Code, open the `bulk_upload.py` file in the subdirectory,  `search-website/bulk-upload`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
-    * YOUR-SEARCH-RESOURCE-NAME
-    * YOUR-SEARCH-ADMIN-KEY
+    * YOUR-SEARCH-SERVICE-NAME
+    * YOUR-SEARCH-SERVICE-ADMIN-API-KEY
 
-    :::code language="python" source="~/azure-search-python-samples/search-website/bulk-upload/bulk-upload.py" highlight="12,13, 117" :::
+    :::code language="python" source="~/azure-search-python-samples/search-website/bulk-upload/bulk-upload.py" highlight="20,21,69,83,135" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-upload`, and run the following command to install the dependencies. 
 

@@ -5,12 +5,11 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 11/04/2021
 ms.author: normesta
 ms.reviewer: dineshm
+#Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
 ---
-
-<!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # Tutorial: Host a static website on Blob Storage
 
@@ -21,6 +20,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Configure static website hosting
 > - Deploy a Hello World website
+
+[!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 ## Prerequisites
 
@@ -102,14 +103,7 @@ You've successfully completed the tutorial and deployed a static website to Azur
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
-
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## Next steps
 

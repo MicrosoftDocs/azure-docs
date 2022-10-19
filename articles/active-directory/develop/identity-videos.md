@@ -1,8 +1,8 @@
 ---
-title: Microsoft identity platform videos | Azure
+title: Microsoft identity platform videos
 description: A list of videos about modern authentication and the Microsoft identity platform
 services: active-directory
-author: mmacy
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/03/2020
-ms.author: marsma
+ms.author: davidmu
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: celested
 ---

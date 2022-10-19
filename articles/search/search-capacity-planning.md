@@ -8,15 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 08/15/2022
 ---
 
 # Estimate and manage capacity of a search service
 
 Before you [create a search service](search-create-service-portal.md) and lock in a specific [pricing tier](search-sku-tier.md), take a few minutes to understand how capacity works and how you might adjust replicas and partitions to accommodate workload fluctuation.
 
-In Azure Cognitive Search, capacity is based on *replicas* and *partitions*. Replicas are copies of the search engine.
-Partitions are units of storage. Each new search service starts with one each, but you can scale up each resource independently to accommodate fluctuating workloads. Adding either resource is [billable](search-sku-manage-costs.md#billable-events).
+In Azure Cognitive Search, capacity is based on *replicas* and *partitions* that can be scaled to your workload. Replicas are copies of the search engine.
+Partitions are units of storage. Each new search service starts with one each, but you can adjust each unit independently to accommodate fluctuating workloads. Adding either unit is [billable](search-sku-manage-costs.md#billable-events).
 
 The physical characteristics of replicas and partitions, such as processing speed and disk IO, vary by [service tier](search-sku-tier.md). If you provisioned on Standard, replicas and partitions will be faster and larger than those of Basic.
 
@@ -95,7 +95,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size. 
 
-1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
+1. [Monitor storage, service limits, query volume, and latency](monitor-azure-cognitive-search.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
 
 1. Add replicas if you need high availability or if you experience slow query performance.
 

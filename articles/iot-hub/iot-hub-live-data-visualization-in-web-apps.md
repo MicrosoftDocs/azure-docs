@@ -1,12 +1,12 @@
 ---
 title: Real-time data visualization of your IoT hub data in a web app
 description: Use a web application to visualize temperature and humidity data that is collected from a sensor and sent to your Iot hub.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: robinsh
+ms.date: 11/18/2021
+ms.author: kgremban
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 ---
 
@@ -16,11 +16,11 @@ ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurec
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-In this article, you learn how to visualize real-time sensor data that your IoT hub receives with a node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web app in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+In this article, you learn how to visualize real-time sensor data that your IoT hub receives with a Node.js web app running on your local computer. After running the web app locally, you can optionally follow steps to host the web app in Azure App Service. If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription
   * An Iot hub under your subscription
@@ -134,7 +134,7 @@ You should also see output in the console that shows the messages that your web 
 
 The [Web Apps feature of Azure App Service](../app-service/overview.md) provides a platform as a service (PAAS) for hosting web applications. Web applications hosted in Azure App Service can benefit from powerful Azure features like additional security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. Azure App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
 
-In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](/cli/azure/webapp) documentation. Before starting, make sure you've completed the steps to [add a resource group to your IoT hub](#add-a-consumer-group-to-your-iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
+In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](/cli/azure/webapp) documentation. Before starting, make sure you've completed the steps to [add a consumer group to your IoT hub](#add-a-consumer-group-to-your-iot-hub), [get a service connection string for your IoT hub](#get-a-service-connection-string-for-your-iot-hub), and [download the web app from GitHub](#download-the-web-app-from-github).
 
 1. An [App Service plan](../app-service/overview-hosting-plans.md) defines a set of compute resources for an app hosted in App Service to run. In this tutorial, we use the Developer/Free tier to host the web app. With the Free tier, your web app runs on shared Windows resources with other App Service apps, including apps of other customers. Azure also offers App Service plans to deploy web apps on Linux compute resources. You can skip this step if you already have an App Service plan that you want to use.
 
@@ -177,16 +177,16 @@ In this section, you provision a web app in App Service and deploy your code to 
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window.
+7. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window. Make sure that you're in the sample directory, *web-apps-code-iot-hub-data-visualization*, then run the following command in your command window.
 
    ```cmd
    git remote add webapp <Git clone URL>
    ```
 
-8. To deploy the code to App Service, enter the following command in your command window. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Make sure that you push to the main branch of the App Service remote.
+8. To deploy the code to App Service, enter the following command in your command window. Make sure that you are in the sample directory *web-apps-code-iot-hub-data-visualization*. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Push to the main branch of the App Service remote.
 
     ```cmd
-    git push webapp main:main
+    git push webapp master:master
     ```
 
 9. The progress of the deployment will update in your command window. A successful deployment will end with lines similar to the following output:
@@ -197,7 +197,7 @@ In this section, you provision a web app in App Service and deploy your code to 
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  main -> main
+    6b132dd..7cbc994  master -> master
     ```
 
 10. Run the following command to query the state of your web app and make sure it is running:

@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform authentication flows & app scenarios | Azure
+title: Microsoft identity platform authentication flows & app scenarios
 description: Learn about application scenarios for the Microsoft identity platform, including authenticating identities, acquiring tokens, and calling protected APIs.
 services: active-directory
 author: jmprieur
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/03/2020
+ms.date: 05/05/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
 #Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
@@ -106,7 +106,7 @@ To help protect a web app that signs in a user:
 
 - If you develop in .NET, you use ASP.NET or ASP.NET Core with the ASP.NET OpenID Connect middleware. Protecting a resource involves validating the security token, which is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) and not MSAL libraries.
 
-- If you develop in Node.js, you use [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) or [Passport.js](https://github.com/AzureAD/passport-azure-ad).
+- If you develop in Node.js, you use [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 For more information, see [Web app that signs in users](scenario-web-app-sign-user-overview.md).
 
@@ -124,7 +124,7 @@ For a desktop app to call a web API that signs in users, use the interactive tok
 
 ![A desktop app calling a web API](media/scenarios/desktop-app.svg)
 
-There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [Integrated Windows Authentication](https://aka.ms/msal-net-iwa).
+There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
 
 Applications running on a device without a browser can still call an API on behalf of a user. To authenticate, the user must sign in on another device that has a web browser. This scenario requires that you use the [device code flow](https://aka.ms/msal-net-device-code-flow).
 
@@ -157,7 +157,7 @@ For more information, see [Mobile app that calls web APIs](scenario-mobile-overv
 
 ### Protected web API
 
-You can use the Microsoft identity platform endpoint to secure web services like your app's RESTful web API. A protected web API is called through an access token. The token helps secure the API's data and authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request.
+You can use the Microsoft identity platform endpoint to secure web services like your app's RESTful API. A protected web API is called through an access token. The token helps secure the API's data and authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request.
 
 If you want to protect your ASP.NET or ASP.NET Core web API, validate the access token. For this validation, you use the ASP.NET JWT middleware. The validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library and not by MSAL.NET.
 
@@ -228,7 +228,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td>Integrated Windows Authentication</td>
+   <td>Integrated Windows authentication</td>
    <td>Work or school accounts</td>
  </tr>
 
@@ -291,9 +291,6 @@ Microsoft Authentication Libraries support multiple platforms:
 
 You can also use various languages to build your applications.
 
-> [!NOTE]
-> Some application types aren't available on every platform.
-
 In the Windows column of the following table, each time .NET Core is mentioned, .NET Framework is also possible. The latter is omitted to avoid cluttering the table.
 
 |Scenario  | Windows | Linux | Mac | iOS | Android
@@ -311,5 +308,8 @@ For more information, see [Microsoft identity platform authentication libraries]
 
 ## Next steps
 
-* Learn more about [authentication basics](./authentication-vs-authorization.md) and [access tokens in the Microsoft identity platform](access-tokens.md).
-* Learn more about [securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).
+For more information about authentication, see:
+
+- [Authentication vs. authorization.](./authentication-vs-authorization.md)
+- [Microsoft identity platform access tokens.](access-tokens.md)
+- [Securing access to IoT apps.](/azure/architecture/example-scenario/iot-aad/iot-aad#security)

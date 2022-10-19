@@ -3,13 +3,13 @@ title: "Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online via
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the CLI.
 services: dms
-author: arunkumarthiags
-ms.author: arthiaga
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019, devx-track-azurecli"
+ms.custom: seo-lt-2019, devx-track-azurecli, ignite-2022
 ms.topic: tutorial
 ms.date: 04/11/2020
 ---
@@ -41,13 +41,13 @@ To complete this tutorial, you need to:
 
     Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 9.6 can only migrate to Azure Database for PostgreSQL 9.6, 10, or 11, but not to Azure Database for PostgreSQL 9.5.
 
-* [Create an instance in Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](../postgresql/quickstart-create-hyperscale-portal.md).
+* [Create an instance in Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](../postgresql/hyperscale/quickstart-create-portal.md).
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
     > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to the subnet in which the service will be provisioned:
     >
-    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Target database endpoint (for example, SQL endpoint, Azure Cosmos DB endpoint, and so on)
     > * Storage endpoint
     > * Service bus endpoint
     >
@@ -95,7 +95,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 
 2. Create an empty database in your target environment, which is Azure Database for PostgreSQL.
 
-    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](../postgresql/quickstart-create-hyperscale-portal.md).
+    For details on how to connect and create a database, see the article [Create an Azure Database for PostgreSQL server in the Azure portal](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server in the Azure portal](../postgresql/hyperscale/quickstart-create-portal.md).
 
 3. Import the schema into the target database you created by restoring the schema dump file.
 
@@ -344,7 +344,7 @@ To complete all the database objects like table schemas, indexes and stored proc
         az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output
         ```
 
-    * You can also use [JMESPATH](https://jmespath.org/) query format to only extract the migrationState from the expand output:
+    * You can also use [JMESPath](/cli/azure/query-azure-cli) query format to only extract the migrationState from the expand output:
 
         ```azurecli
         az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output --query 'properties.output[].migrationState'

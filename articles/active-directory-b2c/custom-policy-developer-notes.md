@@ -3,15 +3,15 @@ title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/22/2021
+ms.date: 06/27/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -45,7 +45,7 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 |---------|:---------:|:---------:|---------|
 [Authorization code](authorization-code-flow.md) | GA | GA | Allows users to sign in to web applications. The web application receives an authorization code. The authorization code is redeemed to acquire a token to call web APIs.|
 [Authorization code with PKCE](authorization-code-flow.md)| GA | GA | Allows users to sign in to mobile and single-page applications. The application receives an authorization code using proof key for code exchange (PKCE). The authorization code is redeemed to acquire a token to call web APIs.  |
-[Client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4)| GA | GA | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.  <br />  <br />  To use this feature in an Azure AD B2C tenant, use the Azure AD endpoint of your Azure AD B2C tenant. For more information, see [OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). This flow doesn't use your Azure AD B2C [user flow or custom policy](user-flow-overview.md) settings. |
+[Client credentials flow](client-credentials-grant-flow.md)| Preview | Preview | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. |
 [Device authorization grant](https://tools.ietf.org/html/rfc8628)| NA | NA | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  |
 [Implicit flow](implicit-flow-single-page-application.md) | GA | GA |  Allows users to sign in to single-page applications. The app gets tokens directly without performing a back-end server credential exchange.|
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA | An application invokes a service or web API, which in turn needs to call another service or web API. <br />  <br /> For the middle-tier service to make authenticated requests to the downstream service, pass a *client credential* token in the authorization header. Optionally, you can include a custom header with the Azure AD B2C user's token.  |
@@ -99,13 +99,13 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | NA | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | Preview | Preview | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | |
 |[Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
 |[Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | NA | Preview | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
-|[GitHub](identity-provider-github.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | Preview | GA | |
 |[Google](identity-provider-google.md) | GA | GA | |
 |[ID.me](identity-provider-id-me.md) | GA | GA | |
 |[LinkedIn](identity-provider-linkedin.md) | GA | GA | |
@@ -154,6 +154,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
+| [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | GA |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
 | [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
 | [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |

@@ -39,7 +39,7 @@ General strategies for mitigating SNAT port exhaustion are discussed in [Trouble
 
 ### Scale your APIM instance
 
-Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. For more info, see [Scale your API Management service](upgrade-and-scale.md#scale-your-api-management-service)
+Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. For more info, see [Scale your API Management service](upgrade-and-scale.md#scale-your-api-management-instance).
 
 > [!NOTE]
 > SNAT port usage is currently not available as a metric for autoscaling API Management units.
@@ -56,7 +56,7 @@ For more, see [Outbound proxy Azure Load Balancer](../load-balancer/load-balance
 
 If your backend API is hosted on an Azure service that supports *service endpoints* such as App Service, you can avoid SNAT port exhaustion issues by placing your APIM instance and backend service in the same virtual network and exposing it through [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints](../private-link/private-endpoint-overview.md). When you use a common VNet and place service endpoints on the integration subnet, outbound traffic from your APIM instance to those services bypasses the internet, thus avoiding SNAT port restrictions. Likewise, if you use a VNet and private endpoints, you will not have any outbound SNAT port issues to that destination.
 
-For details, see [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md) and [Integrate App Service with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
+For details, see [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md) and [Integrate App Service with an Azure virtual network](../app-service/overview-vnet-integration.md).
 
 ### Place your APIM in a virtual network and route outbound calls to Azure Firewall
 

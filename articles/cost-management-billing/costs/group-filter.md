@@ -1,9 +1,10 @@
 ---
-title: Group and filter options in Azure Cost Management
-description: This article explains how to use group and filter options in Azure Cost Management.
+title: Group and filter options in Cost Management
+titleSuffix: Microsoft Cost Management
+description: This article explains how to use group and filter options in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -25,19 +26,19 @@ The following table lists some of the most common grouping and filtering options
 | Property | When to use | Notes |
 | --- | --- | --- |
 | **Availability zones** | Break down AWS costs by availability zone. | Applicable only to AWS scopes and management groups. Azure data doesn't include availability zone and will show as **No availability zone**. |
-| **Billing period** | Break down PAYG costs by the month that they were, or will be, invoiced. | Use **Billing period** to get an accurate representation of invoiced PAYG charges. Include 2 extra days before and after the billing period if filtering down to a custom date range. Limiting to the exact billing period dates won't match the invoice. Will show costs from all invoices in the billing period. Use **Invoice ID** to filter down to a specific invoice. Applicable only to PAYG subscriptions because EA and MCA are billed by calendar months. EA/MCA accounts can use calendar months in the date picker or monthly granularity to accomplish the same goal. |
+| **Billing period** | Break down PAYG costs by the month that they were, or will be, invoiced. | Use **Billing period** to get a precise representation of invoiced PAYG charges. Include two extra days before and after the billing period if filtering down to a custom date range. Limiting to the exact billing period dates won't match the invoice. Will show costs from all invoices in the billing period. Use **Invoice ID** to filter down to a specific invoice. Applicable only to PAYG subscriptions because EA and MCA are billed by calendar months. EA/MCA accounts can use calendar months in the date picker or monthly granularity to accomplish the same goal. |
 | **Charge type** | Break down usage, purchase, refund, and unused reservation costs. | Reservation purchases and refunds are available only when using actual costs and not when using amortized costs. Unused reservation costs are available only when looking at amortized costs. |
 | **Department** | Break down costs by EA department. | Available only for EA and management groups. PAYG subscriptions don't have a department and will show as **No department** or **unassigned**. |
 | **Enrollment account** | Break down costs by EA account owner. | Available only for EA billing accounts, departments, and  management groups. PAYG subscriptions don't have EA enrollment accounts and will show as **No enrollment account** or **unassigned**. |
 | **Frequency** | Break down usage-based, one-time, and recurring costs. | |
 | **Invoice ID** | Break down costs by billed invoice. | Unbilled charges don't have an invoice ID yet and EA costs don't include invoice details and will show as **No invoice ID**.  |
 | **Location** | Break down costs by resource location or region. | Purchases and Marketplace usage may be shown as **unassigned**, or **No resource location**. |
-| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage will show as **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
+| **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage will show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
 | **Operation** | Break down AWS costs by operation. | Applicable only to AWS scopes and management groups. Azure data doesn't include operation and will show as **No operation** - use **Meter** instead. |
 | **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases.
-| **Provider** | Break down costs by AWS and Azure. | Available only for management groups. |
-| **Publisher type** | Break down AWS, Azure, and Marketplace costs. |  |
-| **Reservation** | Break down costs by reservation. | Any usage or purchases that aren't associated with a reservation will show as **No reservation**. Group by **Publisher type** to identify other Azure, AWS, or Marketplace purchases. |
+| **Provider** | Break down costs by the provider type: Azure, Microsoft 365, Dynamics 365, AWS, and so on. | Identifier for product and line of business. |
+| **Publisher type** | Break down Microsoft, Azure, AWS, and Marketplace costs. | Values are **Microsoft** for MCA accounts and **Azure** for EA and pay-as-you-go accounts. |
+| **Reservation** | Break down costs by reservation. | Any usage or purchases that aren't associated with a reservation will show as **No reservation** or **No values**. Group by **Publisher type** to identify other Azure, AWS, or Marketplace purchases. |
 | **Resource** | Break down costs by resource. | Marketplace purchases show as **Other Marketplace purchases** and Azure purchases, like Reservations and Support charges, show as **Other Azure purchases**. Group by or filter on **Publisher type** to identify other Azure, AWS, or Marketplace purchases. |
 | **Resource group** | Break down costs by resource group. | Purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, and classic resources don't have a resource group and will show as **Other Marketplace purchases**, **Other Azure purchases**, **Other tenant resources**, **Other subscription resources**, **$system**, or **Other charges**. |
 | **Resource type** | Break down costs by resource type. | Purchases and classic services don't have an Azure Resource Manager resource type and will show as **others**, **classic services**, or **No resource type**. |
@@ -47,6 +48,27 @@ The following table lists some of the most common grouping and filtering options
 | **Tag** | Break down costs by tag values for a specific tag key. | Purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, and classic resources cannot be tagged and will show as **Tags not available**. Services that don't include tags in usage data will show as **Tags not supported**. Any remaining cases where tags aren't specified on a resource will show as **Untagged**. Learn more about [tags support for each resource type](../../azure-resource-manager/management/tag-support.md). |
 
 For more information about terms, see [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md).
+
+## Publisher Type value changes
+
+In Cost Management, the PublisherType field indicates whether charges are for Microsoft, Marketplace, or AWS (if you have a [Cross Cloud connector](aws-integration-set-up-configure.md) configured) products.
+
+What's changing?
+
+Effective 14 October 2021, the PublisherType field with the value "Azure" will be updated to “Microsoft” for all customers with a [Microsoft Customer Agreement](../understand/review-customer-agreement-bill.md#check-access-to-a-microsoft-customer-agreement). This change is being made to accommodate upcoming enhancements to support Microsoft products other than Azure like Microsoft 365 and Dynamics 365.
+
+Values of “Marketplace” and “AWS” will remain unchanged.
+
+This change doesn't affect customers with an Enterprise Agreement or pay-as-you-go offers.
+
+**Impact and action**
+<a name="impact-action"></a>
+
+For any Cost Management data that you've downloaded before 14 October 2021, you'll need to consider the older “Azure” and the new “Microsoft” PublisherType field values. The data could have been downloaded through exports, usage details, or from Cost Management.
+
+If you use Cost Management + Billing REST API calls that filter the PublisherType field by the value “Azure”, you'll need to address the change and filter by the new value “Microsoft” after 14 October 2021. Afterward, if you make any API calls with a filter for Publisher type = “Azure”, data won't be returned.
+
+There's no impact to Cost analysis or budgets because the changes are automatically reflected in the filters. Any saved views or budgets created with Publisher Type = “Azure” filter will be automatically updated.
 
 ## Next steps
 

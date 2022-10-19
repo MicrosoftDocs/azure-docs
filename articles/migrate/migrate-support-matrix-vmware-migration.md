@@ -35,7 +35,7 @@ The table summarizes VMware hypervisor requirements.
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
 **VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
 **vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse** (Datastore -> Browse datastore): Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.FileManagement** (Datastore -> Low level file operations): Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Config.ChangeTracking** (Virtual machine -> Disk change tracking): Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Config.DiskLease** (Virtual machine -> Disk lease): Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** (Virtual machine -> Provisioning -> Allow read-only disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** (Virtual machine -> Provisioning -> Allow disk access): Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** (Virtual machine -> Provisioning -> Allow virtual machine download): Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.State.\*** (Virtual machine -> Snapshot management): Allow creation and management of VM snapshots for replication.<br/><br/> - **VirtualMachine.Interact.PowerOff** (Virtual machine -> Interaction -> Power off): Allow the VM to be powered off during migration to Azure.
-
+**Multiple vCenter Servers** | A single appliance can connect to up to 10 vCenter Servers.
 
 
 ### VM requirements (agentless)
@@ -46,7 +46,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 --- | ---
 **Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x <br/> - Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 11, 12, 15 SP0, 15 SP1 <br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8, 9 <br/> Oracle Linux 6, 7.7, 7.7-CI<br/> For other operating systems you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x <br/> - Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3<br/>- Ubuntu 20.04, 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 10, 9, 8, 7<br/> - Oracle Linux 8, 7.7-CI, 7.7, 6<br/> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 **Boot requirements** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **Disk size** | up to 2 TB OS disk for gen 1 VM and gen 2 VMs; 32 TB for data disks.
@@ -58,25 +58,35 @@ The table summarizes agentless migration requirements for VMware VMs.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
 **iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
-**Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
+**Storage vMotion** | Supported. 
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with 1 appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](./how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Supported for Windows Server 2008 R2 onwards. <br/> Supported for RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04, Ubuntu 19.04, Ubuntu 19.10, Ubuntu 20.04.
 
+> [!NOTE]
+> Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
+>  - Non-ASCII characters. [Learn more](https://en.wikipedia.org/wiki/ASCII).
+>  - Ampersand (&)
+>  - Semicolon (;)
+>  - Double quotation mark (")
+>  - Single quotation mark (')
+>  - Circumflex (^)
+>  - Backslash (\\)
+>  - Percentage (%)
+>  - Angle brackets (<,>)
+>  - Pound (£)
+
 > [!Note]
 > In addition to the Internet connectivity, for Linux VMs, ensure that the following packages are installed for successful installation of Microsoft Azure Linux agent (waagent):
->- Python 2.6+
->- Python-setuptool
->- systemmd
->- OpenSSL 1.0+
->- OpenSSH 5.3+
->- Filesystem utilities: sfdisk, fdisk, mkfs, parted
->- Password tools: chpasswd, sudo
->- Text processing tools: sed, grep
->- Network tools: ip-route
->- Enable rc.local service on the source VM
+>  - Python 2.6+
+>  - OpenSSL 1.0+
+>  - OpenSSH 5.3+
+>  - Filesystem utilities: sfdisk, fdisk, mkfs, parted
+>  - Password tools: chpasswd, sudo
+>  - Text processing tools: sed, grep
+>  - Network tools: ip-route
 
 > [!TIP]
 >  Using the Azure portal you'll  be able to select up to 10 VMs at a time to configure replication. To replicate more VMs you can use the portal and add the VMs to be replicated in multiple batches of 10 VMs, or use the Azure Migrate PowerShell interface to configure replication. Ensure that you don't configure simultaneous replication on more than the maximum supported number of VMs for simultaneous replications.
@@ -110,7 +120,7 @@ This table summarizes assessment support and limitations for VMware virtualizati
 **VMware requirements** | **Details**
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
-**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, or 6.7.
+**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
 **vCenter Server permissions** | A read-only account for vCenter Server.
 
 ### VM requirements (agent-based)

@@ -1,11 +1,8 @@
 ---
 title: Genome Aggregation Database (gnomAD)
-titleSuffix: Azure Open Datasets
 description: Learn how to use the Genome Aggregation Database (gnomAD) dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

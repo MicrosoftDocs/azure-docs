@@ -3,14 +3,14 @@ title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.author: mimart
+ms.date: 03/25/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -24,7 +24,7 @@ ms.subservice: B2C
 ## Prerequisites
 
 * Complete the steps in the [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
-* If you haven't created an DevOps organization, create one by following the instructions in [Sign up, sign in to Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates).  
+* If you haven't created a DevOps organization, create one by following the instructions in [Sign up, sign in to Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates).  
 
 ## Register an application for management tasks
 
@@ -77,7 +77,7 @@ try {
         $FileExists = Test-Path -Path $filePath -PathType Leaf
 
         if ($FileExists) {
-            $policycontent = Get-Content $filePath
+            $policycontent = Get-Content $filePath -Encoding UTF8
 
             # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
             # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
@@ -92,7 +92,8 @@ try {
                 Write-Host "Uploading the" $PolicyId "policy..."
     
                 $graphuri = 'https://graph.microsoft.com/beta/trustframework/policies/' + $PolicyId + '/$value'
-                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
+                $content = [System.Text.Encoding]::UTF8.GetBytes($policycontent)
+                $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $content -Headers $headers -ContentType "application/xml; charset=utf-8"
     
                 Write-Host "Policy" $PolicyId "uploaded successfully."
             }
@@ -161,7 +162,7 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
 
 1. In the pipeline you created, select the **Tasks** tab.
 1. Select **Agent job**, and then select the plus sign (**+**) to add a task to the Agent job.
-1. Search for and select **PowerShell**. Do not select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
+1. Search for and select **PowerShell**. Don't select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
 1. Select newly added **PowerShell Script** task.
 1. Enter following values for the PowerShell Script task:
     * **Task version**: 2.*
@@ -172,13 +173,13 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
 
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
         
         The `-Files` parameter is a comma delimiter list of policy files to deploy. Update the list with your policy files.
         
         > [!IMPORTANT]
-        >  Ensure the policies are uploaded in the correct order. First the base policy, the extensions policy, then the relying party policies. For example,  `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        >  Ensure the policies are uploaded in the correct order. First the base policy, the extensions policy, then the relying party policies. For example,  `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
         
 1. Select **Save** to save the Agent job.
 

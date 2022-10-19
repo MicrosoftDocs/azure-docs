@@ -2,18 +2,20 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 07/06/2022
 ---
 
 # Understand the structure and syntax of Bicep files
 
-This article describes the structure of a Bicep file. It presents the different sections of the file and the properties that are available in those sections.
+This article describes the structure and syntax of a Bicep file. It presents the different sections of the file and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Bicep files. It provides detailed information about the structure of the Bicep file. For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+For a step-by-step tutorial that guides you through the process of creating a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 
 ## Bicep format
 
-A Bicep file has the following elements. Bicep is a declarative language, which means the elements can appear in any order.  Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
+Bicep is a declarative language, which means the elements can appear in any order. Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
+
+A Bicep file has the following elements.
 
 ```bicep
 targetScope = '<scope>'
@@ -27,55 +29,14 @@ resource <resource-symbolic-name> '<resource-type>@<api-version>' = {
   <resource-properties>
 }
 
-// conditional deployment
-resource <resource-symbolic-name> '<resource-type>@<api-version>' = if (<condition-to-deploy>) {
-  <resource-properties>
-}
-
-// iterative deployment
-@<decorator>(<argument>)
-resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
-  <resource-properties>
-}]
-
 module <module-symbolic-name> '<path-to-file>' = {
   name: '<linked-deployment-name>'
-  params: {
-    <parameter-names-and-values>
-  }
-}
-
-// conditional deployment
-module <module-symbolic-name> '<path-to-file>' = if (<condition-to-deploy>) {
-  name: '<linked-deployment-name>'
-  params: {
-    <parameter-names-and-values>
-  }
-}
-
-// iterative deployment
-module <module-symbolic-name> '<path-to-file>' = [for <item> in <collection>: {
-  name: '<linked-deployment-name>'
-  params: {
-    <parameter-names-and-values>
-  }
-}]
-
-// deploy to different scope
-module <module-symbolic-name> '<path-to-file>' = {
-  name: '<linked-deployment-name>'
-  scope: <scope-object>
   params: {
     <parameter-names-and-values>
   }
 }
 
 output <output-name> <output-data-type> = <output-value>
-
-// iterative output
-output <output-name> array = [for <item> in <collection>: {
-  <output-properties>
-}]
 ```
 
 The following example shows an implementation of these elements.
@@ -124,28 +85,31 @@ The allowed values are:
 * **managementGroup** - used for [management group deployments](deploy-to-management-group.md).
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
-In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#configure-module-scopes)
+In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
 
 ## Parameters
 
 Use parameters for values that need to vary for different deployments. You can define a default value for the parameter that is used if no value is provided during deployment.
 
-For example, you might add a SKU parameter to specify different sizes for a resource. You can use Bicep functions for creating the default value, such as getting the resource group location.
+For example, you can add a SKU parameter to specify different sizes for a resource. You might pass in different values depending on whether you're deploying to test or production.
 
 ```bicep
 param storageSKU string = 'Standard_LRS'
-param location string = resourceGroup().location
 ```
 
-For the available data types, see [Data types in Bicep](data-types.md).
+The parameter is available for use in your Bicep file.
 
-A parameter can't have the same name as a variable, module, or resource.
+```bicep
+sku: {
+  name: storageSKU
+}
+```
 
 For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
 
-You can add one or more decorators for each parameter. These decorators define the values that are allowed for the parameter. The following example specifies the SKUs that can be deployed through the Bicep file.
+You can add one or more decorators for each parameter. These decorators describe the parameter and define constraints for the values that are passed in. The following example shows one decorator but there are many others that are available.
 
 ```bicep
 @allowed([
@@ -157,38 +121,30 @@ You can add one or more decorators for each parameter. These decorators define t
 param storageSKU string = 'Standard_LRS'
 ```
 
-The following table describes the available decorators and how to use them.
-
-| Decorator | Apply to | Argument | Description |
-| --------- | ---- | ----------- | ------- |
-| allowed | all | array | Allowed values for the parameter. Use this decorator to make sure the user provides correct values. |
-| description | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
-| maxLength | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
-| maxValue | int | int | The maximum value for the integer parameter. This value is inclusive. |
-| metadata | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
-| minLength | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
-| minValue | int | int | The minimum value for the integer parameter. This value is inclusive. |
-| secure | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
+For more information, including descriptions of all available decorators, see [Decorators](parameters.md#decorators).
 
 ## Variables
 
-Use variables for complex expressions that are repeated in a Bicep file. For example, you might add a variable for a resource name that is constructed by concatenating several values together.
+You can make your Bicep file more readable by encapsulating complex expressions in a variable. For example, you might add a variable for a resource name that is constructed by concatenating several values together.
 
 ```bicep
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
-You don't specify a [data type](data-types.md) for a variable. Instead, the data type is inferred from the value.
+Apply this variable wherever you need the complex expression.
 
-A variable can't have the same name as a parameter, module, or resource.
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+  name: uniqueStorageName
+```
 
 For more information, see [Variables in Bicep](./variables.md).
 
-## Resource
+## Resources
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource. The symbolic name may contain a-z, A-Z, 0-9, and '_', the name can't start with a number.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
-The resource declaration also includes the resource type and API version.
+The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -204,47 +160,23 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-In your resource declaration, you include properties for the resource type. These properties are unique to each resource type.
-
 For more information, see [Resource declaration in Bicep](resource-declaration.md).
 
-To [conditionally deploy a resource](conditional-resource-deployment.md), add an `if` expression.
+Some resources have a parent/child relationship. You can define a child resource either inside the parent resource or outside of it.
 
-```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
-  name: uniqueStorageName
-  location: location
-  sku: {
-    name: storageSKU
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-  }
-}
-```
+The following example shows how to define a child resource within a parent resource. It contains a storage account with a child resource (file service) that is defined within the storage account. The file service also has a child resource (share) that is defined within it.
 
-To [deploy more than one instance](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) of a resource type, add a `for` expression. The expression can iterate over members of an array.
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
 
-```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
-  name: storageName
-  location: location
-  sku: {
-    name: storageSKU
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-  }
-}]
-```
+The next example shows how to define a child resource outside of the parent resource. You use the parent property to identify a parent/child relationship. The same three resources are defined.
 
-A resource can't have the same name as a parameter, variable, or module.
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" highlight="10,12,15,17":::
+
+For more information, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
 
 ## Modules
 
-Use modules to link to other Bicep files that contain code you want to reuse. The module contains one or more resources to deploy. Those resources are deployed along with any other resources in your Bicep file.
+Modules enable you to reuse code from a Bicep file in other Bicep files. In the module declaration, you link to the file to reuse. When you deploy the Bicep file, the resources in the module are also deployed.
 
 ```bicep
 module webModule './webApp.bicep' = {
@@ -256,11 +188,7 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value. The symbolic name may contain a-z, A-Z, 0-9, and '_', the name can't start with a number.
-
-A module can't have the same name as a parameter, variable, or resource.
-
-Like resources, you can conditionally or iteratively deploy a module. The syntax is the same for modules as resources.
+The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value.
 
 For more information, see [Use Bicep modules](./modules.md).
 
@@ -268,7 +196,7 @@ For more information, see [Use Bicep modules](./modules.md).
 
 You can add a decorator to a resource or module definition. The only supported decorator is `batchSize(int)`. You can only apply it to a resource or module definition that uses a `for` expression.
 
-By default, resources are deployed in parallel. You don't know the order in which they finish. When you add the `batchSize` decorator, you deploy instances serially. Use the integer argument to specify the number of instances to deploy in parallel.
+By default, resources are deployed in parallel. When you add the `batchSize` decorator, you deploy instances serially.
 
 ```bicep
 @batchSize(3)
@@ -277,25 +205,81 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-For more information, see [Deploy in batches](loop-resources.md#deploy-in-batches).
+For more information, see [Deploy in batches](loops.md#deploy-in-batches).
 
 ## Outputs
 
-Use outputs to return value from the deployment. Typically, you return a value from a deployed resource when you need to reuse that value for another operation.
+Use outputs to return values from the deployment. Typically, you return a value from a deployed resource when you need to reuse that value for another operation.
 
 ```bicep
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-Specify a [data type](data-types.md) for the output value.
-
-An output can have the same name as a parameter, variable, module, or resource.
-
 For more information, see [Outputs in Bicep](./outputs.md).
+
+## Loops
+
+You can add iterative loops to your Bicep file to define multiple copies of a:
+
+* resource
+* module
+* variable
+* property
+* output
+
+Use the `for` expression to define a loop.
+
+```bicep
+param moduleCount int = 2
+
+module stgModule './example.bicep' = [for i in range(0, moduleCount): {
+  name: '${i}deployModule'
+  params: {
+  }
+}]
+```
+
+You can iterate over an array, object, or integer index.
+
+For more information, see [Iterative loops in Bicep](loops.md).
+
+## Conditional deployment
+
+You can add a resource or module to your Bicep file that is conditionally deployed. During deployment, the condition is evaluated and the result determines whether the resource or module is deployed. Use the `if` expression to define a conditional deployment.
+
+```bicep
+param deployZone bool
+
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+  name: 'myZone'
+  location: 'global'
+}
+```
+
+For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
 
 ## Whitespace
 
-Spaces and tabs are ignored when authoring Bicep files. New lines however have semantic meaning, for example in [object](./data-types.md#objects) and [array](./data-types.md#arrays) declarations.
+Spaces and tabs are ignored when authoring Bicep files.
+
+Bicep is newline sensitive. For example:
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+  ...
+}
+```
+
+Can't be written as:
+
+```bicep
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+    if (newOrExisting == 'new') {
+      ...
+    }
+```
+
+Define [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays) in multiple lines.
 
 ## Comments
 
@@ -345,6 +329,26 @@ The preceding example is equivalent to the following JSON.
   "stringVar": "this is multi-line\r\n  string with formatting\r\n  preserved.\r\n"
 }
 ```
+
+## Multiple-line declarations
+
+You can now use multiple lines in function, array and object declarations. This feature requires **Bicep version 0.7.4 or later**.
+
+In the following example, the `resourceGroup()` definition is broken into multiple lines.
+
+```bicep
+var foo = resourceGroup(
+  mySubscription,
+  myRgName)
+```
+
+See [Arrays](./data-types.md#arrays) and [Objects](./data-types.md#objects) for multiple-line declaration samples.
+
+## Known limitations
+
+* No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
+* No support for user-defined functions.
+* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available when all of the required updates have been deployed to global Azure. If you're using a different environment, such as Azure Stack, there may be a delay in the availability of the feature. The Bicep feature is only available when the intermediate language has also been updated in that environment.
 
 ## Next steps
 

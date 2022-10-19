@@ -1,0 +1,62 @@
+### YamlMime:Landing
+
+title: Azure Edge Hardware Center documentation  # < 60 chars
+summary: Use Azure Edge Hardware Center service to order from a variety of Azure Stack Edge devices as per your business need. # < 160 chars
+
+metadata:
+  title: Azure Edge Hardware Center documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Edge Hardware Center Documentation. # Required; article description that is displayed in search results. < 160 chars.
+  services: Azure Edge Hardware Center
+  ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: edge
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: alkohli #Required; your GitHub user alias, with correct capitalization.
+  ms.author: alkohli #Required; microsoft alias of author; optional team alias.
+  ms.date: 11/30/2021 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Edge Hardware Center
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Edge Hardware Center?
+            url: azure-edge-hardware-center-overview.md   
+      - linkListType: concept
+        links:
+          - text: FAQ
+            url: azure-edge-hardware-center-faq.yml
+
+  # Card
+  - title: "Create, manage orders"
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Create an order
+            url: azure-edge-hardware-center-create-order.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Cancel your order
+            url: azure-edge-hardware-center-manage-order.md#cancel-order  
+          - text: Track your order
+            url: azure-edge-hardware-center-manage-order.md#track-order  
+          - text: Return hardware
+            url: azure-edge-hardware-center-manage-order.md#return-hardware
+          - text: Move order resource
+            url: azure-edge-hardware-center-resource-move-subscription-resource-group.md
+
+
+  # Card
+  - title: Troubleshoot orders
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Edge Hardware Center ordering issues
+            url: azure-edge-hardware-center-troubleshoot-order.md
+          - text: Open Support ticket
+            url: azure-edge-hardware-center-contact-microsoft-support.md

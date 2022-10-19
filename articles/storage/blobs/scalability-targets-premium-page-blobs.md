@@ -3,18 +3,20 @@ title: Scalability targets for premium page blob storage accounts
 titleSuffix: Azure Storage
 description: A premium performance page blob storage account is optimized for read/write operations. This type of storage account backs an unmanaged disk for an Azure virtual machine.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
-ms.author: tamram
+ms.date: 09/24/2021
+ms.author: jammart
 ms.subservice: common
 ---
 
 # Scalability and performance targets for premium page blob storage accounts
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
+
+The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 ## Scale targets for premium page blob accounts
 
@@ -27,11 +29,13 @@ Premium page blob storage accounts have the following scalability targets:
 
 | Total account capacity                            | Total bandwidth for a locally redundant storage account                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Disk capacity: 4 TB (individual disk)/ 35 TB (cumulative total of all disks) <br>Snapshot capacity: 10 TB | Up to 50 gigabits per second for inbound<sup>1</sup> + outbound<sup>2</sup> |
+| Disk capacity: 4 TB (individual disk)/ 35 TB (cumulative total of all disks) <br>Snapshot capacity: 10 TB<sup>3</sup> | Up to 50 gigabits per second for inbound<sup>1</sup> + outbound<sup>2</sup> |
 
 <sup>1</sup> All data (requests) that are sent to a storage account
 
 <sup>2</sup> All data (responses) that are received from a storage account
+
+<sup>3</sup> The total number of snapshots an individual page blob can have is 100.
 
 A premium page blob account is a general-purpose account configured for premium performance. General-purpose v2 storage accounts are recommended.
 

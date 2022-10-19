@@ -3,8 +3,8 @@ title: 'Quickstart: Set up Apache Kafka on HDInsight using Azure portal'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 04/29/2020
+ms.custom: mvc, mode-ui
+ms.date: 10/19/2022
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -89,7 +89,8 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
 1. Review the configuration for the cluster. Change any settings that are incorrect. Finally, select **Create** to create the cluster.
 
-    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png" alt-text="kafka cluster configuration summary" border="true":::
+    :::image type="content" source="./media/apache-kafka-get-started/azure-hdinsight-40-portal-cluster-review-create-kafka.png" alt-text="Screenshot showing kafka cluster configuration summary for HDI version 4.0." border="true":::
+
 
     It can take up to 20 minutes to create the cluster.
 

@@ -1,11 +1,11 @@
 ---
-title: Authenticate Event Grid publishing clients using Azure Active Directory (Preview)
+title: Authenticate Event Grid publishing clients using Azure Active Directory
 description: This article describes how to authenticate Azure Event Grid publishing client using Azure Active Directory.  
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 01/05/2022
 ---
 
-# Authentication and authorization with Azure Active Directory (Preview)
+# Authentication and authorization with Azure Active Directory
 This article describes how to authenticate Azure Event Grid publishing clients using Azure Active Directory (Azure AD).
 
 ## Overview
@@ -13,7 +13,7 @@ The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform pr
 
 An advantage that improves your security stance when using Azure AD is that you don't need to store credentials, such as authentication keys, in the code or repositories. Instead, you rely on the acquisition of OAuth 2.0 access tokens from the Microsoft Identity platform that your application presents when authenticating to a protected resource. You can register your event publishing application with Azure AD and obtain a service principal associated with your app that you manage and use. Instead, you can use [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md), either system assigned or user assigned, for an even simpler identity management model as some aspects of the identity lifecycle are managed for you. 
 
-[Role-based access control](../active-directory/develop/custom-rbac-for-developers.md) (RBAC) allows you to configure authorization in a way that certain security principals (identities for users, groups, or apps) have specific permissions to execute operations over Azure resources. This way, the security principal used by a client application that sends events to Event Grid must have the RBAC role **EventGrid Data Sender** associated with it. 
+[Role-based access control (RBAC)](../active-directory/develop/custom-rbac-for-developers.md) allows you to configure authorization in a way that certain security principals (identities for users, groups, or apps) have specific permissions to execute operations over Azure resources. This way, the security principal used by a client application that sends events to Event Grid must have the RBAC role **EventGrid Data Sender** associated with it. 
 
 ### Security principals
 There are two broad categories of security principals that are applicable when discussing authentication of an Event Grid publishing client: 
@@ -83,17 +83,19 @@ Following are the prerequisites to authenticate to Event Grid.
 
 ### Publish events using Azure AD Authentication
 
-To send events to a topic, domain or partner namespace, you can build the client in the following way. The api version that first provided support for Azure AD authentication is ``2021-06-01-preview``. Use that API version or a more recent version in your application.
+To send events to a topic, domain, or partner namespace, you can build the client in the following way. The api version that first provided support for Azure AD authentication is ``2018-01-01``. Use that API version or a more recent version in your application.
 
-```java 
-        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
-        EventGridPublisherClient cloudEventClient = new EventGridPublisherClientBuilder()
-                .endpoint("<your-event-grid-topic-domain-or-partner-namespace-endpoint>?api-version=2021-06-01-preview")
-                .credential(credential)
-                .buildCloudEventPublisherClient();
+Sample:
+
+This C# snippet creates an Event Grid publisher client using an Application (Service Principal) with a client secret, to enable the DefaultAzureCredential method you will need to add the [Azure.Identity library](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md). If you are using the official SDK it will handle the version for you.
+
+```csharp
+Environment.SetEnvironmentVariable("AZURE_CLIENT_ID", "");
+Environment.SetEnvironmentVariable("AZURE_TENANT_ID", "");
+Environment.SetEnvironmentVariable("AZURE_CLIENT_SECRET", "");
+
+EventGridPublisherClient client = new EventGridPublisherClient(new Uri("your-event-grid-topic-domain-or-partner-namespace-endpoint"), new DefaultAzureCredential());
 ```
-If you're using a security principal associated with a client publishing application, you have to configure environmental variables as shown in the [Java SDK readme article](/java/api/overview/azure/identity-readme#environment-variables). The `DefaultCredentialBuilder` reads those environment variables to use the right identity. For more information, see [Java API overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
-
 
 For more information, see the following articles:
 
@@ -104,13 +106,30 @@ For more information, see the following articles:
 
 ## Disable key and shared access signature authentication
 
-Azure AD authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. you'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](../active-directory/conditional-access/overview.md), that can help you improve your application's security stance. 
+Azure AD authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. You'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](../active-directory/conditional-access/overview.md), that can help you improve your application's security stance. 
 
 Once you decide to use Azure AD authentication, you can disable authentication based on access keys or SAS tokens. 
 
 > [!NOTE]
 > Acess keys or SAS token authentication is a form of **local authentication**. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Azure AD. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
 
+### Azure portal
+
+When creating a new topic, you can disable local authentication on the **Advanced** tab of the **Create Topic** page. 
+
+:::image type="content" source="./media/authenticate-with-active-directory/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
+
+For an existing topic, following these steps to disable local authentication:
+
+1. Navigate to the **Event Grid Topic** page for the topic, and select **Enabled** under **Local Authentication**
+
+    :::image type="content" source="./media/authenticate-with-active-directory/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
+2. In the **Local Authentication** popup window, select **Disabled**, and select **OK**.
+
+    :::image type="content" source="./media/authenticate-with-active-directory/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
+
+
+### Azure CLI
 The following CLI command shows the way to create a custom topic with local authentication disabled. The disable local auth feature is currently available as a preview and you need to use API version ``2021-06-01-preview``.
 
 ```cli
@@ -124,6 +143,8 @@ For your reference, the following are the resource type values that you can use 
 | Domains           | Microsoft.EventGrid/domains          |
 | Partner Namespace | Microsoft.EventGrid/partnerNamespaces|
 | Custom Topic      | Microsoft.EventGrid/topics           |
+
+### Azure PowerShell
 
 If you're using PowerShell, use the following cmdlets to create a custom topic with local authentication disabled. 
 

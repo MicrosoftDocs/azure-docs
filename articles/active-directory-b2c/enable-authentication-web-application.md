@@ -2,13 +2,13 @@
 title: Enable authentication in a web app by using Azure Active Directory B2C building blocks
 description: This article discusses how to use the building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -84,7 +84,7 @@ public void ConfigureServices(IServiceCollection services)
         // This lambda determines whether user consent for non-essential cookies is needed for a given request.
         options.CheckConsentNeeded = context => true;
         options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
-        // Handling SameSite cookie according to https://docs.microsoft.com/en-us/aspnet/core/security/samesite?view=aspnetcore-3.1
+        // Handling SameSite cookie according to https://learn.microsoft.com/aspnet/core/security/samesite?view=aspnetcore-3.1
         options.HandleSameSiteCookieCompatibility();
     });
 

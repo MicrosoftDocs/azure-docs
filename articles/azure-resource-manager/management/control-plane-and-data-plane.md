@@ -2,6 +2,7 @@
 title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Control plane operations are handled by Azure Resource Manager. Data plane operations are handled by a service.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/10/2020
 ---
 # Azure control plane and data plane
@@ -16,7 +17,7 @@ For example:
 
 * You create a storage account through the control plane. You use the data plane to read and write data in the storage account.
 
-* You create a Cosmos database through the control plane. To query data in the Cosmos database, you use the data plane.
+* You create an Azure Cosmos DB database through the control plane. To query data in the Azure Cosmos DB database, you use the data plane.
 
 ## Control plane
 
@@ -27,7 +28,7 @@ All requests for control plane operations are sent to the Azure Resource Manager
 * For Azure Germany, the URL is `https://management.microsoftazure.de/`.
 * For Microsoft Azure China 21Vianet, the URL is `https://management.chinacloudapi.cn`.
 
-To discover which operations use the Azure Resource Manager URL, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/flexibleserver(preview)/servers/update) for MySql is a control plane operation because the request URL is:
+To discover which operations use the Azure Resource Manager URL, see the [Azure REST API](/rest/api/azure/). For example, the [create or update operation](/rest/api/mysql/singleserver/databases/create-or-update) for MySQL is a control plane operation because the request URL is:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName}?api-version=2017-12-01
@@ -46,15 +47,15 @@ The control plane includes two scenarios for handling requests - "green field" a
 
 ## Data plane
 
-Requests for data plane operations are sent to an endpoint that is specific to your instance. For example, the [Detect Language operation](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md) in Cognitive Services is a data plane operation because the request URL is:
+Requests for data plane operations are sent to an endpoint that's specific to your instance. For example, the [Detect Language operation](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md) in Cognitive Services is a data plane operation because the request URL is:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages
 ```
 
-Data plane operations aren't limited to REST API. They may require additional credentials such as logging in to a virtual machine or database server.
+Data plane operations aren't limited to REST API. They may require other credentials such as logging in to a virtual machine or database server.
 
-Features that enforce management and governance might not applied to data plane operations. You need to consider the different ways users interact with your solutions. For example, a lock that prevents users from deleting a database doesn't prevent users from deleting data through queries.
+Features that enforce management and governance might not apply to data plane operations. You need to consider the different ways users interact with your solutions. For example, a lock that prevents users from deleting a database doesn't prevent users from deleting data through queries.
 
 You can use some policies to govern data plane operations. For more information, see [Resource Provider modes (preview) in Azure Policy](../../governance/policy/concepts/definition-structure.md#resource-provider-modes).
 
@@ -62,4 +63,4 @@ You can use some policies to govern data plane operations. For more information,
 
 * For an overview of Azure Resource Manager, see [What is Azure Resource Manager?](overview.md)
 
-* To learn more about the effect of policy definitions on new resources and existing resources., see [Evaluate the impact of a new Azure Policy definition](../../governance/policy/concepts/evaluate-impact.md).
+* To learn more about the effect of policy definitions on new resources and existing resources, see [Evaluate the impact of a new Azure Policy definition](../../governance/policy/concepts/evaluate-impact.md).

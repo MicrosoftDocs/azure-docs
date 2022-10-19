@@ -1,8 +1,8 @@
 ---
 title: Provide data feedback to Azure Maps | Microsoft Azure Maps
 description: Provide data feedback using Microsoft Azure Maps feedback tool.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps

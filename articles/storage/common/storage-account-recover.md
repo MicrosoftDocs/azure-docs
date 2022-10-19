@@ -3,12 +3,12 @@ title: Recover a deleted storage account
 titleSuffix: Azure Storage
 description: Learn how to recover a deleted storage account within the Azure portal.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/06/2021
-ms.author: tamram
+ms.date: 06/23/2022
+ms.author: jammart
 ms.subservice: common
 ---
 
@@ -32,15 +32,16 @@ If the deleted storage account used customer-managed keys with Azure Key Vault a
 
 ## Recover a deleted account from the Azure portal
 
-To recover a deleted storage account from within another storage account, follow these steps:
+To restore a deleted storage account from within another storage account, follow these steps:
 
-1. Navigate to the overview page for an existing storage account in the Azure portal.
-1. In the **Support + troubleshooting** section, select **Recover deleted account**.
+1. Navigate to the list of your storage accounts in the Azure portal.
+1. Select the **Restore** button to open the **Restore deleted account** pane.
+1. Select the subscription for the account that you want to recover from the **Subscription** drop-down.
 1. From the dropdown, select the account to recover, as shown in the following image. If the storage account that you want to recover is not in the dropdown, then it cannot be recovered.
 
     :::image type="content" source="media/storage-account-recover/recover-account-portal.png" alt-text="Screenshot showing how to recover storage account in Azure portal":::
 
-1. Select the **Recover** button to restore the account. The portal displays a notification that the recovery is in progress.
+1. Select the **Restore** button to recover the account. The portal displays a notification that the recovery is in progress.
 
 ## Recover a deleted account via a support ticket
 
@@ -70,5 +71,4 @@ To recover a deleted storage account from within another storage account, follow
 
 - [Storage account overview](storage-account-overview.md)
 - [Create a storage account](storage-account-create.md)
-- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)

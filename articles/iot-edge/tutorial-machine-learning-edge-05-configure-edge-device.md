@@ -1,14 +1,15 @@
 ---
 title: 'Tutorial: Configure an Azure IoT Edge device - Machine learning on IoT Edge'
 description: In this tutorial, you'll configure an Azure virtual machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Configure an Azure IoT Edge device
@@ -120,7 +121,7 @@ For this tutorial, we register the new device identity by using Visual Studio Co
 
 ## Deploy an Azure virtual machine
 
-We use an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured. The deployment uses an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) project repository. It provisions the IoT Edge device your registered in the previous step using the connection string you supply in the template.
+We use an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured. The deployment uses an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.1) project repository. It provisions the IoT Edge device your registered in the previous step using the connection string you supply in the template.
 
 You can deploy the virtual machine using the Azure portal or Azure CLI. We will show the Azure portal steps. See [Run Azure IoT Edge on Ubuntu Virtual Machines](how-to-install-iot-edge-ubuntuvm.md) for more information.
 
@@ -128,7 +129,7 @@ You can deploy the virtual machine using the Azure portal or Azure CLI. We will 
 
 1. To use the `iotedge-vm-deploy` ARM template to deploy your Ubuntu 18.04 LTS virtual machine, click the button below:
 
-    [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+    [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.1%2FedgeDeploy.json)
 
 1. On the newly launched window, fill in the available form fields.
 
@@ -138,7 +139,7 @@ You can deploy the virtual machine using the Azure portal or Azure CLI. We will 
    | **Resource group** | An existing or newly created Resource Group to contain the virtual machine and it's associated resources. |
    | **DNS Label Prefix** | A required value of your choosing that is used to prefix the hostname of the virtual machine. |
    | **Admin Username** | A username, which will be provided root privileges on deployment. |
-   | **Device Connection String** | A [device connection string](./how-to-register-device.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md). |
+   | **Device Connection String** | A [device connection string](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md). |
    | **VM Size** | The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed
    | **Ubuntu OS Version** | The version of the Ubuntu OS to be installed on the base virtual machine. |
    | **Location** | The [geographic region](https://azure.microsoft.com/global-infrastructure/locations/) to deploy the virtual machine into, this value defaults to the location of the selected Resource Group. |

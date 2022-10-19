@@ -1,36 +1,34 @@
 ---
-title: Add a bar chart layer to the Azure Maps Power BI visual | Microsoft Azure Maps
-description: In this article, you will learn how to use the bar chart layer in the Microsoft Azure Maps visual for Power BI.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
-ms.topic: conceptual
+title: Add a bar chart layer to an Azure Maps Power BI visual
+titleSuffix: Microsoft Azure Maps
+description: In this article, you will learn how to use the bar chart layer in an Azure Maps Power BI visual.
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/29/2021
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: 
 ---
 
 # Add a bar chart layer
 
 The **Bar chart layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D bars or cylinders on the map. Similar to the bubble layer, the bar chart later can easily visualize two metrics at the same time using color and relative height. In order for the bars to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure is not provided, bars with no height show as flat squares or circles depending on the **Bar shape** option.
 
-> [!div class="mx-imgBorder"]
-> ![A map displaying point data using the bar chart layer](media/power-bi-visual/bar-chart-layer-styled.png)
+:::image type="content" source="./media/power-bi-visual/bar-chart-layer-styled.png" alt-text="A map displaying point data using the bar chart layer":::
 
 Users can tilt and rotate the map to view your data from different perspectives. The map can be tilted or pitched using one of the following methods.
 
--   Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to tilt the map.
--   Press the right mouse button down and drag the mouse up or down.
--   Using a touch screen, touch the map with two fingers and drag them up or down together.
--   With the map focused, hold the **Shift** key, and press the **Up** or **Down arrow** keys.
+- Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to tilt the map.
+- Press the right mouse button down and drag the mouse up or down.
+- Using a touch screen, touch the map with two fingers and drag them up or down together.
+- With the map focused, hold the **Shift** key, and press the **Up** or **Down arrow** keys.
 
 The map can be rotated using one of the following methods.
 
--   Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to rotate the map.
--   Press the right mouse button down and drag the mouse left or right.
--   Using a touch screen, touch the map with two fingers and rotate.
--   With the map focused, hold the **Shift** key, and press the **Left** or **Right arrow** keys.
+- Turn on the **Navigation controls** option in the **Map settings** of the **Format** pane. This will add a button to rotate the map.
+- Press the right mouse button down and drag the mouse left or right.
+- Using a touch screen, touch the map with two fingers and rotate.
+- With the map focused, hold the **Shift** key, and press the **Left** or **Right arrow** keys.
 
 The following are all settings in the **Format** pane that are available in the **Bar chart layer** section.
 
@@ -51,6 +49,14 @@ The following are all settings in the **Format** pane that are available in the 
 > If the bars have a small width value and the **Scale width on zoom** option is disabled, they may disappear when zoomed out a lot as their rendered width would be less than a pixel in size. However, when the **Scale width on zoom** option is enabled, additional calculations are performed when the zoom level changes which can impact performance of large data sets.
 
 ## Next steps
+
+Change how your data is displayed on the map:
+
+> [!div class="nextstepaction"]
+> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
 
 Add more context to the map:
 

@@ -3,14 +3,14 @@ title: Create PowerShell runbook using managed identity in Azure Automation
 description: In this tutorial, you learn how to use managed identities with a PowerShell runbook in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/16/2021
+ms.date: 11/24/2021
 ms.topic: tutorial 
 #Customer intent: As a developer, I want PowerShell runbooks to execute code using a manged identity.
 ---
 
 # Tutorial: Create Automation PowerShell runbook using managed identity
 
-This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses [managed identities](../automation-security-overview.md#managed-identities-preview), rather than the Run As account to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources.
+This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses a [managed identity](../automation-security-overview.md#managed-identities), rather than the Run As account to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources.
 
 In this tutorial, you learn how to:
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Using a user-assigned managed identity for an Azure Automation account](../add-user-assigned-identity.md).
 * Az modules: `Az.Accounts`, `Az.Automation`, `Az.ManagedServiceIdentity`, and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
-* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps). `Az.ManagedServiceIdentity` is a preview module and not installed as part of the Az module. To install it, run `Install-Module -Name Az.ManagedServiceIdentity`.
 * An [Azure virtual machine](../../virtual-machines/windows/quick-create-powershell.md). Since you stop and start this machine, it shouldn't be a production VM.
 * A general familiarity with [Automation runbooks](../manage-runbooks.md).
 
@@ -97,9 +97,13 @@ Create a runbook that will allow execution by either managed identity. The runbo
 1. Under **Process Automation**, select **Runbooks**.
 
 1. Select **Create a runbook**.
+
     1. Name the runbook `miTesting`.
-    1. From the **Runbook type** drop-down menu, select **PowerShell**.
-    1. Select **Create**.
+    1. From the **Runbook type** drop-down, select **PowerShell**. 
+    1. From the **Runtime version** drop-down, select either **7.1 (preview)** or **5.1**.
+    1. Enter an applicable **Description**.
+    
+1. Click **Create** to create the runbook.
 
 1. In the runbook editor, paste the following code:
 
@@ -118,7 +122,7 @@ Create a runbook that will allow execution by either managed identity. The runbo
     
     # Connect using a Managed Service Identity
     try {
-            Connect-AzAccount -Identity -ErrorAction stop -WarningAction SilentlyContinue | Out-Null
+            $AzureContext = (Connect-AzAccount -Identity).context
         }
     catch{
             Write-Output "There is no system-assigned user identity. Aborting."; 
@@ -126,8 +130,8 @@ Create a runbook that will allow execution by either managed identity. The runbo
         }
     
     # set and store context
-    $subID = (Get-AzContext).Subscription.Id
-    $AzureContext = Set-AzContext -SubscriptionId $subID
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+        -DefaultProfile $AzureContext
     
     if ($method -eq "SA")
         {
@@ -138,15 +142,18 @@ Create a runbook that will allow execution by either managed identity. The runbo
             Write-Output "Using user-assigned managed identity"
     
             # Connects using the Managed Service Identity of the named user-assigned managed identity
-            $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $UAMI -DefaultProfile $AzureContext
+            $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup `
+                -Name $UAMI -DefaultProfile $AzureContext
     
             # validates assignment only, not perms
-            if ((Get-AzAutomationAccount -ResourceGroupName $resourceGroup -Name $automationAccount -DefaultProfile $AzureContext).Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId))
+            if ((Get-AzAutomationAccount -ResourceGroupName $resourceGroup `
+                    -Name $automationAccount `
+                    -DefaultProfile $AzureContext).Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId))
                 {
-                    Connect-AzAccount -Identity -AccountId $identity.ClientId | Out-Null
+                    $AzureContext = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
     
                     # set and store context
-                    $AzureContext = Set-AzContext -SubscriptionId ($identity.id -split "/")[2]
+                    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
                 }
             else {
                     Write-Output "Invalid or unassigned user-assigned managed identity"
@@ -159,7 +166,8 @@ Create a runbook that will allow execution by either managed identity. The runbo
          }
     
     # Get current state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code
+    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName `
+        -Status -DefaultProfile $AzureContext).Statuses[1].Code
     
     Write-Output "`r`n Beginning VM status: $status `r`n"
     
@@ -174,7 +182,8 @@ Create a runbook that will allow execution by either managed identity. The runbo
         }
     
     # Get new state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code  
+    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status `
+        -DefaultProfile $AzureContext).Statuses[1].Code  
     
     Write-Output "`r`n Ending VM status: $status `r`n `r`n"
     
@@ -258,11 +267,7 @@ Remove-AzRoleAssignment `
 
 ## Next steps
 
-In this tutorial, you created a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that used [managed identities](../automation-security-overview.md#managed-identities-preview), rather than the Run As account to interact with resources. For a look at PowerShell workflow runbooks, see:
+In this tutorial, you created a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that used a [managed identity](../automation-security-overview.md#managed-identities), rather than the Run As account to interact with resources. For a look at PowerShell Workflow runbooks, see:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md)
-
-
-
-

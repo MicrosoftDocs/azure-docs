@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
+ms.reviewer: shijain
 
 ---
 
@@ -292,7 +293,7 @@ Information on pricing is available [online](network-performance-monitor-pricing
 
 ## Provide feedback 
 
-* **UserVoice:** You can post your ideas for Network Performance Monitor features that you want us to work on. Visit the [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+* **UserVoice:** You can post your ideas for Network Performance Monitor features that you want us to work on. Visit the [UserVoice page](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=611733d4-1b25-ec11-b6e6-000d3a4f09d0). 
 
 * **Join our cohort:** We're always interested in having new customers join our cohort. As part of it, you get early access to new features and an opportunity to help us improve Network Performance Monitor. If you're interested in joining, fill out this [quick survey](https://aka.ms/npmcohort). 
 

@@ -1,28 +1,35 @@
 ---
-title: Monitor mobile apps with Azure Monitor Application Insights
-description: Provides instructions to quickly set up a mobile app for monitoring with Azure Monitor Application Insights and App Center
-
-ms.topic: quickstart
-author: lgayhardt
-ms.author: lagayhar
-ms.date: 06/26/2019
-
-ms.reviewer: daviste
+title: Monitor mobile or universal Windows apps with Azure Monitor Application Insights
+description: Provides instructions to quickly set up a mobile or universal Windows app for monitoring with Azure Monitor Application Insights and App Center
+ms.topic: tutorial
+ms.date: 07/21/2022
 ms.custom: mvc
+ms.devlang: java, swift
 ---
 
-# Start analyzing your mobile app with App Center and Application Insights
+# Start analyzing your mobile or UWP app with App Center and Application Insights
 
-This quickstart guides you through connecting your app's App Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from the [Analytics](/mobile-center/analytics/) service of App Center.
+This tutorial guides you through connecting your app's App Center instance to Application Insights. With Application Insights, you can query, segment, filter, and analyze your telemetry with more powerful tools than are available from the [Analytics](/mobile-center/analytics/) service of App Center.
+
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Connect an app's App Center instance to Application Insights
+> * Modify your app to send custom telemetry to Application Insights
+> * Query custom telemetry in Log Analytics
+> * Analyze conversion, retention, and navigation patterns in your app
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+To complete this tutorial, you need:
 
 - An Azure subscription.
 - An iOS, Android, Xamarin, Universal Windows, or React Native app.
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Sign up with App Center
 To begin, create an account and [sign up with App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).
@@ -41,7 +48,7 @@ To onboard your app, follow the App Center quickstart for each platform your app
 
 ## Track events in your app
 
-After your app is onboarded to App Center, it needs to be modified to send custom event telemetry using the App Center SDK. Custom events are the only type of App Center telemetry that is exported to Application Insights.
+After your app is onboarded to App Center, it needs to be modified to send custom event telemetry using the App Center SDK.
 
 To send custom events from iOS apps, use the `trackEvent` or `trackEvent:withProperties` methods in the App Center SDK. [Learn more about tracking events from iOS apps.](/mobile-center/sdk/analytics/ios)
 

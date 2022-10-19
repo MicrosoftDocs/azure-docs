@@ -2,11 +2,12 @@
 title: Best practices for connection resilience
 titleSuffix: Azure Cache for Redis
 description: Learn how to make your Azure Cache for Redis connections resilient.
-author: shpathak-msft
+author: flang-msft
+
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
-ms.author: shpathak
+ms.date: 08/03/2022
+ms.author: franlanglois
 ---
 
 # Connection resilience
@@ -18,6 +19,28 @@ Configure your client connections to retry commands with exponential backoff. Fo
 ## Test resiliency
 
 Test your system's resiliency to connection breaks using a [reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
+
+## TCP settings for Linux-hosted client applications
+
+The default TCP settings in some Linux versions can cause Redis server connections to fail for 13 minutes or more. The default settings can prevent the client application from detecting closed connections and restoring them automatically if the connection was not closed gracefully. 
+
+The failure to reestablish a connection can happen occur in situations where the network connection is disrupted or the Redis server goes offline for unplanned maintenance.
+
+We recommend these TCP settings:
+
+|Setting  |Value |
+|---------|---------|
+| *net.ipv4.tcp_retries2*   | 5 |
+
+For more information about the scenario, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the StackExchange.Redis library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
+
+## Using ForceReconnect with StackExchange.Redis
+
+In rare cases, StackExchange.Redis fails to reconnect after a connection is dropped. In these cases, restarting the client or creating a new `ConnectionMultiplexer` fixes the issue. We recommend using a singleton `ConnectionMultiplexer` pattern while allowing apps to force a reconnection periodically. Take a look at the quickstart sample project that best matches the framework and platform your application uses. You can see an example of this code pattern in our [quickstarts](https://github.com/Azure-Samples/azure-cache-redis-samples).
+
+Users of the `ConnectionMultiplexer` must handle any `ObjectDisposedException` errors that might occur as a result of disposing the old one.
+
+Call `ForceReconnectAsync()` for `RedisConnectionExceptions` and `RedisSocketExceptions`. You can also call `ForceReconnectAsync()` for `RedisTimeoutExceptions`, but only if you're using generous `ReconnectMinInterval` and `ReconnectErrorThreshold`. Otherwise, establishing new connections can cause a cascade failure on a server that's timing out because it's already overloaded.
 
 ## Configure appropriate timeouts
 
@@ -42,7 +65,7 @@ Avoid creating many connections at the same time when reconnecting after a conne
 If you're reconnecting many client instances, consider staggering the new connections to avoid a steep spike in the number of connected clients.
 
 > [!NOTE]
-> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/azure/azure-cache-for-redis/cache-management-faq#stackexchangeredis-best-practices).
+> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](./cache-management-faq.yml#stackexchangeredis-best-practices).
 
 ## Avoid leftover connections
 

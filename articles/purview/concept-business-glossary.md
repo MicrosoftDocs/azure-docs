@@ -1,21 +1,21 @@
 ---
-title: Understand business glossary features in Azure Purview (preview)
-description: This article explains what business glossary is in Azure Purview.
+title: Understand business glossary features in Microsoft Purview
+description: This article explains what business glossary is in Microsoft Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 04/28/2021
 ---
-# Understand business glossary features in Azure Purview
 
-This article provides an overview of the business glossary feature in Azure Purview. 
+# Understand business glossary features in Microsoft Purview
+
+This article provides an overview of the business glossary feature in Microsoft Purview. 
 
 ## Business glossary
 
 A glossary provides vocabulary for business users.  It consists of business terms that can be related to each other and allows them to be categorized so that they can be understood in different contexts. These terms can be then mapped to assets like a database, tables, columns etc. This helps in abstracting the technical jargon associated with the data repositories and allows the business user to discover and work with data in the vocabulary that is more familiar to them.
-
 
 A business glossary is a collection of terms. Each term represents an object in an organization and it is highly likely that there are multiple terms representing the same object. A customer could also be referred to as client, purchaser, or buyer. These multiple terms have a relationship with each other. The relationship between these terms could one of the following:
 
@@ -26,17 +26,20 @@ The same term can also imply multiple business objects. It is important that eac
 
 ## Custom attributes
 
-Azure Purview supports eight out-of-the-box attributes for any business glossary term:
-- Name
+Microsoft Purview supports eight out-of-the-box attributes for any business glossary term:
+- Name (mandatory)
+- Nickname
+- Status
 - Definition
-- Data stewards
-- Data experts
+- Stewards
+- Experts
 - Acronym
 - Synonyms
 - Related terms
 - Resources
+- Parent term
 
-These attributes cannot be edited or deleted. However, these attributes are not sufficient to completely define a term in an organization. To solve this problem, Purview provides a feature where you can define custom attributes for your glossary.
+These attributes cannot be edited or deleted. However, these attributes are not sufficient to completely define a term in an organization. To solve this problem, Microsoft Purview provides a feature where you can define custom attributes for your glossary.
 
 ## Term templates
 
@@ -59,13 +62,13 @@ Classifications are annotations that can be assigned to entities. The flexibilit
 - understanding the nature of data stored in the data assets
 - defining access control policies
 
-Purview has more than 200 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
+Microsoft Purview has more than 200 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
 
 ### Sensitivity labels
 
-Sensitivity labels are a type of annotation that allows you to classify and protect your organization's data, without hindering productivity and collaboration. Sensitivity labels are used to identify the categories of classification types within your organizational data, and group the policies that you wish to apply to each category. Purview makes use of the same sensitive information types as Microsoft 365, which allows you to stretch your existing security policies and protection across your entire content and data estate. The same labels can be shared across Microsoft Office products and data assets in Purview.
+Sensitivity labels are a type of annotation that allows you to classify and protect your organization's data, without hindering productivity and collaboration. Sensitivity labels are used to identify the categories of classification types within your organizational data, and group the policies that you wish to apply to each category. Microsoft Purview makes use of the same sensitive information types as Microsoft 365, which allows you to stretch your existing security policies and protection across your entire content and data estate. The same labels can be shared across Microsoft Office products and data assets in Microsoft Purview.
 
 ## Next steps
 
 - [Manage Term Templates](how-to-manage-term-templates.md)
-- [Browse the data catalog in Azure Purview](how-to-browse-catalog.md)
+- [Browse the data catalog in Microsoft Purview](how-to-browse-catalog.md)

@@ -3,7 +3,7 @@ title: Connect to Azure Arc-enabled SQL Managed Instance
 description: Connect to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -50,6 +50,9 @@ For example:
 
 > [!NOTE]
 > You can use Azure Data Studio [view the SQL managed instance dashboards](azure-data-studio-dashboards.md#view-the-sql-managed-instance-dashboards).
+
+> [!NOTE]
+> In order to connect to a managed instance that was created using a Kubernetes manifest, the username and password need to be provided to sqlcmd in base64 encoded form.
 
 To connect using SQLCMD or Linux or Windows you can use a command like this. Enter the SQL password when prompted:
 

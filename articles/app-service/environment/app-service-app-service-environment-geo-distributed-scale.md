@@ -1,19 +1,18 @@
 ---
 title: Geo distributed scale
 description: Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments.
-author: stefsch
+author: madsd
 
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
-ms.date: 09/07/2016
-ms.author: stefsch
+ms.date: 11/18/2021
+ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurepowershell
 
 ---
 # Geo Distributed Scale with App Service Environments
 ## Overview
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Application scenarios that require very high scale can exceed the compute resource capacity available to a single deployment of an app.  Voting applications, sporting events, and televised entertainment events are all examples of scenarios that require extremely high scale. High scale requirements can be met by horizontally scaling out apps. To handle extreme load requirements, many app deployments can be made within a single region and across regions.
 
@@ -27,14 +26,14 @@ Furthermore, since customers access apps through the vanity domain, customers ar
 
 The conceptual diagram below depicts an app horizontally scaled out across three App Service Environments within a single region.
 
-![Conceptual Architecture][ConceptualArchitecture] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/conceptual-architecture.png" alt-text="Conceptual architecture diagram of geo-distributed app service with Traffic Manager.":::
 
 The remainder of this topic walks through the steps involved with setting up a distributed topology for the sample app using multiple App Service Environments.
 
 ## Planning the Topology
 Before building out a distributed app footprint, it helps to have a few pieces information ahead of time.
 
-* **Custom domain for the app:**  What is the custom domain name that customers will use to access the app?  For the sample app, the custom domain name is `www.scalableasedemo.com`.
+* **Custom domain for the app:**  What is the custom domain name that customers will use to access the app?  For the sample app, the custom domain name is `www.asabuludemo.com`.
 * **Traffic Manager domain:** Choose a domain name when creating an [Azure Traffic Manager profile][AzureTrafficManagerProfile].  This name will be combined with the *trafficmanager.net* suffix to register a domain entry that is managed by Traffic Manager.  For the sample app, the name chosen is *scalable-ase-demo*.  As a result the full domain name that is managed by Traffic Manager is *scalable-ase-demo.trafficmanager.net*.
 * **Strategy for scaling the app footprint:**  Will the application footprint be distributed across multiple App Service Environments in a single region?  Multiple regions?  A mix-and-match of both approaches?  Base the decision on expectations of where customer traffic will originate, and how well the rest of an app's supporting back-end infrastructure can scale.  For example, with a 100% stateless application, an app can be massively scaled using a combination of many App Service Environments in each Azure region, multiplied by App Service Environments deployed across many Azure regions.  With 15+ global Azure regions available to choose from, customers can truly build a world-wide hyper-scale application footprint.  For the sample app that's used for this article, three App Service Environments were created in a single Azure region (South Central US).
 * **Naming convention for the App Service Environments:**  Each App Service Environment requires a unique name.  Beyond one or two App Service Environments, it's helpful to have a naming convention to help identify each App Service Environment.  For the sample app, a simple naming convention was used.  The names of the three App Service Environments are *fe1ase*, *fe2ase*, and *fe3ase*.
@@ -52,7 +51,7 @@ The easiest way to register multiple Azure App Service endpoints, all running in
 The first step is to create an Azure Traffic Manager profile.  The code below shows how the profile was created for the sample app:
 
 ```azurepowershell-interactive
-$profile = New-AzureTrafficManagerProfile –Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$profile = New-AzTrafficManagerProfile –Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 ```
 
 Notice how the *RelativeDnsName* parameter was set to *scalable-ase-demo*.  This parameter causes the domain name *scalable-ase-demo.trafficmanager.net* to be created and associated with a Traffic Manager profile.
@@ -63,15 +62,15 @@ With the profile created, each app instance is added to the profile as a native 
 
 ```azurepowershell-interactive
 $webapp1 = Get-AzWebApp -Name webfrontend1
-Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
+Add-AzTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
 $webapp2 = Get-AzWebApp -Name webfrontend2
-Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
+Add-AzTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
 $webapp3 = Get-AzWebApp -Name webfrontend3
-Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
+Add-AzTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
-Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile –TrafficManagerProfile $profile
 ```
 
 Notice how there is one call to *Add-AzureTrafficManagerEndpointConfig* for each individual app instance.  The *TargetResourceId* parameter in each PowerShell command references one of the three deployed app instances.  The Traffic Manager profile will spread load across all three endpoints registered in the profile.
@@ -79,24 +78,24 @@ Notice how there is one call to *Add-AzureTrafficManagerEndpointConfig* for each
 All of the three endpoints use the same value (10) for the *Weight* parameter.  This situation results in Traffic Manager spreading customer requests across all three app instances relatively evenly. 
 
 ## Pointing the App's Custom Domain at the Traffic Manager Domain
-The final step necessary is to point the custom domain of the app at the Traffic Manager domain.  For the sample app, point `www.scalableasedemo.com` at `scalable-ase-demo.trafficmanager.net`.  Complete this step with the domain registrar that manages the custom domain.  
+The final step necessary is to point the custom domain of the app at the Traffic Manager domain.  For the sample app, point `www.asabuludemo.com` at `scalable-ase-demo.trafficmanager.net`.  Complete this step with the domain registrar that manages the custom domain.  
 
 Using your registrar's domain management tools, a CNAME records needs to be created which points the custom domain at the Traffic Manager domain.  The picture below shows an example of what this CNAME configuration looks like:
 
-![CNAME for Custom Domain][CNAMEforCustomDomain] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/cname-custom-domain.png" alt-text="Screenshot of configuring CNAME record on DNS."::: 
 
 Although not covered in this topic, remember that each individual app instance needs to have the custom domain registered with it as well.  Otherwise, if a request makes it to an app instance, and the application hasn't registered the custom domain with the app, the request will fail.
 
-In this example, the custom domain is `www.scalableasedemo.com`, and each application instance has the custom domain associated with it.
+In this example, the custom domain is `www.asabuludemo.com`, and each application instance has the custom domain associated with it.
 
-![Custom Domain][CustomDomain] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/custom-domain.png" alt-text="Screenshot of App Service custom domain setting.":::
 
 For a recap of registering a custom domain with Azure App Service apps, see [registering custom domains][RegisterCustomDomain].
 
 ## Trying out the Distributed Topology
-The end result of the Traffic Manager and DNS configuration is that requests for `www.scalableasedemo.com` will flow through the following sequence:
+The end result of the Traffic Manager and DNS configuration is that requests for `www.asabuludemo.com` will flow through the following sequence:
 
-1. A browser or device will make a DNS lookup for `www.scalableasedemo.com`
+1. A browser or device will make a DNS lookup for `www.asabuludemo.com`
 2. The CNAME entry at the domain registrar causes the DNS lookup to be redirected to Azure Traffic Manager.
 3. A DNS lookup is made for *scalable-ase-demo.trafficmanager.net* against one of the Azure Traffic Manager DNS servers.
 4. Based on the load-balancing policy specified earlier in the *TrafficRoutingMethod* parameter, Traffic Manager selects one of the configured endpoints. It then returns the FQDN of that endpoint to the browser or device.
@@ -106,7 +105,7 @@ The end result of the Traffic Manager and DNS configuration is that requests for
 
 The console picture below shows a DNS lookup for the sample app's custom domain. It successfully resolves to an app instance that runs on one of the three sample App Service Environments (in this case, the second of the three App Service Environments):
 
-![DNS Lookup][DNSLookup] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/dns-lookup.png" alt-text="Screenshot of DNS lookup result.":::
 
 ## Additional Links and Information
 Documentation on the PowerShell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
@@ -117,10 +116,3 @@ Documentation on the PowerShell [Azure Resource Manager Traffic Manager support]
 [AzureTrafficManagerProfile]: ../../traffic-manager/traffic-manager-manage-profiles.md
 [ARMTrafficManager]: ../../traffic-manager/traffic-manager-powershell-arm.md
 [RegisterCustomDomain]: ../app-service-web-tutorial-custom-domain.md
-
-
-<!-- IMAGES -->
-[ConceptualArchitecture]: ./media/app-service-app-service-environment-geo-distributed-scale/ConceptualArchitecture-1.png
-[CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
-[DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
-[CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 

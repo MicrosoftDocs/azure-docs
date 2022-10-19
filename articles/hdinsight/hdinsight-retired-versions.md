@@ -3,7 +3,7 @@ title: Azure HDInsight retired versions
 description: Learn about retired versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 07/18/2022
 ---
 
 # Retired HDInsight versions

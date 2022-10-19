@@ -1,14 +1,14 @@
 ---
 title: Control access to IoT Hub by using Azure Active Directory 
 description: Developer guide. How to control access to IoT Hub for back-end apps by using Azure AD and Azure RBAC.
-author: jlian
+author: kgremban
 manager: briz
-ms.author: jlian
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/24/2021
-ms.custom: ['Role: Cloud Development']
+ms.date: 10/20/2021
+ms.custom: ['Role: Cloud Development', devx-track-azurecli]
 ---
 
 # Control access to IoT Hub by using Azure Active Directory
@@ -100,7 +100,7 @@ By default, IoT Hub supports service API access through both Azure AD and [share
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 1. On the left pane, select **Shared access policies**.
 1. Under **Connect using shared access policies**, select **Deny**.
-    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies.":::
+    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies." border="true":::
 1. Review the warning, and then select **Save**.
 
 Your IoT Hub service APIs can now be accessed only through Azure AD and RBAC.

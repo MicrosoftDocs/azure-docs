@@ -3,11 +3,11 @@ title: include file
 titleSuffix: Azure
 description: include file
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: halkazwini
 ---
 
 1. Go to **Resource groups**, and select the resource group you selected when you created the **Peering** resource. Use the **Filter** box if you have too many resource groups.

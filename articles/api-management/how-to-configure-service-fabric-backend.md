@@ -106,22 +106,26 @@ To test the integration of API Management with the cluster, add the correspondin
     
     :::image type="content" source="media/backends/configure-get-operation.png" alt-text="Add GET operation to API":::
 
-### Configure `set-backend` policy
+### Configure `set-backend-service` policy
 
 Add the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to the test API.
 
 1. On the **Design** tab, in the **Inbound processing** section, select the code editor (**</>**) icon. 
 1. Position the cursor inside the **&lt;inbound&gt;** element
-1. Add the following policy statement. In `backend-id`, substitute the name of your Service Fabric backend.
+1. Add the `set-service-backend` policy statement. 
+      * In `backend-id`, substitute the name of your Service Fabric backend.
 
-   The `sf-resolve-condition` is a retry condition if the cluster partition isn't resolved. The number of retries was set when configuring the backend.
+      * The `sf-resolve-condition` is a condition for re-resolving a service location and resending a request. The number of retries was set when configuring the backend. For example:
 
-    ```xml
-    <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"  />
+      ```xml
+      <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"/>
     ```
 1. Select **Save**.
 
     :::image type="content" source="media/backends/set-backend-service.png" alt-text="Configure set-backend-service policy":::
+
+> [!NOTE]
+> If one or more nodes in the Service Fabric cluster goes down or is removed, API Management does not get an automatic notification and continues to send traffic to these nodes. To handle these cases, configure a resolve condition similar to: `sf-resolve-condition="@((int)context.Response.StatusCode != 200 || context.LastError?.Reason == "BackendConnectionFailure" || context.LastError?.Reason == "Timeout")"`
 
 ### Test backend API
 
@@ -135,5 +139,4 @@ When properly configured, the HTTP response shows an HTTP success code and displ
 ## Next steps
 
 * Learn how to [configure policies](api-management-advanced-policies.md) to forward requests to a backend
-* Backends can also be configured using the API Management [REST API](/rest/api/apimanagement/2020-06-01-preview/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
-
+* Backends can also be configured using the API Management [REST API](/rest/api/apimanagement/current-ga/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend), or [Azure Resource Manager templates](../service-fabric/service-fabric-tutorial-deploy-api-management.md)

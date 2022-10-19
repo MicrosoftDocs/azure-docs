@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 06/16/2022
 ms.author: alkohli
 ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
 # Tutorial: Create export order for Azure Data Box
 
-Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored.
+Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premises storage gets compromised and a back-up needs to be restored.
 
 In this tutorial, you learn about:
 
@@ -130,7 +130,7 @@ Perform the following steps in the Azure portal to order a device.
     ![Security screen showing Encryption type settings](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
 
 11. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
-   
+
     ![Security screen, settings for a customer-managed key](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
 
 12. On the **Select key from Azure Key Vault** screen, the subscription is automatically populated.
@@ -175,10 +175,10 @@ Perform the following steps in the Azure portal to order a device.
 
 15. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
-    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md).  
+    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md).
 
     If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
-    
+
     ![Select a user identity](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
     The user identity is shown in **Encryption type** settings.
@@ -187,7 +187,7 @@ Perform the following steps in the Azure portal to order a device.
 
     ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
 
-16. If you want to enable software-based double encryption, expand **Double encryption (for high-security environments)**, and select **Enable double encryption for the order**. 
+16. If you want to enable software-based double encryption, expand **Double encryption (for high-security environments)**, and select **Enable double encryption for the order**.
 
     The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
 
@@ -267,9 +267,12 @@ Follow these guidelines to create your XML file if you choose to select blobs an
 - **XML file overview tab:** Review tag requirements for the XML file.
 - **Prefix examples tab:** See examples of valid prefixes that select multiple blobs and files for export.
 
+> [!NOTE]
+> You can use the `generateXMLFilesForExport.ps1` script to generate XML files for large blob exports. The script creates XML files for exporting from Azure Blob storage containers to multiple Azure Data Box or Azure Data Box Heavy devices. You can download the script from [Azure Samples](https://github.com/Azure-Samples/data-box-samples). See the [README](https://github.com/Azure-Samples/data-box-samples/blob/main/multipleDataBoxExportScript/README.md) for more information.
+
 ### [Sample XML file](#tab/sample-xml-file)
 
-This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. 
+This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order.
 
 - For a XML file requirements, go to the **XML file overview** tab.
 - For more examples of valid blob and file prefixes, go to the **Prefix examples** tab.
@@ -283,11 +286,11 @@ This sample XML file includes examples of each XML tag that is used to select bl
       <BlobPathPrefix>/container</BlobPathPrefix>  <!-- Exports all containers beginning with prefix: "container" -->
 	  <BlobPathPrefix>/container1/2021Q2</BlobPathPrefix> <!-- Exports all blobs in container1 with prefix: "2021Q2" -->
    </BlobList>
-   
+
    <!--AzureFileList selects individual files (FilePath) and multiple files (FilePathPrefix) in Azure File storage for export.-->
    <AzureFileList>
 	  <FilePath>/fileshare1/file.txt</FilePath> <!-- Exports /fileshare1/file.txt -->
-      <FilePathPrefix>/fileshare1/</FilePath> <!-- Exports all directories and files in fileshare1 -->
+      <FilePathPrefix>/fileshare1/</FilePathPrefix> <!-- Exports all directories and files in fileshare1 -->
 	  <FilePathPrefix>/fileshare</FilePathPrefix> <!-- Exports all directories and files in any fileshare with prefix: "fileshare" -->
       <FilePathPrefix>/fileshare2/contosowest</FilePathPrefix> <!-- Exports all directories and files in fileshare2 with prefix: "contosowest" -->
    </AzureFileList>
@@ -342,8 +345,8 @@ The sample paths below are used with the &lt;BlobPathPrefix&gt; tag to select mu
 |------------------------|--------------------------------------------------------------------------------|------------------------------------|
 |/	                     |Exports all blobs in the storage account.                                       |`<BlobPathPrefix>/</BlobPathPrefix>`|
 |/$root/	             |Exports all blobs in the root container.                                        |`<BlobPathPrefix>/$root/</BlobPathPrefix>`|
-|/container2/            |Exports all blobs in the container **container2**.                              |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|
-|/container	         |Exports all blobs in any container that begins with prefix **container**.      |`<BlobPathPrefix>/containers</BlobPathPrefix>`|
+|/container2/            |Exports all blobs in the container **container2**.                              |`<BlobPathPrefix>/container2/</BlobPathPrefix>`|
+|/container	         |Exports all blobs in any container that begins with prefix **container**.      |`<BlobPathPrefix>/container</BlobPathPrefix>`|
 |/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.|`<BlobPathPrefix>/container1/2021Q2</BlobPathPrefix>`|
 
 To select a *single* blob for export, use the &lt;BlobPath&gt; tag with a container path and blob name. For example, to select **blob.txt** in the **container1** container, you would use this tag: `<BlobPath>/container1/blob.txt</BlobPath>`.
@@ -354,10 +357,10 @@ The sample paths below are used with the &lt;FilePathPrefix&gt; tag to select mu
 
 |File path prefix        |Description                                                                                          |Tag example|
 |------------------------|-----------------------------------------------------------------------------------------------------|-----------|
-|/                       |Exports all files and directories in the storage account. |`<FilePathPrefix>/</FilePath>Prefix`|
-|/fileshare1/            |Exports all files and directories in the share named **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix`|
-|/fileshare              |Exports all files and directories in any file share that begins with prefix **fileshare**. |`<FilePathPrefix>/fileshare</FilePath>Prefix`|
-|/fileshare2/contosowest |Exports all files and directories in fileshare **fileshare2** that begin with prefix **contosowest**.|`<FilePathPrefix>/fileshare1/contosowest</FilePath>Prefix`|
+|/                       |Exports all files and directories in the storage account. |`<FilePathPrefix>/</FilePath>Prefix>`|
+|/fileshare1/            |Exports all files and directories in the share named **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix>`|
+|/fileshare              |Exports all files and directories in any file share that begins with prefix **fileshare**. |`<FilePathPrefix>/fileshare</FilePath>Prefix>`|
+|/fileshare2/contosowest |Exports all files and directories in fileshare **fileshare2** that begin with prefix **contosowest**.|`<FilePathPrefix>/fileshare2/contosowest</FilePath>Prefix>`|
 
 To select a *single* file for export, use the &lt;FilePath&gt; tag with a share path and file name. For example, to select **file.txt** in **fileshare1**, you would use this tag: `<FilePath>/fileshare1/file.txt</FilePath>`
 
@@ -375,7 +378,7 @@ Data Box copies data from the source storage account(s). Once the data copy is c
 
 ![Data Box export order, data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
 
-The data export from Azure Storage to your Data Box can sometimes fail. Make sure that the blobs aren't archive blobs as export of these blobs is not supported. 
+The data export from Azure Storage to your Data Box can sometimes fail. Make sure that the blobs aren't archive blobs as export of these blobs is not supported.
 
 > [!NOTE]
 > For archive blobs, you need rehydrate those blobs before they can be exported from Azure Storage account to your Data Box. For more information, see [Rehydrate an archive blob]( ../storage/blobs/storage-blob-rehydration.md).

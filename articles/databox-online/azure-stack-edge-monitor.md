@@ -1,41 +1,28 @@
 ---
-title: Monitor your Azure Stack Edge  device | Microsoft Docs 
-description: Describes how to use the Azure portal and local web UI to monitor your Azure Stack Edge .
+title: Monitor your Azure Stack Edge device | Microsoft Docs 
+description: Describes how to use the Azure portal and local web UI to monitor your Azure Stack Edge device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 10/11/2021
 ms.author: alkohli
 ---
-# Monitor your Azure Stack Edge 
+# Monitor your Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
-This article describes how to monitor your Azure Stack Edge. To monitor your device, you can use Azure portal or the local web UI. Use the Azure portal to view device events, configure and manage alerts, and view metrics. Use the local web UI on your physical device to view the hardware status of the various device components.
+This article describes how to monitor your Azure Stack Edge device. To monitor your device, you can use the Azure portal or the local web UI. Use the Azure portal to view metrics, view device events, and configure and manage alerts. Use the local web UI on your physical device to view the hardware status of the various device components.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> * View device events and the corresponding alerts
-> * View hardware status of device components
 > * View capacity and transaction metrics for your device
+> * View hardware status of device components
 
-## View device events
-
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
-
-## View hardware status
-
-Take the following steps in the local web UI to view the hardware status of your device components.
-
-1. Connect to the local web UI of your device.
-2. Go to **Maintenance > Hardware status**. You can view the health of the various device components.
-
-    ![View hardware status](media/azure-stack-edge-monitor/view-hardware-status.png)
 
 ## View metrics
 
@@ -74,7 +61,23 @@ A full list of the metrics is shown in the following table:
 |**Edge compute - memory usage**      |           |
 |**Edge compute - percentage CPU**    |         |
 
+
+### View device events
+
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
+
+
+## View hardware status
+
+Take the following steps in the local web UI to view the hardware status of your device components.
+
+1. Connect to the local web UI of your device.
+2. Go to **Maintenance > Hardware status**. You can view the health of the various device components.
+
+    ![View hardware status](media/azure-stack-edge-monitor/view-hardware-status.png)
+
+
 ## Next steps
 
-Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
-Learn how to [Manage device event alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+- Learn how to [Manage bandwidth](azure-stack-edge-manage-bandwidth-schedules.md).
+- Learn how to [Manage alert notifications](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).

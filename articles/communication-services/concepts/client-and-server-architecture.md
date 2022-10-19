@@ -2,11 +2,9 @@
 title: Client and server architecture
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' architecture.
-author: probableprime
+author: tophpalmer
 manager: mikben
-services: azure-communication-services
-
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -22,7 +20,7 @@ This page illustrates typical architectural components and dataflows in various 
 
 ## User access management
 
-Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or managed identity necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
+Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or Azure AD authentication secrets necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
 
 :::image type="content" source="../media/scenarios/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
 
@@ -35,6 +33,7 @@ Azure Communication Services clients must present `user access tokens` to access
 - **Concept:** [User Identity](identity-model.md)
 - **Quickstart:** [Create and manage access tokens](../quickstarts/access-tokens.md)
 - **Tutorial:** [Build a identity management services use Azure Functions](../tutorials/trusted-service-tutorial.md)
+- **Sample:** [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
 > [!IMPORTANT]
 > For simplicity, we do not show user access management and token distribution in subsequent architecture flows.
@@ -80,7 +79,7 @@ Azure Communication Service applications can join Teams calls. This is ideal for
 
 
 ### Dataflows
-1. The Call Management Service creates a group call with [Graph APIs](/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the Microsoft 365 ecosystem.
+1. The Call Management Service creates a group call with [Graph APIs](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the Microsoft 365 ecosystem.
 2. The Call Management Service shares the Teams call details with Azure Communication Service clients.
 3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
 4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.

@@ -1,14 +1,18 @@
 ---
 title: Security considerations for container instances
 description: Recommendations to secure images and secrets for Azure Container Instances, and general security considerations for any container platform
-ms.topic: article
-ms.date: 01/10/2020
+ms.topic: conceptual
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: 
 ---
 
 # Security considerations for Azure Container Instances
 
-This article introduces security considerations for using Azure Container Instances to run container apps. Topics include:
+This article introduces security considerations for using Azure Container Instances to run container applications. Topics include:
 
 > [!div class="checklist"]
 > * **Security recommendations** for managing images and secrets for Azure Container Instances
@@ -29,7 +33,7 @@ A publicly available container image does not guarantee security. Container imag
 
 Take advantage of solutions to scan container images in a private registry and identify potential vulnerabilities. It’s important to understand the depth of threat detection that the different solutions provide.
 
-For example, Azure Container Registry optionally [integrates with Azure Security Center](../security-center/defender-for-container-registries-introduction.md) to automatically scan all Linux images pushed to a registry. Azure Security Center's integrated Qualys scanner detects image vulnerabilities, classifies them, and provides remediation guidance.
+For example, Azure Container Registry optionally [integrates with Microsoft Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) to automatically scan all Linux images pushed to a registry. Microsoft Defender for Cloud's integrated Qualys scanner detects image vulnerabilities, classifies them, and provides remediation guidance.
 
 Security monitoring and image scanning solutions such as [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) and [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) are also available through the Azure Marketplace.  
 
@@ -94,11 +98,11 @@ You can also minimize the potential attack surface by removing any unused or unn
 
 ### Preapprove files and executables that the container is allowed to access or run 
 
-Reducing the number of variables or unknowns helps you maintain a stable, reliable environment. Limiting containers so they can access or run only preapproved or safelisted files and executables is a proven method of limiting exposure to risk.  
+Reducing the number of variables or unknowns helps you maintain a stable, reliable environment. Limiting containers so they can access or run only preapproved or safe listed files and executables is a proven method of limiting exposure to risk.  
 
-It’s a lot easier to manage a safelist when it’s implemented from the beginning. A safelist provides a measure of control and manageability as you learn what files and executables are required for the application to function correctly. 
+It’s a lot easier to manage a safe list when it’s implemented from the beginning. A safe list provides a measure of control and manageability as you learn what files and executables are required for the application to function correctly. 
 
-A safelist not only reduces the attack surface but can also provide a baseline for anomalies and prevent the use cases of the "noisy neighbor" and container breakout scenarios. 
+A safe list not only reduces the attack surface but can also provide a baseline for anomalies and prevent the use cases of the "noisy neighbor" and container breakout scenarios. 
 
 ### Enforce network segmentation on running containers  
 
@@ -133,7 +137,7 @@ Monitor your resource activity, like files, network, and other resources that yo
 
 Maintain an accurate audit trail of administrative access to your container ecosystem, including your Kubernetes cluster, container registry, and container images. These logs might be necessary for auditing purposes and will be useful as forensic evidence after any security incident. Azure solutions include:
 
-* [Integration of Azure Kubernetes Service with Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) to monitor the security configuration of the cluster environment and generate security recommendations
+* [Integration of Azure Kubernetes Service with Microsoft Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md) to monitor the security configuration of the cluster environment and generate security recommendations
 * [Azure Container Monitoring solution](../azure-monitor/containers/containers.md)
 * Resource logs for [Azure Container Instances](container-instances-log-analytics.md) and [Azure Container Registry](../container-registry/monitor-service.md)
 
@@ -141,6 +145,6 @@ Maintain an accurate audit trail of administrative access to your container ecos
 
 * See the [Azure security baseline for Container Instances](security-baseline.md) for comprehensive recommendations that will help you improve the security posture of your deployment.
 
-* Learn more about using [Azure Security Center](../security-center/container-security.md) for real-time threat detection in your containerized environments.
+* Learn more about using [Microsoft Defender for Cloud](../security-center/container-security.md) for real-time threat detection in your containerized environments.
 
 * Learn more about managing container vulnerabilities with solutions from [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) and [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/).

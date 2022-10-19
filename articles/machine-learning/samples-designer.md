@@ -9,7 +9,7 @@ ms.topic: sample
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/14/2020
+ms.date: 10/21/2021
 ms.custom: designer
 ---
 # Example pipelines & datasets for Azure Machine Learning designer
@@ -43,14 +43,14 @@ Here's how to use a designer sample:
 
    1. In the dialog that appears, select an existing compute target or create a new one. Select **Save**.
 
-   1. Select **Submit** at the top of the canvas to submit a pipeline run.
+   1. Select **Submit** at the top of the canvas to submit a pipeline job.
 
-   Depending on the sample pipeline and compute settings, runs may take some time to complete. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
+   Depending on the sample pipeline and compute settings, jobs may take some time to complete. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline jobs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
 
-1. After the pipeline finishes running, you can review the pipeline and view the output for each module to learn more. Use the following steps to view module outputs:
+1. After the pipeline finishes running, you can review the pipeline and view the output for each component to learn more. Use the following steps to view component outputs:
 
-   1. Right-click the module in the canvas whose output you'd like to see.
+   1. Right-click the component in the canvas whose output you'd like to see.
    1. Select **Visualize**.
 
 
@@ -67,27 +67,27 @@ Explore these built-in regression samples.
 
 ## Classification
 
-Explore these built-in classification samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Explore these built-in classification samples. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
 | [Binary Classification with Feature Selection - Income Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Predict income as high or low, using a two-class boosted decision tree. Use Pearson correlation to select features.
-| [Binary Classification with custom Python script - Credit Risk Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Classify credit applications as high or low risk. Use the Execute Python Script module to weight your data.
+| [Binary Classification with custom Python script - Credit Risk Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Classify credit applications as high or low risk. Use the Execute Python Script component to weight your data.
 | [Binary Classification - Customer Relationship Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Predict customer churn using two-class boosted decision trees. Use SMOTE to sample biased data.
 | [Text Classification - Wikipedia SP 500 Dataset](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Classify company types from Wikipedia articles with multiclass logistic regression. |
 | Multiclass Classification - Letter Recognition | Create an ensemble of binary classifiers to classify written letters. |
 
 ## Computer vision
 
-Explore these built-in computer vision samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Explore these built-in computer vision samples. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
-| Image Classification using DenseNet | Use computer vision modules to build image classification model based on PyTorch DenseNet.| 
+| Image Classification using DenseNet | Use computer vision components to build image classification model based on PyTorch DenseNet.| 
 
 ## Recommender
 
-Explore these built-in recommender samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Explore these built-in recommender samples. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
@@ -96,7 +96,7 @@ Explore these built-in recommender samples. You can learn more about the samples
 
 ## Utility
 
-Learn more about the samples that demonstrate machine learning utilities and features. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Learn more about the samples that demonstrate machine learning utilities and features. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
@@ -110,7 +110,7 @@ Learn more about the samples that demonstrate machine learning utilities and fea
 
 When you create a new pipeline in Azure Machine Learning designer, a number of sample datasets are included by default. These sample datasets are used by the sample pipelines in the designer homepage. 
 
-The sample datasets are available under **Datasets**-**Samples** category. You can find this in the module palette to the left of the canvas in the designer. You can use any of these datasets in your own pipeline by dragging it to the canvas.
+The sample datasets are available under **Datasets**-**Samples** category. You can find this in the component palette to the left of the canvas in the designer. You can use any of these datasets in your own pipeline by dragging it to the canvas.
 
 | Dataset&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| Dataset description |
 |-------------|:--------------------|
@@ -137,4 +137,3 @@ The sample datasets are available under **Datasets**-**Samples** category. You c
 ## Next steps
 
 Learn the fundamentals of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
-

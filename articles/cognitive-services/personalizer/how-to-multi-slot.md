@@ -2,14 +2,16 @@
 title: How to use multi-slot with Personalizer
 description: Learn how to use multi-slot with Personalizer to improve content recommendations provided by the service.
 services: cognitive-services
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 05/24/2021
 zone_pivot_groups: programming-languages-set-six
+ms.devlang: csharp, javascript, python
+ms.custom: mode-other
 ---
 
 # Get started with multi-slot for Azure Personalizer

@@ -2,24 +2,25 @@
 title: 'Tutorial: Deploy network functions on Azure Stack Edge'
 titleSuffix: Azure Network Function Manager
 description: In this tutorial, learn how to deploy a network function as a managed application.
-author: cherylmc
+author: polarapfel
 ms.service: network-function-manager
 ms.topic: tutorial
-ms.date: 06/16/2021
-ms.author: cherylmc
-
+ms.date: 11/02/2021
+ms.author: tobiaw
+ms.custom: ignite-fall-2021
 ---
-# Tutorial: Deploy network functions on Azure Stack Edge (Preview)
+# Tutorial: Deploy network functions on Azure Stack Edge
 
 In this tutorial, you learn how to deploy a network function on Azure Stack Edge using the Azure Marketplace. Network Function Manager enables an Azure Managed Applications experience for a simplified deployment on Azure Stack Edge.
 
 > [!div class="checklist"]
-> * Verify [prerequisites](overview.md#prereq)
+> * Verify [prerequisites](#prereq)
 > * Create a network function
 > * Verify network function details
 
-## Prerequisites
+## <a name="prereq"></a>Prerequisites
 
+* You have met all the prerequisites listed in the [Prerequisites and requirements](requirements.md) article.
 * You have created a device resource for Network Function Manager. If you have not completed those steps, see [How to create a device resource](create-device.md).
 * On the **Overview** tab for the device, verify the following values are present:
   * Provisioning State = Succeeded
@@ -27,7 +28,7 @@ In this tutorial, you learn how to deploy a network function on Azure Stack Edge
 
 ## <a name="create"></a>Create a network function
 
-1. Sign in to the [Azure Preview portal](https://aka.ms/AzureNetworkFunctionManager).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the **Device** resource in which you want to deploy a network function and select **+Create Network Function**.
 
    :::image type="content" source="./media/deploy-functions/create-network-function.png" alt-text="Screenshot of +Create Network Function." lightbox="./media/deploy-functions/create-network-function.png":::
@@ -52,7 +53,7 @@ In this tutorial, you learn how to deploy a network function on Azure Stack Edge
 1. Configure Basic settings.
 
    :::image type="content" source="./media/deploy-functions/basics-blade.png" alt-text="Screenshot Basic settings." lightbox="./media/deploy-functions/basics-blade.png":::
-1. Apply managed identity. For more information, see [Managed Identity](overview.md#managed-identity).
+1. Apply managed identity. For more information, see [Managed Identity](resources-permissions.md).
 
    :::image type="content" source="./media/deploy-functions/managed-identity.png" alt-text="Screenshot of Managed Identity." lightbox="./media/deploy-functions/managed-identity.png":::
 1. Enter IP Address information for Management, LAN, and WAN interfaces of the Fusion Core VM.

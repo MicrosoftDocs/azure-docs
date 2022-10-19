@@ -44,6 +44,8 @@ Management certificates allow you to authenticate with the classic deployment mo
 ### Limitations
 There is a limit of 100 management certificates per subscription. There is also a limit of 100 management certificates for all subscriptions under a specific service administrator’s user ID. If the user ID for the account administrator has already been used to add 100 management certificates and there is a need for more certificates, you can add a co-administrator to add the additional certificates. 
 
+Additionally, management certificates can not be used with CSP subscriptions as CSP subscriptions only support the Azure Resource Manager deployment model and management certificates use the classic deployment model. Reference [Azure Resource Manager vs classic deployment model](../azure-resource-manager/management/deployment-models.md) and [Understanding Authentication with the Azure SDK for .NET](/dotnet/azure/sdk/authentication) for more information on your options for CSP subscriptions.
+
 <a name="create"></a>
 ## Create a new self-signed certificate
 You can use any tool available to create a self-signed certificate as long as they adhere to these settings:

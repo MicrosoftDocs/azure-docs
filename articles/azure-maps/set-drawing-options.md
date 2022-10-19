@@ -1,8 +1,8 @@
 ---
 title: Drawing tools module | Microsoft Azure Maps
 description: In this article, you'll learn how to set drawing options data using the Microsoft Azure Maps Web SDK
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -26,14 +26,14 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
 
     - Or, you can load the drawing tools module for the Azure Maps Web SDK source code locally by using the [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
 
-        > **npm install azure-maps-drawing-tools**
+      `npm install azure-maps-drawing-tools`
 
-        Then, add a reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
+      Then, add a reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
 
-         ```html
-        <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
-        <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
-         ```
+      ```html
+      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
+      ```
 
 ## Use the drawing manager directly
 

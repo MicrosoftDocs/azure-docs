@@ -38,6 +38,31 @@ The following diagram shows the relationships among pipeline, activity, dataset,
 
 :::image type="content" source="media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png" alt-text="Relationship between pipeline, activity, dataset, linked services":::
 
+## Linked service with UI
+
+# [Azure Data Factory](#tab/data-factory)
+
+To create a new linked service in Azure Data Factory Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **New** to create a new linked service.
+
+:::image type="content" source="media/concepts-linked-services/create-linked-service.png" alt-text="Shows the Azure Data Factory studio Manage tab with linked services and the New button highlighted.":::
+
+After selecting New to create a new linked service you will be able to choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
+
+:::image type="content" source="media/concepts-linked-services/new-linked-service-window.png" alt-text="Shows the new linked service window.":::
+
+# [Synapse Analytics](#tab/synapse-analytics)
+
+To create a new linked service in Synapse Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **New** to create a new linked service.
+
+:::image type="content" source="media/concepts-linked-services/create-linked-service-synapse.png" alt-text="Shows the Azure Data Factory studio Manage tab with linked services and the New button highlighted.":::
+
+After selecting New to create a new linked service you will be able to choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
+
+:::image type="content" source="media/concepts-linked-services/new-linked-service-window.png" alt-text="Shows the new linked service window.":::
+
+---
+
+
 ## Linked service JSON
 
 A linked service is defined in JSON format as follows:
@@ -104,7 +129,9 @@ Reference [compute environments supported](compute-linked-services.md) for detai
 
 ## Next steps
 
-See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
+- [Learn how to use credentials from a user-assigned managed identity in a linked service](credentials.md).
+
+See the following tutorials for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
 
 - [Quickstart: create a Data Factory using .NET](quickstart-create-data-factory-dot-net.md)
 - [Quickstart: create a Data Factory using PowerShell](quickstart-create-data-factory-powershell.md)

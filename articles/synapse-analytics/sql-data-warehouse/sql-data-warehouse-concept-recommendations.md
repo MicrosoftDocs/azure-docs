@@ -1,15 +1,14 @@
 ---
 title: Dedicated SQL pool Azure Advisor recommendations
 description: Learn about Synapse SQL recommendations and how they are generated
-services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 06/26/2020
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.author: wiassaf
+ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 
@@ -25,7 +24,7 @@ You can [check your recommendations](https://aka.ms/Azureadvisor) today!
 
 Data skew can cause additional data movement or resource bottlenecks when running your workload. The following documentation describes show to identify data skew and prevent it from happening by selecting an optimal distribution key.
 
-- [Identify and remove skew](sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice)
+- [Identify and remove skew](sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-is-a-good-choice)
 
 ## No or outdated statistics
 

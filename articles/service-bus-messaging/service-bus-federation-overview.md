@@ -2,7 +2,7 @@
 title: Message replication and cross-region federation - Azure Service Bus | Microsoft Docs
 description: This article provides an overview of event replication and cross-region federation with Azure Service Bus. 
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/28/2021
 ---
 
 # Message replication and cross-region federation
@@ -161,6 +161,10 @@ Most importantly, Azure Functions has prebuilt, scalable triggers and output bin
 With the Azure Functions consumption plan, the prebuilt triggers can even scale down to zero while no messages are available for replication, which means you incur no costs for keeping the configuration ready to scale back up. The key downside of using the consumption plan is that the latency for replication tasks "waking up" from this state is significantly higher than with the hosting plans where the infrastructure is kept running.  
 
 In contrast to all of this, most common replication engines for messaging and eventing, such as Apache Kafka's [MirrorMaker](http://kafka.apache.org/documentation/#basic_ops_mirror_maker) require you to provide a hosting environment and scale the replication engine yourself. That includes configuring and integrating the security and networking features and facilitating the flow of monitoring data, and then you still don't have an opportunity to inject custom replication tasks into the flow. 
+
+### Replication tasks with Azure Logic Apps
+
+A non-coding alternative to doing replication using Functions would be to use [Logic Apps](../logic-apps/logic-apps-overview.md) instead. Logic Apps have [predefined replication tasks](../logic-apps/create-replication-tasks-azure-resources.md) for Service Bus. These can help with setting up replication between different instances, and can be adjusted for further customization.
 
 ## Next Steps
 

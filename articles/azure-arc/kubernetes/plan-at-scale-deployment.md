@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 04/12/2021
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
 description: Onboard large number of clusters to Azure Arc-enabled Kubernetes for configuration management
 ---
 
@@ -73,8 +71,6 @@ In this phase, we connect your Kubernetes clusters to Azure:
 |Task |Detail |Duration |
 |-----|-------|---------|
 | [Connect your first Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md) | As part of connecting your first cluster to Azure Arc, set up your onboarding environment with all the required tools such as Azure CLI, Helm,  and `connectedk8s` extension for Azure CLI. | 15 minutes |
-| [Create service principal](create-onboarding-service-principal.md) | Create a service principal to connect Kubernetes clusters non-interactively using Azure CLI or PowerShell. | One hour |
-
 
 ## Phase 3: Manage and operate
 

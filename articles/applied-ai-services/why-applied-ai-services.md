@@ -5,8 +5,7 @@ description: Why Applied AI Services description.
 author: jeffme
 manager: jeffme
 ms.service: applied-ai-services
-ms.subservice:
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: jeffme
 ---

@@ -1,70 +1,28 @@
 ---
 title: Manage your Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
-description: Learn how to manage your Azure Active Directory B2C tenant. Learn which Azure AD features are supported in Azure AD B2C, how to use administrator roles to manage resources, and how to add work accounts and guest users to your Azure AD B2C tenant.
+description: Learn how to manage your Azure Active Directory B2C tenant. Learn which Azure AD features are supported in Azure AD B2C, how to use administrator roles to manage resources, and how to add work accounts and guest users to your Azure AD B2C tenant, and how to manage emergency access accounts in Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
-ms.date: 09/20/2021
+ms.topic: tutorial
+ms.date: 04/20/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
 # Manage your Azure Active Directory B2C tenant
 
-In Azure Active Directory B2C (Azure AD B2C), a tenant represents your directory of consumer users. Each Azure AD B2C tenant is distinct and separate from any other Azure AD B2C tenant. An Azure AD B2C tenant is different than an Azure Active Directory tenant, which you may already have. In this article, you learn how to manage your Azure AD B2C tenant.
+In Azure Active Directory B2C (Azure AD B2C), a tenant represents your directory of consumer users. Each Azure AD B2C tenant is distinct and separate from any other Azure AD B2C tenant. An Azure AD B2C tenant is different than an Azure Active Directory (Azure AD) tenant, which you may already have. In this article, you learn how to manage your Azure AD B2C tenant.
 
-## Supported Azure AD features
-
-Azure AD B2C relies the Azure AD platform. The following Azure AD features can be used in your Azure AD B2C tenant.
-
-|Feature  |Azure AD  | Azure AD B2C |
-|---------|---------|---------|
-| [Groups](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) | Groups can be used to manage administrative and user accounts.| Groups can be used to manage administrative accounts. [Consumer accounts](user-overview.md#consumer-user) can not be member of any group. |
-| [Inviting External Identities guests](../active-directory//external-identities/add-users-administrator.md)| You can invite guest users and configure External Identities features such as federation and sign-in with Facebook and Google accounts. | You can invite only a Microsoft account or an Azure AD user as a guest to your Azure AD tenant for accessing applications or managing tenants. For [consumer accounts](user-overview.md#consumer-user), you use Azure AD B2C user flows and custom policies to manage users and sign-up or sign-in with external identity providers, such as Google or Facebook. |
-| [Roles and administrators](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)| Fully supported for administrative and user accounts. | Roles are not supported with [consumer accounts](user-overview.md#consumer-user). Consumer accounts don't have access to any Azure resources.|
-| [Custom domain names](../active-directory/fundamentals/add-custom-domain.md) |  You can use Azure AD custom domains for administrative accounts only. | [Consumer accounts](user-overview.md#consumer-user) can sign in with a username, phone number, or any email address. You can use [custom domains](custom-domain.md) in your redirect URLs.|
-| [Conditional Access](../active-directory/conditional-access/overview.md) | Fully supported for administrative and user accounts. | A subset of Azure AD Conditional Access features is supported with [consumer accounts](user-overview.md#consumer-user) Lean how to configure Azure AD B2C [conditional access](conditional-access-user-flow.md).|
-| [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Fully supported for Azure AD premium P1 features. For example, [Password Protection](../active-directory/authentication/concept-password-ban-bad.md), [Hybrid Identities](../active-directory/hybrid/whatis-hybrid-identity.md),  [Conditional Access](../active-directory/roles/permissions-reference.md#), [Dynamic groups](../active-directory/enterprise-users/groups-create-rule.md), and more. | A subset of Azure AD Conditional Access features is supported with [consumer accounts](user-overview.md#consumer-user). Learn how to configure Azure AD B2C [Conditional Access](conditional-access-user-flow.md).|
-| [Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) | Fully supported for Azure AD premium P2 features. For example, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | A subset of Azure AD Identity Protection features is supported with [consumer accounts](user-overview.md#consumer-user). Learn how to [Investigate risk with Identity Protection](identity-protection-investigate-risk.md) and configure Azure AD B2C [Conditional Access](conditional-access-user-flow.md). |
-
-## Other Azure resources in your tenant
-
-In an Azure AD B2C tenant, you can't provision other Azure resources such as virtual machines, Azure web apps, or Azure functions. You must create these resources in your Azure AD tenant.
-
-## Azure AD B2C accounts overview
-
-The following types of accounts can be created in an Azure AD B2C tenant:
-
-In an Azure AD B2C tenant, there are several types of accounts that can be created as described in the [Overview of user accounts in Azure Active Directory B2C](user-overview.md) article.
-
-- **Work account** - A work account can access resources in a tenant, and with an administrator role, can manage tenants.
-- **Guest account** - A guest account can only be a Microsoft account or an Azure Active Directory user that can be used to access applications or manage tenants.
-- **Consumer account** - A consumer account is used by a user of the applications you've registered with Azure AD B2C.
-
-For details about these account types, see [Overview of user accounts in Azure Active Directory B2C](user-overview.md). Any user who will be assigned to manage your Azure AD B2C tenant must have an Azure AD user account so they can access Azure-related services. You can add such a user by [creating an account](#add-an-administrator-work-account) (work account) in your Azure AD B2C tenant, or by [inviting them](#invite-an-administrator-guest-account) to your Azure AD B2C tenant as a guest user.
-
-## Use roles to control resource access
-
-When planning your access control strategy, it's best to assign users the least privileged role required to access resources. The following table describes the primary resources in your Azure AD B2C tenant and the most suitable administrative roles for the users who manage them.
-
-|Resource  |Description  |Role  |
-|---------|---------|---------|
-|[Application registrations](tutorial-register-applications.md) | Create and manage all aspects of your web, mobile, and native application registrations within Azure AD B2C.|[Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator)|
-|[Identity providers](add-identity-provider.md)| Configure the [local identity provider](identity-provider-local.md) and external social or enterprise identity providers. | [External Identity Provider Administrator](../active-directory/roles/permissions-reference.md#external-identity-provider-administrator)|
-|[API connectors](add-api-connector.md)| Integrate your user flows with web APIs to customize the user experience and integrate with external systems.|[External ID User Flow Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
-|[Company branding](customize-ui.md#configure-company-branding)| Customize your user flow pages.| [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator)|
-|[User attributes](user-flow-custom-attributes.md)| Add or delete custom attributes available to all user flows.| [External ID User Flow Attribute Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-attribute-administrator)|
-|Manage users| Manage [consumer accounts](manage-users-portal.md) and administrative accounts as described in this article.| [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator)|
-|Roles and administrators| Manage role assignments in Azure AD B2C directory. Create and manage groups that can be assigned to Azure AD B2C roles. |[Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator)|
-|[User flows](user-flow-overview.md)|For quick configuration and enablement of common identity tasks, like sign-up, sign-in, and profile editing.| [External ID User Flow Administrator](../active-directory/roles/permissions-reference.md#external-id-user-flow-administrator)|
-|[Custom policies](user-flow-overview.md)| Create, read, update, and delete all custom policies in Azure AD B2C.| [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)|
-|[Policy keys](policy-keys-overview.md)|Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords used in custom policies.|[B2C IEF Keyset Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-keyset-administrator)|
+## Prerequisites
+- If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
+- Understand [user accounts in Azure AD B2C](user-overview.md).
+- Understand [user roles to control resource access](roles-resource-access-control.md).
 
 
 ## Add an administrator (work account)
@@ -77,19 +35,84 @@ To create a new administrative account, follow these steps:
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
 1. Select **New user**.
+1. Select **Create user** (you can create many users at once by selecting **I want to create users in bulk**).
 1. On the **User** page, enter information for this user:
 
-   - **Name**. Required. The first and last name of the new user. For example, *Mary Parker*.
-   - **User name**. Required. The user name of the new user. For example, `mary@contoso.com`.
-     The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*.
-   - **Groups**. Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. 
-   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD. For more information about assigning roles, see [Use roles to control resource access](#use-roles-to-control-resource-access).
+  
+   - **User name**. *Required*. The user name of the new user. For example, `mary@contoso.com`.
+     The domain part of the user name must use either the initial default domain name, *\<tenant name>.onmicrosoft.com* or your [custom domain](custom-domain.md) such as `contoso.com`.
+   - **Name**. *Required*. The first and last name of the new user. For example, *Mary Parker*.
+   - **Groups**. *Optional*. You can add the user to one or more existing groups. You can also add the user to groups at a later time. 
+   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD. For more information about assigning roles, see [Use roles to control resource access](roles-resource-access-control.md).
    - **Job info**: You can add more information about the user here, or do it later. 
 
 1. Copy the autogenerated password provided in the **Password** box. You'll need to give this password to the user to sign in for the first time.
 1. Select **Create**.
 
-The user is created and added to your Azure AD B2C tenant. It's preferable to have at least one work account native to your Azure AD B2C tenant assigned the Global Administrator role. This account can be considered a break-glass account.
+The user is created and added to your Azure AD B2C tenant. It's preferable to have at least one work account native to your Azure AD B2C tenant assigned the Global Administrator role. This account can be considered a *break-glass account* or *[emergency access accounts](#manage-emergency-access-accounts-in-azure-ad-b2c)*.
+
+## Manage emergency access accounts in Azure AD B2C
+
+It's important that you prevent being accidentally locked out of your Azure Active Directory B2C (Azure AD B2C) organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
+
+When configuring these accounts, the following requirements need to be met:
+
+- The emergency access accounts shouldn't be associated with any individual user in the organization. Make sure that your accounts aren't connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It's important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD B2C. 
+
+- Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts.
+
+- The device or credential must not expire or be in scope of automated cleanup due to lack of use.
+
+
+### Create emergency access account
+
+Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the *.onmicrosoft.com domain and that aren't federated or synchronized from an on-premises environment.
+
+Use the following steps to create an emergency access account:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as an existing Global Administrator. If you use your Azure AD account, make sure you're using the directory that contains your Azure AD B2C tenant:
+
+    1. Select the **Directories + subscriptions** icon in the portal toolbar.
+    
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+    
+1. Under **Azure services**, select **Azure AD B2C**. Or in the Azure portal, search for and select **Azure AD B2C**.
+
+1. In the left menu, under **Manage**, select **Users**. 
+
+1. Select **+ New user**.
+
+1. Select **Create user**.
+
+1. Under **Identity**:
+
+    1. For **User name**, enter a unique user name such as *emergency account*. 
+    
+    1. For **Name**, enter a name such as *Emergency Account*
+    
+1. Under **Password**, enter your unique password. 
+    
+1. Under **Groups and roles** 
+ 
+    1. Select **User**.
+
+    1. In the pane that shows up, search for and select **Global administrator**, and then select **Select** button. 
+
+1. Under **Settings**, select the appropriate **Usage location**.
+
+1. Select **Create**.
+
+1. [Store account credentials safely](../active-directory/roles/security-emergency-access.md#store-account-credentials-safely).
+
+1. [Monitor sign in and audit logs](../active-directory/roles/security-emergency-access.md#monitor-sign-in-and-audit-logs).
+
+1. [Validate accounts regularly](../active-directory/roles/security-emergency-access.md#validate-accounts-regularly).
+
+Once you create your emergency accounts, you need to do the following: 
+
+- Make sure you [exclude at least one account from phone-based multi-factor authentication](../active-directory/roles/security-emergency-access.md#exclude-at-least-one-account-from-phone-based-multi-factor-authentication)
+
+- If you use [Conditional Access](conditional-access-user-flow.md), at least one emergency access account needs to be excluded from all Conditional Access policies.
 
 ## Invite an administrator (guest account)
 
@@ -105,16 +128,16 @@ To invite a user, follow these steps:
 1. Select **New guest account**.
 1. On the **User** page, enter information for this user:
 
-   - **Name**. Required. The first and last name of the new user. For example, *Mary Parker*.
-   - **Email address**. Required. The email address of the user you would like to invite. For example, `mary@contoso.com`.   
+   - **Name**. *Required*. The first and last name of the new user. For example, *Mary Parker*.
+   - **Email address**. *Required*. The email address of the user you would like to invite, which must be a Microsoft account. For example, `mary@contoso.com`.   
    - **Personal message**: You add a personal message that will be included in the invite email.
-   - **Groups**. Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time.
-   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD. For more information about assigning roles, see [Use roles to control resource access](#use-roles-to-control-resource-access).
+   - **Groups**. *Optional*. You can add the user to one or more existing groups. You can also add the user to groups at a later time.
+   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD. For more information about assigning roles, see [Use roles to control resource access](roles-resource-access-control.md).
    - **Job info**: You can add more information about the user here, or do it later.
 
 1. Select **Create**.
 
-An invitation email is sent to the user. The user needs to accept the invitation to be able to sign in.
+An invitation email is sent to the user. The user needs to accept the invitation to be able to sign in. 
 
 ### Resend the invitation email
 
@@ -175,11 +198,11 @@ The user is deleted and no longer appears on the **Users - All users** page. The
 
 ## Protect administrative accounts
 
-It's recommended that you protect all administrator accounts with multi-factor authentication (MFA) for more security. MFA is an identity verification process during sign-in that prompts the user for a more form of identification, such as a verification code on their mobile device or a request in their Microsoft Authenticator app.
+It's recommended that you protect all administrator accounts with multifactor authentication (MFA) for more security. MFA is an identity verification process during sign in that prompts the user for a more form of identification, such as a verification code on their mobile device or a request in their Microsoft Authenticator app.
 
-![Authentication methods in use at the sign-in screenshot](./media/tenant-management/sing-in-with-multi-factor-authentication.png)
+![Authentication methods in use at the sign in screenshot](./media/tenant-management/sing-in-with-multi-factor-authentication.png)
 
-You can enable [Azure AD security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) to force all administrative accounts to use MFA.
+If you're not using [Conditional Access](conditional-access-user-flow.md), you can enable [Azure AD security defaults](../active-directory/fundamentals/concept-fundamentals-security-defaults.md) to force all administrative accounts to use MFA.
 
 ## Get your tenant name
 
@@ -207,4 +230,4 @@ To get your Azure AD B2C tenant ID, follow these steps:
 
 ## Next steps
 
-- [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)
+- [Clean up resources and delete tenant](tutorial-delete-tenant.md)

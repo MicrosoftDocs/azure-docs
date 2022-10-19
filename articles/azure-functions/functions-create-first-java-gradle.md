@@ -2,6 +2,7 @@
 title: Use Java and Gradle to publish a function to Azure
 description: Create and publish an HTTP-triggered function to Azure with Java and Gradle.
 author: KarlErickson
+ms.devlang: java
 ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
@@ -22,7 +23,7 @@ To develop functions using Java, you must have the following installed:
 - [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
-- [Gradle](https://gradle.org/), version 4.10 and above
+- [Gradle](https://gradle.org/), version 6.8 and above
 
 You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -109,7 +110,7 @@ az login
 ```
 
 > [!TIP]
-> If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az_account_set) to set the default subscription for this session. 
+> If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az-account-set) to set the default subscription for this session. 
 
 Use the following command to deploy your project to a new function app. 
 
@@ -121,7 +122,7 @@ This creates the following resources in Azure, based on the values in the build.
 
 + Resource group. Named with the _resourceGroup_ you supplied.
 + Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
-+ App Service plan. Serverless Consumption plan hosting for your function app in the specified _appRegion_. The name is generated randomly.
++ App Service plan. Serverless Consumption plan hosting for your function app in the specified _region_. The name is generated randomly.
 + Function app. A function app is the deployment and execution unit for your functions. The name is your _appName_, appended with a randomly generated number. 
 
 The deployment also packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy), with run-from-package mode enabled.
@@ -137,7 +138,7 @@ You can get the URL required to trigger your function, with the function key, fr
 
 1. Browse to the [Azure portal], sign in, type the _appName_ of your function app into **Search** at the top of the page, and press enter.
  
-1. In your function app, select **Functions**, choose your function, then click **</> Get Function Url** at the top right. 
+1. In your function app, select **Functions**, choose your function, then click **Get Function Url** at the top right. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copy the function URL from the Azure portal":::
 

@@ -1,14 +1,14 @@
 ---
 title: Create and use external tables in Synapse SQL pool
 description: In this section, you'll learn how to create and use external tables in Synapse SQL pool.
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 02/02/2022
 ms.author: vvasic
-ms.reviewer: jrasnick 
+ms.reviewer: sngun, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics
@@ -20,8 +20,19 @@ External tables are useful when you want to control access to external data in S
 - Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
 > [!NOTE]
->  In dedicated SQL pools you can only use Parquet native external tables. Native Parquet external tables are in limited public preview in the dedicated SQL pools because this feature is still not available in all regions. Contact your Microsoft Technical Account Manager/Cloud Solution Architect if you want to join the public preview to check could you use the native Parquet external table in your dedicated pools. If you want to use generally available functionality in dedicated SQL pools, or you need to access CSV or ORC files use Hadoop external tables. Native external tables are generally available in serverless SQL pools.
+> In dedicated SQL pools you can only use native external tables with a Parquet file type, and this feature is in **public preview**. If you want to use generally available Parquet reader functionality in dedicated SQL pools, or you need to access CSV or ORC files, use Hadoop external tables. Native external tables are generally available in serverless SQL pools.
 > Learn more about the differences between native and Hadoop external tables in [Use external tables with Synapse SQL](develop-tables-external-tables.md).
+
+The following table lists the data formats supported:
+
+|Data format (Native external tables)  |Serverless SQL pool |Dedicated SQL pool |
+|---------|---------|---------|
+|Parquet |  Yes (GA)  | Yes (public preview)  |
+|CSV  |  Yes  |  No (Alternatively, use [Hadoop external tables](develop-tables-external-tables.md?tabs=hadoop)) |
+|delta  |  Yes  |  No  |
+|Spark  |  Yes  | No |
+|Dataverse |  Yes | No  |
+|Azure Cosmos DB data formats (JSON, BSON etc.)  |  No (Alternatively, [create views](query-cosmos-db-analytical-store.md?tabs=openrowset-credential#create-view)) | No  |
 
 ## Prerequisites
 
@@ -173,7 +184,14 @@ CREATE EXTERNAL TABLE Covid (
 );
 ```
 
-Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+External tables cannot be created on a partitioned folder. Review the other known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
+### Delta tables on partitioned folders
+
+External tables in serverless SQL pools do not support partitioning on Delta Lake format. Use [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) instead of tables if you have partitioned Delta Lake data sets. 
+ 
+> [!IMPORTANT]
+> Do not create external tables on partitioned Delta Lake folders even if you see that they might work in some cases. Using unsupported features like external tables on partitioned delta folders might cause issues or instability of the serverless pool. Azure support will not be able to resolve any issue if it is using tables on partitioned folders. You would be asked to transition to [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) and rewrite your code to use only the supported feature before proceeding with issue resolution.
 
 ## Use an external table
 

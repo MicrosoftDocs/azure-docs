@@ -1,18 +1,20 @@
 ---
 title: Indexing in Azure Cosmos DB 
 description: Understand how indexing works in Azure Cosmos DB, different types of indexes such as Range, Spatial, composite indexes supported. 
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ---
 
 # Indexing in Azure Cosmos DB - Overview
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
 
-Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](account-databases-containers-items.md#azure-cosmos-containers) without having to define any schema or configure secondary indexes.
+Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](account-databases-containers-items.md#azure-cosmos-db-containers) without having to define any schema or configure secondary indexes.
 
 The goal of this article is to explain how Azure Cosmos DB indexes data and how it uses indexes to improve query performance. It is recommended to go through this section before exploring how to customize [indexing policies](index-policy.md).
 
@@ -173,7 +175,7 @@ As long as one filter predicate uses one of the index type, the query engine wil
 
 * The above query will first filter for entries where firstName = "Andrew" by using the index. It then pass all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
 
-* You can speed up queries and avoid full container scans when using functions that don't use the index (e.g. CONTAINS) by adding additional filter predicates that do use the index. The order of filter clauses isn't important. The query engine is will figure out which predicates are more selective and run the query accordingly.
+* You can speed up queries and avoid full container scans when using functions that don't use the index (e.g. CONTAINS) by adding additional filter predicates that do use the index. The order of filter clauses isn't important. The query engine will figure out which predicates are more selective and run the query accordingly.
 
 To learn how to configure composite indexes, see [Composite indexing policy examples](how-to-manage-indexing-policy.md#composite-index)
 

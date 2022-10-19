@@ -4,10 +4,9 @@ description: Learn how to access download requests for your marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: shganesh-dev
-ms.author: shganesh
+ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 08/21/2020
+ms.date: 09/27/2021
 ---
 
 # Downloads dashboard in commercial marketplace analytics
@@ -23,9 +22,16 @@ The [Downloads dashboard](https://go.microsoft.com/fwlink/?linkid=2165766) displ
 
 You will receive a pop-up notification containing a link to the **Downloads** dashboard whenever you request a download with over 1000 rows of data. These data downloads will be available for a 30-day period and then removed.
 
-## Lifetime export of commercial marketplace Analytics reports
+## Access the Downloads dashboard
 
-To access the Downloads dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under the commercial marketplace.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Downloads**.
+
+## Lifetime export of commercial marketplace Analytics reports
 
 On the Downloads page, end user can do the following:
 
@@ -43,9 +49,9 @@ Support for Lifetime Export Capability of Analytics reports:
 | Usage | ![Black X mark](media/downloads-dashboard/check-black-no.png) | Maximum of one year |
 |
 
-A user can schedule asynchronous downloads of reports from the Downloads section:
+A user can schedule asynchronous downloads of reports from the Downloads dashboard.
 
-[![scheduling asynchronous downloads of reports from the Downloads section](media/downloads-dashboard/download-reports.png)](media/downloads-dashboard/download-reports.png#lightbox)
+[![scheduling asynchronous downloads of reports from the Downloads page](media/downloads-dashboard/download-reports-workspaces.png)](media/downloads-dashboard/download-reports.png#lightbox)
 
 ## Next steps
 

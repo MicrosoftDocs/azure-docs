@@ -1,18 +1,27 @@
 ---
-title: Using Azure Import/Export to export data from Azure Blobs | Microsoft Docs
+title: Tutorial to export data from Azure Blob storage with Azure Import/Export | Microsoft Docs
 description: Learn how to create export jobs in Azure portal to transfer data from Azure Blobs.
 author: alkohli
 services: storage
-ms.service: storage
-ms.topic: how-to
-ms.date: 03/03/2021
+ms.service: azure-import-export
+ms.topic: tutorial
+ms.date: 03/14/2022
 ms.author: alkohli
-ms.subservice: common
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
-# Use the Azure Import/Export service to export data from Azure Blob storage
+# Tutorial: Export data from Azure Blob storage with Azure Import/Export
 
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Prerequisites to export data from Azure Blob storage with Azure Import/Export
+> * Step 1: Create an export job
+> * Step 2: Ship the drives
+> * Step 3: Update the job with tracking information
+> * Step 4: Receive the disks
+> * Step 5: Unlock the disks
 
 ## Prerequisites
 
@@ -20,30 +29,145 @@ Before you create an export job to transfer data out of Azure Blob Storage, care
 You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
+
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
-- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
-  - The account must be valid, should have balance, and must have return shipping capabilities.
-  - Generate a tracking number for the export job.
-  - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-  - If you do not have a carrier account, go to:
-    - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
-    - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+
+- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). You can use the Azure Import/Export tool to determine how many disks to provide. For steps, see [Determine drives to use](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need).
+
+- [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
+
 
 ## Step 1: Create an export job
 
-### [Portal](#tab/azure-portal)
 
-Perform the following steps to create an export job in the Azure portal.
+# [Portal (Preview)](#tab/azure-portal-preview)
 
-1. Log on to <https://portal.azure.com/>.
+Perform the following steps to order an import job in Azure Import/Export via the Preview portal. The Azure Import/Export service in preview will create a job of the type "Data Box."
+
+1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
+1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
+
+   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)
+
+1. Select **Create**.  
+
+   ![Screenshot of the top of the Azure portal screen after selecting Azure Data Box. The Create button is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-02.png)
+
+1. To get started with the import order, select the following options:
+ 
+    1. Select the **Export from Azure** transfer type.
+    1. Select the subscription to use for the Import/Export job.
+    1. Select a resource group.
+    1. Select the **Source Azure region** for the job.
+    1. Select the **Destination country/region** for the job.
+    1. Then select **Apply**.
+
+    [![Screenshot of Get Started options for a new export order in Azure Import/Export's Preview portal. The Export From Azure transfer type and the Apply button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png)](./media/storage-import-export-data-from-blobs/import-export-order-preview-03-export-job.png#lightbox)
+
+1. Choose the **Select** button for **Import/Export Job**.
+
+    ![Screenshot showing product options for a new Data Box order. The Select button for Import Export Job is highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-04-export-job.png)
+
+1. In **Basics**:
+
+    - Enter a descriptive name for the job. Use the name to track the progress of your job.
+      * The name must have from 3 to 24 characters.
+      * The name must include only letters, numbers, and hyphens.
+      * The name must start and end with a letter or number.
+
+    ![Screenshot showing the Basics tab for an export job in Azure Import/Export. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-05-export-job.png)
+
+    Select **Next: Job details >** to proceed.
+
+5. In **Job Details**:
+
+   1. Select the **Source Azure region** where your data currently is.
+   1. Select the storage account from which you want to export data. Use a storage account close to your location.
+
+      The drop-off location is automatically populated based on the region of the storage account that you select.
+
+   1. Specify the blob data to export from your storage account to your blank drive or drives. For **Blobs to export**, choose one of the three following methods.
+
+      - Choose to export **All objects** in the storage account.
+
+        ![Screenshot of the Job Details tab for a new export job in the Azure Import Export Jobs Preview portal. Export All is highlighted beside Blobs To Export.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-a-export-job.png)
+
+      - Choose **Selected containers and blobs**, and specify containers and blobs to export. You can use more than one of the selection methods. Selecting an **Add** option opens a panel on the right where you can add your selection strings.
+
+        |Option|Description|
+        |------|-----------|
+        |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
+        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format, as shown in this screenshot, to avoid errors during processing. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
+        |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
+
+        :::image type="complex" source="./media/storage-import-export-data-from-blobs/import-export-order-preview-06-b-export-job.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export job in the Preview portal.":::
+        <Blob selections include a container, a blob, and blob prefixes that work like wildcards. The Add Prefixes pane on the right is used to add prefixes that select blobs based on common text in the blob path or name.>
+:::image-end:::
+
+    - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file cannot be empty.
+
+      > [!IMPORTANT]
+      > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
+
+      To see how to add an XML file to a container, go to [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
+
+      ![Screenshot of Job Details for Azure Import Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-c-export-job.png)
+
+   > [!NOTE]
+   > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
+
+   Select **Next: Return shipping >** to proceed.
+
+1. In **Return shipping**:
+
+   1. Select a shipping carrier from the drop-down list for **Carrier**. The location of the Microsoft datacenter for the selected region determines which carriers are available.
+   1. Enter a **Carrier account number**. The account number for an valid carrier account is required.
+   1. In the **Return address** area, use **+ Add Address** to add the address to ship to.
+
+      ![Screenshot of the Return Shipping tab for an import job in Azure Data Box. The Return Shipping tab and the Plus Add Address button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-07-export-job.png)
+
+      On the **Add Address** blade, you can add an address or use an existing one. When you finish entering address information, select **Add shipping address**.
+
+      ![Screenshot showing an address on the Add Address blade for an import job in Azure Import Export Preview portal. The Add Shipping Address button is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-08.png)
+
+   1. In the **Notification** area, enter email addresses for the people you want to notify of the job's progress.
+   
+      > [!TIP]
+      > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
+
+   ![Screenshot of the Return Shipping tab for an import job in Azure Data Box with all fields filled in. The Return Shipping tab and the Review Plus Create button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-09-export-job.png)
+
+   Select **Review + Create** to proceed.
+
+1. In **Review + Create**:
+
+   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions above." Validation is then performed.
+   1. Review the job information. Make a note of the job name and the Azure datacenter shipping address to ship disks back to. This information is used later on the shipping label.
+   1. Select **Create**.
+
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job in the Preview portal. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-10-export-job.png)
+
+1. After the job is created, you'll see the following message.
+
+    ![Screenshot of the status message for a completed order for an Azure Import Export job in the Preview portal. The status and the Go To Resource button are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-11-export-job.png)
+
+     You can select **Go to resource** to open the **Overview** of the job.
+
+     [![Screenshot showing the Overview pane for an Azure Import Export job in Created state in the Preview portal.](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png)](./media/storage-import-export-data-from-blobs/import-export-order-preview-12-export-job.png#lightbox)
+
+
+# [Portal (Classic)](#tab/azure-portal-classic)
+
+Perform the following steps to create an export job in the Azure portal using the classic Azure Import/Export service.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **import/export jobs**.
 
-    ![Search for import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](../../includes/media/storage-import-export-classic-import-steps/import-to-blob-1.png)
 
-3. Select **+ New**.
+3. Select **+ Create**.
 
-    ![Select + New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](../../includes/media/storage-import-export-classic-import-steps/import-to-blob-2.png)
 
 4. In **Basics**:
 
@@ -54,15 +178,18 @@ Perform the following steps to create an export job in the Azure portal.
        * The name must start with a letter, and may not contain spaces.
 
    1. Select **Export from Azure**.
+   1. Select a **Source Azure region**.
+   
+      If the new import/export experience is available in the selected region, you'll see a note inviting you to try the new experience. Select **Try now**, and follow the steps on the **Portal (Preview)** tab of this section to try the new experience with this order.
 
-    ![Basics options for an export order](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+   ![Screenshot of the Basics tab for an Azure Import Export job. Export From Azure is selected. The Try Now link for the new import/export experience is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
-    Select **Next: Job details >** to proceed.
+   Select **Next: Job Details >** to proceed.
 
 5. In **Job details**:
 
    1. Select the Azure region where your data currently is.
-   1. Select the storage account from where you want to export data. Use a storage account close to your location.
+   1. Select the storage account from which you want to export data. Use a storage account close to your location.
 
       The drop-off location is automatically populated based on the region of the storage account selected.
 
@@ -70,42 +197,35 @@ Perform the following steps to create an export job in the Azure portal.
 
       - Choose to **Export all** blob data in the storage account.
 
-        ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
+        ![Screenshot of the Job Details tab for a new export job in Azure Import Export Jobs. Export All is highlighted beside Blobs To Export.](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
       - Choose **Selected containers and blobs**, and specify containers and blobs to export. You can use more than one of the selection methods. Selecting an **Add** option opens a panel on the right where you can add your selection strings.
 
         |Option|Description|
         |------|-----------|      
         |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
-        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).|
+        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
-        ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+        :::image type="complex" source="./media/storage-import-export-data-from-blobs/export-from-blob-5.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export job.":::
+        <Blob selections include a container, a blob, and blob prefixes that work like wildcards. The Add Prefixes pane on the right is used to add prefixes that select blobs based on common text in the blob path or name.>
+:::image-end:::
 
     - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file cannot be empty.
 
       > [!IMPORTANT]
       > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
 
-       To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
+      To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
+      ![Screenshot of Job Details for Azure Import/Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
    Select **Next: Shipping >** to proceed.
 
-6. In **Shipping**:
-
-    - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
-
-        > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
-
-    Select **Review + create** to proceed.
+6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
 
 7. In **Review + create**:
 
@@ -117,86 +237,31 @@ Perform the following steps to create an export job in the Azure portal.
 
    1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. Validation of the order begins.
 
-   ![Review and create your export order](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
 
- 1. After validation passes, select **Create**.
+ 8. After validation passes, select **Create**.
 
-<!--Replaced text: Steps 4 - end of "Create an export job." Wizard design changes required both screen and text updates.
+# [Azure CLI](#tab/azure-cli)
 
-4. In **Basics**:
-
-    - Select **Export from Azure**.
-    - Enter a descriptive name for the export job. Use the name you choose to track the progress of your jobs.
-        - The name may contain only lowercase letters, numbers, hyphens, and underscores.
-        - The name must start with a letter, and may not contain spaces.
-    - Select a subscription.
-    - Enter or select a resource group.
-
-        ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
-
-5. In **Job details**:
-
-    - Select the storage account where the data to be exported resides. Use a storage account close to where you are located.
-    - The dropoff location is automatically populated based on the region of the storage account selected.
-    - Specify the blob data you wish to export from your storage account to your blank drive or drives.
-    - Choose to **Export all** blob data in the storage account.
-
-         ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
-
-    - You can specify which containers and blobs to export.
-        - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
-        - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name. You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
-
-           ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
-
-    - You can export from  the blob list file.
-
-        ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
-
-   > [!NOTE]
-   > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
-
-6. In **Return shipping info**:
-
-    - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
-
-        > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
-
-7. In **Summary**:
-
-    - Review the details of the job.
-    - Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure.
-
-        > [!NOTE]
-        > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
-
-    - Click **OK** to complete export job creation.
--->
-
-### [Azure CLI](#tab/azure-cli)
-
-Use the following steps to create an export job in the Azure portal.
+Use the following steps to create an export job in the Azure portal. Azure CLI and Azure PowerShell create jobs in the classic Azure Import/Export service and hence create an Azure resource of the type "Import/Export job."
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/import-export) extension:
+1. Use the [az extension add](/cli/azure/extension#az-extension-add) command to add the [az import-export](/cli/azure/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
     ```
 
-1. To get a list of the locations from which you can receive disks, use the [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) command:
+1. To get a list of the locations from which you can receive disks, use the [az import-export location list](/cli/azure/import-export/location#az-import-export-location-list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Run the following [az import-export create](/cli/azure/import-export#az_import_export_create) command to create an export job that uses your existing storage account:
+1. Run the following [az import-export create](/cli/azure/import-export#az-import-export-create) command to create an export job that uses your existing storage account:
 
     ```azurecli
     az import-export create \
@@ -218,7 +283,7 @@ Use the following steps to create an export job in the Azure portal.
     ```
 
     > [!TIP]
-    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+    > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
    This job exports all the blobs in your storage account. You can specify a blob for export by replacing this value for **--export**:
 
@@ -234,26 +299,26 @@ Use the following steps to create an export job in the Azure portal.
     blob-path-prefix=/myiecontainer
     ```
 
-   For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+   For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).
 
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
-1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the resource group myierg:
+1. Use the [az import-export list](/cli/azure/import-export#az-import-export-list) command to see all the jobs for the resource group myierg:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az_import_export_update) command:
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az-import-export-update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-Use the following steps to create an export job in Azure PowerShell.
+Use the following steps to create an export job in Azure PowerShell. Azure CLI and Azure PowerShell create jobs in the classic Azure Import/Export service and hence create an Azure resource of the type "Import/Export job." 
 
 [!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 
@@ -308,7 +373,7 @@ Install-Module -Name Az.ImportExport
    ```
 
     > [!TIP]
-    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+    > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
    This job exports all the blobs in your storage account. You can specify a blob for export by replacing this value for **-ExportBlobListblobPath**:
 
@@ -324,7 +389,7 @@ Install-Module -Name Az.ImportExport
    -ExportBlobListblobPath '/myiecontainer'
    ```
 
-   For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+   For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).
 
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -343,11 +408,9 @@ Install-Module -Name Az.ImportExport
 
 ---
 
-<!--## (Optional) Step 2: -->
-
 ## Step 2: Ship the drives
 
-If you do not know the number of drives you need, go to the [Check the number of drives](#check-the-number-of-drives). If you know the number of drives, proceed to ship the drives.
+If you do not know the number of drives you need, see [Determine how many drives you need](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need). If you know the number of drives, proceed to ship the drives.
 
 [!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 
@@ -357,12 +420,12 @@ If you do not know the number of drives you need, go to the [Check the number of
 
 ## Step 4: Receive the disks
 
-When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available on the portal.
+When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available in the portal.
 
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
 2. Select and click your export job from the list. Go to **Encryption** and copy the keys.
 
-   ![View BitLocker keys for export job](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
+   ![Screenshot of the Encryption blade for an export job in Azure Import Export Jobs. The Encryption menu item and Copy button for the key are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Use the BitLocker keys to unlock the disks.
 
@@ -378,86 +441,18 @@ Here is an example of the sample input.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
 
+You can use the copy logs from the job to verify that all data transferred successfully:
+
+- Use the *verbose log* to verify each successfully transferred file.
+- Use the *copy log* to find the source of each failed data copy.
+
+To find the log locations, open the job in the [Azure portal/](https://portal.azure.com/). The **Data copy details** show the **Copy log path** and **Verbose log path** for each drive that was included in the order.
+
+[![Screenshot showing a completed export job in Azure Import Export. In Data Copy Details, the Copy Log Path and Verbose Log Path are highlighted.](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png)](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png#lightbox)
+
 At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
-
-## Check the number of drives
-
-This *optional* step helps you determine the number of drives required for the export job. Perform this step on a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
-
-1. [Download the WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system.
-2. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
-3. Open a PowerShell or command-line window with administrative privileges. To change directory to the unzipped folder, run the following command:
-
-   `cd C:\WaImportExportV1`
-
-4. To check the number of disks required for the selected blobs, run the following command:
-
-   `WAImportExport.exe PreviewExport /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
-
-    The parameters are described in the following table:
-
-    |Command-line parameter|Description|
-    |--------------------------|-----------------|
-    |**/logdir:**|Optional. The log directory. Verbose log files are written to this directory. If not specified, the current directory is used as the log directory.|
-    |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs) operation of the Import/Export service REST API.|
-    |**/DriveSize:**|Required. The size of drives to use for an export job, *for example*, 500 GB, 1.5 TB.|
-
-    See an [Example of the PreviewExport command](#example-of-previewexport-command).
-
-5. Check that you can read/write to the drives that will be shipped for the export job.
-
-### Example of PreviewExport command
-
-The following example demonstrates the `PreviewExport` command:
-
-```powershell
-    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
-```
-
-The export blob list file may contain blob names and blob prefixes, as shown here:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<BlobList>
-<BlobPath>pictures/animals/koala.jpg</BlobPath>
-<BlobPathPrefix>/vhds/</BlobPathPrefix>
-<BlobPathPrefix>/movies/</BlobPathPrefix>
-</BlobList>
-```
-
-The Azure Import/Export Tool lists all blobs to be exported and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.
-
-Here is an example of the output, with informational logs omitted:
-
-```powershell
-Number of unique blob paths/prefixes:   3
-Number of duplicate blob paths/prefixes:        0
-Number of nonexistent blob paths/prefixes:      1
-
-Drive size:     500.00 GB
-Number of blobs that can be exported:   6
-Number of blobs that cannot be exported:        2
-Number of drives needed:        3
-        Drive #1:       blobs = 1, occupied space = 454.74 GB
-        Drive #2:       blobs = 3, occupied space = 441.37 GB
-        Drive #3:       blobs = 2, occupied space = 131.28 GB
-```
-
-## Examples of valid blob paths
-
-The following table shows examples of valid blob paths:
-
-   | Selector | Blob Path | Description |
-   | --- | --- | --- |
-   | Starts With |/ |Exports all blobs in the storage account |
-   | Starts With |/$root/ |Exports all blobs in the root container |
-   | Starts With |/book |Exports all blobs in any container that begins with prefix **book** |
-   | Starts With |/music/ |Exports all blobs in container **music** |
-   | Starts With |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
-   | Equal To |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
-   | Equal To |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
 
 ## Next steps
 
-- [View the job and drive status](storage-import-export-view-drive-status.md)
-- [Review Import/Export requirements](storage-import-export-requirements.md)
+* [View the job and drive status](storage-import-export-view-drive-status.md)
+* [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md)

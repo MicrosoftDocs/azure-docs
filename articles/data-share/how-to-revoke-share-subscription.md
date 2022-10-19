@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 01/03/2022
 ---
 # How to revoke a consumer's share subscription in Azure Data Share
 

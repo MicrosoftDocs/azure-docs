@@ -3,7 +3,7 @@ title: IoT Plug and Play conventions | Microsoft Docs
 description: Description of the conventions IoT Plug and Play expects devices to use when they send telemetry and properties, and handle commands and property updates.
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/10/2020
+ms.date: 05/11/2022
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
@@ -11,11 +11,11 @@ services: iot-develop
 
 # IoT Plug and Play conventions
 
-IoT Plug and Play devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play devices use the MQTT protocol to communicate with IoT Hub.
+IoT Plug and Play devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play devices use the MQTT protocol to communicate with IoT Hub, AMQP is supported by IoT Hub and available in some device SDKs. 
 
 Devices can include [modules](../iot-hub/iot-hub-devguide-module-twins.md), or be implemented in an [IoT Edge module](../iot-edge/about-iot-edge.md) hosted by the IoT Edge runtime.
 
-You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) _model_. There are two types of model referred to in this article:
+You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) _model_. There are two types of model referred to in this article:
 
 - **No component** - A model with no components. The model declares telemetry, properties, and commands as top-level properties in the contents section of the main interface. In the Azure IoT explorer tool, this model appears as a single _default component_.
 - **Multiple components** - A model composed of two or more interfaces. A main interface, which appears as the _default component_, with telemetry, properties, and commands. One or more interfaces declared as components with additional telemetry, properties, and commands.
@@ -34,9 +34,13 @@ To identify the model that a device or module implements, a service can get the 
 
 ## Telemetry
 
-Telemetry sent from a no component device doesn't require any extra metadata. The system adds the `dt-dataschema` property.
+- Telemetry sent from a no component device doesn't require any extra metadata. The system adds the `dt-dataschema` property.
+- Telemetry sent from a device using components must add the component name to the telemetry message. 
+- When using MQTT add the `$.sub` property with the component name to the telemetry topic, the system adds the `dt-subject` property. 
+- When using AMQP add the `dt-subject` property with the component name as a message annotation.
 
-Telemetry sent from a multiple component device must add `$.sub` as a message property. The system adds the `dt-subject` and `dt-dataschema` properties.
+> [!Note] 
+> Telemetry from components requires one message per component.
 
 ## Read-only properties
 
@@ -129,16 +133,29 @@ The device or module should confirm that it received the property by sending a r
 - `av` - an acknowledgment version that refers to the `$version` of the desired property. You can find this value in the desired property JSON payload.
 - `ad` - an optional acknowledgment description.
 
+### Acknowledgment responses
+
+When reporting writable properties the device should compose the acknowledgment message, using the four fields described above, to indicate the actual device state, as described in this table
+
+
+|Status(ac)|Version(av)|Value(value)|Description(av)|
+|:---|:---|:---|:---|
+|200|Desired version|Desired value|Desired property value accepted|
+|202|Desired version|Value accepted by the device|Desired property value accepted, update in progress (should finish with 200)|
+|203|0|Value set by the device|Property set from the device, not reflecting any desired|
+|400|Desired version|Actual value used by the device|Desired property value not accepted|
+|500|Desired version|Actual value used by the device|Exception when applying the property|
+
 When a device starts up, it should request the device twin, and check for any writable property updates. If the version of a writable property increased while the device was offline, the device should send a reported property response to confirm that it received the update.
 
-When a device starts up for the first time, it can send an initial value for a reported property if it doesn't receive an initial desired property from the hub. In this case, the device should set `av` to `1`. For example:
+When a device starts up for the first time, it can send an initial value for a reported property if it doesn't receive an initial desired property from the hub. In this case, the device can send the default value with `av` to `0` and `ac` to `203`. For example:
 
 ```json
 "reported": {
   "targetTemperature": {
     "value": 20.0,
-    "ac": 200,
-    "av": 1,
+    "ac": 203,
+    "av": 0,
     "ad": "initialize"
   }
 }
@@ -164,7 +181,7 @@ When the device reaches the target temperature it sends the following message:
   "targetTemperature": {
     "value": 20.0,
     "ac": 200,
-    "av": 3,
+    "av": 4,
     "ad": "Reached target temperature"
   }
 }
@@ -260,7 +277,7 @@ The device responds with an acknowledgment that looks like the following:
 
 ### Sample no component writable property
 
-When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or or combine the responses into a single payload.
+When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or combine the responses into a single payload.
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 
@@ -432,7 +449,7 @@ On a device or module, multiple component interfaces use command names with the 
 
 Now that you've learned about IoT Plug and Play conventions, here are some additional resources:
 
-- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)
+- [C device SDK](https://github.com/Azure/azure-iot-sdk-c/)
 - [IoT REST API](/rest/api/iothub/device)
 - [IoT Plug and Play modeling guide](concepts-modeling-guide.md)

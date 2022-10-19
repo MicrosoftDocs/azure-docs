@@ -6,14 +6,21 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 08/08/2022
 ms.author: banders
-ms.custom: seodec18
+ms.custom: sapnakeshari
 ---
 
 # Troubleshoot enterprise cost views
 
 Within enterprise enrollments, there are several settings that could cause users within the enrollment to not see costs.  These settings are managed by the enrollment administrator. Or, if the enrollment isn't bought directly through Microsoft, the settings are managed by the partner.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the Azure roles.
+
+> [!NOTE]
+> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+>
+> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> 
+> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
 
 ## Enable access to costs
 
@@ -26,9 +33,12 @@ It might be for one of the following reasons:
 2. If you’re an EA Direct customer, there are a couple of possibilities:
     * You're an Account Owner and your Enrollment Administrator disabled the **AO view charges** setting.  
     * You're a Department Administrator and your Enrollment Administrator disabled the **DA view charges** setting.
-    * Contact your Enrollment Administrator to get access. The Enrollment Admin can update the settings in the [Enterprise portal](https://ea.azure.com/manage/enrollment).
+    * Contact your Enrollment Administrator to get access. The Enrollment Admin can now update the settings in [Azure portal](https://portal.azure.com/). Navigate to **Policies** menu to change settings. 
+    * The Enrollment Admin can update the settings in the [Enterprise portal](https://ea.azure.com/manage/enrollment).
 
       ![Screenshot that shows the Enterprise Portal Settings for view charges.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/ea-portal-settings.png)
+    
+ 
 
 ## Asset is unavailable
 

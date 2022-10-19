@@ -29,7 +29,7 @@ This section shows you how to configure Azure Service Health and how to set up n
 
 We recommend you create service alerts for the following health event types:
 
-- **Service issue:** Receive notifications on major issues that impact connectivity of your users with the service or with the ability to manage your Azure Virtual Desktop tenant.
+- **Service issue:** Receive notifications on major issues that impact connectivity of your users with the service or with the ability to manage Azure Virtual Desktop.
 - **Health advisory:** Receive notifications that require your attention. The following are some examples of this type of notification:
     - Virtual Machines (VMs) not securely configured as open port 3389
     - Deprecation of functionality

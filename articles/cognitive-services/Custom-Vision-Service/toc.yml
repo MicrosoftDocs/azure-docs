@@ -1,4 +1,5 @@
-- name: Custom Vision Service Documentation
+items:
+- name: Custom Vision Documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -9,6 +10,8 @@
     href: limits-and-quotas.md
   - name: What's new
     href: whats-new.md
+  - name: Custom Vision FAQ
+    href: faq.yml
 - name: Quickstarts
   items:
   - name: Build a classifier
@@ -23,12 +26,18 @@
       href: get-started-build-detector.md
     - name: Using the Custom Vision SDK
       href: quickstarts/object-detection.md
-- name: Tutorials
+- name: Responsible use of AI
   items:
-  - name: Report visual states on IoT device
-    href: iot-visual-alerts-tutorial.md
-  - name: Recognize logos on mobile
-    href: logo-detector-mobile.md
+  - name: Transparency notes
+    items:
+    - name: Custom Vision use cases
+      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-transparency-note?context=/azure/cognitive-services/custom-vision-service/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/custom-vision/custom-vision-cvs-characteristics-and-limitations?context=/azure/cognitive-services/custom-vision-service/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-guidance-integration-responsible-use?context=/azure/cognitive-services/custom-vision-service/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/custom-vision/custom-vision-cvs-data-privacy-security?context=/azure/cognitive-services/custom-vision-service/context/context
 - name: How-to guides
   items:
   - name: Test your model
@@ -55,7 +64,7 @@
       href: export-model-python.md
   - name: Integrate storage notifications
     href: storage-integration.md
-  - name: Copy and move projects
+  - name: Copy and back up projects
     href: copy-move-projects.md
   - name: View or delete account data
     href: ./export-delete-data.md
@@ -67,6 +76,12 @@
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
+- name: Tutorials
+  items:
+  - name: Report visual states on IoT device
+    href: iot-visual-alerts-tutorial.md
+  - name: Recognize logos on mobile
+    href: logo-detector-mobile.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
@@ -84,7 +99,7 @@
     - name: Node.js - Prediction
       href: /javascript/api/@azure/cognitiveservices-customvision-prediction/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/customvision
+      href: /python/api/azure-cognitiveservices-vision-customvision
     - name: Go - Training
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
     - name: Go - Prediction

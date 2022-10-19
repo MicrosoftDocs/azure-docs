@@ -1,115 +1,45 @@
 ---
-title: Confidential containers on Azure Kubernetes Service (AKS)
-description: Learn about unmodified container support on confidential containers.
+title: Confidential containers on Azure
+description: Learn about unmodified lift and shift container support to confidential containers.
 services: container-service
 author: agowdamsft
 ms.topic: article
-ms.date: 2/11/2020
+ms.date: 7/15/2022
 ms.author: amgowda
 ms.service: container-service
-ms.subservice: confidential-computing
+ms.custom: ignite-fall-2021
 ---
 
-# Confidential Containers
+# Confidential containers on Azure
 
-## Overview
+Confidential containers provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security by running them in a Trusted Execution Environment (TEE). Azure offers a portfolio of capabilities through different confidential container options as discussed below.
 
-Enable developers to bring an **existing docker application (new or existing)** and run it securely on Azure Kubernetes Service (AKS) through confidential computing nodes support.
+## Benefits
+Confidential containers on Azure run within an enclave-based TEE or VM based TEE environments. Both deployment models help achieve high-isolation and memory encryption through hardware-based assurances. Confidential computing can enhance your deployment security posture in Azure cloud by protecting your memory space through encryption.
 
-Confidential containers help protect:
+Below are the qualities of confidential containers:
 
-- data integrity 
-- data confidentiality
-- code integrity
-- container code protection through encryption
-- hardware-based assurances
-- allow running existing apps
-- create hardware root of trust
-- remove host administrator, Kubernetes administrator, hypervisor from the trust boundary
+- Allows running existing standard container images with no code changes (lift-and-shift) within a TEE
+- Allows establishing a hardware root of trust through remote guest attestation
+- Provides strong assurances of data confidentiality, code integrity and data integrity in a cloud environment
+- Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
 
-A hardware based Trusted Execution Environment (TEE) is an important component that is used to provide strong assurances through hardware and software measurements from trusted computing base (TCB) components. Verifications of these measurements help with validation of the expected computation and verify any tampering of the container apps.
+## VM Isolated Confidential containers on Azure Container Instances (ACI) - Private Preview
+Confidential Containers on ACI platform leverages VM-based trusted execution environments (TEEs) based on AMD’s SEV-SNP technology. The TEE provides memory encryption and integrity of the utility VM’s address space as well as hardware-level isolation from other container groups, the host operating system, and the hypervisor. The Root-of-Trust (RoT), which is responsible for managing the TEE, provides support for remote attestation, including issuing an attestation report which may be used by a relying party to verify that the utility VM has been created and configured on a genuine AMD SEV-SNP CPU. Read more on the product [here](https://aka.ms/ccacipreview)
 
-Confidential containers support custom applications developed with **Python, Java, Node JS, etc. or packaged container applications like NGINX, Redis Cache, MemCache**,  and so on, to be run unmodified on AKS with confidential computing nodes.
+## Confidential containers in an Intel SGX enclave through OSS or partner software
+Azure Kubernetes Service (AKS) supports adding [Intel SGX confidential computing VM nodes](confidential-computing-enclaves.md) as agent pools in a cluster. These nodes allow you to run sensitive workloads within a hardware-based TEE. TEEs allow user-level code from containers to allocate private regions of memory to execute the code with CPU directly. These private memory regions that execute directly with CPU are called enclaves. Enclaves help protect data confidentiality, data integrity and code integrity from other processes running on the same nodes, as well as Azure operator. The Intel SGX execution model also removes the intermediate layers of Guest OS, Host OS and Hypervisor thus reducing the attack surface area. The *hardware based per container isolated execution* model in a node allows applications to directly execute with the CPU, while keeping the special block of memory encrypted per container. Confidential computing nodes with confidential containers are a great addition to your zero-trust, security planning and defense-in-depth container strategy. Learn more on this capability [here](confidential-containers-enclaves.md)
 
-Confidential containers are the fastest path to container confidentiality and will only require repackaging of the existing docker container applications and will not require application code changes. Confidential containers are docker container applications that are packaged to run in a TEE. Some confidential container enablers also offer container encryption that can help protect the container code during storage and transport and while mounted in the host. Container encryption allows you to go further and protect the code/model packaged in the container with its decryption key attached to the TEE.
-
-Below is the process for confidential containers from development to deployment
-![The confidential container how to process.](./media/confidential-containers/how-to-confidential-container.png)
-
-## Confidential Container Enablers
-To run an existing docker container unmodified requires an SGX software so the application calls can use special CPU instruction set made available to lower the attach surface area and take no dependency on Guest OS. Once wrapped with SGX runtime software the containers automatically launch in the protected enclaves thus removing the Guest OS, Host OS, or Hypervisor from the trust boundary. This isolated execution in a node (Virtual Machine) with in memory data encryption backed by the hardware reduces the overall surface attack areas and reduces the vulnerabilities with operating system or hypervisor layers.
-
-Confidential containers are fully supported on AKS and enabled through Azure Partners and Open-Source Software (OSS) projects. Developers can choose software providers based on the features, integration to Azure services and tooling support.
-
-## Partner Enablers
-> [!NOTE]
-> The below solutions are offered through Azure Partners and may incur licensing fees. Please verify the partner software terms independently. 
-
-### Anjuna
-
-[Anjuna](https://www.anjuna.io/) provides SGX platform software that enables you to run unmodified containers on AKS. Learn more on the functionality and check out the sample applications [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
-
-Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
-
-![Anjuna Process](./media/confidential-containers/anjuna-process-flow.png)
-
-### Fortanix
-
-[Fortanix](https://www.fortanix.com/) offers developers a choice of a portal and CLI-based experience to bring their containerized applications and covert them to SGX capable confidential containers without any need to modify or recompile the application. Fortanix provides the flexibility to run and manage the broadest set of applications, including existing applications, new enclave-native applications, and pre-packaged applications. Users can start with [Confidential Computing Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/) to create confidential containers by following the [Quick Start](https://fortanix.com/blog/2020/10/fortanix-confidential-containers-on-microsoft-azure-kubernetes-service-aks/) guide for Azure Kubernetes Service.
-
-![Fortanix Deployment Process](./media/confidential-containers/fortanix-confidential-containers-flow.png)
-
-### Scone (Scontain)
-
-[SCONE](https://scontain.com/index.html?lang=en) supports security policies that can generate certificates, keys, and secrets, and ensures they are only visible to attested services of an application. In this way, the services of an application automatically attest each other via TLS - without the need to modify the applications nor TLS. This is explained with the help of a simple
-Flask application here: https://sconedocs.github.io/flask_demo/  
-
-SCONE can convert existing most binaries into applications that run inside of enclaves without needing to change the application or to recompile that application. SCONE also protects interpreted languages like Python by **encrypting** both data files as well as Python code files. With the help of a SCONE security policy, one can protect the encrypted files against unauthorized accesses, modifications, and rollbacks. How to "sconify" an existing Python application is explained [here](https://sconedocs.github.io/sconify_image/)
-
-![Scontain Flow](./media/confidential-containers/scone-workflow.png)
-
-Scone deployments on confidential computing nodes with AKS are fully supported and integrated with other Azure services. Get started with a sample application here https://sconedocs.github.io/aks/
+:::image type="content" source="./media/confidential-nodes-aks-overview/sgx-aks-node.png" alt-text="Graphic of AKS Confidential Compute Node, showing confidential containers with code and data secured inside.":::
 
 
-## OSS Enablers 
-> [!NOTE]
-> The below solutions are offered through Open-Source Projects and are not directly affiliated with Azure Confidential Computing (ACC) or Microsoft.  
+## Questions?
 
-### Graphene
+If you have questions about container offerings, please reach out to <acconaks@microsoft.com>.
 
-[Graphene](https://grapheneproject.io/) is a lightweight guest OS, designed to run a single Linux application with minimal host requirements. Graphene can run applications in an isolated environment with benefits comparable to running a complete OS and has good tooling support for converting existing docker container application to Graphene Shielded Containers (GSC).
+## Next steps
 
-Get started with a sample application and deployment on AKS [here](https://graphene.readthedocs.io/en/latest/cloud-deployment.html#azure-kubernetes-service-aks)
-
-### Occlum
-[Occlum](https://occlum.io/) is a memory-safe, multi-process library OS (LibOS) for Intel SGX. It enables legacy applications to run on SGX with little to no modifications to source code. Occlum transparently protects the confidentiality of user workloads while allowing an easy lift and shift to existing docker applications.
-
-Occlum supports AKS deployments. Follow the deployment instructions with various sample apps [here](https://github.com/occlum/occlum/blob/master/docs/azure_aks_deployment_guide.md)
-
-### Marblerun
-
-[Marblerun](https://marblerun.sh/) is an orchestration framework for confidential containers. It makes it easy to run and scale confidential services on SGX-enabled Kubernetes. Marblerun takes care of boilerplate tasks like verifying the services in your cluster, managing secrets for them, and establishing enclave-to-enclave mTLS connections between them. Marblerun also ensures that your cluster of confidential containers adheres to a manifest defined in simple JSON. The manifest can be verified by external clients via remote attestation. 
-
-![Marblerun Flow](./media/confidential-containers/marblerun-workflow.png)
-
-In a nutshell, Marblerun extends the confidentiality, integrity, and verifiability properties of a single enclave to a Kubernetes cluster. 
-
-Marblerun supports confidential containers created with Graphene, Occlum, and EGo. Examples for each SDK are given [here](https://docs.edgeless.systems/marblerun/#/examples?id=examples). Marblerun is built to run on Kubernetes and alongside your existing cloud-native tooling. It comes with an easy-to-use CLI and helm charts. It has first-class support for confidential computing nodes on AKS. Information on how to deploy Marblerun on AKS can be found [here](https://docs.edgeless.systems/marblerun/#/deployment/cloud?id=cloud-deployment).
-
-## Confidential Containers Demo
-View the confidential healthcare demo with confidential containers. Sample is available [here](/azure/architecture/example-scenario/confidential/healthcare-inference). 
-
-> [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
-
-
-## Get In Touch
-
-Have questions with your implementation or want to become an enabler? Send an email to product team **acconaks@microsoft.com**
-
-## Reference Links
-
-[Microsoft Azure Attestation](../attestation/overview.md)
-
-[DCsv2 Virtual Machines](virtual-machine-solutions.md)
-
-[Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+- [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
+- [Microsoft Azure Attestation](../attestation/overview.md)
+- [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
+- [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)

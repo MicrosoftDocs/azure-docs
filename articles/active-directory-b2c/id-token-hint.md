@@ -3,14 +3,14 @@ title: Define an ID token hint technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an ID token hint technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/16/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -20,7 +20,7 @@ Azure AD B2C allows relying party applications to send an inbound JWT as part of
 
 ## Use cases
 
-You can use this solution to send data to Azure AD B2C encapsulated in a single JWT token. The [SignUp with email invitation solution](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), where your system admin can send a signed invite to users, is based on id_token_hint. Only users with access to the invite email can create the account in the directory.
+You can use this solution to send data to Azure AD B2C encapsulated in a single JWT token. The [`Signup with email invitation` solution](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), where your system admin can send a signed invite to users, is based on id_token_hint. Only users with access to the invite email can create the account in the directory.
 
 ## Token signing approach
 
@@ -37,7 +37,7 @@ The id_token_hint must be a valid JWT token. The following table lists the claim
 | Expiration time | `exp` | `1600087315` | The time at which the token becomes invalid, represented in epoch time. Azure AD B2C validates this value, and rejects the token if the token is expired.|
 | Not before | `nbf` | `1599482515` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Azure AD B2C validates this value, and rejects the token if the token lifetime is not valid. |
 
- The following token is an example of a valid ID token:
+The following token is an example of a valid ID token:
 
 ```json
 {
@@ -100,7 +100,6 @@ When using a symmetric key, the **CryptographicKeys** element contains the follo
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | client_secret | Yes | The cryptographic key that is used to validate the JWT token signature.|
-
 
 ## How-to guide
 
@@ -184,7 +183,7 @@ The token issuer must provide following endpoints:
 * `/.well-known/openid-configuration` - A well-known configuration endpoint with relevant information about the token, such as the token issuer name and the link to the JWK endpoint. 
 * `/.well-known/keys` - the JSON Web Key (JWK) end point with the public key that is used to sign the key (with the private key part of the certificate).
 
-See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC controller sample.
+See the [`TokenMetadataController.cs`](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC controller sample.
 
 #### Step 1. Prepare a self-signed certificate
 
@@ -192,7 +191,7 @@ If you don't already have a certificate, you can use a self-signed certificate f
 
 Run this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
-```PowerShell
+```powershell
 New-SelfSignedCertificate `
     -KeyExportPolicy Exportable `
     -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -206,7 +205,7 @@ New-SelfSignedCertificate `
 
 #### Step 2. Add the ID token hint technical profile 
 
-The following technical profile validates the token and extracts the claims. Change the metadata URI to your token issuer well-known configuration endpoint.  
+The following technical profile validates the token and extracts the claims. Change the metadata URI to your token issuer well-known configuration endpoint.
 
 ```xml
 <ClaimsProvider>
@@ -249,24 +248,25 @@ For both symmetric and asymmetric approaches, the `id_token_hint` technical prof
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
 1. In your relying party policy, repeat the same input claims you configured in the IdTokenHint_ExtractClaims technical profile. For example:
+
     ```xml
-   <RelyingParty>
-     <DefaultUserJourney ReferenceId="SignUp" />
-     <TechnicalProfile Id="PolicyProfile">
-       <DisplayName>PolicyProfile</DisplayName>
-       <Protocol Name="OpenIdConnect" />
-       <InputClaims>
-         <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUp" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
         </InputClaims>
-       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
-       </OutputClaims>
-       <SubjectNamingInfo ClaimType="sub" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
       </TechnicalProfile>
     </RelyingParty>
     ```

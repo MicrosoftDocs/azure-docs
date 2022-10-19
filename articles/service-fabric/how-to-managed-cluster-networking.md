@@ -2,11 +2,16 @@
 title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load-balancing rules, and more.
 ms.topic: how-to
-ms.date: 8/23/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that are intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that is intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
 
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
@@ -14,6 +19,9 @@ Service Fabric managed clusters are created with a default networking configurat
 - [Enable IPv6](#ipv6)
 - [Bring your own virtual network](#byovnet)
 - [Bring your own load balancer](#byolb)
+- [Enable accelerated networking](#accelnet)
+- [Configure Auxiliary Subnets](#auxsubnet)
+
 
 <a id="nsgrules"></a>
 ## Manage NSG rules
@@ -32,62 +40,62 @@ Service Fabric managed clusters enable you to assign NSG rules directly within t
 Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-05-01` or later) to assign NSG rules. For example:
 
 ```json
-            "apiVersion": "2021-05-01",
-            "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
-                ...
-                "networkSecurityRules" : [
-                    {
-                        "name": "AllowCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33000-33499",
-                        "access": "Allow",
-                        "priority": 2001,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "AllowARM",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "AzureResourceManager",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33500-33699",
-                        "access": "Allow",
-                        "priority": 2002,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "DenyCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33700-33799",
-                        "access": "Deny",
-                        "priority": 2003,
-                        "direction": "Outbound"
-                    },
-                    {
-                        "name": "DenyRDP",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "*",
-                        "destinationAddressPrefix": "VirtualNetwork",
-                        "destinationPortRange": "3389",
-                        "access": "Deny",
-                        "priority": 2004,
-                        "direction": "Inbound",
-                        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
-                    }
-                ],
-                "fabricSettings": [
-                ...
-                ]
-            }
+{
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "properties": {
+    "networkSecurityRules": [
+      {
+        "name": "AllowCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33000-33499",
+        "access": "Allow",
+        "priority": 2001,
+        "direction": "Inbound"
+      },
+      {
+        "name": "AllowARM",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "AzureResourceManager",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33500-33699",
+        "access": "Allow",
+        "priority": 2002,
+        "direction": "Inbound"
+      },
+      {
+        "name": "DenyCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33700-33799",
+        "access": "Deny",
+        "priority": 2003,
+        "direction": "Outbound"
+      },
+      {
+        "name": "DenyRDP",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationPortRange": "3389",
+        "access": "Deny",
+        "priority": 2004,
+        "direction": "Inbound",
+        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
+      }
+    ],
+    "fabricSettings": [
+      "..."
+    ]
+  }
+}
 ```
 
 ## ClientConnection and HttpGatewayConnection default and optional rules
@@ -194,8 +202,8 @@ Using Azure portal, locate the managed cluster created inbound NAT rules for Rem
 
    ![Inbound Nat Rules][Inbound-NAT-Rules]
 
-   By default, for Windows clusters, the Frontend Port allocation starts at 50000 and the target port is port 3389, which maps to the RDP service on the target node.
-   >[!NOTE]
+   By default, for Windows clusters, the Frontend Port is in the 50000 and higher range and the target port is port 3389, which maps to the RDP service on the target node.
+   > [!NOTE]
    > If you are using the BYOLB feature and you want RDP, you must configure a NAT pool separately to do so. This will not automatically create any NAT rules for those node types.
 
 4. Remotely connect to the specific node (scale set instance). You can use the user name and password that you set when you created the cluster or any other credentials you have configured.
@@ -295,21 +303,26 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 ```
 
 <a id="ipv6"></a>
-## Enable IPv6 (preview)
+## Enable IPv6
 Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
 
 > [!NOTE]
 > This setting is not available in portal and cannot be changed once the cluster is created
 
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
 1. Set the following property on a Service Fabric managed cluster resource.
    ```json
-            "apiVersion": "2021-07-01-preview",
+       "resources": [
+            {
+            "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {
                 "enableIpv6": true
                 },
             }
+       ]
    ```
 
 2. Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6) as needed or build your own.
@@ -322,11 +335,14 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 
 
 <a id="byovnet"></a>
-## Bring your own virtual network (preview)
+## Bring your own virtual network
 This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy its resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
-> This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
+> When using BYOVNET, managed cluster resources will be deployed in one subnet.
+
+> [!NOTE]
+> This setting cannot be changed once the cluster is created and the managed cluster will assign an NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
 
 **To bring your own virtual network:**
 
@@ -404,10 +420,12 @@ This feature allows customers to use an existing virtual network by specifying a
 
 3. Configure the `subnetId` property for the cluster deployment after the role is set up as shown below:
 
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
    ```JSON
     "resources": [
         {
-            "apiVersion": "2021-07-01-preview",
+            "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             },
@@ -415,6 +433,7 @@ This feature allows customers to use an existing virtual network by specifying a
                 "subnetId": "subnetId",
             ...
             }
+    ]
    ```
    See the [bring your own VNet cluster sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET) or customize your own.
 
@@ -429,30 +448,42 @@ This feature allows customers to use an existing virtual network by specifying a
    When you bring your own VNet subnet the public endpoint is still created and managed by the resource provider, but in the configured subnet. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
-## Bring your own Azure Load Balancer (preview)
-Managed clusters create an Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or reuse an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
+## Bring your own Azure Load Balancer
+
+Managed clusters create an Azure public Standard Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. Bring your own load balancer allows you to use an existing Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
-* Configure network security group rules per node type because each node type is deployed in its own subnet with a unique NSG 
+* Configure network security group rules per node type because each node type is deployed in its own subnet
 * Maintain existing policies and controls you may have in place
+* Configure an internal-only load balancer and use the default load balancer for external traffic
 
 > [!NOTE]
-> You can not switch from default to custom after cluster deployment for a node type, but you can modify custom load balancer configuration post-deployment.
+> When using BYOVNET, managed cluster resources will be deployed in one subnet with one NSG regardless of additional configured load balancers.
+
+> [!NOTE]
+> You can not switch from the default load balancer to a custom one after deployment of a node type, but you can modify custom load balancer configuration post-deployment if enabled.
 
 **Feature Requirements**
  * Basic and Standard SKU Azure Load Balancer types are supported
- * You must have backend and NAT pools configured on the existing Azure Load Balancer. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json) for an example. 
+ * You must have backend and NAT pools configured on the Azure Load Balancer
+ * You must enable outbound connectivity either using a provided public load balancer or the default public load balancer
 
 Here are a couple example scenarios customers may use this for:
 
-In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static ip address to two node types.
+In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static IP address to two node types.
+
 ![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
 
-In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind it's own NSG that you can manage.
+In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind its own managed NSG.
+
 ![Bring your own Load Balancer example 2][sfmc-byolb-example-2]
 
-To configure bring your own load balancer:
+In this example, a customer wants to route traffic through existing internal Azure Load Balancers. This helps them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind its own managed NSG and use the default load balancer for external traffic.
+
+![Bring your own Load Balancer example 3][sfmc-byolb-example-3]
+
+To configure with your own load balancer:
 
 1. Get the service `Id` from your subscription for Service Fabric Resource Provider application:
 
@@ -483,9 +514,9 @@ To configure bring your own load balancer:
 
 2. Add a role assignment to the Service Fabric Resource Provider application. Adding a role assignment is a one time action. You add the role by running the following PowerShell commands or by configuring an Azure Resource Manager (ARM) template as detailed below.
 
-   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. The subnet is named default.
+   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. 
 
-   Obtain the required `Id` property info from the existing Azure Load Balancer. We'll 
+   Obtain the required `Id` property info from the existing Azure Load Balancer. 
 
    ```powershell
    Login-AzAccount
@@ -505,7 +536,7 @@ To configure bring your own load balancer:
    New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
    ```
 
-   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId`, `roleDefinitionId`, `vnetName`, and `subnetName`:
+   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId`, `roleDefinitionId`":
 
    ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
@@ -523,24 +554,108 @@ To configure bring your own load balancer:
    > [!NOTE]
    > loadBalancerRoleAssignmentID has to be a [GUID](../azure-resource-manager/templates/template-functions-string.md#examples-16). If you deploy a template again including this role assignment, make sure the GUID is the same as the one originally used. We suggest you run this isolated or remove this resource from the cluster template post-deployment as it just needs to be created once.
 
-3. Configure required outbound connectivity. All nodes must be able to route outbound on port 443 to ServiceFabric resource provider. You can use the `ServiceFabric` service tag in your NSG to restrict the traffic destination to the Azure endpoint.
+   See this example template to [create a public load balancer and assign a role](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json).
+
+
+3. Configure required outbound connectivity for the node type. You must configure a public load balancer to provide outbound connectivity or use the default public load balancer. 
+   
+   Configure `outboundRules` to configure a public load balancer to provide outbound connectivity
+   See the [create load balancer and assign role sample Azure Resource Manager (ARM) template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json)
+   
+   OR
+   
+   To configure the node type to use the default load balancer set the following in your template: 
+   
+   * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
+   ```json
+    "resources": [
+      {
+      "apiVersion": "[variables('sfApiVersion')]",
+      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+      "properties": {
+          "isPrimary": false,
+          "useDefaultPublicLoadBalancer": true
+          }
+      }
+    ]
+   ```
 
 4. Optionally configure an inbound application port and related probe on your existing Azure Load Balancer.
+   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example
 
 5. Optionally configure the managed cluster NSG rules applied to the node type to allow any required traffic that you've configured on the Azure Load Balancer or traffic will be blocked.
-
-   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example on how to open inbound rules.
+   See the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB) for an example inbound NSG rule configuration. In the template, look for the `networkSecurityRules` property.
 
 6. Deploy the configured managed cluster ARM Template
+   For this step we'll use the [bring your own load balancer sample Azure Resource Manager (ARM) template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOLB)
 
-   In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
+   The following will create a resource group called `MyResourceGroup` in `westus` and deploy a cluster using an existing load balancer.
    ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
    ```
 
-   After deployment, your secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection and gateway endpoints will still point to the public DNS of the managed cluster primary node type static IP address.
+   After deployment, the secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection and gateway endpoints will still point to the public DNS of the managed cluster primary node type static IP address.
 
+
+
+<a id="accelnet"></a>
+## Enable Accelerated Networking
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) for additional considerations. 
+
+* Note that Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs.
+
+Enable accelerated networking by declaring `enableAcceleratedNetworking` property in your Resource Manager template as follows:
+
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
+```json
+   {
+   "apiVersion": "[variables('sfApiVersion')]",
+   "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+   ...
+   "properties": {
+       ...
+       "enableAcceleratedNetworking": true,
+       ...
+   }
+```
+
+To enable Accelerated Networking on an existing Service Fabric cluster, you need to first Scale a Service Fabric cluster out by adding a new node type and perform the following:
+
+1) Provision a node type with Accelerated Networking enabled
+2) Migrate your services and their state to the provisioned node type with Accelerated Networking enabled
+
+Scaling out infrastructure is required to enable Accelerated Networking on an existing cluster, because enabling Accelerated Networking in place would cause downtime, as it requires all virtual machines in an availability set be stop and deallocate before enabling Accelerated networking on any existing NIC.
+
+
+<a id="auxsubnet"></a>
+## Configure Auxiliary Subnets
+Auxiliary subnets provide the ability to create additional managed subnets without a node type for supporting scenarios such as [Private Link Service](../private-link/private-link-service-overview.md) and [Bastion Hosts](../bastion/bastion-overview.md).
+
+Configure auxiliary subnets by declaring `auxiliarySubnets` property and required parameters in your Resource Manager template as follows:
+
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
+```JSON
+    "resources": [
+        {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters",
+              "properties": {
+                "auxiliarySubnets": [
+                  {
+                  "name" : "mysubnet",
+                  "enableIpv6" : "true"
+                  }
+                ]
+              }
+        }
+    ]              
+```
+
+See [full list of parameters available](/azure/templates/microsoft.servicefabric/2022-01-01/managedclusters)
 
 ## Next steps
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
@@ -551,4 +666,4 @@ To configure bring your own load balancer:
 [sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
 [sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-1.png
 [sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-2.png
-
+[sfmc-byolb-example-3]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-3.png

@@ -1,7 +1,9 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-ms.date: 07/07/2021
+author: timwarner-msft
+ms.author: timwarner
+ms.date: 07/19/2022
 ms.topic: sample
 ---
 # Starter Resource Graph query samples
@@ -9,7 +11,7 @@ ms.topic: sample
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with
 [Kusto Query Language (KQL)](/azure/kusto/query/index), it's recommended to review the
-[tutorial for KQL](/azure/kusto/query/tutorial) to understand how to compose requests for the
+[KQL tutorial](/azure/kusto/query/tutorial) to understand how to compose requests for the
 resources you're looking for.
 
 We'll walk through the following starter queries:
@@ -21,6 +23,7 @@ We'll walk through the following starter queries:
 - [Show first five virtual machines by name and their OS type](#show-sorted)
 - [Count virtual machines by OS type](#count-os)
 - [Show resources that contain storage](#show-storage)
+- [List all virtual network subnets](#list-subnets)
 - [List all public IP addresses](#list-publicip)
 - [Count resources that have IP addresses configured by subscription](#count-resources-by-ip)
 - [List resources with a specific tag value](#list-tag)
@@ -52,7 +55,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | summarize count()"
 ```
 
@@ -85,7 +88,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
@@ -119,7 +122,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name, type, location | order by name asc"
 ```
 
@@ -154,7 +157,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
@@ -189,7 +192,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
@@ -226,7 +229,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
@@ -259,7 +262,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
@@ -297,7 +300,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type contains 'storage' | distinct type"
 ```
 
@@ -317,6 +320,40 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 ---
 
+## <a name="list-subnets"></a>List all Azure virtual network subnets
+
+This query returns a list of Azure virtual networks (VNets) including subnet names and address prefixes. Thanks to [Saul Dolgin](https://github.com/sdolgin) for the contribution.
+
+```kusto
+Resources
+| where type == 'microsoft.network/virtualnetworks'
+| extend subnets = properties.subnets
+| mv-expand subnets
+| project name, subnets.name, subnets.properties.addressPrefix, location, resourceGroup, subscriptionId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az graph query -q "Resources | where type == 'microsoft.network/virtualnetworks' | extend subnets = properties.subnets | mv-expand subnets | project name, subnets.name, subnets.properties.addressPrefix, location, resourceGroup, subscriptionId"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type == 'microsoft.network/virtualnetworks' | extend subnets = properties.subnets | mv-expand subnets | project name, subnets.name, subnets.properties.addressPrefix, location, resourceGroup, subscriptionId
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.network%2Fvirtualnetworks%27%0A%7C%20extend%20subnets%20%3D%20properties.subnets%0A%7C%20mv-expand%20subnets%0A%7C%20project%20name%2C%20subnets.name%2C%20subnets.properties.addressPrefix%2C%20location%2C%20resourceGroup%2C%20subscriptionId" target="_blank">portal.Azure.cn</a>
+
+---
+
 ## <a name="list-publicip"></a>List all public IP addresses
 
 Similar to the previous query, find everything that is a type with the word **publicIPAddresses**.
@@ -333,7 +370,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
@@ -365,7 +402,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
@@ -399,7 +436,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where tags.environment=~'internal' | project name"
 ```
 
@@ -430,7 +467,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where tags.environment=~'internal' | project name, tags"
 ```
 
@@ -464,7 +501,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
@@ -517,7 +554,7 @@ ResourceContainers
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "ResourceContainers | where isnotempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) | union (resources | where notempty(tags) | project tags | mvexpand tags | extend tagKey = tostring(bag_keys(tags)[0]) | extend tagValue = tostring(tags[tagKey]) ) | distinct tagKey, tagValue | where tagKey !startswith "hidden-""
 ```
 
@@ -551,7 +588,7 @@ Resources
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az graph query -q "Resources | where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 

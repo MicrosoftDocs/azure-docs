@@ -2,11 +2,15 @@
 title: Event driven architectures on edge — Azure Event Grid on IoT Edge
 description: Use Azure Event Grid as a module on IoT Edge for forward events between modules, edge devices, and the cloud.
 ms.topic: overview
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.subservice: iot-edge
 ---
 
 # What is Azure Event Grid on Azure IoT Edge?
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 Event Grid on IoT Edge brings the power and flexibility of Azure Event Grid to the edge. Create topics, publish events, and subscribe multiple destinations whether they're modules on the same device, other edge devices, or services in the cloud.
 
 As in the cloud, the Event Grid on IoT Edge module handles routing, filtering, and reliable delivery of events at scale. Filter events to ensure that only relevant events are sent to different event handlers using advanced string, numerical, and boolean filters. Retry logic makes sure that the event reaches the target destination even if it's not available at the time of publish. It allows you to use Event Grid on IoT Edge as a powerful store and forward mechanism.

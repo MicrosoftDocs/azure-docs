@@ -1,12 +1,13 @@
 ---
 title: Organize your invoice based on your needs - Azure
 description: Learn how to organize costs on your invoice. You can customize your billing account by creating billing profiles and invoice sections.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 03/03/2022
 ms.author: banders
 ---
 
@@ -108,11 +109,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
    [![Screenshot that shows billing profile list with Add selected.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
-    > [!Note]
-    >
-    > If you don't see the Add button in the Billing profile page, the feature is not available for your account. Currently, it is only available for accounts that have been set up while working with a Microsoft representative.
-
-4. Fill the form and click **Create**.
+4. Fill the form and select **Create**.
 
    [![Screenshot that shows billing profile creation page](./media/mca-section-invoice/mca-add-profile.png)](./media/mca-section-invoice/mca-add-profile-zoomed-in.png#lightbox)
 
@@ -151,7 +148,7 @@ Once you have customized your billing account based on your needs, you can link 
 
 7. Select an Azure plan and enter a friendly name for your subscription.
 
-9. Click **Create**.  
+9. Select **Create**.  
 
 ### Link existing subscriptions and products
 
@@ -167,7 +164,7 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
    [![Screenshot that shows the option to change invoice section](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section-zoomed-in.png#lightbox)
 
-4. In the page, click on ellipsis (three dots) for the subscription or product that you want to link to a new invoice section. Select **Change invoice section**.
+4. In the page, select the ellipsis (three dots) for the subscription or product that you want to link to a new invoice section. Select **Change invoice section**.
 
 5. Select the new billing profile and the invoice section from the dropdown.
 
@@ -197,7 +194,7 @@ The total charges for using 100 TB of data in this scenario is **180.5**
 
 #### You have multiple billing profiles.
 
-Now, let's assume you created another billing profile and used 50 GB through subscriptions that are billed to the first billing profile and 50 GB through subscriptions that are billed to the second billing profile, here's how much you would be charged.
+Now, let's assume you created another billing profile and used 50 TB through subscriptions that are billed to the first billing profile and 50 TB through subscriptions that are billed to the second billing profile, here's how much you would be charged.
 
 `Charges for the first billing profile`
 

@@ -5,10 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 01/12/2021
+ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 
 SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 
@@ -18,7 +22,7 @@ Use the Azure Cognitive Services Management layer to create, edit, list, and del
 
 Find reference documentation based on the tool:
 
-* [Azure CLI](/cli/azure/cognitiveservices#az_cognitiveservices_list)
+* [Azure CLI](/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
 * [Azure RM PowerShell](/powershell/module/azurerm.cognitiveservices/#cognitive_services)
 

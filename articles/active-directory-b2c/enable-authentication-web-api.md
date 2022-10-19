@@ -2,13 +2,13 @@
 title: Enable authentication in a web API by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to protect a web API.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/25/2021
-ms.author: mimart
+ms.date: 10/26/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -126,7 +126,7 @@ npm install passport-azure-ad
 npm install morgan
 ```
  
-The [morgen package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
+The [morgan package](https://www.npmjs.com/package/morgan) is an HTTP request logger middleware for Node.js.
 
 ---
 
@@ -372,7 +372,7 @@ The authentication function also verifies that the web API is called with the ri
 
 ## Step 5: Configure the web server
 
-In a development environment, set the web API to listen on incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API will be: <'http://localhost:6000'>
+In a development environment, set the web API to listen on incoming HTTP or HTTPS requests port number. In this example, use HTTP port 6000 and HTTPS port 6001. The base URI of the web API will be `http://localhost:6000` for HTTP and `https://localhost:6001` for HTTPS.
 
 # [ASP.NET Core](#tab/csharpclient)
 
@@ -383,14 +383,17 @@ Add the following JSON snippet to the *appsettings.json* file.
     "EndPoints": {
       "Http": {
         "Url": "http://localhost:6000"
-      }
+      },
+      "Https": {
+         "Url": "https://localhost:6001"   
+        }
     }
   }
 ```
 
 # [Node.js](#tab/nodejsgeneric)
 
-Add the following JavaScript code to the *app.js* file. 
+Add the following JavaScript code to the *app.js* file. It is possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function). 
 
 ```javascript
 // Starts listening on port 6000
@@ -440,7 +443,7 @@ Under the project root folder, create a *config.json* file, and then add to it t
 ```json
 {
     "credentials": {
-        "tenantName": "<your-tenant-name>",
+        "tenantName": "<your-tenant-name>.onmicrosoft.com",
         "clientID": "<your-webapi-application-ID>",
         "issuer": "https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/"
     },
@@ -467,7 +470,7 @@ In the *config.json* file, update the following properties:
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
-| credentials | tenantName | The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso`).|
+| credentials | tenantName | Your Azure AD B2C [tenant name/domain name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 | credentials |clientID | The web API application ID. In the [preceding diagram](#app-registration-overview), it's the application with *App ID: 2*. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
 | credentials | issuer| The token issuer `iss` claim value. By default, Azure AD B2C returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
 | policies | policyName | The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).|

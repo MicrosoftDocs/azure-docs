@@ -5,8 +5,9 @@ author: dkamstra
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.author: dukek
+ms.date: 09/07/2022
+ms.author: jagummersall
+ms.reviewer: jagummersall
 ---
 
 # Create an action group with a Resource Manager template
@@ -26,7 +27,7 @@ First template, describes how to create a Resource Manager template for an actio
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroupName": {
@@ -45,7 +46,7 @@ First template, describes how to create a Resource Manager template for an actio
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -87,6 +88,27 @@ First template, describes how to create a Resource Manager template for an actio
             "serviceUri": "http://requestb.in/1bq62iu2",
             "useCommonAlertSchema": true
           }
+        ],
+         "SecurewebhookReceivers": [
+          {
+            "name": "contososecureHook",
+            "serviceUri": "http://requestb.in/1bq63iu1",
+            "useCommonAlertSchema": false
+          },
+          {
+            "name": "contososecureHook2",
+            "serviceUri": "http://requestb.in/1bq63iu2",
+            "useCommonAlertSchema": false
+          }
+        ],
+        "eventHubReceivers": [
+          {
+            "name": "contosoeventhub1",
+            "subscriptionId": "replace with subscription id GUID",
+            "eventHubNameSpace": "contosoeventHubNameSpace",
+            "eventHubName": "contosoeventHub",
+            "useCommonAlertSchema": true
+          }
         ]
       }
     }
@@ -102,7 +124,7 @@ First template, describes how to create a Resource Manager template for an actio
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroupName": {
@@ -133,7 +155,7 @@ First template, describes how to create a Resource Manager template for an actio
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 03/08/2021
+ms.date: 10/21/2021
 ---
 
 # Rebuild a Studio (classic) experiment in Azure Machine Learning
@@ -19,13 +19,13 @@ In this article, you learn how to rebuild an ML Studio (classic) experiment in A
 
 Studio (classic) **experiments** are similar to **pipelines** in Azure Machine Learning. However, in Azure Machine Learning pipelines are built on the same back-end that powers the SDK. This means that you have two options for machine learning development: the drag-and-drop designer or code-first SDKs.
 
-For more information on building pipelines with the SDK, see [What are Azure Machine Learning pipelines](concept-ml-pipelines.md#building-pipelines-with-the-python-sdk).
+For more information on building pipelines with the SDK, see [What are Azure Machine Learning pipelines](concept-ml-pipelines.md).
 
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 - A Studio (classic) experiment to migrate.
 - [Upload your dataset](migrate-register-dataset.md) to Azure Machine Learning.
 
@@ -39,41 +39,41 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 1. In the left navigation pane, select **Designer** > **Easy-to-use prebuilt modules**
     ![Screenshot showing how to create a new pipeline draft.](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
-1. Manually rebuild your experiment with designer modules.
+1. Manually rebuild your experiment with designer components.
     
-    Consult the [module-mapping table](migrate-overview.md#studio-classic-and-designer-module-mapping) to find replacement modules. Many of Studio (classic)'s most popular modules have identical versions in the designer.
+    Consult the [module-mapping table](migrate-overview.md#studio-classic-and-designer-component-mapping) to find replacement modules. Many of Studio (classic)'s most popular modules have identical versions in the designer.
 
     > [!Important]
     > If your experiment uses the Execute R Script module, you need to perform additional steps to migrate your experiment. For more information, see [Migrate R Script modules](migrate-execute-r-script.md).
 
 1. Adjust parameters.
     
-    Select each module and adjust the parameters in the module settings panel to the right. Use the parameters to recreate the functionality of your Studio (classic) experiment. For more information on each module, see the [module reference](./algorithm-module-reference/module-reference.md).
+    Select each module and adjust the parameters in the module settings panel to the right. Use the parameters to recreate the functionality of your Studio (classic) experiment. For more information on each module, see the [module reference](./component-reference/component-reference.md).
 
-## Submit a run and check results
+## Submit a job and check results
 
-After you recreate your Studio (classic) experiment, it's time to submit a **pipeline run**.
+After you recreate your Studio (classic) experiment, it's time to submit a **pipeline job**.
 
-A pipeline run executes on a **compute target** attached to your workspace. You can set a default compute target for the entire pipeline, or you can specify compute targets on a per-module basis.
+A pipeline job executes on a **compute target** attached to your workspace. You can set a default compute target for the entire pipeline, or you can specify compute targets on a per-module basis.
 
-Once you submit a run from a pipeline draft, it turns into a **pipeline run**. Each pipeline run is recorded and logged in Azure Machine Learning.
+Once you submit a job from a pipeline draft, it turns into a **pipeline job**. Each pipeline job is recorded and logged in Azure Machine Learning.
 
 To set a default compute target for the entire pipeline:
 1. Select the **Gear icon** ![Gear icon in the designer](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) next to the pipeline name.
 1. Select **Select compute target**.
 1. Select an existing compute, or create a new compute by following the on-screen instructions.
 
-Now that your compute target is set, you can submit a pipeline run:
+Now that your compute target is set, you can submit a pipeline job:
 
 1. At the top of the canvas, select **Submit**.
 1. Select **Create new** to create a new experiment.
     
-    Experiments organize similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs. This is useful for logging and tracking.
+    Experiments organize similar pipeline jobs together. If you run a pipeline multiple times, you can select the same experiment for successive jobs. This is useful for logging and tracking.
 1. Enter an experiment name. Then, select **Submit**.
 
-    The first run may take up to 20 minutes. Since the default compute settings have a minimum node size of 0, the designer must allocate resources after being idle. Successive runs take less time, since the nodes are already allocated. To speed up the running time, you can create a compute resources with a minimum node size of 1 or greater.
+    The first job may take up to 20 minutes. Since the default compute settings have a minimum node size of 0, the designer must allocate resources after being idle. Successive jobs take less time, since the nodes are already allocated. To speed up the running time, you can create a compute resources with a minimum node size of 1 or greater.
 
-After the run finishes, you can check the results of each module:
+After the job finishes, you can check the results of each module:
 
 1. Right-click the module whose output you want to see.
 1. Select either **Visualize**, **View Output**, or **View Log**.
@@ -83,7 +83,20 @@ After the run finishes, you can check the results of each module:
     - **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script such as errors and exceptions.
 
 > [!IMPORTANT]
-> Designer modules use open source Python packages, compared to C# packages in Studio (classic). As a result, module output may vary slightly between the designer and Studio (classic). 
+> Designer components use open source Python packages to implement machine learning algorithms. However Studio (classic) uses a Microsoft internal C# library. Therefore, prediction result may vary between the designer and Studio (classic). 
+
+
+## Save trained model to use in another pipeline
+
+Sometimes you may want to save the model trained in a pipeline and use the model in another pipeline later. In Studio (classic), all trained models are saved in "Trained Models" category in the module list. In designer, the trained models are automatically registered as file dataset with a system generated name. Naming convention follows "MD - pipeline draft name - component name - Trained model ID" pattern. 
+
+To give a trained model a meaningful name, you can register the output of **Train Model** component as a **file dataset**. Give it the name you want, for example linear-regression-model. 
+
+![Screenshot showing how to save trained model.](./media/migrate-rebuild-experiment/save-model.png)
+
+You can find the trained model in "Dataset" category in the component list or search it by name. Then connect the trained model to a **Score Model** component to use it for prediction. 
+
+![Screenshot showing how to find trained model.](./media/migrate-rebuild-experiment/search-model-in-list.png)
 
 
 ## Next steps

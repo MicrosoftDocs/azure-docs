@@ -3,7 +3,7 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 ms.topic: article
-ms.date: 02/1/2021
+ms.date: 10/20/2021
 ms.author: miwithro
 ---
 
@@ -22,11 +22,10 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 * AKS-managed Azure AD integration can't be disabled
 * Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
 * Clusters without Kubernetes RBAC enabled aren't supported for AKS-managed Azure AD integration
-* Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
 ## Prerequisites
 
-* The Azure CLI version 2.11.0 or later
+* The Azure CLI version 2.29.0 or later
 * Kubectl with a minimum version of [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) or [kubelogin](https://github.com/Azure/kubelogin)
 * If you are using [helm](https://github.com/helm/helm), minimum version of helm 3.3.
 
@@ -177,42 +176,21 @@ A successful migration of an AKS-managed Azure AD cluster has the following sect
   }
 ```
 
-If you want to access the cluster, follow the steps [here][access-cluster].
+Update kubeconfig in order to access the cluster, follow the steps [here][access-cluster].
 
 ## Non-interactive sign in with kubelogin
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
-## Disable local accounts (preview)
+## Disable local accounts
 
 When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local-accounts`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
 
 > [!NOTE]
 > On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
 
-### Register the `DisableLocalAccountsPreview` preview feature
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-To use an AKS cluster without local accounts, you must enable the `DisableLocalAccountsPreview` feature flag on your subscription. Ensure you are using the latest version of the Azure CLI and the `aks-preview` extension.
-
-Register the `DisableLocalAccountsPreview` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "DisableLocalAccountsPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableLocalAccountsPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!NOTE]
+> After disabling local accounts users on an already existing AKS cluster where users might have used local account/s, admin must [rotate the cluster certificates](certificate-rotation.md), in order to revoke the certificates those users might have access to.  If this is a new cluster then no action is required.
 
 ### Create a new cluster without local accounts
 
@@ -392,7 +370,7 @@ aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
 ### Apply Just-in-Time access at the namespace level
 
-1. Integrate your AKS cluster with [Azure RBAC](https://docs.microsoft.com/azure/aks/manage-azure-rbac).
+1. Integrate your AKS cluster with [Azure RBAC](manage-azure-rbac.md).
 2. Associate the group you want to integrate with Just-in-Time access with a namespace in the cluster through role assignment.
 
 ```azurecli-interactive

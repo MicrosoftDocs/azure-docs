@@ -10,6 +10,9 @@
     href: analysis-services-create-server.md
   - name: Create a server - PowerShell
     href: analysis-services-create-powershell.md
+  - name: Create a server - Bicep
+    displayName: Resource Manager, ARM, Bicep
+    href: analysis-services-create-bicep-file.md
   - name: Create a server - ARM template
     displayName: Resource Manager
     href: analysis-services-create-template.md
@@ -81,7 +84,7 @@
       href: analysis-services-deploy.md
     - name: Refresh with REST API
       href: analysis-services-async-refresh.md
-    - name: Refresh with Logic Apps 
+    - name: Refresh with Logic Apps
       href: analysis-services-refresh-logic-app.md
     - name: Refresh with Azure Automation
       href: analysis-services-refresh-azure-automation.md
@@ -104,13 +107,13 @@
   - name: PowerShell
     href: analysis-services-powershell.md
   - name: REST
-    href: /rest/api/analysisservices
+    href: /rest/api/analysisservices/
   - name: Resource Manager template
     href: /azure/templates/microsoft.analysisservices/servers
   - name: DAX
-    href: /dax/data-analysis-expressions-dax-reference
+    href: /dax/
   - name: Power Query M
-    href: /powerquery-m/power-query-m-reference
+    href: /powerquery-m/
   - name: Tabular Model Scripting Language (TMSL)
     href: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=azure-analysis-services-current&preserve-view=true
   - name: Tabular Object Model (TOM)
@@ -126,9 +129,9 @@
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?query=Analysis%20Services
   - name: Azure status
-    href: https://azure.microsoft.com/status/
+    href: https://azure.status.microsoft/
   - name: Feedback
-    href: https://feedback.azure.com/forums/556165-azure-analysis-services
+    href: https://feedback.azure.com/d365community/forum/d92323a0-0525-ec11-b6e6-000d3a4f0858
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/analysis-services/
   - name: Pricing calculator

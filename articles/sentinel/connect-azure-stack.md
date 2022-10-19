@@ -1,23 +1,18 @@
 ---
-title: Onboard your Azure Stack Hub virtual machines to Azure Sentinel | Microsoft Docs
-description: This article shows you how to provision the Azure Monitor, Update, and Configuration Management virtual machine extension on Azure Stack Hub virtual machines and start monitoring them with Azure Sentinel.
-services: sentinel
-documentationcenter: na
+title: Onboard your Azure Stack Hub virtual machines to Microsoft Sentinel | Microsoft Docs
+description: This article shows you how to provision the Azure Monitor, Update, and Configuration Management virtual machine extension on Azure Stack Hub virtual machines and start monitoring them with Microsoft Sentinel.
 author: yelevin
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/09/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
-# Connect Azure Stack Hub virtual machines to Azure Sentinel
+# Connect Azure Stack Hub virtual machines to Microsoft Sentinel
 
-With Azure Sentinel, you can monitor your VMs running on Azure and Azure Stack Hub in one place. To on-board your Azure Stack machines to Azure Sentinel, you first need to add the virtual machine extension to your existing Azure Stack Hub virtual machines. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+With Microsoft Sentinel, you can monitor your VMs running on Azure and Azure Stack Hub in one place. To on-board your Azure Stack machines to Microsoft Sentinel, you first need to add the virtual machine extension to your existing Azure Stack Hub virtual machines. 
 
 After you connect Azure Stack Hub machines, choose from a gallery of dashboards that surface insights based on your data. These dashboards can be easily customized to your needs.
 
@@ -27,7 +22,7 @@ Add the **Azure Monitor, Update, and Configuration Management** virtual machine 
 
 1. In a new browser tab, log into your [Azure Stack Hub portal](/azure-stack/user/azure-stack-use-portal#access-the-portal).
 
-1. Go to the **Virtual machines** page, select the virtual machine that you want to protect with Azure Sentinel. For information on how to create a virtual machine on Azure Stack Hub, see [Create a Windows server VM with the Azure Stack Hub portal](/azure-stack/user/azure-stack-quick-windows-portal) or [Create a Linux server VM by using the Azure Stack Hub portal](/azure-stack/user/azure-stack-quick-linux-portal).
+1. Go to the **Virtual machines** page, select the virtual machine that you want to protect with Microsoft Sentinel. For information on how to create a virtual machine on Azure Stack Hub, see [Create a Windows server VM with the Azure Stack Hub portal](/azure-stack/user/azure-stack-quick-windows-portal) or [Create a Linux server VM by using the Azure Stack Hub portal](/azure-stack/user/azure-stack-quick-linux-portal).
 
 1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 
@@ -40,17 +35,17 @@ Add the **Azure Monitor, Update, and Configuration Management** virtual machine 
    >[!NOTE]
    > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, reach out to your Azure Stack Hub operator to make it available.
 
-1. On the Azure Sentinel menu, select **Workspace settings** followed by **Advanced**, and copy  the **Workspace ID** and **Workspace Key (Primary Key)**. 
+1. On the Microsoft Sentinel menu, select **Workspace settings** followed by **Advanced**, and copy  the **Workspace ID** and **Workspace Key (Primary Key)**. 
 
 1. In the Azure Stack Hub **Install extension** window, paste them in the indicated fields and select **OK**.
 
-1. After the extension installation completes, its status shows as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Azure Sentinel portal.
+1. After the extension installation completes, its status shows as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Microsoft Sentinel portal.
 
-For more information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
+For more information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/agents/agent-windows.md#install-the-agent).
 
 For Linux troubleshooting of agent issues, see [Troubleshoot Azure Log Analytics Linux Agent](../azure-monitor/agents/agent-linux-troubleshoot.md).
 
-In the Azure Sentinel portal on Azure, under **Virtual Machines**, you have an overview of all VMs and computers along with their status. 
+In the Microsoft Sentinel portal on Azure, under **Virtual Machines**, you have an overview of all VMs and computers along with their status. 
 
 ## Clean up resources
 
@@ -68,8 +63,8 @@ To remove the extension:
 
 ## Next steps
 
-To learn more about Azure Sentinel, see the following articles:
+To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
-- Stream data from [Common Event Format appliances](connect-common-event-format.md) into Azure Sentinel.
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Stream data from [Common Event Format appliances](connect-common-event-format.md) into Microsoft Sentinel.

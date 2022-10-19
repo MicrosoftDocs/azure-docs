@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 7/12/2021
+ms.date: 09/13/2022
 
 ms.author: gasinh
 author: gargi-sinha
@@ -222,6 +222,10 @@ Consider the sample checklist to define the user experience (UX) requirements:
 - Look for existing hints passed through using queryString parameters in your current CIAM solution.
 
 - If you expect high UX customization such as pixel to pixel, you may need a front-end developer to help you.
+
+- Azure AD B2C provides capabilities for customizing HTML and CSS, however, it has additional requirements for [JavaScript](../../active-directory-b2c/javascript-and-page-layout.md?pivots=b2c-custom-policy#guidelines-for-using-javascript).
+
+- An embedded experience can be implemented [using iframe support](../../active-directory-b2c/embedded-login.md?pivots=b2c-custom-policy). For a single-page application, you'll also need a second "sign-in" HTML page that loads into the `<iframe>` element.
 
 ## Monitor an Azure AD B2C solution
 

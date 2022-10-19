@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 09/09/2021
+ms.date: 07/20/2022
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
@@ -16,6 +16,19 @@ ms.date: 09/09/2021
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
+
+## Create a Data Flow activity with UI
+
+To use a Data Flow activity in a pipeline, complete the following steps:
+
+1. Search for _Data Flow_ in the pipeline Activities pane, and drag a Data Flow activity to the pipeline canvas.
+1. Select the new Data Flow activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details. 
+
+   :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="Shows the UI for a Data Flow activity.":::
+1. Checkpoint key is used to set the checkpoint when data flow is used for changed data capture. You can overwrite it. Data flow activities use a guid value as checkpoint key instead of “pipelinename + activityname” so that it can always keep tracking customer’s change data capture  state even there’s any renaming actions. All existing data flow activity will use the old pattern key for backward compatibility. Checkpoint key option after publishing a new data flow activity with change data capture enabled data flow resource is shown as below. 
+
+   :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity-checkpoint.png" alt-text="Shows the UI for a Data Flow activity with checkpoint key.":::
+3. Select an existing data flow or create a new one using the New button.  Select other options as required to complete your configuration. 
 
 ## Syntax
 
@@ -57,8 +70,8 @@ Property | Description | Allowed values | Required
 dataflow | The reference to the Data Flow being executed | DataFlowReference | Yes
 integrationRuntime | The compute environment the data flow runs on. If not specified, the auto-resolve Azure integration runtime will be used. | IntegrationRuntimeReference | No
 compute.coreCount | The number of cores used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
-compute.computeType | The type of compute used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService | If you're using an Azure Synapse Analytics source or sink, specify the storage account used for PolyBase staging.<br/><br/>If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Also learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.<br/> | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
+compute.computeType | The type of compute used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | "General", "MemoryOptimized" | No
+staging.linkedService | If you're using an Azure Synapse Analytics source or sink, specify the storage account used for PolyBase staging.<br/><br/>If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Also learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.<br/> | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
 staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
 traceLevel | Set logging level of your data flow activity execution | Fine, Coarse, None | No
 
@@ -66,10 +79,7 @@ traceLevel | Set logging level of your data flow activity execution | Fine, Coar
 
 ### Dynamically size data flow compute at runtime
 
-The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
-
-> [!NOTE]
-> When choosing driver and worker node cores in Azure Synapse Data Flows, a minimum of 3 nodes will always be utilized.
+The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties. You can choose small, medium, or large compute sizes. Optionally, pick "Custom" and configure the compute types and number of cores manually.
 
 :::image type="content" source="media/data-flow/dyna1.png" alt-text="Dynamic Data Flow":::
 
@@ -79,7 +89,7 @@ The Core Count and Compute Type properties can be set dynamically to adjust to t
 
 Choose which Integration Runtime to use for your Data Flow activity execution. By default, the service will use the auto-resolve Azure Integration runtime with four worker cores. This IR has a general purpose compute type and runs in the same region as your service instance. For operationalized pipelines, it is highly recommended that you create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
 
-A minimum compute type of General Purpose (compute optimized is not recommended for large workloads) with an 8+8 (16 total v-cores) configuration and a 10-minute is the minimum recommendation for most production workloads. By setting a small TTL, the Azure IR can maintain a warm cluster that will not incur the several minutes of start time for a cold cluster. You can speed up the execution of your data flows even more by select "Quick re-use" on the Azure IR data flow configurations. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
+A minimum compute type of General Purpose with an 8+8 (16 total v-cores) configuration and a 10-minute Time to live (TTL) is the minimum recommendation for most production workloads. By setting a small TTL, the Azure IR can maintain a warm cluster that will not incur the several minutes of start time for a cold cluster. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
 
 :::image type="content" source="media/data-flow/ir-new.png" alt-text="Azure Integration Runtime":::
 
@@ -89,6 +99,10 @@ A minimum compute type of General Purpose (compute optimized is not recommended 
 ### PolyBase
 
 If you're using an Azure Synapse Analytics as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
+
+## Checkpoint key
+
+When using the change capture option for data flow sources, ADF will maintain and manage the checkpoint for you automatically. The default checkpoint key is a hash of the data flow name and the pipeline name. If you are using a dynamic pattern for your source tables or folders, you may wish to override this hash and set your own checkpoint key value here.
 
 ## Logging level
 
@@ -102,11 +116,11 @@ The grouping feature in data flows allow you to both set the order of execution 
 
 The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
 
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Sink properties":::
+
 ### First row only
 
 This option is only available for data flows that have cache sinks enabled for "Output to activity". The output from the data flow that is injected directly into your pipeline is limited to 2MB. Setting "first row only" helps you to limit the data output from data flow when injecting the data flow activity output directly to your pipeline.
-
-:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Sink properties":::
 
 ## Parameterizing Data Flows
 

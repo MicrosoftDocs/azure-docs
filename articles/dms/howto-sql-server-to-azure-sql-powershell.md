@@ -3,8 +3,8 @@ title: "PowerShell: Migrate SQL Server to SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate a database from SQL Server to Azure SQL Database by using Azure PowerShell with the Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: croblesm
+ms.author: roblescarlos
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -33,7 +33,7 @@ To complete these steps, you need:
 * [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition)
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).
+* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](/azure/azure-sql/database/single-database-create-quickstart).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * To have created a Microsoft Azure Virtual Network by using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * To have completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [Performing a SQL Server migration assessment](/sql/dma/dma-assesssqlonprem)

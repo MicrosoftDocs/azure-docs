@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
+ms.date: 06/20/2022
 ---
 
 # Pre-certification checklist for IoT Edge modules
@@ -50,7 +50,7 @@ The certification team uses the following hardware to validate images on differe
 #### Steps
 
 1. Ensure devices/VM created can be accessed through Putty.
-1. Download [IoT Edge Runtime](../iot-edge/how-to-install-iot-edge.md) onto the device.
+1. Download [IoT Edge Runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md) onto the device.
 1. Update the connection string copied in step 5 to the config.yaml file.
 1. Restart the Edge Module with `sudo systemctl restart iotedge`.
 1. Check if the module is deployed on device with `sudo iotedge list`; it should be in running state.

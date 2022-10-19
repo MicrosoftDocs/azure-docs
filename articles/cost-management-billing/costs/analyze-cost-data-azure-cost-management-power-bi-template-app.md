@@ -1,22 +1,22 @@
 ---
 title: Analyze Azure costs with the Power BI App
-description: This article explains how to install and use the Azure Cost Management Power BI App.
+description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2021
+ms.date: 04/08/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
 ---
 
-# Analyze cost with the Azure Cost Management Power BI App for Enterprise Agreements (EA)
+# Analyze cost with the Cost Management Power BI App for Enterprise Agreements (EA)
 
-This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
+This article explains how to install and use the Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-The Azure Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+The Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-The app limits customizability. If you want to modify and extend the default filters, views, and visualizations to customize for your needs, use [Azure Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) instead. With the Azure Cost Management connector you can join additional data from other sources to create customized reports to get holistic views of your overall business cost. The connector also supports Microsoft Customer Agreements.
+The app limits customizability. If you want to modify and extend the default filters, views, and visualizations to customize for your needs, use [Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) instead. With the Cost Management connector you can join additional data from other sources to create customized reports to get holistic views of your overall business cost. The connector also supports Microsoft Customer Agreements.
 
 > [!NOTE]
 > Power BI template apps don't support downloading the PBIX file.
@@ -30,7 +30,7 @@ The app limits customizability. If you want to modify and extend the default fil
 
 To install the app:
 
-1. Open [Azure Cost Management Power BI App](https://aka.ms/costmgmt/ACMApp).
+1. Open [Cost Management Power BI App](https://aka.ms/costmgmt/ACMApp).
 1. On the Power BI AppSource page, select **Get it now**.
 1. Select **Continue** to agree to the terms of use and privacy policy.
 1. In the **Install this Power BI app** box, select **Install**.
@@ -45,14 +45,14 @@ To install the app:
 
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Screenshot showing where you enter your E A enrollment information." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
 1. The next installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Leave all the default values. Select **Sign in and connect**.  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Screenshot showing the Connect to Azure Cost Management App dialog box with default values to connect with." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Screenshot showing the Connect to Cost Management App dialog box with default values to connect with." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
 1. The final dialog connects to Azure and gets data. *Leave the default values as configured* and select **Sign in and continue**.  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Screenshot showing the Connect to Azure Cost Management App dialog box with default values." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Screenshot showing the Connect to Cost Management App dialog box with default values." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
 1. You are prompted to authenticate with your EA enrollment. Authenticate with Power BI. After you're authenticated, a Power BI data refresh starts.
     > [!NOTE]
     > The data refresh process might take quite a while to complete. The length depends on the number of months specified and the amount of data needed to sync.
 
-After the data refresh is complete, select the Azure Cost Management App to view the pre-created reports.
+After the data refresh is complete, select the Cost Management App to view the pre-created reports.
 
 ## Reports available with the app
 
@@ -60,12 +60,32 @@ The following reports are available in the app.
 
 **Getting Started** - Provides useful links to documentation and links to provide feedback.
 
-**Account overview** - The report shows a monthly summary of information, including:
+**Account overview** - The report shows the current billing month summary of information, including:
 
 - Charges against credits
 - New purchases
 - Azure Marketplace charges
 - Overages and total charges
+
+The Billing account overview page might show costs that differ from costs shown in the EA portal. 
+
+>[!NOTE]
+>The **Select date range** selector doesn’t affect or change overview tiles. Instead, the overview tiles show the costs for the current billing month. This behavior is intentional.
+
+Data shown in the bar graph is determined by the date selection.
+
+Here's how values in the overview tiles are calculated.
+
+- The value shown in the **Charges against credit** tile is calculated as the sum of `adjustments`.
+- The value shown in the **Service overage** tile is calculated as the sum of `ServiceOverage`.
+- The value shown in the **Billed separately** tile is calculated as the sum of `chargesBilledseparately`.
+- The value shown in the **Azure Marketplace** tile is calculated as the sum of `azureMarketplaceServiceCharges`.
+- The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
+- The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
+
+The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
+ 
+The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
 
 **Usage by Subscriptions and Resource Groups** - Provides a cost over time view and charts showing cost by subscription and resource group.
 
@@ -185,7 +205,7 @@ This error occurs if you change the authentication method for your data source c
 
 1. Connect to your data.
 1. After you enter your EA enrollment and number of months, make sure that you leave the default value of **Anonymous** for Authentication method and **None** for the Privacy level setting.  
-  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="Screenshot shows the Connect to Azure Cost Management App dialog box with Anonymous and None values entered." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
+  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="Screenshot shows the Connect to Cost Management App dialog box with Anonymous and None values entered." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
 1. On the next page, set **OAuth2** for the Authentication method and **None** set for Privacy level. Then, sign in to authenticate with your enrollment. This step also starts a Power BI data refresh.
 
 ## Data reference

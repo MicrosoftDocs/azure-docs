@@ -10,7 +10,7 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: 
-ms.date: 11/30/2020
+ms.date: 09/13/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -37,13 +37,14 @@ The Microsoft Azure AD B2C directory service supports billions of authentication
 
   - [Preconditions](../../active-directory-b2c/userjourneys.md) in a user journey will look like this:
 
-  ``
+  ```xml
   <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
   <Value>requiresMigration</Value>
   ...
-  < Precondition/>
-  ``
-  -	Build resistance to bot driven [sign-ups by integrating with a CAPTCHA system](https://github.com/azure-ad-b2c/samples/tree/master/policies/captcha-integration).
+  <Precondition/>
+  ```
+
+  -	Build resistance to bot-driven [sign-ups by integrating with a CAPTCHA system](https://github.com/azure-ad-b2c/samples/tree/master/policies/captcha-integration).
 
   - Use a [load testing sample](../../active-directory-b2c/best-practices.md#testing) to simulate sign-up and sign-in. 
 

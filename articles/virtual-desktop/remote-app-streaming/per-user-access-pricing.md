@@ -13,7 +13,10 @@ manager: femila
 
 # Enroll your subscription in per-user access pricing
 
-Before external users can connect to your deployment, you need to enroll your subscription in per-user access pricing. Per-user access pricing lets users outside of your organization access apps and desktops in your subscription. Your enrolled subscription will be charged each month based on the number of distinct users that connect to Azure Virtual Desktop resources.
+Before external users can connect to your deployment, you need to enroll your subscription in per-user access pricing. Per-user access pricing entitles users outside of your organization to access apps and desktops in your subscription using identities that you provide and manage. Your enrolled subscription will be charged each month based on the number of distinct users that connect to Azure Virtual Desktop resources.
+
+>[!NOTE]
+>Take care not to confuse external *users* with external *identities*. Azure Virtual Desktop doesn't currently support external identities, including guest accounts or business-to-business (B2B) identities. Whether you're serving internal users or external users with Azure Virtual Desktop, you'll need to create and manage identities for those users yourself. Per-user access pricing is not a way to enable guest user accounts with Azure Virtual Desktop. For more information, see [Understanding licensing and per-user access pricing](licensing.md).
 
 ## How to enroll
 
@@ -35,4 +38,4 @@ To enroll your Azure subscription into per-user access pricing:
 
 ## Next steps
 
-To learn more about per-user access pricing, see [Understanding licensing and per-user access pricing](licensing.md). If you want to learn how to estimate per-user app streaming costs for your deployment, see [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md). For estimating total deployment costs, see [Understanding total Azure Virtual Desktop deployment costs](total-costs.md). 
+To learn more about per-user access pricing, see [Understanding licensing and per-user access pricing](licensing.md). If you want to learn how to estimate per-user app streaming costs for your deployment, see [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md). For estimating total deployment costs, see [Understanding total Azure Virtual Desktop deployment costs](total-costs.md).

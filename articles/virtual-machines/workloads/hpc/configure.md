@@ -1,14 +1,13 @@
 ---
 title: Configuration and Optimization of InfiniBand enabled H-series and N-series Azure Virtual Machines
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: amverma
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Configure and optimize VMs
@@ -23,7 +22,7 @@ On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable R
   - The CentOS-HPC version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers. 
 - The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers and GPU drivers.
 
-These VM images (VMI) are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
+These VM images are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 On GPU enabled [N-series](../../sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required. This can be available by the following methods:
 - Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
@@ -48,13 +47,13 @@ The VM size support matrix for the GPU drivers in supported HPC VM images is as 
 - [N-series](../../sizes-gpu.md): NDv2, NDv4 VM sizes are supported with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
 - The other 'NC' and 'ND' VM sizes in the [N-series](../../sizes-gpu.md) are supported with the Nvidia GPU drivers.
 
-Also note that all the above VM sizes support "Gen 2" VMs, though some older ones also support "Gen 1" VMs. "Gen 2" support is also indicated with a "01" at the end of the VMI URN or version.
+All of the VM sizes in the N-series support [Gen 2 VMs](../../generation-2.md), though some older ones also support Gen 1 VMs. Gen 2 support is also indicated with a "01" at the end of the image URN or version.
 
 ### CentOS-HPC VM images
 
 #### SR-IOV enabled VMs
 For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC VM images version 7.6 and later are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview).
    ```bash
    "publisher": "OpenLogic",
    "offer": "CentOS-HPC",
@@ -82,7 +81,7 @@ For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instan
 
 ### Ubuntu-HPC VM images
 For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come optimized and pre-loaded with the Mellanox OFED drivers for RDMA, Nvidia GPU drivers, GPU compute software stack (CUDA, NCCL), and various commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images) above.
-- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az_vm_image_list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
+- The available or latest versions of the VM images can be listed with the following information using [CLI](/cli/azure/vm/image#az-vm-image-list) or [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc?tab=overview).
    ```bash
    "publisher": "Microsoft-DSVM",
    "offer": "Ubuntu-HPC",

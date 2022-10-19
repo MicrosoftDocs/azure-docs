@@ -20,18 +20,18 @@ Event Grid is offered in two editions: **Azure Event Grid**, a fully managed Paa
 
 For clarity, in this article we use the term **Event Grid** when referring to the general service capabilities regardless of the edition used. We refer to **Azure Event Grid** to refer to the managed service hosted on Azure. For conciseness, we refer also to **Event Grid on Kubernetes with Azure Arc** as **Event Grid on Kubernetes**.
 
-Regardless of the edition of Event Grid you use, there is an **event publisher** that sends events to Event Grid and one or more **event subscribers** that expose endpoints where they receive events delivered by Event Grid. Not all events published to Event Grid need to be delivered to all event subscribers. Event Grid allows you to select the events that should be routed to specific destination(s) through a set of configuration settings defined in an **event subscription**. You can use filters in event subscriptions to route specific events to one endpoint or multicast to multiple endpoints. Event Grid offers a reliable delivery mechanism with retry logic too. Event Grid is also based on open standards and supports the [Cloud Events 1.0 schema specification](https://github.com/cloudevents/spec/blob/master/spec.md).
+Regardless of the edition of Event Grid you use, there is an **event publisher** that sends events to Event Grid and one or more **event subscribers** that expose endpoints where they receive events delivered by Event Grid. Not all events published to Event Grid need to be delivered to all event subscribers. Event Grid allows you to select the events that should be routed to specific destination(s) through a set of configuration settings defined in an **event subscription**. You can use filters in event subscriptions to route specific events to one endpoint or multicast to multiple endpoints. Event Grid offers a reliable delivery mechanism with retry logic too. Event Grid is also based on open standards and supports the [Cloud Events 1.0 schema specification](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md).
 
 
 ## Event Grid on Kubernetes with Azure Arc
-Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you are able to [install Event Grid](install-k8s-extension.md) on it. 
+Event Grid on Kubernetes with Azure Arc is an offering that allows you to run Event Grid on your own Kubernetes cluster. This capability is enabled by the use of [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md). Through Azure Arc-enabled Kubernetes, a [supported Kubernetes cluster](install-k8s-extension.md#supported-kubernetes-distributions) connects to Azure. Once connected, you are able to [install Event Grid](install-k8s-extension.md) on it. 
 
 ### Use case
 Event Grid on Kubernetes supports various event-driven integration scenarios. However, the main encompassing scenario supported and expressed as a user story is:
 
 "As an owner of a system deployed to a Kubernetes cluster, I want to communicate my system's state changes by publishing events and configuring routing of those events so that event handlers, under my control or otherwise, can process my system's events in a way they see fit."
 
-**Feature** that helps you realize above requirement: [Event Grid Topics](/rest/api/eventgrid/version2021-06-01-preview/topics).
+**Feature** that helps you realize above requirement: [Event Grid Topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics).
 
 ### Event Grid on Kubernetes at a glance
 From the user perspective, Event Grid on Kubernetes is composed of the following resources in blue:
@@ -64,13 +64,13 @@ With Event Grid on Kubernetes, you can forward events to Azure for further proce
 Event handler destinations can be any HTTPS or HTTP endpoint to which Event Grid can reach through the network, public or private, and has access (not protected with some authentication mechanism). You define event delivery destinations when you create an event subscription. For more information, see [event handlers](event-handlers.md). 
 
 ## Features
-Event Grid on Kubernetes supports [Event Grid Topics](/rest/api/eventgrid/version2021-06-01-preview/topics), which is a feature also offered by [Azure Event Grid](../custom-topics.md). Event Grid topics help you realize the [primary integration use case](#use-case) where your requirements call for integrating your system with another workload that you own or otherwise is made accessible to your system.
+Event Grid on Kubernetes supports [Event Grid Topics](/rest/api/eventgrid/controlplane-version2021-10-15-preview/topics), which is a feature also offered by [Azure Event Grid](../custom-topics.md). Event Grid topics help you realize the [primary integration use case](#use-case) where your requirements call for integrating your system with another workload that you own or otherwise is made accessible to your system.
 
 Some of the capabilities you get with Azure Event Grid on Kubernetes are:
 
 * **[Event filtering](filter-events.md)**: Filter on event type, event subject, or event data to make sure event handlers only receive relevant events.
 * **Fan-out**: Subscribe several endpoints to the same event to send copies of the event to many places.
-* **Based on open standards**: Define your events using the CNCF's [Cloud Events 1.0 schema specification](https://github.com/cloudevents/spec/blob/master/spec.md).
+* **Based on open standards**: Define your events using the CNCF's [Cloud Events 1.0 schema specification](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md).
 * **Reliability**: Event Grid features a retry event delivery logic that makes sure events get to their destination.
 
 For more information, see [features supported by Event Grid on Kubernetes](features.md).

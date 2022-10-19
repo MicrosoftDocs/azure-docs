@@ -78,7 +78,7 @@ landingContent:
           - text: .NET
             url: /dotnet/api/microsoft.azure.management.resourcemanager
           - text: Java
-            url: /java/api/com.microsoft.azure.management.resources
+            url: /java/api/com.azure.resourcemanager.resources
           - text: Python
             url: /python/api/overview/azure/resources
 
@@ -91,3 +91,5 @@ landingContent:
             url: request-limits-and-throttling.md
           - text: Asynchronous operations
             url: async-operations.md
+          - text: Control plane metrics in Azure Monitor
+            url: control-plane-metrics.md

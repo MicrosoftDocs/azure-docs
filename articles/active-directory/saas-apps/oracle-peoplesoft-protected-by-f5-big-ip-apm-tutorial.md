@@ -59,6 +59,8 @@ To configure the integration of Oracle PeopleSoft - Protected by F5 BIG-IP APM i
 1. In the **Add from the gallery** section, type **Oracle PeopleSoft - Protected by F5 BIG-IP APM** in the search box.
 1. Select **Oracle PeopleSoft - Protected by F5 BIG-IP APM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 
 ## Configure and test Azure AD SSO for Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -296,15 +298,17 @@ To add single logout support for all PeopleSoft users,please follow these steps:
 
     * Navigate to **Local Traffic > iRule**, click **Create**, complete the following information and click **Finished**.
 
-        Name: `<Name>`  
-        Definition:  
-                    _when HTTP_REQUEST {  
-                        switch -glob -- [HTTP::uri] {  
-                            `/psp/ps/?cmd=logout` {  
-                                HTTP::redirect `/my.logout.php3`  
-                            }  
-                        }  
-                    }_
+      ```text
+      Name: `<Name>`
+      Definition:
+                  _when HTTP_REQUEST {
+                      switch -glob -- [HTTP::URI] {
+                          `/psp/ps/?cmd=logout` {
+                              HTTP::redirect `/my.logout.php3`
+                          }
+                      }
+                  }_
+      ```
 
 1. Assign the created iRule to the Virtual Server
 
@@ -341,4 +345,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Oracle PeopleSoft-Protected by F5 BIG-IP APM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Oracle PeopleSoft-Protected by F5 BIG-IP APM you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Use MQTT to create an Azure IoT Plug and Play device client | Microsoft Docs
 description: Tutorial - Use the MQTT protocol directly to create an IoT Plug and Play device client without using the Azure IoT Device SDKs
-author: ericmitt
-ms.author: ericmitt
+author: ryanwinter
+ms.author: rywinter
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-develop

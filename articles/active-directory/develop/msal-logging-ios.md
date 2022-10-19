@@ -1,9 +1,8 @@
 ---
 title: Logging errors and exceptions in MSAL for iOS/macOS
-titleSuffix: Microsoft identity platform
 description: Learn how to log errors and exceptions in MSAL for iOS/macOS
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/25/2021
-ms.author: marsma
+ms.author: henrymbugua
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ---

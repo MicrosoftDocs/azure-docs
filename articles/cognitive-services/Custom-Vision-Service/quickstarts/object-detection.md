@@ -7,8 +7,9 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/19/2021
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.date: 06/13/2022
+ms.devlang: csharp, golang, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 keywords: custom vision
 zone_pivot_groups: programming-languages-set-one
 ---

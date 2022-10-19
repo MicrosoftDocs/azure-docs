@@ -3,15 +3,14 @@ title: Plan Azure virtual networks | Microsoft Docs
 description: Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
 services: virtual-network
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 manager: mtillman
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
-ms.author: kumud
+ms.author: mbender
 
 ---
 # Plan virtual networks
@@ -44,7 +43,7 @@ A virtual network is a virtual, isolated portion of the Azure public network. Ea
 
 - Do any organizational security requirements exist for isolating traffic into separate virtual networks? You can choose to connect virtual networks or not. If you connect virtual networks, you can implement a network virtual appliance, such as a firewall, to control the flow of traffic between the virtual networks. For more information, see [security](#security) and [connectivity](#connectivity).
 - Do any organizational requirements exist for isolating virtual networks into separate [subscriptions](#subscriptions) or [regions](#regions)?
-- A [network interface](virtual-network-network-interface.md) enables a VM to communicate with other resources. Each network interface has one or more private IP addresses assigned to it. How many network interfaces and [private IP addresses](./private-ip-addresses.md) do you require in a virtual network? There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) to the number of network interfaces and private IP addresses that you can have within a virtual network.
+- A [network interface](virtual-network-network-interface.md) enables a VM to communicate with other resources. Each network interface has one or more private IP addresses assigned to it. How many network interfaces and [private IP addresses](./ip-services/private-ip-addresses.md) do you require in a virtual network? There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) to the number of network interfaces and private IP addresses that you can have within a virtual network.
 - Do you want to connect the virtual network to another virtual network or on-premises network? You may choose to connect some virtual networks to each other or on-premises networks, but not others. For more information, see [connectivity](#connectivity). Each virtual network that you connect to another virtual network, or on-premises network, must have a unique address space. Each virtual network has one or more public or private address ranges assigned to its address space. An address range is specified in classless internet domain routing (CIDR) format, such as 10.0.0.0/16. Learn more about [address ranges](manage-virtual-network.md#add-or-remove-an-address-range) for virtual networks.
 - Do you have any organizational administration requirements for resources in different virtual networks? If so, you might separate resources into separate virtual network to simplify [permission assignment](#permissions) to individuals in your organization or to assign different policies to different virtual networks.
 - When you deploy some Azure service resources into a virtual network, they create their own virtual network. To determine whether an Azure service creates its own virtual network, see information for each [Azure service that can be deployed into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
@@ -68,6 +67,7 @@ You can filter network traffic to and from resources in a virtual network using 
 - You can filter network traffic between resources in a virtual network using a network security group, an NVA that filters network traffic, or both. To deploy an NVA, such as a firewall, to filter network traffic, see the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?subcategories=appliances&page=1). When using an NVA, you also create custom routes to route traffic from subnets to the NVA. Learn more about [traffic routing](#traffic-routing).
 - A network security group contains several default security rules that allow or deny traffic to or from resources. A network security group can be associated to a network interface, the subnet the network interface is in, or both. To simplify management of security rules, it's recommended that you associate a network security group to individual subnets, rather than individual network interfaces within the subnet, whenever possible.
 - If different VMs within a subnet need different security rules applied to them, you can associate the network interface in the VM to one or more application security groups. A security rule can specify an application security group in its source, destination, or both. That rule then only applies to the network interfaces that are members of the application security group. Learn more about [network security groups](./network-security-groups-overview.md) and [application security groups](./network-security-groups-overview.md#application-security-groups).
+- When a network security group is associated at the subnet level, it applies to all the NICs in the subnet, not just to the traffic coming from outside the subnet. This means that the traffic between the VMs contained in the subnet can be affected as well.
 - Azure creates several default security rules within each network security group. One default rule allows all traffic to flow between all resources in a virtual network. To override this behavior, use network security groups, custom routing to route traffic to an NVA, or both. It's recommended that you familiarize yourself with all of Azure's [default security rules](./network-security-groups-overview.md#default-security-rules) and understand how network security group rules are applied to a resource.
 
 You can view sample designs for implementing a perimeter network (also known as a DMZ) between Azure and the internet using an [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).

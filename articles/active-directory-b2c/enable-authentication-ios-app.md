@@ -2,13 +2,13 @@
 title: Enable authentication in an iOS Swift app by using Azure AD B2C
 description:  This article discusses how to enable authentication in an iOS Swift application by using Azure Active Directory B2C building blocks. Learn how to use Azure AD B2C to sign in and sign up users in an iOS Swift application.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -100,7 +100,7 @@ To learn how to configure your iOS Swift app, see [Configure authentication in a
 
 ## Step 5: Run and test the mobile app
 
-1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-the-simulator-or-on-a-device).
+1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device).
 1. Select **Sign In**, and then sign up or sign in with your Azure AD B2C local or social account.
 1. After you've authenticated successfully, you'll see your display name in the navigation bar.
 

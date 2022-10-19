@@ -2,11 +2,11 @@
 title: Create Azure Application Gateway custom error pages
 description: This article shows you how to create Application Gateway custom error pages. You can use your own branding and layout using a custom error page.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/16/2019
-ms.author: victorh 
+ms.date: 04/12/2022
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -32,30 +32,29 @@ Custom error pages can be defined at the global level and the listener level:
 To create a custom error page, you must have:
 
 - an HTTP response status code.
-- the corresponding location for the error page. 
-- a publicly accessible Azure storage blob for the location.
-- an *.htm or *.html extension type. 
+- corresponding location for the error page. 
+- error page should be internet accessible and return 200 response.
+- error page should be in \*.htm or \*.html extension type.
+- error page size must be less than 1 MB.
 
-The size of the error page must be less than 1 MB. You may reference either internal or external images/CSS for this HTML file. For externally referenced resources, use absolute URLs that are publicly accessible. Be aware of the HTML file size when using internal images (Base64-encoded inline image) or CSS. Relative links with files in the same blob location are currently not supported.
+You may reference either internal or external images/CSS for this HTML file. For externally referenced resources, use absolute URLs that are publicly accessible. Be aware of the HTML file size when using internal images (Base64-encoded inline image) or CSS. Relative links with files in the same location are currently not supported.
 
-After you specify an error page, the application gateway downloads it from the storage blob location and saves it to the local application gateway cache. Then, that HTML page is served by the application gateway, whereas the externally referenced resources are fetched directly by the client. To modify an existing custom error page, you must point to a different blob location in the application gateway configuration. The application gateway doesn't periodically check the blob location to fetch new versions.
+After you specify an error page, the application gateway downloads it from the defined location and saves it to the local application gateway cache. Then, that HTML page is served by the application gateway, whereas the externally referenced resources are fetched directly by the client. To modify an existing custom error page, you must point to a different blob location in the application gateway configuration. The application gateway doesn't periodically check the blob location to fetch new versions.
 
 ## Portal configuration
 
 1. Navigate to Application Gateway in the portal and choose an application gateway.
 
-    ![Screenshot shows the Overview page for an application gateway.](media/custom-error/ag-overview.png)
-2. Click **Listeners** and navigate to a particular listener where you want to specify an error page.
+2. Select **Listeners** and navigate to a particular listener where you want to specify an error page.
 
-    ![Application Gateway listeners](media/custom-error/ag-listener.png)
 3. Configure a custom error page for a 403 WAF error or a 502 maintenance page at the listener level.
 
     > [!NOTE]
     > Creating global level custom error pages from the Azure portal is currently not supported.
 
-4. Specify a publicly accessible blob URL for a given error status code and click **Save**. The Application Gateway is now configured with the custom error page.
+4. Under **Error page url**, select **Yes**, and then configure a publicly accessible blob URL for a given error status code. Select **Save**. The Application Gateway is now configured with the custom error page.
 
-   ![Application Gateway error codes](media/custom-error/ag-error-codes.png)
+   ![Screenshot of Application Gateway custom error page.](media/custom-error/ag-error-codes.png)
 
 ## Azure PowerShell configuration
 
@@ -81,4 +80,4 @@ For more information, see [Add-AzApplicationGatewayCustomError](/powershell/modu
 
 ## Next steps
 
-For information about Application Gateway diagnostics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+For information about Application Gateway diagnostics, see [Backend health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).

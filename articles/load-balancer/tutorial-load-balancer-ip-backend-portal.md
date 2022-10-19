@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a public load balancer with an IP-based backend - Azure portal'
 titleSuffix: Azure Load Balancer
 description: In this tutorial, learn how to create a public load balancer with an IP based backend pool.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 08/06/2021
@@ -163,7 +163,7 @@ During the creation of the load balancer, you'll configure:
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 

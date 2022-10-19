@@ -2,8 +2,8 @@
 title: 'Tutorial: Load balance multiple IP configurations - Azure portal'
 titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 08/08/2021
@@ -182,6 +182,8 @@ In this section, you'll create two virtual machines to host the IIS websites.
 ## Create secondary network configurations
 
 In this section, you'll change the private IP address of the existing NIC of each virtual machine to **Static**. Next, you'll add a new NIC resource to each virtual machine with a **Static** private IP address configuration.
+
+For more information on configuring floating IP in the virtual machine configuration, see [Floating IP Guest OS configuration](load-balancer-floating-ip.md#floating-ip-guest-os-configuration).
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -440,7 +442,7 @@ During the creation of the load balancer, you'll configure:
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 

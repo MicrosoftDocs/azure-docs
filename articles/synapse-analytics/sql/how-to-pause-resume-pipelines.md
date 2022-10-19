@@ -1,8 +1,8 @@
 ---
 title: How to pause and resume dedicated SQL pools with Synapse Pipelines 
 description: Learn to automate pause and resume for a dedicated SQL pool with Synapse Pipelines in Azure Synapse Analytics. 
-author: julieMSFT
-ms.author: jrasnick
+author: kromerm
+ms.author: makromer
 ms.service: synapse-analytics
 ms.reviewer: wiassaf
 ms.subservice: sql
@@ -45,7 +45,7 @@ Synapse Pipelines allow for the automation of pause and resume, but you can exec
 
 - An existing [Azure Synapse workspace](../get-started-create-workspace.md)
 - At least one [dedicated SQL pool](../get-started-analyze-sql-pool.md)
-- Your workspace must be assigned the Azure contributor role. See [Grant Synapse administrators the Azure Contributor role on the workspace](../security/how-to-set-up-access-control.md#step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace).
+- Your workspace must be assigned the Azure contributor role to the affected Dedicated SQL Pool(s). See [Grant Synapse administrators the Azure Contributor role on the workspace](../security/how-to-set-up-access-control.md#step-5-grant-synapse-administrators-an-azure-contributor-role-for-the-workspace).
 
 ## Step 1: Create a pipeline in Synapse Studio.
 1. Navigate to your workspace and open Synapse Studio. 
@@ -219,9 +219,6 @@ To schedule your pipeline, select **Add trigger** at the top of your pipeline. F
 
 Further details on Managed Identity for Azure Synapse, and how Managed Identity is added to your dedicated SQL pool can be found here:
 
-[Azure Synapse workspace managed identity](../security/synapse-workspace-managed-identity.md)
+[Azure Synapse workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
 
 [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md)
-
-[SQL access control for Synapse pipeline runs](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-azure-synapse-pipeline-runs)
-

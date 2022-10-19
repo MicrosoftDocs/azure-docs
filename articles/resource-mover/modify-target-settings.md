@@ -38,7 +38,7 @@ Configuration settings you can modify are summarized in the table.
 **Disk encryption set** | The associated disk encryption set if the VM uses a customer-managed key for server-side encryption.
 **Resource group** | The resource group in which the destination VM will be placed.
 **Networking resources** | Options for network interfaces, virtual networks (VNets/), and network security groups/network interfaces:<br/><br/> - Create a new resource with the same name in the destination region.<br/><br/> - Create a new resource with a different name in the destination region.<br/><br/> - Use an existing networking resource in the destination region.<br/><br/> If you create a new destination resource, with the exception of the settings you modify, it's assigned the same settings as the source resource.
-**Public IP address name, SKU, and zone** | Specifies the name, [SKU](../virtual-network/public-ip-addresses.md#sku), and [zone](../virtual-network/public-ip-addresses.md#standard) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
+**Public IP address name, SKU, and zone** | Specifies the name, [SKU](../virtual-network/ip-services/public-ip-addresses.md#sku), and [zone](../virtual-network/ip-services/public-ip-addresses.md#sku) for standard public IP addresses.<br/><br/> If you want it to be zone redundant, enter as **Zone redundant**.
 **Load balancer name, SKU, and zone** | Specifies the name, SKU (Basic or Standard), and zone for the load balancer.<br/><br/> We recommend using Standard SKU.<br/><br/> If you want it to be zone redundant, specify as **Zone redundant**.
 **Resource dependencies** | Options for each dependency:<br/><br/>- The resource uses source dependent resources that will move to the destination region.<br/><br/> - The resource uses different dependent resources located in the destination region. In this case, you can choose from any similar resources in the destination region.
 
@@ -58,9 +58,18 @@ To modify a setting:
 1. In the **Across regions** page > **Destination configuration** column, click the link for the resource entry.
 2. In **Configuration settings**, you can create a new VM in the destination region.
 3. Assign a new availability zone, availability set, or SKU to the destination VM. **Availability zone** and **SKU**.
+4. Modify or add new tag name or value of the destination VM.
+
+     ![Extension resource tag for VM](media\modify-target-settings\extension-resources-tag-vm.png)
+
+5. Choose to **Retain** or **Do not retain** the user-assigned managed identity.
+
+     ![Extension resource umi for VM](media\modify-target-settings\extension-resources-umi-vm.png)
+
+> [!NOTE] 
+> Retain would assign the user-assigned managed identity to the newly created destination resource. Do not retain would not assign the user-assigned managed identity to the destination resource. The user-assigned managed identity as a resource itself is not been moved to the destination region.
 
 Changes are only made for the resource you're editing. You need to update any dependent resource separately.
-
 
 ## Modify SQL settings
 

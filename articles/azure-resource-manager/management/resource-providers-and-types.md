@@ -2,15 +2,15 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 08/26/2021 
+ms.date: 08/05/2022 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Azure resource providers and types
 
-When deploying resources, you frequently need to retrieve information about the resource providers and types. For example, if you want to store keys and secrets, you work with the Microsoft.KeyVault resource provider. This resource provider offers a resource type called vaults for creating the key vault.
+An Azure resource provider is a collection of REST operations that provide functionality for an Azure service. For example, the Key Vault service consists of a resource provider named **Microsoft.KeyVault**. The resource provider defines [REST operations](/rest/api/keyvault/) for working with vaults, secrets, keys, and certificates.
 
-The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
+The resource provider defines the Azure resources that are available for you to deploy to your account. The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
 
 In this article, you learn how to:
 
@@ -34,7 +34,9 @@ Before using a resource provider, your Azure subscription must be registered for
 
 Some resource providers are registered by default. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
-Other resource providers are registered automatically when you take certain actions. When you deploy an Azure Resource Manager template, all required resource providers are automatically registered. When you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. 
+Other resource providers are registered automatically when you take certain actions. When you create a resource through the portal, the resource provider is typically registered for you. When you deploy an Azure Resource Manager template or Bicep file, resource providers defined in the template are registered automatically. However, if a resource in the template creates supporting resources that aren't in the template, such as monitoring or security resources, you need to manually register those resource providers.
+
+For other scenarios, you may need to manually register a resource provider.
 
 > [!IMPORTANT]
 > Your application code **shouldn't block the creation of resources** for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.

@@ -2,14 +2,14 @@
 title: Upgrade Azure Kubernetes Service (AKS) node images
 description: Learn how to upgrade the images on AKS cluster nodes and node pools.
 ms.service: container-service
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/25/2020
 ms.author: jpalma
 ---
 
 # Azure Kubernetes Service (AKS) node image upgrade
 
-AKS supports upgrading the images on a node so you're up to date with the newest OS and runtime updates. AKS provides one new image per week with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest features, including Linux or Windows patches. Although customers will be notified of image upgrades via the AKS release notes, it might take up to a week for updates to be rolled out in all regions. This article shows you how to upgrade AKS cluster node images and how to update node pool images without upgrading the version of Kubernetes.
+AKS supports upgrading the images on a node so you're up to date with the newest OS and runtime updates. AKS regularly provides new images with the latest updates, so it's beneficial to upgrade your node's images regularly for the latest AKS features. Linux node images are updated weekly, and Windows node images updated monthly. Although customers will be notified of image upgrades via the AKS release notes, it might take up to a week for updates to be rolled out in all regions. This article shows you how to upgrade AKS cluster node images and how to update node pool images without upgrading the version of Kubernetes.
 
 For more information about the latest images provided by AKS, see the [AKS release notes](https://github.com/Azure/AKS/releases).
 
@@ -75,6 +75,9 @@ az aks upgrade \
 
 During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
 
+>[!NOTE]
+> This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
+
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
@@ -102,6 +105,9 @@ az aks nodepool upgrade \
 ```
 
 During the upgrade, check the status of the node images with the following `kubectl` command to get the labels and filter out the current node image information:
+
+>[!NOTE]
+> This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
 
 ```azurecli
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
@@ -155,6 +161,9 @@ az aks nodepool show \
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
 - [Automatically apply cluster and node pool upgrades with GitHub Actions][github-schedule]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
+
+<!-- LINKS - external -->
+[kubernetes-json-path]: https://kubernetes.io/docs/reference/kubectl/jsonpath/
 
 <!-- LINKS - internal -->
 [upgrade-cluster]: upgrade-cluster.md

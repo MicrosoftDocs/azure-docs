@@ -4,7 +4,7 @@ description: This article shows the steps to connect Configuration Manager to wo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/02/2021
+ms.date: 08/02/2021  
 ---
 
 # Connect Configuration Manager to Azure Monitor
@@ -44,17 +44,9 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 > You must specify permissions in the Log Analytics workspace for Configuration Manager. Otherwise, you receive an error message when you use the configuration wizard in Configuration Manager.
 >
 
-1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. Assign the Contributor role to the Log Analytics scope.
 
-2. In your list of Log Analytics workspaces, select the workspace to modify.
-
-3. From the left pane, select **Access control (IAM)**.
-
-4. In the Access control (IAM) page, click **Add role assignment** and the **Add role assignment** pane appears.
-
-5. In the **Add role assignment** pane, under the **Role** drop-down list select the **Contributor** role.  
-
-6. Under the **Assign access to** drop-down list, select the Configuration Manager application created in AD earlier, and then click **OK**.  
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Download and install the agent
 

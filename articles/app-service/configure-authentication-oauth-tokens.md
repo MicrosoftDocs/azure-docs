@@ -36,9 +36,9 @@ When your provider's access token (not the [session token](#extend-session-token
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq)).
-- **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
+- **Microsoft**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
-    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettingsV2**.
+    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name>_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettingsV2**.
     3. Click **Edit**.
     4. Modify the following property.
 
@@ -46,16 +46,16 @@ When your provider's access token (not the [session token](#extend-session-token
         "identityProviders": {
           "azureActiveDirectory": {
             "login": {
-              "loginParameters": ["scope=openid offline_access"]
+              "loginParameters": ["scope=openid profile email offline_access"]
             }
           }
         }
         ```
 
     5. Click **Put**.
-
-> [!NOTE]
-> If you configured your application with the Authentication (Classic) blade, instead of navigating to the the **authSettingsV2** section in [https://resources.azure.com](https://resources.azure.com), navigate to **authsettings**. Then edit the setting ```"additionalLoginParams": ["scope=openid offline_access"]```.
+    
+    > [!NOTE]
+    > The scope that gives you a refresh token is [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). See how it's used in [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md). The other scopes are requested by default by App Service already. For information on these default scopes, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 

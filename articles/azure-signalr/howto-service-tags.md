@@ -3,12 +3,11 @@ title: Use service tags
 titleSuffix: Azure SignalR Service
 description: Use service tags to allow outbound traffic to your Azure SignalR Service
 services: signalr
-author: ArchangelSDY
-
+author: vicancy
 ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
-ms.author: dayshen
+ms.author: lianwei
 ---
 
 # Use service tags for Azure SignalR Service

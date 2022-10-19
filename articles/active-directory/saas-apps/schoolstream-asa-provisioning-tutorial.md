@@ -23,7 +23,8 @@ This tutorial describes the steps you need to perform in both SchoolStream ASA a
 > [!div class="checklist"]
 > * Create users in SchoolStream ASA 
 > * Remove users in SchoolStream ASA  when they do not require access anymore.
-> * Keep user attributes synchronized between Azure AD and SchoolStream ASA
+> * Keep user attributes synchronized between Azure AD and SchoolStream ASA.
+> * Provision groups and group memberships in SchoolStream ASA.
 > * [Single sign-on](../manage-apps/add-application-portal-setup-oidc-sso.md) to SchoolStream ASA (recommended).
 
 
@@ -51,11 +52,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 To start managing provisioning to SchoolStream ASA in your Azure AD, you need to add SchoolStream ASA from the Azure AD application gallery. 
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-2. On the left navigation pane, select the **Azure Active Directory** service.
-3. Navigate to **Enterprise Applications** and then select **All Applications**.
-4. To add new application, select **New application**.
-5. In the **Browse Azure AD Gallery** section, type **SchoolStream ASA** in the search box.
-6. Select **SchoolStream ASA** from results panel and then **Sign up for the app**. Wait a few seconds while the app is added to your tenant.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Browse Azure AD Gallery** section, type **SchoolStream ASA** in the search box.
+1. Select **SchoolStream ASA** from results panel and then **Sign up for the app**. Wait a few seconds while the app is added to your tenant.
 
 
 If you have previously setup SchoolStream ASA for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
@@ -64,9 +65,9 @@ If you have previously setup SchoolStream ASA for SSO you can use the same appli
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to SchoolStream ASA, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
 ## Step 5. Configure automatic user provisioning to SchoolStream ASA 
@@ -139,7 +140,19 @@ This section guides you through the steps to configure the Azure AD provisioning
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String| 
 
-13. Select the **Save** button to commit any changes. You can go back to the **Application** tab and select **Edit provisioning** to continue.
+
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to UNIFI**.
+
+1. Review the group attributes that are synchronized from Azure AD to UNIFI in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in UNIFI for update operations. Select the **Save** button to commit any changes.
+
+      |Attribute|Type|Supported for filtering|
+      |---|---|---|
+      |displayName|String|&check;
+      |members|Reference|
+      |externalId|String|      
+
+
+1. Select the **Save** button to commit any changes. You can go back to the **Application** tab and select **Edit provisioning** to continue.
 
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -163,6 +176,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 09/24/2020 - Group provisioning got enabled.
 
 ## More resources
 

@@ -4,7 +4,9 @@ description: Use HDInsight service tags to allow inbound traffic to your cluster
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 06/23/2021
+ms.author: sairamyeturi
+author: yeturis
+ms.date: 07/21/2022
 ---
 
 # NSG service tags for Azure HDInsight
@@ -13,7 +15,7 @@ Azure HDInsight service tags for network security groups (NSGs) are groups of IP
 
 The HDInsight service manages these service tags. You can't create your own service tag or modify an existing tag. Microsoft manages the address prefixes that match to the service tag and automatically updates the service tag as addresses change.
 
-If you would like to use a particular region and the service tag is not yet documented on this page, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find your service tag. You can also download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
+If you would like to use a particular region and the service tag is not yet documented on this page, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to find your service tag. You can also download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
 
 ## Get started with service tags
 
@@ -54,11 +56,14 @@ If your cluster is located in a region listed in this table, you only need to ad
 | Australia | Australia East | HDInsight.AustraliaEast |
 | &nbsp; | Australia Southeast | HDInsight.AustraliaSoutheast |
 | &nbsp; | Australia Central | HDInsight.AustraliaCentral |
+| Asia | East Asia | HDInsight.EastAsia |
+| &nbsp; | Southeast Asia | HDInsight.SoutheastAsia |
 | Brazil | Brazil South | HDInsight.BrazilSouth |
 | &nbsp; | Brazil Southeast | HDInsight.BrazilSoutheast |
 | China | China East 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
-| Japan | Japan West | HDInsight.JapanWest |
+| Japan | Japan East | HDInsight.JapanEast |
+| &nbsp; | Japan West | HDInsight.JapanWest |
 | Korea | Korea Central | HDInsight.KoreaCentral |
 | &nbsp; | Korea South | HDInsight.KoreaSouth |
 | India | Central India | HDInsight.CentralIndia |
@@ -67,14 +72,19 @@ If your cluster is located in a region listed in this table, you only need to ad
 | South Africa | South Africa North | HDInsight.SouthAfricaNorth |
 | UAE | UAE North | HDInsight.UAENorth |
 | &nbsp; | UAE Central | HDInsight.UAECentral |
+| Europe | North Europe | HDInsight.NorthEurope |
+| &nbsp; | West Europe | HDInsight.WestEurope |
 | France | France Central| HDInsight.FranceCentral |
 | Germany | Germany West Central| HDInsight.GermanyWestCentral |
 | Norway | Norway East | HDInsight.NorwayEast |
+| Sweden | Sweden Central | HDInsight.SwedenCentral |
+| &nbsp; | Sweden South | HDInsight.SwedenSouth |
 | Switzerland | Switzerland North | HDInsight.SwitzerlandNorth |
 | &nbsp; | Switzerland West | HDInsight.SwitzerlandWest |
 | UK | UK South | HDInsight.UKSouth |
 | &nbsp; | UK West | HDInsight.UKWest |
 | United States | North Central US | HDInsight.NorthCentralUS |
+| &nbsp; | Central US | HDInsight.CentralUS |
 | &nbsp; | West US 2 | HDInsight.WestUS2 |
 | &nbsp; | West US 3 | HDInsight.WestUS3 |
 | &nbsp; | West Central US | HDInsight.WestCentralUS |

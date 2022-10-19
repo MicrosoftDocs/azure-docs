@@ -4,7 +4,8 @@ description: You can use the Application Insights Connector solution to diagnose
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/13/2019 
+ms.reviewer: yossi-y
+ms.date: 03/22/2022
 ms.custom: devx-track-azurepowershell
 
 ---

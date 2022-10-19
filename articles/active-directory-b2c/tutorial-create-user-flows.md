@@ -2,14 +2,14 @@
 title: Tutorial - Create user flows and custom policies - Azure Active Directory B2C
 description: Follow this tutorial to learn how to create user flows and custom policies in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 06/17/2022
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -21,7 +21,7 @@ zone_pivot_groups: b2c-policy-type
 In your applications you may have user flows that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
 
 ::: zone pivot="b2c-user-flow"
-A user flow lets you determine how users interact with your application when they do things like sign in, sign up, edit a profile, or reset a password. In this article, you learn how to:
+A user flow lets you determine how users interact with your application when they do things like sign-in, sign-up, edit a profile, or reset a password. In this article, you learn how to:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -49,7 +49,7 @@ A user flow lets you determine how users interact with your application when the
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 - [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
-- [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the rest of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
+
 
 ::: zone-end
 
@@ -68,7 +68,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 
-    ![Select a user flow page with Sign up and sign in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
+    ![Select a user flow page with Sign-up and sign-in flow highlighted](./media/tutorial-create-user-flows/select-user-flow-type.png)
 
 1. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 
@@ -76,23 +76,24 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
 1. For **Identity providers**, select **Email signup**.
-1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Click **OK**.
+1. For **User attributes and claims**, choose the claims and attributes that you want to collect and send from the user during sign-up. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
+1. Select **Create** to add the user flow. A prefix of *B2C_1_* is automatically prepended to the name.
 
 ### Test the user flow
 
-1. Select the user flow you created to open its overview page, then select **Run user flow**.
+1. Select the user flow you created to open its overview page.
+1. At the top of the user flow overview page, select **Run user flow**. A pane opens at the right side of the page. 
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, and then select **Sign up now**.
+1. Select **Run user flow**, and then select **Sign up now**.
 
     ![Run user flow page in portal with Run user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
-1. Enter a valid email address, click **Send verification code**, enter the verification code that you receive, then select **Verify code**.
+1. Enter a valid email address, select **Send verification code**, enter the verification code that you receive, then select **Verify code**.
 1. Enter a new password and confirm the password.
-1. Select your country and region, enter the name that you want displayed, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
+1. Select your country and region, enter the name that you want displayed, enter a postal code, and then select **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
 1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of country/region, name, and postal code.
 
 > [!NOTE]
@@ -104,7 +105,7 @@ To enable [self-service password reset](add-password-reset-policy.md) for the si
 
 1. Select the sign-up or sign-in user flow  you created.
 1. Under **Settings** in the left menu, select **Properties**.
-1. Under **Password complexity**, select **Self-service password reset**.
+1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
 
 ### Test the user flow
@@ -124,16 +125,17 @@ If you want to enable users to edit their profile in your application, you use a
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 
 1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
-1. For **Identity providers**, select **Local Account SignIn**.
-2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
-3. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+1. For **Identity providers**, under **Local accounts**, select **Email signup**.
+2. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Select **OK**.
+3. Select **Create** to add the user flow. A prefix of *B2C_1_* is automatically appended to the name.
 
 ### Test the user flow
 
-1. Select the user flow you created to open its overview page, then select **Run user flow**.
+1. Select the user flow you created to open its overview page.
+1. At the top of the user flow overview page, select **Run user flow**. A pane opens at the right side of the page. 
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, and then sign in with the account that you previously created.
-1. You now have the opportunity to change the display name and job title for the user. Click **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
+1. Select **Run user flow**, and then sign in with the account that you previously created.
+1. You now have the opportunity to change the display name and job title for the user. Select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -141,7 +143,7 @@ If you want to enable users to edit their profile in your application, you use a
 > This article explains how to set up your tenant manually. You can automate the entire process from this article. Automating will deploy the Azure AD B2C [SocialAndLocalAccountsWithMFA starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), which will provide Sign Up and Sign In, Password Reset and Profile Edit journeys. To automate the walkthrough below, visit the [IEF Setup App](https://aka.ms/iefsetup) and follow the instructions.
 
 
-## Add signing and encryption keys
+## Add signing and encryption keys for Identity Experience Framework applications
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -167,16 +169,6 @@ If you want to enable users to edit their profile in your application, you use a
 1. For **Key usage**, select **Encryption**.
 1. Select **Create**.
 
-### Create the Facebook key
-
-Add your Facebook application's [App Secret](identity-provider-facebook.md) as a policy key. You can use the App Secret of the application you created as part of this article's prerequisites.
-
-1. Select **Policy Keys** and then select **Add**.
-1. For **Options**, choose `Manual`.
-1. For **Name**, enter `FacebookSecret`. The prefix `B2C_1A_` might be added automatically.
-1. In **Secret**, enter your Facebook application's *App Secret* from developers.facebook.com. This value is the secret, not the application ID.
-1. For **Key usage**, select **Signature**.
-1. Select **Create**.
 
 ## Register Identity Experience Framework applications
 
@@ -222,8 +214,11 @@ Next, expose the API by adding a scope:
 Next, specify that the application should be treated as a public client:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. Ensure that **"allowPublicClient": true** is set in the application manifest. 
+1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. 
 1. Select **Save**.
+1. Ensure that **"allowPublicClient": true** is set in the application manifest:
+    1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
+    1. Find **allowPublicClient** key and ensure its value is set to **true**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
@@ -232,10 +227,9 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select the **My APIs** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for (your tenant name)**.
-1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
-1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scopes - offline_access, openid and user_impersonation. It might take a few minutes for the permissions to propagate.
+1. Select **Grant admin consent for *<your tenant name)>***.
+1. Select **Yes**.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scope.
 
 * * *
 
@@ -251,6 +245,7 @@ Custom policies are a set of XML files you upload to your Azure AD B2C tenant to
 Each starter pack contains:
 
 - **Base file** - Few modifications are required to the base. Example: *TrustFrameworkBase.xml*
+- **Localization file** - This file is where localization changes are made. Example: *TrustFrameworkLocalization.xml*
 - **Extension file** - This file is where most configuration changes are made. Example: *TrustFrameworkExtensions.xml*
 - **Relying party files** - Task-specific files called by your application. Examples: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
@@ -279,16 +274,52 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 1. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
 1. Save the file.
 
+## Add Facebook as an identity provider
+
+The **SocialAndLocalAccounts** starter pack includes Facebook social sign in. Facebook isn't required for using custom policies, but we use it here to demonstrate how you can enable federated social login in a custom policy. If you don't need to enable federated social login, use the **LocalAccounts** starter pack instead, and skip [Add Facebook as an identity provider](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-facebook-as-an-identity-provider) section. 
+
+### Create Facebook application
+
+Use the steps outlined in [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application) to obtain Facebook *App ID* and *App Secret*. Skip the prerequisites and the rest of the steps in the [Set up sign up and sign in with a Facebook account](identity-provider-facebook.md) article. 
+
+### Create the Facebook key
+
+Add your Facebook application's [App Secret](identity-provider-facebook.md) as a policy key. You can use the App Secret of the application you created as part of this article's prerequisites.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. On the overview page, under **Policies**, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. For **Name**, enter `FacebookSecret`. The prefix `B2C_1A_` might be added automatically.
+1. In **Secret**, enter your Facebook application's *App Secret* from developers.facebook.com. This value is the secret, not the application ID.
+1. For **Key usage**, select **Signature**.
+1. Select **Create**.
+
+### Update TrustFrameworkExtensions.xml in custom policy starter pack
+In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID and save changes.
+
+   ```xml
+   <TechnicalProfile Id="Facebook-OAUTH">
+     <Metadata>
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+       <Item Key="client_id">00000000000000</Item>
+   ```
+
+
 ## Upload the policies
 
 1. Select the **Identity Experience Framework** menu item in your B2C tenant in the Azure portal.
 1. Select **Upload custom policy**.
 1. In this order, upload the policy files:
     1. *TrustFrameworkBase.xml*
-    1. *TrustFrameworkExtensions.xml*
-    1. *SignUpOrSignin.xml*
-    1. *ProfileEdit.xml*
-    1. *PasswordReset.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
 
 As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 
@@ -304,25 +335,7 @@ As you upload the files, Azure adds the prefix `B2C_1A_` to each.
 1. Sign up using an email address.
 1. Select **Run now** again.
 1. Sign in with the same account to confirm that you have the correct configuration.
-
-## Add Facebook as an identity provider
-
-As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for using custom policies, but is used here to demonstrate how you can enable federated social login in a custom policy.
-
-1. In the `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** file, replace the value of `client_id` with the Facebook application ID:
-
-   ```xml
-   <TechnicalProfile Id="Facebook-OAUTH">
-     <Metadata>
-     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
-       <Item Key="client_id">00000000000000</Item>
-   ```
-
-1. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
-1. Under **Custom policies**, select **B2C_1A_signup_signin**.
-1. Select **Run now** and select Facebook to sign in with Facebook and test the custom policy.
-
-
+1. Select **Run now** again, and select Facebook to sign in with Facebook and test the custom policy.
 ::: zone-end
 
 ## Next steps
@@ -330,7 +343,7 @@ As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for 
 In this article, you learned how to:
 
 > [!div class="checklist"]
-> * Create a sign-up and sign-in user flow
+> * Create a sign-up and sign in user flow
 > * Create a profile editing user flow
 > * Create a password reset user flow
 

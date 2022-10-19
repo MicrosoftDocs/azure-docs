@@ -1,19 +1,19 @@
 ---
 title: Azure Marketplace IoT Edge module offers 
-description: Learn about publishing IoT Edge module offers in Azure Marketplace.
+description: Learn about publishing an IoT Edge module offer in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/30/2021
+ms.date: 06/29/2022
 ---
 
-# Plan an IoT Edge modules offer
+# Plan an IoT Edge module offer
 
-The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Microsoft Azure.  This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Until now, only a handful of first-party solutions from Microsoft were available.  You had to invest the time and resources into building your own custom IoT solutions.
+The [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) platform is backed by Microsoft Azure. This platform enables users to deploy cloud workloads to run directly on IoT devices.  An IoT Edge module can run offline workloads and do data analysis locally. This offer type helps to save bandwidth, safeguard local and sensitive data, and offers low-latency response time.  You now have the options to take advantage of these pre-built workloads. Until now, only a handful of first-party solutions from Microsoft were available. You had to invest the time and resources into building your own custom IoT solutions.
 
-With [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), we now have a single destination for publishers to expose and sell their solutions to the IoT audience. IoT developers can ultimately find and purchase capabilities to accelerate their solution development.  
+With IoT Edge modules in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), we now have a single destination for publishers to expose and sell their solutions to the IoT audience. IoT developers can ultimately find and purchase capabilities to accelerate their solution development.  
 
 ## Key benefits of IoT Edge modules in Azure Marketplace
 
@@ -33,17 +33,17 @@ The IoT Edge module offer type is a specific type of container running on an IoT
 
 ## Select the right online store
 
-IoT Edge Modules are only published to the Azure Marketplace; AppSource does not apply. For more information on the differences across online stores, see [Determine your publishing option](determine-your-listing-type.md).
+IoT Edge Modules are only published to Azure Marketplace; AppSource does not apply. For more information on the differences across online stores, see [Determine your publishing option](determine-your-listing-type.md).
 
 ## Technical Requirements
 
-The technical requirements to get an IoT Edge Module certified and published in the Azure Marketplace are detailed in the [Prepare your IoT Edge module technical assets](iot-edge-technical-asset.md).
+The technical requirements to get an IoT Edge Module certified and published in Azure Marketplace are detailed in the [Prepare your IoT Edge module technical assets](iot-edge-technical-asset.md).
 
 ## Eligibility prerequisites
 
 All the terms of the Microsoft Azure Marketplace agreements and policies apply to IoT Edge module offers.  Additionally, there are prerequisites and technical requirements for IoT Edge modules.  
 
-To publish an IoT Edge module to the Azure Marketplace, you need to meet the following prerequisites:
+To publish an IoT Edge module to Azure Marketplace, you need to meet the following prerequisites:
 
 - Access to the Partner Center. For more information, see [Create a commercial marketplace account in Partner Center](create-account.md).
 - Host your IoT Edge module in an Azure Container Registry.
@@ -64,7 +64,6 @@ These are the available licensing options for Azure Container offers:
 | --- | --- |
 | Free | List your offer to customers for free. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -74,7 +73,9 @@ In all cases, IoT Edge modules should select the **Transact** publishing option.
 
 ## Customer leads
 
-When you're publishing an offer to the commercial marketplace with Partner Center, you'll want to connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive; otherwise, connecting to a CRM is optional. Partner Center supports Azure table, Dynamics 365 Customer Engagement, HTTPS endpoint, Marketo, and Salesforce.
+The commercial marketplace will collect leads with customer information so you can access them in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center. Leads will include information such as customer details along with the offer name, ID, and online store where the customer found your offer.
+
+You can also choose to connect your CRM system to your offer. The commercial marketplace supports Dynamics 365, Marketo, and Salesforce, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Legal contracts
 
@@ -89,7 +90,7 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 To help create your offer more easily, prepare these items ahead of time. All are required except where noted.
 
-- **Name** – The name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 50 characters.
+- **Name** – The name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 200 characters.
 - **Search results summary** – The purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This is used in the commercial marketplace listing(s) search results.
 - **Short description** – Details of the purpose or function of the offer, written in plain text with no line breaks. This will appear on your offer's details page.
 - **Description** – This description displays in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. This text box has rich text editor controls to make your description more engaging. Optionally, use HTML tags for formatting.

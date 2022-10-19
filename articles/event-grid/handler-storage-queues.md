@@ -2,7 +2,7 @@
 title: Storage queue as an event handler for Azure Event Grid events
 description: Describes how you can use Azure storage queues as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ---
 
 # Storage queue as an event handler for Azure Event Grid events

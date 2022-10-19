@@ -2,11 +2,11 @@
 title: Best practices for Using and Monitoring the Server Load
 titleSuffix: Azure Cache for Redis
 description: Learn how to use and monitor your server load for Azure Cache for Redis.
-author: shpathak-msft
+author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
-ms.author: shpathak
+ms.date: 12/30/2021
+ms.author: franlanglois
 ---
 
 # Manage Server Load for Azure Cache for Redis
@@ -29,7 +29,7 @@ If you're instantiating many client instances to connect to Redis at once, consi
 
 ## Memory pressure
 
-High memory usage on the server makes it more likely that the system needs to page data to disk, resulting in page faults that can slow down the system significantly.
+High memory usage on the server makes it more likely that the system needs to page data to disk, resulting in page faults that can slow down the system significantly.
 
 ## Avoid long running commands
 
@@ -39,13 +39,19 @@ Redis server is a single-threaded system. Long running commands can cause late
 
 Add monitoring on server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects.
 
+Currently, Azure Cache For Redis exposes two metrics in **Insights** under **Monitoring** on the Resource menu on the left of the portal: **CPU** and **Server Load**. Understanding what is measured by each metric is important when monitoring server load.
+
+The **CPU** metric indicates the CPU usage for the node that hosts the cache. The CPU metric also includes processes that aren't strictly Redis server processes. CPU includes background processes for anti-malware and others. As a result, the CPU metric can sometimes spike and might not be a perfect indicator of CPU usage for the Redis server.
+
+The **Server Load** metric represents the load on the Redis Server alone. We recommend monitoring the **Server Load** metric instead of **CPU**.
+
 ## Plan for server maintenance
 
 Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](cache-administration.md#reboot).
 
 ## Test for increased server load after failover
 
-For standard and premium SKUs, each cache is hosted on two nodes. A load balancer distributes the client connections to the two nodes. When planned or unplanned maintenance occurs on the primary node, the node terminates all the client connections. In such situations, all client connections could land on a single node causing the server load to increase on the one remaining node. We recommend testing this scenario by rebooting the primary node and ensuring that one node can handle all your client connections without the server load going too high.
+For standard and premium SKUs, each cache is hosted on two nodes. A load balancer distributes the client connections to the two nodes. When planned or unplanned maintenance occurs on the primary node, the node closes all the client connections. In such situations, all client connections could land on a single node causing the server load to increase on the one remaining node. We recommend testing this scenario by rebooting the primary node and ensuring that one node can handle all your client connections without the server load going too high.
 
 ## Next steps
 

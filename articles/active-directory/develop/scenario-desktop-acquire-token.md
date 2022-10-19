@@ -1,9 +1,8 @@
 ---
-title: Acquire a token to call a web API (desktop app) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API (desktop app)
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app
 services: active-directory
-author: maliksahil
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
-ms.author: sahmalik
+ms.author: dmwendia
 ms.custom: aaddev, devx-track-python, has-adal-ref
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -176,7 +175,7 @@ let accounts = await msalTokenCache.getAllAccounts();
 
             const tokenRequest = {
                 code: response["authorization_code"],
-                codeVerifier: verifier // PKCE Code Verifier 
+                codeVerifier: verifier, // PKCE Code Verifier 
                 redirectUri: "your_redirect_uri",
                 scopes: ["User.Read"],
             };
@@ -210,7 +209,7 @@ if not result:
 There are various ways you can acquire tokens in a desktop application.
 
 - [Interactively](scenario-desktop-acquire-token-interactive.md)
-- [Integrated Windows Auth](scenario-desktop-acquire-token-integrated-windows-authentication.md)
+- [Integrated Windows authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md)
 - [WAM](scenario-desktop-acquire-token-wam.md)
 - [Username Password](scenario-desktop-acquire-token-username-password.md)
 - [Device code flow](scenario-desktop-acquire-token-device-code-flow.md)

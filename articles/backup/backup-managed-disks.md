@@ -2,7 +2,10 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 07/05/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Back up Azure Managed Disks
@@ -57,7 +60,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    ![Select backup schedule frequency](./media/backup-managed-disks/backup-schedule-frequency.png)
 
-   Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every 4, 6, 8 or 12 hours. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once a day backup is sufficient, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
+   Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every *1*, *2*, *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once a day backup is sufficient, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
 
 1. In the **Backup policy** tab, select retention settings that meet the recovery point objective (RPO) requirement.
 
@@ -76,10 +79,9 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
 ## Configure backup
 
-- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier. 
-  Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage](/azure/storage/common/storage-redundancy) (ZRS) by default in ZRS supported regions.
+- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage](../storage/common/storage-redundancy.md) (ZRS) by default in ZRS supported regions.
 
-- Azure Disk backup supports cross-subscription backup and restore with the backup vault in one subscription and the source disk in another. As a result, the cross-region backup and restore are not supported and this allows the Backup vault and the disk to be backed up in the same or different subscriptions. However, both the backup vault and disk to be backed up must be in the same region.
+- Azure Disk backup supports cross-subscription (backup vault in one subscription and the source disk in another) backup and restore. Currently, cross-region backup and restore aren't supported by Azure Disk backup, that is, the backup vault and disk to back up are in different regions.      <br>        So, to use Azure Disk backup, ensure that the backup vault and disk to back up are in the same region.
 
 - Once you configure the disk backup, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.
 
@@ -97,7 +99,7 @@ To configure disk backup, follow these steps:
 
    >[!Note]
    >- Ensure that both the backup vault and the disk to be backed up are in same location.
-   >- Azure Backup uses [_incremental snapshots_](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of managed disks, which store only the delta changes to the disk as the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For additional reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in the ZRS supported regions. Currently, Azure Disk Backup supports operational backup of managed disks that doesn't copy backups to the Backup vault storage. So, the backup storage redundancy setting of the Backup vault doesn’t apply to the recovery points.
+   >- Azure Backup uses [_incremental snapshots_](../virtual-machines/disks-incremental-snapshots.md#restrictions) of managed disks, which store only the delta changes to the disk as the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For additional reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in the ZRS supported regions. Currently, Azure Disk Backup supports operational backup of managed disks that doesn't copy backups to the Backup vault storage. So, the backup storage redundancy setting of the Backup vault doesn’t apply to the recovery points.
 
    :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="Screenshot showing the process to select a Backup vault." lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
 
@@ -112,9 +114,9 @@ To configure disk backup, follow these steps:
    >[!Note]
    >While the portal allows you to select multiple disks and configure backup, each disk is an individual backup instance. Currently, Azure Disk Backup only supports backup of individual disks. Point-in-time backup of multiple disks attached to a virtual machine isn't supported.
    >
-   >In the Azure  portal, you can only select disks within the same subscription. If you have several disks to be backed up or if the disks reside in different subscriptions, you can use scripts ([PowerShell](/azure/backup/backup-managed-disks-ps)/[CLI](/azure/backup/backup-managed-disks-cli)) to automate. 
+   >In the Azure  portal, you can only select disks within the same subscription. If you have several disks to be backed up or if the disks reside in different subscriptions, you can use scripts ([PowerShell](./backup-managed-disks-ps.md)/[CLI](./backup-managed-disks-cli.md)) to automate. 
    >
-   >See the [support matrix](/azure/backup/disk-backup-support-matrix) for more information on the Azure Disk backup region availability, supported scenarios, and limitations.
+   >See the [support matrix](./disk-backup-support-matrix.md) for more information on the Azure Disk backup region availability, supported scenarios, and limitations.
 
 1. Select **Snapshot resource group** and click **Validate** to initiate prerequisites checks.
 
@@ -126,22 +128,9 @@ To configure disk backup, follow these steps:
 
    - You can use this resource group for storing snapshots across multiple disks that are being (or planned to be) backed up.
 
-   - You can't create an incremental snapshot for a particular disk outside of that disk's subscription. So, choose the resource group within the same subscription where the disk needs to be backed up. [Learn more](/azure/virtual-machines/disks-incremental-snapshots#restrictions) about incremental snapshot for managed disks.
+   - You can't create an incremental snapshot for a particular disk outside of that disk's subscription. So, choose the resource group within the same subscription where the disk needs to be backed up. [Learn more](../virtual-machines/disks-incremental-snapshots.md#restrictions) about incremental snapshot for managed disks.
 
-   - Once you configure the backup of a disk, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.
-
-   - During a backup operation, Azure Backup creates a Storage Account in the Snapshot resource group. Only one Storage Account is created per snapshot resource group. The account is reused across multiple disk backup instances that use the same resource group as the snapshot resource group.
-
-     - The Storage account doesn’t store the Snapshots. The Managed-disk’s incremental snapshots are ARM resources created on resource group and not in a Storage Account.
-     - Storage Account stores the metadata for each recovery point. Azure Backup service creates a blob container per disk backup instance. For each recovery point, a block blob will be created to store metadata describing the recovery point (such as subscription, disk ID, disk attributes, and so on) that occupies a small space (in a few KiBs).
-     - Storage Account is created as RA GZRS if the region supports zonal redundancy. If the region doesn’t support Zonal redundancy, the Storage Account is created as RA GRS.
-       If any existing policy stops the creation of a Storage Account on the subscription or resource group with GRS redundancy, the Storage Account is created as LRS. The Storage Account that’s created is **General Purpose v2**, with block blobs stored on the hot tier in the Blob container.
-     - The number of recovery points is determined by the Backup policy used to configure backup of the disk backup instance. According to the Garbage collection process, the older block blobs are deleted, as the corresponding older recovery points are pruned.
-
-   - Don’t apply resource lock or policies or firewall on the snapshot resource group or Storage Account created by Azure Backup service. The service creates and manages resources in this Snapshot resource group that’s assigned to a backup instance when you configure a disk backup. The service creates the Storage Account and its resources, and this shouldn’t be deleted or moved.
-
-     >[!Note]
-     >If a Storage Account is deleted, backups will fail, and restore will fail for all existing recovery points.
+   - Once you configure the backup of a disk, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.   
 
    :::image type="content" source="./media/backup-managed-disks/validate-snapshot-resource-group-inline.png" alt-text="Screenshot showing the process to initiate prerequisites checks." lightbox="./media/backup-managed-disks/validate-snapshot-resource-group-expanded.png":::
 
@@ -150,7 +139,7 @@ To configure disk backup, follow these steps:
    >[!Note]
    >Validation might take few minutes to complete. Validation may fail if:
    >
-   >- A disk is unsupported. See the [support matrix](/azure/backup/disk-backup-support-matrix) for unsupported scenarios.
+   >- A disk is unsupported. See the [support matrix](./disk-backup-support-matrix.md) for unsupported scenarios.
    >- The Backup vault managed identity does not have valid role assignments on the _disk_ to be backed up or on the _snapshot resource group_ where incremental snapshots are stored.
 
    If the _Role assignment not done_ error message displays in the **Backup readiness** column, the Backup vault managed identity needs role permissions on the selected disk(s) and/or   on the Snapshot resource group. 
@@ -162,7 +151,7 @@ To configure disk backup, follow these steps:
    >[!Note]
    >Backup vault uses managed identity to access other Azure resources. To configure a backup of managed disks, Backup Vault’s managed identity requires a set of permissions on the source disks and resource groups where snapshots are created and managed.
 
-   A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
+   A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
    - Assign the **Disk Backup Reader** role to Backup Vault’s managed identity on the Source disk that needs to be backed up.
    - Assign the Disk Snapshot Contributor role to the Backup vault’s managed identity on the Resource group where backups are created and managed by the Azure Backup service. The disk snapshots are stored in a resource group within your subscription. To allow Azure Backup service to create, store, and manage snapshots, you need to provide permissions to the backup vault.

@@ -4,6 +4,7 @@ description: Learn best practices for designing, deploying, and maintaining effi
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/30/2021
+ms.devlang: csharp, java, javascript, powershell, python
 # Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---
 # Best practices for reliable Azure Functions
@@ -18,7 +19,7 @@ When you create a function app in Azure, you must choose a hosting plan for your
 
 + [Consumption plan](consumption-plan.md)
 + [Premium plan](functions-premium-plan.md)
-+ [Dedicated (App Service) plan](dedicated-plan.md).
++ [Dedicated (App Service) plan](dedicated-plan.md)
 
 All hosting plans are generally available (GA) when running either Linux or Windows.
 
@@ -74,7 +75,7 @@ Keep in mind the following considerations when creating this storage account:
 
 ### Handling large data sets
 
-When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way to a function process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
+When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way for a function to process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
 ## Organize your functions 
 
@@ -102,6 +103,8 @@ Consider these options for a successful deployment:
 + Consider using [continuous deployment](functions-continuous-deployment.md) to connect deployments to your source control solution. Continuous deployments also let you run from the deployment package.
 
 + For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. To learn more, see [Azure Functions warm-up trigger](functions-bindings-warmup.md). 
+
++ To minimize deployment downtime and to be able to roll back deployments, consider using deployment slots. To learn more, see [Azure Functions deployment slots](functions-deployment-slots.md).
 
 ## Write robust functions
 
@@ -184,7 +187,7 @@ Premium plan is the recommended plan for reducing colds starts while maintaining
 
 ## Monitor effectively
 
-Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. To learn more, see [Monitor Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. To learn more, see [Using Azure Monitor Metric with Azure Functions](monitor-metrics.md).
+Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. To learn more, see [Monitor Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. To learn more, see [Monitoring with Azure Monitor](monitor-functions.md).
 
 You should be aware of the following considerations when using Application Insights integration to monitor your functions:
 

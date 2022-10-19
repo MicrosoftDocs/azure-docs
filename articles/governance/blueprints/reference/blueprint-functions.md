@@ -137,7 +137,7 @@ A string of concatenated values.
 
 ### Remarks
 
-The Azure Blueprint function differs from the ARM template function in that it only works with
+The Azure Blueprints function differs from the ARM template function in that it only works with
 strings.
 
 ### Example
@@ -163,7 +163,7 @@ The value of the specified blueprint or blueprint artifact parameter.
 
 ### Remarks
 
-The Azure Blueprint function differs from the ARM template function in that it only works with
+The Azure Blueprints function differs from the ARM template function in that it only works with
 blueprint parameters.
 
 ### Example
@@ -224,7 +224,7 @@ The returned object is in the following format:
 
 ### Remarks
 
-The Azure Blueprint function differs from the ARM template function. The `resourceGroup()` function
+The Azure Blueprints function differs from the ARM template function. The `resourceGroup()` function
 can't be used in a subscription level artifact or the blueprint definition. It can only be used in
 blueprint artifacts that are part of a resource group artifact.
 

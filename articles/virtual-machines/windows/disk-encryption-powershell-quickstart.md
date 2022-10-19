@@ -7,8 +7,8 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
-ms.date: 05/17/2019 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/17/2019
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create and encrypt a Windows virtual machine in Azure with PowerShell

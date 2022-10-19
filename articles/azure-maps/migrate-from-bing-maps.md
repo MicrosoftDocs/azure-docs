@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial: Migrate from Bing Maps to Azure Maps | Microsoft Azure Maps'
+title: 'Tutorial: Migrate from Bing Maps to Azure Maps'
+titleSuffix: Microsoft Azure Maps
 description:  A tutorial on how to migrate from Bing Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/17/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 12/1/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: 
 ---
 
 # Tutorial: Migrate from Bing Maps to Azure Maps
 
-This guide provides insights on how to migrate web, mobile and server-based applications from Bing Maps to the Azure Maps platform. This guide includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps. 
+This guide provides insights on how to migrate web, mobile and server-based applications from Bing Maps to the Azure Maps platform. This guide includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
 
 In this tutorial, you'll learn:
 
 > [!div class="checklist"]
+>
 > * High-level comparison for equivalent Bing Maps features available in Azure Maps.
 > * What licensing differences to take into consideration.
 > * How to plan your migration.
@@ -31,7 +32,7 @@ In this tutorial, you'll learn:
 
 ## Azure Maps platform overview
 
-Azure Maps provides developers from all industries powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context for web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geofencing, Map Data, Weather Data, and many more services accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms. [Azure Maps is also available in Power BI](power-bi-visual-getting-started.md).
+Azure Maps provides developers from all industries powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context for web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geofencing, Map Data, Weather Data, and many more services accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms. [Azure Maps is also available in Power BI](power-bi-visual-get-started.md).
 
 ## High-level platform comparison
 
@@ -42,13 +43,13 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Web SDK                               | ✓                  |
 | Android SDK                           | ✓                  |
 | iOS SDK                               | Planned            |
-| UWP SDK                               | N/A                 |
-| WPF SDK                               | N/A                 |
+| UWP SDK                               | N/A                |
+| WPF SDK                               | N/A                |
 | REST Service APIs                     | ✓                  |
 | Autosuggest                           | ✓                  |
 | Directions (including truck)          | ✓                  |
 | Distance Matrix                       | ✓                  |
-| Elevations                            | ✓      |
+| Elevations                            | ✓                  |
 | Imagery – Static Map                  | ✓                  |
 | Imagery Metadata                      | ✓                  |
 | Isochrones                            | ✓                  |
@@ -71,26 +72,26 @@ When migrating to Azure Maps from Bing Maps, the following information should be
 
 * Azure Maps charges for the usage of interactive maps based on the number of map tiles loaded, whereas Bing Maps charges for the loading of the map control (sessions). To reduce  costs for developers, Azure Maps automatically caches map tiles. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs use 512-pixel tiles, and on average generates one or less transactions per page view.
 
-* Azure Maps allows data from its platform to be stored in Azure. It can also be cached elsewhere for up to six months as per the [terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* Azure Maps allows data from its platform to be stored in Azure. Caching and storing results locally is only permitted when the purpose of caching is to reduce latency times of Customer’s application, see [Microsoft Azure terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) for more information.
 
 Here are some licensing-related resources for Azure Maps:
 
--   [Azure Maps pricing page](https://azure.microsoft.com/pricing/details/azure-maps/)
--   [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
--   [Azure Maps term of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (included in the Microsoft Online Services Terms)
--   [Choose the right pricing tier in Azure Maps](./choose-pricing-tier.md)
+* [Azure Maps pricing page](https://azure.microsoft.com/pricing/details/azure-maps/)
+* [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
+* [Azure Maps term of use](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA) (Scroll down to the Azure Maps section)
+* [Choose the right pricing tier in Azure Maps](./choose-pricing-tier.md)
 
 ## Suggested migration plan
 
 Here's an example of a high-level migration plan.
 
-1.  Take inventory of what Bing Maps SDKs and services your application is using and verify that Azure Maps provides alternative SDKs and services for you to migrate to.
-2.  Create an Azure subscription (if you don’t already have one) at <https://azure.com>.
-3.  Create an Azure Maps account ([documentation](./how-to-manage-account-keys.md))
+1. Take inventory of what Bing Maps SDKs and services your application is using and verify that Azure Maps provides alternative SDKs and services for you to migrate to.
+2. Create an Azure subscription (if you don’t already have one) at [azure.com](https://azure.com).
+3. Create an Azure Maps account ([documentation](./how-to-manage-account-keys.md))
     and authentication key or Azure Active Directory ([documentation](./how-to-manage-authentication.md)).
-4.  Migrate your application code.
-5.  Test your migrated application.
-6.  Deploy your migrated application to production.
+4. Migrate your application code.
+5. Test your migrated application.
+6. Deploy your migrated application to production.
 
 ## Create an Azure Maps account
 
@@ -115,7 +116,7 @@ Here is a list of useful technical resources for Azure Maps.
 
 ## Migration support
 
-Developers can seek migration support through the [forums](/answers/topics/azure-maps.html) or through one of the many Azure support options: <https://azure.microsoft.com/support/options/>
+Developers can seek migration support through the [forums](/answers/topics/azure-maps.html) or through one of the many [Azure support options](https://azure.microsoft.com/support/options/).
 
 ## New terminology
 

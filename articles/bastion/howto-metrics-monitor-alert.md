@@ -80,7 +80,7 @@ The recommended values for this metric's configuration are:
 
 ## <a name="metrics"></a>How to view metrics
 
-1. To view metrics, navigate to your bastion host.
+1. To view metrics, go to your bastion host.
 1. From the **Monitoring** list, select **Metrics**.
 1. Select the parameters. If no metrics are set, click **Add metric**, and then select the parameters.
 

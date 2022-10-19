@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 07/12/2022
 ---
 
 # Mapping data flow Debug Mode
@@ -27,7 +27,7 @@ Once you turn on the slider, you will be prompted to select which integration ru
 
 :::image type="content" source="media/data-flow/debug-new-1.png" alt-text="Debug IR selection":::
 
-When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
+When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off. You should be aware of the hourly charges incurred by Data Factory during the time that you have the debug session turned on.
 
 In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work. Use the "Debug" button on the pipeline panel to test your data flow in a pipeline.
 
@@ -64,7 +64,7 @@ The default IR used for debug mode in data flows is a small 4-core single worker
 
 ## Data preview
 
-With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. Click **Refresh** to fetch the data preview.
+With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. Click **Refresh** to update the data preview based on your current transformations. If your source data has changed, then click the Refresh > Refetch from source.
 
 :::image type="content" source="media/data-flow/datapreview.png" alt-text="Data preview":::
 

@@ -272,9 +272,7 @@ You get the error "WS-Management service cannot process the request. The WMI ser
 - If you get this error, make sure that the user account provided (domain/local) on the appliance configuration manager was added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
 - If the Remote Management Users group isn't present, add the user account to the group WinRMRemoteWMIUsers_.
 - You can also check if the WS-Management protocol is enabled on the server by running the following command in the command prompt of the target server:
-    
-    ```` winrm qc ````
-
+  `winrm qc`
 - If you're still facing the issue, make sure that the user account has access permissions to CIMV2 Namespace and sub-namespaces in the WMI Control Panel. You can set the access by following these steps:
 
     1. Go to the server that's failing validation on the appliance.

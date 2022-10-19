@@ -1,17 +1,16 @@
 ---
 title: Link to existing Datadog - Azure partner solutions
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
-ms.service: partner-services
 ms.topic: quickstart
 ms.date: 05/28/2021
-author: tfitzmac
-ms.author: tomfitz
-ms.custom: references_regions
+author: flang-msft
+ms.author: franlanglois
+ms.custom: references_regions, mode-other
 ---
 
 # QuickStart: Link to existing Datadog organization
 
-In this quickstart, you'll link to a existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
+In this quickstart, you'll link to an existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 

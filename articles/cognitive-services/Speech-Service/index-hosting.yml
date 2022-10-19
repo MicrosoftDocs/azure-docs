@@ -6,12 +6,12 @@ metadata:
   title: Hosting documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/23/2020
-  ms.author: pafarley
+  ms.author: eur
 
 landingContent:
 - title: About hosting
@@ -29,7 +29,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Create an Azure Speech resource
-          url: ./overview.md#try-the-speech-service-for-free
+          url: ./overview.md
         - text: Configure speech containers
           url: speech-container-configuration.md
 - title: Reference

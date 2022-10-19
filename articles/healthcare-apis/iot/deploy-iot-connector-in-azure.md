@@ -1,228 +1,95 @@
 ---
-title: Deploy the IoT Connector in the Azure portal
-description: In this article, you'll learn how to deploy the IoT Connector in the Azure portal. 
-author: stevewohl
+title: Choosing a method of deployment for MedTech service in Azure - Azure Health Data Services
+description: In this article, you'll learn how to choose a method to deploy the MedTech service in Azure.
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/27/2021
-ms.author: rabhaiya
+ms.date: 10/10/2022
+ms.author: jasteppe
 ---
 
-# Deploy the IoT Connector in the Azure portal
+# Choose a deployment method
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+MedTech service provides multiple methods for deploying it into an Azure Platform as a service (PaaS) configuration. Each method has different advantages that will allow you to customize your development environment to suit your needs.
 
-In this quickstart, you'll learn how to deploy the IoT Connector in the Azure portal. Configuring an IoT Connector will enable you to ingest data from Internet of Things (IoT) into your FHIR service using an Event Hub.
+The different deployment methods are:
 
-## Prerequisites
+- Azure ARM Quickstart template with Deploy to Azure button
+- Azure PowerShell and Azure CLI automation
+- Manual deployment
 
-It's important that you have the following prerequisites completed before you begin the steps of creating an IoT Connector instance in Azure Healthcare APIs.
+## Azure ARM Quickstart template with Deploy to Azure button
 
-* [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
-* [Resource group deployed in the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md)
-* [Event Hubs namespace and Event Hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
-* [Workspace deployed in Azure Healthcare APIs](../workspace-overview.md)  
-* [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
+Using a Quickstart template with Azure portal is the easiest and fastest deployment method because it automates most of your configuration with the touch of a **Deploy to Azure** button. This button automatically generates the following configurations and resources: managed identity RBAC roles, a provisioned workspace and namespace, an Event Hubs instance, a Fast Healthcare Interoperability Resources (FHIR&#174;) service instance, and a MedTech service instance. All you need to add are post-deployment device mapping, destination mapping, and a shared access policy key. This method simplifies your deployment, but does not allow for much customization.
 
+For more information about the Quickstart template and the Deploy to Azure button, see [Deploy the MedTech service with a QuickStart template](deploy-02-new-button.md).
 
-## Deploy IoT Connector 
+## Azure PowerShell and Azure CLI automation
 
-1. Sign in the [Azure portal](https://portal.azure.com), and then enter your Healthcare APIs workspace resource name in the **Search** bar field.
- 
-   [ ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
+Azure provides Azure PowerShell and Azure CLI to speed up your configurations when used in enterprise environments. Deploying MedTech service with Azure PowerShell or Azure CLI can be useful for adding automation so that you can scale your deployment for a large number of developers. This method is more detailed but provides extra speed and efficiency because it allows you to automate your deployment.
 
-2. Select the **IoT Connectors** blade.
+For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](/azure/healthcare-apis/iot/deploy-08-new-ps-cli).
 
-   [ ![Screenshot of IoT Connectors blade.](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
+## Manual deployment
 
-3. Next, select **Add IoT Connector**.
+The manual deployment method uses Azure portal to implement each deployment task individually. There are no shortcuts. Because you will be able to see all the details of how to complete the sequence of each task, this procedure can be beneficial if you need to customize or troubleshoot your deployment process. This is the most complex method, but it provides valuable technical information and developmental options that will enable you to fine-tune your deployment very precisely.
 
-   [ ![Screenshot of add IoT Connectors](media/add-iot-connector.png) ](media/add-iot-connector.png#lightbox)
+For more information about manual deployment with portal, see [Overview of how to manually deploy the MedTech service using the Azure portal](/azure/healthcare-apis/iot/deploy-03-new-manual).
 
-## Configure IoT Connector to ingest data
+## Deployment architecture overview
 
-Under the **Basics** tab, complete the required fields under **Instance details**.
+The following data-flow diagram outlines the basic steps of MedTech service deployment and shows how these steps fit together with its data processing procedures. This may help you analyze the options and determine which deployment method is best for you.
 
-[ ![IoT configure instance details.](media/basics-instance-details.png) ](media/basics-instance-details.png#lightbox)
+:::image type="content" source="media/iot-get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architecture overview." lightbox="media/iot-get-started/get-started-with-iot.png":::
 
-1. Enter the **IoT Connector name**.
+There are six different steps of the MedTech service PaaS. Only the first four apply to deployment. All the methods of deployment will implement each of these four steps. However, the QuickStart template method will automatically implement part of step 1 and all of step 2. The other two methods will have to implement all of the steps individually. Here is a summary of each of the four deployment steps:
 
-   The **IoT Connector name** is a friendly name for the IoT Connector. Enter a unique name for your IoT Connector. As an example, you can name it `healthdemo-iot`.
+### Step 1: Prerequisites
 
-2. Enter the **Event Hub name**.
+- Have an Azure subscription
+- Create RBAC roles contributor and user access administrator or owner. This feature is automatically done in the QuickStart template method with the Deploy to Azure button, but it is not included in manual or PowerShell/CLI method and need to be implemented individually.
 
-   The Event Hub name is the name of the **Event Hubs Instance** that you've deployed. 
+### Step 2: Provision
 
-   For information about Azure Event Hubs, see [Quickstart: Create an Event Hub using Azure portal](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace).
+The QuickStart template method with the Deploy to Azure button automatically provides all these steps, but they are not included in the manual or the PowerShell/CLI method and must be completed individually.
 
-3. Enter the **Consumer Group**.
+- Create a resource group and workspace for Event Hubs, FHIR, and MedTech services.
+- Provision an Event Hubs instance to a namespace.
+- Provision a FHIR service instance to the same workspace.
+- Provision a MedTech service instance in the same workspace.
 
-   The Consumer Group name is located by using the **Search** bar to go to the Event Hubs instance that you've deployed and by selecting the  **Consumer groups** blade.
+### Step 3: Configure
 
-   [ ![Consumer group  name.](media/consumer-group-name.png) ](media/consumer-group-name.png#lightbox)
+Each method needs to provide **all** these configuration details. They include: 
 
-   For information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
+- Configure MedTech service to ingest data from an event hub.
+- Configure device mapping properties.
+- Configure destination mappings to an Observation resource in the FHIR service.
+- When the prerequisites, provisioning, and configuration are complete, create and deploy MedTech service.
 
-4. Enter the name of the **Fully Qualified Namespace**.
+### Step 4: Post-Deployment
 
-    The **Fully Qualified Namespace** is the **Host name** located on your Event Hubs Namespace's **Overview** page.
+Each method must add **all** these post-deployment tasks:
 
-    [ ![Fully qualified namespace.](media/event-hub-hostname.png) ](media/event-hub-hostname.png#lightbox)  
+- Connect to services using device and destination mapping.
+- Use managed identity to grant access to the device message event hub.
+- Use managed identity to grant access to the FHIR service, enabling FHIR to receive data from the MedTech service.
+- Note: only the ARM QuickStart method requires a shared access key for post-deployment.
 
-    For more information about Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
+### Granting access to the device message event hub
 
-5. Select **Next: Device mapping >**. 
-    
-    Proceed to the next section about entering device mapping properties and for information the Device Mapper tool. Otherwise, proceed to the section [Configure Destination](#configure-destination).
-  
-## Configure Device mapping properties
+For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-06-new-deploy.md#grant-access-to-the-device-message-event-hub).
 
- The Device Mapper is a tool to visualize the mapping configuration for normalizing a device's input data, and then transform it to FHIR resources. Developers can use this tool to edit and test devices, FHIR mappings, and export the data to upload to an IoT Connector in the Azure portal. This tool also helps developers understand their device's mapping configurations.
+### Granting access to the FHIR service
 
-For more information, see the open source documentation [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
-
-1. Under the **Device Mapping** tab, enter the device mapping JSON code associated with your IoT Connector.
-
-   [ ![Configure device mapping.](media/configure-device-mapping.png) ](media/configure-device-mapping.png#lightbox)
-
-2. Select **Next: Destination >** to configure the destination properties associated with your IoT Connector.
-
-## Configure Destination
-
-Under the **Destination** tab, enter the destination properties associated with the IoT Connector.
-
-   [ ![Configure destination properties.](media/configure-destination-properties.png) ](media/configure-destination-properties.png#lightbox)
-
-1. Enter the Azure Resource ID of the **FHIR Server**.
-
-   The **FHIR Server** name (also known as the **FHIR service**) is located by using the **Search** bar to go to the FHIR service that you've deployed and by selecting the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
-
-    [ ![Enter FHIR server name.](media/fhir-service-resource-id.png) ](media/fhir-service-resource-id.png#lightbox) 
-
-2. Enter the **Destination Name**.
-
-   The **Destination Name** is a friendly name for the destination. Enter a unique name for your destination. As an example, you can name it `iotmedicdevice`.
-
-3. Select **Create** or **Lookup** for the **Resolution Type**.
-
-    > [!NOTE]
-    > For the IoT Connector destination to create a valid observation resource in the FHIR Server, a device resource and patient resource **must** exist in the FHIR Server, so the observation can properly reference the device that created the data, and the patient the data was measured from. There are two modes the IoT Connector can use to resolve the device and patient resources.
-
-   **Create**
-
-     The IoT Connector destination attempts to retrieve a device resource from the FHIR Server using the device identifier included in the Event Hub message. It also attempts to retrieve a patient resource from the FHIR Server using the patient identifier included in the Event Hub message. If either resource is not found, new resources will be created (device, patient, or both) containing just the identifier contained in the Event Hub message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the IoT Connector destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR Server.
-
-   **Lookup**
-
-     The IoT Connector destination attempts to retrieve a device resource from the FHIR Server using the device identifier included in the event hub message. If the device resource is not found, this will cause an error, and the data won't be processed. For **Lookup** to function properly, a device resource with an identifier matching the device identifier included in the event hub message **must** exist and the device resource **must** have a reference to a patient resource that also exists. In other words, when the IoT Connector destination is in the Lookup mode, device and patient resources **must** be added to the FHIR Server before data can be processed.
-
-   For more information, see the open source documentation [FHIR Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
-
-4. Under **Destination Mapping**, enter the JSON code inside the code editor.
-
-   For information about the Mapper Tool, see [IoMT Connector Data Mapper Tool](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
-
-5. You may select **Review + create**, or you can select **Next: Tags >** if you want to configure tags.  
-
-## (Optional) Configure Tags
-
-Tags are name and value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
-
-Under the **Tags** tab, enter the tag properties associated with the IoT Connector.
-
-   [ ![Tag properties.](media/tag-properties.png) ](media/tag-properties.png#lightbox)
- 
-1. Enter a **Name**.
-2. Enter a **Value**.
-3. Select **Review + create**.
-
-   You should notice a **Validation success** message like what's shown in the image below. 
-
-   [ ![Validation success message.](media/iot-connector-validation-success.png) ](media/iot-connector-validation-success.png#lightbox) 
-
-   > [!NOTE]
-   > If your IoT Connector didn’t validate, review the validation failure message, and troubleshoot the issue. It’s recommended that you review the properties under each IoT Connector tab that you've configured.
-
-4. Next, select **Create**.
-
-   The newly deployed IoT Connector will display inside your Azure resource group.
-
-   [ ![Deployed IoT Connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png) ](media/azure-resources-iot-connector-deployed.png#lightbox)  
-
-    Now that your IoT Connector has been deployed, we're going to walk through the steps of assigning permissions to access the Event Hub and the FHIR service. 
-
-## Granting IoT Connector access
-
-To ensure that your IoT Connector works properly, it must have granted access permissions to the Event Hub and FHIR service. 
-
-### Accessing the IoT Connector from the Event Hub
-
-1. In the **Azure Resource group** list, select the name of your **Event Hubs Namespace**.
-
-2. Select the **Access control (IAM)** blade, and then select **+ Add**.   
-
-   [ ![Screenshot of access control of event hubs namespace.](media/access-control-blade-add.png) ](media/access-control-blade-add.png#lightbox)
-
-3. Select **Add role assignment**.
-
-   [ ![Screenshot of add role assignment.](media/event-hub-add-role-assignment.png) ](media/event-hub-add-role-assignment.png#lightbox)
- 
-4. Select the **Role**, and then select **Azure Event Hubs Data Receiver**.
-
-   [ ![Screenshot of add role assignment required fields.](media/event-hub-add-role-assignment-fields.png) ](media/event-hub-add-role-assignment-fields.png#lightbox)
-
-
-   The Azure Event Hubs Data Receiver role allows the IoT Connector that's being assigned this role to receive data from this Event Hub.
-
-   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs (preview)](.././authentication-authorization.md).
-
-5. Select **Assign access to**, and keep the default option selected **User, group, or service principal**.
-
-6. In the **Select** field, enter the security principal for your IoT Connector.  
-
-   `<your workspace name>/iotconnectors/<your IoT connector name>`
- 
-   When you deploy an IoT Connector, it creates a managed identity. The managed identify name is a concatenation of the workspace name, resource type (that's the IoT Connector), and the name of the IoT Connector.
-
-7. Select **Save**.
-
-   After the role assignment has been successfully added to the Event Hub, a notification will display a green check mark with the text "Add Role assignment."  This message indicates that the IoT Connector can now read from the Event Hub.
-
-   [ ![Screenshot of added role assignment message.](media/event-hub-added-role-assignment.png) ](media/event-hub-added-role-assignment.png#lightbox)
-
-For more information about authoring access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
-
-### Accessing the IoT Connector from the FHIR service
-
-1. In the **Azure Resource group list**, select the name of your  **FHIR service**.
- 
-2. Select the **Access control (IAM)** blade, and then select **+ Add**. 
-
-3. Select **Add role assignment**.
-
-   [ ![Screenshot of add role assignment for the FHIR service.](media/fhir-service-add-role-assignment.png) ](media/fhir-service-add-role-assignment.png#lightbox)
-
-4. Select the **Role**, and then select **FHIR Data Writer**.
-
-   The FHIR Data Writer role provides read and write access that the IoT Connector uses to function. Because the IoT Connector is deployed as a separate resource, the FHIR service will receive requests from the IoT Connector. If the FHIR service doesn’t know who's making the request, or if it doesn't have the assigned role, it will deny the request as unauthorized.
-
-   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs (preview)](.././authentication-authorization.md).
-
-5. In the **Select** field, enter the security principal for your IoT Connector.  
-
-    `<your workspace name>/iotconnectors/<your IoT connector name>`
-
-6. Select **Save**.
-
-   [ ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-asignment.png) ](media/fhir-service-added-role-asignment.png#lightbox)
-
-   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC for the FHIR service](../fhir/configure-azure-rbac-for-fhir.md).
+For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-06-new-deploy.md#grant-access-to-the-fhir-service).
 
 ## Next steps
 
-In this article, you've learned how to deploy an IoT Connector in the Azure portal. For an overview of the IoT Connector, see
+In this article, you learned about the different types of deployment for MedTech service. To learn more about MedTech service, see
 
 >[!div class="nextstepaction"]
->[IoT Connector overview](iot-connector-overview.md)
+>[What is MedTech service?](/rest/api/healthcareapis/iot-connectors).
+
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

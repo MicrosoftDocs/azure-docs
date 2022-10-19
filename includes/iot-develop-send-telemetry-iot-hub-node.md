@@ -6,25 +6,26 @@
  ms.topic: include
  ms.date: 09/17/2021
  ms.author: timlt
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli 
+ ms.devlang: azurecli
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
+In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a temperature controller, connect it securely to the hub, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Hub.
 
 ## Prerequisites
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
 - Windows 10
-- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
-- Raspberry Pi OS version 10 (buster) running on a Raspberry Pi 3 Model B+
+- Ubuntu 20.04 LTS
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [Node.js](https://nodejs.org) version 10 or later. To check your node version run `node --version`.
+- [Node.js](https://nodejs.org) version 12 or later. To check your node version run `node --version`.
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps. 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
@@ -32,15 +33,15 @@ Install the following prerequisites on your development machine except where not
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## Run a simulated device
-In this section, you'll use the Node.js SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
+## Run the device sample
+In this section, you'll use the Node.js SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 1. Open a new console such as Windows CMD, PowerShell, or Bash. In the following steps, you'll use this console to install the Node.js SDK and work with Node.js sample code.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
 
-1. Clone the [Azure IoT Node.js SDK device samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) to your local machine:
+1. Clone the [Azure IoT Node.js SDK device samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples) to your local machine:
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-node
@@ -50,12 +51,12 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\pnp
+    cd azure-iot-sdk-node\device\samples\javascript
     ```
 
     **Linux or Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-node/device/samples/pnp
+    cd azure-iot-sdk-node/device/samples/javascript
     ```
 
 1. Install the Azure IoT Node.js SDK and necessary dependencies:
@@ -66,7 +67,7 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
 
     This command installs the proper dependencies as specified in the *package.json* file in the device samples directory.
 
-1. Set both of the following environment variables, to enable your simulated device to connect to Azure IoT.
+1. Set both of the following environment variables, to enable your device to connect to Azure IoT.
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
     * Set an environment variable called `IOTHUB_DEVICE_SECURITY_TYPE`. For the variable, use the literal string value `connectionString`.
 
@@ -96,7 +97,7 @@ In this section, you'll use the Node.js SDK to send messages from a simulated de
 1. Run the following code sample:
 
     ```console
-    node pnpTemperatureController.js
+    node pnp_temperature_controller.js
     ```
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
@@ -128,7 +129,7 @@ To read telemetry sent by individual device components, you can use the plug and
 
 To view device telemetry with Azure CLI:
 
-1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az-iot-hub-monitor-events) command to monitor events sent from the device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

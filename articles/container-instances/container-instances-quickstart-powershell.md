@@ -1,14 +1,13 @@
 ---
 title: Quickstart - Deploy Docker container to container instance - PowerShell
 description: In this quickstart, you use Azure PowerShell to quickly deploy a containerized web app that runs in an isolated Azure container instance
-services: container-instances
-manager: gwallace
-ms.date: 03/21/2019
 ms.topic: quickstart
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: container-instances
-ms.custom: devx-track-azurepowershell
-  - mvc
-  - mode-api
+services: container-instances
+ms.date: 06/17/2022
+ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 
 # Quickstart: Deploy a container instance in Azure using Azure PowerShell
@@ -33,7 +32,7 @@ Azure container instances, like all Azure resources, must be deployed into a res
 
 First, create a resource group named *myResourceGroup* in the *eastus* location with the following [New-AzResourceGroup][New-AzResourceGroup] command:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
@@ -45,13 +44,13 @@ You can expose your containers to the internet by specifying one or more ports t
 
 Execute a command similar to the following to start a container instance. Set a `-DnsNameLabel` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 Within a few seconds, you should receive a response from Azure. The container's `ProvisioningState` is initially **Creating**, but should move to **Succeeded** within a minute or two. Check the deployment state with the [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
@@ -89,7 +88,7 @@ Once the container's `ProvisioningState` is **Succeeded**, navigate to its `Fqdn
 
 When you're done with the container, remove it with the [Remove-AzContainerGroup][Remove-AzContainerGroup] cmdlet:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 

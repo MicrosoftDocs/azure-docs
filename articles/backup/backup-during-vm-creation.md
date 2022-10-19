@@ -2,7 +2,10 @@
 title: Enable backup when you create an Azure VM
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 07/19/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Enable backup when you create an Azure VM
@@ -25,6 +28,9 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 2. In Azure Marketplace, select **Compute**, and then select a VM image.
 
+   >[!Note]
+   >To create a VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, remove the plan information from the VM. This helps in seamless VM restore.
+
 3. Set up the VM in accordance with the [Windows](../virtual-machines/windows/quick-create-portal.md) or [Linux](../virtual-machines/linux/quick-create-portal.md) instructions.
 
 4. On the **Management** tab, in **Enable backup**, select **On**.
@@ -44,7 +50,7 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
       ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
 
 >[!NOTE]
->[SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
+> [SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
 
 ## Azure Backup resource group for Virtual Machines
 
@@ -52,11 +58,11 @@ The Backup service creates a separate resource group (RG), different than the re
 
 Points to note:
 
-1. You can either use the default name of the RG, or edit it according to your company requirements.<br>If you haven't created an RG, to specify an RG for restorepointcollection, follow these steps:
-   1. Create an RG for restorepointcollection. For example, "rpcrg".
-   1. Mention the name of RG in the VM backup policy.
-   >[!NOTE]
-   >This will create an RG with the numeric appended and will use it for restorepointcollection.
+1. You can use default name of RG or customize the name according to organizational requirements.
+
+   >[!Note]
+   >When Azure Backup creates an RG, a numeric is appended to the name of RG and used for restore point collection.
+
 1. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
               `<alpha-numeric string>* n <alpha-numeric string>`. 'n' is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a maximum of 600 RPCs today.
               ![Choose name when creating policy](./media/backup-during-vm-creation/create-policy.png)

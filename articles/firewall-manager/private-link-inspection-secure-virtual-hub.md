@@ -2,11 +2,11 @@
 title: Secure traffic destined to private endpoints in Azure Virtual WAN
 description: Learn how to use network rules and application rules to secure traffic destined to private endpoints in Azure Virtual WAN 
 services: firewall-manager
-author: jocortems
+author: KumudD
 ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.author: jocorte
+ms.author: kumud
 ---
 
 # Secure traffic destined to private endpoints in Azure Virtual WAN
@@ -29,7 +29,7 @@ Azure Firewall filters traffic using any of the following methods:
 Use application rules over network rules to inspect traffic destined to private endpoints.
 A secured virtual hub is managed by Microsoft and it cannot be linked to a [Private DNS Zone](../dns/private-dns-privatednszone.md). This is required to resolve a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource) FQDN to its corresponding private endpoint IP address.
 
-SQL FQDN filtering is supported in [proxy-mode](../azure-sql/database/connectivity-architecture.md#connection-policy) only (port 1433). *Proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
+SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). *Proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
 
 ## Filter traffic using FQDN in network and application rules
 

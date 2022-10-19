@@ -1,97 +1,107 @@
 ---
-title: Azure Event Grid - Partner Events 
-description: Send events from third-party Event Grid SaaS and PaaS partners directly to Azure services with Azure Event Grid.
+title: Partner Events overview for customers 
+description: Send or receive from a SaaS or ERP system directly to/from Azure services with Azure Event Grid.
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 03/31/2022
 ---
 
-# Partner Events in Azure Event Grid (preview)
-The **Partner Events** feature allows a third-party SaaS provider to publish events from its services so that consumers can subscribe to those events. This feature offers a first-party experience to third-party event sources by exposing a [topic](concepts.md#topics) type, a **partner topic**. Subscribers create subscriptions to this topic to consume events. It also provides a clean pub-sub model by separating concerns and ownership of resources that are used by event publishers and subscribers.
+# Partner Events overview for customers - Azure Event Grid
+Azure Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners".
+
+This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams.
+
+They purposely integrate with Event Grid to realize end-to-end customer use cases that end on Azure (customers subscribe to events sent by partner) or end on a partner system (customers subscribe to Microsoft events sent by Azure Event Grid). Customers bank on Azure Event Grid to send events published by a partner to supported destinations such as webhooks, Azure Functions, Azure Event Hubs, or Azure Service Bus, to name a few.
+
+Customers also rely on Azure Event Grid to route events that originate in Microsoft services, such as Azure Storage, Outlook, Teams, or Azure AD, to partner systems where customer's solutions can react to them.
+
+With Partner Events, customers can build event-driven solutions across platforms and network boundaries to receive or send events reliably, securely and at a scale.
 
 > [!NOTE]
-> If you're new at using Event Grid, see [overview](overview.md), [concepts](concepts.md), and [event handlers](event-handlers.md).
+> If you're new to Event Grid, see the following articles that provide you with knowledge on foundational concepts: 
+> - [Overview](overview.md)
+> - [Concepts](concepts.md)
+> - [Event handlers](event-handlers.md)
 
-## What is Partner Events to a publisher?
-To an event publisher, the Partner Events feature allows publishers to do the following tasks:
+## Receive events from a partner
 
-- Onboard their event sources to Event Grid
-- Create a namespace (endpoint) to which they can publish events
-- Create partner topics in Azure that subscribers own and use to consume events
+You receive events from a partner in a [partner topic](concepts.md#partner-topics) that's' created on your behalf by a partner. Here are the high-level steps to subscribe to events from a partner.
 
-## What is Partner Events to a subscriber?
-To a subscriber, the Partner Events feature allows them to create partner topics in Azure to consume events from third-party event sources. Event consumption is realized by creating event subscriptions that send (push) events to a subscriber’s event handler.
+1. [Authorize partner to create a partner topic](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) in a resource group you designate. Authorizations are stored in partner configurations (Azure resources).
+2. [Request partner to forward your events](subscribe-to-partner-events.md#request-partner-to-enable-events-flow-to-a-partner-topic) from its service to your partner topic. **Partner provisions a partner topic** in the specified resource group of your Azure subscription.
+3. After the partner creates a partner topic in your Azure subscription and resource group, [activate](subscribe-to-partner-events.md#activate-a-partner-topic) your partner topic. 
+4. [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events) by creating one or more event subscriptions on the partner topic.
+
+:::image type="content" source="./media/partner-events-overview/receive-events-from-partner.png" alt-text="Steps to receive events from a partner":::
+
+> [!NOTE]
+> You must [register the Azure Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with every Azure subscription where you want create Event Grid resources. Otherwise, operations to create resources will fail.
+
 
 ## Why should I use Partner Events?
-You may want to use the Partner Events if you've one or more of the following requirements.
+You may want to use the Partner Events feature if you've one or more of the following requirements.
 
-### For publishers
-
-- You want a mechanism to make your events available on Azure. Your users can filter and route those events by using partner topics and event subscriptions that they own and manage. You could use other integration approaches such as [topics](custom-topics.md) and [domains](event-domains.md). But, they wouldn't allow for a clean separation of resource (partner topics) ownership, management, and billing between publishers and subscribers. Also, this approach provides more intuitive user experience that makes it easy to discover and use partner topics.
-- You want to publish events to a single endpoint, the namespace’s endpoint. And, you want the ability to filter those events so that only a subset of them is available. 
-- You want to have visibility into metrics related to published events.
-- You want to use [Cloud Events 1.0](https://cloudevents.io/) schema for your events.
-
-### For subscribers
-
-- You want to subscribe to events from [third-party publishers](#available-third-party-event-publishers) and handle the events using event handlers that are on Azure or elsewhere.
-- You want to take advantage of the rich set of routing features and [destinations/event handlers](overview.md#event-handlers) to process events from third-party sources. 
-- You want to implement loosely coupled architectures where your subscriber/event handler is unaware of the existence of the message broker used. 
+- You want to subscribe to events that originate in a [partner](#available-partners) system and route them to event handlers on Azure or to any application or service with a public endpoint.
+- You want to take advantage of the rich set Event Grid's [destinations/event handlers](overview.md#event-handlers) that react to events from partners.
+- You want to forward events raised by your custom application on Azure, an Azure service, or a Microsoft service to your application or service hosted by the [partner](#available-partners) system. For example, you may want to send Azure AD, Teams, SharePoint, or Azure Storage events to a partner system on which you're a tenant for processing. 
 - You need a resilient push delivery mechanism with send-retry support and at-least once semantics.
 - You want to use [Cloud Events 1.0](https://cloudevents.io/) schema for your events. 
+  
 
+## Available partners
+A partner must go through an [onboarding process](onboard-partner.md) before a customer can start receiving or sending events to partners. Following is the list of available partners and whether their services were designed to send events to or receive events from Event Grid.
 
-## Available third-party event publishers
-A third-party event publisher must go through an [onboarding process](partner-onboarding-overview.md) before a subscriber can start consuming its events. 
+### Microsoft partners
+| Partner              | Sends events to Azure?  | Receives events from Azure?   |
+| :--------------------|:-----------------------:|:----------------------:|
+| Microsoft Graph API* |   Yes                   | N/A                    |
 
+#### Microsoft Graph API
+Through Microsoft Graph API, you can get events from a diverse set of Microsoft services such as [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), **SharePoint**, and so on. For a complete list of event sources, see [Microsoft Graph API's change notifications documentation](/graph/webhooks#supported-resources).
+
+### Non-Microsoft partners
+| Partner       | Sends events to Azure?  | Receives events from Azure?   |
+| :------------ |:-----------------------:|:----------------------:|
+| Auth0         |  Yes                    | N/A                    |
 
 ### Auth0
-**Auth0** is the first partner publisher available. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auto0](auth0-how-to.md)
 
+[Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auto0](auth0-how-to.md).
+
+## Verified partners
+
+A verified partner is a partner organization whose identity has been validated by Microsoft. Not all partners are verified as verification is requested by the partner. However, all partners in the [Event Grid Gallery](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) have been vetted as verification is required before they can have a presence on the Azure portal.
+
+>[!IMPORTANT]
+>You should only work with verified partners. However, there are valid cases where you might work with partners that haven't been verified. For example, the partner may be a team in your own company that's the owner of a platform solution that publishes events to corporate applications. 
+
+## Resources managed by customers
+You manage the following types of resources.
+
+- **Partner topic** is the resource where you receive your events from the partner. 
+- **[Event subscriptions](subscribe-through-portal.md)** is where you select what events to forward to an Azure service or to a public webhook on Azure or elsewhere. 
+- **Partner configurations** is the resource the holds your authorizations to partners to create partner resources.
  
-## Resources managed by event publishers
-Event publishers create and manage the following resources:
+## Grant authorization to create partner topics and destinations
 
-### Partner registration
-A registration holds general information related to a publisher. It defines a type of partner topic that shows in the Azure portal as an option when users try to create a partner topic. A publisher may expose more than one or more partner topic types to fit the needs of its subscribers. That is, a publisher may create separate registrations (partner topic types) for events from different services. For example, for the human resources (HR) service, publisher may define a partner topic for events such as employee joined, employee promoted, and employee left the company. 
+You must authorize partners to create partner topics before they attempt to create those resources. If you don't grant your authorization, the partners' attempt to create the partner resource will fail. 
 
-Keep in mind the following points:
+You consent the partner to create partner topics by creating a **partner configuration** resource. You add a partner authorization to a partner configuration identifying the partner and providing an authorization expiration time by which a partner topic/destination must be created. The only types of resources that partners can create with your permission are partner topics.
 
-- Only Azure-approved partner registrations are visible. 
-- Registrations are global. That is, they aren't associated to a particular Azure region.
-- A registration is an optional resource. But, we recommend that you (as a publisher) create a registration. It allows users to discover your topics on the **Create Partner Topic** page in the [Azure portal](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic). Then, user can select event types (for example, employee joined, employee left, and so on.) while creating event subscriptions.
+>[!IMPORTANT]
+> A verified partner isn't an authorized partner. Even if a partner has been vetted by Microsoft, you still need to authorize it before the partner can create resources on your behalf. 
 
-### Namespace
-Like [custom topics](custom-topics.md) and [domains](event-domains.md), a partner namespace is a regional endpoint to publish events. It's through namespaces that publishers create and manage event channels. A namespace also functions as the container resource for event channels.
+## Subscribe to events from a partner system
+For detailed instructions on how to subscribe to events published by a partner, see [subscribe to partner events](subscribe-to-partner-events.md).
 
-### Event Channels
-An event channel is a mirrored resource to a partner topic. When a publisher creates an event channel in the publisher’s Azure subscription, it also creates a partner topic under a subscriber's Azure subscription. The operations done against an event channel (except GET) will be applied to the corresponding subscriber partner topic, even deletion. However, only partner topics are the kind of resources on which subscriptions and event delivery can be configured.
-
-## Resources managed by subscribers 
-Subscribers can use partner topics defined by a publisher and it's the only type of resource they see and manage. Once a partner topic is created, a subscriber user can create event subscriptions defining filter rules to [destinations/event handlers](overview.md#event-handlers). To subscribers, a partner topic and its associated event subscriptions provide the same rich capabilities as [custom topics](custom-topics.md) and its related subscription(s) do with one notable difference: partner topics support only the [Cloud Events 1.0 schema](cloudevents-schema.md), which provides a richer set of capabilities than other supported schemas.
-
-The following image shows the flow of control plane operations.
-
-:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Partner Events - control plane flow":::
-
-1. Publisher creates a **partner registration**. Partner registrations are global. That is, they aren't associated with a particular Azure region. This step is optional.
-1. Publisher creates a **partner namespace** in a specific region.
-1. When Subscriber 1 tries to create a partner topic, an **event channel**, Event Channel 1, is created in the publisher's Azure subscription first.
-1. Then, a **partner topic**, Partner Topic 1, is created in the subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
-1. Subscriber 1 creates an **Azure Logic Apps subscription** to Partner Topic 1.
-1. Subscriber 1 creates an **Azure Blob Storage subscription** to Partner Topic 1. 
-1. When Subscriber 2 tries to create a partner topic, another **event channel**, Event Channel 2, is created in the publisher's Azure subscription first. 
-1. Then, the **partner topic**, Partner Topic 2, is created in the second subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
-1. Subscriber 2 creates an **Azure Functions subscription** to Partner Topic 2. 
 
 ## Pricing
-Partner topics are charged by the number of operations done when using Event Grid. For more information on all types of operations that are used as the basis for billing and detailed price information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
+Partner Events are charged by the number of operations done when routing events to or from Event Grid. For more information on all types of operations that are used as the basis for billing and detailed price information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## Limits
 See [Event Grid Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) for detailed information about the limits in place for partner topics.
 
 
 ## Next steps
-
+- [subscribe to partner events](subscribe-to-partner-events.md)
 - [Auth0 partner topic](auth0-overview.md)
 - [How to use the Auth0 partner topic](auth0-how-to.md)
-- [Become an Event Grid partner](partner-onboarding-overview.md)

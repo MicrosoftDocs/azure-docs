@@ -3,17 +3,16 @@ title: Control Azure CDN caching behavior with caching rules | Microsoft Docs
 description: You can use CDN caching rules to set or modify default cache expiration behavior both globally and with conditions, such as a URL path and file extensions.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/19/2019
-ms.author: allensu
+ms.author: duau
 ---
 
 # Control Azure CDN caching behavior with caching rules
@@ -54,11 +53,16 @@ For global and custom caching rules, you can specify the following **Caching beh
 
 - **Override**: Ignore origin-provided cache duration; use the provided cache duration instead. This will not override cache-control: no-cache.
 
+> [!NOTE] 
+> For **Azure CDN from Microsoft** profiles, cache expiration override is only applicable to status codes 200 and 206. 
+
 - **Set if missing**: Honor origin-provided cache-directive headers, if they exist; otherwise, use the provided cache duration.
 
 ![Global caching rules](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 ![Custom caching rules](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
+
+
 
 ## Cache expiration duration
 For global and custom caching rules, you can specify the cache expiration duration in days, hours, minutes, and seconds:

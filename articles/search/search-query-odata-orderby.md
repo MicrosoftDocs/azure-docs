@@ -4,26 +4,18 @@ titleSuffix: Azure Cognitive Search
 description: Syntax and language reference documentation for using order-by in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/16/2021
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.topic: reference
+ms.date: 07/18/2022
 ---
+
 # OData $orderby syntax in Azure Cognitive Search
 
- You can use the [OData **$orderby** parameter](query-odata-filter-orderby-syntax.md) to apply a custom sort order for search results in Azure Cognitive Search. This article describes the syntax of **$orderby** in detail. For more general information about how to use **$orderby** when presenting search results, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
+In Azure Cognitive Search, the **$orderby** parameter specifies custom sort order for search results. This article describes the OData syntax of **$orderby** and provides examples.
+
+Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about sorting and search results composition, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
 
 ## Syntax
 

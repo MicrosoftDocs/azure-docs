@@ -3,6 +3,7 @@ title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
 description: Describes how to store Event Hubs captured data in Azure Synapse Analytics via Azure Functions and Event Grid triggers. 
 ms.topic: tutorial
 ms.date: 12/07/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

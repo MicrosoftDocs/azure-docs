@@ -1,9 +1,9 @@
 ---
 title: Security framework - Azure IoT Edge | Microsoft Docs 
 description: Learn about the security, authentication, and authorization standards that were used to develop Azure IoT Edge and should be considered as you design your solution
-author: kgremban
+author: PatAltimore
 
-ms.author: kgremban
+ms.author: patricka
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge

@@ -1,13 +1,13 @@
 ---
 title: Use the Azure portal to configure file upload | Microsoft Docs
 description: How to use the Azure portal to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
-author: robinsh
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
-ms.author: robinsh
+ms.author: kgremban
 ---
 
 # Configure IoT Hub file uploads using the Azure portal
@@ -28,15 +28,13 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub and select **File upload** to display the file upload properties. Then select **Azure Storage Container** under **Storage container settings**.
 
-    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="View IoT Hub file upload settings in the portal":::
+    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="Screenshot that shows how to configure file upload settings in the portal.":::
 
-1. Select an Azure Storage account and blob container in your current subscription to associate with your IoT hub. If necessary, you can create an Azure Storage account on the **Storage accounts** pane and create a blob container on the **Containers** pane. 
+1. Select an Azure Storage account and blob container in your current subscription to associate with your IoT hub. If necessary, you can create an Azure Storage account on the **Storage accounts** pane and create a blob container on the **Containers** pane.
 
-   :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="View storage containers for file upload in the portal":::
+   :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="Screenshot showing how to view storage containers for file upload.":::
 
-1. After you've selected an Azure Storage account and blob container, configure the rest of the file upload properties.    
-
-    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-selected-container.png" alt-text="Configure IoT Hub file upload in the portal":::
+1. After you've selected an Azure Storage account and blob container, configure the rest of the file upload properties.
 
     * **Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
 

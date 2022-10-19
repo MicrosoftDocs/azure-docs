@@ -1,19 +1,18 @@
 ---
 title: Manage firewall rules - Azure portal - Azure Database for MySQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
-author: savjani
-ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
+author: vivgk
+ms.author: vivgk
 ms.date: 9/21/2020
 ---
 
-# Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
+# Manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview.
 
 Azure Database for MySQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
