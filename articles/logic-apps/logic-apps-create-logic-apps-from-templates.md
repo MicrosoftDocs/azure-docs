@@ -41,7 +41,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. In the [Azure portal](https://portal.azure.com), from the home page, select **Create a resource** > **Integration** > **Logic App**.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png" alt-text="Screenshot of the Azure portal. Under 'Popular Azure services,' 'Logic App' is highlighted. On the navigation menu, 'Integration' is highlighted.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png" alt-text="Screenshot showing the Azure portal. On the navigation menu, 'Integration' is selected." Under 'Popular Azure services', 'Logic App' is selected.:::
 
 1. On the **Create Logic App** page, enter the following values:
 
@@ -55,7 +55,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
    | **Plan type** | **Consumption** or **Standard** | Select **Consumption** to create a Consumption logic app workflow from a template. |
    | **Zone redundancy** | **Disabled** (default) or **Enabled** | If this option is available, select **Enabled** if you want to protect your logic app resource from a regional failure. But first [check that zone redundancy is available in your Azure region](/azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=consumption#considerations). |
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png" alt-text="Screenshot of the 'Create Logic App' page. The 'Consumption' plan type is selected, and values are visible in other input fields.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png" alt-text="Screenshot showing the 'Create Logic App' page with example property values provided and the 'Consumption' plan type selected.":::
 
 1. Select **Review + Create**.
 
@@ -67,11 +67,11 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. Scroll past the introduction video and common triggers to **Templates**. Select a prebuilt template.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png" alt-text="Screenshot of the designer. Under 'Templates,' three templates are visible. One called 'Delete old Azure blobs' is highlighted.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png" alt-text="Screenshot showing the designer. Under 'Templates,' three templates are visible. The templated named 'Delete old Azure blobs' is selected.":::
 
    When you select a prebuilt template, you can view more information about that template.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png" alt-text="Screenshot that shows information about the 'Delete old Azure blobs' template, including a description and a diagram that shows a recurring schedule.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png" alt-text="Screenshot showing information about the 'Delete old Azure blobs' template, including a description and a diagram that shows a recurring schedule.":::
 
 1. To continue with the selected template, select **Use this template**.
 
@@ -89,7 +89,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. After you set up the required connections, select **Continue**.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png" alt-text="Screenshot of the designer. A connection for Azure Blob Storage is visible, and the 'Continue' button is highlighted.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png" alt-text="Screenshot showing the designer with a connection for Azure Blob Storage. The 'Continue' button is selected.":::
 
    The designer opens and displays your workflow.
 
@@ -100,23 +100,23 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. Continue building your workflow.
 
-## Update a logic app workflow with a template
+## Update a Consumption workflow with a template
 
-1. In the [Azure portal](https://portal.azure.com), go to your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), go to your Consumption logic app resource.
 
 1. On the resource navigation menu, select **Logic app designer**.
 
 1. On the designer toolbar, select **Templates**. This action discards any unsaved changes, so a warning message appears. To confirm that you want to continue, select **OK**.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png" alt-text="Screenshot of the designer. The top part of a logic app workflow is visible. On the toolbar, 'Templates' is highlighted.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png" alt-text="Screenshot showing the designer with top part of a workflow visible. On the toolbar, 'Templates' is selected.":::
 
 1. Scroll past the introduction video and common triggers to **Templates**. Select a prebuilt template.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png" alt-text="Screenshot of the designer. Under 'Templates,' three templates are visible. One template called 'Delete old Azure blobs' is highlighted.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png" alt-text="Screenshot showing the template gallery. Under 'Templates,' three templates are visible. The template named 'Delete old Azure blobs' is selected.":::
 
    When you select a prebuilt template, you can view more information about that template.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png" alt-text="Screenshot that shows information about the 'Delete old Azure blobs' template. A description and diagram that shows a recurring schedule are visible.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png" alt-text="Screenshot showing information about the 'Delete old Azure blobs' template with a description and diagram that shows a recurring schedule.":::
 
 1. To continue with the selected template, select **Use this template**.
 
@@ -134,7 +134,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. After you set up your required connections, select **Continue**.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection-designer.png" alt-text="Screenshot of the designer, with a connection for Azure Blob Storage. The 'Continue' button is highlighted.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection-designer.png" alt-text="Screenshot showing the designer with a connection for Azure Blob Storage. The 'Continue' button is selected.":::
 
    The designer opens and displays your workflow.
 
@@ -149,7 +149,7 @@ After you make your changes to the template, you can save your changes. This act
 
 On the designer toolbar, select **Save**.
 
-:::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png" alt-text="Screenshot of the designer. The top part of a logic app workflow is visible. On the toolbar, the 'Save' button is highlighted.":::
+:::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png" alt-text="Screenshot showing the designer with top part of a workflow visible. On the toolbar, 'Save' is selected.":::
 
 ## Next steps
 
