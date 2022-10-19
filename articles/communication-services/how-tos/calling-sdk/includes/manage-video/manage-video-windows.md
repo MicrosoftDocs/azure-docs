@@ -89,6 +89,22 @@ The following classes and interfaces handle some of the major features of the Az
 | CallAgentOptions | The CallAgentOptions contains information to identify the caller. |
 | HangupOptions | The HangupOptions informs if a call should be terminated to all its participants. |
 
+## Register Video Handler
+
+An UI component, like XAML's MediaElement or MediaPlayerElement, will require the app registering a configuration for rendering local and remote video feeds.
+Please add the following content between the `Package` tags of the `Package.appxmanifest`:
+
+```xml
+<Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+        <InProcessServer>
+            <Path>RtmMvrUap.dll</Path>
+            <ActivatableClass ActivatableClassId="VideoN.VideoSchemeHandler" ThreadingModel="both" />
+        </InProcessServer>
+    </Extension>
+</Extensions>
+```
+
 ## Initialize the CallAgent
 
 To create a `CallAgent` instance from `CallClient` you must use `CallClient.CreateCallAgent` method that asynchronously returns a `CallAgent` object once it is initialized.
