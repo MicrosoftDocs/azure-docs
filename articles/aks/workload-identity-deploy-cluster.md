@@ -184,7 +184,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [workload-identity-overview]: workload-identity-overview.md
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
-[az-keyvault-list]: /cli/azure/keyvaultt#az-keyvault-list
+[az-keyvault-list]: /cli/azure/keyvault#az-keyvault-list
 [aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account
 [az-aks-create]: /cli/azure/aks#az-aks-create
