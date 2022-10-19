@@ -67,8 +67,7 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
 
     :::image type="content" source="./media/hdinsight-spark-kafka/add-ranger-policy-for-bobadmin.png" alt-text="Screenshot showing how to add ranger policy for bobadmin.":::
     
-    [ ![Screenshot showing how to add ranger policy for bobadmin.](./media/hdinsight-spark-kafka/add-ranger-policy-for-bobadmin.png)](./media/hdinsight-spark-kafka/add-ranger-policy-for-bobadmin-expanded.png#lightbox)
-    
+       
 1. Execute the commands below based on your parameter values
 
     ```
