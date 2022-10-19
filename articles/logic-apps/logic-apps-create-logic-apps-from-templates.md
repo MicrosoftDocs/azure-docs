@@ -41,7 +41,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. In the [Azure portal](https://portal.azure.com), from the home page, select **Create a resource** > **Integration** > **Logic App**.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png" alt-text="Screenshot showing the Azure portal. On the navigation menu, 'Integration' is selected." Under 'Popular Azure services', 'Logic App' is selected.:::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png" alt-text="Screenshot showing the Azure portal. On the navigation menu, 'Integration' is selected. Under 'Popular Azure services', 'Logic App' is selected.":::
 
 1. On the **Create Logic App** page, enter the following values:
 
@@ -89,7 +89,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. After you set up the required connections, select **Continue**.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png" alt-text="Screenshot showing the designer with a connection for Azure Blob Storage. The 'Continue' button is selected.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png" alt-text="Screenshot showing designer with connection to Azure Blob Storage. The 'Continue' button is selected.":::
 
    The designer opens and displays your workflow.
 
@@ -134,7 +134,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. After you set up your required connections, select **Continue**.
 
-   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection-designer.png" alt-text="Screenshot showing the designer with a connection for Azure Blob Storage. The 'Continue' button is selected.":::
+   :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection-designer.png" alt-text="Screenshot showing the designer with a connection to Azure Blob Storage. The 'Continue' button is selected.":::
 
    The designer opens and displays your workflow.
 
