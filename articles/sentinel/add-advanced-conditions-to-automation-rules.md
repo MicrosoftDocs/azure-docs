@@ -91,7 +91,7 @@ We can add another value to an existing condition (for any conditions based on e
 
 Let's say we want to have this rule run if one of THREE (or more) conditions is true. If A *or* B *or* C is true, the rule will run.
 
-1. Remember all those "Add" links? To add another OR condition, select the **+ Add** connected by a line to the `OR` operator.
+1. Remember all those "Add" links? To add another OR condition, select the **+ Add**, connected by a line to the `OR` operator.
 
     :::image type="content" source="media/add-advanced-conditions-to-automation-rules/add-another-or-condition.png" alt-text="Screenshot of adding another OR condition to an automation rule.":::
 
