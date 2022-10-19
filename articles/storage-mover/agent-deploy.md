@@ -57,7 +57,7 @@ There's no single network configuration option that will work for every environm
 
 After the switch is created, ensure that the management and agent VMs are both on the same switch. On the WAN link firewall, outbound TCP port 443 must be open. Keep in mind that connectivity interruptions are to be expected when changing network configurations.
 
-You can get help with [creating a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines.md) in the [Windows Server](/windows-server/) documentation.
+You can get help with [creating a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) in the [Windows Server](/windows-server/) documentation.
 
 ### Recommended compute and memory resources
 
