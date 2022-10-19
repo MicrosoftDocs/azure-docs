@@ -2,12 +2,12 @@
 title: Deploy static files in Azure Spring Enterprise tier
 titleSuffix: Azure Spring Apps Enterprise tier
 description: Learn how to deploy static files in Azure Spring Apps Enterprise tier.
-author: yilims
+author: karlerickson
 ms.author: yili7
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 10/09/2022
-ms.custom: event-tier1-build-2022
+ms.date: 10/19/2022
+ms.custom: event-tier1-build-2022, engagement-fy23
 ---
 
 # Deploy static files in Azure Spring Enterprise tier
@@ -36,7 +36,7 @@ You can deploy static files to Azure Spring Apps using NGINX or HTTPD web server
 
 ### Deploy static files directly
 
-Use the following command to deploy static files directly using an auto-generated default server configuration file:
+Use the following command to deploy static files directly using an auto-generated default server configuration file.
 
 ```azurecli
 az spring app deploy
@@ -51,7 +51,7 @@ For more information, see the [Configure an auto-generated server configuration 
 
 ### Deploy your front-end application as static content
 
-To deploy a dynamic front-end application as static content, use the following command:
+Use the following command to deploy a dynamic front-end application as static content.
 
 ```azurecli
 az spring app deploy
@@ -64,7 +64,7 @@ az spring app deploy
 
 ### Deploy static files using a customized configuration file
 
-Use the following command to deploy static files using a customized server configuration file:
+Use the following command to deploy static files using a customized server configuration file.
 
 ```azurecli
 az spring app deploy
@@ -83,7 +83,7 @@ For more information, see the [Using a customized server configuration file](#us
 
 The [Paketo buildpacks samples](https://github.com/paketo-buildpacks/samples/tree/main/web-servers) demonstrate common use cases for several different application types, including the following use cases:
 
-- Serving static files with a default server configuration file, using `BP_WEB_SERVER` to select either [HTTPD](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/HTTPD.md) or [NGINX](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/NGINX.md).
+- Serving static files with a default server configuration file using `BP_WEB_SERVER` to select either [HTTPD](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/HTTPD.md) or [NGINX](https://github.com/paketo-buildpacks/samples/blob/main/web-servers/no-config-file-sample/NGINX.md).
 - Using NPM to build a [React app](https://github.com/paketo-buildpacks/samples/tree/main/web-servers/javascript-frontend-sample) into static files that can be served by a web server. Use the following steps:
   - Define a script under the `scripts` property of the package.json file that builds your production-ready static assets. For React, it's `build`.
   - Find out where static assets are stored after the build script runs. For React, static assets are stored in `./build` by default.
@@ -110,35 +110,37 @@ The following environment variables aren't supported.
 
 ## Using a customized server configuration file
 
-You can configure web server by using a customized server configuration file. Your configuration file must conform to the following restrictions:
+You can configure web server by using a customized server configuration file. Your configuration file must conform to the restrictions described in the following table.
 
 | Configuration                                | Description                                                                                                                                                                                                                                             | Nginx Configuration                                        | Httpd Configuration                          |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|-----------------------------------------------|
-| Listening port                               | Web server must listen on port 8080. The service checks the port on TCP for readiness and whether it's live. You must use templated variable `PORT` in the configuration file. The appropriate port number is injected when the web server is launched | `listen {{PORT}}`                                          | `Listen "${PORT}"`                           |
+| Listening port                               | Web server must listen on port 8080. The service checks the port on TCP for readiness and whether it's live. You must use the templated variable `PORT` in the configuration file. The appropriate port number is injected when the web server is launched. | `listen {{PORT}}`                                          | `Listen "${PORT}"`                           |
 | Log path                                     | Config log path to the console.                                                                                                                                                                                                                         | `access_log /dev/stdout`, `error_log stderr`               | `ErrorLog /proc/self/fd/2`                   |
-| File path with write permission              | Web server is granted write permission to directory `/tmp`. Configuring the full path requires write permission under the directory `/tmp`.                                                                                                             | For example: `client_body_temp_path /tmp/client_body_temp` |                                              |
+| File path with write permission              | Web server is granted write permission to the `/tmp` directory. Configuring the full path requires write permission under the `/tmp` directory.                                                                                                             | For example: `client_body_temp_path /tmp/client_body_temp` |                                              |
 | Maximum accepted body size of client request | Web server is behind the gateway. The maximum accepted body size of the client request is set to 500m in the gateway and the value for web server must be less than 500m.                                                                               | `client_max_body_size` should be less than 500m.           | `LimitRequestBody` should be less than 500m. |
 
 ## Buildpack bindings
 
 Deploying static files to Azure Spring Apps Enterprise tier supports the Dynatrace buildpack binding. The htpasswd buildpack binding isn't supported.
 
-For more information, see [Buildpack bindings](how-to-enterprise-build-service.md#buildpack-bindings).
+For more information, see the [Buildpack bindings](how-to-enterprise-build-service.md#buildpack-bindings) section of [Use Tanzu Build Service](how-to-enterprise-build-service.md).
 
 ## Common build and deployment errors
 
-The following table describes common build errors with deploying static files to Azure Spring Apps Enterprise tier.
+Your deployment of static files to Azure Spring Apps Enterprise tier may generate the following common build errors:
 
-| Error Message                                                                                                                                                       | Root Cause                           | Solution                                                           |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|---------------------------------------------------------------------|
-| *ERROR: No buildpack groups passed detection.* *ERROR: Please check that you're running against the correct path.* *ERROR: failed to detect: no buildpacks participating* | The web server type isn't specified. | Set the nvironment variable `BP_WEB_SERVER` to *nginx* or *httpd*. |
+- ERROR: No buildpack groups passed detection.
+- ERROR: Please check that you're running against the correct path.
+- ERROR: failed to detect: no buildpacks participating
 
-The following table describes common deployment errors with deploying static files to Azure Spring Apps Enterprise tier.
+The root cause of these errors is that the web server type isn't specified. To resolve these errors, set the environment variable `BP_WEB_SERVER` to *nginx* or *httpd*.
 
-| Error Message                                                                     | Root Cause                                                     | Solution                                                                                                                                                                                                                                     |
-|------------------------------------------------------------------------------------|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+The following table describes common deployment errors when you deploy static files to Azure Spring Apps Enterprise tier.
+
+| Error Message                                                                       | Root Cause                                                          | Solution                                                                                                                                                                                                                                                             |
+|--------------------------------------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | *112404: Exit code 0: purposely stopped, please refer to `https://aka.ms/exitcode`* | The web server failed to start.                                     | Validate your server configuration file to see if there's a configuration error. Then check whether your configuration file conforms to the restrictions described in [Using a customized server configuration file](#using-a-customized-server-configuration-file). |
-| *mkdir() "/var/client_body_temp" failed (13: Permission denied)*                    | The web server doesn't have write permission to the specified path. | Configure the path under the directory `/tmp`; for example: `/tmp/client_body_temp`.                                                                                                                                                                  |
+| *mkdir() "/var/client_body_temp" failed (13: Permission denied)*                    | The web server doesn't have write permission to the specified path. | Configure the path under the directory `/tmp`; for example: `/tmp/client_body_temp`.                                                                                                                                                                                 |
 
 ## Next steps
 
