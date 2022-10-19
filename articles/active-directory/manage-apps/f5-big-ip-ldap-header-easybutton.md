@@ -175,8 +175,8 @@ Use the optional **Security Settings** to specify whether Azure AD encrypts issu
    ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
 6. Check **Enable Encrypted Assertion**.
-7. If you enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the certificate private key that BIG-IP APM uses to decrypt Azure AD assertions.
-8. If you enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP uploads to Azure AD for encrypting the issued SAML assertions.
+7. If you enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. BIG-IP APM uses this certificate private key to decrypt Azure AD assertions.
+8. If you enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. BIG-IP uploads this certificate to Azure AD to encrypt the issued SAML assertions.
 
    ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -238,7 +238,7 @@ On the **Additional User Attributes** tab, you can enable session augmentation f
 
 CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
-The **Available Policies** view lists CA policies that do not include user actions.
+The **Available Policies** view lists CA policies that don't include user actions.
 
 The **Selected Policies** view shows policies targeting all cloud apps. These policies can't be deselected or moved to the Available Policies list because they're enforced at a tenant level.
 
@@ -308,7 +308,7 @@ What isn’t covered is Single Log-Out (SLO) functionality, which ensures sessio
 
 The SAML federation metadata for the published application is imported from your tenant, which provides the APM with the SAML log-out endpoint for Azure AD. This action ensures SP-initiated sign-outs terminate the session between a client and Azure AD. To be effective, the APM needs to know when a user signs out of the application.
 
-If the BIG-IP webtop portal is used to access published applications, then a sign-out is processed by the APM to call the Azure AD sign-out endpoint. But consider a scenario wherein the BIG-IP webtop portal isn’t used. The user can't instruct the APM to sign out. Even if the user signs out of the application, the BIG-IP is oblivious to this. So for this reason, SP-initiated sign-out needs consideration to ensure sessions are terminated securely. You can add an SLO function to your applications sign-out button, so it can redirect your client to the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant is in **App Registrations > Endpoints**.
+If the BIG-IP webtop portal is used to access published applications, then a sign-out is processed by the APM to call the Azure AD sign-out endpoint. But consider a scenario wherein the BIG-IP webtop portal isn’t used. The user can't instruct the APM to sign out. Even if the user signs out of the application, the BIG-IP is oblivious to this action. Therefore, SP-initiated sign-out needs consideration to ensure sessions are terminated securely. You can add an SLO function to your applications sign-out button, so it can redirect your client to the Azure AD SAML or BIG-IP sign-out endpoint. The URL for SAML sign-out endpoint for your tenant is in **App Registrations > Endpoints**.
 
 If you can't make a change to the app, then consider having the BIG-IP listen for the application sign-out call, and upon detecting the request have it trigger SLO. Refer to the [Oracle PeopleSoft SLO guidance](./f5-big-ip-oracle-peoplesoft-easy-button.md#peoplesoft-single-logout) for using BIG-IP iRules. More details on using BIG-IP iRules are in the F5 articles:
 
@@ -337,7 +337,7 @@ For increased security, organizations using this pattern can block direct access
 
 The Guided Configuration templates can lack flexibility to achieve specific requirements.
 
-In BIG-IP you can disable **Guided Configuration’s strict management mode**. You can then manually change your configurations, although the bulk of your configurations are automated through the wizard-based templates.
+In BIG-IP, you can disable **Guided Configuration’s strict management mode**. You can then manually change your configurations, although the bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the small **padlock** icon on the far-right of the row for your applications configurations. 
 
@@ -360,7 +360,7 @@ To troubleshoot, you can increase the log verbosity level.
 2. Select the row for your published application then **Edit > Access System Logs**.
 3. Select **Debug** from the SSO list then **OK**.
 
-Reproduce your issue, then inspect the logs, but revert this setting when finished. Verbose mode generates a lot of data. 
+Reproduce your issue, then inspect the logs, but revert this setting when finished. Verbose mode generates significant amounts of data. 
 
 **BIG-IP error page**
 
@@ -371,7 +371,7 @@ If a BIG-IP error appears after Azure AD pre-authentication, it’s possible the
 
 **Back-end request**
 
-If there is no error page, then the issue is probably related to the back-end request, or SSO from the BIG-IP to the application.
+If there's no error page, then the issue is probably related to the back-end request, or SSO from the BIG-IP to the application.
 
 1. Navigate to **Access Policy > Overview > Active Sessions** and select the link for your active session.
 2. Use the **View Variables** link to help root-cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source.
