@@ -142,7 +142,7 @@ To create multiple sessions to each volume, you must configure the target and co
 
 You can then re-run the commands from the single session configuration or use the following script.
 
-Verify the number of sessions your volume has with eitehr `iscsicli SessionList` or `mpclaim -s -d`
+Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
 ### Multipath I/O
 
