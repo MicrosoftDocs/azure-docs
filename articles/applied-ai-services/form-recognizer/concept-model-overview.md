@@ -10,15 +10,28 @@ ms.topic: conceptual
 ms.date: 08/22/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
+
+<!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 
 # Form Recognizer models
 
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+::: moniker-end
+
+::: moniker range=">=form-recog-2.1.0"
  Azure Form Recognizer supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt document analysis or domain specific model or train a custom model tailored to your specific business needs and use cases. Form Recognizer can be used with the REST API or Python, C#, Java, and JavaScript SDKs.
+::: moniker-end
 
 ## Model overview
+
+::: moniker range="form-recog-3.0.0"
 
 | **Model**   | **Description**   |
 | --- | --- |
@@ -49,7 +62,7 @@ The Read API analyzes and extracts ext lines, words, their locations, detected l
 > [!div class="nextstepaction"]
 > [Learn more: read model](concept-read.md)
 
-### W-2 
+### W-2
 
 [:::image type="icon" source="media/studio/w2.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)
 
@@ -62,7 +75,7 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 > [!div class="nextstepaction"]
 > [Learn more: W-2 model](concept-w2.md)
 
-### General document 
+### General document
 
 [:::image type="icon" source="media/studio/general-document.png":::](https://formrecognizer.appliedai.azure.com/studio/document)
 
@@ -181,15 +194,15 @@ A composed model is created by taking a collection of custom models and assignin
 
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Paragraph roles** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |  
+| [prebuilt-read](concept-read.md#data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
 | [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
 | [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
-| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  | 
-| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |  
-| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ | 
-| [prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ | 
-| [prebuilt-businessCard](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ | 
-| [Custom](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ | 
+| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
+| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |
+| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ |
+| [prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
+| [prebuilt-businessCard](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ |
+| [Custom](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ |
 
 ## Input requirements
 
@@ -202,8 +215,143 @@ A composed model is created by taking a collection of custom models and assignin
 
 Learn how to use Form Recognizer v3.0 in your applications by following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md)
 
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+
+| **Model**   | **Description**   |
+| --- | --- |
+|**Document analysis**||
+| [Layout](#layout)  | Extract text and layout information from documents.|
+|**Prebuilt**||
+| [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
+| [Receipt](#receipt)  | Extract key information from English receipts.  |
+| [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
+| [Business card](#business-card)  | Extract key information from English business cards.  |
+|**Custom**||
+| [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+| [Composed](#composed-custom-model) | Compose a collection of custom models and assign them to a single model built from your form types.
+
+### Layout
+
+The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from documents.
+
+***Sample document processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/layout-analyze)***:
+
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot: Screenshot of layout analysis using the sample labeling tool":::
+
+> [!div class="nextstepaction"]
+>
+> [Learn more: layout model](concept-layout.md)
+
+### Invoice
+
+The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due.
+
+***Sample invoice processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+
+:::image type="content" source="./media/overview-invoices.jpg" alt-text="Screenshot of a sample invoice analysis using the sample labeling tool.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: invoice model](concept-invoice.md)
+
+### Receipt
+
+* The receipt model analyzes and extracts key information from printed and handwritten sales receipts.
+
+***Sample receipt processed using [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+
+:::image type="content" source="./media/receipts-example.jpg" alt-text="Screenshot of a sample receipt." lightbox="./media/overview-receipt.jpg":::
+
+> [!div class="nextstepaction"]
+> [Learn more: receipt model](concept-receipt.md)
+
+### ID document
+
+ The ID document model analyzes and extracts key information from the following documents:
+
+* U.S. Driver's Licenses (all 50 states and District of Columbia)
+
+* Biographical pages from international passports (excluding visa and other travel documents). The API analyzes identity documents and extracts
+
+***Sample U.S. Driver's License processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+
+:::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="Screenshot of a sample identification card.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: identity document model](concept-id-document.md)
+
+### Business card
+
+The business card model analyzes and extracts key information from business card images.
+
+***Sample business card processed using the [sample labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)***:
+
+:::image type="content" source="./media/business-card-example.jpg" alt-text="Screenshot of a sample business card.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: business card model](concept-business-card.md)
+
+### Custom
+
+* Custom models analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+
+***Sample custom model processing using the [sample labeling tool](https://fott-2-1.azurewebsites.net/)***:
+
+:::image type="content" source="media/overview-custom.jpg" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: custom model](concept-custom.md)
+
+#### Composed custom model
+
+A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. you can assign up to 100 trained custom models to a single composed model.
+
+***Composed model dialog window using the [sample labeling tool](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+
+:::image type="content" source="media/custom-model-compose.png" alt-text="Screenshot of Form Recognizer Studio compose custom model dialog window.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: custom model](concept-custom.md)
+
+## Model data extraction
+
+| **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Paragraph roles** | **Key-Value pairs** | **Fields** |
+|:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
+| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |
+| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ |
+| [prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
+| [prebuilt-businessCard](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ |
+| [Custom](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ |
+
+## Input requirements
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+> [!NOTE]
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+
+### Version migration
+
+ You can learn how to use Form Recognizer v3.0 in your applications by following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md)
+
+::: moniker-end
+
 ## Next steps
+
+::: moniker range="form-recog-3.0.0"
+
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with our [Form Recognizer sample tool](https://formrecognizer.appliedai.azure.com/studio)
+
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 * [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with our [Form Recognizer sample tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md) and get started creating a document processing app in the development language of your choice.
+* Complete a [Form Recognizer quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+
+::: moniker-end

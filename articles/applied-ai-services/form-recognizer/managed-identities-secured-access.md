@@ -9,9 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/23/2022
 ms.author: vikurpad
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Configure secure access with managed identities and private endpoints
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 This how-to guide will walk you through the process of enabling secure connections for your Form Recognizer resource. You can secure the following connections:
 

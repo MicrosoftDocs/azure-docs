@@ -9,7 +9,8 @@ ms.subservice: forms-recognizer
 ms.topic: reference
 ms.date: 06/23/2022
 ms.author: lajanuar
-keywords: Docker, container, images
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Form Recognizer container image tags and release notes

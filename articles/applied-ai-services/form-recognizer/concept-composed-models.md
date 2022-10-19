@@ -14,6 +14,16 @@ recommendations: false
 
 # Composed custom models
 
+::: moniker range="form-recog-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
+[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+::: moniker-end
+
+::: moniker range=">=form-recog-2.1.0"
+
 **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. When a document is submitted for analysis using a composed model, the service performs a classification to decide which custom model best represents the submitted document.
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. It's useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
@@ -44,6 +54,8 @@ With composed models, you can assign multiple custom models to a composed model 
 * Models composed with v2.1 of the API will continue to be supported, requiring no updates.
 
 * The limit for maximum number of custom models that can be composed is 100.
+
+::: moniker-end
 
 ## Development options
 

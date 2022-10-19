@@ -17,13 +17,11 @@ recommendations: false
 # Form Recognizer service quotas and limits
 <!-- markdownlint-disable MD033 -->
 
-[!INCLUDE [versioning and navigation](includes/versioning-and-navigation.md)]
+**Applies to:** ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v3.0**. ![Form Recognizer v2.1 checkmark](media/yes-icon.png) **Form Recognizer v2.1**.
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+* This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
-
-For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
+* For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/):
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
