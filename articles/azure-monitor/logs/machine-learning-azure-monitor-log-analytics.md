@@ -12,7 +12,7 @@ ms.date: 07/01/2022
 
 ---
 
-# Tutorial: Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor Logs  
+# Tutorial: Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor  
 
 The Kusto Query Language (KQL) includes machine learning operators, functions and plugins for time series analysis, anomaly detection, forecasting, and root cause analysis. Use these KQL capabilities to perform advanced data analysis in Azure Monitor Logs without the overhead of exporting data to external machine learning tools.
 
@@ -24,6 +24,8 @@ In this tutorial, you learn how to:
 > * Tweak anomaly detection settings to refine results
 > * Analyze the root cause of anomalies
 
+> [!NOTE]
+> This tutorial provides links to a Log Analytics demo environment in which you can run the KQL query examples. However, you can implement the same KQL queries and principals in alerts, workbook and all of the [Azure Monitor tools that use KQL](logs/log-query-overview.md). 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
