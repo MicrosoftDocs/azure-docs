@@ -13,10 +13,20 @@ ms.author: v-amallick
 
 Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
+In this article, you'll learn about:
+
+> [!div class="checklist"]
+>
+> - Before you start
+> - How does immutability work?
+> - Making immutability irreversible
+> - Restricted operations
+
+
 ## Before you start
 
-- Immutable vault is currently in preview and is available in the following regions: East US, East US 2, West US, West US 2, West Central US, North Europe, Brazil South, Japan East.
-- Immutable vault is currently supported for Recovery Services vaults only.
+- Immutable vault is currently in preview and is available in the following regions: East US, West US, West US 2, West Central US, North Europe, Brazil South, Japan East.
+- Immutable vault is supported for Recovery Services vaults and Backup vaults.
 - Enabling Immutable vault blocks you from performing specific operations on the vault and its protected items. See the [restricted operations](#restricted-operations).
 - Enabling immutability for the vault is a reversible operation. However, you can choose to make it irreversible to prevent any malicious actors from disabling it (after disabling it, they can perform destructive operations). Learn about [making Immutable vault irreversible](#making-immutability-irreversible).
 - Immutable vault applies to all the data in the vault. Therefore, all instances that are protected in the vault have immutability applied to them.
@@ -40,11 +50,23 @@ The immutability of a vault is a reversible setting that allows you to disable t
 
 Immutable vault prevents you  from performing the following operations  on the vault that could lead to loss of data:
 
+**Choose a vault**
+
+# [Recovery Services vault](#tab/recovery-services-vault)
+
 | Operation type | Description |
 | --- | --- |
-| **Stop protection with delete data** | A protected item can't have its recovery points deleted before their respective expiry date. However, you can still stop the protection of the instances while retaining data forever or until their expiry. |
+| **Stop protection with delete data** | A protected item can't have its recovery points deleted before their respective expiry date. However, you can still stop protection of the instances while retaining data forever or until their expiry. |
 | **Modify backup policy to reduce retention** | Any actions that reduce the retention period in a backup policy are disallowed on Immutable vault. However, you can make policy changes that result in the increase of retention. You can also make changes to the schedule of a backup policy. |
 | **Change backup policy to reduce retention** | Any attempt to replace a backup policy associated with a backup item with another policy with retention lower than the existing one is blocked. However, you can replace a policy with the one that has higher retention. |
+
+# [Backup vault](#tab/backup-vault)
+
+| Operation type | Description |
+| --- | --- |
+| **Stop protection with delete data** | A protected item can't have its recovery points deleted before their respective expiry date. However, you can still stop protection of the instances while retaining data forever or until their expiry. |
+
+---
 
 ## Next steps
 

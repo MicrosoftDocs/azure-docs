@@ -278,7 +278,7 @@ Grant a user access to log data from their resources and read all Azure AD sign-
 
 ## Set table-level read access
 
-To create a role that lets users or groups read data from specific tables in a workspace:
+To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
 1. Create a custom role that grants read access to table data, based on the built-in Azure Monitor Logs **Reader** role:
     

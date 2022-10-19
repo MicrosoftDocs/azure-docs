@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 9/15/2022
+ms.date: 10/17/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -75,8 +75,8 @@ In addition to the generally available data collection listed above, Azure Monit
 
 |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
 |	:---	|	:---	|	:---	|	:---	|
-| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](/azure/defender-for-cloud/auto-deploy-azure-monitoring-agent)	|
-| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows DNS logs: [Public preview](/azure/sentinel/connect-dns-ama)</li><li>Linux Syslog CEF: Preview</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/amadcr-privatepreviews)</li><li>No sign-up needed for Windows Forwarding Event (WEF), Windows Security Events and Windows DNS events</li></ul> |
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
+| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: Preview</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | <ul><li>[Sign-up link for Linux Syslog CEF](https://aka.ms/amadcr-privatepreviews)</li><li>No sign-up needed for Windows Forwarding Event (WEF), Windows Security Events and Windows DNS events</li></ul> |
 |	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Change Tracking: Preview. 	|	Change Tracking extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Preview	|	Azure NetworkWatcher extension	|	[Sign-up link](https://aka.ms/amadcr-privatepreviews)	|
@@ -100,7 +100,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Azure	|	X	|	X	|	X	|
 |		|	Other cloud (Azure Arc)	|	X	|	X	|		|
 |		|	On-premises (Azure Arc)	|	X	|	X	|		|
-|		|	Windows Client OS	|	X (Public preview)	|		|		|
+|		|	Windows Client OS	|	X	|		|		|
 |	**Data collected**	|		|		|		|		|
 |		|	Event Logs	|	X	|	X	|	X	|
 |		|	Performance	|	X	|	X	|	X	|
@@ -150,12 +150,13 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 
 ### Supported operating systems
 
-The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 isn't supported for any operating system. 
+The following tables list the operating systems that Azure Monitor Agent and the legacy agents support. All operating systems are assumed to be x64. x86 isn't supported for any operating system.  
+View [supported operating systems for Azure Arc Connected Machine agent](../../azure-arc/servers/prerequisites.md#supported-operating-systems), which is a prerequisite to run Azure Monitor agent on physical servers and virtual machines hosted outside of Azure (that is, on-premises) or in other clouds.
 
 #### Windows
 
-| Operating system | Azure Monitor agent | Log Analytics agent | Diagnostics extension | 
-|:---|:---:|:---:|:---:|:---:|
+| Operating system | Azure Monitor agent | Log Analytics agent (legacy) | Diagnostics extension | 
+|:---|:---:|:---:|:---:|
 | Windows Server 2022                                      | X |   |   |
 | Windows Server 2022 Core                                 | X |   |   |
 | Windows Server 2019                                      | X | X | X |
@@ -175,29 +176,25 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Azure Stack HCI                                          |   | X |   |
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser).<br>
-<sup>2</sup> Using the Azure Monitor agent [client installer (Public preview)](./azure-monitor-agent-windows-client.md).<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer](./azure-monitor-agent-windows-client.md).<br>
 <sup>3</sup> Also supported on Arm64-based machines.
 
 #### Linux
 
-| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Diagnostics extension <sup>2</sup>|
-|:---|:---:|:---:|:---:|:---:
-| AlmaLinux 8.5                                               | X<sup>3</sup> |   |   |
-| AlmaLinux 8                                                 | X | X |   |
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
+|:---|:---:|:---:|:---:|
+| AlmaLinux 8                                                 | X<sup>3</sup> | X |   |
 | Amazon Linux 2017.09                                        |   | X |   |
 | Amazon Linux 2                                              |   | X |   |
 | CentOS Linux 8                                              | X | X |   |
 | CentOS Linux 7                                              | X<sup>3</sup> | X | X |
 | CentOS Linux 6                                              |   | X |   |
-| CentOS Linux 6.5+                                           |   | X | X |
-| CBL-Mariner 2.0                                             | X |   |   |
+| CBL-Mariner 2.0                                             | X<sup>3</sup> |   |   |
 | Debian 11                                                   | X<sup>3</sup> |   |   |
 | Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
-| Debian 7                                                    |   |   | X |
 | OpenSUSE 15                                                 | X |   |   |
-| OpenSUSE 13.1+                                              |   |   | X |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
