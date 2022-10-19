@@ -99,7 +99,7 @@
         href: cross-region-replication-requirements-considerations.md
     - name: High availability and resiliency with availability zones
       items: 
-      - name: Using availability zones for high availability 
+      - name: Use availability zones for high availability 
         href: use-availability-zones.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
