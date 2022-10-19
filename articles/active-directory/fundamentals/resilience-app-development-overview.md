@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
-author: knicholasa
-ms.author: nichola
+author: janicericketts
+ms.author: jricketts
 manager: martinco
 ms.date: 11/23/2020
 ---
