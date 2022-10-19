@@ -279,7 +279,7 @@ The **Application Pool** tab has the services behind a BIG-IP represented as a p
 >[!NOTE]
 >Our back-end application sits on HTTP port 80. Switch to 443 if yours is HTTPS.
 
-### Single sign-on and HTTP headers
+### Single Sign-On and HTTP Headers
 
 Enabling SSO allows users to access BIG-IP published services without entering credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following options.
 
@@ -300,7 +300,7 @@ Enabling SSO allows users to access BIG-IP published services without entering c
 >[!NOTE]
 >APM session variables in curly brackets are case-sensitive. For example, if you enter OrclGUID and the Azure AD attribute name is orclguid, an attribute mapping failure occurs.
 
-### Session management
+### Session management settings
 
 The BIG-IPs session management settings define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Refer to the F5 article [K18390492: Security | BIG-IP APM operations guide](https://support.f5.com/csp/article/K18390492) for details on these settings.
 
