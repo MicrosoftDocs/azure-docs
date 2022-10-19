@@ -190,7 +190,7 @@ sections:
         
           You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
           
-          Scale sets, in general, support [image reference replacement](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#os-updates) but VMs do not.
+          Scale sets, in general, support [image reference replacement](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) but VMs do not.
           
           
           
