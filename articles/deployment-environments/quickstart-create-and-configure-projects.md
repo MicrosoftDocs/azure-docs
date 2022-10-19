@@ -33,7 +33,7 @@ In this quickstart, you learn how to:
 
 ## Create a project
 
-To create and configure a project in your dev center:
+To create a project in your dev center:
 
 1. In the [Azure portal](https://portal.azure.com/), go to Azure Deployment Environments.
 1. In **Dev centers**, select your dev center.
@@ -82,7 +82,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     |**Permissions on environment resources** > **Additional access** | Select the users or Azure Active Directory groups to assign to specific roles on the environment resources.|
     |**Tags** | Enter a tag name and a tag value. These tags are applied on all resources that are created as part of the environment.|
 
-   :::image type="content" source="./media/quickstart-create-configure-projects/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details on the add project environment type page.":::
+   :::image type="content" source="./media/quickstart-create-configure-projects/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details in the Add project environment type pane.":::
 
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [granted Owner access to the deployment subscription](how-to-configure-managed-identity.md) configured per environment type.
@@ -102,7 +102,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane.":::
 
 > [!NOTE]
-> Only users that have a [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, a [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions can create an environment.
+> Only a user who has a [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, a [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions can create an environment.
 
 ## Next steps
 

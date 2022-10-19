@@ -55,15 +55,15 @@ To create and configure a Dev center in Azure Deployment Environments by using t
 1. Select **Review + Create**.
 1. On the **Review** tab, wait for deployment validation, and then select **Create**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png" alt-text="Screenshot that shows the Review tab of a DevCenter to validate the deployment details.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png" alt-text="Screenshot that shows the Review tab of a dev center to validate the deployment details.":::
 
 1. Confirm that the dev center was successfully created by checking your Azure portal notifications. Then, select **Go to resource**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/azure-notifications.png" alt-text="Screenshot of Notifications to confirm the creation of dev center.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/azure-notifications.png" alt-text="Screenshot that shows portal notifications to confirm the creation of a dev center.":::
 
 1. In **Dev centers**, verify that the dev center appears.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-envrionments-devcenter-created.png" alt-text="Screenshot of Dev centers page to confirm the dev center is created and displayed on the page":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-envrionments-devcenter-created.png" alt-text="Screenshot that shows the Dev centers overview, to confirm that the dev center is created.":::
 
 ## Attach an identity to the dev center
 
@@ -80,7 +80,7 @@ To attach a system-assigned managed identity to your dev center:
 
 1. Complete the steps to create a [system-assigned managed identity](how-to-configure-managed-identity.md#configure-a-system-assigned-managed-identity-for-a-dev-center).
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot of system assigned managed identity.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity.":::
 
 1. After you create a system-assigned managed identity, assign the Owner role to give the [identity access](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) on the subscriptions that will be used to configure [project environment types](concept-environments-key-concepts.md#project-environment-types).
 
@@ -92,7 +92,7 @@ To attach a user-assigned managed identity to your dev center:
 
 1. Complete the steps to attach a [user-assigned managed identity](how-to-configure-managed-identity.md#configure-a-user-assigned-managed-identity-for-a-dev-center).
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot of user assigned managed identity.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot that shows a user-assigned managed identity.":::
 
 1. After you attach the identity, assign the Owner role to give the [identity access](how-to-configure-managed-identity.md#assign-a-subscription-role-assignment-to-the-managed-identity) on the subscriptions that will be used to configure [project environment types](how-to-configure-project-environment-types.md). Give the identity Reader access to all subscriptions that a project lives in.
 
@@ -115,7 +115,7 @@ To attach a catalog to your dev center:
 1. In **Dev centers**, select your dev center.
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/catalogs-page.png" alt-text="Screenshot of Catalogs page.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/catalogs-page.png" alt-text="Screenshot that shows the Catalogs pane.":::
 
 1. In the **Add catalog** pane, enter the following information, and then select **Add**.
 
@@ -127,7 +127,7 @@ To attach a catalog to your dev center:
     |**Folder path**|Enter the repo path where the [catalog item](concept-environments-key-concepts.md#catalog-items) exists.|
     |**Secret identifier**|Enter the secret identifier that contains your PAT for the repository.|
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-new-catalog-form.png" alt-text="Screenshot of add new catalog page.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-new-catalog-form.png" alt-text="Screenshot that shows the Add new catalog pane.":::
 
 1. Confirm that the catalog is successfully added by checking your Azure portal notifications.
 
@@ -145,7 +145,7 @@ Use an environment type to help you define the different types of environments y
     |**Name**|Enter a name for the environment type.|
     |**Tags**|Enter a tag name and a tag value.|
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-environment-type.png" alt-text="Screenshot of Create environment type form.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-environment-type.png" alt-text="Screenshot that shows the Create environment type pane.":::
 
 1. Confirm that the environment type is added by checking your Azure portal notifications.
 

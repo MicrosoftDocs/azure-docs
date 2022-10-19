@@ -11,14 +11,16 @@ ms.date: 10/12/2022
 
 # Quickstart: Create and access an environment in a project
 
-This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project. Only users that have a [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, a [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
+This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
+
+Only a user who has a [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, a [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
 
 In this quickstart, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Create an environment in a project
-> - Access an environment in a project
+> - Create an environment
+> - Access an environment
 
 > [!IMPORTANT]
 > Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -30,7 +32,7 @@ In this quickstart, you learn how to:
 - Install the Deployment Environments Azure CLI extension:
 
     1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
-    2. Install the Deployment Environments AZ CLI extension:
+    1. Install the Deployment Environments AZ CLI extension:
 
        **Automated installation**
   
@@ -49,9 +51,6 @@ In this quickstart, you learn how to:
        ```azurecli
        az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-environments-0.1.0-py3-none-any.whl
        ```
-
-> [!NOTE]
-> Only users who have a [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, a [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions can create an environment.
 
 ## Create an environment
 
