@@ -5,6 +5,23 @@ ms.topic: include
 ms.date: 01/24/2022
 ms.author: eur
 ---
+
+### 2022-September release
+
+#### Prebuilt Neural TTS Voice
+
+* All the prebuilt neural voices have been upgraded to high-fidelity voices with 48kHz sample rate. 
+
+### 2022-August release
+
+#### Prebuilt Neural TTS Voice
+
+Released new voices in public preview:
+* Voices for English (United States): `en-US-AIGenerate1Neural` and `en-US-AIGenerate2Neural`.
+* Voices for Chinese dialects: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, and `zh-CN-shandong-YunxiangNeural`. 
+
+For more information, see the [language and voice list](../../language-support.md?tabs=stt-tts).
+
 ### 2022-July release
 
 #### Prebuilt Neural TTS Voice

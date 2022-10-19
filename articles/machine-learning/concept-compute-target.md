@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/21/2021
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -116,8 +116,7 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#azureml-core-compute-amlcompute-amlcompute-supported-vmsizes)
->
+> * The [Azure CLI extension 2.0 for machine learning](how-to-configure-cli.md) command, [az ml compute list-sizes](/cli/azure/ml/compute#az-ml-compute-list-sizes).
 
 If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
 

@@ -56,7 +56,7 @@ If your script was doing something specific to azureuser such as installing cond
 
 The command `sudo -u azureuser` changes the current working directory to `/home/azureuser`. You also can't access the script arguments in this block.
 
-For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/setup/setup-ci).
+For other example scripts, see [azureml-examples](https://github.com/Azure/azureml-examples/tree/main/setup/setup-ci).
 
 You can also use the following environment variables in your script:
 

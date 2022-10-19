@@ -515,6 +515,8 @@
               href: start-stop-vms/manage.md
             - name: Remove Start/Stop VMs
               href: start-stop-vms/remove.md
+            - name: Define pre-actions
+              href: start-stop-vms/pre-actions.md
             - name: Troubleshoot
               href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database

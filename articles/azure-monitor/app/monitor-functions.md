@@ -52,6 +52,18 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
 APPLICATIONINSIGHTS_ENABLE_AGENT: true
 ```
 
+### Troubleshooting
+
+* Sometimes the latest version of the Application Insights Java agent is not
+  available in Azure Function - it takes a few months for the latest versions to
+  roll out to all regions. In case you need the latest version of Java agent to
+  monitor your app in Azure Function to use a specific version of Application
+  Insights Java Auto-instrumentation Agent, you can upload the agent manually:
+   
+  Please follow this [instruction](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Distributed tracing for Python Function apps
 
 To collect custom telemetry from services such as Redis, Memcached, MongoDB, and more, you can use the [OpenCensus Python Extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry). You can find the list of supported services [here](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).

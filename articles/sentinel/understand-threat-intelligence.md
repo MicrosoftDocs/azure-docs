@@ -1,24 +1,21 @@
 ---
-title: Understand threat intelligence in Microsoft Sentinel | Microsoft Docs
+title: Understand threat intelligence in Microsoft Sentinel
 description: Understand how threat intelligence feeds are connected to, managed, and used in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
-author: batamig
+author: austinmccollum
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 9/26/2022
+ms.author: austinmc
 ---
 
 # Understand threat intelligence in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+Microsoft Sentinel is a cloud native Security Information and Event Management (SIEM) solution with the ability to quickly pull threat intelligence from numerous sources.  
 
 ## Introduction to threat intelligence
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+Cyber threat intelligence (CTI) is information describing existing or potential threats to systems and users. This intelligence takes many forms, from written reports detailing a particular threat actor's motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, file hashes, and other artifacts associated with known cyber threats. CTI is used by organizations to provide essential context to unusual activity, so security personnel can quickly take action to protect their people, information, and assets. CTI can be sourced from many places, such as open-source data feeds, threat intelligence-sharing communities, commercial intelligence feeds, and local intelligence gathered in the course of security investigations within an organization.
 
-Cyber threat intelligence (CTI) is information describing known existing or potential threats to systems and users. This type of information takes many forms, from written reports detailing a particular threat actor’s motivations, infrastructure, and techniques, to specific observations of IP addresses, domains, file hashes, and other artifacts associated with known cyber threats. CTI is used by organizations to provide essential context to unusual activity, so that security personnel can quickly take action to protect their people, information, and other assets. CTI can be sourced from many places, such as open-source data feeds, threat intelligence-sharing communities, commercial intelligence feeds, and local intelligence gathered in the course of security investigations within an organization.
-
-Within a Security Information and Event Management (SIEM) solution like Microsoft Sentinel, the most commonly used form of CTI is threat indicators, also known as Indicators of Compromise or IoCs. Threat indicators are data that associate observed artifacts such as URLs, file hashes, or IP addresses with known threat activity such as phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence* because it can be applied to security products and automation in large scale to detect potential threats to an organization and protect against them. In Microsoft Sentinel, you can use threat indicators to help detect malicious activity observed in your environment and provide context to security investigators to help inform response decisions.
+For SIEM solutions like Microsoft Sentinel, the most common forms of CTI are threat indicators, also known as Indicators of Compromise (IoC) or Indicators of Attack (IoA). Threat indicators are data that associate observed artifacts such as URLs, file hashes, or IP addresses with known threat activity such as phishing, botnets, or malware. This form of threat intelligence is often called *tactical threat intelligence* because it can be applied to security products and automation in large scale to detect potential threats to an organization and protect against them. In Microsoft Sentinel, you can use threat indicators to help detect malicious activity observed in your environment and provide context to security investigators to help inform response decisions.
 
 Integrate threat intelligence (TI) into Microsoft Sentinel through the following activities:
 
@@ -32,9 +29,9 @@ Integrate threat intelligence (TI) into Microsoft Sentinel through the following
 
 Microsoft enriches all imported threat intelligence indicators with [GeoLocation and WhoIs data](#view-your-geolocation-and-whois-data-enrichments-public-preview), which is displayed together with other indicator details.
 
-> [!TIP]
-> Threat Intelligence also provides useful context within other Microsoft Sentinel experiences such as **Hunting** and **Notebooks**. For more information, see [Jupyter Notebooks in Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
->
+Threat Intelligence also provides useful context within other Microsoft Sentinel experiences such as **Hunting** and **Notebooks**. For more information, see [Jupyter Notebooks in Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Import threat intelligence with data connectors
 
@@ -94,25 +91,21 @@ For more details on viewing and managing your threat indicators, see [Work with 
 
 ### View your GeoLocation and WhoIs data enrichments (Public preview)
 
-Microsoft enriches each indicator with extra GeoLocation and WhoIs data, providing more context for investigations where the selected indicator of compromise (IOC) is found.
+Microsoft enriches IP and domain indicators with extra GeoLocation and WhoIs data, providing more context for investigations where the selected indicator of compromise (IOC) is found.
 
-You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each indicator of compromise that you've imported into Microsoft Sentinel.
+You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for each of those types of threat indicator you've imported into Microsoft Sentinel.
 
-For example, use GeoLocation data to find details like *Organization* or *Country* for the indicator, and WhoIs data to find data like *Registrar* and *Record creation* data.
+For example, use GeoLocation data to find details like *Organization* or *Country* for an IP indicator, and WhoIs data to find data like *Registrar* and *Record creation* data from a domain indicator.
 
-## Detect threats with threat indicator-based analytics
+## Detect threats with threat indicator analytics
 
-The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power analytics rules for threat detection. These indicator-based rules compare raw events from your data sources against your threat indicators to detect security threats in your organization. In Microsoft Sentinel **Analytics**, you create analytics rules that run on a schedule and generate security alerts. The rules are driven by queries, along with configurations that determine how often the rule should run, what kind of query results should generate security alerts and incidents, and which if any automations to trigger in response.
+The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power analytics rules for threat detection. These indicator-based rules compare raw events from your data sources against your threat indicators to detect security threats in your organization. In Microsoft Sentinel **Analytics**, you create analytics rules that run on a schedule and generate security alerts. The rules are driven by queries, along with configurations that determine how often the rule should run, what kind of query results should generate security alerts and incidents, and optionally trigger an automated response.
 
-While you can always create new analytics rules from scratch, Microsoft Sentinel provides a set of built-in rule templates, created by Microsoft security engineers, that you can use as-is or modify to meet your needs. You can readily identify the rule templates that use threat indicators, as they are all titled beginning with "**TI map**…". All these rule templates operate similarly, with the only difference being which type of threat indicators are used (domain, email, file hash, IP address, or URL) and which event type to match against. Each template lists the required data sources needed for the rule to function, so you can see at a glance if you have the necessary events already imported in Microsoft Sentinel. When you edit and save an existing rule template or create a new rule, it is enabled by default.
+While you can always create new analytics rules from scratch, Microsoft Sentinel provides a set of built-in rule templates, created by Microsoft security engineers, to leverage your threat indicators. These built-in rule templates are based on the type of threat indicators (domain, email, file hash, IP address, or URL) and data source events you want to match. Each template lists the required sources needed for the rule to function, so you can see at a glance if you have the necessary events already imported in Microsoft Sentinel. 
 
-You can find your enabled rule in the **Active rules** tab of the **Analytics** section of Microsoft Sentinel. You can edit, enable, disable, duplicate or delete the active rule from there. The new rule runs immediately upon activation, and from then on will run on its defined schedule.
+By default, when these built-in rules are triggered, an alert will be created. In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Microsoft Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
 
-According to the default settings, each time the rule runs on its schedule, any results found will generate a security alert. Security alerts in Microsoft Sentinel can be viewed in the **Logs** section of Microsoft Sentinel, in the **SecurityAlert** table under the **Microsoft Sentinel** group.
-
-In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Microsoft Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
-
-For more details on using threat indicators in your analytics rules, see [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md#detect-threats-with-threat-indicator-based-analytics).
+For more details on using threat indicators in your analytics rules, see [Use threat intelligence to detect threats](use-threat-indicators-in-analytics-rules.md).
 
 ## Workbooks provide insights about your threat intelligence
 
