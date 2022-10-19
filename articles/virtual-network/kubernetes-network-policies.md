@@ -26,7 +26,7 @@ Network Policies provides micro-segmentation for pods just like Network Security
 
 ![Kubernetes network policies overview](./media/kubernetes-network-policies/kubernetes-network-policies-overview.png)
 
-Azure NPM implementation works in conjunction with the Azure CNI that provides VNet integration for containers. NPM is supported only on Linux today. The implementation enforces traffic filtering by configuring allow and deny IP rules in Linux IPTables based on the defined policies. These rules are grouped together using Linux IPSets.
+Azure NPM implementation works with the Azure CNI that provides VNet integration for containers. NPM is supported on Linux and Windows Server 2022. The implementation enforces traffic filtering by configuring allow and deny IP rules based on the defined policies in Linux IPTables or Host Network Service(HNS) ACLPolicies for Windows Server 2022.
 
 ## Planning security for your Kubernetes cluster
 When implementing security for your cluster, use network security groups (NSGs) to filter traffic entering and leaving your cluster subnet (North-South traffic). Use Azure NPM for traffic between pods in your cluster (East-West traffic).
@@ -75,8 +75,8 @@ See a [configuration for these alerts](#set-up-alerts-for-alertmanager) below.
 
 ##### Visualizations and Debugging via our Grafana Dashboard or Azure Monitor Workbook
 1. See how many IPTables rules your policies create (having a massive amount of IPTables rules may increase latency slightly).
-2. Correlate cluster counts (e.g. ACLs) to execution times.
-3. Get the human-friendly name of an ipset in a given IPTables rule (e.g. "azure-npm-487392" represents "podlabel-role:database").
+2. Correlate cluster counts (for example, ACLs) to execution times.
+3. Get the human-friendly name of an ipset in a given IPTables rule (for example, "azure-npm-487392" represents "podlabel-role:database").
  
 ### All supported metrics
 The following is the list of supported metrics. Any `quantile` label has possible values `0.5`, `0.9`, and `0.99`. Any `had_error` label has possible values `false` and `true`, representing whether the operation succeeded or failed.
@@ -137,7 +137,7 @@ The dashboard has visuals similar to the Azure Workbook. You can add panels to c
 ### Set up for Prometheus Server
 Some users may choose to collect metrics with a Prometheus Server instead of Azure Monitor for containers. You merely need to add two jobs to your scrape config to collect NPM metrics.
 
-To install a simple Prometheus Server, add this helm repo on your cluster
+To install a Prometheus Server, add this helm repo on your cluster
 ```
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm repo update
@@ -178,7 +178,6 @@ where `prometheus-server-scrape-config.yaml` consists of
     action: drop
 ```
 
-
 You can also replace the `azure-npm-node-metrics` job  with the content below or incorporate it into a pre-existing job for Kubernetes pods:
 ```
 - job_name: "azure-npm-node-metrics-from-pod-config"
@@ -199,7 +198,7 @@ You can also replace the `azure-npm-node-metrics` job  with the content below or
 ```
 
 #### Set up Alerts for AlertManager
-If you use a Prometheus Server, you can set up an AlertManager like so. Here is an example config for [the two alerting rules described above](#alerts-via-a-prometheus-alertmanager):
+If you use a Prometheus Server, you can set up an AlertManager like so. Here's an example config for [the two alerting rules described above](#alerts-via-a-prometheus-alertmanager):
 ```
 groups:
 - name: npm.rules
@@ -261,7 +260,6 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 
 #### Grafana Dashboard Runtime Quantiles
 [![Grafana Dashboard runtime quantiles](media/kubernetes-network-policies/grafana-runtime-quantiles.png)](media/kubernetes-network-policies/grafana-runtime-quantiles.png#lightbox)
-
 
 
 ## Next steps

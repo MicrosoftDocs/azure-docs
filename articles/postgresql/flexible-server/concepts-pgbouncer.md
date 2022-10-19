@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # PgBouncer in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL – Flexible Server offers [PgBouncer](https://github.com/pgbouncer/pgbouncer) as a built-in connection pooling solution. This is an optional service that can be enabled on a per-database server basis and is supported with both public and private access. PgBouncer runs in the same virtual machine as the Postgres database server. Postgres uses a process-based model for connections which makes it expensive to maintain many idle connections. So, Postgres itself runs into resource constraints once the server runs more than a few thousand connections. The primary benefit of PgBouncer is to improve idle connections and short-lived connections at the database server.
 
@@ -42,6 +42,26 @@ For more details on the PgBouncer configurations, please see [pgbouncer.ini](htt
 
 > [!Note] 
 > Upgrading of PgBouncer is managed by Azure.
+
+## Monitoring PgBouncer statistics 
+
+PgBouncer also provides an **internal* database that you can connect to called `pgbouncer`. Once connected to the database you can execute `SHOW` commands that provide information on the current state of pgbouncer.
+
+Steps to connect to `pgbouncer` database
+1. Set `pgBouncer.stats_users` parameter to the name of an existing user (ex. "myUser"), and apply the changes.
+1. Connect to `pgbouncer` database as this user and port as `6432`
+
+```sql
+psql "host=myPgServer.postgres.database.azure.com port=6432 dbname=pgbouncer user=myUser password=myPassword sslmode=require"
+```
+
+Once connected, use **SHOW** commands to view pgbouncer stats
+* `SHOW HELP` - list all the available show commands
+* `SHOW POOLS` —  show number of connections in each state for each pool
+* `SHOW DATABASES` - show current applied connection limits for each database
+* `SHOW STATS` - show stats on requests and traffic for every database
+
+For more details on the PgBouncer show command, please refer [Admin console](https://www.pgbouncer.org/usage.html#admin-console).
 
 ## Switching your application to use PgBouncer
 

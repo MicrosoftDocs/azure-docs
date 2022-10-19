@@ -28,15 +28,17 @@
       - name: Create a gateway device template
         href: core/tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
-        href: /learn/modules/connect-iot-edge-device-to-iot-central
+        href: /training/modules/connect-iot-edge-device-to-iot-central
       - name: Create a device group
         href: core/tutorial-use-device-groups.md
     - name: Extend your application
       items:
       - name: Create a rule
         href: core/tutorial-create-telemetry-rules.md
+      - name: Explore an Azure IoT Central industrial scenario
+        href: core/tutorial-industrial-end-to-end.md
       - name: Explore the IoT Central APIs
-        href: /learn/modules/manage-iot-central-apps-with-rest-api/
+        href: /training/modules/manage-iot-central-apps-with-rest-api/
     - name: Create industry specific demo apps
       items:
       - name: Retail
@@ -228,6 +230,8 @@
           href: core/howto-manage-jobs-with-rest-api.md
         - name: Manage applications
           href: core/howto-manage-iot-central-with-rest-api.md
+        - name: Manage dashboards  
+          href: core/howto-manage-dashboards-with-rest-api.md
         - name: File upload
           href: core/howto-upload-file-rest-api.md
           
@@ -240,6 +244,8 @@
           href: core/howto-administer.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles.md
+        - name: Use audit logs
+          href: core/howto-use-audit-logs.md
         - name: Manage organizations
           href: core/howto-create-organizations.md
         - name: Customize application UI
@@ -269,7 +275,7 @@
   - name: Code samples
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Guided learning path
-    href: /learn/paths/develop-iot-solutions-with-azure-iot-central/
+    href: /training/paths/develop-iot-solutions-with-azure-iot-central/
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
   - name: Video resources

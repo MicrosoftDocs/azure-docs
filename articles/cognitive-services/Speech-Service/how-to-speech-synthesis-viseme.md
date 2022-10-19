@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/23/2022
+ms.date: 09/16/2022
 ms.author: yulili
 ms.devlang: cpp, csharp, java, javascript, python
 ms.custom: references_regions

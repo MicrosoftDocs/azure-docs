@@ -22,7 +22,7 @@ The following tables compare the storage solutions Azure Storage offers for Azur
 |Use case|General purpose|Ultra performance or migration from NetApp on-premises|Cross-platform|
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
 |Regional availability|All regions|[Select regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|All regions|
-|Redundancy|Locally redundant/zone-redundant/geo-redundant/geo-zone-redundant|Locally redundant|Locally redundant/zone-redundant/geo-redundant|
+|Redundancy|Locally redundant/zone-redundant/geo-redundant/geo-zone-redundant|Locally redundant/geo-redundant [with cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md)|Locally redundant/zone-redundant/geo-redundant|
 |Tiers and performance| Standard (Transaction optimized)<br>Premium<br>Up to max 100K IOPS per share with 10 GBps per share at about 3 ms latency|Standard<br>Premium<br>Ultra<br>Up to 4.5GBps per volume at about 1 ms latency. For IOPS and performance details, see [Azure NetApp Files performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) and [the FAQ](../azure-netapp-files/faq-performance.md#how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops).|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
 |Capacity|100 TiB per share, Up to 5 PiB per general purpose account |100 TiB per volume, up to 12.5 PiB per subscription|Maximum 32 TiB per disk|
 |Required infrastructure|Minimum share size 1 GiB|Minimum capacity pool 4 TiB, min volume size 100 GiB|Two VMs on Azure IaaS (+ Cloud Witness) or at least three VMs without and costs for disks|
@@ -60,6 +60,10 @@ The following table lists our recommendations for which performance tier to use 
 |Power|Premium file shares|
 
 For more information about Azure Files performance, see [File share and file scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## Azure NetApp Files tiers
+
+Azure NetApp Files volumes are organized in capacity pools. Volume performance is defined by the service level of the hosting capacity pool. Three performance levels are offered, ultra, premium and standard. For more information, see [Storage hierarchy of Azure NetApp Files](../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md).
 
 ## Next steps
 

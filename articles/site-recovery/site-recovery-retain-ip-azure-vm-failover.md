@@ -29,7 +29,7 @@ Company A has all its apps running in Azure.
 
 ### Before failover
 
->[!NOTE
+>[!NOTE]
 > Replication can now be done between any two Azure regions around the world. Customers are no longer limited to enabling replication within their continent.
 
 Here's the architecture before failover.

@@ -60,7 +60,7 @@ For each month, we truncate the SLA attainment at three places after the decimal
 | May       | 99.999% | 99.999% |
 | June      | 99.999% | 99.999% |
 | July      | 99.999% | 99.999% |
-| August    | 99.999% |         |
+| August    | 99.999% | 99.999% |
 | September | 99.999% |         |
 | October   | 99.999% |         |
 | November  | 99.998% |         |

@@ -2,13 +2,14 @@
 title: Generate an on-demand report from a query in the Audit dashboard in Permissions Management
 description: How to generate an on-demand report from a query in the **Audit** dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Generate an on-demand report from a query

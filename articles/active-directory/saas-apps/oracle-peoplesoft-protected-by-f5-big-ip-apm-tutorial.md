@@ -59,6 +59,8 @@ To configure the integration of Oracle PeopleSoft - Protected by F5 BIG-IP APM i
 1. In the **Add from the gallery** section, type **Oracle PeopleSoft - Protected by F5 BIG-IP APM** in the search box.
 1. Select **Oracle PeopleSoft - Protected by F5 BIG-IP APM** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 
 ## Configure and test Azure AD SSO for Oracle PeopleSoft - Protected by F5 BIG-IP APM
 

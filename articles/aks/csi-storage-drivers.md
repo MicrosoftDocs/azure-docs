@@ -3,7 +3,7 @@ title: Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AK
 description: Learn about and deploy the Container Storage Interface (CSI) drivers for Azure Disks and Azure Files in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 09/18/2022
 author: palma21
 
 ---
@@ -26,24 +26,9 @@ The CSI storage driver support on AKS allows you to natively use:
 > [!NOTE]
 > Azure Disks CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure Disks CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!NOTE]
-> AKS provides the option to enable and disable the CSI drivers (preview) on new and existing clusters. CSI drivers are enabled by default on new clusters. You should verify that there are no existing Persistent Volumes created by Azure Disks and Azure Files CSI drivers and that there is not any existing VolumeSnapshot, VolumeSnapshotClass or VolumeSnapshotContent resources before running this command on existing cluster. This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* You also need the Azure CLI installed and configured. Run az --version to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.78 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+You need the Azure CLI version 2.40 installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Disable CSI storage drivers on a new cluster
 
@@ -65,7 +50,7 @@ az aks update -n myAKSCluster -g myResourceGroup --disable-disk-driver --disable
 
 ## Enable CSI storage drivers on an existing cluster
 
-`--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi]. `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi]. `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller]. 
+`--enable-disk-driver` allows you enable the [Azure Disks CSI driver][azure-disk-csi]. `--enable-file-driver` allows you to enable the [Azure Files CSI driver][azure-files-csi]. `--enable-snapshot-controller` allows you to enable the [snapshot controller][snapshot-controller].
 
 To enable CSI storage drivers on an existing cluster with CSI storage drivers disabled, use `--enable-disk-driver`, `--enable-file-driver`, and `--enable-snapshot-controller`.
 
