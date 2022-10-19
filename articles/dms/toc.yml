@@ -175,6 +175,7 @@
   - name: Troubleshooting and known issues
     items:
     - name: Azure SQL Migration extension for Azure Data Studio
+      items:
       - name: Known issues, limitations and troubleshooting
         href: known-issues-azure-sql-migration-azure-data-studio.md
     - name: Database Migration Service
