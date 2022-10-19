@@ -25,7 +25,7 @@ You use JavaScript Object Notation (JSON) to create a policy exemption. The poli
 - [exemption category](#exemption-category)
 - [expiration](#expiration)
 - [resource selectors](#resource-selectors-preview)
-- [assignment scope validation](#assignment-scope-validation)
+- [assignment scope validation](#assignment-scope-validation-preview)
 
 > [!NOTE]
 > A policy exemption is created as a child object on the resource hierarchy or the individual
