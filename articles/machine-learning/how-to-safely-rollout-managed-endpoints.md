@@ -201,11 +201,21 @@ A deployment is a set of resources required for hosting the model that does the 
 
 # [Azure CLI](#tab/azure-cli)
 
-The `show` command contains information in `provisioning_status` for endpoint and deployment:
+You can view the status of your existing endpoint and deployment by running:
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
+```azurecli
+az ml online-endpoint show --name $ENDPOINT_NAME 
+
+az ml online-deployment show --name blue --endpoint $ENDPOINT_NAME 
+```
 
 You should see the endpoint identified by `$ENDPOINT_NAME` and, a deployment called `blue`.
+
+### Test the endpoint with sample data
+
+The endpoint can be invoked using the `invoke` command. We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-safe-rollout-online-endpoints.sh" ID="test_blue" :::
 
 # [Python](#tab/python)
 
@@ -214,6 +224,18 @@ Check the status to see whether the model was deployed without error:
 ```python
 ml_client.online_endpoints.get(name=online_endpoint_name)
 ```
+
+### Test the endpoint with sample data
+
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+
+* `endpoint_name` - Name of the endpoint
+* `request_file` - File with request data
+* `deployment_name` - Name of the specific deployment to test in an endpoint
+
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb?name=test_deployment)]
 
 ---
 
