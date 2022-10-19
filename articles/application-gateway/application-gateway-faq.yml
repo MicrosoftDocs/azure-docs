@@ -74,6 +74,8 @@ sections:
           $publicIP.IdleTimeoutInMinutes = "15"
           Set-AzPublicIpAddress -PublicIpAddress $publicIP
           ```
+          
+          For HTTP/2 connections on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is non-configurable.
  
       - question: Can I rename my Application Gateway resource?
         answer: No. There is no way to rename an Application Gateway resource. You must create a new resource with a different name. 
