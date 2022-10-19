@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Configure a managed identity
 
- A [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) is used to provide elevation-of-privilege capabilities and securely authenticate to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview service uses identities to provide self-serve capabilities to your development teams without granting them access to the target subscriptions in which the Azure resources are created.
+A [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) is used to provide elevation-of-privilege capabilities and securely authenticate to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview service uses identities to provide self-serve capabilities to your development teams without granting them access to the target subscriptions in which the Azure resources are created.
 
 The managed identity attached to the dev center should be [granted 'Owner' access to the deployment subscriptions](how-to-configure-managed-identity.md) configured per environment type. When an environment deployment is requested, the service grants appropriate permissions to the deployment identities configured per environment type to perform deployments on behalf of the user.
 The managed identity attached to a dev center will also be used to connect to a [catalog](how-to-configure-catalog.md) and access the [catalog items](configure-catalog-item.md) made available through the catalog.
@@ -44,7 +44,7 @@ In Azure Deployment Environments, you can use two types of managed identities:
 1. Select **Identity** from the left pane.
 1. On the **System assigned** tab, set the **Status** to **On**, select **Save** and then confirm enabling a System assigned managed identity.
 
-:::image type="content" source="./media/configure-managed-identity/configure-system-assigned-managed-identity.png" alt-text="Screenshot showing the system assigned managed identity.":::
+:::image type="content" source="./media/configure-managed-identity/configure-system-assigned-managed-identity.png" alt-text="Screenshot that shows the system assigned managed identity.":::
 
 
 ### Configure a user-assigned managed identity for a dev center
@@ -55,7 +55,7 @@ In Azure Deployment Environments, you can use two types of managed identities:
 1. Select **Identity** from the left pane.
 1. Switch to the **User assigned** tab and select **+ Add** to attach an existing identity.
 
-:::image type="content" source="./media/configure-managed-identity/configure-user-assigned-managed-identity.png" alt-text="Screenshot showing the user assigned managed identity.":::
+:::image type="content" source="./media/configure-managed-identity/configure-user-assigned-managed-identity.png" alt-text="Screenshot that shows the user assigned managed identity.":::
 
 1. On the **Add user assigned managed identity** page, add the following details:
     1. Select the **Subscription** in which the identity exists.
@@ -69,7 +69,7 @@ The identity attached to the dev center should be granted 'Owner' access to all 
 1. To add a role assignment to the managed identity:
     1. For a system-assigned identity, select **Azure role assignments**.
     
-    :::image type="content" source="./media/configure-managed-identity/system-assigned-azure-role-assignment.png" alt-text="Screenshot showing the Azure role assignment for system assigned identity.":::
+    :::image type="content" source="./media/configure-managed-identity/system-assigned-azure-role-assignment.png" alt-text="Screenshot that shows the Azure role assignment for system assigned identity.":::
 
     1. For the user-assigned identity, select the specific identity, and then select the **Azure role assignments** from the left pane.
 
@@ -108,5 +108,5 @@ A Key Vault can be configured to use either the [Vault access policy'](../key-va
 
 ## Next steps
 
-* [Configure a Catalog](how-to-configure-catalog.md)
-* [Configure a project environment type](how-to-configure-project-environment-types.md)
+- Learn how to [configure a catalog](how-to-configure-catalog.md).
+- Learn how to [configure a project environment type](how-to-configure-project-environment-types.md).
