@@ -5,9 +5,9 @@ description: Create an Azure Machine Learning workspace and required Azure servi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: jhirono
-ms.author: larryfr
-author: blackmist
+ms.reviewer: larryfr
+ms.author: jhirono
+author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
