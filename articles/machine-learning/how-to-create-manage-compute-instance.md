@@ -430,7 +430,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 ## Assign managed identity (preview)
 
-You can assign a system- or user-assigned [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
+You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
 You can create compute instance with managed identity from Azure ML Studio:
 
