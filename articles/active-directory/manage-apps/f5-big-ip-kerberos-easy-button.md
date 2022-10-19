@@ -86,7 +86,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An [SSL Web certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use default BIG-IP certificates while testing
 
-* A Kerberos application or [set up an IIS (Internet Information Services) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO
+* A Kerberos application, or go to active-directory-wp.com to learn to configure [SSO with IIS on Windows](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html).
 
 ## BIG-IP configuration methods
 
