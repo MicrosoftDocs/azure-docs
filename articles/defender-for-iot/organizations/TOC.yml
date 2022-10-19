@@ -22,9 +22,13 @@
   - name: Set up OT network security
     href: tutorial-onboarding.md
   - name: Set up Enterprise IoT network security
-    href: tutorial-getting-started-eiot-sensor.md
+    items:
+    - name: Monitor Enterprise IoT from Defender for Endpoint
+      href: eiot-mde.md
+    - name: Enhance Enterprise IoT security with a network sensor
+      href: eiot-sensor.md
   - name: Integrate with Microsoft Sentinel
-    items: 
+    items:
     - name: Connect Defender for IoT data to Microsoft Sentinel
       href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
@@ -43,6 +47,8 @@
         href: best-practices/sample-connectivity-models.md
     - name: OT threat monitoring in enterprise SOCs
       href: concept-sentinel-integration.md
+    - name: Enterprise IoT network security
+      href: concept-eiot.md
     - name: OT security system architecture
       items:
       - name: OT sensor cloud connection methods
