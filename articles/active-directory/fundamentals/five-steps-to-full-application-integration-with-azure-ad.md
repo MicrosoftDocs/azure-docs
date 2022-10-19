@@ -9,7 +9,6 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.author: nichola
 ---
 
 # Five steps for integrating all your apps with Azure AD
