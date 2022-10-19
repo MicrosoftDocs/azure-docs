@@ -70,6 +70,8 @@ blobfuse2 mount ./mount_dir --config-file=./config.yaml --container-name=blobfus
 
 For more information about the entire BlobFuse2 command set, including the `blobfuse2 mount` command, see [BlobFuse2 commands](blobfuse2-commands.md) and [BlobFuse2 mount commands](blobfuse2-commands-mount.md).
 
+++ Note: Add '--use-adls=true' to blobfuse driver when using data lake storage.
+
 ## See also
 
 - [Migrate to BlobFuse2 from BlobFuse v1](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
