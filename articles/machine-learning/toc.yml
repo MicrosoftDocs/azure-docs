@@ -570,8 +570,8 @@
                 - name: Customize outputs in batch deployments
                   href: batch-inference/how-to-deploy-model-custom-output.md
                 - name: Invoking batch endpoints from Azure Data Factory
-                  href: batch-inference/how-to-use-batch-adf.md
-                - name: Invoking batch endpoints from Even Grid events in storage
+                  href: batch-inference/how-to-use-batch-azure-data-factory.md
+                - name: Invoking batch endpoints from Event Grid events in storage
                   href: batch-inference/how-to-use-event-grid-batch.md
         - name: Deploying MLflow models
           items:
