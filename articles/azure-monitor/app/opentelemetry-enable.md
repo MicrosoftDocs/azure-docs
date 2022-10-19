@@ -495,7 +495,7 @@ Dependencies
 
 ---
 
-(1) Supports automatic exception capture
+(1) Supports automatic reporting (as SpanEvent) of unhandled exceptions
 
 
 ### Metrics
