@@ -304,7 +304,7 @@ if ($listener -eq $null){
 ---
 ## Configure request routing rule
 
-Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have an HTTP or HTTPS listener available that is not already bound to an existing routing rule.
+Using the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have an HTTP or HTTPS listener available that is not already bound to an existing routing rule.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -362,7 +362,7 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 - domain-bound cookies not being passed on to the backend
 - this includes the use of the ["ARR affinity" setting](../app-service/configure-common.md#configure-general-settings) in App Service
 
-The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application doesn't deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application doesn't deal well with rewriting the host name.  This is commonly seen.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
 ### [Azure portal](#tab/azure-portal/customdomain)
 
@@ -432,7 +432,7 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 - domain-bound cookies not being passed on to the backend
 - this includes the use of the ["ARR affinity" setting](../app-service/configure-common.md#configure-general-settings) in App Service
 
-The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application doesn't deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application doesn't deal well with rewriting the host name.  This is commonly seen.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
 ---
 

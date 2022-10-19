@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 Azure Application Gateway by default monitors the health of all resources in its backend pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy backend pool once they become available and respond to health probes. By default, Application gateway sends the health probes with the same port that is defined in the backend HTTP settings. A custom probe port can be configured using a custom health probe.
 
-The source IP address Application Gateway uses for health probes depends on the backend pool:
+The source IP address that Application Gateway uses for health probes will depend on the backend pool:
  
 - If the server address in the backend pool is a public endpoint, then the source address is the application gateway's frontend public IP address.
 - If the server address in the backend pool is a private endpoint, then the source IP address is from the application gateway subnet's private IP address space.
@@ -40,7 +40,7 @@ If the default probe check fails for server A, the application gateway stops for
 | Probe URL |\<protocol\>://127.0.0.1:\<port\>/ |The protocol and port are inherited from the backend HTTP settings to which the probe is associated |
 | Interval |30 |The amount of time in seconds to wait before the next health probe is sent.|
 | Time-out |30 |The amount of time in seconds the application gateway waits for a probe response before marking the probe as unhealthy. If a probe returns as healthy, the corresponding backend is immediately marked as healthy.|
-| Unhealthy threshold |3 |Governs how many probes to send in case there's a failure of the regular health probe. In v1 SKU, these additional health probes are sent in quick succession to determine the health of the backend quickly and don't wait for the probe interval. In the case of v2 SKU, the health probes wait the interval. The backend server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+| Unhealthy threshold |3 |Governs how many probes to send in case there's a failure of the regular health probe. In v1 SKU, these additional health probes are sent in quick succession to determine the health of the backend quickly and don't wait for the probe interval. For v2 SKU, the health probes wait the interval. The backend server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 The default probe looks only at \<protocol\>:\//127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes. For more information about HTTPS probes, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md#for-probe-traffic).
 

@@ -91,7 +91,7 @@ Once captured, you can reference them in the action set using the following form
 * For a server variable, you must use {var_serverVariableName_groupNumber}. For example, {var_uri_path_1} or {var_uri_path_2}
 
 > [!Note]
-> The case of the condition variable needs to match case of the capture variable.  For example, if my condition variable is User-Agent, my capture variable must be in the case of User-Agent (i.e. {http_req_User-Agent_2}).  If my condition variable is defined as user-agent, my capture variable must be in the case of user-agent (i.e. {http_req_user-agent_2}).
+> The case of the condition variable needs to match case of the capture variable.  For example, if my condition variable is User-Agent, my capture variable must be for User-Agent (i.e. {http_req_User-Agent_2}).  If my condition variable is defined as user-agent, my capture variable must be for user-agent (i.e. {http_req_user-agent_2}).
 
 If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 
@@ -273,9 +273,9 @@ For a step-by-step guide to achieve the scenario described above, see [Rewrite U
 
 ### URL rewrite vs URL redirect
 
-In the case of a URL rewrite, Application Gateway rewrites the URL before the request is sent to the backend. This won't change what users see in the browser because the changes are hidden from the user.
+For a URL rewrite, Application Gateway rewrites the URL before the request is sent to the backend. This won't change what users see in the browser because the changes are hidden from the user.
 
-In the case of a URL redirect, Application Gateway sends a redirect response to the client with the new URL. That, in turn, requires the client to resend its request to the new URL provided in the redirect. The URL that the user sees in the browser will update to the new URL.
+For a URL redirect, Application Gateway sends a redirect response to the client with the new URL. That, in turn, requires the client to resend its request to the new URL provided in the redirect. The URL that the user sees in the browser will update to the new URL.
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Rewrite vs Redirect.":::
 

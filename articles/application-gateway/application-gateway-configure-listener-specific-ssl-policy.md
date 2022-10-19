@@ -75,7 +75,7 @@ Now that we've created an SSL profile with a listener-specific SSL policy, we ne
     ![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)        
 
 ### Limitations
-There is a limitation right now on Application Gateway where different listeners using the same port cannot have SSL policies (predefined or custom) with different TLS protocol versions. Choosing the same TLS version for different listeners will work for configuring cipher suite preference for each listener. However, to use different TLS protocol versions for separate listeners, you will need to use distinct ports for each.
+There is a limitation right now on Application Gateway that different listeners using the same port cannot have SSL policies (predefined or custom) with different TLS protocol versions. Choosing the same TLS version for different listeners will work for configuring cipher suite preference for each listener. However, to use different TLS protocol versions for separate listeners, you will need to use distinct ports for each.
 
 ## Next steps
 

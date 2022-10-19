@@ -59,7 +59,7 @@ When you use a fully qualified domain name (FQDN) to access the ILB, the backend
 
 - Use the uploaded certificate on the ILB or the default certificate (ILB certificate) in the HTTP settings. The application gateway gets the certificate when it accesses the ILB's IP for the probe.
 
-- Use a wildcard certificate on the ILB and the backend server, so that for all the websites, the certificate is common. However, this solution is possible only for subdomains and not if each of the websites require different hostnames.
+- Use a wildcard certificate on the ILB and the backend server, so that for all the websites, the certificate is common. However, this solution is possible only for subdomains and not if each website requires different hostnames.
 
 - Clear the **Use for App service** option for the application gateway in case you're using the IP address of the ILB.
 
