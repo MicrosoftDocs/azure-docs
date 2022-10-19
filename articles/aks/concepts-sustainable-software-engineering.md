@@ -129,7 +129,6 @@ _One approach to lowering your carbon footprint is increasing the utilization of
 
 :heavy_check_mark: Use [Vertical Pod Auto-scaler](/azure/aks/vertical-pod-autoscaler) to automatically set resource requests and limits on containers per workload based on past usage.
 
-:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to further optimize scheduling your workloads (pods) on nodes.
 
 <br/>
 
@@ -268,6 +267,8 @@ _One approach to lowering your carbon footprint is increasing the utilization of
 :heavy_check_mark: [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximize your nodes usage).
 
 :heavy_check_mark: Enforce Kubernetes [Resource Quotas at the namespace level](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas).
+
+:heavy_check_mark: Use AKS' [advanced scheduler features](/azure/aks/operator-best-practices-advanced-scheduler) to further optimize scheduling your workloads (pods) on nodes.
 
 <br/>
  
