@@ -94,7 +94,7 @@ cd azureml-examples/sdk/python/endpoints/online/managed
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
 
-The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. While the notebook begins with the steps for creating an endpoint and a blue deployment, this article assumes that your endpoint and deployment already exist, as described in [Deploy and score a machine learning model with an online endpoint](how-to-deploy-managed-online-endpoints.md).
+The information in this article is based on the [online-endpoints-safe-rollout.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-safe-rollout.ipynb) notebook. It contains the same content as this article, although the order of the codes is slightly different.
 
 ### Connect to Azure Machine Learning workspace
 
