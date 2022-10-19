@@ -136,8 +136,8 @@ items:
       href: insights/scom-assessment.md
     - name: Connect Configuration Manager
       href: logs/collect-sccm.md
-  - name: Forward syslog data to a workspace
-    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+  - name: Forward syslog data to workspace
+    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Self-monitoring
     href: monitor-azure-monitor.md 
 - name: Data collection
