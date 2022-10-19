@@ -38,7 +38,7 @@ Learn how to manage video calls with the Azure Communication Services SDKS. We'l
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Manage Video Calls Windows](./includes/manage-calls/manage-video-windows.md)]
+[!INCLUDE [Manage Video Calls Windows](./includes/manage-video/manage-video-windows.md)]
 ::: zone-end
 
 ## Next steps
