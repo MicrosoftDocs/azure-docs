@@ -255,7 +255,7 @@ To select a policy to be applied to the application being published:
 >[!NOTE]
 >The policy list is enumerated once when you initially select this tab. Use the **Refresh** button to manually force the wizard to query your tenant. This button appears when the application is deployed.
 
-### Virtual server properties
+### Virtual Server Properties
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Received traffic is processed and evaluated against the APM profile associated with the virtual server, before directed according to policy.
 
@@ -266,7 +266,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
    ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
-### Pool properties
+### Pool Properties
 
 The **Application Pool** tab has the services behind a BIG-IP represented as a pool, with one or more application servers.
 
