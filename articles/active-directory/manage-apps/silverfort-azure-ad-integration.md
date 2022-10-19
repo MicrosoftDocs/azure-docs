@@ -59,7 +59,7 @@ This tutorial requires you to set up Silverfort Azure AD Adapter in your Azure A
   - Global Administrator
   - Cloud Application Administrator
   - Application Administrator
-  - Service principal Owner
+  - Service Principal Owner
 - The Silverfort Azure AD Adapter application in the Azure AD gallery is pre-configured to support SSO. Add the Silverfort Azure AD Adapter to your tenant as an Enterprise application, from the gallery.
 
 ## Configure Silverfort and create a policy
