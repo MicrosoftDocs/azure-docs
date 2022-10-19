@@ -26,7 +26,7 @@ items:
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
   - name: Forward syslog data to workspace
-    href: /azure/sentinel/forward-syslog-monitor-agent?toc=/azure/azure-monitor/toc.json&bc=/azure/azure-monitor/breadcrumb/toc.json
+    href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Virtual machines
     items:
     - name: Enable monitoring
@@ -223,24 +223,36 @@ items:
     - name: Prometheus metrics
       items: 
       - name: Overview
+        displayName: Prometheus
         href: essentials/prometheus-metrics-overview.md
       - name: Rule groups
+        displayName: Prometheus
         href: essentials/prometheus-rule-groups.md
+      - name: Configure Grafana
+        displayName: Prometheus
+        href: essentials/prometheus-grafana.md
       - name: Troubleshoot collection
+        displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md
       - name: Customize collection
         items:
         - name: Default configuration
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-default.md
         - name: High scale
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-scale.md
         - name: Custom configuration
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration.md
         - name: Create and validate custom scrape config
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
+          displayName: Prometheus
           href: essentials/prometheus-metrics-scrape-configuration-minimal.md
         - name: Send to multiple metric workspaces
+          displayName: Prometheus
           href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics explorer
       items:

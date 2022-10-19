@@ -150,6 +150,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
 
+> [!IMPORTANT]
+> To view and manage connected clusters in the Azure portal, be sure that your network allows traffic to `*.arc.azure.net`.
+
 ## Create a resource group
 
 Run the following command:

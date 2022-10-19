@@ -197,7 +197,7 @@ CD pipeline manipulates PRs in the GitOps repository. It needs a Service Connect
       --set orchestratorPAT=<Azure Repos PAT token>
 ```
 > [!NOTE]
-> `Azure Repos PAT token` should have `Build: Read & execute` and `Code: Read` permissions.
+> `Azure Repos PAT token` should have `Build: Read & execute` and `Code: Full` permissions.
 
 3. Configure Flux to send notifications to GitOps connector:
 ```console

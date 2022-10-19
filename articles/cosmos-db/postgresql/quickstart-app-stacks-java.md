@@ -25,7 +25,7 @@ This quickstart shows you how to build a Java app that connects to a cluster, an
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
-- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, which is included in [Azure Cloud Shell](/azure/cloud-shell/overview).
+- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, which is included in [Azure Cloud Shell](../../cloud-shell/overview.md).
 - The [Apache Maven](https://maven.apache.org) build tool.
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
   

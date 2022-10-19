@@ -14,7 +14,7 @@ ms.author: mayg
 
 The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). For Azure Arc-enabled Kubernetes clusters, you can install the Azure Key Vault Secrets Provider extension to fetch secrets.
 
-Benefits of the Azure Key Vault Secrets Provider extension include the folllowing:
+Benefits of the Azure Key Vault Secrets Provider extension include the following:
 
 - Mounts secrets/keys/certs to pod using a CSI Inline volume
 - Supports pod portability with the SecretProviderClass CRD
@@ -27,6 +27,7 @@ Benefits of the Azure Key Vault Secrets Provider extension include the folllowin
 
 - A cluster with a supported Kubernetes distribution that has already been [connected to Azure Arc](quickstart-connect-cluster.md). The following Kubernetes distributions are currently supported for this scenario:
   - Cluster API Azure
+  - Azure Kubernetes Service (AKS) clusters on Azure Stack HCI
   - AKS hybrid clusters provisioned from Azure
   - Google Kubernetes Engine
   - OpenShift Kubernetes Distribution

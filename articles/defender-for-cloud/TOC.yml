@@ -122,10 +122,10 @@
       - name: Cloud Security Posture Management (CSPM)
         displayName: CSPM, cloud security, posture, management
         href: concept-cloud-security-posture-management.md
-      - name: Microsoft Cloud Security Benchmark (MCSB)
+      - name: Microsoft cloud security benchmark (MCSB)
         href: concept-regulatory-compliance.md
-      - name: What is the Cloud Security Graph
-        displayName: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?
+      - name: What is the cloud security graph
+        displayName: What are the cloud security graph, attack path analysis, and the cloud security explorer?
         href: concept-attack-path.md
       - name: External attack surface management (EASM)
         displayName: EASM, attack surface management
@@ -167,7 +167,7 @@
       items:
       - name: Identify and remediate attack paths
         href: how-to-manage-attack-path.md
-      - name: Build queries with Cloud Security Explorer
+      - name: Build queries with cloud security explorer
         href: how-to-manage-cloud-security-explorer.md
   - name: Security recommendations
     items:
@@ -338,9 +338,6 @@
     - name: Vulnerability assessment for Amazon Elastic Container Registry
       displayName: AWS, ECR, registry, images, qualys
       href: defender-for-containers-va-ecr.md
-    - name: Scan images in your CI/CD workflows
-      displayName: ACR, registry, images, trevi, vulnerabilities, scanner
-      href: defender-for-containers-cicd.md
     - name: Kubernetes data plane hardening
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
@@ -520,7 +517,9 @@
     - name: Defender for Servers integration with Microsoft Defender for Endpoint
       href: episode-sixteen.md
     - name: Defender for Servers integration with Microsoft Entra
-      href: episode-seventeen.md   
+      href: episode-seventeen.md
+    - name: Defender for Azure Cosmos DB
+      href: episode-eighteen.md   
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
