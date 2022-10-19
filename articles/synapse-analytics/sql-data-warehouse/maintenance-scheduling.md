@@ -58,6 +58,10 @@ To view the maintenance schedule that has been applied to your Synapse SQL pool,
 
 A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about monitoring your data warehouse during an active maintenance event.
 
+> [!NOTE]
+> In case you are using DW400c or lower, you will not be able to change the maintenance schedule because DW400c and lower data warehouse tiers could complete maintenance outside of a designated maintenance window.
+
+
 ## Identifying the primary and secondary windows
 
 The primary and secondary windows must have separate day ranges. An example is a primary window of Tuesday–Thursday and a secondary of window of Saturday–Sunday.
