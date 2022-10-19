@@ -71,21 +71,21 @@ After you've set up your network sensor and have full visibility into all device
 
 In the **Device inventory** page in the **Defender for Endpoint** portal:
 
-1. Add the total number of discovered **network devices** with the total number of discovered **IoT devices**. 
+1. Add the total number of discovered **network devices** with the total number of discovered **IoT devices**.
 
-    For example: 
+    For example:
 
     :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint.":::
 
     For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
-1. Remove any devices that are [*not* considered as committed devices by Defender for IoT](#defender-for-iot-committed-devices).
+1. Remove any devices that are [*not* considered as committed devices by Defender for IoT](#defender-for-iot-committed-devices). <!--wouldn't this only be relevant if you had a sensor? b/c otherwise everything would be managed by MDE.-->
 
 1. Round up your total to a multiple of 100.
 
-    For example: In the device inventory, you have 473 network devices and 1206 IoT devices. Added together the total is 1679 devices, and rounded up to a multiple of 100 is 1700. Use 1700 as the estimated number of committed devices.  
- 
-To edit the number of committed Enterprise IoT devices after you've onboarded a plan, you will need to cancel the plan and onboard a new plan in Defender for Endpoint. For more information, see the [Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
+For example: In the Defender for Endpoint **Device inventory**, you have 473 network devices and 1206 IoT devices. Added together the total is 1679 devices, and rounded up to a multiple of 100 is 1700. Use 1700 as the estimated number of committed devices.
+
+To edit the number of committed Enterprise IoT devices after you've onboarded a plan, you will need to cancel the plan and onboard a new plan in Defender for Endpoint. For more information, see [Cancel your Defender for IoT plan](eiot-mde.md#cancel-your-defender-for-iot-plan).
 
 ## Onboard a Defender for IoT plan for OT networks
 
