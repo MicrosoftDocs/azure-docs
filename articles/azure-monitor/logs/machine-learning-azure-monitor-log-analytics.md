@@ -155,7 +155,7 @@ This query compares `AzureDiagnostics` usage on June 15, the extreme outlier in 
 ```kusto
 let starttime = 21d; // Start date for the time series, counting back from the current date
 let endtime = 0d; // End date for the time series, counting back from the current date
-let last_date_in_range = datetime_add('day',-1, make_datetime(startofday(ago(endtime))));
+let anomalyDate = datetime_add('day',-1, make_datetime(startofday(ago(endtime)))); //Start of day of anomayDate, in our example we picked anomalyDate as June 15
 AzureDiagnostics	
 | extend AnomalyDate = iff(startofday(TimeGenerated) == last_date_in_range, "AnomalyDate", "OtherDates") // Adds calculated column called AnomalyDate, which splits the result set into two data sets – AnomalyDate and OtherDates
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Defines the time range for the query
