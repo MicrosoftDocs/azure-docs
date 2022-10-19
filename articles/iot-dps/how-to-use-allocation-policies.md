@@ -22,7 +22,7 @@ Allocation policies determine how DPS assigns devices to an IoT hub. Each DPS in
 
 DPS supports four allocation policies:
 
-* **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they're equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. *Evenly weighted distribution* is the default allocation policy for a DPS instance. If you're provisioning devices to only one IoT hub, you can keep this policy.
+* **Evenly weighted distribution**: devices are provisioned to an IoT hub using a weighted hash. By default, linked IoT hubs have the same allocation weight setting, so they're equally likely to have devices provisioned to them. The allocation weight of an IoT hub may be adjusted to increase or decrease its likelihood of being assigned. *Evenly weighted distribution* is the default allocation policy for a DPS instance. If you're provisioning devices to only one IoT hub, we recommend using this policy.
 
 * **Lowest latency**: devices are provisioned to the IoT hub with the lowest latency to the device. If multiple IoT hubs would provide the lowest latency, DPS hashes devices across those hubs.
 
@@ -55,7 +55,7 @@ When a device provisions through DPS, the service assigns it to an IoT hub accor
 
 ## Set the default allocation policy for the DPS instance
 
-The default allocation policy for the DPS instance is used when an allocation policy isn't specified on an enrollment. Only *Evenly weighted distribution*, *Lowest latency*, and *Static configuration* are supported for the default allocation policy. When a DPS instance is created, its default policy is automatically set to *Evenly weighted distribution*. However, you can update your DPS instance to set a different allocation policy.
+The default allocation policy for the DPS instance is used when an allocation policy isn't specified on an enrollment. Only *Evenly weighted distribution*, *Lowest latency*, and *Static configuration* are supported for the default allocation policy. *Custom* allocation isn't supported. When a DPS instance is created, its default policy is automatically set to *Evenly weighted distribution*. However, you can update your DPS instance to set a different allocation policy.
 
 > [!NOTE]
 > If you set *Static configuration* as the default allocation policy for a DPS instance, a linked IoT hub *must* be specified in enrollments that rely on the default policy.

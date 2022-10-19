@@ -915,7 +915,7 @@ When you're finished testing and exploring this device client sample, use the fo
 
 ## Next steps
 
-In this tutorial, you provisioned an X.509 device using a custom HSM to your IoT hub. To learn how to provision IoT devices to multiple hubs, see:
+In this tutorial, you provisioned an X.509 device using a custom HSM to your IoT hub. To learn how to provision IoT devices across multiple IoT hubs, see:
 
 > [!div class="nextstepaction"]
 > [How to use allocation policies](how-to-use-allocation-policies.md)
