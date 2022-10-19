@@ -18,6 +18,20 @@ recommendations: false
 >
 > Form Recognizer REST API v3.0 introduces breaking changes in the REST API request and analyze response JSON.
 
+## Migrating from a v3.0 preview API version
+
+Preview APIs are periodically deprecated. If you are using a preview API version, plan on updating your application to target the GA API version once available. To migrate from the 2021-09-30-preview or the 2022-01-30-preview API versions to the 2022-08-31 API version using the SDK, update to the [current version](sdk-overview.md).
+
+The 2022-08-31 API has a few updates form the preview API versions:
+* Field rename:  boundingBox to polygon to support non-quadrilateral polygon regions.
+* Field deleted: entities removed from the result of the general document model. 
+* Field rename: documentLanguage.languageCode to locale 
+* Added support for HEIF format
+* Added paragraph detection, with role classification for layout and general document models
+* Added support for parsed address fields.
+
+## Migrating from v2.1 
+
 Form Recognizer v3.0  introduces several new features and capabilities:
 
 * [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) has been redesigned for better usability.

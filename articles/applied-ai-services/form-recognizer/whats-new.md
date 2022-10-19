@@ -19,11 +19,22 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+>[!NOTE]
+> With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, please see the [migration guide](v3-migration-guide.md) for more information.
+
+
 ## October 2022
 
 With the latest preview release, Form Recognizer's Read (OCR), Layout, and Custom template models support 134 new languages including Greek, Latvian, Serbian, Thai, Ukrainian, and Vietnamese, along with several Latin and Cyrillic languages, making it a total of 299 supported languages across the most recent GA and the new preview versions. Please refer to the [supported languages](language-support.md) page to see all supported languages.
 
 Use the REST API parameter `api-version=2022-06-30-preview` when using the API or the corresponding SDK to support the new languages in your applications.
+
+### Region expansion for training custom neural models 
+
+Training custom neural models now supported in additional regions.
+* East US
+* East US2
+* US Gov Arizona
 
 ## September 2022
 
@@ -36,8 +47,7 @@ Training custom neural models is now supported in six additional regions.
 * France Central
 * UK South
 * West US2
-* East US
-* East US2
+
 
 For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
 
