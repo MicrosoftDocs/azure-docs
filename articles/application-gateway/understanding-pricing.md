@@ -248,6 +248,7 @@ DDoS Protection Standard Cost = $2,944 * 1 (month) = $2,944
 
 Total Costs = $179.58 + $5.84 + $2,944 = $3,129.42
 
+
 ## V1 SKUs
 
 Standard Application Gateway and WAF V1 SKUs are billed as a combination of:
