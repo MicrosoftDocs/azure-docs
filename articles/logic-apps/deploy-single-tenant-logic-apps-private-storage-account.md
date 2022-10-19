@@ -32,7 +32,7 @@ This deployment method requires that temporary public access to your storage acc
 
 > [!NOTE]
 > One exception to the above rule is deploying to App Service Environment. You can use portal to deploy a logic app to App Service
-> Environment, even if the storage account is protected with a private endpoint. Connectivity does need to exist between the 
+> even if the storage account is protected with a private endpoint. However, you'll need connectivity between the 
 > subnet used by the App Service Environment and the subnet used by the storage account's private endpoint. 
 
 1. Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
