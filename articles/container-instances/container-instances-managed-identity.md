@@ -21,9 +21,6 @@ In this article, you learn more about managed identities in Azure Container Inst
 > * Use the managed identity to access a key vault from a running container
 
 Adapt the examples to enable and use identities in Azure Container Instances to access other Azure services. These examples are interactive. However, in practice your container images would run code to access Azure services.
- 
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). Currently, managed identities on Azure Container Instances, are only supported with Linux containers and not yet with Windows containers.
 
 ## Why use a managed identity?
 

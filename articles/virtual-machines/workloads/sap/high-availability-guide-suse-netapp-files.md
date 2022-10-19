@@ -240,8 +240,9 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**, **backend.QAS** and **health.QAS.ASCS**)
          1. Select **HA ports**
-         1. **Make sure to enable Floating IP**
-         1. Click OK
+         2. Increase idle timeout to 30 minutes
+         3. **Make sure to enable Floating IP**
+         4. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
 1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
