@@ -21,15 +21,15 @@ This video walks you through creating workbooks.
 To create a new Azure workbook:
 1. From the Azure Workbooks page, select an empty template or select **New** in the top toolbar.
 1. Combine any of these elements to add to your workbook:
-   - [Text](#adding-text)
-   - [Parameters](#adding-parameters)
-   - [Queries](#adding-queries)
-   - [Metric charts](#adding-metric-charts)
-   - [Links](#adding-links)
-   - [Groups](#adding-groups)
+   - [Text](#add-text)
+   - [Parameters](#add-parameters)
+   - [Queries](#add-queries)
+   - [Metric charts](#add-metric-charts)
+   - [Links](#add-links)
+   - [Groups](#add-groups)
    - Configuration options
 
-## Adding text
+## Add text
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
 
@@ -43,7 +43,7 @@ Text is added through a markdown control into which an author can add their cont
 **Preview mode**:
    :::image type="content" source="media/workbooks-create-workbook/workbooks-text-control-edit-mode-preview.png" alt-text="Screenshot showing adding text to a workbook in preview mode.":::
 
-### Add text to an Azure workbook
+To add text to an Azure workbook:
 
 1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a query by doing either of these steps:
     - Select **Add**, and **Add text** below an existing element, or at the bottom of the workbook.
@@ -80,13 +80,13 @@ You can also choose a text parameter as the source of the style. The parameter v
 **Warning style example**:
    :::image type="content" source="media/workbooks-create-workbook/workbooks-text-example-warning.png" alt-text="Screenshot of a text visualization in warning style.":::
 
-## Adding queries
+## Add queries
 
 Azure Workbooks allow you to query any of the supported workbook [data sources](workbooks-data-sources.md). 
 
 For example, you can query Azure Resource Health to help you view any service problems affecting your resources. You can also query Azure Monitor metrics, which is numeric data collected at regular intervals. Azure Monitor metrics provide information about an aspect of a system at a particular time.
 
-### Add a query to an Azure Workbook
+To add a query to an Azure Workbook:
 
 1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a query by doing either of these steps:
     - Select **Add**, and **Add query** below an existing element, or at the bottom of the workbook.
@@ -125,13 +125,16 @@ For example, you can query Azure Resource Health to help you view any service pr
       ```
 
    In this case, the query returns no rows if the **AzureDiagnostics** table is missing, or if the **ResourceId** column is missing from the table.
-## Adding parameters
+## Add parameters
 
-You can collect input from consumers and reference it in other parts of the workbook using parameters. Often, you would use parameters to scope the result set or to set the right visual. Parameters help you build interactive reports and experiences. 
+You can collect input from consumers and reference it in other parts of the workbook using parameters. Use parameters to scope the result set or to set the right visual. Parameters help you build interactive reports and experiences. For more information on how parameters can be used, see [workbook parameters](workbooks-parameters.md).
 
 Workbooks allow you to control how your parameter controls are presented to consumers – text box vs. drop down, single- vs. multi-select, values from text, JSON, KQL, or Azure Resource Graph, etc. 
 
-### Add a parameter to an Azure Workbook
+Watch this video to learn how to use parameters and log data in Azure Workbooks.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE59Wee]
+
+To add a parameter to an Azure Workbook:
 
 1.  Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a parameter by doing either of these steps:
     - Select **Add**, and **Add parameter** below an existing element, or at the bottom of the workbook.
@@ -147,7 +150,7 @@ Workbooks allow you to control how your parameter controls are presented to cons
 
   :::image type="content" source="media/workbooks-parameters/workbooks-time-settings.png" alt-text="Screenshot showing the creation of a time range parameter.":::
 
-## Adding metric charts
+## Add metric charts
 
 Most Azure resources emit metric data about state and health such as CPU utilization, storage availability, count of database transactions, failing app requests, etc. Using workbooks, you can create visualizations of the metric data as time-series charts. 
 
@@ -155,7 +158,7 @@ The example below shows the number of transactions in a storage account over the
 
   :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-area.png" alt-text="Screenshot showing a metric area chart for storage transactions in a workbook.":::
 
-### Add a metric chart to an Azure Workbook
+To add a metric chart to an Azure Workbook:
 
 1.  Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a metric chart by doing either of these steps:
     - Select **Add**, and **Add metric** below an existing element, or at the bottom of the workbook.
@@ -198,11 +201,14 @@ This is a metric chart in edit mode:
 
   :::image type="content" source="media/workbooks-create-workbook/workbooks-metric-chart-storage-scatter.png" alt-text="Screenshot showing a metric scatter chart for storage latency.":::
 
-## Adding links 
+## Add links 
 
 You can use links to create links to other views, workbooks, other items inside a workbook, or to create tabbed views within a workbook. The links can be styled as hyperlinks, buttons, and tabs.  
 
   :::image type="content" source="media/workbooks-create-workbook/workbooks-empty-links.png" alt-text="Screenshot of adding a link to a workbook.":::
+
+Watch this video to learn how to use tabs, groups, and contextual links in Azure Workbooks:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE59YTe]
 ### Link styles
 You can apply styles to the link element itself and to individual links.
 
@@ -215,8 +221,8 @@ You can apply styles to the link element itself and to individual links.
 |List     |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-list.png" alt-text="Screenshot of list style workbook link.":::         | Links appear as a list of links, with no bullets.        |
 |Paragraph     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-paragraph.png" alt-text="Screenshot of paragraph style workbook link.":::        |Links appear as a paragraph of links, wrapped like a paragraph of text.         |
 |Navigation     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-navigation.png" alt-text="Screenshot of navigation style workbook link.":::        | Links appear as links, with vertical dividers, or pipes (`|`) between each link.        |
-|Tabs     |  :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link.":::       |Links appear as tabs. Each link appears as a tab, no link styling options apply to individual links. See the [tabs](#using-tabs) section below for how to configure tabs.         |
-|Toolbar     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::        | Links appear an Azure portal styled toolbar, with icons and text.  Each link appears as a toolbar button. See the [toolbar](#using-toolbars) section below for how to configure toolbars.        |
+|Tabs     |  :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link.":::       |Links appear as tabs. Each link appears as a tab, no link styling options apply to individual links. See the [tabs](#tabs) section below for how to configure tabs.         |
+|Toolbar     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::        | Links appear an Azure portal styled toolbar, with icons and text.  Each link appears as a toolbar button. See the [toolbar](#toolbars) section below for how to configure toolbars.        |
 
 
 **Link styles**
@@ -237,7 +243,7 @@ Links can use all of the link actions available in [link actions](workbooks-link
 |Set a parameter value | A parameter can be set to a value when selecting a link, button, or tab. Tabs are often configured to set a parameter to a value, which hides and shows other parts of the workbook based on that value.|
 |Scroll to a step| When selecting a link, the workbook will move focus and scroll to make another step visible. This action can be used to create a "table of contents", or a "go back to the top" style experience.   |
 
-### Using tabs
+### Tabs
 
 Most of the time, tab links are combined with the **Set a parameter value** action. Here's an example showing the links step configured to create 2 tabs, where selecting either tab will set a **selectedTab** parameter to a different value (the example shows a third tab being edited to show the parameter name and parameter value placeholders):
 
@@ -261,7 +267,7 @@ g
  - The first tab is selected by default, invoking whatever action that tab has specified. If the first tab's action opens another view, as soon as the tabs are created, a view appears.
  - You can use tabs to open another views, but this functionality should be used sparingly, since most users won't expect to navigate by selecting a tab. If other tabs are setting a parameter to a specific value, a tab that opens a view wouldn't change that value, so the rest of the workbook content will continue to show the view or data for the previous tab.
 
-### Using toolbars
+### Toolbars
 
 Use the Toolbar style to have your links appear styled as a toolbar.  In toolbar style, the author must fill in fields for:
 
@@ -275,7 +281,7 @@ If any required parameters are used in button text, tooltip text, or value field
 
 A sample workbook with  toolbars, globals parameters, and ARM Actions is available in [sample Azure Workbooks with links](workbooks-sample-links.md#sample-workbook-with-toolbar-links).
 
-## Adding groups
+## Add groups
 
 A group item in a workbook allows you to logically group a set of steps in a workbook.
 
@@ -285,7 +291,7 @@ Groups in workbooks are useful for several things:
   - **Visibility**: When you want several items to hide or show together, you can set the visibility of the entire group of items, instead of setting visibility settings on each individual item. This can be useful in templates that use tabs, as you can use a group as the content of the tab, and the entire group can be hidden/shown based on a parameter set by the selected tab.
   - **Performance**: When you have a large template with many sections or tabs, you can convert each section into its own subtemplate, and use groups to load all the subtemplates within the top-level template. The content of the subtemplates won't load or run until a user makes those groups visible. Learn more about [how to split a large template into many templates](#splitting-a-large-template-into-many-templates).
 
-### Add a group to your workbook
+To add a group to your workbook:
 
 1. Make sure you are in **Edit** mode by selecting the **Edit** in the toolbar. Add a parameter by doing either of these steps:
     - Select **Add**, and **Add group** below an existing element, or at the bottom of the workbook.
