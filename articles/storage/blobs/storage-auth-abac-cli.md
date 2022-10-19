@@ -22,6 +22,7 @@ In most cases, a role assignment will grant the permissions you need to Azure re
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Add a condition to a role assignment
 > - Restrict access to blobs based on a blob index tag
 

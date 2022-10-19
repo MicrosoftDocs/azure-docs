@@ -32,7 +32,7 @@ In this case, the optional suboperation `Blob.Write.WithTagHeaders` can be used 
 > [!NOTE]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md).
 
-In this preview, storage accounts support the following suboperations:
+Storage accounts support the following suboperations:
 
 > [!div class="mx-tableFixed"]
 > | Display name | DataAction | Suboperation |
