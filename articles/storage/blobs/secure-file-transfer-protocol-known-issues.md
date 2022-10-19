@@ -38,14 +38,14 @@ The unsupported client list above is not exhaustive and may change over time.
 
 ## Client settings
 
-To transfer files to or from Azure storage via client applications, see the following recommended client settings.
+To transfer files to or from Azure Blob Storage via SFTP clients, see the following recommended settings.
 
 - WinSCP
 
   - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename** option.
   
-  > [!CAUTION]
-  > Leaving this option enabled can cause failures or degraded performance during large file uploads.
+> [!CAUTION]
+> Leaving this option enabled can cause failures or degraded performance during large file uploads.
 
 ## Unsupported operations
 
@@ -84,6 +84,8 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 ## Other
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
+  
+- Maximum file upload size via the SFTP endpoint is 100 GB. 
   
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 
