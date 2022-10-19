@@ -822,9 +822,17 @@ Your signing certificates are now trusted on the Windows-based device and the fu
 
     :::image type="content" source="./media/tutorial-custom-hsm-enrollment-group-x509/custom-hsm-enrollment-group-x509.png" alt-text="Screenshot that shows adding an enrollment group in the portal.":::
 
-## Configure the provisioning device code
+## Prepare and run the device provisioning code
 
 In this section, you update the sample code with your Device Provisioning Service instance information. If a device is authenticated, it will be assigned to an IoT hub linked to the Device Provisioning Service instance configured in this section.
+
+::: zone pivot="programming-language-ansi-c"
+
+In this section, you'll use your Git Bash prompt and the Visual Studio IDE.
+
+### Configure the provisioning device code
+
+In this section, you update the sample code with your Device Provisioning Service instance information.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service instance and note the **ID Scope** value.
 
@@ -853,13 +861,13 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
 
-## Configure the custom HSM stub code
+### Configure the custom HSM stub code
 
 The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
 While HSM hardware isn't required, it is recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
 
-To update the custom HSM stub code to simulate the identity of the device with ID `device-01`, perform the following steps:
+To update the custom HSM stub code to simulate the identity of the device with ID `device-01`:
 
 1. In Solution Explorer for Visual Studio, navigate to **Provision_Samples > custom_hsm_example > Source Files** and open *custom_hsm_example.c*.
 
@@ -968,6 +976,309 @@ To update the custom HSM stub code to simulate the identity of the device with I
     Registration Information received from service: contoso-hub-2.azure-devices.net, deviceId: device-02
     Press enter key to exit:
     ```
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+In this section, you'll use your Windows command prompt.
+
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+
+2. Copy the **ID Scope** value.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Screenshot of the ID scope on Azure portal.":::
+
+3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\Getting Started\X509Sample* directory off the directory where you cloned the samples on your computer.
+
+4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. The certificate file will default to *./certificate.pfx* and prompt for the .pfx password.
+
+    ```cmd
+    dotnet run -- -s <IDScope>
+    ```
+
+    If you want to pass the certificate and password as a parameter, you can use the following format.
+    
+   >[!NOTE]
+   >Additional parameters can be passed along while running the application to change the TransportType (-t) and the GlobalDeviceEndpoint (-g).
+    
+
+    ```cmd
+    dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
+    ```
+
+5. The device will connect to DPS and be assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
+
+    ```output
+    Loading the certificate...
+    Enter the PFX password for certificate.pfx:
+    ****
+    Found certificate: A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=my-x509-device; PrivateKey: True
+    Using certificate A33DB11B8883DEE5B1690ACFEAAB69E8E928080B CN=my-x509-device
+    Initializing the device provisioning client...
+    Initialized for registration Id my-x509-device.
+    Registering with the device provisioning service...
+    Registration status: Assigned.
+    Device my-x509-device registered to MyExampleHub.azure-devices.net.
+    Creating X509 authentication for IoT Hub...
+    Testing the provisioned device with IoT Hub...
+    Sending a telemetry message...
+    Finished.
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+
+In this section, you'll use your Windows command prompt.
+
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+
+1. Copy the **ID Scope** and **Global device endpoint** values.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
+
+1. In your Windows command prompt, go to the sample directory, and install the packages needed by the sample. The path shown is relative to the location where you cloned the SDK.
+
+    ```cmd
+    cd ./azure-iot-sdk-node/provisioning/device/samples
+    npm install
+    ```
+
+1. Edit the **register_x509.js** file and make the following changes:
+
+    * Replace `provisioning host` with the **Global Device Endpoint** noted in **Step 1** above.
+    * Replace `id scope` with the **ID Scope** noted in **Step 1** above.
+    * Replace `registration id` with the **Registration ID** noted in the previous section.
+    * Replace `cert filename` and `key filename` with the files you generated previously, *device-cert.pem* and *device-key.pem*.
+
+1. Save the file.
+
+1. Run the sample and verify that the device was provisioned successfully.
+
+    ```cmd
+    node register_x509.js
+    ```
+
+>[!TIP]
+>The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For more information, see [Device concepts](./concepts-service.md).
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+In this section, you'll use your Windows command prompt.
+
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+
+1. Copy the **ID Scope** and **Global device endpoint** values.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
+
+1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
+
+    ```cmd
+    cd ./azure-iot-sdk-python/samples/async-hub-scenarios
+    ```
+
+    This sample uses six environment variables to authenticate and provision an IoT device using DPS. These environment variables are:
+
+    | Variable name              | Description                                     |
+    | :------------------------- | :---------------------------------------------- |
+    | `PROVISIONING_HOST`        |  This value is the global endpoint used for connecting to your DPS resource |
+    | `PROVISIONING_IDSCOPE`     |  This value is the ID Scope for your DPS resource |
+    | `DPS_X509_REGISTRATION_ID` |  This value is the ID for your device. It must also match the subject name on the device certificate |
+    | `X509_CERT_FILE`           |  Your device certificate filename |
+    | `X509_KEY_FILE`            |  The private key filename for your device certificate |
+    | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |
+
+1. Add the environment variables for the global device endpoint and ID Scope.
+
+    ```cmd
+    set PROVISIONING_HOST=global.azure-devices-provisioning.net
+    set PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
+    ```
+
+1. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `my-x509-device` is both the subject name and the registration ID for the device.
+
+1. Set the environment variable for the registration ID as follows:
+
+    ```cmd
+    set DPS_X509_REGISTRATION_ID=my-x509-device
+    ```
+
+1. Set the environment variables for the certificate file, private key file, and pass phrase.
+
+    ```cmd
+    set X509_CERT_FILE=./device-cert.pem
+    set X509_KEY_FILE=./device-key.pem
+    set PASS_PHRASE=1234
+    ```
+
+1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
+
+1. Save your changes.
+
+1. Run the sample. The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+
+    ```cmd
+    $ python azure-iot-sdk-python/samples/async-hub-scenarios/provision_x509.py
+    RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
+    The complete registration result is
+    my-x509-device
+    TestHub12345.azure-devices.net
+    initialAssignment
+    null
+    Will send telemetry from the provisioned device
+    sending message #4
+    sending message #7
+    sending message #2
+    sending message #8
+    sending message #5
+    sending message #9
+    sending message #1
+    sending message #6
+    sending message #10
+    sending message #3
+    done sending message #4
+    done sending message #7
+    done sending message #2
+    done sending message #8
+    done sending message #5
+    done sending message #9
+    done sending message #1
+    done sending message #6
+    done sending message #10
+    done sending message #3
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+In this section, you'll use both your Windows command prompt and your Git Bash prompt.
+
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+
+1. Copy the **ID Scope** and **Global device endpoint** values.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
+
+1. In your Windows command prompt, navigate to the sample project folder. The path shown is relative to the location where you cloned the SDK
+
+    ```cmd
+    cd .\azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-X509-sample
+    ```
+
+1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration.
+
+    1. Open the file `.\src\main\java\samples\com/microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
+
+    1. Update the following values with the **ID Scope** and **Provisioning Service Global Endpoint** that you copied previously.
+
+        ```java
+        private static final String idScope = "[Your ID scope here]";
+        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+
+    1. Update the value of the `leafPublicPem` constant string with the value of your certificate, *device-cert.pem*.
+
+        The syntax of certificate text must follow the pattern below with no extra spaces or characters.
+
+        ```java
+        private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n" +
+            ...
+        "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n" +
+        "-----END CERTIFICATE-----";        
+        ```
+
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
+
+        ```Bash
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' device-cert.pem
+        ```
+
+        Copy and paste the output certificate text for the constant value.
+
+    1. Update the string value of the `leafPrivateKey` constant with the unencrypted private key for your device certificate, *unencrypted-device-key.pem*.
+
+        The syntax of the private key text must follow the pattern below with no extra spaces or characters.
+
+        ```java
+        private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
+        "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n" +
+            ...
+        "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n" +
+        "-----END PRIVATE KEY-----";
+        ```
+
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
+
+        ```Bash
+        sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' unencrypted-device-key.pem
+        ```
+
+        Copy and paste the output private key text for the constant value.
+
+    1. Save your changes.
+
+1. Build the sample, and then go to the `target` folder.
+
+    ```cmd
+    mvn clean install
+    cd target
+    ```
+
+1. The build outputs .jar file in the `target` folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. Execute the .jar file. You may need to replace the version in the command below.
+
+    ```cmd
+    java -jar ./provisioning-x509-sample-1.8.1-with-deps.jar
+    ```
+
+    The sample will connect to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+
+    ```output
+    Starting...
+    Beginning setup.
+    WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+    2022-05-11 09:42:05,025 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Initialized a ProvisioningDeviceClient instance using SDK version 2.0.0
+    2022-05-11 09:42:05,027 DEBUG (main) [com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClient] - Starting provisioning thread...
+    Waiting for Provisioning Service to register
+    2022-05-11 09:42:05,030 INFO (global.azure-devices-provisioning.net-6255a8ba-CxnPendingConnectionId-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Opening the connection to device provisioning service...
+    2022-05-11 09:42:05,252 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Connection to device provisioning service opened successfully, sending initial device registration message
+    2022-05-11 09:42:05,286 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-RegisterTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.RegisterTask] - Authenticating with device provisioning service using x509 certificates
+    2022-05-11 09:42:06,083 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Waiting for device provisioning service to provision this device...
+    2022-05-11 09:42:06,083 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Current provisioning status: ASSIGNING
+    Waiting for Provisioning Service to register
+    2022-05-11 09:42:15,685 INFO (global.azure-devices-provisioning.net-6255a8ba-Cxn6255a8ba-azure-iot-sdk-ProvisioningTask) [com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningTask] - Device provisioning service assigned the device successfully
+    IotHUb Uri : MyExampleHub.azure-devices.net
+    Device ID : java-device-01
+    2022-05-11 09:42:25,057 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-05-11 09:42:25,080 INFO (main) [com.microsoft.azure.sdk.iot.device.transport.ExponentialBackoffWithJitter] - NOTE: A new instance of ExponentialBackoffWithJitter has been created with the following properties. Retry Count: 2147483647, Min Backoff Interval: 100, Max Backoff Interval: 10000, Max Time Between Retries: 100, Fast Retry Enabled: true
+    2022-05-11 09:42:25,087 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Initialized a DeviceClient instance using SDK version 2.0.3
+    2022-05-11 09:42:25,129 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - Opening MQTT connection...
+    2022-05-11 09:42:25,150 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT CONNECT packet...
+    2022-05-11 09:42:25,982 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT CONNECT packet was acknowledged
+    2022-05-11 09:42:25,983 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sending MQTT SUBSCRIBE packet for topic devices/java-device-01/messages/devicebound/#
+    2022-05-11 09:42:26,068 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.Mqtt] - Sent MQTT SUBSCRIBE packet for topic devices/java-device-01/messages/devicebound/# was acknowledged
+    2022-05-11 09:42:26,068 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttIotHubConnection] - MQTT connection opened successfully
+    2022-05-11 09:42:26,070 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - The connection to the IoT Hub has been established
+    2022-05-11 09:42:26,071 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Updating transport status to new status CONNECTED with reason CONNECTION_OK
+    2022-05-11 09:42:26,071 DEBUG (main) [com.microsoft.azure.sdk.iot.device.DeviceIO] - Starting worker threads
+    2022-05-11 09:42:26,073 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking connection status callbacks with new status details
+    2022-05-11 09:42:26,074 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
+    2022-05-11 09:42:26,075 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
+    Sending message from device to IoT Hub...
+    2022-05-11 09:42:26,077 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    Press any key to exit...
+    2022-05-11 09:42:26,079 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    2022-05-11 09:42:26,422 DEBUG (MQTT Call: java-device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    2022-05-11 09:42:26,425 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] ) with status OK
+    Message sent!
+    ```
+
+::: zone-end
 
 ## Confirm your device provisioning registration
 
