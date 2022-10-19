@@ -45,7 +45,7 @@ Currently, PowerShell 5.1 is supported and only certain runbook types can call e
 * The PowerShell types and the PowerShell Workflow types can't call each other inline. They must use `Start-AzAutomationRunbook`.
 
 > [!IMPORTANT]
-> Executing child scripts using `.\child-runbook.ps1` is not supported in PowerShell 7.1 preview. 
+> Executing child scripts using `.\child-runbook.ps1` is not supported in PowerShell 7.1 (preview). 
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 
 The publish order of runbooks matters only for PowerShell Workflow and graphical PowerShell Workflow runbooks.

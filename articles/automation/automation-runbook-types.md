@@ -176,10 +176,6 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 Python runbooks compile under Python 2, Python 3.8 (preview) and Python 3.10 (preview). You can directly edit the code of the runbook using the text editor in the Azure portal. You can also use an offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
-Python 3.8 (preview) runbooks are supported in the following Azure global infrastructures:
-
-* Azure global
-* Azure Government
 * Python 3.10 (preview) runbooks are currently supported in six regions: 
     - West Central US
     - East US
@@ -190,12 +186,18 @@ Python 3.8 (preview) runbooks are supported in the following Azure global infras
 
 ### Advantages
 
-* Use the robust Python libraries.
-* Can run in Azure or on Hybrid Runbook Workers.
-* For Python 2, Windows Hybrid Runbook Workers are supported with [python 2.7](https://www.python.org/downloads/release/latest/python2) installed.
-* For Python 3 Cloud Jobs, Python 3.8 version is supported. Scripts and packages from any 3.x version might work if the code is compatible across different versions.  
-* For Python 3 Hybrid jobs on Windows machines, you can choose to install any 3.x version you may want to use.  
-* For Python 3 Hybrid jobs on Linux machines, we depend on the Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. Different versions should work if there are no breaking changes in method signatures or contracts between versions of Python 3.
+> [!NOTE]
+> Importing a Python package may take several minutes.
+
+-	For Python 3.10 (preview) modules, currently, only the wheel files targeting cp310 Linux OS are supported. [Learn more](./python-3-packages.md)
+-	For Python 3.8 (preview) modules use wheel files targeting cp38-amd64, and for Python 2.7.12 use cp27-amd6.
+-	The imported Python 3.10 (preview) package would be validated during job execution. Ensure that you import all dependencies for the selected package.  
+- Use the robust Python libraries.
+- Can run in Azure or on Hybrid Runbook Workers.
+- For Python 2, Windows Hybrid Runbook Workers are supported with [python 2.7](https://www.python.org/downloads/release/latest/python2) installed.
+- For Python 3.8 Cloud Jobs, Python 3.8 version is supported. Scripts and packages from any 3.x version might work if the code is compatible across different versions.  
+- For Python 3 Hybrid jobs on Windows machines, you can choose to install any 3.x version you may want to use.  
+- For Python 3 Hybrid jobs on Linux machines, we depend on the Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. Different versions should work if there are no breaking changes in method signatures or contracts between versions of Python 3.
 
 ### Limitations
 
@@ -207,7 +209,7 @@ Python 3.8 (preview) runbooks are supported in the following Azure global infras
 
 ### Multiple Python versions
 
-For a Windows Runbook Worker, when running a Python 2 runbook it looks for the environment variable `PYTHON_2_PATH` first and validates whether it points to a valid executable file. For example, if the installation folder is `C:\Python2`, it would check if `C:\Python2\python.exe` is a valid path. If not found, then it looks for the `PATH` environment variable to do a similar check.
+It is applicable for Windows Hybrid workers. For a Windows Runbook Worker, when running a Python 2 runbook it looks for the environment variable `PYTHON_2_PATH` first and validates whether it points to a valid executable file. For example, if the installation folder is `C:\Python2`, it would check if `C:\Python2\python.exe` is a valid path. If not found, then it looks for the `PATH` environment variable to do a similar check.
 
 For Python 3, it looks for the `PYTHON_3_PATH` env variable first and then falls back to the `PATH` environment variable.
 

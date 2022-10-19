@@ -10,7 +10,11 @@ ms.custom: has-adal-ref
 
 # Manage Python 3 packages (preview) in Azure Automation
 
-This article describes how to import, manage, and use Python 3 (preview) packages in Azure Automation running on the Azure sandbox environment and Hybrid Runbook Workers.To help simplify runbooks, you can use Python packages to import the modules you need. 
+This article describes how to import, manage, and use Python 3 (preview) packages in Azure Automation running on the Azure sandbox environment. To help simplify runbooks, you can use Python packages to import the modules you need and packages don't work with hybrid workers.
+
+The default packages installed for Python 3.10 are:
+- azure-identity==1.10.0
+- azure-mgmt-resource==21.1.0 
 
 To support Python 3 runbooks in the Automation service, Azure package 4.0.0 is installed by default in the Automation account. The default version can be overridden by importing Python packages into your Automation account. 
  Preference is given to the imported version in your Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). 
@@ -19,19 +23,42 @@ For information on managing Python 2 packages, see [Manage Python 2 packages](./
 
 ## Packages as source files
 
-Azure Automation supports only a Python package that only contains Python code and doesn't include other language extensions or code in other languages. However, the Azure Sandbox environment might not have the required compilers for C/C++ binaries, so it's recommended to use [wheel files](https://pythonwheels.com/) instead. The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software for the Python programming language. When selecting a Python 3 package to import into your Automation account from PyPI, note the following filename parts:
+Azure Automation supports only a Python package that only contains Python code and doesn't include other language extensions or code in other languages. However, the Azure Sandbox environment might not have the required compilers for C/C++ binaries, so it's recommended to use [wheel files](https://pythonwheels.com/) instead. 
+
+> [!NOTE]
+> Currently, Python 3.10 only supports wheel files.
+
+The [Python Package Index](https://pypi.org/) (PyPI) is a repository of software for the Python programming language. When selecting a Python 3 package to import into your Automation account from PyPI, note the following filename parts:
+
+Select a Python package:
+
+#### [Python 3.8](#tab/py3)
 
 | Filename part | Description |
 |---|---|
-|cp38|Automation supports **Python 3.8.x** for Cloud Jobs.|
+|cp38|Automation supports **Python 3.8** for Cloud Jobs.|
 |amd64|Azure sandbox processes are **Windows 64-bit** architecture.|
 
-For example, if you wanted to import pandas, you could select a wheel file with a name similar as `pandas-1.2.3-cp38-win_amd64.whl`.
-
-Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using `pip`. For example, perform the following steps using a 64-bit machine with Python 3.8.x and wheel package installed:
+For example, to import pandas, select a wheel file with a name similar as `pandas-1.2.3-cp38-win_amd64.whl`. Perform the following steps using a 64-bit Windows machine with Python 3.8 and wheel package installed:
 
 1. Download the source file `pandas-1.2.4.tar.gz`.
-1. Run pip to get the wheel file with the following command: `pip wheel --no-deps pandas-1.2.4.tar.gz`.
+1. Run pip to get the wheel file with the following command: `pip wheel --no-deps pandas-1.2.4.tar.gz`
+
+#### [Python 3.10](#tab/py10)
+
+| Filename part | Description |
+|---|---|
+|cp310|Automation supports **Python 3.10** for Cloud Jobs.|
+|amd64|Azure sandbox processes are **Windows 64-bit** architecture.
+|manylinux_2_17_x86_64| to add info |
+|manylinux2014_x86_64 | to add info
+
+For example, to import pandas, select a wheel file with a name similar as `pandas-1.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl` and to import numpy, select a wheel file with a name similar as `numpy-1.23.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl` (To add about For 3.10, Linux distribution 64-bit architecture).
+
+---
+
+Some Python packages available on PyPI don't provide a wheel file. In this case, download the source (.zip or .tar.gz file) and generate the wheel file using `pip`.
+
 
 ## Import a package
 
@@ -51,7 +78,7 @@ After a package has been imported, it's listed on the Python packages page in yo
 
 ### Import a package with dependencies
 
-You can import a Python 3 package and its dependencies by importing the following Python script into a Python 3 runbook, and then running it.
+You can import a Python 3.8 package and its dependencies by importing the following Python script into a Python 3 runbook, and then running it.
 
 ```cmd
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
@@ -59,6 +86,10 @@ https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py
 
 #### Importing the script into a runbook
 For information on importing the runbook, see [Import a runbook from the Azure portal](manage-runbooks.md#import-a-runbook-from-the-azure-portal). Copy the file from GitHub to storage that the portal can access before you run the import.
+
+> [!NOTE]
+> For  Python 3.10 , you can't import a runbook from Azure portal.
+
 
 The **Import a runbook** page defaults the runbook name to match the name of the script. If you have access to the field, you can change the name. **Runbook type** may default to **Python 2**. If it does, make sure to change it to **Python 3**.
 
