@@ -155,7 +155,7 @@ To view these metrics in the Azure portal
 2. Select **Metrics** from the **Monitoring** section.
 3. Select the metrics you desire from the **Metric** list.
 
-:::image type="content" source="./media/how-to-use-low-priority-batch/metrics.png" alt-text="Using metrics to monitor node deallocation.":::
+:::image type="content" source="./media/how-to-use-low-priority-batch/metrics.png" alt-text="Screenshot of the metrics section in the resource monitoring blade showing the relevant metrics for low priority VMs.":::
 
 ## Limitations
 
