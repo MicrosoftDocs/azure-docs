@@ -249,7 +249,7 @@ Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
+Get-AzureApplicationGateway : ResourceNotFound: The gateway doesn't exist.
 ```
 
 ## Next steps

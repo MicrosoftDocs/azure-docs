@@ -78,7 +78,7 @@ At this point, your Azure account is the only one authorized to perform operatio
     :::image type="content" source="media/configure-key-vault-portal/create-key-vault-certificate.png" alt-text="Screenshot of key vault certificate creation":::
 
 > [!Important]
-> Issuance policies only affect certificates that will be issued in the future. Modifying this issuance policy will not affect any existing certificates.
+> Issuance policies only affect certificates that will be issued in the future. Modifying this issuance policy won't affect any existing certificates.
 
 ### Create a Virtual Network
 

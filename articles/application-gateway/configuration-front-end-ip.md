@@ -15,7 +15,7 @@ You can configure the application gateway to have a public IP address, a private
 
 ## Public and private IP address support
 
-Application Gateway V2 currently does not support only private IP mode. It supports the following combinations:
+Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations:
 
 * Private IP address and public IP address
 * Public IP address only

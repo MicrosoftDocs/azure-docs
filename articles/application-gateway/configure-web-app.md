@@ -22,18 +22,18 @@ Application gateway allows you to have an App Service app or other multi-tenant 
 
 This configuration is recommended for production-grade scenarios and meets the practice of not changing the host name in the request flow.  You are required to have a custom domain (and associated certificate) available to avoid having to rely on the default ".azurewebsites" domain.
 
-By associating the same domain name to both Application Gateway and App Service in the backend pool, the request flow does not need to override the host name.  The backend web application will see the original host as was used by the client.
+By associating the same domain name to both Application Gateway and App Service in the backend pool, the request flow doesn't need to override the host name.  The backend web application will see the original host as was used by the client.
 
 :::image type="content" source="media/configure-web-app/scenario-application-gateway-to-azure-app-service-custom-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the same custom domain for both":::
 
 ## [Default domain](#tab/defaultdomain)
 
-This configuration is the easiest and does not require a custom domain.  As such it allows for a quick convenient setup.  
+This configuration is the easiest and doesn't require a custom domain.  As such it allows for a quick convenient setup.  
 
 > [!WARNING]
 > This configuration comes with limitations. We recommend to review the implications of using different host names between the client and Application Gateway and between Application and App Service in the backend.  For more information, please review the article in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
 
-When App Service does not have a custom domain associated with it, the host header on the incoming request on the web application will need to be set to the default domain, suffixed with ".azurewebsites.net" or else the platform will not be able to properly route the request.
+When App Service doesn't have a custom domain associated with it, the host header on the incoming request on the web application will need to be set to the default domain, suffixed with ".azurewebsites.net" or else the platform won't be able to properly route the request.
 
 The host header in the original request received by the Application Gateway will be different from the host name of the backend App Service.
 
@@ -362,7 +362,7 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 - domain-bound cookies not being passed on to the backend
 - this includes the use of the ["ARR affinity" setting](../app-service/configure-common.md#configure-general-settings) in App Service
 
-The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application doesn't deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
 ### [Azure portal](#tab/azure-portal/customdomain)
 
@@ -432,13 +432,13 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 - domain-bound cookies not being passed on to the backend
 - this includes the use of the ["ARR affinity" setting](../app-service/configure-common.md#configure-general-settings) in App Service
 
-The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application doesn't deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
 ---
 
 ## Restrict access
 
-The web apps deployed in these examples use public IP addresses that can be  accessed directly from the Internet. This helps with troubleshooting when you are learning about a new feature and trying new things. But if you intend to deploy a feature into production, you'll want to add more restrictions.  Consider the following options:
+The web apps deployed in these examples use public IP addresses that can be  accessed directly from the Internet. This helps with troubleshooting when you're learning about a new feature and trying new things. But if you intend to deploy a feature into production, you'll want to add more restrictions.  Consider the following options:
 
 - Configure [Access restriction rules based on service endpoints](../app-service/overview-access-restrictions.md#access-restriction-rules-based-on-service-endpoints).  This allows you to lock down inbound access to the app making sure the source address is from Application Gateway.
 - Use [Azure App Service static IP restrictions](../app-service/app-service-ip-restrictions.md). For example, you can restrict the web app so that it only receives traffic from the application gateway. Use the app service IP restriction feature to list the application gateway VIP as the only address with access.

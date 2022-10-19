@@ -85,8 +85,8 @@ curl -i -N -H "Connection: Upgrade" \
 
 ## WebSocket Health Probes
 
-If your deployment does not explicitly define health probes, Application Gateway would attempt an  HTTP GET on your WebSocket server endpoint.
+If your deployment doesn't explicitly define health probes, Application Gateway would attempt an  HTTP GET on your WebSocket server endpoint.
 Depending on the server implementation ([here is one we love](https://github.com/gorilla/websocket/blob/master/examples/chat/main.go)) WebSocket specific headers may be required (`Sec-Websocket-Version` for instance).
-Since Application Gateway does not add WebSocket headers, the Application Gateway's health probe response from your WebSocket server will most likely be `400 Bad Request`.
+Since Application Gateway doesn't add WebSocket headers, the Application Gateway's health probe response from your WebSocket server will most likely be `400 Bad Request`.
 As a result Application Gateway will mark your pods as unhealthy, which will eventually result in a `502 Bad Gateway` for the consumers of the WebSocket server.
 To avoid this you may need to add an HTTP GET handler for a health check to your server (`/health` for instance, which returns `200 OK`).

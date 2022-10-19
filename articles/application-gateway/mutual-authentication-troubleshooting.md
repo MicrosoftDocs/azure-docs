@@ -87,7 +87,7 @@ There is certificate data that is missing. The certificate uploaded could have b
 
 #### Solution
 
-Validate that the certificate file uploaded does not have any missing data. 
+Validate that the certificate file uploaded doesn't have any missing data. 
 
 ### Error code: ApplicationGatewayTrustedClientCertificateMustNotHavePrivateKey
 

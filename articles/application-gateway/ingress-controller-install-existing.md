@@ -315,7 +315,7 @@ kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
 ```
 
 The object `prohibit-all-targets`, as the name implies, prohibits AGIC from changing config for *any* host and path.
-Helm install with `appgw.shared=true` will deploy AGIC, but will not make any changes to Application Gateway.
+Helm install with `appgw.shared=true` will deploy AGIC, but won't make any changes to Application Gateway.
 
 
 ### Broaden permissions

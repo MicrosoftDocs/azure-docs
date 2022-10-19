@@ -68,7 +68,7 @@ After entering the probe properties, you can test the health of the backend reso
 2. If there are any unhealthy backend resources, then check the **Details** column to understand the reason for unhealthy state of the resource. If the resource has been marked unhealthy due to an incorrect probe configuration, then select the **Go back to probe** link and edit the probe configuration. Otherwise, if the resource has been marked unhealthy due to an issue with the backend, then resolve the issues with the backend resource and then test the backend again by selecting the **Go back to probe** link and select **Test**.
 
    > [!NOTE]
-   > You can choose to save the probe even with unhealthy backend resources, but it isn't recommended. This is because the Application Gateway will not forward requests to the backend servers from the backend pool, which are determined to be unhealthy by the probe. In case there are no healthy resources in a backend pool, you will not be able to access your application and will get a HTTP 502 error.
+   > You can choose to save the probe even with unhealthy backend resources, but it isn't recommended. This is because the Application Gateway won't forward requests to the backend servers from the backend pool, which are determined to be unhealthy by the probe. In case there are no healthy resources in a backend pool, you won't be able to access your application and will get a HTTP 502 error.
 
    ![View probe result][6]
 

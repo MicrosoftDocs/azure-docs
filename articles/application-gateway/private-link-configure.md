@@ -66,10 +66,10 @@ A private endpoint is a network interface that uses a private IP address from th
 1. Select **Create**.
 
 > [!Note]
-> If the public or private IP configuration resource is missing when trying to select a _Target sub-resource_ on the _Resource_ tab of private endpoint creation, please ensure a listener is actively utilizing the respected frontend IP configuration. Frontend IP configurations without an associated listener will not be shown as a _Target sub-resource_.
+> If the public or private IP configuration resource is missing when trying to select a _Target sub-resource_ on the _Resource_ tab of private endpoint creation, please ensure a listener is actively utilizing the respected frontend IP configuration. Frontend IP configurations without an associated listener won't be shown as a _Target sub-resource_.
 
 > [!Note]
-> If you are provisioning a **Private Endpoint** from within another tenant, you will need to utilize the Azure Application Gateway Resource ID, along with sub-resource to your frontend configuration. For example, if the frontend configuration of the gateway was named _PrivateFrontendIp_, the resource ID would be as follows: _/subscriptions/xxxx-xxxx-xxxx-xxxx-xxxx/resourceGroups/resourceGroupname/providers/Microsoft.Network/applicationGateways/appgwname/frontendIPConfigurations/PrivateFrontendIp_.
+> If you're provisioning a **Private Endpoint** from within another tenant, you will need to utilize the Azure Application Gateway Resource ID, along with sub-resource to your frontend configuration. For example, if the frontend configuration of the gateway was named _PrivateFrontendIp_, the resource ID would be as follows: _/subscriptions/xxxx-xxxx-xxxx-xxxx-xxxx/resourceGroups/resourceGroupname/providers/Microsoft.Network/applicationGateways/appgwname/frontendIPConfigurations/PrivateFrontendIp_.
 
 # [Azure PowerShell](#tab/powershell)
 

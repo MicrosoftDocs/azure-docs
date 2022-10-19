@@ -33,7 +33,7 @@ To create an application gateway:
 
 ### Create an application gateway resource with a custom probe
 
-To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway doesn't start at this point. Billing begins in a later step, when the gateway is successfully started.
 
 The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
 
