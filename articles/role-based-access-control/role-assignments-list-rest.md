@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 02/27/2021
+ms.date: 10/19/2022
 ms.author: rolyon
 
 ---
@@ -33,7 +33,7 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 
 ## List role assignments
 
-In Azure RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter.
+In Azure RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments](/rest/api/authorization/role-assignments) Get or List REST APIs. To refine your results, you specify a scope and an optional filter.
 
 1. Start with the following request:
 

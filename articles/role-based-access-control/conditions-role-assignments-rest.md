@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 10/19/2022
 ms.author: rolyon
 ---
 
@@ -33,7 +33,7 @@ For more information about the prerequisites to add or edit role assignment cond
 
 ## Add a condition
 
-To add a role assignment condition, use the [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API. [Role Assignments - Create](/rest/api/authorization/roleassignments/create) includes the following parameters related to conditions.
+To add a role assignment condition, use the [Role Assignments - Create](/rest/api/authorization/role-assignments/create) REST API. [Role Assignments - Create](/rest/api/authorization/role-assignments/create) includes the following parameters related to conditions.
 
 | Parameter | Type | Description |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ The following shows an example of the output:
 
 ## Edit a condition
 
-To edit an existing role assignment condition, use the same [Role Assignments - Create](/rest/api/authorization/roleassignments/create) REST API as you used to add the role assignment condition. The following shows an example JSON where `condition` and `description` are updated. Only the `condition`, `conditionVersion`, and `description` properties can be edited. You must specify the other properties to match the existing role assignment.
+To edit an existing role assignment condition, use the same [Role Assignments - Create](/rest/api/authorization/role-assignments/create) REST API as you used to add the role assignment condition. The following shows an example JSON where `condition` and `description` are updated. Only the `condition`, `conditionVersion`, and `description` properties can be edited. You must specify the other properties to match the existing role assignment.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2022-04-01
@@ -122,13 +122,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## List a condition
 
-To list a role assignment condition, use the [Role Assignments - List](/rest/api/authorization/roleassignments/list) API. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
+To list a role assignment condition, use the [Role Assignments](/rest/api/authorization/role-assignments) Get or List REST API. For more information, see [List Azure role assignments using the REST API](role-assignments-list-rest.md).
 
 ## Delete a condition
 
 To delete a role assignment condition, edit the role assignment condition and set both the condition and condition version to either an empty string or null.
 
-Alternatively, if you want to delete both the role assignment and the condition, you can use the [Role Assignments - Delete](/rest/api/authorization/roleassignments/delete) API. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+Alternatively, if you want to delete both the role assignment and the condition, you can use the [Role Assignments - Delete](/rest/api/authorization/role-assignments/delete) API. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
 
 ## Next steps
 

@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 10/19/2022
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -109,7 +109,7 @@ az role assignment delete --assignee "alain@example.com" \
 
 ## REST API
 
-In the REST API, you remove a role assignment by using [Role Assignments - Delete](/rest/api/authorization/roleassignments/delete).
+In the REST API, you remove a role assignment by using [Role Assignments - Delete](/rest/api/authorization/role-assignments/delete).
 
 1. Get the role assignment identifier (GUID). This identifier is returned when you first create the role assignment or you can get it by listing the role assignments.
 

@@ -12,7 +12,7 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 10/19/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -39,6 +39,8 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 
 ## List a single deny assignment
 
+To list a single deny assignment, use the [Deny Assignments - Get](/rest/api/authorization/deny-assignments/get) REST API.
+
 1. Start with the following request:
 
     ```http
@@ -57,6 +59,8 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 1. Replace *{deny-assignment-id}* with the deny assignment identifier you want to retrieve.
 
 ## List multiple deny assignments
+
+To list multiple deny assignments, use the [Deny Assignments - List](/rest/api/authorization/deny-assignments/list) REST API.
 
 1. Start with one of the following requests:
 
