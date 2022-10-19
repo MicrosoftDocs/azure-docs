@@ -160,6 +160,33 @@ The native cloud connector requires:
 
 Defender for Cloud will immediately start scanning your AWS resources and you'll see security recommendations within a few hours. For a reference list of all the recommendations Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
+## AWS Authentication
+
+Federated authentication is used between Microsoft Defender for Cloud and AWS. This type of authentication allows users to access multiple tools, applications, and domains with only one set of credentials. All the resources related to the authentication are created as part of the CloudFormation template deployment, including:
+
+- an identity provider (OpenID connect) 
+-  Identity and Access Management (IAM) roles with a federated principal (connected to the identity providers).
+
+The authentication flow is described as follows:
+
+:::image type="content" source="media/quickstart-onboard-aws/authentication-design-flow2.png" alt-text="diagram that shows authentication design flow." lightbox="media/quickstart-onboard-aws/authentication-design-flow.png":::
+
+Microsoft Defender for Cloud CSPM service acquires an Azure AD token with a validity life time of 1 hour that is signed by the Azure AD using the RS256 algorithm. 
+
+The Azure AD token is replaced by AWS  credentials with a short validity life time. CSPM assumes the CSPM IAM role authenticated with web identity.
+
+Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Azure AD token against the Azure AD through a process that includes:
+
+- audience validation
+- signing of the token
+- certificate thumbprint
+    
+ Only after the validation conditions defined at the role on the trust relationship level have been met, is the Microsoft Defender for Cloud CSPM role assumed. The conditions defined at the role are used for internal validation within AWS that allows only the Microsoft Defender for Cloud CSPM application audience access to the specific role (and not any other Microsoft token).
+
+The Azure AD token is validated, and AWS STS exchanges the token with AWS short-life credentials which CSPM service uses to scan the AWS account.
+
+
+
 ### Remove 'classic' connectors
 
 If you have any existing connectors created with the classic cloud connectors experience, remove them first:
@@ -175,28 +202,6 @@ If you have any existing connectors created with the classic cloud connectors ex
 1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
 
 1. On AWS, delete the role ARN, or the credentials created for the integration.
-
-## AWS Authentication
-
-Federated authentication technology is used between Microsoft Defender for Cloud and AWS. This technology allows users to access multiple tools, applications, and domains with only one set of credentials. All the resources related to the authentication are created as part of the CloudFormation template deployment, including an identity provider (OpenID connect) and  identity and access management (IAM) roles with a federated principal (connected to the identity providers).
-The authentication flow is described as follows.
-
-:::image type="content" source="media/quickstart-onboard-aws/authentication-design-flow2.png" alt-text="diagram that shows authentication design flow." lightbox="media/quickstart-onboard-aws/authentication-design-flow.png":::
-
-Microsoft Defender for Cloud CSPM service acquires an Azure AD token that is signed by the Azure AD using the RS256 algorithm. This token has a validity life time of 1 hour.
-
-The Azure AD token is exchanged with AWS short-life credentials. CSPM assumes the CSPM IAM role authenticated with web identity.
-
-Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Azure AD token against the Azure AD through a process that includes:
-
-- audience validation
-- signing of the token
-- certificate thumbprint
-    
- Only after the validation conditions defined at the role on the trust relationship level have been met, is the Microsoft Defender for Cloud CSPM role assumed. The conditions defined at the role are used for internal validation within AWS that allows only the Microsoft Defender for Cloud CSPM application audience access to the specific role (and not any other Microsoft token).
-
-The Azure AD token is validated, and AWS STS exchanges the token with AWS short-life credentials which CSPM service uses to scan the AWS account.
-
 
 ::: zone-end
 
