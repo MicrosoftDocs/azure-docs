@@ -122,7 +122,7 @@ Close the recommendations page, and press the **Next**** button to continue with
 8. Copy and paste one of the authentication keys provided in the wizard screen in Azure Data Studio. If the authentication key is valid, a green check icon is displayed in the Integration Runtime Configuration Manager, indicating that you can continue to **Register**.  
 9. After completing the registration of the self-hosted integration runtime, close the **Microsoft Integration Runtime Configuration Manager** and switch back to the migration wizard in Azure Data Studio.
    > [!Note]
-   > Refer [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime) for additional information regarding self-hosted integration runtime.
+   > Refer [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md) for additional information regarding self-hosted integration runtime.
 10. Select **Test connection** in the **Create Azure Database Migration Service** screen in Azure Data Studio to validate that the newly created DMS is connected to the newly registered self-hosted integration runtime. 
     :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/create-dms-integration-runtime-connected.png" alt-text="Screenshot of IR connectivity test.":::
 11. Review the summary and select **Start migration** to start the database migration.

@@ -18,9 +18,9 @@ ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 
 # Data ingestion with Azure Data Factory
 
-In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory](/azure/data-factory/introduction). This Azure Data Factory pipeline is used to ingest data for use with [Azure Machine Learning](../overview-what-is-azure-machine-learning.md). Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models in Azure Machine Learning.
+In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory](../../data-factory/introduction.md). This Azure Data Factory pipeline is used to ingest data for use with [Azure Machine Learning](../overview-what-is-azure-machine-learning.md). Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models in Azure Machine Learning.
 
-Simple data transformation can be handled with native Data Factory activities and instruments such as [data flow](/azure/data-factory/control-flow-execute-data-flow-activity). When it comes to more complicated scenarios, the data can be processed with some custom code. For example, Python or R code.
+Simple data transformation can be handled with native Data Factory activities and instruments such as [data flow](../../data-factory/control-flow-execute-data-flow-activity.md). When it comes to more complicated scenarios, the data can be processed with some custom code. For example, Python or R code.
 
 ## Compare Azure Data Factory data ingestion pipelines 
 There are several common techniques of using Data Factory to transform data during ingestion. Each technique has advantages and disadvantages that help determine if it's a good fit for a specific use case:
@@ -35,7 +35,7 @@ There are several common techniques of using Data Factory to transform data duri
 
 Azure Functions allows you to run small pieces of code (functions) without worrying about application infrastructure. In this option, the data is processed with custom Python code wrapped into an Azure Function. 
 
-The function is invoked with the [Azure Data Factory Azure Function activity](/azure/data-factory/control-flow-azure-function-activity). This approach is a good option for lightweight data transformations. 
+The function is invoked with the [Azure Data Factory Azure Function activity](../../data-factory/control-flow-azure-function-activity.md). This approach is a good option for lightweight data transformations. 
 
 ![Diagram shows an Azure Data Factory pipeline, with Azure Function and Run ML Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-function.png)
 
@@ -43,7 +43,7 @@ The function is invoked with the [Azure Data Factory Azure Function activity](/a
 
 * Advantages:
     * The data is processed on a serverless compute with a relatively low latency
-    * Data Factory pipeline can invoke a [Durable Azure Function](/azure/azure-functions/durable/durable-functions-overview) that may implement a sophisticated data transformation flow 
+    * Data Factory pipeline can invoke a [Durable Azure Function](../../azure-functions/durable/durable-functions-overview.md) that may implement a sophisticated data transformation flow 
     * The details of the data transformation are abstracted away by the Azure Function that can be reused and invoked from other places
 * Disadvantages:
     * The Azure Functions must be created before use with ADF
@@ -56,7 +56,7 @@ In this option, the data is processed with custom Python code wrapped into an ex
 ![Diagram shows an Azure Data Factory pipeline, with a custom component and Run M L Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 * Advantages:
-    * The data is processed on [Azure Batch](/azure/batch/batch-technical-overview) pool, which provides large-scale parallel and high-performance computing
+    * The data is processed on [Azure Batch](../../batch/batch-technical-overview.md) pool, which provides large-scale parallel and high-performance computing
     * Can be used to run heavy algorithms and process significant amounts of data
 * Disadvantages:
     * Azure Batch pool must be created before use with Data Factory
@@ -66,7 +66,7 @@ In this option, the data is processed with custom Python code wrapped into an ex
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark-based analytics platform in the Microsoft cloud.
 
-In this technique, the data transformation is performed by a [Python notebook](/azure/data-factory/transform-data-using-databricks-notebook), running on an Azure Databricks cluster. This is probably, the most common approach that uses the full power of an Azure Databricks service. It's designed for distributed data processing at scale.
+In this technique, the data transformation is performed by a [Python notebook](../../data-factory/transform-data-using-databricks-notebook.md), running on an Azure Databricks cluster. This is probably, the most common approach that uses the full power of an Azure Databricks service. It's designed for distributed data processing at scale.
 
 ![Diagram shows an Azure Data Factory pipeline, with Azure Databricks Python and Run M L Pipeline, and an Azure Machine Learning pipeline, with Train Model, and how they interact with raw data and prepared data.](media/how-to-data-ingest-adf/adf-databricks.png)
 
@@ -96,7 +96,7 @@ Each time the Data Factory pipeline runs,
 
 1. The data is saved to a different location in storage. 
 1. To pass the location to Azure Machine Learning, the Data Factory pipeline calls an [Azure Machine Learning pipeline](../concept-ml-pipelines.md). When calling the ML pipeline, the data location and job ID are sent as parameters. 
-1. The ML pipeline can then create an Azure Machine Learning datastore and dataset with the data location. Learn more in [Execute Azure Machine Learning pipelines in Data Factory](/azure/data-factory/transform-data-machine-learning-service).
+1. The ML pipeline can then create an Azure Machine Learning datastore and dataset with the data location. Learn more in [Execute Azure Machine Learning pipelines in Data Factory](../../data-factory/transform-data-machine-learning-service.md).
 
 ![Diagram shows an Azure Data Factory pipeline and an Azure Machine Learning pipeline and how they interact with raw data and prepared data. The Data Factory pipeline feeds data to the Prepared Data database, which feeds a data store, which feeds datasets in the Machine Learning workspace.](media/how-to-data-ingest-adf/aml-dataset.png)
 
@@ -158,7 +158,7 @@ From here, use `prepared_dataset` to reference your prepared data, like in your 
 
 ## Next steps
 
-* [Run a Databricks notebook in Azure Data Factory](/azure/data-factory/transform-data-using-databricks-notebook)
+* [Run a Databricks notebook in Azure Data Factory](../../data-factory/transform-data-using-databricks-notebook.md)
 * [Access data in Azure storage services](./how-to-access-data.md#create-and-register-datastores)
 * [Train models with datasets in Azure Machine Learning](./how-to-train-with-datasets.md).
 * [DevOps for a data ingestion pipeline](./how-to-cicd-data-ingestion.md)

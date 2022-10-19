@@ -48,7 +48,7 @@ To migrate from an Automation Run As account to a managed identity for your runb
 
     For managed identity support, use the `Connect-AzAccount` cmdlet. To learn more about this cmdlet, see [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?branch=main&view=azps-8.3.0) in the PowerShell reference.
 
-    - If you're using Az modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](/azure/automation/automation-update-azure-modules?branch=main#update-az-modules) article. 
+    - If you're using Az modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](./automation-update-azure-modules.md?branch=main#update-az-modules) article. 
     - If you're using AzureRM modules, update `AzureRM.Profile` to the latest version and replace it by using the `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
     
     To understand the changes to the runbook code that are required before you can use managed identities, use the [sample scripts](#sample-scripts).
@@ -61,7 +61,7 @@ The following examples of runbook scripts fetch the Resource Manager resources b
 
 # [Run As account](#tab/run-as-account)
 
-```powershell
+```powershell-interactive
   $connectionName = "AzureRunAsConnection"
   try
   {
@@ -106,7 +106,7 @@ The following examples of runbook scripts fetch the Resource Manager resources b
 >[!NOTE]
 > Enable appropriate RBAC permissions for the system identity of this Automation account. Otherwise, the runbook might fail.
 
-  ```powershell
+  ```powershell-interactive
   try
   {
       "Logging in to Azure..."
@@ -133,7 +133,7 @@ The following examples of runbook scripts fetch the Resource Manager resources b
   ```
 # [User-assigned managed identity](#tab/ua-managed-identity)
 
-```powershell
+```powershell-interactive
 try
 { 
 
@@ -226,4 +226,3 @@ For more information, see the sample runbook name **AzureAutomationTutorialWithI
 
 - For information about Azure Automation account security, see [Azure Automation account authentication overview](automation-security-overview.md).
 
- 
