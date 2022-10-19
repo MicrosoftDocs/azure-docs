@@ -140,7 +140,7 @@ Initiate the APM **Guided Configuration** to launch the **Easy Button** template
    ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
 
 
-### Configuration properties
+### Configuration Properties
 
 The **Configuration Properties** tab creates a BIG-IP application config and SSO object. The **Azure Service Account Details** section represents the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to register a SAML SP in your tenant, with the SSO properties you would configure manually. Easy Button does this action for every BIG-IP service published and enabled for SHA.
 
@@ -188,7 +188,7 @@ For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
 
    ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
-#### Azure configuration
+#### Azure Configuration
 
 1. Enter **Display Name** of the app that the BIG-IP creates in your Azure AD tenant, and the icon that users see on [MyApps portal](https://myapplications.microsoft.com/).
 2. Enter nothing in the **Sign On URL (optional)**.
