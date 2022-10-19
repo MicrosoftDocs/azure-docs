@@ -24,7 +24,9 @@
     - name: Ruby
       href: quickstart-ruby.md
     - name: WordPress
-      href: quickstart-wordpress.md      
+      href: quickstart-wordpress.md
+    - name: Go (experimental)
+      href: quickstart-golang.md      
     - name: Static HTML site
       href: quickstart-html.md
     - name: ARM template
@@ -433,6 +435,8 @@
         href: provision-resource-terraform.md
 - name: Reference
   items:
+    - name: Subdomain takeover
+      href: reference-dangling-subdomain-prevention.md
     - name: Monitoring data
       href: monitor-app-service-reference.md
     - name: Azure CLI

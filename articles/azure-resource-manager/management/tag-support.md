@@ -1925,7 +1925,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | vaults / eventGridFilters | No | No |
 > | vaults / keys | No | No |
 > | vaults / keys / versions | No | No |
-> | vaults / secrets | No | No |
+> | vaults / secrets | Yes | No |
 
 ## Microsoft.Kubernetes
 

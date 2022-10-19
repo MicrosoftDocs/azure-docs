@@ -1,16 +1,17 @@
 ---
-title: Install the Microsoft Dev Box Azure CLI extension
-description: Learn how to install the Azure CLI and the Microsoft Dev Box CLI extension so you can create Dev Box resources from the command line.
+title: Install the Microsoft Dev Box Preview Azure CLI extension
+titleSuffix: Microsoft Dev Box Preview
+description: Learn how to install the Azure CLI and the Microsoft Dev Box Preview CLI extension so you can create Dev Box resources from the command line.
 services: dev-box
 ms.service: dev-box
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/29/2022
+ms.date: 10/12/2022
 Customer intent: As a dev infra admin, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.
 ---
 
-# Microsoft Dev Box CLI
+# Microsoft Dev Box Preview CLI
 
 In addition to the Azure admin portal and the Dev Box user portal, you can use Dev Box's Azure CLI Extension to create resources.
 
@@ -18,10 +19,10 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
 
 1. Download and install the [Azure CLI](/cli/azure/install-azure-cli).
 
-1. Install the Microsoft Dev Box AZ CLI extension:
+1. Install the Dev Box Azure CLI extension:
     #### [Install by using a PowerShell script](#tab/Option1/)
  
-    Using <https://aka.ms/DevCenter/Install-DevCenterCli.ps1> uninstalls any existing Microsoft Dev Box CLI extension and installs the latest version.
+    Using <https://aka.ms/DevCenter/Install-DevCenterCli.ps1> uninstalls any existing Dev Box CLI extension and installs the latest version.
 
     ```azurepowershell
     write-host "Setting Up DevCenter CLI"
@@ -106,4 +107,4 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
 
 Discover the Dev Box commands you can use at:
 
-- [Dev Box CLI reference](./cli-reference-subset.md)
+- [Microsoft Dev Box Preview Azure CLI reference](./cli-reference-subset.md)
