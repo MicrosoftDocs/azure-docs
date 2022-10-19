@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other, 
-ms.date: 9/1*/2022
+ms.date: 9/19/2022
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
@@ -30,7 +30,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
     |--------------|---------------------|
     | message      | Hi                  |
     | test.message | Hi with test prefix |
-    | my_json      | test my_json        |
+    | my_json      | {"key":"value"}     |
 
     Leave **Label** and **Content Type** empty.
 
@@ -67,21 +67,23 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
     connection_string = os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")
 
-    # Connecting to Azure App Configuration using a connection string
+    # Connect to Azure App Configuration using a connection string
     config = AzureAppConfigurationProvider.load(
         connection_string=connection_string)
 
+    # Find the key "message" and print its value
     print(config["message"])
+    # Find the key "my_json" and print the value for "key" from the dictionary
     print(config["my_json"]["key"])
 
-    # Connecting to Azure App Configuration using a connection string and trimmed key prefixes
+    # Connect to Azure App Configuration using a connection string and trimmed key prefixes
     trimmed = {"test."}
     config = AzureAppConfigurationProvider.load(
         connection_string=connection_string, trimmed_key_prefixes=trimmed)
-
+    # From the keys with trimmed prefixes, find a key with "message" and print its value
     print(config["message"])
 
-    # Connection to Azure App Configuration using SettingSelector
+    # Connect to Azure App Configuration using SettingSelector
     selects = {SettingSelector("message*", "\0")}
     config = AzureAppConfigurationProvider.load(
         connection_string=connection_string, selects=selects)
@@ -99,10 +101,44 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    To build and run the app locally using the Windows command prompt, run the following command:
+    To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
-    setx AZURE_APP_CONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```azurepowershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
+    ```
+
+    ### [macOS](#tab/unix)
+
+    If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```console
+    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```
+
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```console
+    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+   ```
+
+1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly with the command below.
+
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    Using the Windows command prompt, run the following command:
+
+    ```cmd
+    printenv AZURE_APPCONFIG_CONNECTION_STRING
     ```
 
     ### [PowerShell](#tab/powershell)
@@ -110,7 +146,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:AZURE_APP_CONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING
     ```
 
     ### [macOS](#tab/unix)
@@ -118,18 +154,15 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
     If you use macOS, run the following command:
 
     ```console
-    export AZURE_APP_CONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
 
     ### [Linux](#tab/linux)
 
-    If you use macOS, run the following command:
+    If you use Linux, run the following command:
 
     ```console
-    export AZURE_APP_CONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
-   ```
-
-1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
+    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
 
 1. After the build successfully completes, run the following command to run the app locally:
 
@@ -333,7 +366,6 @@ Key: TestApp:Settings:NewSetting, Value: Value has been updated!
 ```
 
 ## Clean up resources
-
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
