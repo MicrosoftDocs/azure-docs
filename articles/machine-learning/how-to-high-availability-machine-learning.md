@@ -202,4 +202,4 @@ If you accidentally deleted your workspace it is currently not possible to recov
 
 ## Next steps
 
-To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](/azure/machine-learning/tutorial-create-secure-workspace-template).
+To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](./tutorial-create-secure-workspace-template.md).
