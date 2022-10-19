@@ -68,6 +68,8 @@ Using the [Client](https://github.com/microsoft/Attestation-Client-Samples) to t
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5azcT]
 
+
+</br>
 Here's a sample of the contents of the attestation report.
 :::image type="content" source="./media/sampledecodedtoken.jpg" alt-text="Sample decoded token for tpm attestation" lightbox="./media/sampledecodedtoken.jpg":::
 
