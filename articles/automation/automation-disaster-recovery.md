@@ -96,7 +96,7 @@ Follow the steps to import and execute the runbook:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to Automation account that you want to migrate to another region.
 1. Under **Process Automation**, select **Runbooks**.
-1. Select **Browse gallery** and in the search, enter *Migrate-Automation-account-assets-from-one-region to another* and select **PowerShell script**.
+1. Select **Browse gallery** and in the search, enter *Migrate Automation account assets from one region to another* and select **PowerShell script**.
 1. In the **Import a runbook** page, enter a name for the runbook.
 1. Select **Runtime version** as either 5.1 or 7.1 (preview)
 1. Enter the description and select **Import**.
