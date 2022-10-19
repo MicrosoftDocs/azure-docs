@@ -17,7 +17,7 @@ It's the preferred instrumentation method because no code changes are required a
 
 ## Supported environments, languages, and resource providers
 
-The table below displays the current state of the matter as far as support for various resource providers, languages, and environments go.
+The table below displays the current state of auto-instrumentation availability for each environment/resource provider and language pair.
 
 |Environment/Resource Provider                    | .NET                                                                                                                                           | .NET Core                                                                                                                                      | Java                                                                                                                                           | Node.js                                                                       | Python                                                                                       |
 |-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
