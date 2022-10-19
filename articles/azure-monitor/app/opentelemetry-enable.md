@@ -87,7 +87,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [.NET](#tab/net)
 
-- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.1
+- Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
 ### [Node.js](#tab/nodejs)
 
