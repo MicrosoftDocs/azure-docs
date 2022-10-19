@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
 ms.custom: mvc
+zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want provision groups of devices using X.509 certificate chains and the C SDK.
 ---
 
@@ -44,6 +45,8 @@ In this tutorial, you'll complete the following objectives:
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
+::: zone pivot="programming-language-ansi-c"
+
 The following prerequisites are for a Windows development environment used to simulate the devices. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
 * Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015, Visual Studio 2017, and Visual Studio 19 are also supported.
@@ -52,6 +55,46 @@ The following prerequisites are for a Windows development environment used to si
 
     >[!IMPORTANT]
     >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this tutorial. Make sure to use the latest version of CMake.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/doc/devbox_setup.md) in the SDK documentation.
+
+* Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+
+    ```cmd
+    dotnet --info
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/blob/main/doc/node-devbox-setup.md) in the SDK documentation.
+
+* Install [Node.js v4.0 or above](https://nodejs.org) on your machine.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+The following prerequisites are for a Windows development environment.
+
+* [Python 3.6 or later](https://www.python.org/downloads/) on your machine.
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md) in the SDK documentation.
+
+* Install the [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) or later on your machine.
+
+* Download and install [Maven](https://maven.apache.org/install.html).
+
+::: zone-end
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
@@ -64,7 +107,9 @@ The following prerequisites are for a Windows development environment used to si
 
     The steps in this tutorial assume that you're using a Windows machine and the OpenSSL installation that is installed as part of Git. You'll use the Git Bash prompt to issue OpenSSL commands and the Windows command prompt for everything else. If you're using Linux, you can issue all commands from a Bash shell.
 
-## Prepare the Azure IoT C SDK development environment
+## Prepare your development environment
+
+::: zone pivot="programming-language-ansi-c"
 
 In this section, you'll prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes sample code and tools used by devices provisioning with DPS.
 
@@ -117,6 +162,55 @@ In this section, you'll prepare a development environment used to build the [Azu
     -- Generating done
     -- Build files have been written to: C:/azure-iot-sdk-c/cmake
     ```
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+1. In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+
+1. In your Windows command prompt, clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-node.git
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+1. In your Windows command prompt, clone the [Azure IoT Samples for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+    ```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+1. In your Windows command prompt, clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
+    ```
+
+2. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages.
+
+   ```cmd
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
+
+::: zone-end
 
 ## Create an X.509 certificate chain
 
