@@ -267,7 +267,7 @@ Alternatively, use the `Azure ML: Delete Compute instance` command in the comman
 
 ## Compute clusters
 
-For more information, see [training compute targets](concept-compute-target.md#train).
+For more information, see [training compute targets](concept-compute-target.md#training-compute-targets).
 
 ### Create compute cluster
 
@@ -300,7 +300,7 @@ Alternatively, use the `> Azure ML: Remove Compute` command in the command palet
 
 ## Inference Clusters
 
-For more information, see [compute targets for inference](concept-compute-target.md#deploy).
+For more information, see [compute targets for inference](concept-compute-target.md#compute-targets-for-inference).
 
 ### Manage inference clusters
 

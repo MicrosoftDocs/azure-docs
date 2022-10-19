@@ -58,7 +58,7 @@ Azure Machine Learning introduces two fully managed cloud-based virtual machines
 
 * **Compute clusters**: Compute clusters are a cluster of VMs with multi-node scaling capabilities. Compute clusters are better suited for compute targets for large jobs and production.  The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
 
-For more information about training compute targets, see [Training compute targets](../concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](../concept-compute-target.md#deploy).
+For more information about training compute targets, see [Training compute targets](../concept-compute-target.md#training-compute-targets).  For more information about deployment compute targets, see [Deployment targets](../concept-compute-target.md#compute-targets-for-inference).
 
 ## Datasets and datastores
 
