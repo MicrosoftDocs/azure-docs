@@ -129,18 +129,8 @@ Each feature class file must match its definition in the [Facility ontology 2.0]
 
 Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) and underscore (_) characters.
 
-<!--
-1. The contents of each feature class file must match its definition in the [Facility-2.0 ontology][Facility-2.0 ontology].
-2. All files in the packages must be in the root directory. No sub-directories are not supported.
-3. Every feature class should be represented by a separate file.
-4. The package can’t have more files than the features classes in the ontology.
-5. No other extension is supported.
-6. The data should be RFC 7946: The GeoJSON Format (rfc-editor.org) complaint.
-7. Feature IDs in these feature classes should be globally unique. Not just in a feature class.
-8. Referential integrity of the features should be maintained.
-9. Feature ID can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) and underscore (_) characters)
-10. <<Please take other validations we have in place from this doc : Facility2-DatasetValidations.docx>>
--->
+> [!TIP]
+> If you want to be certain you have a globally unique identifier (GUID), consider creating it by running a GUID generating tool such as the Guidgen.exe command line program (Available with [Visual Studio][Visual Studio]). Guidgen.exe never produces the same number twice, no matter how many times it is run or how many different machines it runs on.
 
 ### Facility ontology 2.0 validations in the Dataset
 
@@ -177,24 +167,22 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [facility]: creator-facility-ontology.md?pivots=facility-ontology-v2#facility
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 [opening]: creator-facility-ontology.md?pivots=facility-ontology-v2#opening
-
 [areaElement]: creator-facility-ontology.md?pivots=facility-ontology-v2#areaelement
 [lineElement]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement
 [pointElement]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
 
-[tileset]: /rest/api/maps/v2/tileset
-[wfs]: /rest/api/maps/v2/wfs
-[stateset]: /rest/api/maps/v2/stateset
 [conversion]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Creator resource]: how-to-manage-creator.md
 [Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
 [Facility Ontology]: creator-facility-ontology.md?pivots=facility-ontology-v2
-
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
-
 [dataset-concept]: creator-indoor-maps.md#datasets
+[Dataset Create 2022-09-01-preview]: /rest/api/maps/v20220901preview/dataset/create
+[Visual Studio]: https://visualstudio.microsoft.com/downloads/
+<!--
 [Dataset Create 2022-09-01-preview]: https://review.learn.microsoft.com/en-us/rest/api/documentation-preview/dataset/create?view=azure-rest-preview&branch=result_openapiHub_production_acba443a6973&tabs=HTTP
 [Dataset Create]: /rest/api/maps/v2/dataset/create
 
 [Contoso building sample]: https://microsoft.sharepoint.com/teams/Azure-Maps/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FAzure%2DMaps%2FShared%20Documents%2FAzure%20Maps%20Creator%2FAPI%2FDataset%2FSample%20Datasets%2FsampleContosoGeoJSON%2Ezip&parent=%2Fteams%2FAzure%2DMaps%2FShared%20Documents%2FAzure%20Maps%20Creator%2FAPI%2FDataset%2FSample%20Datasets&p=true&ga=1
+-->
