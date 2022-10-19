@@ -15,7 +15,7 @@ items:
       href: quickstart-create-and-configure-devcenter.md
     - name: Create and configure a project
       href: quickstart-create-and-configure-projects.md
-    - name: Create and access an environment in a project
+    - name: Create and access an environment
       href: quickstart-create-access-environments.md
 - name: Concepts
   expanded: true

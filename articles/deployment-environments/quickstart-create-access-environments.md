@@ -1,6 +1,6 @@
 ---
-title: Create and access an environment in a project
-description: This quickstart shows you how to create and access an environment in an Azure Deployment Environments project.
+title: Create and access an environment
+description: This quickstart shows you how to create and access an environment in an Azure Deployment Environments Preview project.
 author: anandmeg
 ms.author: meghaanand
 ms.service: deployment-environments
@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 10/12/2022
 ---
 
-# Quickstart: Create and access an environment in a project
+# Quickstart: Create and access an environment
 
 This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
 
@@ -27,12 +27,12 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-- [Create and configure a dev center](quickstart-create-and-configure-devcenter.md)
-- [Create and configure a project](quickstart-create-and-configure-projects.md)
-- Install the Deployment Environments Azure CLI extension:
+- [Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
+- [Create and configure a project](quickstart-create-and-configure-projects.md).
+- Install the Azure Deployment Environments Azure CLI extension:
 
     1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
-    1. Install the Deployment Environments AZ CLI extension:
+    1. Install the Azure Deployment Environments AZ CLI extension:
 
        **Automated installation**
   

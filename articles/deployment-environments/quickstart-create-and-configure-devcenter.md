@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure Deployment Environments service
-description: This quickstart shows you how to configure the Azure Deployment Environments service. You'll create a dev center, attach an identity, attach a catalog, and create environment types.
+title: Create and configure a dev center
+description: This quickstart shows you how to create and configure a dev center in Azure Deployment Environments Preview. You'll create a dev center, attach an identity, attach a catalog, and create environment types.
 author: anandmeg
 ms.author: meghaanand
 ms.topic: quickstart
@@ -37,7 +37,7 @@ In this quickstart, you learn how to:
 To create and configure a Dev center in Azure Deployment Environments by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, search for **Azure Deployment Environments**, and then select the service in the results.
+1. Search for **Azure Deployment Environments**, and then select the service in the results.
 1. In **Dev centers**, select **Create**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot that shows how to create a dev center in Azure Deployment Environments.":::
