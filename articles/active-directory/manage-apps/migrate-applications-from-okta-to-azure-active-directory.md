@@ -70,7 +70,7 @@ To create an application inventory:
 >[!NOTE]
 >You can print the applications in your Okta tenant. The list is in JSON format.
 
-    ![Screenshot that shows a list of applications in the Okta tenant.](media/migrate-applications-from-okta-to-azure-active-directory/list-of-applications.png)
+   ![Screenshot that shows a list of applications in the Okta tenant.](media/migrate-applications-from-okta-to-azure-active-directory/list-of-applications.png)
 
 We recommend you copy and convert this JSON list to a CSV format:
 
