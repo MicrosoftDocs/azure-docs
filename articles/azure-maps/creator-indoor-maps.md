@@ -50,9 +50,9 @@ Creator services create, store, and use various data types that are defined and 
 - Converted data
 - Dataset
 - Tileset
-- Custom styles
+- Custom styles (preview)
 - Feature stateset
-- Routeset Service
+- Wayfinding (preview)
 
 ## Upload a Drawing package
 
@@ -102,7 +102,7 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 >
 >To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset isn't affected.
 
-### Custom styling (Preview)
+### Custom styling (preview)
 
 A style defines the visual appearance of a map. It defines what data to draw, the order to draw it in, and how to style the data when drawing it. Azure Maps Creator styles support the MapLibre standard for [style layers][style layers] and [sprites][sprites].
 
@@ -224,9 +224,33 @@ An application can use a feature stateset to dynamically render features in a fa
 >[!NOTE]
 >Like tilesets, changing a dataset doesn't affect the existing feature stateset, and deleting a feature stateset doesn't affect the dataset to which it's attached.
 
-### Routesets
+### Wayfinding (preview)
+<!--
+#### Routeset
 
 A [routeset][routeset] is a collection of indoor map data that’s generated from an existing dataset. Once the routeset is created, the [wayfinding service](#wayfinding-service) uses that data to generate paths from one point to another point within an Azure Maps-enabled facility.
+
+### Wayfinding service (preview)
+-->
+The [Wayfinding service][wayfind] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset][routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the required width of openings and navigating between levels.
+
+#### Wayfinding paths
+
+When a wayfinding path is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg as are any stairs or elevators used to move between floors.
+
+For example, the first leg of the path might be from the starting location to the elevator on that floor. The next leg will be the elevator journey, and then the final leg will be the path from the elevator to the destination point on that floor. The estimated travel time is calculated and displayed next to the starting point for each leg.
+
+##### Wall layer
+
+For wayfinding to work, the imported package must contain a [wall layer][wall layer]. The wayfinding service calculates the shortest path between two selected points in a facility. The service creates the path by navigating around walls and any other impermeable structures. Without the wall layer, it isn't possible for the wayfinding service to properly navigate. For more information, see [Facility Ontology][ontology].
+
+##### Vertical penetration
+
+If the selected beginning and end points are on different floor levels, the wayfinding service determines what [vertical penetration][verticalPenetration] objects, stairs or elevators, are available as possible pathways for navigating vertically between levels. By default, the option that results in the shortest path will be used.
+
+The Wayfinding service includes stairs or elevators in a route based on the value of the vertical penetration's `direction` property. For more information on the direction property, see [verticalPenetration][verticalPenetration] in the Facility Ontology article. See the `avoidFeatures` and `MinWidth` properties in the [wayfinding][wayfind] API documentation to learn about other factors that can impact the path selection between floor levels.
+
+For more information, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
 
 ## Using indoor maps
 
@@ -251,46 +275,6 @@ The [Azure Maps Web SDK](./index.yml) includes the Indoor Maps module. This modu
 You can use the Indoor Maps module to create web applications that integrate indoor map data with other [Azure Maps services](./index.yml). The most common application setups include adding knowledge from other maps - such as road, imagery, weather, and transit - to indoor maps.
 
 The Indoor Maps module also supports dynamic map styling. For a step-by-step walkthrough to implement feature stateset dynamic styling in an application, see [Use the Indoor Map module](how-to-use-indoor-module.md).
-
-### Wayfinding service
-
-The [Wayfinding service][wayfind] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a routeset. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the required width of openings and navigating between levels.
-
-#### Wayfinding paths
-
-When a wayfinding path is successfully generated, it finds the shortest path between two points in the specified facility. Each floor in the journey is represented as a separate leg as are any stairs or elevators used to move between floors.
-
-For example, the first leg of the path might be from the starting location to the elevator on that floor. The next leg will be the elevator journey, and then the final leg will be the path from the elevator to the destination point on that floor. The estimated travel time is calculated and displayed next to the starting point for each leg.
-
-##### Wall layer
-
-For wayfinding to work, the imported package must contain a [wall layer][wall layer] that’s specified in the manifest.json file in a drawing package<!-- or the *structure.geojson* file when importing a GeoJSON package-->. The wayfinding service calculates the shortest path between two selected geospatial points in a facility. The service creates the path by navigating around walls and any other impermeable structures. Without the wall layer, it isn't possible for the wayfinding service to properly navigate.
-
-##### isRouteble
-
-The `isRoutable` property of a [unit][unit] indicates whether that unit, such as an office or hallway, can be used as a source or destination point in a wayfinding path. If the `isRoutable` property of a unit is set to False, the user won't be able to select that unit as a start or end point.
-
-##### Vertical penetration
-
-If the selected beginning and end points are on different floor levels, the wayfinding service determines what [vertical penetration][verticalPenetration] objects, stairs or elevators, are available as possible pathways for navigating vertically between levels.
-
-The Wayfinding service includes stairs or elevators in a route based on the value of the vertical penetration's `direction` property. Valid values:
-
-- lowToHigh. A `lowToHigh` value indicates that the vertical penetration object can only be used for going up from a lower level to a higher level.
-
-- highToLow. A `highToLow` value indicates that the vertical penetration object can only be used for going down from a higher level to a lower level.
-
-- both (default). The `both` value indicates that the vertical penetration object can be used in both directions.
-
-- closed. A `closed` value means that the vertical penetration object isn't available. The object could be an elevator that is restricted to service deliveries, or a stairwell under construction.
-
-Other factors that affect how to navigate between floors:
-
-- Whether or not the user has selected to avoid stairs or elevators. The [wayfinding][wayfind] `avoidFeatures` property overrides all other considerations.
-- Whether or not the user has selected a minimum width that is too narrow for either stairs or elevators. The [wayfinding][wayfind] `MinWidth` property enables you to set the minimum width of openings in the resulting path.
-- Whether or not the stairs or elevators facilitates the shortest path.
-
-For more information, see the [Indoor maps wayfinding service](how-to-creator-wayfinding.md) how-to article.
 
 ### Azure Maps integration
 
@@ -334,6 +318,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [map-config-api]: /rest/api/maps/v20220901preview/mapconfiguration
 [instantiate-indoor-manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+[ontology]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [unit]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 [wall layer]: drawing-package-guide.md#wall-layer

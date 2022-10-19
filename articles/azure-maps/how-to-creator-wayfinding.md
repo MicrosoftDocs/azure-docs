@@ -10,15 +10,15 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Indoor maps wayfinding service
+# Indoor maps wayfinding service (preview)
 
 The Azure Maps Creator wayfinding service allows you to navigate from place to place anywhere within your indoor map. The service utilizes stairs and elevators to navigate between floors and provides guidance to help you navigate around physical obstructions. This article describes how to plot a route from a starting point to a destination point in a sample indoor map.
 
 ## Prerequisites
 
-* An Azure Maps Creator [dataset] and [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps](tutorial-creator-indoor-maps.md) tutorial helpful.
-
-* The [sample drawing package][sample drawing package].
+- Understanding of [Creator concepts](creator-indoor-maps.md).
+- An Azure Maps Creator [dataset] and [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps](tutorial-creator-indoor-maps.md) tutorial helpful.
+- The [sample drawing package][sample drawing package].
 
 >[!IMPORTANT]
 >
@@ -33,7 +33,7 @@ A routeset is a collection of indoor map data that is used by the wayfinding ser
 
 A routeset is created from a dataset, but is independent from that dataset. This means that if the dataset is deleted, the routeset continues to exist.
 
-Once you've created a routeset, you can then use the wayfinding API to get a route containing each journey leg from one point to another point in the facility.
+Once you've created a routeset, you can then use the wayfinding API to get a path from the starting point to the destination point within the facility.
 
 To create a routeset:
 
@@ -102,11 +102,11 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 
 ## Get a wayfinding path
 
-In this section, you’ll use the wayfinding API to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains geospatial origin and destination points in an indoor map, along with floor level ordinal numbers
+In this section, you’ll use the wayfinding API to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers
 
 To create a wayfinding query:
 
-1. Execute the following **HTTP GET request** (replace {routesetId} with the routesetId obtained in the [Check the routeset creation status](#check-the-routeset-creation-status-and-retrieve-the-routesetid) section and the {facilityId} with the facilityId obtained in the [Get the facility ID](#get-the-facility-id)section.):
+1. Execute the following **HTTP GET request** (replace {routesetId} with the routesetId obtained in the [Check the routeset creation status](#check-the-routeset-creation-status-and-retrieve-the-routesetid) section and the {facilityId} with the facilityId obtained in the [Get the facility ID](#get-the-facility-id) section):
 
     ```http
     https://us.atlas.microsoft.com/wayfinding/path?api-version=2022-09-01-preview&subscription-key={Azure-Maps-Primary-Subscription-key}&routesetid={routeset-ID}&facilityid={facility-ID}&fromPoint={lat,lon}&fromLevel={from-level}&toPoint={lat,lon}&toLevel={to-level}&minWidth={minimun-width}
@@ -168,7 +168,7 @@ To create a wayfinding query:
 
 The summary displays the estimated travel time in seconds for the total journey. In addition, the estimated time for each section of the journey is displayed at the beginning of each leg.
 
-The wayfinding service calculates the path through specific intervening points. Each geospatial point is displayed, along with its latitude and longitude details.
+The wayfinding service calculates the path through specific intervening points. Each point is displayed, along with its latitude and longitude details.
 
 ## Implement the wayfinding service in your map
 
