@@ -12,7 +12,7 @@ ms.custom: include file
 
 Make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/passwordless/azure-cli)
 
 Sign-in to Azure through the Azure CLI using the following command:
 
@@ -20,7 +20,7 @@ Sign-in to Azure through the Azure CLI using the following command:
 az login
 ```
 
-# [Visual Studio](#tab/visual-studio)
+# [Visual Studio](#tab/passwordless/visual-studio)
 
 Select the **Sign in** button in the top right of Visual Studio.
 
@@ -30,7 +30,7 @@ Sign-in using the Azure AD account you assigned a role to previously.
 
 :::image type="content" source="../../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
-# [Visual Studio Code](#tab/visual-studio-code)
+# [Visual Studio Code](#tab/passwordless/visual-studio-code)
 
 You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
 
@@ -42,7 +42,7 @@ Sign-in to Azure through the Azure CLI using the following command:
 az login
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/passwordless/powershell)
 
 Sign-in to Azure using PowerShell via the following command:
 
