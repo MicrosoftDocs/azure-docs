@@ -3,12 +3,14 @@ title: Secure Spark and Kafka – Spark streaming integration scenario - Azure H
 description: Learn how to secure Spark and Kafka streaming integration.
 ms.service: hdinsight
 ms.topic: how-to
+ms.author: piyushgupta
+author: piyush-gupta1999
 ms.date: 10/20/2022
 ---
 
 # Secure Spark and Kafka – Spark streaming integration scenario
 
-In this document you can learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
+In this document, you will learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
 
 **Pre-requisites**
 
@@ -20,7 +22,7 @@ In this document you can learn how to execute a Spark job in a secure Spark clus
 
 A keytab is a file containing pairs of Kerberos principles and encrypted keys (which are derived from the Kerberos password). You can use a keytab file to authenticate to various remote systems using Kerberos without entering a password.
 
-For more information, see 
+For more information about this topic, see
 
 1. [KTUTIL](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html)
 
