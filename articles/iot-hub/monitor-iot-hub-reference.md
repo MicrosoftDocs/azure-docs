@@ -264,8 +264,7 @@ This section lists all the resource log category types and schemas collected for
 
 The connections category tracks device connect and disconnect events from an IoT hub and errors. This category is useful for identifying unauthorized connection attempts and or alerting when you lose connection to devices.
 
-> [!NOTE]
-> For reliable connection status of devices check [Device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat).
+For reliable connection status of devices, see [Monitor device connection status](monitor-device-connection-state.md).
 
 ```json
 {
