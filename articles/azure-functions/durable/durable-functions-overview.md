@@ -41,7 +41,8 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 
 ### <a name="chaining"></a>Pattern #1: Function chaining
 
-In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
+In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function. The use of queues between each function ensures that the system stays durable and scalable, even though there is a flow of control from one function to the next.
+
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
