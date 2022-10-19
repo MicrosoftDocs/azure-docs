@@ -1,10 +1,11 @@
 ---
 title: Azure Managed Grafana limitations
-description: List of known limitations in Azure Managed Grafana
+description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 08/31/2022
+ms.date: 10/18/2022
 ms.author: malev
+ms.custom: engagement-fy23
 author: maud-lv
 ---
 
@@ -23,8 +24,6 @@ Managed Grafana has the following known limitations:
 * Data source query results are capped at 80 MB. To mitigate this constraint, reduce the size of the query, for example, by shortening the time duration.
 
 * Querying Azure Data Explorer may take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
-
-* API key usage isn't included in the audit log.
 
 * Users can be assigned the following Grafana Organization level roles: Admin, Editor, or Viewer. The Grafana Server Admin role isn't available to customers.
 

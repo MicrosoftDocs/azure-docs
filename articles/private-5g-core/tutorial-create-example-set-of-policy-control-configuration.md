@@ -17,6 +17,7 @@ Azure Private 5G Core Preview provides flexible traffic handling. You can custom
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a new service that filters packets based on their protocol.
 > * Create a new service that blocks traffic labeled with specific remote IP addresses and ports.
 > * Create a new service that limits the bandwidth of traffic on matching flows.
@@ -63,7 +64,7 @@ To create the service:
     |**Allocation and Retention Priority level**     | `2`        |
     |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Not preemptable**.        |
+    |**Preemption vulnerability**     | Select **Not preemptible**.        |
 
 1. Under **Data flow policy rules**, select **Add a policy rule**.
 
@@ -175,7 +176,7 @@ To create the service:
     |**Allocation and Retention Priority level**     | `2`        |
     |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Not preemptable**.        |
+    |**Preemption vulnerability**     | Select **Not preemptible**.        |
 
 1. Under **Data flow policy rules**, select **Add a policy rule**.
 
@@ -262,7 +263,7 @@ To create the service:
     |**Allocation and Retention Priority level**     | `2`        |
     |**5QI/QCI**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Preemptable**.        |
+    |**Preemption vulnerability**     | Select **Preemptible**.        |
 
 1. Under **Data flow policy rules**, select **Add a policy rule**.
 
@@ -359,7 +360,7 @@ Let's create the SIM policies.
     |**5QI/QCI**     | `9`        |
     |**Allocation and Retention Priority level**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Preemptable**.        |
+    |**Preemption vulnerability**     | Select **Preemptible**.        |
     |**Default session type**     | Select **IPv4**.        |
 
 1. Select **Add**.
@@ -420,7 +421,7 @@ Let's create the SIM policies.
     |**5QI/QCI**     | `9`        |
     |**Allocation and Retention Priority level**     | `9`        |
     |**Preemption capability**     | Select **May not preempt**.        |
-    |**Preemption vulnerability**     | Select **Preemptable**.        |
+    |**Preemption vulnerability**     | Select **Preemptible**.        |
     |**Default session type**     | Select **IPv4**.        |
 
 1. Select **Add**.
@@ -480,10 +481,10 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
 1. Select **Create** and then **Upload JSON from file**.
 
-    :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload J S O N from file and Add manually.":::
+    :::image type="content" source="media/provision-sims-azure-portal/create-new-sim.png" alt-text="Screenshot of the Azure portal showing the Create button and its options - Upload JSON from file and Add manually.":::
 
 1. Select **Browse** and then select the JSON file you created at the start of this step.
-1. Under **SIM group name**, select **Create new** and then enter **SIMGroup1** into the field that appears. 
+1. Under **SIM group name**, select **Create new** and then enter **SIMGroup1** into the field that appears.
 1. Select **Add**.
 1. The Azure portal will now begin deploying the SIM group and SIMs. When the deployment is complete, select **Go to resource group**.
 

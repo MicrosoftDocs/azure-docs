@@ -1,7 +1,7 @@
 ---
 title: Connect machines at scale using group policy
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using group policy.
-ms.date: 05/25/2022
+ms.date: 10/18/2022
 ms.topic: conceptual
 ms.custom: template-how-to
 ---
@@ -135,7 +135,7 @@ try
         "Installation Complete" >> $logpath
     }
 
-    & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --config "$InstallationFolder\$ConfigFilename" >> $logpath
+    & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --config "$InstallationFolder\$ConfigFilename" --correlation-id "478b97c2-9310-465a-87df-f21e66c2b248" >> $logpath
     if ($LASTEXITCODE -ne 0) {
         throw "Failed during azcmagent connect: $LASTEXITCODE"
     }
