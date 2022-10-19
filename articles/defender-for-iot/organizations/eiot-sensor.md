@@ -215,9 +215,7 @@ In the **Device inventory** page in the **Defender for Endpoint** portal:
     - **Inactive devices**: Network-monitored, Enterprise IoT devices with no network activity detected for more than 30 days
     - **Endpoints managed by Defender for Endpoint**
 
-    For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
-
-<!-- if we're in MDE only now, aren't **all the endpoints managed by MDE**? So is this relevant here at all?-->
+    For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
 1. Round up your total to a multiple of 100.
 
