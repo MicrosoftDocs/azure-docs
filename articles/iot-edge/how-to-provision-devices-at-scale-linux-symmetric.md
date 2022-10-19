@@ -132,7 +132,7 @@ Have the following information ready:
 
 1. Update the values of `id_scope`, `registration_id`, and `symmetric_key` with your DPS and device information.
 
-   The symmetric key parameter can accept a value of an inline key, a file URI, or a PKCS#11 URI. Uncomment just one symmetric key line, based on which format you're using.
+   The symmetric key parameter can accept a value of an inline key, a file URI, or a PKCS#11 URI. Uncomment just one symmetric key line, based on which format you're using. When using an inline key, use a base64-encoded key like the example. When using a file URI, your file should contain the raw bytes of the key.
 
    If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
 
