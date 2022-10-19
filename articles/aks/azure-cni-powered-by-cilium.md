@@ -35,8 +35,8 @@ Azure CNI powered by Cilium currently has the following limitations:
 1. [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
 2. Install the aks-preview extension by running `az extension add --name aks-preview`
 3. Check the version of Azure CLI by running `az --version`.
-    * azure-cli must have version TODO or later. You can upgrade to the latest version by running `az upgrade`.
-    * aks-preview extension should be installed and must be version TODO or later. You can upgrade the extension by running `az extension update --name aks-preview`
+    * azure-cli must have version 2.41.0 or later. You can upgrade to the latest version by running `az upgrade`.
+    * aks-preview extension should be installed and must be version 0.5.109 or later. You can upgrade the extension by running `az extension update --name aks-preview`
 4. Enable the feature by running:
 ```azurecli-interactive
 az feature register --namespace Microsoft.ContainerService --name CiliumDataplanePreview
