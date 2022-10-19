@@ -114,7 +114,7 @@ In the Kafka cluster, set up Ranger policies and produce data from Kafka cluster
     ```
     sshuser@hn0-umasec:~$ java -jar -Djava.security.auth.login.config=bobadmin_jaas.conf kafka-producer-consumer.jar producer alicetopic2 $KAFKABROKERS
     ```
-1. Produce data to bobtopic2 as `bobadmin`
+1. Produce data to `bobtopic2` as `bobadmin`
 
     ```
     sshuser@hn0-umasec:~$ java -jar -Djava.security.auth.login.config=bobadmin_jaas.conf kafka-producer-consumer.jar producer bobadmin2 $KAFKABROKERS
@@ -181,8 +181,6 @@ cd spark-secure-kafka-app
 mvn clean package
 cd target
 ```
-
-A sample jar -  add a jar file.
 
 ## Scenario 1
 
