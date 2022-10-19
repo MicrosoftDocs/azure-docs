@@ -68,9 +68,9 @@ authorizationrules {
 
 issuancerules
 {
-[type=="aikValidated", value==true]&& 
+[type=="aikValidated", value==true] && 
 [type=="secureBootEnabled", value==true] => issue(type="PlatformAttested", value=true);
-}
+};
 
 ```
 
@@ -81,28 +81,27 @@ The following example takes advantage of policy version 1.2 to verify details ab
 ```
 version=1.2;
 
-authorizationrules { 
+authorizationrules {
     => permit();
 };
-
 
 issuancerules
 {
 
 // Verify if secure boot is enabled
 c:[type == "events", issuer=="AttestationService"] => add(type = "efiConfigVariables", value = JmesPath(c.value, "Events[?EventTypeString == 'EV_EFI_VARIABLE_DRIVER_CONFIG' && ProcessedData.VariableGuid == '8BE4DF61-93CA-11D2-AA0D-00E098032B8C']"));
-c:[type=="efiConfigVariables", issuer="AttestationPolicy"]=> add(type = "secureBootEnabled", value = JsonToClaimValue(JmesPath(c.value, "[?ProcessedData.UnicodeName == 'SecureBoot'] | length(@) == `1` && @[0].ProcessedData.VariableData == 'AQ'")));
+c:[type=="efiConfigVariables", issuer=="AttestationPolicy"]=> add(type = "secureBootEnabled", value = JsonToClaimValue(JmesPath(c.value, "[?ProcessedData.UnicodeName == 'SecureBoot'] | length(@) == `1` && @[0].ProcessedData.VariableData == 'AQ'")));
 ![type=="secureBootEnabled", issuer=="AttestationPolicy"] => add(type="secureBootEnabled", value=false);
 
 // HVCI
-c:[type=="events", issuer=="AttestationService"] => add(type="srtmDrtmEventPcr", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == 12 || PcrIndex == 19)].ProcessedData.EVENT_TRUSTBOUNDARY"));
+c:[type=="events", issuer=="AttestationService"] => add(type="srtmDrtmEventPcr", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == `12` || PcrIndex == `19`)].ProcessedData.EVENT_TRUSTBOUNDARY"));
 c:[type=="srtmDrtmEventPcr", issuer=="AttestationPolicy"] => add(type="hvciEnabledSet", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_VBS_HVCI_POLICY | @[?String == 'HypervisorEnforcedCodeIntegrityEnable'].Value")));
 c:[type=="hvciEnabledSet", issuer=="AttestationPolicy"] => issue(type="hvciEnabled", value=ContainsOnlyValue(c.value, 1));
 ![type=="hvciEnabled", issuer=="AttestationPolicy"] => issue(type="hvciEnabled", value=false);
 
 // Validating unwanted(malicious.sys) driver is not loaded
-c:[type=="events", issuer=="AttestationService"] => add(type="boolProperties", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == 12 || PcrIndex == 13 || PcrIndex == 19 || PcrIndex == 20)].ProcessedData.EVENT_TRUSTBOUNDARY"));
-c:[type=="boolProperties", issuer=="AttestationPolicy"] => issue(type="MaliciousDriverLoaded", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_LOADEDMODULE_AGGREGATION[] | [? EVENT_IMAGEVALIDATED == true && (equals_ignore_case(EVENT_FILEPATH, '\windows\system32\drivers\malicious.sys') || equals_ignore_case(EVENT_FILEPATH, '\windows\system32\drivers\wd\malicious.sys'))] | @ != null")));
+c:[type=="events", issuer=="AttestationService"] => add(type="boolProperties", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == `12` || PcrIndex == `13` || PcrIndex == `19` || PcrIndex == `20`)].ProcessedData.EVENT_TRUSTBOUNDARY"));
+c:[type=="boolProperties", issuer=="AttestationPolicy"] => issue(type="MaliciousDriverLoaded", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_LOADEDMODULE_AGGREGATION[] | [? EVENT_IMAGEVALIDATED == true && (equals_ignore_case(EVENT_FILEPATH, '\\windows\\system32\\drivers\\malicious.sys') || equals_ignore_case(EVENT_FILEPATH, '\\windows\\system32\\drivers\\wd\\malicious.sys'))] | @ != null ")));
 ![type=="MaliciousDriverLoaded", issuer=="AttestationPolicy"] => issue(type="MaliciousDriverLoaded", value=false);
 
 };

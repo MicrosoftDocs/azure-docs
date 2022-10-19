@@ -47,7 +47,7 @@ configurationrules{
 };
 
 authorizationrules { 
-	=> premit();
+	=> permit();
 };
 
 issuancerules{
@@ -86,15 +86,15 @@ version=1.2;
 
 authorizationrules
 {    
-    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr0Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `0`].Digests.SHA256 | @[0] == `\"4c833b1c361fceffd8dc0f81eec76081b71e1a0eb2193caed0b6e1c7735ec33e\"`")));
-    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr1Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `1`].Digests.SHA256 | @[0] == `\"8c25e3be6ad6f5bd33c9ae40d5d5461e88c1a7366df0c9ee5c7e5ff40d3d1d0e\"`")));
-    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr2Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `2`].Digests.SHA256 | @[0] == `\"3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969\"`")));
-    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr3Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `3`].Digests.SHA256 | @[0] == `\"3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969\"`")));
+    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr0Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `0`].Digests.SHA256 | @[0] =='4c833b1c361fceffd8dc0f81eec76081b71e1a0eb2193caed0b6e1c7735ec33e' ")));
+    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr1Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `1`].Digests.SHA256 | @[0] =='8c25e3be6ad6f5bd33c9ae40d5d5461e88c1a7366df0c9ee5c7e5ff40d3d1d0e' ")));
+    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr2Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `2`].Digests.SHA256 | @[0] =='3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969' ")));
+    c:[type == "pcrs", issuer=="AttestationService"] =>  add(type="pcr3Validated", value=JsonToClaimValue(JmesPath(c.value, "PCRs[? Index == `3`].Digests.SHA256 | @[0] =='3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969' ")));
     
-    [type=="pcr0Validated", value=true] &&
-    [type=="pcr1Validated", value=true] &&
-    [type=="pcr2Validated", value=true] &&
-    [type=="pcr3Validated", value=true] => permit();
+    [type=="pcr0Validated", value==true] &&
+    [type=="pcr1Validated", value==true] &&
+    [type=="pcr2Validated", value==true] &&
+    [type=="pcr3Validated", value==true] => permit();
 };
 
 issuancerules
@@ -151,8 +151,7 @@ authorizationrules {
     [type=="vsmReportPresent", value==true] &&
     [type=="enclaveAuthorId", value=="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"] &&
     [type=="enclaveImageId", value=="AQEAAAAAAAAAAAAAAAAAAA"] &&
-    [type=="enclaveSvn", value>=0] &&
-    permit();
+    [type=="enclaveSvn", value>=0] =>  permit();
 };
 
 issuancerules
@@ -202,8 +201,7 @@ c:[type=="boolProperties", issuer=="AttestationPolicy"] => add(type="bootDebuggi
 c:[type=="events", issuer=="AttestationService"] => add(type="srtmDrtmEventPcr", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == `12` || PcrIndex == `19`)].ProcessedData.EVENT_TRUSTBOUNDARY")); c:[type=="srtmDrtmEventPcr", issuer=="AttestationPolicy"] => add(type="vbsEnabledSet", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_VBS_VSM_REQUIRED"))); c:[type=="srtmDrtmEventPcr", issuer=="AttestationPolicy"] => add(type="vbsEnabledSet", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_VBS_MANDATORY_ENFORCEMENT"))); c:[type=="vbsEnabledSet", issuer=="AttestationPolicy"] => issue(type="vbsEnabled", value=ContainsOnlyValue(c.value, true)); ![type=="vbsEnabled", issuer=="AttestationPolicy"] => issue(type="vbsEnabled", value=false); c:[type=="vbsEnabled", issuer=="AttestationPolicy"] => issue(type="vbsEnabled", value=c.value);
 
 // System Guard and SMM value
-
-c:[type=="events", issuer=="AttestationService"] => add(type="validDrtmStateAuthEvent", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && PcrIndex ==20 && ProcessedData.EVENT_TRUSTBOUNDARY.EVENT_DRTM_STATE_AUTH.SignatureValid !=null] | length(@) == 1 && @[0] | @.{EventSeq:EventSeq, SignatureValid:ProcessedData.EVENT_TRUSTBOUNDARY.EVENT_DRTM_STATE_AUTH.SignatureValid}"));
+c:[type=="events", issuer=="AttestationService"] => add(type="validDrtmStateAuthEvent", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' && PcrIndex == '20' && ProcessedData.EVENT_TRUSTBOUNDARY.EVENT_DRTM_STATE_AUTH.SignatureValid !=null] | length(@) == '1' && @[0] | @.{EventSeq:EventSeq, SignatureValid:ProcessedData.EVENT_TRUSTBOUNDARY.EVENT_DRTM_STATE_AUTH.SignatureValid}"));
 
 // Check if Signature is valid in extracted state auth events
 c:[type=="validDrtmStateAuthEvent", issuer=="AttestationPolicy"] => issue(type="drtmMleValid", value=JsonToClaimValue(JmesPath(c.value, "SignatureValid")));
@@ -309,7 +307,7 @@ issuancerules {
 
 c:[type=="events", issuer=="AttestationService"] => issue(type="alldriverloads", value=JmesPath(c.value, "Events[? EventTypeString == 'EV_EVENT_TAG' ].ProcessedData.EVENT_TRUSTBOUNDARY.EVENT_LOADEDMODULE_AGGREGATION[].EVENT_FILEPATH"));
 
-c:[type=="events", issuer=="AttestationService"] => (type="DriverLoadPolicy", value=JmesPath(c.value, "events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == '13')].ProcessedData.EVENT_TRUSTBOUNDARY.EVENT_DRIVER_LOAD_POLICY.String"));
+c:[type=="events", issuer=="AttestationService"] => issue(type="DriverLoadPolicy", value=JmesPath(c.value, "events[? EventTypeString == 'EV_EVENT_TAG' && (PcrIndex == '13')].ProcessedData.EVENT_TRUSTBOUNDARY.EVENT_DRIVER_LOAD_POLICY.String"));
 
 };
 

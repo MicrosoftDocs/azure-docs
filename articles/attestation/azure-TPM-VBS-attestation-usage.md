@@ -1,6 +1,6 @@
 ---
 title: Azure TPM VBS Attestation usage 
-description: Learn about how to leverage TPM and VBS attestation
+description: Learn about how to apply TPM and VBS attestation
 services: attestation
 author: prsriva
 ms.service: attestation
@@ -12,32 +12,32 @@ ms.custom: tpm attestation
 
 # Using TPM/VBS attestation 
 
-Attestation can be integrated into vairous applications and servies, catering to different use cases. Azure Attestation service which acts the remote attestation service can be used for desired purposes by updating the attestation policy. The policy engine works as processor which takes the incoming payload as evidence and performs the validations as authored in the policy. This simplifies the workflow and enables the service owner to purpose build solutions for the varied platforms and use cases.The workflow remains the same as described in [Azure attestation workflow](workflow.md). For different purposes the attestaiton policy to be used is different.
+Attestation can be integrated into various applications and services, catering to different use cases. Azure Attestation service, which acts the remote attestation service can be used for desired purposes by updating the attestation policy. The policy engine works as processor, which takes the incoming payload as evidence and performs the validations as authored in the policy. This architecture simplifies the workflow and enables the service owner to purpose build solutions for the varied platforms and use cases.The workflow remains the same as described in [Azure attestation workflow](workflow.md).The attestation policy needs to be crafted as per the validations required.
 
-Attesting a platform has its own challenges with its varied components of boot and setup, one needs to rely on a  hardware root-of-trust anchor that can be used to verify the very first steps of the boot process and extend that trust upward into every layer on your system. A hardware TPM provides such an anchor for a true remote attestation solution. Azure Attestation provides a highly scalable measured boot and runtime integrity measurement attestation solution with a revocation framework to give you full control over platform attestation and remediation.
+Attesting a platform has its own challenges with its varied components of boot and setup, one needs to rely on a hardware root-of-trust anchor which can be used to verify the first steps of the boot and extend that trust upwards into every layer on your system. A hardware TPM provides such an anchor for a remote attestation solution. Azure Attestation provides a highly scalable measured boot and runtime integrity measurement attestation solution with a revocation framework to give you full control over platform attestation.
 
 ## Attestation Steps
 
-Attestation Setup has 2 setup. One pertaining to the service setup and one pertaining to the client setup.
+Attestation Setup has two setups. One pertaining to the service setup and one pertaining to the client setup.
 
 :::image type="content" source="./media/tpm_attestation_setup.png" alt-text="A diagram that shows the different interactions for attestation." lightbox="./media/tpm_attestation_setup.png":::
 
 Detailed information about the workflow is described in [Azure attestation workflow](workflow.md)
 
 ### Service endpoint setup:
-This is the first step for any attestaiton to be performed. Setting up an endpoint, this can be performed either via code or using the Azure Portal.
+This is the first step for any attestation to be performed. Setting up an endpoint, this can be performed either via code or using the Azure portal.
 
-Here is how you can setup an attestation endpoint using Portal
+Here's how you can set up an attestation endpoint using Portal
 <ul>
-<li> Prerequisite: Access to the AAD tenant and subscription under which you want to create the attestation endpoint.</li>
+<li> Prerequisite: Access to the Microsoft Azure Active Directory(Azure AD) tenant and subscription under which you want to create the attestation endpoint.</li>
 <li> Create an endpoint under the desired resource group, with the desired name.
-<video controls><source src="./media/creatingtpmendpoint.mp4" type=video/mp4></video>
+[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5azcU>]
 </li>
 <li> Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
-<video controls><source src="./media/addroletoendpoint.mp4" type=video/mp4></video>
+[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRj>]
 </li>
 <li> Configure the endpoint with the required policy.
-<video controls><source src="./media/configurepolicy.mp4" type=video/mp4></video>
+[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRk>]
 </li>
 Sample policies can be found in the [Policy Samples](tpm-attestation-sample-policies.md) Section.</br>
 
@@ -47,17 +47,19 @@ Sample policies can be found in the [Policy Samples](tpm-attestation-sample-poli
 
 
 ### Client Setup:
-A client to communicate with the attestation service endpoint needs to ensure it is following the protocol as described in the [procotol documentation](virtualization-based-security-protocol.md). Use the [Attestation Client NuGet](https://www.nuget.org/packages/Microsoft.Attestation.Client) to ease the integration.
+A client to communicate with the attestation service endpoint needs to ensure it's following the protocol as described in the [protocol documentation](virtualization-based-security-protocol.md). Use the [Attestation Client NuGet](https://www.nuget.org/packages/Microsoft.Attestation.Client) to ease the integration.
 
 <ul>
 <li> Add Attestation Reader Role to the identity that will be used for authentication against the endpoint.
-<video controls><source src="./media/addreaderrole.mp4" type=video/mp4></video></li>
+[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRi>]
+</li>
 </ul>
 
 ## Execute the Attestation Workflow:
-Using the [Client](https://github.com/microsoft/Attestation-Client-Samples) trigger an attestation flow. A successful atttestation will result in an attestation report.Parsing the JWT token, the contents of the report can be easily validated against expected outcome. 
-<video controls><source src="./media/sampleexecution.mp4" type=video/mp4></video>
-Here is a sample of the contents of the attestation report.
+Using the [Client](https://github.com/microsoft/Attestation-Client-Samples) to trigger an attestation flow. A successful attestation will result in an attestation report (encoded JWT token). Parsing the JWT token, the contents of the report can be easily validated against expected outcome. 
+[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5azcT>]
+
+Here's a sample of the contents of the attestation report.
 :::image type="content" source="./media/sampledecodedtoken.jpg" alt-text="Sample decoded token for tpm attestation" lightbox="./media/sampledecodedtoken.jpg":::
 
-Using the Open ID [metadata endpoint](https://learn.microsoft.com/rest/api/attestation/metadata-configuration/get?tabs=HTTP) contains properties which describe the attestation service.The signing keys describe the keys which will be used to sign tokens generated by the attestation service. All tokens emitted by the attestation service will be signed by one of the certificates listed in the attestation signing keys.
+Using the Open ID [metadata endpoint](https://learn.microsoft.com/rest/api/attestation/metadata-configuration/get?tabs=HTTP) contains properties, which describe the attestation service.The signing keys describe the keys, which will be used to sign tokens generated by the attestation service. All tokens emitted by the attestation service will be signed by one of the certificates listed in the attestation signing keys.
