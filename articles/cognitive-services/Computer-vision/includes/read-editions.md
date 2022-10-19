@@ -15,9 +15,9 @@ ms.author: pafarley
 ## Read OCR editions
 
 > [!IMPORTANT]
-> Select the Read model that is the best fit for your requirements.
+> Select the Read model and quickstart that best fit your requirements.
 >
-> | Input | Examples | Suggested API | Benefits |
+> | Input | Examples | API | Benefit |
 > |----------|--------------|-------------------------|-------------------------|
 > | General in-the-wild images |  labels, street signs, and posters | [Image&nbsp;Analysis Read&nbsp;(preview)](../concept-ocr.md) | Optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
 > | Documents, digital and scanned including embedded images | books, reports, and forms | [Form&nbsp;Recognizer Read](../../../applied-ai-services/form-recognizer/concept-read.md) | Optimized for text-heavy scanned and digital documents with asynchronous API to help automate intelligent document processing.
