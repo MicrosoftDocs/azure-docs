@@ -10,7 +10,7 @@ ms.topic: how-to
 author: swatig007
 ms.author: swatig
 ms.reviewer: sgilley
-ms.date: 09/21/2022
+ms.date: 10/19/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -21,7 +21,7 @@ ms.date: 09/21/2022
 > * [v1](v1/how-to-create-manage-compute-instance.md)
 > * [v2 (current version)](how-to-create-manage-compute-instance.md)
 
-Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
+Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
 
 Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
@@ -62,7 +62,9 @@ Creating a compute instance is a one time process for your workspace. You can re
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance doesn't release quota to ensure you'll be able to restart the compute instance. It isn't possible to change the virtual machine size of compute instance once it's created.
 
-The following example demonstrates how to create a compute instance:
+The fastest way to create a compute instance is to follow the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md). 
+
+Or use the following examples to create a compute instance with more options:
 
 # [Python SDK](#tab/python)
 
@@ -239,7 +241,6 @@ You can also create your own custom Azure policy. For example, if the below poli
   "parameters": {}
 }
 ```
-
 
 ## Create on behalf of (preview)
 
