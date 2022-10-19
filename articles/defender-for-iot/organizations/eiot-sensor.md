@@ -181,7 +181,7 @@ In the **Sites and sensors** page, Enterprise IoT sensors are all automatically 
 >
 > If you still don't view your data as expected, [validate your sensor setup](extra-deploy-enterprise-iot.md#validate-your-enterprise-iot-sensor-setup) from the CLI.
 
-## View detected Enterprise IoT devices
+## View newly detected Enterprise IoT devices
 
 Once you've validated your setup, the **Device inventory** page will start to populate with new devices detected by your sensor after 15 minutes.
 
@@ -191,7 +191,66 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 <!--do we want to say anything about calculating and editing committed devices here? isn't this when it becomes relevant, b/c we have extra devices now?-->
 
-## Delete an Enterprise IoT network sensor (optional)
+## Edit the number of committed devices
+
+After detecting new devices with the Enterprise IoT network sensor, you many need to edit the number of committed devices in your Enterprise IoT plan.
+
+**To calculate the updated number of committed devices**:
+
+In the **Device inventory** page in the **Defender for Endpoint** portal:
+
+1. Add the total number of discovered **network devices** with the total number of discovered **IoT devices**.
+
+    For example:
+
+    :::image type="content" source="media/how-to-manage-subscriptions/eiot-calculate-devices.png" alt-text="Screenshot of network device and IoT devices in the device inventory in Microsoft Defender for Endpoint.":::
+
+    For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
+
+1. Remove any devices that are *not* considered as committed devices by Defender for IoT, including:
+
+    - **Public internet IP addresses**
+    - **Multi-cast groups**
+    - **Broadcast groups**
+    - **Inactive devices**: Network-monitored, Enterprise IoT devices with no network activity detected for more than 30 days
+    - **Endpoints managed by Defender for Endpoint**
+
+    For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device).
+
+<!-- if we're in MDE only now, aren't **all the endpoints managed by MDE**? So is this relevant here at all?-->
+
+1. Round up your total to a multiple of 100.
+
+For example:
+
+- In the Defender for Endpoint **Device inventory**, you have 473 network devices and 1206 IoT devices. Added together the total is **1679** devices.
+- 500 of those devices were detected and are managed by Defender for Endpoint, and can be removed. The updated total is now **1179**.
+- Round your total up to a multiple of 100. The new value is **1200**. Use **1200** as the estimated number of committed devices.
+
+**To cancel your current plan and add a new one**:
+
+In the Defender for Endpoint **Settings** page:
+
+1. Cancel your current plan. <!--how?-->
+
+1. Add back a new plan.
+
+    - You can select the same subscription as before, or a different one, as needed.
+    - Select a monthly or annual plan, and then enter the number of committed devices that you'd calculated earlier.
+
+1. Accept the **terms and conditions** and select **Save**.
+
+1. 1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Settings** \> **Device discovery** \> **Enterprise IoT**.
+
+1. Select the following options for your plan:
+
+    - Select the Azure subscription from the list of available subscriptions in your Azure Active Directory tenant where you'd like to add a plan.
+
+    - For the sake of this tutorial, select a trial pricing plan. Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+
+For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/) and [Cancel your Defender for IoT plan](eiot-mde.md#cancel-your-defender-for-iot-plan).
+
+## Delete an Enterprise IoT network sensor
 
 Remove a sensor if it's no longer in use with Defender for IoT.
 
