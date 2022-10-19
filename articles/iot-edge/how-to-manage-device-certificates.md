@@ -16,7 +16,7 @@ services: iot-edge
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 > [!NOTE]
-> The term *root CA* used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
+> The term *root CA* used throughout this article refers to the topmost authority's certificate in the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA certificate.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ All IoT Edge devices use certificates to create secure connections between the r
 >
 > * The certificate can be encoded in a binary representation called DER, or a textual representation called PEM. The PEM format is a `-----BEGIN CERTIFICATE-----` header followed by the base64-encoded DER followed by a `-----END CERTIFICATE-----` footer.
 > * Similar to the certificate, the private key can be encoded in binary DER or textual representation PEM.
-> * Because PEM is delineated, it is also possible to construct a PEM that combines both the `CERTIFICATE` and `PRIVATE KEY` sequentually in the same file.
+> * Because PEM is delineated, it is also possible to construct a PEM that combines both the `CERTIFICATE` and `PRIVATE KEY` sequentially in the same file.
 > * Lastly, the certificate and private key can be encoded together in a binary representation called *PKCS#12*, that is encrypted with an optional password.
 >
 > File extensions are arbitrary and you need to run the `file` command or view the file verify the type. In general, files use the following extension conventions:
@@ -249,7 +249,7 @@ The IoT Edge device identity certificate is used to authenticate to IoT Hub or D
 
 ### Device identity certificate files from PKI provider
 
-Request a client TLS certificate (or similar) and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
+Request a TLS client certificate and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
 
 Example device identity certificate:
 
@@ -348,7 +348,7 @@ threshold = "80%"
 retry = "4%"
 ```
 
-Don't to use EST or `auto_renew` with other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment. As a result, IoT Edge can't update certificate thumbprint in Azure when a certificate is renewed, which prevents IoT Edge from reconnecting.
+Don't use EST or `auto_renew` with other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment. IoT Edge can't update certificate thumbprints in Azure when a certificate is renewed, which prevents IoT Edge from reconnecting.
 
 ## "Quickstart" Edge CA
 
@@ -512,7 +512,7 @@ Automatic renewal for Edge CA can't be disabled when issuance method is set to E
 
 When the Edge CA certificate is renewed, all the certificates it issued like module server certificates must also be regenerated. To give the modules new server certificates, IoT Edge restarts all modules when Edge CA certificate renews.
 
-To minimize potential negative effects of module restarts, set an explicit absolute time (for example, `threshold = "10d"`) and notify for dependents of the solution about the downtime.
+To minimize potential negative effects of module restarts, set an explicit absolute time (for example, `threshold = "10d"`) and notify dependents of the solution about the downtime.
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
