@@ -22,7 +22,7 @@ Azure [availability zones](../availability-zones/az-overview.md#availability-z
 >[!IMPORTANT]
 > Availability zones are referred to as _logical zones_. Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription, and the mapping will be different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription. 
 
-Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. You can design resilient solutions by using Azure services that use availability zones.  
+Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones let you design and operate applications and databases that automatically transition between zones without interruption. You can design resilient solutions by using Azure services that use availability zones.  
 
 The use of high availability (HA) architectures with availability zones are now a default and best practice recommendation in [Azure’s Well-Architected Framework](/architecture/framework/resiliency/app-design#use-availability-zones-within-a-region). Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation. 
 

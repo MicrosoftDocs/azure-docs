@@ -17,7 +17,7 @@ ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice. To better understand availability zones, refer to [Using availability zones for high availability](using-availability-zones.md).
+Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice. To better understand availability zones, refer to [Using availability zones for high availability](use-availability-zones.md).
 
 ## Requirements and considerations 
 
@@ -84,7 +84,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Next steps  
 
-* [Using availability zones for high availability](using-availability-zones.md)
+* [Using availability zones for high availability](use-availability-zones.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    
