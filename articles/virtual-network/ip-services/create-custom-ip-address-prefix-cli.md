@@ -26,10 +26,8 @@ The steps in this article detail the process to:
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.28 or later of the Azure CLI (you can run az version to determine which you have). If using Azure Cloud Shell, the latest version is already installed.
-
 - Sign in to Azure CLI and ensure you've selected the subscription with which you want to use this feature using `az account`.
-
-- A customer owned IP range to provision in Azure.
+- A customer owned IPv4 range to provision in Azure.
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
 > [!NOTE]
@@ -37,7 +35,7 @@ The steps in this article detail the process to:
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range.
+To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IPv4 address range.
 
 ### Requirements and prefix readiness
 
@@ -49,7 +47,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     
     For this ROA:
         
-    * The Origin AS must be listed as 8075.
+    * The Origin AS must be listed as 8075 for the Public Cloud.  (If the range will be onboarded to the US Gov Cloud, the Origin AS must be listed as 8070.)
     
     * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
     
@@ -64,7 +62,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
 
-The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
+The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning to the Public cloud.
 
 > [!NOTE]
 > Execute the following commands in PowerShell with OpenSSL installed.  

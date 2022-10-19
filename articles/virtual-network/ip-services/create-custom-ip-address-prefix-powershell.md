@@ -26,8 +26,8 @@ The steps in this article detail the process to:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-- Ensure your Az. Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network" if necessary.
-- A customer owned IP range to provision in Azure.
+- Ensure your Az.Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az.Network" if necessary.
+- A customer owned IPv4 range to provision in Azure.
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -37,7 +37,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IP address range.
+To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IPv4 address range.
 
 ### Requirements and prefix readiness
 
@@ -49,7 +49,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     
     For this ROA:
         
-    * The Origin AS must be listed as 8075.
+    * The Origin AS must be listed as 8075 for the Public Cloud.  (If the range will be onboarded to the US Gov Cloud, the Origin AS must be listed as 8070.)
     
     * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
     
@@ -64,7 +64,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
 
-The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning.
+The following steps show the steps required to prepare sample customer range (1.2.3.0/24) for provisioning to the Public cloud.
 
 > [!NOTE]
 > Execute the following commands in PowerShell with OpenSSL installed.  
