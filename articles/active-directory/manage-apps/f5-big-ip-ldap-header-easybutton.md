@@ -207,7 +207,7 @@ For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
 
 #### User Attributes & Claims
 
-When a user authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims tab** shows the default claims to issue for the new application. It also lets you configure more claims.
+When a user authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. It also lets you configure more claims.
 
 For this example, include one more attribute:
 
