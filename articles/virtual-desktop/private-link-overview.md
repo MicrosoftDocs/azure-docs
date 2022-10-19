@@ -28,6 +28,10 @@ Azure Virtual Desktop has three workflows with three corresponding resource type
 
 You can either share these private endpoints across your network topology or you can isolate your virtual networks (VNets) so that each has their own private endpoint to the host pool or workspace.
 
+The following diagram shows how Private Link securely connects a local client to the Azure Virtual Desktop service:
+
+:::image type="content" source="media/private-link-diagram.png" alt-text="A diagram that shows Private Link connecting a local client to the Azure Virtual Desktop service.":::
+
 ## Supported scenarios
 
 When adding Private Link, you can connect to Azure Virtual Desktop in the following ways:
