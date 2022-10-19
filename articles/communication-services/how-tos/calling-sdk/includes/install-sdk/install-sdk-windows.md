@@ -14,7 +14,7 @@ For UWP app, in Visual Studio 2019, create a new `Blank App (Universal Windows)`
 For WinUI 3 app, create a new project with the `Blank App, Packaged (WinUI 3 in Desktop)` template to set up a single-page WinUI 3 app. [Windows App SDK version 1.2 preview 2](https://learn.microsoft.com/windows/apps/windows-app-sdk/preview-channel#version-12-preview-2-120-preview2) and above is required.
 ### Install the package and dependencies with NuGet Package Manager
 
-Tha Calling SDK APIs and libraries are publicly available via a NuGet package.
+The Calling SDK APIs and libraries are publicly available via a NuGet package.
 The following steps exemplify how to find, download, and install the Calling SDK NuGet package.
 
 1. Open NuGet Package Manager (`Tools` -> `NuGet Package Manager` -> `Manage NuGet Packages for Solution`)

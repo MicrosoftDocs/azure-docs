@@ -37,7 +37,7 @@ The following steps exemplify how to add these buttons to the app.
 The Calling SDK APIs are in two different namespaces.
 The following steps inform the C# compiler about these namespaces allowing Visual Studio's Intellisense to assist with code development.
 
-1. In the `Solution Explorer` panel, click on the arrow on the left side of the file named `MainPage.xaml` for UWP, or or `MainWindows.xaml` for WinUI 3.
+1. In the `Solution Explorer` panel, click on the arrow on the left side of the file named `MainPage.xaml` for UWP, or `MainWindows.xaml` for WinUI 3.
 2. Double click on file named `MainPage.xaml.cs` or `MainWindows.xaml.cs`.
 3. Add the following commands at the bottom of the current `using` statements.
 
@@ -89,9 +89,9 @@ The following classes and interfaces handle some of the major features of the Az
 | CallAgentOptions | The CallAgentOptions contains information to identify the caller. |
 | HangupOptions | The HangupOptions informs if a call should be terminated to all its participants. |
 
-## Register Video Handler
+## Register video handler
 
-An UI component, like XAML's MediaElement or MediaPlayerElement, will require the app registering a configuration for rendering local and remote video feeds.
+A UI component, like XAML's MediaElement or MediaPlayerElement, will require the app registering a configuration for rendering local and remote video feeds.
 Please add the following content between the `Package` tags of the `Package.appxmanifest`:
 
 ```xml
