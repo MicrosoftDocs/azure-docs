@@ -2,12 +2,11 @@
 title: include file
 description: include file
 services: container-registry
-author: tejaswikolli-web
-
 ms.service: container-registry
 ms.topic: include
-ms.date: 10/22/2021
+author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.date: 10/11/2022
 ms.custom: include file
 ---
 
@@ -55,6 +54,6 @@ ms.custom: include file
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
 [vnet]: ../articles/container-registry/container-registry-vnet.md
 [plink]: ../articles/container-registry/container-registry-private-link.md
-[cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
+[cmk]: ../articles/container-registry/tutorial-enable-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
 [zones]: ../articles/container-registry/zone-redundancy.md

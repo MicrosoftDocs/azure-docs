@@ -22,7 +22,7 @@ To access App Service diagnostics, navigate to your App Service web app or App S
 
 For Azure Functions, navigate to your function app, and in the top navigation, click on **Platform features**, and select **Diagnose and solve problems** from the **Resource management** section.
 
-In the App Service diagnostics homepage, you can peform a search for a symptom with your app, or choose a diagnostic category that best describes the issue with your app. Next, there is a new feature called Risk Alerts that provides an actionable report to improve your App.  Finally, this page is where you can find **Diagnostic Tools**. See [Diagnostic tools](#diagnostic-tools).
+In the App Service diagnostics homepage, you can perform a search for a symptom with your app, or choose a diagnostic category that best describes the issue with your app. Next, there is a new feature called Risk Alerts that provides an actionable report to improve your App.  Finally, this page is where you can find **Diagnostic Tools**. See [Diagnostic tools](#diagnostic-tools).
 
 ![App Service Diagnose and solve problems homepage with diagnostic search box, Risk Alerts assessments, and Troubleshooting categories for discovering diagnostics for the selected Azure Resource.](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
@@ -93,7 +93,7 @@ The tiles or the Troubleshoot link show the available diagnostics for the catego
 
 ## Diagnostic report
 
-After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. The following is the Overview for Availability and Performance:
+After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. The following is the Web App Down from Availability and Performance:
 
 ![App Service Diagnose and solve problems Availability and Performance category homepage with Web App Down diagnostic selected, which displays an availability chart, Organic SLA percentage and Observations and Solutions for problems that were detected.](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 

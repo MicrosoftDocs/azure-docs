@@ -45,6 +45,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Change history for Microsoft Publisher Agreement version 8.0 – Octrober 2022 update](/legal/marketplace/mpa-change-history-october-2022). | 2022-09-14 |
 | Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Change history for Microsoft Publisher Agreement version 8.0 – May 2022 update](/legal/marketplace/mpa-change-history-may-2022). | 2022-04-15 |
 | Offers | Added new articles to lead you step-by-step through the process of [testing a SaaS offer](test-saas-overview.md). | 2022-03-30 |
 | Payouts | We updated the payment schedule for [Payout schedules and processes](/partner-center/payout-policy-details). | 2022-01-19 |

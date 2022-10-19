@@ -17,7 +17,7 @@ ms.reviewer: sureshja
 
 # Application and service principal objects in Azure Active Directory
 
-This article describes application registration, application objects, and service principals in Azure Active Directory (Azure AD): what they're, how they're used, and how they're related to each other. A multi-tenant example scenario is also presented to illustrate the relationship between an application's application object and corresponding service principal objects.
+This article describes application registration, application objects, and service principals in Azure Active Directory (Azure AD): what they are, how they're used, and how they're related to each other. A multi-tenant example scenario is also presented to illustrate the relationship between an application's application object and corresponding service principal objects.
 
 ## Application registration
 

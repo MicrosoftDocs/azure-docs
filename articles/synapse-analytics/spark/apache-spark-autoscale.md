@@ -74,7 +74,12 @@ Apache Spark enables configuration of Dynamic Allocation of Executors through co
 ```
 The defaults specified through the code override the values set through the user interface.
 
-On enabling Dynamic allocation, Executors scale up or down based on the utilization of the Executors. This ensure that the Executors are provisioned in accordance with the needs of the job being run.
+In this example, if your job requires only 2 executors, it will use only 2 executors.  When the job requires more, it will scale up to 6 executors (1 driver, 6 executors).  When the job doesn't need the executors, then it will decommission the executors. If it doesn't need the node, it will free up the node.
+
+>[!NOTE]
+>The maxExecutors will reserve the number of executors configured. Considering the example, even if you use only 2, it will reserve 6. 
+
+Hence, on enabling Dynamic allocation, Executors scale up or down based on the utilization of the Executors. This ensures that the Executors are provisioned in accordance with the needs of the job being run.
 
 ## Best practices
 

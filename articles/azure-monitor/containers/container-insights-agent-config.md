@@ -65,11 +65,11 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect, and all Azure Monitor Agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor Agent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Verify configuration
 
-To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
+To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod: `kubectl logs ama-logs-fdf58 -n kube-system`. If there are configuration errors from the Azure Monitor Agent pods, the output will show errors similar to the following:
 
 ``` 
 ***************Start Config Processing******************** 
@@ -94,21 +94,21 @@ After you correct the error(s) in ConfigMap, save the yaml file and apply the up
 
 If you have already deployed a ConfigMap on clusters and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`.
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
+The configuration change can take a few minutes to finish before taking effect, and all Azure Monitor Agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor Agent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
 
 ## Verifying schema version
 
-Supported config schema versions are available as pod annotation (schema-versions) on the omsagent pod. You can see them with the following kubectl command: `kubectl describe pod omsagent-fdf58 -n=kube-system`
+Supported config schema versions are available as pod annotation (schema-versions) on the Azure Monitor Agent pod. You can see them with the following kubectl command: `kubectl describe pod ama-logs-fdf58 -n=kube-system`
 
 The output will show similar to the following with the annotation schema-versions:
 
 ```
-    Name:           omsagent-fdf58
+    Name:           ama-logs-fdf58
     Namespace:      kube-system
     Node:           aks-agentpool-95673144-0/10.240.0.4
     Start Time:     Mon, 10 Jun 2019 15:01:03 -0700
     Labels:         controller-revision-hash=589cc7785d
-                    dsName=omsagent-ds
+                    dsName=ama-logs-ds
                     pod-template-generation=1
     Annotations:    agentVersion=1.10.0.1
                   dockerProviderVersion=5.0.0-0

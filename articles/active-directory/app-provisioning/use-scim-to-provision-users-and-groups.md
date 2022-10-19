@@ -196,7 +196,8 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * Support HTTPS on your SCIM endpoint.
 * Custom complex and multivalued attributes are supported but Azure AD doesn't have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes aren't well supported at this time.
-* The "type" subattribute values of multivalued complex attributes must be unique. For example, there can't be two different email addresses with the "work" subtype. 
+* The "type" subattribute values of multivalued complex attributes must be unique. For example, there can't be two different email addresses with the "work" subtype.
+* The header for all the responses should be of content-Type: application/scim+json 
 
 ### Retrieving Resources:
 

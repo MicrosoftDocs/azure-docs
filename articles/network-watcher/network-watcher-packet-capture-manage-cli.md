@@ -115,7 +115,7 @@ az storage account list
 At this point, you are ready to create a packet capture.  First, let's examine the parameters you may want to configure. Filters are one such parameter that can be used to limit the data that is stored by the packet capture. The following example sets up a packet capture with several  filters.  The first three filters collect outgoing TCP traffic only from local IP 10.0.0.3 to destination ports 20, 80 and 443.  The last filter collects only UDP traffic.
 
 ```azurecli-interactive
-az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
+az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
 The following example is the expected output from running the `az network watcher packet-capture create` command.
@@ -129,21 +129,21 @@ The following example is the expected output from running the `az network watche
       "localIpAddress": "10.0.0.3",
       "localPort": "",
       "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remoteIpAddress": "1.1.1.1-255.255.255.255",
       "remotePort": "20"
     },
     {
       "localIpAddress": "10.0.0.3",
       "localPort": "",
       "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remoteIpAddress": "1.1.1.1-255.255.255.255",
       "remotePort": "80"
     },
     {
       "localIpAddress": "10.0.0.3",
       "localPort": "",
       "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remoteIpAddress": "1.1.1.1-255.255.255.255",
       "remotePort": "443"
     },
     {

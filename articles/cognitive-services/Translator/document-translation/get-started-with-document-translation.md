@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 07/28/2022
+ms.date: 09/20/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -118,7 +118,7 @@ A batch Document Translation request is submitted to your Translator service end
 
 ### HTTP headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|
@@ -195,7 +195,7 @@ The following headers are included with each Document Translator API request:
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://myblob.blob.core.windows.net/source",
+                "sourceUrl": "https://myblob.blob.core.windows.net/source"
              },
             "targets": [
                 {
@@ -310,7 +310,7 @@ gradle run
 
 > [!IMPORTANT]
 >
-> For the code samples below, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Managed Identity](managed-identity.md). See the Azure Storage [security](/azure/storage/common/authorize-data-access) article for more information.
+> For the code samples below, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Managed Identity](managed-identity.md). See the Azure Storage [security](../../../storage/common/authorize-data-access.md) article for more information.
 >
 > You may need to update the following fields, depending upon the operation:
 >>>
@@ -454,7 +454,6 @@ payload= {
                 "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
                 "storageSource": "AzureBlob",
                 "language": "en"
-                }
             },
             "targets": [
                 {

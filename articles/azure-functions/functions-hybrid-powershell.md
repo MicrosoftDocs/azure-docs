@@ -20,7 +20,7 @@ The following script enables PowerShell remoting, and it creates a new firewall 
 
 ```powershell
 # For configuration of WinRM, see
-# https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management.
+# https://learn.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management.
 
 # Enable PowerShell remoting.
 Enable-PSRemoting -Force

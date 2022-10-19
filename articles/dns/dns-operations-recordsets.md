@@ -3,14 +3,14 @@ title: Manage DNS records in Azure DNS using Azure PowerShell | Microsoft Docs
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records.
 services: dns
 documentationcenter: na
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ms.workload: infrastructure-services
-ms.date: 04/28/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # Manage DNS records and recordsets in Azure DNS using Azure PowerShell
@@ -278,7 +278,7 @@ The steps for modifying an existing record set are similar to the steps you take
     * Changing the record set metadata and time to live (TTL)
 3. Commit your changes by using the `Set-AzDnsRecordSet` cmdlet. This *replaces* the existing record set in Azure DNS with the record set specified.
 
-When using `Set-AzDnsRecordSet`, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes aren't overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
+When you use the `Set-AzDnsRecordSet` command, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes aren't overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
 
 ### To update a record in an existing record set
 

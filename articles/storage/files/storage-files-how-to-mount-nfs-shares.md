@@ -1,18 +1,18 @@
 ---
-title: Mount an Azure NFS file share - Azure Files
-description: Learn how to mount a Network File System share.
+title: Mount an NFS Azure file share on Linux
+description: Learn how to mount a Network File System (NFS) Azure file share on Linux.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 10/17/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions
 ---
 
-# How to mount an NFS file share
+# Mount NFS Azure file share on Linux
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using either the Server Message Block protocol (SMB) or the Network File System (NFS) protocol. This article is focused on mounting with NFS, for details on mounting with SMB, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
+Azure file shares can be mounted in Linux distributions using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This article is focused on mounting with NFS. For details on mounting SMB Azure file shares, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
 
 ## Limitations
 
@@ -25,7 +25,7 @@ ms.custom: references_regions
 ## Prerequisites
 
 - [Create an NFS share](storage-files-how-to-create-nfs-shares.md).
-- Open port 2049 on any client you want to mount your NFS share to.
+- Open port 2049 on the client you want to mount your NFS share to.
 
     > [!IMPORTANT]
     > NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
@@ -56,9 +56,9 @@ You have now mounted your NFS share.
 
 ### Validate connectivity
 
-If your mount failed, it's possible that your private endpoint was not setup correctly or is inaccessible. For details on confirming connectivity, see the [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity) section of the networking endpoints article.
+If your mount failed, it's possible that your private endpoint was not set up correctly or is inaccessible. For details on confirming connectivity, see the [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity) section of the networking endpoints article.
 
 ## Next steps
 
-- Learn more about Azure Files with our article, [Planning for an Azure Files deployment](storage-files-planning.md).
+- Learn more about Azure Files with [Planning for an Azure Files deployment](storage-files-planning.md).
 - If you experience any issues, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).

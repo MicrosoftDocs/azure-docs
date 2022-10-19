@@ -35,7 +35,8 @@ Azure creates a canonical name DNS record (CNAME) on the public DNS. The CNAME r
 Your applications don't need to change the connection URL. When resolving to a public DNS service, the DNS server will resolve to your private endpoints. The process doesn't affect your existing applications.
 
 > [!IMPORTANT]
-> Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence.
+> * Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence.
+> * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the table below.
 
 For Azure services, use the recommended zone names as described in the following table:
 
@@ -54,11 +55,11 @@ For Azure services, use the recommended zone names as described in the following
 | Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.windows.net | file.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.windows.net | web.core.windows.net |
 | Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Sql | privatelink.documents.azure.com | documents.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Sql | privatelink.documents.azure.com | documents.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
 | Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.batch.azure.com | {region}.batch.azure.com |
 | Azure Batch (Microsoft.Batch/batchAccounts) / nodeManagement | privatelink.batch.azure.com | {region}.service.batch.azure.com |
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
@@ -97,8 +98,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Explorer (Microsoft.Kusto) | privatelink.{region}.kusto.windows.net | {region}.kusto.windows.net |
 | Azure Static Web Apps (Microsoft.Web/staticSites) / staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 | Azure Migrate (Microsoft.Migrate) / migrate projects, assessment project and discovery site | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
-| Azure Managed HSM (Microsoft.Keyvault/managedHSMs) | privatelink.managedhsm.azure.net | managedhsm.azure.net |
-| Azure API Management (Microsoft.ApiManagement/service) | privatelink.azure-api.net </br> privatelink.developer.azure-api.net | azure-api.net </br> developer.azure-api.net |
+| Azure Managed HSM (Microsoft.Keyvault/managedHSMs) / managedhsm | privatelink.managedhsm.azure.net | managedhsm.azure.net |
+| Azure API Management (Microsoft.ApiManagement/service) / gateway | privatelink.azure-api.net </br> privatelink.developer.azure-api.net | azure-api.net </br> developer.azure-api.net |
 | Microsoft PowerBI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
 | Azure Bot Service (Microsoft.BotService/botServices) / Bot | botplinks.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
 | Azure Bot Service (Microsoft.BotService/botServices) / Token | bottoken.botframework.com | token.botframework.com </br> europe.directline.botframework.com |

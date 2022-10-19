@@ -13,9 +13,20 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (October 2022)
+
+- Support for export of errors and notifications from the portal for software inventory and agentless dependency.
+
+## Update (September 2022)
+
+- Support for pausing and resuming ongoing replications without having to do a complete replication again. You can also retry VM migrations without the need to do a full initial replication again. 
+- Enhanced notifications for test migration and migration completion status. 
+- Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
+- Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
 
 ## Update (June 2022)
 

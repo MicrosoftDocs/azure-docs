@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 09/26/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can use access controls to grant or block access to resources.
 
-:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of a Conditional Access policy with a grant control that requires multifactor authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
+:::image type="content" source="media/concept-conditional-access-grant/conditional-access-grant.png" alt-text="Screenshot of a Conditional Access policy with a grant control that requires multifactor authentication." lightbox="media/concept-conditional-access-grant/conditional-access-grant.png":::
 
 ## Block access
 
@@ -31,6 +31,7 @@ The control for blocking access considers any assignments and prevents access ba
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
 - [Require multifactor authentication (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Require authentication strength (Preview)](#require-authentication-strength-preview)
 - [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
@@ -49,6 +50,13 @@ By default, Conditional Access requires all selected controls.
 Selecting this checkbox requires users to perform Azure Active Directory (Azure AD) Multi-factor Authentication. You can find more information about deploying Azure AD Multi-Factor Authentication in [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multifactor authentication in Conditional Access policies.
+
+### Require authentication strength (preview)
+
+Administrators can choose to require [specific authentication strengths](../authentication/concept-authentication-strengths.md) in their Conditional Access policies. These authentication strengths are defined in the **Azure portal** > **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**. Administrators can choose to create their own or use the built-in versions.
+
+> [!NOTE]
+> Require authentication strength is currently in public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Require device to be marked as compliant
 
@@ -132,13 +140,14 @@ In your Conditional Access policy, you can require that an [Intune app protectio
 
 To apply this grant control, Conditional Access requires that the device is registered in Azure AD, which requires using a broker app. The broker app can be either Microsoft Authenticator for iOS or Microsoft Company Portal for Android devices. If a broker app isn't installed on the device when the user attempts to authenticate, the user is redirected to the app store to install the broker app.
 
-Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the SDK documentation.
+Applications must have the Intune SDK with policy assurance implemented and must meet certain other requirements to support this setting. Developers who are implementing applications with the Intune SDK can find more information on these requirements in the [SDK documentation](/mem/intune/developer/app-sdk-get-started).
 
-The following client apps support this setting:
+The following client apps are confirmed to support this setting:
 
 - Microsoft Cortana
 - Microsoft Edge
 - Microsoft Excel
+- Microsoft Launcher
 - Microsoft Lists
 - Microsoft Office
 - Microsoft OneDrive
@@ -146,13 +155,20 @@ The following client apps support this setting:
 - Microsoft Outlook
 - Microsoft Planner
 - Microsoft Power BI
+- Microsoft PowerApps
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Teams
 - Microsoft To Do
 - Microsoft Word
+- Microsoft Power Apps
+- Microsoft Field Service (Dynamics 365)
 - MultiLine for Intune
 - Nine Mail - Email and Calendar
+- Notate for Intune
+- Yammer (iOS and iPadOS)
+
+This list isn't all encompassing, if your app isn't in this list please check with the application vendor to confirm support.
 
 > [!NOTE]
 > Kaizala, Skype for Business, and Visio don't support the **Require app protection policy** grant. If you require these apps to work, use the **Require approved apps** grant exclusively. Using the "or" clause between the two grants will not work for these three applications.
@@ -187,7 +203,7 @@ If your organization has created terms of use, other options might be visible un
 
 ### Custom controls (preview)
 
-Custom controls is a preview capability of Azure AD. When you use custom controls, your users are redirected to a compatible service to satisfy authentication requirements that are separate from Azure AD. For more information, check out the [Custom controls](controls.md) article.
+Custom controls are a preview capability of Azure AD. When you use custom controls, your users are redirected to a compatible service to satisfy authentication requirements that are separate from Azure AD. For more information, check out the [Custom controls](controls.md) article.
 
 ## Next steps
 

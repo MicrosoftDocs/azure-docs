@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2021
+ms.date: 09/02/2022
 ms.author: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy22q2
@@ -18,13 +18,15 @@ ms.custom: contperf-fy22q2
 
 # Grant tenant-wide admin consent to an application
 
-  In this article, you'll learn how to grant tenant-wide admin consent to an application in Azure Active Directory (Azure AD).
+  In this article, you'll learn how to grant tenant-wide admin consent to an application in Azure Active Directory (Azure AD). To understand how individual users consent, see [Configure how end-users consent to applications](configure-user-consent.md).
 
-When you grant tenant-wide admin consent to an application, all users can sign in to the app. To restrict which users can sign in to an application, configure the app to require user assignment and then assign users or groups to the application. 
+When you grant tenant-wide admin consent to an application, you give the application access on behalf of the whole organization to the permissions requested. Granting admin consent on behalf of an organization is a sensitive operation, potentially allowing the application's publisher access to significant portions of your organization's data, or the permission to do highly privileged operations. Examples of such operations might be role management, full access to all mailboxes or all sites, and full user impersonation.
+
+By default, granting tenant-wide admin consent to an application will allow all users to access the application unless otherwise restricted. To restrict which users can sign-in to an application, configure the app to [require user assignment](application-properties.md#assignment-required) and then [assign users or groups to the application](assign-user-or-group-access-portal.md). 
 
 Tenant-wide admin consent to an app grants the app and the app's publisher access to your organization's data. Carefully review the permissions that the application is requesting before you grant consent. For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
-Granting tenant-wide admin consent may revoke any permissions which had previously been granted tenant-wide. Permissions which have previously been granted by users on their own behalf will not be affected.
+Granting tenant-wide admin consent may revoke any permissions which had previously been granted tenant-wide for that application. Permissions which have previously been granted by users on their own behalf will not be affected.
 
 ## Prerequisites
 

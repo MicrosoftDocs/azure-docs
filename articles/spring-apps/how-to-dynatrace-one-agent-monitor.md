@@ -15,7 +15,7 @@ ms.devlang: azurecli
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard tier ❌️ Enterprise tier
 
 This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Apps.
 
@@ -85,7 +85,7 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 1. Navigate to the list of your existing applications.
 
-   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Apps section." lightbox="media/dynatrace-oneagent/existing-applications.png":::
+   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps section." lightbox="media/dynatrace-oneagent/existing-applications.png":::
 
 1. Select an application to navigate to the **Overview** page of the application.
 
@@ -112,7 +112,7 @@ environment_variables = {
 }
 ```
 
-### Automate provisioning using an Bicep file
+### Automate provisioning using a Bicep file
 
 To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 

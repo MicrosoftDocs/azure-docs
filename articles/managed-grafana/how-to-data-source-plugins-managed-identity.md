@@ -71,6 +71,9 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
 Authentication and authorization are then made through the provided managed identity. With Managed Identity, you can assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Azure Active Directory (Azure AD).
 
+> [!NOTE]
+> User assigned managed identity isn't supported currently.
+
 ## Configuration for Azure Data Explorer
 
 Azure Managed Grafana can also access data sources using a service principal set up in Azure Active Directory (Azure AD).

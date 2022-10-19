@@ -44,7 +44,7 @@ However, there are scenarios where using a decentralized architecture with verif
 
 * accessing resources outside the trust boundary, such as accessing partners’ resources, with a portable credential issued by the organization.
 
- 
+
 
 ### Decentralized identity systems
 

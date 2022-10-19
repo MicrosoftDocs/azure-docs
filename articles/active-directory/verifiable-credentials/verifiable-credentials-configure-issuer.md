@@ -40,7 +40,7 @@ The following diagram illustrates the Microsoft Entra Verified ID architecture a
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
-- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization,read this [FAQ](verifiable-credentials-faq.md#i-can-not-use-ngrok-what-do-i-do).
+- Download [ngrok](https://ngrok.com/) and sign up for a free account. If you can't use `ngrok` in your organization,read this [FAQ](verifiable-credentials-faq.md#i-cannot-use-ngrok-what-do-i-do).
 - A mobile device with Microsoft Authenticator:
   - Android version 6.2206.3973 or later installed.
   - iOS version 6.6.2 or later installed.
@@ -144,6 +144,9 @@ Now that you have a new credential, you're going to gather some information abou
 
 1. Copy your **Tenant ID**, and record it for later. The Tenant ID is the guid in the manifest URL highlighted in red above.
 
+    >[!NOTE]
+    > When setting up access policies for Azure Key Vault, you must add the access policies for both **Verifiable Credentials Service Request** and **Verifiable Credentials Service**.
+
 ## Download the sample code
 
 The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
@@ -210,7 +213,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
     "CertificateName": "[Or instead of client secret: Enter here the name of a certificate (from the user cert store) as registered with your application]",
     "IssuerAuthority": "did:web:example.com...",
     "VerifierAuthority": "did:web:example.com...",
-    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert"
+    "CredentialManifest":  "https://verifiedid.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredentials/contracts/VerifiedCredentialExpert"
   }
 }
 ```

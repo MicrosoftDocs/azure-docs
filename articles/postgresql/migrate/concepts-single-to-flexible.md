@@ -6,7 +6,7 @@ author: shriram-muthukrishnan
 ms.author: shriramm
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 08/31/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -32,6 +32,10 @@ The migration tool is agnostic of source and target PostgreSQL versions. Here ar
 | Postgres 10 (Retiring Nov'22) | Postgres 14 |  Verify your application compatibility. |
 | Postgres 11  | Postgres 14 | Verify your application compatibility. |
 | Postgres 11  | Postgres 11 | You can choose to migrate to the same version in Flexible Server. You can then upgrade to a higher version in Flexible Server |
+
+>[!IMPORTANT]
+> If Flexible Server is not available in your Single Server region, you may choose to deploy Flexible server in an [alternate region](../flexible-server/overview.md#azure-regions). We continue to add support for more regions with Flexible server. 
+
 
 ## Overview
 
@@ -146,6 +150,20 @@ To begin the migration in either Online or Offline mode, you can get started wit
 #### Assign contributor roles to Azure resources
 
    Assign [contributor roles](./how-to-set-up-azure-ad-app-portal.md#add-contributor-privileges-to-an-azure-resource) to source server, target server and the migration resource group. In case of private access for source/target server, add Contributor privileges to the corresponding VNet as well.
+
+#### Verify replication privileges for Single server's admin user
+
+   Please run the following query to check if single server's admin user has replication privileges.
+
+```
+   SELECT usename, userepl FROM pg_catalog.pg_user;
+```
+
+   Verify that the **userpl** column for the single server's admin user has the value **true**. If it is set to **false**, please grant the replication privileges to the admin user by running the following query on the single server.
+
+ ```
+   ALTER ROLE <adminusername> WITH REPLICATION;
+```
 
 #### Allow-list required extensions
 

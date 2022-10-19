@@ -34,7 +34,7 @@ The current version of Personalizer uses **contextual bandits**, an approach to 
 
 The _decision memory_, the model that has been trained to capture the best possible decision, given a context, uses a set of linear models. These have repeatedly shown business results and are a proven approach, partially because they can learn from the real world very rapidly without needing multi-pass training, and partially because they can complement supervised learning models and deep neural network models.
 
-The explore/exploit traffic allocation is made randomly following the percentage set for exploration, and the default algorithm for exploration is epsilon-greedy.
+The explore / best action traffic allocation is made randomly following the percentage set for exploration, and the default algorithm for exploration is epsilon-greedy.
 
 ### History of Contextual Bandits
 

@@ -99,4 +99,5 @@ Here's how to set up the link flows based on direction on tcp or udp preference.
 ## Next steps
 
 - [Register Spacecraft](register-spacecraft.md)
+- [Configure the modem chain](modem-chain.md)
 - [Schedule a contact](schedule-contact.md)

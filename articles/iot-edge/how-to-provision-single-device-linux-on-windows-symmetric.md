@@ -149,6 +149,15 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        sudo iotedge check
        ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
@@ -195,6 +204,16 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```bash
        sudo iotedge check
        ```
+
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
