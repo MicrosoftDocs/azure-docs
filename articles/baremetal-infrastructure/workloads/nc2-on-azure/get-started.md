@@ -10,22 +10,18 @@ ms.date: 07/01/2021
 
 Learn how to sign up for, set up, and use Nutanix Cloud Clusters (NC2) on Azure.
 
-## Sign up NC2
+## Sign up for NC2
 
-Once you've satisfied the [requirements](requirements.md), go to [Nutanix Cloud Clusters
-on Azure Deployment
-and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf) to sign up.
+Once you've satisfied the [requirements](requirements.md), go to 
+[Nutanix Cloud Clusters
+on Azure Deployment and User Guide](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure) to sign up.
+
+To learn about Microsoft BareMetal hardware pricing, and to purchase Nutanix software, go to [Azure Marketplace](https://aka.ms/Nutanix-AzureMarketplace).
 
 ## Set up NC2 on Azure
 
-To set up NC2 on Azure, go to [Nutanix Cloud Clusters
-on Azure Deployment and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
-
-## Use NC2 on Azure
-
-For more information about using NC2 on Azure, see [Nutanix Cloud Clusters
-on Azure Deployment
-and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf).
+To set up and use NC2 on Azure, go to [Nutanix Cloud Clusters
+on Azure Deployment and User Guide](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure).
 
 ## Next steps
 

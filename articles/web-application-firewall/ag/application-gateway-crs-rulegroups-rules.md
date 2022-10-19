@@ -55,7 +55,7 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-32)**|Protect against cross-site scripting attacks|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-32)**|Protect against SQL-injection attacks|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-32)**|Protect against session-fixation attacks|
-|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-32)**|Protect against JAVA attacks|
+|**[REQUEST-944-APPLICATION-ATTACK-JAVA](#crs944-32)**|Protect against JAVA attacks|
 
 
 ### OWASP CRS 3.1

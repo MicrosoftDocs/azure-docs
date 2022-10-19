@@ -48,6 +48,7 @@ Follow these steps to create a Node.js console application for speech synthesis.
         var readline = require("readline");
         
         var audioFile = "YourAudioFile.wav";
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
         const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
         const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
         
