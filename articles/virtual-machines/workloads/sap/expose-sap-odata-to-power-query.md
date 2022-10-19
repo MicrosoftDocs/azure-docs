@@ -40,7 +40,7 @@ Integrations between SAP products and the Microsoft 365 portfolio range from cus
 
 The mechanism described in this article uses the standard built-in OData capabilities of Power Query and puts emphasis for SAP landscapes deployed on Azure. Address on-premises landscapes with the Azure API Management [self-hosted Gateway](../../../api-management/self-hosted-gateway-overview.md).
 
-For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query-what-is-power-query#where-can-you-use-power-query).
+For more information on which Microsoft products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
 
 ## Setup considerations
 
