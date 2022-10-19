@@ -1,6 +1,6 @@
 ---
 title: Migrate apps from Azure Functions version 1.x to 4.x 
-description: This article shows you how to upgrade your exsisting function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
+description: This article shows you how to upgrade your existing function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime. 
 ms.service: azure-functions
 ms.topic: how-to 
 ms.date: 10/19/2022
@@ -9,14 +9,14 @@ ms.custom: template-how-to-pattern
 
 # Migrate apps from Azure Functions version 1.x to version 4.x 
 
-If you are running on version 1.x of the Azure Functions runtime, it's likely because your C# app requires .NET Framework 2.1. Version 4.x of the runtime now lets you run .NET Framework 4.8 apps. At this point, you should consider migrating your version 1.x function apps to run on version 4.x.   
+If you're running on version 1.x of the Azure Functions runtime, it's likely because your C# app requires .NET Framework 2.1. Version 4.x of the runtime now lets you run .NET Framework 4.8 apps. At this point, you should consider migrating your version 1.x function apps to run on version 4.x.   
 
 Migrating a C# function app from version 1.x (.NET Framework 2.1) to version 4.x (.NET Framework 4.8) requires you to make changes to your project code. Many of these changes are a result of changes in the core C# language and .NET APIs. This article guides you through how to update your C# function app project to be able to run on .NET Framework 4.8 in Functions version 4.x.    
 
 >[!NOTE]
 >When running on .NET Framework 4.8, C# apps must run in an isolated worker process. For more information, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
 
-Migrating from version 1.x to version 4.x also has impact on bindings. If you are migrating a JavaScript app, proceed directly to [General changes after version 1.x](#general-changes-after-version-1x). 
+Migrating from version 1.x to version 4.x also can affect bindings. If you're migrating a JavaScript app, proceed directly to [General changes after version 1.x](#general-changes-after-version-1x). 
 
 ## Prepare the C# project for migration
 
@@ -28,13 +28,14 @@ Use the tabs to switch between the following versions for comparison:
 
 + **Version 4.x**: migrated C# project code that requires .NET Framework 4.8. 
 
-+ **.NET 7**:  C# project migrated to run on .NET 7 instead of .NET Framework 4.8. This migration is recommended when your migrated app no longer requires .NET Framework 4.8 APIs.
++ **.NET 7**:  C# project migrated to run on .NET 7 instead of .NET Framework 4.8.  
+This migration is recommended when your migrated app no longer requires .NET Framework 4.8 APIs.
 
 When applicable, these tabs compare the code directly from the templates for each version. 
 
 ### .csproj file
 
-The following highlight the changes required in the .csproj file when moving from version 1.x to version 4.x, or directly to .NET 7.
+The following changes are required in the .csproj file:
 
 # [Version 1.x](#tab/v1)
 
@@ -82,6 +83,8 @@ Add new `ItemGroup`:
 
 ### program.cs file
 
+Migrating requires you to add a program.cs file to your project: 
+
 # [Version 1.x](#tab/v1)
 
 Not required in version 1.x.
@@ -97,6 +100,8 @@ Not required in version 1.x.
 ---
 
 ### host.json file
+
+Settings in the host.json file apply at the function app level, both locally and in Azure. For more information, see [Host.json](./functions-host-json.md).
 
 # [Version 1.x](#tab/v1)
 
@@ -114,6 +119,8 @@ Not required in version 1.x.
 
 ### local.settings.json file
 
+The local.settings.json file is only used when running locally. For information, see [Local settings file](functions-develop-local.md#local-settings-file).
+
 # [Version 1.x](#tab/v1)
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json":::
@@ -128,9 +135,71 @@ Not required in version 1.x.
 
 ---
 
+### Function code
+
+The following changes to `using` statements are required in your C# functions (.cs) code files:  
+
+# [Version 1.x](#tab/v1)
+
+:::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs" range="11-13":::
+
+# [Version 4.x](#tab/v4)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs" range="2-4":::
+
+# [.NET 7](#tab/net7)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs" range="2-4":::
+
+---
+
+The following .NET classes you use in your functions changed between versions:
+
+# [Version 1.x](#tab/v1)
+
++ `FunctionName` (attribute)
++ `TraceWriter`
++ `HttpRequestMessage`
++ `HttpResonseMessage` 
+
+# [Version 4.x](#tab/v4)
+
++ `Function` (attribute)
++ `ILogger`
++ `HttpRequestData`
++ `HttpResonseData` 
+
+# [.NET 7](#tab/net7)
+
++ `Function` (attribute)
++ `ILogger`
++ `HttpRequestData`
++ `HttpResonseData` 
+
+---
+
+### HTTP trigger template
+
+Most of the code changes between version 1.x and version 4.x affect HTTP triggered functions. You can compare the differences in the following HTTP trigger templates:
+
+# [Version 1.x](#tab/v1)
+
+:::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs":::
+
+# [Version 4.x](#tab/v4)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs" range="2-4":::
+
+# [.NET 7](#tab/net7)
+
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs" range="2-4":::
+
+---
+
+
 ## General changes after version 1.x
 
-This section details changes made after versionk 1.x in both trigger and binding behaviors as well as in core Functions features and behaviors.
+This section details changes made after version 1.x in both trigger and binding behaviors as well as in core Functions features and behaviors.
 
 ## Changes in triggers and bindings
 
