@@ -87,10 +87,8 @@ After you cancel your plan, the integration stops and you'll no longer get added
 
 After onboarding a Enterprise IoT plan, you'll also be able to view detected devices in Defender for IoT in the Azure portal. For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 
-To gain more visibility into additional IoT segments of your corporate network, not otherwise covered by Defender for Endpoint, set up an Enterprise IoT network sensor. Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Defender for Endpoint or Defender for IoT.
+To gain more visibility into additional IoT segments of your corporate network, not otherwise covered by Defender for Endpoint, set up an Enterprise IoT network sensor (Public preview). Customers that have set up an Enterprise IoT network sensor will be able to see all discovered devices in the **Device inventory** in either Defender for Endpoint or Defender for IoT.
 
 For more information, see [Enhance device discovery with an Enterprise IoT network sensor](eiot-sensor.md).
 
-> [!NOTE]
-> Setting up an Enterprise IoT Network sensor is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
