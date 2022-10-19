@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Export DICOM Files
 
-The DICOM service supports the bulk export of data to an [Azure Blob Storage account](https://azure.microsoft.com/en-us/services/storage/blobs/).  DICOM data that is exported to a storage account will be exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.  
+The DICOM service supports the bulk export of data to an [Azure Blob Storage account](../../storage/blobs/storage-blobs-introduction.md).  DICOM data that is exported to a storage account will be exported as a `.dcm` file in a folder structure that organizes instances by `StudyInstanceID` and `SeriesInstanceID`.  
 
 There are three steps to exporting data from the DICOM service: 
 
@@ -43,14 +43,14 @@ The system managed identity will need **Storage Blob Data Contributor** permissi
 
 1. Under **Permissions** select **Azure role assignments**.
 
-[![Storage Container](media/dicom-export-azure-role-assignments.png)](media/dicom-export-azure-role-assignments.png#lightbox)
+[![Azure Role Assignments](media/dicom-export-azure-role-assignments.png)](media/dicom-export-azure-role-assignments.png#lightbox)
 
 2. Select **Add role assignment**.  On the **Add role assignment** panel, make the following selections: 
     * Under **Scope**, select **Storage**.
     * Under  **Resource**, select the destination storage account for the export operation.
     * Under **Role**, select **Storage Blob Data Contributor**. 
 
- [![Storage Container](media/dicom-export-add-role-assignment.png)](media/dicom-export-add-role-assignment.png#lightbox)
+ [![Add Role Assignment](media/dicom-export-add-role-assignment.png)](media/dicom-export-add-role-assignment.png#lightbox)
 
 3. Click **Save** to add the permission to the system managed identity.
 
