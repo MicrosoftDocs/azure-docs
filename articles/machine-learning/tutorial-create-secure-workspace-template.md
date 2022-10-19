@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: ignite-2022
-ms.reviewer: jhirono
-ms.author: larryfr
-author: blackmist
+ms.reviewer: larryfr
+ms.author: jhirono
+author: jhirono
 ms.date: 12/02/2021
 ms.topic: tutorial
 ---
