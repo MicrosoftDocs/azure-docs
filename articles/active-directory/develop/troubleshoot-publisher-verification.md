@@ -188,9 +188,9 @@ Most commonly caused when verification is being performed via Graph API, and the
 
 ### ApplicationObjectisInvalid 
 
-The target application (AppId) is not valid. Please provide a valid application ID and try again. 
+The target application's object ID is invalid. Please provide a valid ID and try again. 
 
-Most commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. Note-the ID of the application must be provided, not the AppId/ClientId. 
+MosT commonly caused when the verification is being performed via Graph API, and the ID of the application provided does not exist. Note-the Object ID of the application must be provided, not the AppId/ClientId. See "id" on the list of application properties at [application resource type - Microsoft Graph v1.0 | Microsoft Learn](https://learn.microsoft.com/en-us/graph/api/resources/application?view=graph-rest-1.0)
 
 ### B2CTenantNotAllowed
 
@@ -255,7 +255,7 @@ Self-serve password reset (SSPR): If the organization allows SSPR, use aka.ms/ss
 
 ### UnableToAddPublisher
 
-When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft doesn't disclose the specific criteria used to determine whether a request is risky or not. If you received this error and believe the "risky" assessment is incorrect, try waiting and resubmitting the verification request. Some customers have reported success after multiple attempts.
+The error message displayed is: "A verified publisher cannot be added to this application. Contact your administrator for assistance”. This might occur because some of the entities were recently created. Please wait some time and try again.
 
 
 ## Next steps
