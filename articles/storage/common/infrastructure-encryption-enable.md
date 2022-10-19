@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/15/2022
+ms.date: 10/19/2022
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
