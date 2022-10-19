@@ -208,7 +208,7 @@ sequenceDiagram
     TempSensor->>EdgeGateway: Name checks out, private root CA found 🙂, let's connect
 -->
 
-The flow is similar to when *EdgeGateway* talks to *ContosoIotHub*. *TempSensor* and *EdgeGateway* use the **TLS handshake** protocol to verify *EdgeGateway's* identity. There are two important differences:
+The flow is the same as when *EdgeGateway* talks to *ContosoIotHub*. *TempSensor* and *EdgeGateway* use the **TLS handshake** protocol to verify *EdgeGateway's* identity. There are two important differences:
 
 * **Hostname complexity**: The certificate presented by *EdgeGateway* must show the *same IP address or hostname* that *TempSensor* uses to connect to *EdgeGateway*.
 * **Private root CA complexity**: The certificate chain presented by *EdgeGateway* is likely not in the OS default trusted root store.
