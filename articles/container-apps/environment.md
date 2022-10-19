@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 12/05/2021
+ms.date: 10/18/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -20,14 +20,14 @@ Reasons to deploy container apps to the same environment include situations when
 
 - Manage related services
 - Deploy different applications to the same virtual network
-- Have applications communicate with each other using Dapr
+- Instrument Dapr applications that communicate via the Dapr service invocation API
 - Have applications to share the same Dapr configuration
 - Have applications share the same log analytics workspace
 
 Reasons to deploy container apps to different environments include situations when you want to ensure:
 
 - Two applications never share the same compute resources
-- Two applications can't communicate with each other via Dapr
+- Two Dapr applications can't communicate via the Dapr service invocation API
 
 ## Logs
 
