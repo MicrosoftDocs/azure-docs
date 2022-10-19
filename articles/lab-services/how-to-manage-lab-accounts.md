@@ -129,5 +129,5 @@ The **Shut down virtual machines when users do not connect** setting will catch 
 ## Next steps
 
 - As an admin, [configure automatic shutdown settings for a lab account](how-to-configure-lab-accounts.md).
-- As an admin, use the [Az.LabServices PowerShell module (preview)](https://aka.ms/azlabs/samples/PowerShellModule) to manage lab accounts.
+- As an admin, use the [Az.LabServices PowerShell module](https://aka.ms/azlabs/samples/PowerShellModule) to manage lab accounts.
 - As an educator, [configure automatic shutdown settings for a lab](how-to-enable-shutdown-disconnect.md).

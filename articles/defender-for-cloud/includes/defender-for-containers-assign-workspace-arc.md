@@ -2,7 +2,7 @@
 author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 07/06/2022
+ms.date: 07/14/2022
 ms.author: elkrieger
 ---
 
@@ -54,9 +54,9 @@ If the policy hasn't been assigned, you'll see `Assignments (0)`.
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
-1. Select a LogAnalyticsWorkspaceResource ID from the drop-down menu.
+1. Select a LogAnalyticsWorkspaceResource ID from the dropdown menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop-down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the dropdown menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
 
 1. Select **Review + create**.
 
@@ -81,9 +81,9 @@ If the policy has already been assigned to a workspace, you'll see `Assignments 
 
 1. In the **Parameters** tab, deselect the **Only show parameters that need input or review** option.
 
-1. Select a LogAnalyticsWorkspaceResource ID from the drop-down menu.
+1. Select a LogAnalyticsWorkspaceResource ID from the dropdown menu.
 
-   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the drop-down menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
+   :::image type="content" source="../media/defender-for-containers/drop-down-menu-arc.png" alt-text="Screenshot showing where the dropdown menu is located for ARC." lightbox="../media/defender-for-containers/drop-down-menu-arc.png"::: 
 
 1. Select **Review + create**.
 

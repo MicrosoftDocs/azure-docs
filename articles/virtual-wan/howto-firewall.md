@@ -25,7 +25,7 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub)
 
 > [!IMPORTANT]
-> Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across **Availability Zones** *except* Azure Firewall, if the region supports Availability Zones. To deploy an Azure Firewall with Availability Zones (recommended) in a Secure vWAN Hub, [this article](https://docs.microsoft.com/azure/firewall-manager/secure-cloud-network) must be used. 
+> Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across **Availability Zones** *except* Azure Firewall, if the region supports Availability Zones. To deploy an Azure Firewall with Availability Zones (recommended) in a Secure vWAN Hub, [this article](../firewall-manager/secure-cloud-network.md) must be used. 
 
 ## View virtual hubs
 

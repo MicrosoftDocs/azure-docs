@@ -18,7 +18,7 @@ The first step in the process is to capture an initial representation of your Az
 
 :::image type="content" source="./media/migrate/migrate-bicep.png" alt-text="Diagram of the recommended workflow for migrating Azure resources to Bicep." border="false":::
 
-In this article we summarize this recommended workflow. For detailed guidance, see [Migrate Azure resources and JSON ARM templates to use Bicep](/learn/modules/migrate-azure-resources-bicep/) on Microsoft Learn.
+In this article we summarize this recommended workflow. For detailed guidance, see [Migrate Azure resources and JSON ARM templates to use Bicep](/training/modules/migrate-azure-resources-bicep/).
 
 ## Phase 1: Convert
 

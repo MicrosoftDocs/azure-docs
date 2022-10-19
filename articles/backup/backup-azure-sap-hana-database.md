@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/09/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -23,7 +23,7 @@ In this article, you'll learn how to:
 > * Run an on-demand backup job
 
 >[!NOTE]
-Refer to the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
+>See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -236,11 +236,16 @@ Specify the policy settings as follows:
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
 1. In the vault menu, select **Backup items**.
-2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
-4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+1. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
+1. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**.
 
-By default, the retention of on-demand backups is 45 days.
+   The retention period of this backup is determined by the type of on-demand backup you have run.
+
+   - *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
+   - *On-demand differential backups* are retained as per the *log retention set in the policy*.
+   - *On-demand incremental backups* aren't currently supported.
+
+1. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 ## Run SAP HANA Studio backup on a database with Azure Backup enabled
 

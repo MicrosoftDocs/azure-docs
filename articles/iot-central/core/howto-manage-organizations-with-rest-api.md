@@ -22,6 +22,8 @@ To learn more about organizations in IoT Central Application, see [Manage IoT Ce
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage organizations by using the IoT Central UI, see [Manage IoT Central organizations.](../core/howto-create-organizations.md)
+
 ## Organizations REST API
 
 The IoT Central REST API lets you:
@@ -37,7 +39,7 @@ The IoT Central REST API lets you:
 The REST API lets you create organizations in your IoT Central application. Use the following request to create an organization in your application:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=2022-05-31
+PUT https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
 * organizationId - Unique ID of the organization
@@ -90,14 +92,12 @@ The response to this request looks like the following example:
 }
 ```
 
-
-
 ### Get an organization
 
 Use the following request to retrieve details of an individual organization from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -115,7 +115,7 @@ The response to this request looks like the following example:
 Use the following request to update details of an organization in your application:
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/organizations/{organizationId}?api-version=2022-05-31
+PATCH https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
 ```
 
 The following example shows a request body that updates an organization.
@@ -143,7 +143,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve a list of organizations from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=2022-05-31
+GET https://{your app subdomain}.azureiotcentral.com/api/organizations?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example.
@@ -184,7 +184,228 @@ The response to this request looks like the following example.
 Use the following request to delete an organization:
 
 ```http
-DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-05-31
+DELETE https://{your app subdomain}.azureiotcentral.com/api/organizations/{organizationId}?api-version=2022-07-31
+```
+
+## Use organizations
+
+### Manage roles
+
+The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of application role and organization role IDs from your application. To learn more see, [How to manage IoT Central organizations](howto-create-organizations.md):
+
+```http
+GET https://{your app subdomain}.azureiotcentral.com/api/roles?api-version=2022-07-31
+```
+
+The response to this request looks like the following example that includes the application role and organization role IDs. 
+
+```json
+{
+    "value": [
+        {
+            "id": "ca310b8d-2f4a-44e0-a36e-957c202cd8d4",
+            "displayName": "Administrator"
+        },
+        {
+            "id": "ae2c9854-393b-4f97-8c42-479d70ce626e",
+            "displayName": "Operator"
+        },
+        {
+            "id": "344138e9-8de4-4497-8c54-5237e96d6aaf",
+            "displayName": "Builder"
+        },
+        {
+            "id": "c495eb57-eb18-489e-9802-62c474e5645c",
+            "displayName": "Org Admin"
+        },
+        {
+            "id": "b4935647-30e4-4ed3-9074-dcac66c2f8ef",
+            "displayName": "Org Operator"
+        },
+        {
+            "id": "84cc62c1-dabe-49d3-b16e-8b291232b285",
+            "displayName": "Org Viewer"
+        }
+    ]
+}
+```
+
+### Create an API token to a node in an organization hierarchy
+
+Use the following request to create Create an API token to a node in an organization hierarchy in your application:
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/apiTokens/{tokenId}?api-version=2022-07-31
+```
+
+* tokenId - Unique ID of the token
+
+The following example shows a request body that creates an API token for an organization in a IoT Central application.  
+
+```json
+{
+    "roles": [
+        {
+            "role": "84cc62c1-dabe-49d3-b16e-8b291232b285",
+            "organization": "seattle"
+        }
+    ]
+}
+```
+
+The request body has some required fields:
+
+|Name|Description|
+|----|-----------|
+|role |ID of one of the organization roles.|
+|organization| ID of the organization|
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "token1",
+    "roles": [
+        {
+            "role": "84cc62c1-dabe-49d3-b16e-8b291232b285",
+            "organization": "seattle"
+        }
+    ],
+    "expiry": "2023-07-07T17:05:08.407Z",
+    "token": "SharedAccessSignature sr=8a0617**********************4c0d71c&sig=3RyX69G4%2FBZZnG0LXOjQv*************e8s%3D&skn=token1&se=1688749508407"
+}
+```
+
+### Associate a user with a node in an organization hierarchy
+
+Use the following request to create and associate a user with a node in an organization hierarchy in your application. The ID and email must be unique in the application:
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-version=2022-07-31
+```
+
+In the following request body, the `role` is the ID of one of the organization roles and `organization` is the ID of the organization
+
+```json
+{
+  "id": "user-001",
+  "type": "email",
+    "roles": [
+        {
+            "role": "84cc62c1-dabe-49d3-b16e-8b291232b285",
+            "organization": "seattle"
+        }
+    ],
+    "email": "user5@contoso.com"
+
+}
+```
+
+The response to this request looks like the following example. The role value identifies which role the user is associated with:
+
+```json
+{
+    "id": "user-001",
+    "type": "email",
+    "roles": [
+        {
+            "role": "84cc62c1-dabe-49d3-b16e-8b291232b285",
+            "organization": "seattle"
+        }
+    ],
+    "email": "user5@contoso.com"
+}
+```
+
+### Add and associate a device to an organization
+
+Use the following request to associate a new device with an organization
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/devices/{deviceId}?api-version=2022-07-31
+```
+
+The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI.
+
+```json
+{
+    "displayName": "CheckoutThermostat",
+    "template": "dtmi:contoso:Thermostat;1",
+    "simulated": true,
+    "enabled": true,
+    "organizations": [
+        "seattle"
+    ]
+}
+```
+
+The request body has some required fields:
+
+* `@displayName`: Display name of the device.
+* `@enabled`: declares that this object is an interface.
+* `@etag`: ETag used to prevent conflict in device updates.
+* `simulated`: Whether the device is simulated.
+* `template` : The device template definition for the device.
+* `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "thermostat1",
+    "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYTdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDIwMDAwMFwiIiwiZGF0YSI6IlwiMzMwMDQ1M2EtMDAwMC0wMzAwLTAwMDAtNjFiODFkMjAwMDAwXCIifQ",
+    "displayName": "CheckoutThermostat",
+    "simulated": true,
+    "provisioned": false,
+    "template": "dtmi:contoso:Thermostat;1",
+    "enabled": true,
+   "organizations": [
+    "seattle"
+  ]
+
+}
+```
+
+### Add and associate a device group to an organization
+
+Use the following request to create and associate a new device group with an organization.
+
+```http
+PUT https://{your app subdomain}.azureiotcentral.com/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
+```
+
+When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true.
+
+```json
+{
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
+```
+
+The request body has some required fields:
+
+* `@displayName`: Display name of the device group.
+* `@filter`: Query defining which devices should be in this group.
+* `description`: Short summary of device group.
+* `organizations` : List of organization IDs that the device is a part of. Currently, you can only associate a device with a single organization.
+
+The response to this request looks like the following example: 
+
+```json
+{
+  "id": "group1",
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true",
+  "organizations": [
+    "seattle"
+  ]
+}
 ```
 
 ## Next steps

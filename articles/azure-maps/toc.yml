@@ -191,6 +191,8 @@ items:
         href: map-add-image-layer.md
       - name: Add tile layers
         href: map-add-tile-layer.md
+      - name: Add a WebGL layer
+        href: webgl-custom-layer.md
       - name: Show traffic 
         href: map-show-traffic.md
       - name: Cluster point data
@@ -233,6 +235,8 @@ items:
         href: how-to-use-indoor-module.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
+      - name: Custom styling for indoor maps
+        href: how-to-create-custom-styles.md        
       - name: Drawing error visualizer
         href: drawing-error-visualizer.md
     - name: Spatial IO module 
@@ -349,6 +353,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a filled map
+      href: power-bi-visual-filled-map.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access

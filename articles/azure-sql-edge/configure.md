@@ -1,14 +1,13 @@
 ---
 title: Configure Azure SQL Edge
 description: Learn about configuring Azure SQL Edge.
-keywords: 
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/22/2020
+services: sql-edge
 ---
 
 # Configure Azure SQL Edge

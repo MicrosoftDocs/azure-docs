@@ -31,6 +31,8 @@ npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsigh
 
 Initialize a connection to Application Insights:
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ```javascript
 import React from 'react';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
@@ -40,7 +42,7 @@ const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [reactPlugin],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
@@ -76,7 +78,7 @@ For `react-router v6` or other scenarios where router history is not exposed, ap
 var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         enableAutoRouteTracking: true,
         extensions: [reactPlugin]
     }
@@ -179,7 +181,7 @@ The `useTrackEvent` Hook is used to track any custom event that an application m
 -   Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook).
 -   Name for the event.
 -   Event data object that encapsulates the changes that has to be tracked.
--   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. Default value is set to `true`.
+-   skipFirstRun (optional) flag to skip calling the `trackEvent` call on initialization. Default value is set to `true` to mimic more closely the way the non-hook version works. With `useEffect` hooks, the effect is triggered on each value update _including_ the initial setting of the value, thereby starting the tracking too early causing potentially unwanted events to be tracked.
 
 ```javascript
 import React, { useState, useEffect } from "react";

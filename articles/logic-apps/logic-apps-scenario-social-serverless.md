@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/15/2018
+ms.date: 08/20/2022
 ---
 
 # Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions

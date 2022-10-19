@@ -133,7 +133,7 @@ sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateWin.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
-sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateWin.json
+sed -i -e "s/<imgBuilderId>/$imgBuilderId/g" helloImageTemplateWin.json
 ```
 
 You can modify this example in the terminal by using a text editor such as `vi`.

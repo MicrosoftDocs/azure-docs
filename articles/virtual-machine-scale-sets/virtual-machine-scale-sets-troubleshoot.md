@@ -13,9 +13,7 @@ ms.reviwer: jushiman
 
 # Troubleshooting autoscale with Virtual Machine Scale Sets
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
-**Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using virtual machine scale sets –  for example, by deploying a template like this one: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json  – you have your scale rules defined and it works great, except no matter how much load you put on the VMs, it doesn't autoscale.
+**Problem** – you’ve created an autoscaling infrastructure in Azure Resource Manager using virtual machine scale sets –  for example, by deploying a template like this one: https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.parameters.json  – you have your scale rules defined and it works great, except no matter how much load you put on the VMs, it doesn't autoscale.
 
 ## Troubleshooting steps
 Some things to consider include:
@@ -44,7 +42,7 @@ Some things to consider include:
     The Azure Resource Explorer is an indispensable troubleshooting tool that shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the Compute resource provider, look at the virtual machine scale set you created and check the Instance View, which shows you the state of a deployment. Also, check the instance view of VMs in the virtual machine scale set. Then, go into the Microsoft.Insights resource provider and check that the autoscale rules look right.
 * Is the Diagnostic extension working and emitting performance data?
   
-    **Update:** Azure autoscale has been enhanced to use a host-based metrics pipeline, which no longer requires a diagnostics extension to be installed. The next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. An example of Azure templates that have been converted to use the host pipeline is available here: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json. 
+    **Update:** Azure autoscale has been enhanced to use a host-based metrics pipeline, which no longer requires a diagnostics extension to be installed. The next few paragraphs no longer apply if you create an autoscaling application using the new pipeline. An example of Azure templates that have been converted to use the host pipeline is available here: https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.parameters.json. 
   
     Using host-based metrics for autoscale is better for the following reasons:
   
@@ -71,7 +69,7 @@ Some things to consider include:
     If the data is not there, it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
     
     Once you've been through these steps, if you're still having autoscale problems, you can try the following resources: 
-    * Visit [Troubleshooting common issue with VM Scale Sets](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page
+    * Visit [Troubleshooting common issue with VM Scale Sets](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page
     * Read the forums on [Microsoft Q&A question page](/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure)
     * Log a support call. Be prepared to share the template and a view of your performance data.
 

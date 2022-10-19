@@ -15,7 +15,7 @@ ms.subservice: data
 # Communications Services Insights Preview
 
 ## Overview
-Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights is made possible via [Azure Monitor Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../azure-monitor/logs/log-analytics-overview.md) destination. 
+Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](../../../azure-monitor/logs/log-analytics-overview.md) destination. 
 
 :::image type="content" source="media\workbooks\insights-overview-2.png" alt-text="Communication Services Insights":::
 
@@ -115,6 +115,10 @@ The **Chat** tab displays the data for all chat-related operations and their res
 The **SMS** tab displays the operations and results for SMS usage through an Azure Communication Services resource (we currently don’t have any data for this modality):
 
 :::image type="content" source="media\workbooks\sms.png" alt-text="SMS tab":::
+
+The **Email** tab displays delivery status, email size, and email count:
+:::image type="content" source="media\workbooks\azure-communication-services-insights-email.png" alt-text="Email tab":::
+[Screenshot displays email count, size and email delivery status level that illustrate email insights]
 
 ## Editing dashboards
 

@@ -2,8 +2,8 @@
 title: Enable AKS Monitoring Addon using Azure Policy
 description: Describes how to enable AKS Monitoring Addon using Azure Custom Policy.
 ms.topic: conceptual
-ms.date: 02/04/2021
-ms.reviewer: aul
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # Enable AKS monitoring addon using Azure Policy
@@ -78,6 +78,6 @@ Monitoring Addon Custom Policy can be assigned at either the subscription or res
 ## Next steps
 
 - Learn more about [Azure Policy](../../governance/policy/overview.md).
-- Learn how [remediation security works](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
+- Learn how [remediation access control works](../../governance/policy/how-to/remediate-resources.md#how-remediation-access-control-works).
 - Learn more about [Container insights](./container-insights-overview.md).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).

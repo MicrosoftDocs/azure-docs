@@ -10,7 +10,7 @@ ms.reviewer: rijolly
 
 When you are developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version. To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys). To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to set the ikey in code instead of in the configuration file.
 
-(If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](../../azure-monitor/app/cloudservices.md).)
+(If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](../../azure-monitor/app/azure-web-apps-net-core.md).)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 

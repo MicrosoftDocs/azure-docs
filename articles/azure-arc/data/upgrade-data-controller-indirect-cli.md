@@ -4,10 +4,10 @@ description: Article describes how to upgrade an indirectly connected Azure Arc 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 05/27/2022
+ms.date: 07/07/2022
 ms.topic: how-to
 ---
 
@@ -64,7 +64,7 @@ This section shows how to upgrade an indirectly connected data controller.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-[!INCLUDE [upgrade-supported-path](includes/upgrade-supported-path.md)]
+For supported upgrade paths, see [Upgrade Azure Arc-enabled data services](upgrade-overview.md).
 
 
 ### Upgrade
@@ -128,6 +128,4 @@ When the upgrade is complete, the output will be:
 Ready
 ```
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

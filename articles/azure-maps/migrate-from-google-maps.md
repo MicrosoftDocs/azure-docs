@@ -44,7 +44,7 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Distance Matrix             | ✓                                      |
 | Elevation                   | ✓                                      |
 | Geocoding (Forward/Reverse) | ✓                                      |
-| Geolocation                 | N/A                                    |
+| Geolocation                 | ✓                                      |
 | Nearest Roads               | ✓                                      |
 | Places Search               | ✓                                      |
 | Places Details              | N/A – website & phone number available |

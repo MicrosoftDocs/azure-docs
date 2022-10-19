@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 10/18/2022
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -31,7 +31,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 ## Considerations
 
 * Ensure that you meet the [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 
-* Create a `pcuser` account in your Active Directory (AD) and ensure that the account is enabled. This account will serve as the default user. It will be used for mapping UNIX users for accessing a dual-protocol volume configured with NTFS security style. The `pcuser` account is used only when there is no user present in the AD. If a user has an account in the AD with the POSIX attributes set, then that account will be the one used for authentication, and it will not map to the `pcuser` account. 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
@@ -59,9 +58,9 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         |  NFSv3  |  `Unix`  |  None  |  UNIX (mode bits or NFSv4.x ACLs) <br><br>  NFSv4.x ACLs can be applied using an NFSv4.x administrative client and honored by NFSv3 clients.  |
         |  NFS  |  `Ntfs`  |  UNIX to Windows  |  NTFS ACLs (based on mapped Windows user SID)  |
 
-* The LDAP with extended groups feature supports the dual protocol of both [NFSv3 and SMB] and [NFSv4.1 and SMB] with the Unix security style. See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for more information. 
+* The LDAP with extended groups feature supports the dual protocol of both [NFSv3 and SMB] and [NFSv4.1 and SMB] with the Unix security style. See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for more information. 
 
-* If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you should use the **LDAP Search Scope** option on the Active Directory Connections page to avoid "access denied" errors on Linux clients for Azure NetApp Files. See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for more information.
+* If you have large topologies, and you use the Unix security style with a dual-protocol volume or LDAP with extended groups, you should use the **LDAP Search Scope** option on the Active Directory Connections page to avoid "access denied" errors on Linux clients for Azure NetApp Files. See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for more information.
 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
 
@@ -75,9 +74,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        A volume name must be unique within each capacity pool. It must be at least three characters long. The name must begin with a letter. It can contain letters, numbers, underscores ('_'), and hyphens ('-') only.  
-
-        You cannot use `default` or `bin` as the volume name.
+        Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetapp) for naming conventions on volumes. Additionally, you can't use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -159,7 +156,7 @@ The **Allow local NFS users with LDAP** option in Active Directory connections e
 
 > [!NOTE] 
 > Before enabling this option, you should understand the [considerations](#considerations).   
-> The **Allow local NFS users with LDAP** option is part of the **LDAP with extended groups** feature and requires registration. See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for details.
+> The **Allow local NFS users with LDAP** option is part of the **LDAP with extended groups** feature and requires registration. See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for details.
 
 1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
 
@@ -213,6 +210,6 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
-* [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
-* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Configure AD DS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
+* [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)

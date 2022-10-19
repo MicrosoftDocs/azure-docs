@@ -237,7 +237,7 @@ This section shows users how to create a virtual machine (VM) on VMware vCenter 
 
 ### Create VM flow
 
-- Open the [Azure portal](https://ms.portal.azure.com/)
+- Open the [Azure portal](https://portal.azure.com/)
 - On the **Home** page, search for **virtual machines**. Once you've navigated to **Virtual machines**, select the **+ Create** drop down and select **Azure VMware Solution virtual machine**.
     :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png" alt-text="Image showing the location of the plus Create drop down menu and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png"::: 
 
@@ -275,7 +275,7 @@ The guest management must be enabled on the VMware vSphere virtual machine (VM) 
 
 **Prerequisite**
 
-1. Navigate to [Azure portal](https://ms.portal.azure.com/).
+1. Navigate to [Azure portal](https://portal.azure.com/).
 1. Locate the VMware vSphere VM you want to check for guest management and install extensions on, select the name of the VM.
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** has been checked.

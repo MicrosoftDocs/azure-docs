@@ -4,7 +4,7 @@ description: A tutorial that shows you how to use a Windows VM system-assigned m
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory

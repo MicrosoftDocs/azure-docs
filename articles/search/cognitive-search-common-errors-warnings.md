@@ -7,6 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 06/23/2022
 ---
@@ -45,7 +46,7 @@ Indexer was unable to read the document from the data source. This can happen du
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Inconsistent field types across different documents | `Type of value has a mismatch with column type. Couldn't store '{47.6,-122.1}' in authors column.  Expected type is JArray.`  `Error converting data type nvarchar to float.`  `Conversion failed when converting the nvarchar value '12 months' to data type int.`  `Arithmetic overflow error converting expression to data type int.` | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
-| Errors from the data source's underlying service | From Cosmos DB: `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You may need to adjust your scaling/partitioning. |
+| Errors from the data source's underlying service | From Azure Cosmos DB: `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You might need to adjust your scaling or partitioning. |
 | Transient issues | `A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host` | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
 <a name="could-not-extract-document-content"></a>
@@ -320,7 +321,7 @@ The indexer ran the skill in the skillset, but the response from the Web API req
 
 ## `Warning: The current indexer configuration does not support incremental progress`
 
-This warning only occurs for Cosmos DB data sources.
+This warning only occurs for Azure Cosmos DB data sources.
 
 Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to re-index the entire collection from scratch. This is especially important when indexing large collections.
 
@@ -377,7 +378,7 @@ To work around this warning, determine what the text encoding for this blob is a
 
 <a name="cosmos-db-collection-has-a-lazy-indexing-policy"></a>
 
-## `Warning: Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost`
+## `Warning: Azure Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost`
 
 Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
 

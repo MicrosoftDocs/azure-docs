@@ -77,8 +77,8 @@ conceptualContent:
           text: Captioning with speech to text
           url: captioning-concepts.md
         - itemType: how-to-guide
-          text: Call center transcription
-          url: call-center-transcription.md
+          text: Call Center Overview
+          url: call-center-overview.md
         - itemType: overview
           text: Pronunciation assessment
           url: pronunciation-assessment-tool.md
@@ -121,10 +121,10 @@ conceptualContent:
       links:
         - itemType: quickstart
           text: Recognize speech, intents, and entities
-          url: get-started-intent-recognition.md
+          url: intent-recognition.md
         - itemType: how-to-guide
-          text: Recognize speech intents with LUIS and C#
-          url: how-to-recognize-intents-from-speech-csharp.md
+          text: Recognize speech intents with LUIS
+          url: get-started-intent-recognition.md
         - itemType: how-to-guide
           text: Recognize speech intents with simple pattern matching
           url: how-to-use-simple-language-pattern-matching.md
@@ -157,14 +157,8 @@ conceptualContent:
           text: Migrate to neural voice
           url: migration-overview-neural-voice.md
         - itemType: how-to-guide
-          text: Migrate to the v3.0 REST API
-          url: migrate-v2-to-v3.md
-        - itemType: how-to-guide
-          text: Migrate from the Translator Speech API
-          url: how-to-migrate-from-translator-speech-api.md
-        - itemType: how-to-guide
-          text: Migrate from Bing Speech
-          url: how-to-migrate-from-bing-speech.md
+          text: Migrate to the v3.1 REST API
+          url: migrate-v3-0-to-v3-1.md
 
 tools:
   title: Software development kits (SDKs)
@@ -209,7 +203,7 @@ additionalContent:
         - text: Regions
           url: regions.md
         - text: Learn
-          url: /learn/browse/?products=azure-cognitive-services&term=Speech
+          url: /training/browse/?products=azure-cognitive-services&term=Speech
       - title: Support
         links:
         - text: Support and help

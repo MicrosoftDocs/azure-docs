@@ -1,11 +1,11 @@
 ---
 title: Materialize data in Azure Cosmos DB using no code editor
-description: Learn how to use the no code editor in Stream Analytics to materialize data from Event Hubs to Cosmos DB.
+description: Learn how to use the no code editor in Stream Analytics to materialize data from Event Hubs to Azure Cosmos DB.
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022
+ms.custom: mvc, event-tier1-build-2022, ignite-2022
 ms.date: 05/12/2022
 ---
 # Materialize data in Azure Cosmos DB using the Stream Analytics no code editor
@@ -19,10 +19,10 @@ This article describes how you can use the no code editor to easily create a Str
 
 ## Develop a Stream Analytics job
 
-Use the following steps to develop a Stream Analytics job to materialize data in Cosmos DB.
+Use the following steps to develop a Stream Analytics job to materialize data in Azure Cosmos DB.
 
 1. In the Azure portal, locate and select your Azure Event Hubs instance.
-2.	Under **Features**, select **Process Data**. Then, select **Start** in the card titled **Materialize Data in Cosmos DB**.  
+2.	Under **Features**, select **Process Data**. Then, select **Start** in the card titled **Materialize Data in Azure Cosmos DB**.  
     :::image type="content" source="./media/no-code-materialize-cosmos-db/no-code-materialize-view-start.png" alt-text="Screenshot showing the Start Materialize Data Flow." lightbox="./media/no-code-materialize-cosmos-db/no-code-materialize-view-start.png" :::
 3.	Enter a name for your job and select **Create**.
 4.	Specify the **Serialization** type of your data in the event hub and the **Authentication method** that the job will use to connect to the Event Hubs. Then select **Connect**.
@@ -46,4 +46,4 @@ To start the job, you must specify:
 Now you know how to use the Stream Analytics no code editor to develop a job that reads from Event Hubs and calculates aggregates such as counts, averages and writes it to your Azure Cosmos DB resource.
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Monitor Stream Analytics jobs](stream-analytics-monitoring.md)
+* [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)

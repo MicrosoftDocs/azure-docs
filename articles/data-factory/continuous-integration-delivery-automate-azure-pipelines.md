@@ -138,13 +138,19 @@ Deployment can fail if you try to update active triggers. To update active trigg
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
-
+    
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
 You can complete similar steps (with the `Start-AzDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
 The data factory team has provided a [sample pre- and post-deployment script](continuous-integration-delivery-sample-script.md). 
+
+> [!NOTE]
+> Use the [PrePostDeploymentScript.Ver2.ps1](https://github.com/Azure/Azure-DataFactory/blob/main/SamplesV2/ContinuousIntegrationAndDelivery/PrePostDeploymentScript.Ver2.ps1) if you would like to turn off/ on only the triggers that have been modified instead of turning all triggers off/ on during CI/CD.
+
+>[!WARNING]
+>Make sure to use **PowerShell Core** in ADO task to run the script
 
 ## Next steps
 

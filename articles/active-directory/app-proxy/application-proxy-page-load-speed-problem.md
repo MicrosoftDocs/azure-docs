@@ -3,7 +3,7 @@ title: An Azure Active Directory Application Proxy application takes too long to
 description: Troubleshoot page load performance issues with Azure Active Directory Application Proxy
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

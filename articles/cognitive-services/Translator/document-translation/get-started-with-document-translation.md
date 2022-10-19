@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/23/2022
+ms.date: 09/20/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
@@ -22,7 +22,7 @@ ms.custom: mode-other
 
 > [!NOTE]
 >
-> * Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
+> * Typically, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
 > * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
@@ -118,7 +118,7 @@ A batch Document Translation request is submitted to your Translator service end
 
 ### HTTP headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|
@@ -195,7 +195,7 @@ The following headers are included with each Document Translator API request:
     "inputs": [
         {
             "source": {
-                "sourceUrl": "https://myblob.blob.core.windows.net/source",
+                "sourceUrl": "https://myblob.blob.core.windows.net/source"
              },
             "targets": [
                 {
@@ -310,7 +310,7 @@ gradle run
 
 > [!IMPORTANT]
 >
-> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  See [Azure Cognitive Services security](../../cognitive-services-security.md?tabs=command-line%2ccsharp) for ways to securely store and access your credentials.
+> For the code samples below, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Managed Identity](managed-identity.md). See the Azure Storage [security](../../../storage/common/authorize-data-access.md) article for more information.
 >
 > You may need to update the following fields, depending upon the operation:
 >>>
@@ -454,7 +454,6 @@ payload= {
                 "sourceUrl": "https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS",
                 "storageSource": "AzureBlob",
                 "language": "en"
-                }
             },
             "targets": [
                 {

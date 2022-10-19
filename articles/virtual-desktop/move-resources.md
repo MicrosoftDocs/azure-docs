@@ -11,6 +11,11 @@ manager: femila
 
 In this article, we'll tell you how to move Azure Virtual Desktop resources between Azure regions.
 
+>[!NOTE]
+>This process doesn't perform an actual resource move. Instead, you delete the old resources and recreate them in the region you want to move the resources to. We recommend you test this process before using it on production workloads to understand how it will impact your deployment.
+>
+> The information in this article applies to all Azure Virtual Desktop resources, including host pools, application groups, scaling plans, and workspaces.
+
 ## Important information
 
 When you move Azure Virtual Desktop resources between regions, these are some things you should keep in mind:
@@ -19,9 +24,11 @@ When you move Azure Virtual Desktop resources between regions, these are some th
 
 - Workspaces and their associated app groups also need to be in the same region.
 
+- Scaling plans and the host pools they are assigned to also need to be in the same region.
+
 - All resources to be moved have to be in the same resource group. Template exports require having resources in the same group, so if you want them to be in a different location, you'll need to modify the exported template to change the location of its resources.
 
-- Once you're done moving your resources to a new region, you must delete the original resources. The resource ID of our resources won't change during the moving process, so there will be a name conflict with your old resources if you don't delete them.
+- Once you're done moving your resources to a new region, you must delete the original resources. The resource ID of your resources won't change during the moving process, so there will be a name conflict with your old resources if you don't delete them.
 
 - Existing session hosts attached to a host pool that you move will stop working. You'll need to recreate the session hosts in the new region.
 
@@ -51,7 +58,7 @@ To modify the template you exported:
 
 2. In each resource inside the template file, find the "location" property and modify it to the location you want to move them to. For example, if your deployment's currently in the East US region but you want to move it to the West US region, you'd change the "eastus" location to "westus." Learn more about which Azure regions you can use at [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
 
-3. For each host pool, remove the "publicNetworkAccess" parameter, if present.
+3. If you are moving a host pool, remove the "publicNetworkAccess" parameter, if present.
 
 ## Delete original resources
 

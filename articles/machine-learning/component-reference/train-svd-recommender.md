@@ -68,7 +68,7 @@ From this sample, you can see that a single user has rated several movies.
 
 ## Results
 
-After pipeline run is completed, to use the model for scoring, connect the [Train SVD Recommender](train-svd-recommender.md) to [Score SVD Recommender](score-svd-recommender.md), to predict values for new input examples.
+After pipeline job is completed, to use the model for scoring, connect the [Train SVD Recommender](train-svd-recommender.md) to [Score SVD Recommender](score-svd-recommender.md), to predict values for new input examples.
 
 ## Next steps
 

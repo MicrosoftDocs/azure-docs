@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 02/09/2022
+ms.date: 07/20/2022
 ---
 
 # Optimizing performance of the Azure Integration Runtime
@@ -16,6 +16,8 @@ ms.date: 02/09/2022
 Data flows run on Spark clusters that are spun up at run-time. The configuration for the cluster used is defined in the integration runtime (IR) of the activity. There are three performance considerations to make when defining your integration runtime: cluster type, cluster size, and time to live.
 
 For more information how to create an Integration Runtime, see [Integration Runtime](concepts-integration-runtime.md).
+
+The easiest way to get started with data flow integration runtimes is to choose small, medium, or large from the compute size picker. See the mappings to cluster configurations for those sizes below.
 
 ## Cluster type
 
@@ -29,15 +31,15 @@ If your data flow has many joins and lookups, you may want to use a **memory opt
 
 Data flows distribute the data processing over different nodes in a Spark cluster to perform operations in parallel. A Spark cluster with more cores increases the number of nodes in the compute environment. More nodes increase the processing power of the data flow. Increasing the size of the cluster is often an easy way to reduce the processing time.
 
-The default cluster size is four driver nodes and four worker nodes.  As you process more data, larger clusters are recommended. Below are the possible sizing options:
+The default cluster size is four driver nodes and four worker nodes (small).  As you process more data, larger clusters are recommended. Below are the possible sizing options:
 
 | Worker cores | Driver cores | Total cores | Notes |
 | ------------ | ------------ | ----------- | ----- |
-| 4 | 4 | 8 | |
-| 8 | 8 | 16 | |
+| 4 | 4 | 8 | Small |
+| 8 | 8 | 16 | Medium |
 | 16 | 16 | 32 | |
 | 32 | 16 | 48 | |
-| 64 | 16 | 80 | |
+| 64 | 16 | 80 | Large |
 | 128 | 16 | 144 | |
 | 256 | 16 | 272 | |
 

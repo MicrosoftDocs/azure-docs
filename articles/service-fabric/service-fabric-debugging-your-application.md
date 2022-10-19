@@ -1,10 +1,14 @@
 ---
 title: Debug your application in Visual Studio 
 description: Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster.
-ms.topic: conceptual
-ms.date: 05/02/2022
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Debug your Service Fabric application by using Visual Studio
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 

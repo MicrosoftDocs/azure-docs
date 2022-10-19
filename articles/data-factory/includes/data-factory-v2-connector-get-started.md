@@ -11,7 +11,7 @@ ms.author: jianleishen
 
 To perform the Copy activity with a pipeline, you can use one of the following tools or SDKs:
 
-- [The Copy Data tool](../quickstart-create-data-factory-copy-data-tool.md)
+- [The Copy Data tool](../quickstart-hello-world-copy-data-tool.md)
 - [The Azure portal](../quickstart-create-data-factory-portal.md)
 - [The .NET SDK](../quickstart-create-data-factory-dot-net.md)
 - [The Python SDK](../quickstart-create-data-factory-python.md)

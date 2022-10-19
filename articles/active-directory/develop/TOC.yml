@@ -123,7 +123,7 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
-            - name: Use directory schema extension attributes in claims
+            - name: Use directory extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
               href: active-directory-saml-claims-customization.md
@@ -133,6 +133,9 @@
               href: configure-token-lifetimes.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
+            - name: SAML app multi-instancing
+              displayName: Configure SAML app multi-instancing for an application
+              href: reference-app-multi-instancing.md
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari
@@ -143,10 +146,10 @@
       items:
         - name: Workload identity federation
           href: workload-identity-federation.md
-        - name: Trust an external identity provider (federation)
+        - name: Configure an app to trust an external identity provider
           href: workload-identity-federation-create-trust.md
-        - name: Configure an app to trust a GitHub repo
-          href: workload-identity-federation-create-trust-github.md
+        - name: Configure a managed identity to trust an external identity provider
+          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
@@ -328,6 +331,8 @@
           href: tutorial-blazor-server.md
         - name: Node.js
           href: tutorial-v2-nodejs-webapp-msal.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Secure web app accesses storage and Microsoft Graph
           items:
             - name: Overview
@@ -416,6 +421,8 @@
       items:
         - name: Scopes for web API accepting v1.0 tokens
           href: msal-v1-app-scopes.md
+        - name: Spring Cloud Azure
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support
 - name: Desktop
   items:
     - name: Desktop app authentication documentation
@@ -778,6 +785,8 @@
               href: active-directory-signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md
+            - name: Federated identity credentials considerations and limitations
+              href: workload-identity-federation-considerations.md
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol

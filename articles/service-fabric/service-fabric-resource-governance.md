@@ -1,9 +1,12 @@
 ---
 title: Resource governance for containers and services 
 description: Azure Service Fabric allows you to specify resource requests and limits for services running as processes or containers.
-
 ms.topic: conceptual
-ms.date: 8/9/2017
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Resource governance
@@ -63,7 +66,7 @@ Let's now revisit our example with a **RequestsAndLimits** specification. This t
   1. First the container based service package is placed on the node. The runtime activates the container and sets the CPU limit to two cores. The container won't be able to use more than two cores.
   2. Next, the process based service package is placed on the node. The runtime activates the service process and sets its CPU limit to one core.
 
-  At this point, the sum of CPU requests of service packages that are placed on the node is equal to the CPU capacity of the node. CRM will not place any more containers or service processes with CPU requests on this node. However, on the node, the sum of limits (two cores for the container + one core for the process) exceeds the capacity of two cores. If the container and the process burst at the same time, there is possibility of contention for the CPU resource. Such contention will be manged by the underlying OS for the platform. For this example, the container could burst up to two CPU cores, resulting in the process's request of one CPU core not being guaranteed.
+  At this point, the sum of CPU requests of service packages that are placed on the node is equal to the CPU capacity of the node. CRM will not place any more containers or service processes with CPU requests on this node. However, on the node, the sum of limits (two cores for the container + one core for the process) exceeds the capacity of two cores. If the container and the process burst at the same time, there is possibility of contention for the CPU resource. Such contention will be managed by the underlying OS for the platform. For this example, the container could burst up to two CPU cores, resulting in the process's request of one CPU core not being guaranteed.
 
 > [!NOTE]
 > As illustrated in the previous example, the request values for CPU and memory **do not lead to reservation of resources on a node**. These values represent the resource consumption that the Cluster Resource Manager considers when making placement decisions. Limit values represent the actual resource limits applied when a process or a container is activated on a node.

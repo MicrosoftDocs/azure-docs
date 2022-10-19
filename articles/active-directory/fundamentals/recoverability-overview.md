@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 08/26/2022
 ms.author: jricketts
 ms.reviewer: baselden
 ms.custom: "it-pro, seodec18"
@@ -160,12 +160,14 @@ The Audit log always records a "Delete \<object\>" event when an object in the t
 
 :::image type="content" source="media/recoverability/deletions-audit-log.png" alt-text="Screenshot that shows Audit log detail." lightbox="media/recoverability/deletions-audit-log.png":::
 
-A Delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type, it's a hard delete.
+A Delete event for applications, service principals, users, and Microsoft 365 Groups is a soft delete. For any other object type, it's a hard delete.
 
 | Object type | Activity in log| Result |
 | - | - | - |
-| Application| Delete application| Soft deleted |
-| Application| Hard delete application| Hard deleted |
+| Application| Delete application and service principal| Soft deleted |
+| Application| Hard delete application | Hard deleted |
+| Service principal| Delete service principal| Soft deleted |
+| Service principal| Hard delete service principal| Hard deleted |
 | User| Delete user| Soft deleted |
 | User| Hard delete user| Hard deleted |
 | Microsoft 365 Groups| Delete group| Soft deleted |

@@ -45,7 +45,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Alcala Consulting Inc.](https://www.alcalaconsulting.com/)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
-|[Amalgama Technologies Inc](http://amalgamatetech.com/)|
+|Amalgama Technologies Inc|
 |[Ambonare](https://redriver.com/press-release/austinacquisition)|
 |[American Technology Services LLC](https://networkats.com/)|
 |[Anautics](https://anautics.com)|
@@ -102,7 +102,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Clients First Business Solutions LLC](https://www.clientsfirst-us.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
-|[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
+|[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com)|
 |[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
@@ -143,7 +143,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
-|[Diamond Capture Associates LLC]|
+|Diamond Capture Associates LLC|
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
@@ -172,7 +172,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
 |[Executive Information Systems, LLC](https://www.execinfosys.com)|
 |[FI Consulting](https://www.ficonsulting.com/)|
-|[Firstworld USA DBA Terminal](https://www.terminal.com/)|
+|Firstworld USA DBA Terminal|
 |[FCN, Inc.](https://fcnit.com)|
 |[Federal Resources Corporation FRC](https://fedresources.com/)|
 |[FMT Consultants](https://www.fmtconsultants.com/)|
@@ -197,7 +197,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[GRS Technology Solutions](https://www.grstechnologysolutions.com)|
 |[Hanu Software Solutions Inc.](https://www.hanusoftware.com/hanu/#contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
-|[Harborgrid Inc.](https://www.harborgrid.com)|
+|Harborgrid Inc.|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
 |[Heartland Business Systems LLC](https://www.hbs.net/home)|
@@ -237,7 +237,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ITInfra](https://itinfra.biz/)|
 |[ITsavvy](https://www.itsavvy.com)|
 |[IV4, Inc](https://www.iv4.com)|
-|[J and C Landwehr LLC](https://jandclandwehr.com/)|
+|J and C Landwehr LLC|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
@@ -295,8 +295,9 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Nihilent Inc](https://nihilent.com)|
 |[Nimbus Logic LLC](https://www.nimbus-logic.com)|
 |[Norseman, Inc](https://www.norseman.com)|
+|[Nortec](https://www.nortec.com)|
 |[Northrop Grumman](https://www.northropgrumman.com)|
-|[NTS Cloud](http://ntscloud.com/ )|
+|[NTS Cloud](http://ntscloud.com/)|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
@@ -542,7 +543,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[General Dynamics Information Technology](https://www.gdit.com)|
 |[Golden Five LLC](https://www.goldenfiveconsulting.com/)|
 |[Hypori, Inc.](https://hypori.com/)|
-|[Imager Software, Inc dba ISC]|
+|Imager Software, Inc dba ISC|
 |[Impact Networking, LLC](https://www.impactmybiz.com/)|
 |[IBM Corp.](https://www.ibm.com/industries/government)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|

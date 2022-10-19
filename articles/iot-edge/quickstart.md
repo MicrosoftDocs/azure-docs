@@ -5,7 +5,7 @@ author: PatAltimore
 manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 01/25/2022
+ms.date: 07/05/2022
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own Windows Client device to see how easy it is to use Azure IoT Edge for Linux on Windows. If you wish to use Windows Server or an Azure VM to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md).
 
@@ -130,7 +130,7 @@ Run the following PowerShell commands on the target device where you want to dep
    :::moniker-end
    <!-- end 1.1 -->
 
-   <!-- 1.2 -->
+   <!-- iotedge-2020-11 -->
    :::moniker range=">=iotedge-2020-11"
       * **X64/AMD64**
          ```powershell
@@ -146,7 +146,7 @@ Run the following PowerShell commands on the target device where you want to dep
          Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
          ```
    :::moniker-end
-   <!-- end 1.2 -->
+   <!-- end iotedge-2020-11 -->
 
 1. Install IoT Edge for Linux on Windows on your device.
 
@@ -206,7 +206,7 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
 
-1. From the menu on the left, under **Device Management**, select **IoT Edge**.
+1. From the menu on the left, select **Devices** under the **Device management** menu.
 
 1. Select the device ID of the target device from the list of devices.
 

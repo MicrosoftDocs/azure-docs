@@ -3,14 +3,14 @@ title: Add users to a dynamic group - tutorial - Azure AD | Microsoft Docs
 description: In this tutorial, you use groups with user membership rules to add or remove users automatically
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 #Customer intent: As a new Azure AD identity administrator, I want to automatically add or remove users, so I don't have to manually do it."

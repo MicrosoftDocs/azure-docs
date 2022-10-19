@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to deploy Bicep files by using Gi
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 08/22/2022
 ms.custom: github-actions-azure
 ---
 
@@ -14,7 +14,7 @@ ms.custom: github-actions-azure
 
 In this quickstart, you use the [GitHub Actions for Azure Resource Manager deployment](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
 
-It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Learning path: Deploy Azure resources by using Bicep and GitHub Actions](/learn/paths/bicep-github-actions).
+It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Deploy Azure resources by using Bicep and GitHub Actions](/training/paths/bicep-github-actions).
 
 ## Prerequisites
 
@@ -59,29 +59,29 @@ The output is a JSON object with the role assignment credentials that provide ac
 # [Open ID Connect](#tab/openid)
 
 
-Open ID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
+Open ID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security.
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application. 
+1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application.
 
     ```azurecli-interactive
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
+    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later.
 
     You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output.
 
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
-    
-    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
+    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`.
+
+    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later.
 
     ```azurecli-interactive
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/
@@ -95,13 +95,13 @@ Open ID Connect is an authentication method that uses short-lived tokens. Settin
       * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
       * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
       * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
-    
+
     ```azurecli
-    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+    az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}'
     ```
-    
+
     To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
-    
+
 ---
 ## Configure the GitHub secrets
 
@@ -186,10 +186,10 @@ To create a workflow, take the following steps:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./main.bicep
-            parameters: storagePrefix=mystore
+            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
             failOnStdErr: false
     ```
-    
+
     Replace `mystore` with your own storage account name prefix.
 
     > [!NOTE]
@@ -199,12 +199,15 @@ To create a workflow, take the following steps:
 
     - **name**: The name of the workflow.
     - **on**: The name of the GitHub events that triggers the workflow. The workflow is triggered when there's a push event on the main branch.
-    
+
     # [OpenID Connect](#tab/openid)
-    
+
     ```yml
     on: [push]
     name: Azure ARM
+    permissions:
+      id-token: write
+      contents: read
     jobs:
       build-and-deploy:
         runs-on: ubuntu-latest
@@ -227,7 +230,7 @@ To create a workflow, take the following steps:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./main.bicep
-            parameters: storagePrefix=mystore
+            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
             failOnStdErr: false
     ```
 

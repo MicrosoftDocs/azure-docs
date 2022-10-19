@@ -12,6 +12,8 @@ ms.custom: template-how-to
 
 # On-demand Capacity Reservation 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale set :heavy_check_mark: Flexible scale sets
+
 On-demand Capacity Reservation enables you to reserve Compute capacity in an Azure region or an Availability Zone for any duration of time. Unlike [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/), you do not have to sign up for a 1-year or a 3-year term commitment. Create and delete reservations at any time and have full control over how you want to manage your reservations.  
 
 Once the Capacity Reservation is created, the capacity is available immediately and is exclusively reserved for your use until the reservation is deleted.  
@@ -141,13 +143,13 @@ Track the state of the overall reservation through the following properties:
 - `virtualMachinesAllocated` = List of VMs allocated against the Capacity Reservation and count towards consuming the capacity. These VMs are either *Running*, *Stopped* (*Allocated*), or in a transitional state such as *Starting* or *Stopping*. This list doesn’t include the VMs that are in deallocated state, referred to as *Stopped* (*deallocated*). 
 - `virtualMachinesAssociated` = List of VMs associated with the Capacity Reservation. This list has all the VMs that have been configured to use the reservation, including the ones that are in deallocated state.  
 
-The previous example will start with `capacity` as 2 and length of `virutalMachinesAllocated` and `virtualMachinesAssociated` as 0.  
+The previous example will start with `capacity` as 2 and length of `virtualMachinesAllocated` and `virtualMachinesAssociated` as 0.  
 
 When a VM is then allocated against the Capacity Reservation, it will logically consume one of the reserved capacity instances: 
 
 ![Capacity Reservation image 2.](./media/capacity-reservation-overview/capacity-reservation-2.jpg) 
 
-The status of the Capacity Reservation will now show `capacity` as 2 and length of `virutalMachinesAllocated` and `virtualMachinesAssociated` as 1.  
+The status of the Capacity Reservation will now show `capacity` as 2 and length of `virtualMachinesAllocated` and `virtualMachinesAssociated` as 1.  
 
 Allocations against the Capacity Reservation will succeed as along as the VMs have matching properties and there is at least one empty capacity instance.  
 
@@ -155,7 +157,7 @@ Using our example, when a third VM is allocated against the Capacity Reservation
 
 ![Capacity Reservation image 3.](./media/capacity-reservation-overview/capacity-reservation-3.jpg) 
 
-The `capacity` is 2 and the length of `virutalMachinesAllocated` and `virtualMachinesAssociated` is 3. 
+The `capacity` is 2 and the length of `virtualMachinesAllocated` and `virtualMachinesAssociated` is 3. 
 
 Now suppose the application scales down to the minimum of two VMs. Since VM 0 needs an update, it is chosen for deallocation. The reservation automatically shifts to this state: 
 
@@ -216,7 +218,12 @@ In the previous image, the VM Reserved Instance discount is applied to VM 0, whi
 
 ## Next steps
 
-Create a Capacity Reservation and start reserving Compute capacity in an Azure region or an Availability Zone. 
-
-> [!div class="nextstepaction"]
-> [Create a Capacity Reservation](capacity-reservation-create.md)
+Get started reserving Compute capacity. Check out our other related Capacity Reservation articles: 
+- [Create a capacity reservation](capacity-reservation-create.md)
+- [Overallocating capacity reservation](capacity-reservation-overallocate.md)
+- [Modify a capacity reservation](capacity-reservation-modify.md)
+- [Associate a VM](capacity-reservation-associate-vm.md)
+- [Remove a VM](capacity-reservation-remove-vm.md)
+- [Associate a VM scale set - Flexible](capacity-reservation-associate-virtual-machine-scale-set-flex.md)
+- [Associate a VM scale set - Uniform](capacity-reservation-associate-virtual-machine-scale-set.md)
+- [Remove a VM scale set](capacity-reservation-remove-virtual-machine-scale-set.md)

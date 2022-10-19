@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/24/2022
+ms.date: 06/14/2022
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: template-how-to , devx-track-azurecli 
@@ -16,32 +16,34 @@ ms.devlang: azurecli
 
 # Share gallery resources
 
-There are two main ways to share images in an Azure Compute Gallery:
+As the Azure Compute Gallery, definition, and version are all resources, they can be shared using the built-in native Azure Roles-based Access Control (RBAC) roles. Using Azure RBAC roles you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access, they can use the gallery resources to deploy a VM or a Virtual Machine Scale Set.  Here's the sharing matrix that helps understand what the user gets access to:
 
-- Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level.
-- Community gallery lets you share your entire gallery publicly, to all Azure users.
+| Shared with User     | Azure Compute Gallery | Image Definition | Image version |
+|----------------------|----------------------|--------------|----------------------|
+| Azure Compute Gallery | Yes                  | Yes          | Yes                  |
+| Image Definition     | No                   | Yes          | Yes                  |
 
-> [!IMPORTANT]
-> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
+We recommend sharing at the Gallery level for the best experience. We don't recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
-## RBAC
+There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-The Azure Compute Gallery, definitions, and versions are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image or application version, they can deploy a VM or a Virtual Machine Scale Set.  
+| Share with\: | Option |
+|----|----|
+| Specific people, groups, or service principals (described in this article) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
+| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery lets you share to everyone in a subscription or tenant. |
+| [Everyone](./share-gallery-community.md) | Community gallery lets you share your entire gallery publicly, to all Azure users. |
 
-We recommend sharing at the gallery level for the best experience and prevent management overhead. We do not recommend sharing individual image or application versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
-If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
+## Share using RBAC
 
 ### [Portal](#tab/portal)
-
-If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the definitions and versions in their list of resources.
 
 1. On the page for your gallery, in the menu on the left, select **Access control (IAM)**. 
 1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
 1. Under **Role**, select **Reader**.
 1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
 1. Under **Select**, type in the email address of the person that you would like to invite.
-1. If the user is outside of your organization, you will see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
+1. If the user is outside of your organization, you'll see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
 
 
 ### [CLI](#tab/cli)
@@ -85,28 +87,10 @@ New-AzRoleAssignment `
 
 ---
 
-<a name=community></a>
-## Community gallery (preview)
-
-To share a gallery with all Azure users, you can [create a community gallery (preview)](create-gallery.md#community). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
-
-> [!IMPORTANT]
-> Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
-> 
-> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
-
-To learn more, see [Community gallery (preview) overview](azure-compute-gallery.md#community) and [Create a community gallery](create-gallery.md#community).
-
-
 
 ## Next steps
 
-Create an [image definition and an image version](image-version.md).
+- Create an [image definition and an image version](image-version.md).
+- Create a VM from a [generalized](vm-generalized-image-version.md#create-a-vm-from-your-gallery) or [specialized](vm-specialized-image-version.md#create-a-vm-from-your-gallery) private gallery.
 
-You can also create Azure Compute Gallery resources using templates. There are several quickstart templates available:
 
-- [Create an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in an Azure Compute Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

@@ -9,6 +9,8 @@
   items:
   - name: Deploy Bastion with default settings
     href: quickstart-host-portal.md
+  - name: Deploy Bastion - ARM template
+    href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
   - name: Deploy Bastion with manual settings

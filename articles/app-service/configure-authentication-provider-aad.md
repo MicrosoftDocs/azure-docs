@@ -67,7 +67,7 @@ To register the app, perform the following steps:
 1. (Optional) Select **Branding**. In **Home page URL**, enter the URL of your App Service app and select **Save**.
 1. Select **Expose an API**, and click **Set** next to "Application ID URI". This value uniquely identifies the application when it is used as a resource, allowing tokens to be requested that grant access. It is used as a prefix for scopes you create.
 
-    For a single-tenant app, you can use the default value, which is in the form the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multi-tenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
+    For a single-tenant app, you can use the default value, which is in the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multi-tenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
 
     The value is automatically saved.
 
@@ -149,6 +149,9 @@ At present, this allows _any_ client application in your Azure AD tenant to requ
 1. Within the target App Service or Function app code, you can now validate that the expected roles are present in the token (this is not performed by App Service Authentication / Authorization). For more information, see [Access user claims](configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 You have now configured a daemon client application that can access your App Service app using its own identity.
+
+> [!NOTE]
+> The access tokens provided to your app via EasyAuth do not have scopes for other APIs, such as Graph, even if your application has permissions to access those APIs. To use these APIs, you will need to use Azure Resource Manager to configure the token returned so it can be used to authenticate to other services. For more information, see [Tutorial: Access Microsoft Graph from a secured .NET app as the user](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=azure-resource-explorer) .
 
 ## Best practices
 

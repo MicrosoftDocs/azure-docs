@@ -98,6 +98,7 @@ These profiles support the following compression encodings:
 
 If a request supports gzip and Brotli compression, Brotli compression takes precedence.</br>
 When a request for an asset specifies compression and the request results in a cache miss, Azure Front Door (classic) does compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache. The resulting item is returned with a transfer-encoding: chunked.
+If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door POP, then response sizes greater than 8 MB aren't supported.
 
 ::: zone-end
 
@@ -168,7 +169,15 @@ Cache-Control response headers that indicate that the response won't be cached s
 The following request headers won't be forwarded to a backend when using caching.
 - Content-Length
 - Transfer-Encoding
+- Accept
+- Accept-Charset
 - Accept-Language
+
+## Response headers
+
+The following response headers will be stripped if the origin response is cacheable. For example, Cache control header has max-age value.
+
+- Set-Cookie
 
 ## Cache behavior and duration
 
@@ -185,7 +194,7 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 
 > [!NOTE]
 > * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content is not frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your backends are offline.
-> * Origins may specify not to cache specific responses using the Cache-Control header with a value of no-cache, private, or no-store. In these circumstances, Front Door will never cache the content and this action will have no effect.
+> * Origins may specify not to cache specific responses using the Cache-Control header with a value of no-cache, private, or no-store. When used in an HTTP response from the origin server to the Azure Front Door POPs, Azure Front Door supports Cache-control directives and honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://www.rfc-editor.org/rfc/rfc7234#section-5.2.2.8). 
 
 ::: zone-end
 

@@ -71,11 +71,11 @@ https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cogn
 ```
 `9f4ffa5113a846eba289aa98b28e766f` will be your Session ID.
 
-## Getting Transcription ID for Batch transcription. (REST API v3.0).
+## Getting Transcription ID for Batch transcription
 
-[Batch transcription](batch-transcription.md) uses [Speech-to-text REST API v3.0](rest-speech-to-text.md). 
+[Batch transcription](batch-transcription.md) uses [Speech-to-text REST API](rest-speech-to-text.md). 
 
-The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [Create Transcription](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription).
+The required Transcription ID is the GUID value contained in the main `self` element of the Response body returned by requests, like [CreateTranscription](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription).
 
 The example below is the Response body of a `Create Transcription` request. GUID value `537216f8-0620-4a10-ae2d-00bdb423b36f` found in the first `self` element is the Transcription ID.
 
@@ -106,7 +106,7 @@ The example below is the Response body of a `Create Transcription` request. GUID
 }
 ```
 > [!NOTE]
-> Use the same technique to determine different IDs required for debugging issues related to [Custom Speech](custom-speech-overview.md), like uploading a dataset using [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
+> Use the same technique to determine different IDs required for debugging issues related to [Custom Speech](custom-speech-overview.md), like uploading a dataset using [CreateDataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 
 > [!NOTE]
-> You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [Get Transcriptions](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) request.
+> You can also see all existing transcriptions and their Transcription IDs for a given Speech resource by using [GetTranscriptions](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) request.

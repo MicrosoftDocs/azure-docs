@@ -42,6 +42,11 @@ sections:
           All regions support scale sets.
 
       - question: |
+          Which SKUs are supported for virtual machine scale sets?
+        answer: |
+          All SKUs are supported for virtual machine scale sets.
+
+      - question: |
           How do I create a scale set by using a custom image?
         answer: |
           Create and capture a VM image, and then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md).
@@ -739,7 +744,7 @@ sections:
       - question: |
           How do I troubleshoot other issues?
         answer: |
-          Visit [Troubleshooting common issue with virtual machine scale sets](https://docs.microsoft.com/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
+          Visit [Troubleshooting common issue with virtual machine scale sets](/troubleshoot/azure/virtual-machine-scale-sets/welcome-virtual-machine-scale-sets) page.
 
   - name: Virtual machine properties
     questions:

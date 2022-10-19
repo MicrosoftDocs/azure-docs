@@ -133,7 +133,7 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
 ### Headers
 
-The following headers are included with each Document Translator API request:
+The following headers are included with each Document Translation API request:
 
 |HTTP header|Description|
 |---|--|

@@ -97,6 +97,7 @@ Get the resource ID of your container registry. Substitute the name of your regi
 ```azurecli
 registryId=$(az acr show \
   --name <registry-name> \
+  --resource-group <resource-group-name> \
   --query id --output tsv)
 ```
 

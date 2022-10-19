@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: overview
-ms.date: 04/29/2022
+ms.date: 09/06/2022
 ms.author: jricketts
 ms.custom:
   - it-pro
@@ -41,7 +41,7 @@ As you audit your current security operations or establish security operations f
 
 ### Audience
 
-The Azure AD SecOps Guide is intended for enterprise IT identity and security operations teams and managed service providers that need to counter threats through better identity security configuration and monitoring profiles. This guide is especially relevant for IT administrators and identity architects advising Security Operations Center (SOC) defensive and penetration testing teams to improve and maintain their identity security posture. 
+The Azure AD SecOps Guide is intended for enterprise IT identity and security operations teams and managed service providers that need to counter threats through better identity security configuration and monitoring profiles. This guide is especially relevant for IT administrators and identity architects advising Security Operations Center (SOC) defensive and penetration testing teams to improve and maintain their identity security posture.
 
 ### Scope
 
@@ -103,15 +103,17 @@ The log files you use for investigation and monitoring are:
 
 From the Azure portal, you can view the Azure AD Audit logs. Download logs as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* **[Microsoft Sentinel](../../sentinel/overview.md)**. Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
+* **[Microsoft Sentinel](../../sentinel/overview.md)** - Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
-* **[Azure Monitor](../../azure-monitor/overview.md)**. Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
+* **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we have added a link to the Sigma repo. The Sigma templates are not written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
+
+* **[Azure Monitor](../../azure-monitor/overview.md)** - Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Azure AD logs can be integrated to other SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)**. Enables you to discover and manage apps, govern across apps and resources, and check the compliance of your cloud apps.
+* **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** - Enables you to discover and manage apps, govern across apps and resources, and check the compliance of your cloud apps.
 
-* **[Securing workload identities with Identity Protection Preview](../identity-protection/concept-workload-identity-risk.md)**. Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
+* **[Securing workload identities with Identity Protection Preview](../identity-protection/concept-workload-identity-risk.md)** - Used to detect risk on workload identities across sign-in behavior and offline indicators of compromise.
 
 Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the Conditional Access insights and reporting workbook to examine the effects of one or more Conditional Access policies on your sign-ins and the results of policies, including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. For more information, see [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
 
@@ -143,76 +145,82 @@ If you don't plan to use Microsoft Defender for Identity, monitor your domain co
 
 As part of an Azure hybrid environment, the following items should be baselined and included in your monitoring and alerting strategy.
 
-* **PTA Agent**. The pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Azure AD Pass-through Authentication agent: Version release history](../hybrid/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps.
+* **PTA Agent** - The pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Azure AD Pass-through Authentication agent: Version release history](../hybrid/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps.
 
-* **AD FS/WAP**. Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+* **AD FS/WAP** - Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
 
-* **Azure AD Connect Health Agent**. The agent used to provide a communications link for Azure AD Connect Health. For information on installing the agent, see [Azure AD Connect Health agent installation](../hybrid/how-to-connect-health-agent-install.md).
+* **Azure AD Connect Health Agent** - The agent used to provide a communications link for Azure AD Connect Health. For information on installing the agent, see [Azure AD Connect Health agent installation](../hybrid/how-to-connect-health-agent-install.md).
 
-* **Azure AD Connect Sync Engine**. The on-premises component, also called the sync engine. For information on the feature, see [Azure AD Connect sync service features](../hybrid/how-to-connect-syncservice-features.md).
+* **Azure AD Connect Sync Engine** - The on-premises component, also called the sync engine. For information on the feature, see [Azure AD Connect sync service features](../hybrid/how-to-connect-syncservice-features.md).
 
-* **Password Protection DC agent**. Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
+* **Password Protection DC agent** - Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
 
-* **Password Filter DLL**. The password filter DLL of the DC Agent receives user password-validation requests from the operating system. The filter forwards them to the DC Agent service that's running locally on the DC. For information on using the DLL, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
+* **Password Filter DLL** - The password filter DLL of the DC Agent receives user password-validation requests from the operating system. The filter forwards them to the DC Agent service that's running locally on the DC. For information on using the DLL, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
 
-* **Password writeback Agent**. Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time. For more information on this feature, see [How does self-service password reset writeback work in Azure Active Directory](../authentication/concept-sspr-writeback.md).
+* **Password writeback Agent** - Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time. For more information on this feature, see [How does self-service password reset writeback work in Azure Active Directory](../authentication/concept-sspr-writeback.md).
 
-* **Azure AD Application Proxy Connector**. Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Azure ADF Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
+* **Azure AD Application Proxy Connector** - Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Azure ADF Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
 
 ## Components of cloud-based authentication
 
 As part of an Azure cloud-based environment, the following items should be baselined and included in your monitoring and alerting strategy.
 
-* **Azure AD Application Proxy**. This cloud service provides secure remote access to on-premises web applications. For more information, see [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy-connectors.md).
+* **Azure AD Application Proxy** - This cloud service provides secure remote access to on-premises web applications. For more information, see [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy-connectors.md).
 
-* **Azure AD Connect**. Services used for an Azure AD Connect solution. For more information, see [What is Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
+* **Azure AD Connect** - Services used for an Azure AD Connect solution. For more information, see [What is Azure AD Connect](../hybrid/whatis-azure-ad-connect.md).
 
-* **Azure AD Connect Health**. Service Health provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. For more information, see [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md).
+* **Azure AD Connect Health** - Service Health provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. For more information, see [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md).
 
-* **Azure AD multifactor authentication**. Multifactor authentication requires a user to provide more than one form of proof for authentication. This approach can provide a proactive first step to securing your environment. For more information, see [Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md).
+* **Azure AD multifactor authentication** - Multifactor authentication requires a user to provide more than one form of proof for authentication. This approach can provide a proactive first step to securing your environment. For more information, see [Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md).
 
-* **Dynamic groups**. Dynamic configuration of security group membership for Azure AD Administrators can set rules to populate groups that are created in Azure AD based on user attributes. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](../external-identities/use-dynamic-groups.md).
+* **Dynamic groups** - Dynamic configuration of security group membership for Azure AD Administrators can set rules to populate groups that are created in Azure AD based on user attributes. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](../external-identities/use-dynamic-groups.md).
 
-* **Conditional Access**. Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. For more information, see [What is Conditional Access](../conditional-access/overview.md).
+* **Conditional Access** - Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. For more information, see [What is Conditional Access](../conditional-access/overview.md).
 
-* **Identity Protection**. A tool that enables organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to your SIEM. For more information, see [What is Identity Protection](../identity-protection/overview-identity-protection.md).
+* **Identity Protection** - A tool that enables organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to your SIEM. For more information, see [What is Identity Protection](../identity-protection/overview-identity-protection.md).
 
-* **Group-based licensing**. Licenses can be assigned to groups rather than directly to users. Azure AD stores information about license assignment states for users.
+* **Group-based licensing** - Licenses can be assigned to groups rather than directly to users. Azure AD stores information about license assignment states for users.
 
-* **Provisioning Service**. Provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. For more information, see [How Application Provisioning works in Azure Active Directory](../app-provisioning/how-provisioning-works.md).
+* **Provisioning Service** - Provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. For more information, see [How Application Provisioning works in Azure Active Directory](../app-provisioning/how-provisioning-works.md).
 
-* **Graph API**. The Microsoft Graph API is a RESTful web API that enables you to access Microsoft Cloud service resources. After you register your app and get authentication tokens for a user or service, you can make requests to the Microsoft Graph API. For more information, see [Overview of Microsoft Graph](/graph/overview).
+* **Graph API** - The Microsoft Graph API is a RESTful web API that enables you to access Microsoft Cloud service resources. After you register your app and get authentication tokens for a user or service, you can make requests to the Microsoft Graph API. For more information, see [Overview of Microsoft Graph](/graph/overview).
 
-* **Domain Service**. Azure Active Directory Domain Services (AD DS) provides managed domain services such as domain join, group policy. For more information, see [What is Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md).
+* **Domain Service** - Azure Active Directory Domain Services (AD DS) provides managed domain services such as domain join, group policy. For more information, see [What is Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md).
 
-* **Azure Resource Manager**. Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. For more information, see [What is Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+* **Azure Resource Manager** - Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. For more information, see [What is Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-* **Managed identity**. Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. For more information, see [What are managed identities for Azure resources](../managed-identities-azure-resources/overview.md).
+* **Managed identity** - Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. For more information, see [What are managed identities for Azure resources](../managed-identities-azure-resources/overview.md).
 
-* **Privileged Identity Management**. PIM is a service in Azure AD that enables you to manage, control, and monitor access to important resources in your organization. For more information, see [What is Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
+* **Privileged Identity Management** - PIM is a service in Azure AD that enables you to manage, control, and monitor access to important resources in your organization. For more information, see [What is Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
-* **Access reviews**. Azure AD access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed regularly to make sure only the right people have continued access. For more information, see [What are Azure AD access reviews](../governance/access-reviews-overview.md).
+* **Access reviews** - Azure AD access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed regularly to make sure only the right people have continued access. For more information, see [What are Azure AD access reviews](../governance/access-reviews-overview.md).
 
-* **Entitlement management**. Azure AD entitlement management is an [identity governance](../governance/identity-governance-overview.md) feature. Organizations can manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration. For more information, see [What is Azure AD entitlement management](../governance/entitlement-management-overview.md).
+* **Entitlement management** - Azure AD entitlement management is an [identity governance](../governance/identity-governance-overview.md) feature. Organizations can manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration. For more information, see [What is Azure AD entitlement management](../governance/entitlement-management-overview.md).
 
-* **Activity logs**. The Activity log is an Azure [platform log](../../azure-monitor/essentials/platform-logs-overview.md) that provides insight into subscription-level events. This log includes such information as when a resource is modified or when a virtual machine is started. For more information, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md).
+* **Activity logs** - The Activity log is an Azure [platform log](../../azure-monitor/essentials/platform-logs-overview.md) that provides insight into subscription-level events. This log includes such information as when a resource is modified or when a virtual machine is started. For more information, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md).
 
-* **Self-service password reset service**. Azure AD self-service password reset (SSPR) gives users the ability to change or reset their password. The administrator or help desk isn't required. For more information, see [How it works: Azure AD self-service password reset](../authentication/concept-sspr-howitworks.md).
+* **Self-service password reset service** - Azure AD self-service password reset (SSPR) gives users the ability to change or reset their password. The administrator or help desk isn't required. For more information, see [How it works: Azure AD self-service password reset](../authentication/concept-sspr-howitworks.md).
 
-* **Device services**. Device identity management is the foundation for [device-based Conditional Access](../conditional-access/require-managed-devices.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices. For more information, see [What is a device identity](../devices/overview.md).
+* **Device services** - Device identity management is the foundation for [device-based Conditional Access](../conditional-access/require-managed-devices.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices. For more information, see [What is a device identity](../devices/overview.md).
 
-* **Self-service group management**. You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure AD. The owner of the group can approve or deny membership requests and can delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists. For more information, see [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md).
+* **Self-service group management** - You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure AD. The owner of the group can approve or deny membership requests and can delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists. For more information, see [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md).
 
-* **Risk detections**. Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
+* **Risk detections** - Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 
 ## Next steps
 
 See these security operations guide articles:
 
-* [Azure AD security operations overview](security-operations-introduction.md)
-* [Security operations for user accounts](security-operations-user-accounts.md)
-* [Security operations for privileged accounts](security-operations-privileged-accounts.md)
-* [Security operations for Privileged Identity Management](security-operations-privileged-identity-management.md)
-* [Security operations for applications](security-operations-applications.md)
-* [Security operations for devices](security-operations-devices.md)
-* [Security operations for infrastructure](security-operations-infrastructure.md)
+[Security operations for user accounts](security-operations-user-accounts.md)
+
+[Security operations for consumer accounts](security-operations-consumer-accounts.md)
+
+[Security operations for privileged accounts](security-operations-privileged-accounts.md)
+
+[Security operations for Privileged Identity Management](security-operations-privileged-identity-management.md)
+
+[Security operations for applications](security-operations-applications.md)
+
+[Security operations for devices](security-operations-devices.md)
+
+[Security operations for infrastructure](security-operations-infrastructure.md)

@@ -3,16 +3,16 @@ title: Define organizational policies for governing access to applications in yo
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can define policies for how users should obtain access to your business critical applications integrated with Azure AD.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 6/28/2022
-ms.author: ajburnle
+ms.date: 7/28/2022
+ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -25,7 +25,7 @@ Once you've identified one or more applications that you want to use Azure AD to
 
 Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications.  If this application is an existing application in your environment, you may already have documented the access policies for who 'should have access' to this application.  If not, you may need to consult with various stakeholders, such as compliance and risk management teams, to ensure that the policies being used to automate access decisions are appropriate for your scenario.
 
-1. **Collect the roles and permissions that each application provides.**  Some applications may have only a single role, for example, an application that only has the role "User". More complex applications may surface multiple roles to be managed through Azure AD.  These application roles typically make broad constraints on the access a user with that role would have within the app. For example, an application that has an administrator persona might have two roles, "User" and "Administrator".  Other applications may also rely upon group memberships or claims for finer-grained role checks, which can be provided to the application from Azure AD in provisioning or claims issued using federation SSO protocols.  Finally, there may be roles that don't surface in Azure AD - perhaps the application doesn't permit defining the administrators in Azure AD, instead relying upon its own authorization rules to identify administrators.
+1. **Collect the roles and permissions that each application provides.**  Some applications may have only a single role, for example, an application that only has the role "User". More complex applications may surface multiple roles to be managed through Azure AD.  These application roles typically make broad constraints on the access a user with that role would have within the app. For example, an application that has an administrator persona might have two roles, "User" and "Administrator".  Other applications may also rely upon group memberships or claims for finer-grained role checks, which can be provided to the application from Azure AD in provisioning or claims issued using federation SSO protocols, or written to AD as a security group membership.  Finally, there may be roles that don't surface in Azure AD - perhaps the application doesn't permit defining the administrators in Azure AD, instead relying upon its own authorization rules to identify administrators.
    > [!Note]
    > If you're using an application from the Azure AD application gallery that supports provisioning, then Azure AD may import defined roles in the application and automatically update the application manifest with the application's roles automatically, once provisioning is configured.
 
