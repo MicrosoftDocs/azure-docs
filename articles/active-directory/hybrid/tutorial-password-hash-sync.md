@@ -183,8 +183,8 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 5. Provide a **name for the organization** along with the **initial domain name**. Then select **Create**. This will create your directory.
 6. Once this has completed, click the **here** link, to manage the directory.
 
-## Create a global administrator in Azure AD
-Now that we have an Azure AD tenant, we will create a global administrator account.  This account is used to create the Azure AD Connector account during Azure AD Connect installation.  The Azure AD Connector account is used to write information to Azure AD.   To create the global administrator account do the following.
+## Create a Hybrid Identity Administrator in Azure AD
+Now that we have an Azure AD tenant, we will create a Hybrid Identity Administratoristrator account.  This account is used to create the Azure AD Connector account during Azure AD Connect installation.  The Azure AD Connector account is used to write information to Azure AD.   To create the 
 
 1.  Under **Manage**, select **Users**.</br>
 ![Screenshot that shows the User option selected in the Manage section where you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>

@@ -37,8 +37,8 @@ To run the troubleshooting task in the wizard, perform the following steps:
 The following input parameters are needed by the troubleshooting task:
 1.	**Object Distinguished Name** – This is the distinguished name of the object that needs troubleshooting
 2.	**AD Connector Name** – This is the name of the AD forest where the above object resides.
-3.	Azure AD tenant global administrator credentials
-![global administrator credentials](media/tshoot-connect-objectsync/objsynch1.png)
+3.	Azure AD tenant Hybrid Identity Administrator credentials
+![Hybrid Identity Administratoristrator credentials](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### Understand the results of the troubleshooting task
 The troubleshooting task performs the following checks:

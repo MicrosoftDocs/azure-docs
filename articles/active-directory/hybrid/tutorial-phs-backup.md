@@ -39,7 +39,7 @@ Do the following:
 1.  Double-click the Azure AD Connect icon that was created on the desktop
 2.  Click **Configure**.
 3.  On the Additional tasks page, select **Customize synchronization options** and click **Next**.
-4.  Enter the username and password for your global administrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
+4.  Enter the username and password for your Hybrid Identity Administrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
 5.  On the **Connect your directories** screen, click **Next**.
 6.  On the **Domain and OU filtering** screen, click **Next**.
 7.  On the **Optional features** screen, check **Password hash synchronization** and click **Next**.
@@ -58,7 +58,7 @@ Now, we will show you how to switch over to password hash synchronization. Befor
 2.  Click **Configure**.
 3.  Select **Change user sign-in** and click **Next**.
 ![Change](media/tutorial-phs-backup/backup2.png)</br>
-4.  Enter the username and password for your global administrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
+4.  Enter the username and password for your Hybrid Identity Administratoristrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
 5.  On the **User sign-in** screen, select **Password Hash Synchronization** and place a check in the **Do not convert user accounts** box.  
 6.  Leave the default **Enable single sign-on** selected and click **Next**.
 7.  On the **Enable single sign-on** screen click **Next**.

@@ -66,7 +66,7 @@ The following sections discuss these phases in detail.
 
 ### Authentication Agent installation
 
-Only global administrators or Hybrid Identity administrators can install an Authentication Agent (by using Azure AD Connect or standalone) on an on-premises server. Installation adds two new entries to the **Control Panel** > **Programs** > **Programs and Features** list:
+Only Hybrid Identity Administrators or Hybrid Identity administrators can install an Authentication Agent (by using Azure AD Connect or standalone) on an on-premises server. Installation adds two new entries to the **Control Panel** > **Programs** > **Programs and Features** list:
 - The Authentication Agent application itself. This application runs with [NetworkService](/windows/win32/services/networkservice-account) privileges.
 - The Updater application that's used to auto-update the Authentication Agent. This application runs with [LocalSystem](/windows/win32/services/localsystem-account) privileges.
 
@@ -83,7 +83,7 @@ The Authentication Agents use the following steps to register themselves with Az
 
 ![Agent registration](./media/how-to-connect-pta-security-deep-dive/pta1.png)
 
-1. Azure AD first requests that a global administrator or hybrid identity administrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the global administrator or hybrid identity administrator.
+1. Azure AD first requests that a Hybrid Identity Administratoristrator or hybrid identity administrator sign in to Azure AD with their credentials. During sign-in, the Authentication Agent acquires an access token that it can use on behalf of the 
 2. The Authentication Agent then generates a key pair: a public key and a private key.
     - The key pair is generated through standard RSA 2048-bit encryption.
     - The private key stays on the on-premises server where the Authentication Agent resides.

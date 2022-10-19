@@ -46,7 +46,7 @@ For an overview of the feature, view this "Azure Active Directory: What is Stage
 
 -   If you plan to use Azure AD Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged Rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
 
--   To use the Staged Rollout feature, you need to be a global administrator on your tenant.
+-   To use the Staged Rollout feature, you need to be a Hybrid Identity Administrator on your tenant.
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
 
@@ -145,7 +145,7 @@ Enable *seamless SSO* by doing the following:
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command opens a pane where you can enter your tenant's global administrator credentials.
+4. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command opens a pane where you can enter your tenant's Hybrid Identity Administratoristrator credentials.
 
 5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
 

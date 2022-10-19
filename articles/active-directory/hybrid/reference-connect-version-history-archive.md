@@ -642,7 +642,7 @@ Status: October 19 2017
 
 
 #### New features and improvements
-* Added logic to simplify the steps required to set up Azure AD Connect with Microsoft Germany Cloud. Previously, you are required to update specific registry keys on the Azure AD Connect server for it to work correctly with Microsoft Germany Cloud, as described in this article. Now, Azure AD Connect can automatically detect if your tenant is in Microsoft Germany Cloud based on the global administrator credentials provided during setup.
+* Added logic to simplify the steps required to set up Azure AD Connect with Microsoft Germany Cloud. Previously, you are required to update specific registry keys on the Azure AD Connect server for it to work correctly with Microsoft Germany Cloud, as described in this article. Now, Azure AD Connect can automatically detect if your tenant is in Microsoft Germany Cloud based on the Hybrid Identity Administrator credentials provided during setup.
 
 ### Azure AD Connect Sync
 > [!NOTE]
@@ -1212,7 +1212,7 @@ Released: February 2016
 **New features:**
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) feature for Express settings customers.
-* Support for the global admin by using Azure AD Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
+* Support for the Hybrid Identity Administrator by using Azure AD Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
   * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
   * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.

@@ -74,7 +74,7 @@ Besides the highlighted aggregations in the portal, the export result also shows
 
 ## Configure notification settings
 Admin contacts of the report can be updated through the **Notification Settings**. By default, the risky IP alert email notification is in off state. You can enable the notification by toggle the button under “Get email notifications for IP addresses exceeding failed activity threshold report”
-Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all global admins while making the change. 
+Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all Hybrid Identity Administrators while making the change. 
 
 ## Configure threshold settings
 Alerting threshold can be updated through Threshold Settings. To start with, system has threshold set by default. The default values are given below. There are four categories in the risk IP report threshold settings:

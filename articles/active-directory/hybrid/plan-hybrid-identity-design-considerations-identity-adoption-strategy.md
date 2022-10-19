@@ -199,7 +199,7 @@ Even though you may have settled on a solution for your strategy, you still need
 > 
 
 ## Multi-Factor Auth Provider
-Multi-factor authentication is available by default for global administrators who have an Azure Active Directory tenant. However, if you wish to extend multi-factor authentication to all of your users and/or want to your global administrators to be able to take advantage features such as the management portal, custom greetings, and reports, then you must purchase and configure Multi-Factor Authentication Provider.
+Multi-factor authentication is available by default for Hybrid Identity Administrators who have an Azure Active Directory tenant. However, if you wish to extend multi-factor authentication to all of your users and/or want to your 
 
 > [!NOTE]
 > You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design. 

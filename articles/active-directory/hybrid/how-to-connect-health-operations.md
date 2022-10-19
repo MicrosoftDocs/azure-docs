@@ -33,7 +33,7 @@ You can configure the Azure AD Connect Health service to send email notification
 2. Select **Sync errors**
 3. Select **Notification Settings**.
 5. At the email notification switch, select **ON**.
-6. Select the check box if you want all global administrators to receive email notifications.
+6. Select the check box if you want all Hybrid Identity Administrators to receive email notifications.
 7. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
 8. To finalize the changes, click **Save**. Changes take effect only after you save.
 
@@ -97,7 +97,7 @@ When you're deleting a service instance, be aware of the following:
 
 [//]: # (Start of RBAC section)
 ## Manage access with Azure RBAC
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than global administrators. Azure RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than Hybrid Identity Administratoristrators. Azure RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the 
 
 ### Roles
 Azure AD Connect Health supports the following built-in roles:

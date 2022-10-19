@@ -37,7 +37,7 @@ Before you begin, ensure that you have the following:
         >| - | - |
         >| AzureUSGovernment | US Gov |
 
-- An Azure global administrator account for running the PowerShell cmdlets.
+- An Azure Hybrid Identity Administrator account for running the PowerShell cmdlets.
 
 ## Use Azure AD Connect
 

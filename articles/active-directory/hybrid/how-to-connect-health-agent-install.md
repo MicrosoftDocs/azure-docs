@@ -31,7 +31,7 @@ The following table lists requirements for using Azure AD Connect Health.
 | Requirement | Description |
 | --- | --- |
 | There is an Azure AD Premium (P1 or P2) Subsciption.  |Azure AD Connect Health is a feature of Azure AD Premium (P1 or P2). For more information, see [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />To start a free 30-day trial, see [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/). |
-| You're a global administrator in Azure AD. |By default, only global administrators can install and configure the health agents, access the portal, and do any operations within Azure AD Connect Health. For more information, see [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md). <br /><br /> By using Azure role-based access control (Azure RBAC), you can allow other users in your organization to access Azure AD Connect Health. For more information, see [Azure RBAC for Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Important**: Use a work or school account to install the agents. You can't use a Microsoft account. For more information, see [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md). |
+| You're a Hybrid Identity Administrator in Azure AD. |By default, only 
 | The Azure AD Connect Health agent is installed on each targeted server. | Health agents must be installed and configured on targeted servers so that they can receive data and provide monitoring and analytics capabilities. <br /><br />For example, to get data from your Active Directory Federation Services (AD FS) infrastructure, you must install the agent on the AD FS server and the Web Application Proxy server. Similarly, to get data from your on-premises Azure AD Domain Services (Azure AD DS) infrastructure, you must install the agent on the domain controllers.  |
 | The Azure service endpoints have outbound connectivity. | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, add the [outbound connectivity endpoints](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) to the allow list. |
 |Outbound connectivity is based on IP addresses. | For information about firewall filtering based on IP addresses, see [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=56519).|
@@ -94,7 +94,7 @@ After the installation finishes, select **Configure Now**.
 
 ![Screenshot showing the confirmation message for the Azure AD Connect Health AD FS agent installation.](./media/how-to-connect-health-agent-install/install2.png)
 
-A PowerShell window opens to start the agent registration process. When you're prompted, sign in by using an Azure AD account that has permissions to register the agent. By default, the global admin account has permissions.
+A PowerShell window opens to start the agent registration process. When you're prompted, sign in by using an Azure AD account that has permissions to register the agent. By default, the Hybrid Identity Administrator account has permissions.
 
 ![Screenshot showing the sign-in window for Azure AD Connect Health AD FS.](./media/how-to-connect-health-agent-install/install3.png)
 

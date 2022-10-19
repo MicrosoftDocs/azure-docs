@@ -45,7 +45,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 1. Select **Repair AAD and ADFS Trust** from the list of additional tasks.
    ![Repair AAD and ADFS Trust](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
-2. On the **Connect to Azure AD** page, provide your global administrator credentials for Azure AD, and click **Next**.
+2. On the **Connect to Azure AD** page, provide your Hybrid Identity Administrator credentials for Azure AD, and click **Next**.
    ![Screenshot that shows the "Connect to Azure AD" page with example credentials entered.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. On the **Remote access credentials** page, enter the credentials for the domain administrator.
@@ -90,7 +90,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
    ![Additional federation server](./media/how-to-connect-fed-management/AddNewADFSServer1.PNG)
 
-2. On the **Connect to Azure AD** page, enter your global administrator credentials for Azure AD, and click **Next**.
+2. On the **Connect to Azure AD** page, enter your Hybrid Identity Administratoristrator credentials for Azure AD, and click **Next**.
 
    ![Screenshot that shows the "Connect to Azure AD" page with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
