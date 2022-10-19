@@ -258,5 +258,5 @@ If you want to configure SSL offload, see [Configure an application gateway for 
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](/azure/load-balancer/)
-* [Azure Traffic Manager](/azure/traffic-manager/)
+* [Azure Load Balancer](../load-balancer/index.yml)
+* [Azure Traffic Manager](../traffic-manager/index.yml)

@@ -58,7 +58,7 @@ Create the resources required to run an ML pipeline:
 
 A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register more datastores. 
 
-When you create your workspace, [Azure Files](/azure/storage/files/storage-files-introduction) and [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](/azure/storage/common/storage-introduction). 
+When you create your workspace, [Azure Files](../../storage/files/storage-files-introduction.md) and [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](../../storage/common/storage-introduction.md). 
 
 ```python
 # Default datastore 
@@ -174,7 +174,7 @@ else:
 
 The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](../resource-curated-environments.md).
 
-The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](/azure/container-registry/container-registry-intro)). Building and registering this image can take quite a few minutes.
+The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](../../container-registry/container-registry-intro.md)). Building and registering this image can take quite a few minutes.
 
 ## <a id="steps"></a>Construct your pipeline steps
 

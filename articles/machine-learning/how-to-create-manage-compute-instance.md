@@ -68,7 +68,7 @@ The following example demonstrates how to create a compute instance:
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=ci_basic)]
+[!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=ci_basic)]
 
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
@@ -430,7 +430,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 ## Assign managed identity (preview)
 
-You can assign a system- or user-assigned [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
+You can assign a system- or user-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
 You can create compute instance with managed identity from Azure ML Studio:
 
@@ -576,27 +576,27 @@ In the examples below, the name of the compute instance is stored in the variabl
 
 * Get status
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=ci_basic_state)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=ci_basic_state)]
 
 
 * Stop
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=stop_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=stop_compute)]
 
 
 * Start
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=start_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=start_compute)]
 
 
 * Restart
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=restart_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=restart_compute)]
 
 
 * Delete
 
-  [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=delete_compute)]
+  [!notebook-python[](~/azureml-examples-main/sdk/python/resources/compute/compute.ipynb?name=delete_compute)]
 
 
 # [Azure CLI](#tab/azure-cli)

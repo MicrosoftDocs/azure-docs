@@ -35,7 +35,8 @@ Azure creates a canonical name DNS record (CNAME) on the public DNS. The CNAME r
 Your applications don't need to change the connection URL. When resolving to a public DNS service, the DNS server will resolve to your private endpoints. The process doesn't affect your existing applications.
 
 > [!IMPORTANT]
-> Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence.
+> * Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence.
+> * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the table below.
 
 For Azure services, use the recommended zone names as described in the following table:
 
