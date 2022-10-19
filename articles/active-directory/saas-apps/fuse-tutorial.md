@@ -90,7 +90,7 @@ In this section, you test your Azure AD single sign-on configuration with the fo
 - In the **Test single sign-on with Fuse** section on the **SAML-based Sign-on** pane, select **Test this application** in Azure portal. You'll be redirected to Fuse Sign-on URL where you can initiate the sign-in flow.
 - Go to Fuse Sign-on URL directly and initiate the sign-in flow from application's side.
 - You can use Microsoft My Apps. When you select the Fuse tile in the My Apps, you'll be redirected to Fuse Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-- 
+
 ## Additional resources
 
 - [What is single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
