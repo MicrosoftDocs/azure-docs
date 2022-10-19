@@ -51,7 +51,7 @@ Your migration plan to the Azure Monitor Agent should take into account:
 
 ## Prerequisites
 
-Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use with Azure Monitor Agent. For non-Azure servers, [installing the Azure Arc agent](/azure/azure-arc/servers/agent-overview) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Azure Arc for this purpose comes at no added cost. It's not mandatory to use Azure Arc for server management overall. You can continue using your existing non-Azure management solutions. After the Azure Arc agent is installed, you can follow the same guidance in this article across Azure and non-Azure for migration.
+Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for use with Azure Monitor Agent. For non-Azure servers, [installing the Azure Arc agent](../../azure-arc/servers/agent-overview.md) is an important prerequisite that then helps to install the agent extension and other required extensions. Using Azure Arc for this purpose comes at no added cost. It's not mandatory to use Azure Arc for server management overall. You can continue using your existing non-Azure management solutions. After the Azure Arc agent is installed, you can follow the same guidance in this article across Azure and non-Azure for migration.
 
 ## Migration testing
 

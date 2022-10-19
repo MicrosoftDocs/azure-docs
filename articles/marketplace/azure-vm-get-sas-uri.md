@@ -17,8 +17,8 @@ ms.date: 08/16/2022
 Before getting started, you will need the following:
 
 - A virtual machine
-- A [storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) with a container for storing the virtual hard drive (VHD)
-- Your [storage account key](/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys)
+- A [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a container for storing the virtual hard drive (VHD)
+- Your [storage account key](../storage/common/storage-account-keys-manage.md?tabs=azure-portal#view-account-access-keys)
 
 ## Extract VHD from a VM
 

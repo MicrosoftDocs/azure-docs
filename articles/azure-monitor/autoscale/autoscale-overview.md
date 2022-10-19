@@ -18,7 +18,7 @@ This article describes Microsoft Azure autoscale and its benefits.
 Azure autoscale supports many resource types. For more information about supported resources, see [autoscale supported resources](#supported-services-for-autoscale).
 
 > [!NOTE]
-> [Availability sets](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) are an older scaling feature for virtual machines with limited support. We recommend migrating to [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) for faster and more reliable autoscale support.
+> [Availability sets](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) are an older scaling feature for virtual machines with limited support. We recommend migrating to [virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) for faster and more reliable autoscale support.
 
 ## What is autoscale
 
@@ -67,7 +67,7 @@ Resources generate metrics that are used in autoscale rules to trigger scale eve
 
 ### Custom metrics
 
-Use your own custom metrics that your application generates. Configure your application to send metrics to [Application Insights](/azure/azure-monitor/app/app-insights-overview) so you can use those metrics decide when to scale.
+Use your own custom metrics that your application generates. Configure your application to send metrics to [Application Insights](../app/app-insights-overview.md) so you can use those metrics decide when to scale.
 
 ### Time
 
@@ -93,9 +93,9 @@ Rules can trigger one or more actions. Actions include:
 * Scale - Scale resources in or out.
 * Email - Send an email to the subscription admins, co-admins, and/or any other email address.
 * Webhooks - Call webhooks to trigger multiple complex actions inside or outside Azure. In Azure, you can:
-  * Start an [Azure Automation runbook](/azure/automation/overview).
-  * Call an [Azure Function](/azure/azure-functions/functions-overview).
-  * Trigger an [Azure Logic App](/azure/logic-apps/logic-apps-overview).
+  * Start an [Azure Automation runbook](../../automation/overview.md).
+  * Call an [Azure Function](../../azure-functions/functions-overview.md).
+  * Trigger an [Azure Logic App](../../logic-apps/logic-apps-overview.md).
 
 ## Autoscale settings
 
