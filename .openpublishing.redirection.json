@@ -29138,6 +29138,11 @@
             "source_path_from_root": "/articles/virtual-machines/windows/using-visual-studio-vm.md",
             "redirect_url": "/visualstudio/install/using-visual-studio-vm",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
+            "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
+            "redirect_document_id": false
         }
 
     ]
