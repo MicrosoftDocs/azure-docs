@@ -140,7 +140,64 @@ iscsicli PersistentLoginTarget $yourStorageTargetIQN t $yourStorageTargetPortalH
 
 To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume. To do this, set the login flag to **0x00000002** to enable multipathing for the target.
 
-You can then re-run the commands from the single session configuration or use the following script.
+You can then re-run the commands from the single session configuration or use the a script.
+
+To script multi-session configurations, use two files. An XML configuration file that you update for each volume you'd like to establish connections to, and a script which uses the XML files to create connections.
+
+Format the XML file with this
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Targets>
+  <Target>
+     <Iqn>Storage Target Iqn</Iqn>
+     <Hostname>Storage Target Portal Hostname</Hostname>
+     <Port>Storage Target Portal Port</Port>
+     <NumSessions>Number of sessions</NumSessions>
+     <EnableMultipath>true</EnableMultipath>
+  </Target>
+</Targets>
+```
+
+Use the following script to create the connections:
+
+```
+param(
+  [string] $TargetConfigPath
+)
+$TargetConfig = New-Object XML
+$TargetConfig.Load($TargetConfigPath)
+foreach ($Target in $TargetConfig.Targets.Target)
+{
+  $TargetIqn = $Target.Iqn
+  $TargetHostname = $Target.Hostname
+  $TargetPort = $Target.Port
+  $NumSessions = $Target.NumSessions
+  $succeeded = 1
+  iscsicli AddTarget $TargetIqn * $TargetHostname $TargetPort * 0 * * * * * * * * * 0
+  while ($succeeded -le $NumSessions)
+  {
+    Write-Host "Logging session ${succeeded}/${NumSessions} into ${TargetIqn}"
+    $LoginOptions = '*'
+    if ($Target.EnableMultipath)
+    {
+        Write-Host "Enabled Multipath"
+        $LoginOptions = '0x00000002'
+    }
+    # PersistentLoginTarget will not establish login to the target until after the system is rebooted.
+    # Use LoginTarget if the target is needed before rebooting. Using just LoginTarget will not persist the
+    # session(s).
+    iscsicli PersistentLoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
+    #iscsicli LoginTarget $TargetIqn t $TargetHostname $TargetPort Root\ISCSIPRT\0000_0 -1 * $LoginOptions * * * * * * * * * 0
+    if ($LASTEXITCODE -eq 0)
+    {
+        $succeeded += 1
+    }
+    Start-Sleep -s 1
+    Write-Host ""
+  }
+}
+```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 

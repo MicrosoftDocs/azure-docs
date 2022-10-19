@@ -95,9 +95,7 @@ You can either create single sessions or multiple-sessions to every Elastic SAN 
 
 To aggregate multiple I/O sessions and paths to your Elastic SAN volumes and efficiently distribute I/O over these sessions, use native Multipath I/O. For instructions on configuring Multipath I/O, see.
 
-You can connect to Elastic SAN volumes over iSCSI from multiple compute clients. The following sections cover how to establish connections from a Windows client and a Linux client.
-
-### Single-session configuration
+### Single-session connections
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
 
@@ -124,7 +122,7 @@ iscsiadm -m node --targetname **yourStorageTargetIQN** --portal **yourStorageTar
 iscsiadm -m node --targetname **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
 ```
 
-### Multi-session configuration
+### Multi-session connections
 
 To establish multiple sessions to a volume, create a single session first. Then, get the session ID and create as many sessions as needed with the session ID.
 
