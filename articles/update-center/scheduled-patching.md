@@ -198,7 +198,8 @@ You can create a new Guest OS update maintenance configuration or modify an exis
 The update management center (preview) allows you to target a dynamic group of Azure or non-Azure VMs for update deployment. Using a dynamic group keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use dynamic scoping by using built-in policies which you can customize as per your use-case.
 
 > [!NOTE]
-> This policy also ensures that the patch orchestration property for Azure machines is set to **Automatic by Platform** or **Azure-orchestrated (preview)** as it is a prerequisite for scheduled patching.
+> This policy also ensures that the patch orchestration property for Azure machines is set to **Azure-orchestrated (Automatic by Platform)** as it is a prerequisite for scheduled patching.
+
 
 ### Assign a policy
 
