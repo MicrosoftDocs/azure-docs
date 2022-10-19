@@ -1,0 +1,149 @@
+---
+title: "Known issues, limitations, and troubleshooting"
+titleSuffix: Azure Database Migration Service
+description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
+services: database-migration
+author: croblesm
+ms.author: roblescarlos
+manager: 
+ms.reviewer: 
+ms.service: dms
+ms.workload: data-services
+ms.custom: "seo-lt-2019"
+ms.topic: troubleshooting
+ms.date: 10/19/2022
+---
+
+# Known issues, limitations, and troubleshooting
+
+**Error code CutoverFailedOrCancelled 2007:** 
+- **Message**: Cutover failed or cancelled for database <DatabaseName>. Error details: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time. 
+- **Cause**: The error might occur due to the backups being placed incorrectly in the Azure Storage container. If the backups are placed in the network file share, this error could also occur due to network connectivity issues.
+**Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you are using network file share, there might be network-related issues and lags that are causing this error. Please wait for the process to be completed.
+
+**Error code MigrationRestoreFailed 2009:**
+- **Message**: Migration for Database 'DatabaseName' failed with error 'Can not find server certificate with thumbprint ''
+- **Cause**: The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) has not been migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data. 
+- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. See [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/tde-certificate-migrate?view=azuresql&tabs=azure-powershell) and [Move a TDE Protected Database to Another SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-ver16) for more information.
+<br/>
+
+- **Message**: Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.
+- **Cause**: Unable to restore a SQL Server backup to an earlier version of SQL Server than the version at which the backup was created.
+- **Recommendation**: See [Issues that affect database restoration between different SQL Server versions](https://learn.microsoft.com/en-us/troubleshoot/sql/admin/backup-restore-operations#issues-that-affect-database-restoration-between-different-sql-server-versions) for troubleshooting steps.
+<br/>
+
+- **Message**: Migration for Database <DatabaseName> failed with error 'The managed instance has reached its storage limit. The storage usage for the managed instance cannot exceed 32768 MBs.
+- **Cause**: The Azure SQL Managed Instance has reached its resource limits. 
+- **Recommendation**: See [Overview of Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits?view=azuresql) for more information.
+<br/>
+
+- **Message**: Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3634 The operating system returned the error '1450(Insufficient system resources exist to complete the requested service.)
+- **Cause**: One of the symptoms listed in [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](https://learn.microsoft.com/en-us/troubleshoot/sql/admin/1450-and-665-errors-running-dbcc-checkdb#symptoms) can be the cause.
+- **Recommendation**: See [OS errors 1450 and 665 are reported for database files during DBCC CHECKDB or Database Snapshot Creation](https://learn.microsoft.com/en-us/troubleshoot/sql/admin/1450-and-665-errors-running-dbcc-checkdb#symptoms) for troubleshooting steps.
+<br/>
+
+- **Message**: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.
+- **Cause**: The error might occur due to the backups being placed incorrectly in the Azure Storage container. If the backups are placed in the network file share, this error could also occur due to network connectivity issues.
+**Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you are using network file share, there might be network related issues and lags that is causing this error. Please wait for the process to complete.
+<br/>
+
+- **Message**: Migration for Database <DatabaseName> failed with error 'Full backup <URL of backup in Azure Storage container> is missing checksum. Please provide full backup with checksum.'.
+- **Cause**: The database backups haven't been taken with checksum enabled. 
+- **Recommendation**: See [Enable or disable backup checksums during backup or restore (SQL Server)](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017) for taking backups with checksum enabled.
+<br/>
+
+- **Message**: Migration for Database <Database Name> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3234 Logical file <Name> is not part of database <Database GUID>. Use RESTORE FILELISTONLY to list the logical file names. RESTORE DATABASE is terminating abnormally.'.
+- **Cause**: You have specified a logical file name that is not in the database backup.  
+- **Recommendation**: Run RESTORE FILELISTONLY to check the logical file names in your backup. See [RESTORE Statements - FILELISTONLY (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-filelistonly-transact-sql?view=sql-server-ver16) for more information on RESTORE FILELISTONLY.
+<br/>
+
+- **Message**: Migration for Database <Database Name> failed with error 'Azure SQL target resource failed to connect to storage account. Make sure the target SQL VNet is whitelisted under the Azure Storage firewall rules'.
+- **Cause**: Azure Storage firewall is not configured to allow access to Azure SQL target.
+- **Recommendation**: See [Configure Azure Storage firewalls and virtual networks](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal) for more information on Azure Storage firewall setup.
+<br/>
+
+> For more  information on general troubleshooting steps for Azure SQL Managed Instance errors, see [Known issues with Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/doc-changes-updates-known-issues?view=azuresql)
+
+**Error code TestConnectionFailed 2012:**
+- **Message**: Failed to test connections using provided Integration Runtime.
+- **Cause**: Connection to the self-hosted Integration Runtime has failed. 
+- **Recommendation**: See [Troubleshoot self-hosted integration runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide?tabs=data-factory) for general troubleshooting steps for Integration Runtime connectivity errors.
+<br/>
+
+**Error code IntegrationRuntimeIsNotOnline 2014:**
+- **Message**: Integration Runtime <IR Name> in resource group <Resource Group Name> Subscription <SubscriptionID> is not online.
+- **Cause**: The self hosted Integration Runtime is not online. 
+- **Recommendation**: Make sure the self-hosted Integration Runtime is registered and online. You can use scripts from [../data-factory/self-hosted-integration-runtime-automation-scripts](../data-factory/self-hosted-integration-runtime-automation-scripts) to perform the registration. Also, see [Troubleshoot self-hosted integration runtime](../data-factory/self-hosted-integration-runtime-troubleshoot-guide?tabs=data-factory) for general troubleshooting steps for Integration Runtime connectivity errors.
+<br/>
+
+**Error code AzureSQLManagedInstanceNotReady 2030:**
+- **Message**: Azure SQL Managed Instance <Instance Name> is not ready.
+- **Cause**: Azure SQL Managed Instance not in ready state. 
+**Recommendation**: Wait until the Managed Instance has finished deploying and is ready, then retry the process.
+<br/>
+
+**Error code SqlDataCopyFailed 2033:** 
+- **Message**: Migration for Database <Database> failed in state <state> 
+- **Cause**: ADF pipeline for data movement failed.
+- **Recommendation**: Check the MigrationStatusDetails page for more detailed error information. 
+<br/>
+
+**Error code MigrationCompletedDuringCancel 2038:** 
+- **Message**: Migration cannot be canceled as Migration was completed during the cancel process. Target server: <Target server> Target database: <Target database>. 
+- **Cause**: A cancellation request was received, but the migration was completed successfully before the cancellation was completed. 
+- **Recommendation**: No action required migration succeeded. 
+<br/>
+
+**Error code MigrationRetryNotAllowed 2039:** 
+- **Message**: Migration is not in a retriable state. Migration must be in state WaitForRetry. Current state: <State>, Target server: <Target Server>, Target database: <Target database>. 
+**Cause**: A retry request was received when the migration was not in a state allowing retrying.
+- **Recommendation**: No action required migration is ongoing or completed. 
+<br/>
+
+**Error code MigrationTimeoutWaitingForRetry 2040:** 
+- **Message**: Migration retry timeout limit of 8 hours reached. Target server: <Target Server>, Target database: <Target Database>. 
+- **Cause**: Migration was idle in a failed, but retriable state for 8 hours and was automatically canceled. 
+- **Recommendation**: No action is required; the migration was canceled. 
+<br/>
+
+**Error code DataCopyCompletedDuringCancel 2041:** 
+- **Message**: Data copy finished successfully before cancel completed. Target schema is in bad state. Target server: <Target Server>, Target database: <Target Database>.
+- **Cause**: Cancel request was received, and the data copy was completed successfully, but the target database schema has not been returned to its original state.
+- **Recommendation**: If desired, the target database can be returned to its original state by running the first query below and all of the returned queries, then running the second query and doing the same. 
+
+```
+SELECT [ROLLBACK] FROM [dbo].[__migration_status] 
+WHERE STEP in (3,4,6);
+
+SELECT [ROLLBACK] FROM [dbo].[__migration_status]  
+WHERE STEP in (5,7,8) ORDER BY STEP DESC;
+```
+<br/>
+
+**Error code PreCopyStepsCompletedDuringCancel 2042:** 
+- **Message**: Pre Copy steps finished successfully before cancel completed. Target database Foreign keys and temporal tables have been altered. Schema migration may be required again for future migrations. Target server: <Target Server>, Target database: <Target Database>.
+**Cause**: Cancel request was received and the steps to prepare the target database for copy were completed successfully. The target database schema has not been returned to its original state.
+- **Recommendation**: If desired, target database can be returned to its original state by running the query below and all of the returned queries. 
+
+```
+SELECT [ROLLBACK] FROM [dbo].[__migration_status]  
+WHERE STEP in (3,4,6);
+```
+<br/>
+
+**Error code CreateContainerFailed 2043:**
+- **Message**: Create container <ContainerName> failed with error Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url:<URL>.
+- **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout. 
+- **Recommendation**: See [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide#error-code-2108) for troubleshooting steps.
+<br/>
+
+**Azure SQL Database Migration limitations:** 
+
+The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (ADF) pipelines for data movement and thus abides by ADF limitations. A corresponding ADF is created when a database migration service is also created. Thus factory limits apply per service. Effectively this results in the following constraints: 
+
+- One Hundred Thousand (100,000) table per database limit. 
+- Ten thousand (10,000) concurrent database migrations per service. 
+- Migration speed heavily depends on the target Azure SQL Database SKU and the self-hosted Integration Runtime host. 
+- Azure SQL Database migration scales poorly with table numbers due to ADF overhead in starting activities. If a database has thousands of tables, there will be a couple of seconds of startup time for each, even if they are comprised of 1 row with 1 bit of data. 
+- Azure SQL Database Table names with Unicode characters unsupported
+- Known issues with handling XML encoded characters
