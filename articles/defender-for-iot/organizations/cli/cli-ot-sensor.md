@@ -197,9 +197,12 @@ root@xsense:/#
 ```
 
 The *cyberx_host* user can be changed after a successful login with the following command:
+
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx_host**  |   `passwd` | No attributes   |
+
+For example:
 
 ```bash
 cyberx_host@xsense:/# passwd
