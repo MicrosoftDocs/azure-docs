@@ -17,7 +17,11 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to customize apps running in Azure Spring Apps with health probes and graceful termination periods.
 
-A probe is a diagnostic performed periodically by Azure Spring Apps on an app instance. To perform a diagnostic, Azure Spring Apps either executes an arbitrary command of your choice within the app instance, establishes a TCP socket connection, or makes an HTTP request.
+A probe is a diagnostic activity performed periodically by Azure Spring Apps on an app instance. To perform a diagnostic, Azure Spring Apps takes one of the following actions:
+
+- Executes an arbitrary command of your choice within the app instance.
+- Establishes a TCP socket connection.
+- Makes an HTTP request.
 
 Azure Spring Apps uses liveness probes to determine when to restart an application. For example, liveness probes could catch a deadlock, where an application is running but unable to make progress. Restarting the application in such a state can help to make the application more available despite bugs.
 
@@ -41,7 +45,7 @@ The following table describes the property available for configuring graceful te
 
 | Property name                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| terminationGracePeriodSeconds | The grace period is the duration in seconds after the processes running in the app instance are sent a termination signal and before the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. The value must be a non-negative integer. The value zero indicates to stop immediately via the kill signal (with no opportunity to shut down). If this value is nil, the default grace period will be used instead. The default value is 90 seconds. |
+| terminationGracePeriodSeconds | The duration in seconds after processes running in the app instance are sent a termination signal before they are forcibly halted. Set this value longer than the expected cleanup time for your process. The value must be a non-negative integer. The value zero indicates to stop immediately via the kill signal (with no opportunity to shut down). If this value is nil, the default grace period will be used instead. The default value is 90 seconds. |
 
 ### Health probe properties
 
@@ -186,7 +190,7 @@ The following steps show you how to customize your application using Azure CLI.
 Use the following best practices when adding your own persistent storage to Azure Spring Apps.
 
 - Use liveness and readiness probe together. The reason for this recommendation is that Azure Spring Apps provides two approaches for service discovery at the same time. When the readiness probe fails, the app instance will be removed only from Kubernetes Service Discovery. A properly configured liveness probe can remove the issued app instance from Eureka Service Discovery to avoid unexpected cases. For more information about Service Discovery, see [Discover and register your Spring Boot applications](how-to-service-registration.md).
-- When an app instance starts, the first check is done after the delay specified by `initialDelaySeconds`, and subsequent checks happen periodically, with the period length specified by `periodSeconds`. If the app has failed to respond to the requests for a number of times defined by `failureThreshold`, the app instance will be restarted. Be sure your application can start fast enough, or update these parameters, so the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
+- When an app instance starts, the first check is done after the delay specified by `initialDelaySeconds`, and subsequent checks happen periodically, with the period length specified by `periodSeconds`. If the app has failed to respond to the requests for several times as specified by `failureThreshold`, the app instance will be restarted. Be sure your application can start fast enough, or update these parameters, so the total timeout `initialDelaySeconds + periodSeconds * failureThreshold` is longer than the start time of your application.
 - For Spring Boot applications, Spring Boot shipped with the [Health Groups](https://docs.spring.io/spring-boot/docs/2.2.x/reference/html/production-ready-features.html#health-groups) support, allowing developers to select a subset of health indicators and group them under a single, correlated, health status. For more information, see [Liveness and Readiness Probes with Spring Boot](https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot) on the Spring Blog.
 
   The following examples show Liveness and Readiness probes with Spring Boot:
