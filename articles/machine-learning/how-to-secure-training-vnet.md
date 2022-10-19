@@ -71,7 +71,7 @@ In this article you learn how to secure the following training compute resources
     * A compute cluster can dynamically scale. If there aren't enough unassigned IP addresses, the cluster will be partially allocated.
     * A compute instance only requires one IP address.
 
-* To create a compute cluster or instance [without a public IP address](#no-public-ip) (a preview feature), your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
+* To create a compute cluster or instance without a public IP address (a preview feature), your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 * If you plan to secure the virtual network by restricting traffic, see the [Required public internet access](#required-public-internet-access) section.
 * The subnet used to deploy compute cluster/instance shouldn't be delegated to any other service. For example, it shouldn't be delegated to ACI.
 
@@ -93,7 +93,7 @@ In this article you learn how to secure the following training compute resources
         > 
         > If you have another NSG at the subnet level, the rules in the subnet level NSG mustn't conflict with the rules in the automatically created NSG.
         >
-        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](/azure/virtual-network/network-security-group-how-it-works).
+        > To learn how the NSGs filter your network traffic, see [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md).
 
         * Allow inbound TCP traffic on ports 29876-29877 from the `BatchNodeManagement` service tag.
         * Allow inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.
@@ -118,6 +118,18 @@ In this article you learn how to secure the following training compute resources
     > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
 
 * If you create a compute instance and plan to use the no public IP address configuration, your Azure Machine Learning workspace's managed identity must be assigned the __Reader__ role for the virtual network that contains the workspace. For more information on assigning roles, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+
+    > [!IMPORTANT]
+    > Using the __no public IP__ configuration requires you to opt-in to this preview. Before opting in, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
+    >
+    > Use the form at [https://forms.office.com/r/0Rw6mXTT07](https://forms.office.com/r/0Rw6mXTT07) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription. Opting-in provides the following benefits:
+    > - Additional regions are available for use with no public IP configuration
+    > - [Data exfiltration protection](how-to-prevent-data-loss-exfiltration.md).
+    > - No networking costs from load balancer, public IP, or private link service.
+    >
+    > If you have been using compute instances configured for no public IP without opting-in to the preview using the form, you will need to delete and recreate them after your subscription has been allowlisted to take advantage of the new architecture and region availability. For existing compute clusters configured for no public IP, once the cluster has been reduced to 0 nodes (requires the minimum nodes to be configured as 0), it will take advantage of the new architecture the next time nodes are allocated after the subscription is allowlisted.
+
+    [!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 
 * If you have configured Azure Container Registry for your workspace behind the virtual network, you must use a compute cluster to build Docker images. If you use a compute cluster configured for no public IP address, you must provide some method for the cluster to access the public internet. Internet access is required when accessing images stored on the Microsoft Container Registry, packages installed on Pypi, Conda, etc. For more information, see [Enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
@@ -169,7 +181,7 @@ For more information on using Azure Databricks in a virtual network, see [Deploy
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](how-to-access-azureml-behind-firewall.md).
 
-## <a name="compute-cluster"></a>Compute clusters
+## Compute cluster
 
 Use the following steps to create a compute cluster in the Azure Machine Learning studio:
 
@@ -197,7 +209,7 @@ When the creation process finishes, you train your model by using the cluster in
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="no-public-ip-amlcompute"></a>No public IP for compute clusters (preview)
+### No public IP for compute clusters (preview)
 
 When you enable **No public IP**, your compute cluster doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem and service/private endpoints, eliminating the need for a public IP entirely. No public IP removes access and discoverability of compute cluster nodes from the internet thus eliminating a significant threat vector. **No public IP** clusters help comply with no public IP policies many enterprises have. 
 
@@ -216,8 +228,6 @@ You can use a service endpoint or private endpoint for your Azure container regi
 To create a no public IP address compute cluster (a preview feature) in studio, set **No public IP** checkbox in the virtual network section.
 You can also create no public IP compute cluster through an ARM template. In the ARM template set enableNodePublicIP parameter to false.
 
-[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
-
 **Troubleshooting**
 
 * If you get this error message during creation of cluster `The specified subnet has PrivateLinkServiceNetworkPolicies or PrivateEndpointNetworkEndpoints enabled`, follow the instructions from [Disable network policies for Private Link service](../private-link/disable-private-link-service-network-policy.md) and [Disable network policies for Private Endpoint](../private-link/disable-private-endpoint-network-policy.md).
@@ -230,7 +240,7 @@ You can also create no public IP compute cluster through an ARM template. In the
 
 For steps on how to create a compute instance deployed in a virtual network, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
-### <a name="no-public-ip"></a>No public IP for compute instances (preview)
+### No public IP for compute instances (preview)
 
 When you enable **No public IP**, your compute instance doesn't use a public IP for communication with any dependencies. Instead, it communicates solely within the virtual network using Azure Private Link ecosystem and service/private endpoints, eliminating the need for a public IP entirely. No public IP removes access and discoverability of compute instance node from the internet thus eliminating a significant threat vector. Compute instances will also do packet filtering to reject any traffic from outside virtual network. **No public IP** instances are dependent on [Azure Private Link](how-to-configure-private-link.md) for Azure Machine Learning workspace. 
 
@@ -249,8 +259,6 @@ You can also create no public IP compute instance through an ARM template. In th
 Next steps:
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-
-[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 
 ## Inbound traffic
 
