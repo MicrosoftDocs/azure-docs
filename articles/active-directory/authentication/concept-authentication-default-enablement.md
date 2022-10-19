@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/17/2022
+ms.date: 10/19/2022
 
 ms.author: justinha
 author: mjsantani
@@ -24,7 +24,7 @@ For example, in response to increasing MFA fatigue attacks, Microsoft recommende
 
 There are two ways for protection of a security feature to be enabled by default: 
 
-- Azure AD will enable protection of a security feature by default for all tenants on a certain date, and there won't be an option to disable protection. Microsoft schedules default protection far in advance to give customers time to prepare for the change. During that time, customers are encouraged to use the Azure portal or Graph API to test and roll out the changes on their own schedule. Customers can't opt out if Microsoft schedules protection by default. 
+- After a security feature is released, customers can use the Azure portal or Graph API to test and roll out the change on their own schedule. To help defend against new attack vectors, Azure AD may enable protection of a security feature by default for all tenants on a certain date, and there won't be an option to disable protection. Microsoft schedules default protection far in advance to give customers time to prepare for the change. Customers can't opt out if Microsoft schedules protection by default. 
 - Protection can be **Microsoft managed**, which means Azure AD can enable or disable protection based upon the current landscape of security threats. Customers can choose whether to allow Microsoft to manage the protection. They can change from **Microsoft managed** to explicitly make the protection **Enabled** or **Disabled** at any time. 
 
 >[!NOTE]
@@ -32,9 +32,9 @@ There are two ways for protection of a security feature to be enabled by default
 
 ## Default protection enabled by Azure AD
 
-Number matching is a good example of protection for an authentication method that is currently optional for all tenants. Customers could choose to enable number matching in Microsoft Authenticator for users and groups, or they could leave it disabled. 
+Number matching is a good example of protection for an authentication method that is currently optional for push notifications in Microsoft Authenticator in all tenants. Customers could choose to enable number matching for push notifications in Microsoft Authenticator for users and groups, or they could leave it disabled. Number matching is already the default behavior for passwordless notifications in Microsoft Authenticator, and users can't opt out.
 
-As MFA fatigue attacks rise, Microsoft responds to the threat by changing the default behavior for push notifications in Microsoft Authenticator. As a result, Azure AD will make number matching in push notifications the default behavior for all users in every tenant. Number matching is already the default behavior for passwordless notifications in Microsoft Authenticator, and users can't opt out.
+As MFA fatigue attacks rise, number matching becomes more critical to sign-in security. As a result, Microsoft will change the default behavior for push notifications in Microsoft Authenticator. Azure AD will make number matching in push notifications the default behavior for all users in every tenant. 
 
 <!---Add link to Mayur Blog post here--->
 
@@ -44,11 +44,9 @@ In addition to configuring Authentication methods policy settings to be either *
 
 The option to let Azure AD manage the setting is a convenient way for an organization to allow Microsoft to enable or disable a feature by default. Organizations can more easily improve their security posture by trusting Microsoft to manage when a feature should be enabled by default. By configuring a setting as **Microsoft managed** (named *default* in Graph APIs), IT admins can trust Microsoft to enable a security feature they haven't explicitly disabled. 
 
-For example, an admin can enable [number matching](how-to-mfa-number-match.md) in push notifications to require users to type a two-digit code from the sign-in screen into Microsoft Authenticator. Number matching can also be explicitly disabled, or set as **Microsoft managed**. Today, the **Microsoft managed** configuration for number matching is **Disabled**, which effectively disables it for any environment where an admin chooses to let Azure AD manage the setting. 
+For example, an admin can enable [location and application name](how-to-mfa-number-match.md) in push notifications to give users more context when when they approve MFA requests by with Microsoft Authenticator. The additional context can also be explicitly disabled, or set as **Microsoft managed**. Today, the **Microsoft managed** configuration for additional context is **Disabled**, which effectively disables it for any environment where an admin chooses to let Azure AD manage the setting. 
 
-Soon, the **Microsoft managed** configuration for number matching will change to **Enabled**. Microsoft plans to change the **Microsoft managed** configuration for number matching to **Enabled** to counter [increased MFA fatigue attacks](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677). The requirement to type a two-digit code helps stop accidental MFA approvals that lead to an attack.
-
-For customers who want to rely upon Microsoft to improve their security posture, setting security features to **Microsoft managed** is an easy way stay ahead of security threats. They can trust Microsoft to determine the best way to configure security settings based on the current threat landscape.  
+As the security threat landscape changes over time, Microsoft may change the **Microsoft managed** configuration for additional context to **Enabled**. For customers who want to rely upon Microsoft to improve their security posture, setting security features to **Microsoft managed** is an easy way stay ahead of security threats. They can trust Microsoft to determine the best way to configure security settings based on the current threat landscape.  
 
 The following table lists each setting that can be set to Microsoft managed and whether that setting is enabled or disabled by default. 
 
