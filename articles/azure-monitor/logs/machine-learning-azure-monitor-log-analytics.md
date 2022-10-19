@@ -150,12 +150,12 @@ The KQL `diffpatterns()` plugin compares two data sets of the same structure and
 
 This query compares `AzureDiagnostics` usage on June 15, the extreme outlier in our example, with the table usage on other days: 
 
-<a href="https://portal.azure.com#@ec7cb332-9a0a-4569-835a-ce7658e8444e/blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade/resourceId/%2FDemo/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA61SzU7cMBA%252Bs08x2guJlELhivaw6lYckaD3aLAnWYNjb%252B0xYase%252Bg59Q56EcRLYDWpv5OQZT775fmyJITIGZtMRrODyQl%252FB%252BTnc5R5oZILGB%252BAtwTARKRiKFSifHBvXwj2qR2iC74YZlUIgN%252F64sIJNTk%252FIX0fg705%252FAqzFyHWuauPqgK7NG3Kd0WrUujjVuD%252BtvlxU0OEj1W93xSDWN3JbYOuLiV8p39Vi%252FSsF2hhsnY9sVDxZ%252FAZ6ZpmBtfMd2v0mM1%252BBaZpjoB%252BCcE2OgtzqElarf%252FCrYHmEsZTyRpSFXMRlmZ1Zax1BoVXJZhzxwqbO5Y6lGYEK%252Bq1RW4g7azgOBgWKyUqSYo1x7IF7n%252B3A3Inw8ufvTACKoMN2EdnLmWAmA%252B6JeyIHHx17fy1leXb2XzezoA01xlE8pDwG9Rb8z0RhL8t3wT%252BQ4rnCW4o%252BBUXHOKPq0RZB9aKaU3A5pCe0KSvTkswOmSm4WMwAj%252B3%252BkMVA9pvvdig2QoooJL0bOOI4Nr7Y3vB2cruVjMI0Ou17BeuOaAdKAwAA" target="_blank">Click to run query</a>
+<a href="https://portal.azure.com#@ec7cb332-9a0a-4569-835a-ce7658e8444e/blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade/resourceId/%2FDemo/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA61SwY7UMAw9M19hzWVbqbvLckVzGDGIIxJwX3kTtw2bJiVxKEUc%252BAf%252BkC%252FBaTu77SBu9JLGdp793rMlhsgYmE1HcIBXd%252Fo13N7CxxwDjUxQ%252BwDcEkwVkYKhWIHyybFxDTygeoQ6%252BG6qUSkEcvPDnRVscnpBfjkDv3X6P8Ci8x3a8ZSBDlM4w9yj1sWVxvGqur6roMNHuj%252FniomlryVbYOOLZbBSvhVhXwvYmI%252Fcduky4VcwtEa1YOKUshgZ6mTtVG%252FcM5WArqEc8SkAfcOutwTF6BModBCot6iktBWgwXALCLEnZWqjoMWgr5XXpDety93xewp0Mtg4H9mo%252BGL3Q6BZOMBxo4Sp6zXRTzLQO3IUJKtLOBzWwlWwXz3ey%252FW9kAj5Evdl1uSodZSprUo2A4g7NnUuRyxtOp%252FFib01PAsUKCYruyVmGcceePCZDOZIhN8%252Ff20mR2Hy3F3YDfJPsJkfHogHIgeXVj7tb1ne3PzT5kzoRLVxFC%252FNOq%252Fil0RhlOZ98J9J8ZbhB4riqFi3wplZz7IIqhfWnILL7nxFmzIzLZb0yEzBxWIDuJb7wotp2De%252B61FkhBRRhvTur52cF2hWuxGPwlK69PsDddtehdwDAAA%253D" target="_blank">Click to run query</a>
 
 ```kusto
 let starttime = 21d; // Start date for the time series, counting back from the current date
 let endtime = 0d; // End date for the time series, counting back from the current date
-let anomalyDate = datetime_add('day',-1, make_datetime(startofday(ago(endtime)))); //Start of day of anomayDate, in our example we picked anomalyDate as June 15
+let anomalyDate = datetime_add('day',-1, make_datetime(startofday(ago(endtime)))); // Start of day of the anomaly date, which is the last full day in the time range in our example (you can replace this with a specific hard-coded anomaly date)
 AzureDiagnostics	
 | extend AnomalyDate = iff(startofday(TimeGenerated) == anomalyDate, "AnomalyDate", "OtherDates") // Adds calculated column called AnomalyDate, which splits the result set into two data sets – AnomalyDate and OtherDates
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Defines the time range for the query
@@ -163,7 +163,7 @@ AzureDiagnostics
 | evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate") // Compares usage on the anomaly date with the regular usage pattern
 ```
 
-The query identifies each entry in the table as occurring on *AnomalyDate* (June 15) or *OtherDates*. The `diffpatterns()` plugin then splits these data sets - called A and B - and returns a few patterns that contribute to the differences in the two sets:
+The query identifies each entry in the table as occurring on *AnomalyDate* (June 15) or *OtherDates*. The `diffpatterns()` plugin then splits these data sets - called A (*OtherDates* in our example) and B (*AnomalyDate* in our example) - and returns a few patterns that contribute to the differences in the two sets:
 
 :::image type="content" source="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" lightbox="./media/machine-learning-azure-monitor-log-analytics/diffpatterns-kql-log-analytics.png" alt-text="A screenshot showing a table with three rows. Each row shows a difference between the usage on the anomalous use and the baseline usage."::: 
 
