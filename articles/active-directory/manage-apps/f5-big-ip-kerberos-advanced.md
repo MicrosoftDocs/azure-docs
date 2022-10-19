@@ -237,7 +237,7 @@ SAML service provider settings define the SAML SP properties APM uses for overla
 
     ![Screenshot that shows name and entity I D values entered for a new SAML service provider service.](./media/f5-big-ip-kerberos-advanced/create-new-saml-sp-service.png)
 
-4. You can skip **SP Name Settings** if the SAML entity ID is an exact match of the URL for the published application. For example, if the entity ID is urn:myexpenses:contosoonline, the **Scheme** value is **https**; the **Host** value is **myexpenses.contoso.com**. If the entity ID is https://myexpenses.contoso.com, you don't need to provide this information.
+4. You can skip **SP Name Settings** if the SAML entity ID is an exact match of the URL for the published application. For example, if the entity ID is urn:myexpenses:contosoonline, the **Scheme** value is **https**; the **Host** value is **myexpenses.contoso.com**. If the entity ID is 'https://myexpenses.contoso.com', you don't need to provide this information.
 
 ### Configure an external IdP connector 
 
