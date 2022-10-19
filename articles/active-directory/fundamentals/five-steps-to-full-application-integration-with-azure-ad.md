@@ -2,8 +2,8 @@
 title: Five steps for integrating all your apps with Azure AD
 description: This guide explains how to integrate all your applications with Azure AD. In each step, we explain the value and provide links to resources that will explain the technical details. 
 services: active-directory
-author: knicholasa
-
+author: janicericketts
+ms.author: jricketts
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
