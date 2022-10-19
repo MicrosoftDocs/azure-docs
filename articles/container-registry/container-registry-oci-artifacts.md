@@ -4,7 +4,7 @@ description: Push and pull Open Container Initiative (OCI) artifacts using a pri
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 02/03/2021
+ms.date: 10/11/2022
 ms.author: stevelas
 ---
 

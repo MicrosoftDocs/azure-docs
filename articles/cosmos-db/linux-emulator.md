@@ -2,7 +2,7 @@
 title: Run the Azure Cosmos DB Emulator on Docker for Linux
 description: Learn how to run and use the Azure Cosmos DB Linux Emulator on Linux, and macOS. Using the emulator you can develop and test your application locally for free, without an Azure subscription.
 ms.service: cosmos-db
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
@@ -11,12 +11,12 @@ ms.date: 05/09/2022
 ---
 
 # Run the emulator on Docker for Linux (Preview)
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
-The Azure Cosmos DB Linux Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Currently, the Linux emulator only supports SQL API and MongoDB API. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Linux Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on macOS and Linux environments.
+The Azure Cosmos DB Linux Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Currently, the Linux emulator only supports API for NoSQL and MongoDB. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Linux Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on macOS and Linux environments.
 
 > [!NOTE]
-> The Cosmos DB Linux Emulator is currently in preview mode and supports only the SQL and MongoDB APIs. Users may experience slight performance degradations in terms of the number of requests per second processed by the emulator when compared to the Windows version. The default number of physical partitions which directly impacts the number of containers that can be provisioned is 10.
+> The Azure Cosmos DB Linux Emulator is currently in preview mode and supports only the APIs for NoSQL and MongoDB. Users may experience slight performance degradations in terms of the number of requests per second processed by the emulator when compared to the Windows version. The default number of physical partitions which directly impacts the number of containers that can be provisioned is 10.
 > 
 > We do not recommend use of the emulator (Preview) in production. For heavier workloads, use our [Windows emulator](local-emulator.md).
 
@@ -28,15 +28,15 @@ Functionality that relies on the Azure infrastructure like global replication, s
 
 ## Differences between the Linux Emulator and the cloud service
 
-Since the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
+Since the Azure Cosmos DB Emulator provides an emulated environment that runs on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
 
-- Currently, the **Data Explorer** pane in the emulator fully supports SQL and MongoDB API clients only.
+- Currently, the **Data Explorer** pane in the emulator fully supports API for NoSQL and MongoDB clients only.
 
-- With the Linux emulator, you can create an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
+- With the Linux emulator, you can create an Azure Cosmos DB account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
 - The Linux emulator isn't a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos DB Emulator, by default, you can create up to 10 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
 
-- While [consistency levels](consistency-levels.md) can be adjusted using command-line arguments for testing scenarios only (default setting is Session), a user might not expect the same behavior as in the cloud service. For instance, Strong and Bounded staleness consistency has no effect on the emulator, other than signaling to the Cosmos DB SDK the default consistency of the account.
+- While [consistency levels](consistency-levels.md) can be adjusted using command-line arguments for testing scenarios only (default setting is Session), a user might not expect the same behavior as in the cloud service. For instance, Strong and Bounded staleness consistency has no effect on the emulator, other than signaling to the Azure Cosmos DB SDK the default consistency of the account.
 
 - The Linux emulator doesn't offer [multi-region replication](distribute-data-globally.md).
 
@@ -147,7 +147,7 @@ Use the following steps to run the emulator on Linux:
 |  Memory: `-m`   |         | On memory, 3 GB or more is required.     |
 | Cores:   `--cpus`  |         |   Make sure to allocate enough memory and CPU cores. At least four cores are recommended.      |
 |`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE`  | false  | This setting used by itself will help persist the data between container restarts.  |
-|`AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT`  |        | This setting enables the MongoDB API endpoint for the emulator and configures the MongoDB server version. (Valid server version values include ``3.2``, ``3.6``, ``4.0`` and ``4.2``) |
+|`AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT`  |        | This setting enables the API for MongoDB endpoint for the emulator and configures the MongoDB server version. (Valid server version values include ``3.2``, ``3.6``, ``4.0`` and ``4.2``) |
 
 ## Troubleshoot issues
 
@@ -205,7 +205,7 @@ TLS verification can be disabled by setting the environment variable `NODE_TLS_R
 NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
 
-This flag is only recommended for local development as it disables TLS for Node.js. More information can be found on in [Node.js documentation](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) and the [Cosmos DB Emulator Certificates documentation](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs).
+This flag is only recommended for local development as it disables TLS for Node.js. More information can be found on in [Node.js documentation](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) and the [Azure Cosmos DB Emulator Certificates documentation](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs).
 
 #### The Docker container failed to start
 
@@ -236,9 +236,9 @@ The number of physical partitions provisioned on the emulator is too low. Either
 
 - The emulator fails to start:
 
-  - Make sure you're [running the latest image of the Cosmos DB emulator for Linux](#refresh-linux-container). Otherwise, see the section above regarding connectivity-related issues.
+  - Make sure you're [running the latest image of the Azure Cosmos DB emulator for Linux](#refresh-linux-container). Otherwise, see the section above regarding connectivity-related issues.
 
-  - If the Cosmos DB emulator data folder is "volume mounted", ensure that the volume has enough space and is read/write.
+  - If the Azure Cosmos DB emulator data folder is "volume mounted", ensure that the volume has enough space and is read/write.
 
   - Confirm that creating a container with the recommended settings works. If yes, most likely the cause of failure was the extra settings passed via the respective Docker command upon starting the container.
 
@@ -248,7 +248,7 @@ The number of physical partitions provisioned on the emulator is too low. Either
     "Failed loading Emulator secrets certificate. Error: 0x8009000f or similar, a new policy might have been added to your host that prevents an application such as Azure Cosmos DB Emulator from creating and adding self signed certificate files into your certificate store."
     ```
 
-    This failure can occur even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case. The image can help as long as you still have the permission to add the self-signed emulator TLS/SSL certificate into your host machine context. The self-signed certificate is required by Java and .NET Cosmos SDK client applications.
+    This failure can occur even when you run in Administrator context, since the specific policy usually added by your IT department takes priority over the local Administrator. Using a Docker image for the emulator instead might help in this case. The image can help as long as you still have the permission to add the self-signed emulator TLS/SSL certificate into your host machine context. The self-signed certificate is required by Java and .NET Azure Cosmos DB SDK client applications.
 
 - The emulator is crashing:
 
@@ -266,7 +266,7 @@ The number of physical partitions provisioned on the emulator is too low. Either
 
   - Make sure that the self-signed emulator certificate is properly imported and manually trusted in order for your browser to access the data explorer page.
 
-  - Try creating a database/container and inserting an item using the Data Explorer. If successful, most likely the cause of the issue resides within your application. If not, [contact the Cosmos DB team](#report-an-emulator-issue).
+  - Try creating a database/container and inserting an item using the Data Explorer. If successful, most likely the cause of the issue resides within your application. If not, [contact the Azure Cosmos DB team](#report-an-emulator-issue).
 
 ### Performance issues
 
@@ -302,7 +302,7 @@ Use the following steps to refresh the Linux container:
    docker rmi ID_OF_IMAGE_FROM_ABOVE
    ```
 
-1. Pull the latest image of the Cosmos DB Linux Emulator.
+1. Pull the latest image of the Azure Cosmos DB Linux Emulator.
 
    ```bash
    docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator

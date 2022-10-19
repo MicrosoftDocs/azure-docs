@@ -20,7 +20,9 @@ sections:
       - question: I got an email that my image is scheduled for deprecation, what does this mean?
         answer: |
           You might have received an email telling you that your Virtual machine is running on images that are scheduled for deprecation or already deprecated. There are several reasons an image can be deprecated by the publisher, which might be due to security issues or the image reaching end of life. 
-          
+
+
+           :::image type="content" source="media/deprecated-images/mail.png" alt-text="Screenshot of the email you might receive if you have virtual machines or scale sets that use an image that is going to be deprecated.":::
            
           
           An image can be deprecated on the version, plan or offer level:
@@ -50,16 +52,12 @@ sections:
           You can search for the scheduled or deprecated image in your subscription in the following ways:
           
           
-          If you are notified that an image is deprecated on only the Offer or plan (SKU) level, you can search for all virtual machines from the search bar in the Azure Portal. Edit the columns to include Publisher, Offer, and Plan. This will not give the version information, only up to the Plan information.
+          - If you are notified that an image is deprecated on only the Offer or plan (SKU) level, you can search for all virtual machines from the search bar in the Azure Portal. Use the **Add filter** button to filter the results. You can also edit the columns to include Publisher, Offer, and Plan using **Manage view** > **Edit columns**. This will not give the version information, only up to the Plan information.
            
                         
-          If you are notified that an image is deprecated on the offer, plan (SKU) or version level, you can use Azure Resource Graph Explorer on the Azure portal to find the specific version for images in your subscription that your VM or scale set is running on.
-          
-
-          Run the queries below in the Azure Resource Graph explorer query window and uncomment the optional filters (delete the “//” to uncomment a line) to the Offer, Plan (SKU) or version level you are looking for.
-          
-
-          To find the details of the image versions that are being used by VMs: 
+          - If you are notified that an image is deprecated on the offer, plan (SKU) or version level, you can use Azure Resource Graph Explorer on the Azure portal to find the specific version for images in your subscription that your VM or scale set is running on.
+            Run the queries below in the Azure Resource Graph explorer query window and uncomment the optional filters (delete the “//” to uncomment a line) to the Offer, Plan (SKU) or version level you are looking for.
+            To find the details of the image versions that are being used by VMs: 
           
           ```
           Resources 
@@ -162,7 +160,7 @@ sections:
           
             Azure CLI:
           
-            azurecli
+            ```azurecli
             az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
             ```
           
@@ -192,7 +190,7 @@ sections:
         
           You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
           
-          Scale sets, in general, support [image reference replacement](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#os-updates) but VMs do not.
+          Scale sets, in general, support [image reference replacement](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) but VMs do not.
           
           
           

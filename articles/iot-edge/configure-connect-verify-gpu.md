@@ -121,9 +121,9 @@ There are different ways to enable an IoT Edge module so that it uses a GPU for 
 
 If you have an existing module on your IoT Edge device, adding a configuration using `DeviceRequests` in `createOptions` of the deployment manifest makes the module GPU-optimized. Follow these steps to configure an existing module.
 
-1. Go to your IoT Hub in the Azure portal and choose **IoT Edge** from the **Device management** menu.
+1. Go to your IoT Hub in the Azure portal and choose **Devices** under the **Device management** menu.
 
-1. Select your device to open it.
+1. Select your IoT Edge device to open it.
 
 1. Select the **Set modules** tab at the top.
 
@@ -172,11 +172,11 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
 Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.html) module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. This NVIDIA module is already in a Docker container. 
 
-1. Select your IoT Edge device in the Azure portal from your IoT Hub's **IoT Edge** menu.
+1. Select your IoT Edge device in the Azure portal from your IoT Hub's **Devices** menu.
 
-1. Select the **Set modules** tab at the top
+1. Select the **Set modules** tab at the top.
 
-1. Select **+ Add** under the IoT Edge modules heading and choose **IoT Edge Module**
+1. Select **+ Add** under the IoT Edge modules heading and choose **IoT Edge Module**.
 
 1. Provide a name in the **IoT Edge Module Name** field.
 

@@ -168,13 +168,15 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 ---
 
-#### Default website deployed with web apps doesn't support automatic client-side monitoring
+### Default website deployed with web apps doesn't support automatic client-side monitoring
 
 When you create a web app with the `ASP.NET Core` runtimes in Azure App Services, it deploys a single static HTML page as a starter website. The static webpage also loads an ASP.NET managed web part in IIS. This behavior allows for testing codeless server-side monitoring, but doesn't support automatic client-side monitoring.
 
 If you wish to test out codeless server and client-side monitoring for ASP.NET Core in an Azure App Services web app, we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md). Then use the instructions in the current article to enable monitoring.
 
 [!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ### PHP and WordPress aren't supported
 

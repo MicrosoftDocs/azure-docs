@@ -1,33 +1,34 @@
 ---
-title: Azure Cosmos DB MongoDB indexer
+title: Indexing with Azure Cosmos DB for MongoDB
 titleSuffix: Azure Cognitive Search
-description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data using the MongoDB API protocol.
+description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data in Azure Cosmos DB for MongoDB.
 
 author: mgottein 
 ms.author: magottei
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/12/2022
 ---
 
-# Index data from Azure Cosmos DB using the MongoDB API
+# Indexing with Azure Cosmos DB for MongoDB
 
 > [!IMPORTANT] 
 > MongoDB API support is currently in public preview under [supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content using the MongoDB API from Azure Cosmos DB. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content using the MongoDB API provided by Azure Cosmos DB for MongoDB. 
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [MongoDB API](../cosmos-db/choose-api.md#api-for-mongodb). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to [Azure Cosmos DB for MongoDB](../cosmos-db/choose-api.md#api-for-mongodb). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-Because terminology can be confusing, it's worth noting that [Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
 
 ## Prerequisites
 
 + [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
-+ An [Azure Cosmos DB account, database, collection, and documents](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Cosmos DB for lower latency and to avoid bandwidth charges.
++ An [Azure Cosmos DB account, database, collection, and documents](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
-+ An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
++ An [automatic indexing policy](../cosmos-db/index-policy.md) on the Azure Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
 
@@ -45,7 +46,7 @@ These are the limitations of this feature:
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-For this call, specify a [preview REST API version](search-api-preview.md) (2020-06-30-Preview or 2021-04-30-Preview) to create a data source that connects using MongoDB API.
+For this call, specify a [preview REST API version](search-api-preview.md) (2020-06-30-Preview or 2021-04-30-Preview) to create a data source that connects via the MongoDB API.
 
 1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition: 
 
@@ -77,7 +78,7 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
 
 1. Set "credentials" to a connection string. The next section describes the supported formats.
 
-1. Set "container" to the collection. The "name" property is required and it specifies the ID of the database collection to be indexed. For the MongoDB API, "query" isn't supported. 
+1. Set "container" to the collection. The "name" property is required and it specifies the ID of the database collection to be indexed. For Azure Cosmos DB for MongoDB, "query" isn't supported. 
 
 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs.
 
@@ -94,16 +95,16 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 | Full access connection string |
 |-----------------------------------------------|
 |`{ "connectionString" : "AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb" }` |
-| You can get the *Cosmos DB auth key* from the Cosmos DB account page in Azure portal by selecting **Connection String** in the left navigation pane. Make sure to copy **Primary Password** and replace *Cosmos DB auth key* value with it. |
+| You can get the *Cosmos DB auth key* from the Azure Cosmos DB account page in the Azure portal by selecting **Connection String** in the left navigation pane. Make sure to copy **Primary Password** and replace *Cosmos DB auth key* value with it. |
 
 | Managed identity connection string |
 |------------------------------------|
 |`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)" }`|
-|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md) and created a role assignment that grants **Cosmos DB Account Reader Role** permissions. See [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md) for more information. |
+|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md) and created a role assignment that grants **Cosmos DB Account Reader Role** permissions. See [Setting up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md) for more information. |
 
 ## Add search fields to an index
 
-In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-db-items) in your data source.
+In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with source data. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-db-items) in your data source.
 
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
 
@@ -136,7 +137,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
    + "doc_id" represents "_id" for the object identifier. If you specify a field of "doc_id" in the index, the indexer populates it with the values of the object identifier.
 
-   + "rid" is a system property in Cosmos DB. If you specify a field of "rid" in the index, the indexer populates it with the base64-encoded value of the "rid" property. 
+   + "rid" is a system property in Azure Cosmos DB. If you specify a field of "rid" in the index, the indexer populates it with the base64-encoded value of the "rid" property. 
 
    + For any other field, your search field should have the same name as defined in the collection. 
 
@@ -155,7 +156,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 | GeoJSON objects such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
-## Configure and run the Cosmos DB indexer
+## Configure and run the Azure Cosmos DB indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
@@ -243,7 +244,7 @@ Once an indexer has fully populated a search index, you might want subsequent in
 
 To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. This property tells the indexer which change tracking mechanism is used on your data.
 
-For Cosmos DB indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+For Azure Cosmos DB indexers, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
 
 The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
@@ -300,6 +301,6 @@ api-key: [Search service admin key]
 
 You can now control how you [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Cosmos DB:
 
-+ [Set up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md)
++ [Set up an indexer connection to an Azure Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md)
 + [Index large data sets](search-howto-large-index.md)
 + [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)

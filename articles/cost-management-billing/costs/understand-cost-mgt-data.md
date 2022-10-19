@@ -36,7 +36,7 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Microsoft Developer Network (MSDN)** | MSDN Platforms<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018 |
 | **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | October 2, 2018 |
 | **Pay-As-You-Go** | Pay-As-You-Go Dev/Test         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | October 2, 2018 |
-| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018 |
+| **Pay-As-You-Go** | Microsoft Cloud Partner Program      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018 |
 | **Pay-As-You-Go** | Free Trial<sup>3</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | October 2, 2018 |
 | **Pay-As-You-Go** | Azure in Open<sup>3</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | October 2, 2018 |
 | **Pay-As-You-Go** | Azure Pass<sup>3</sup>         | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | October 2, 2018 |
@@ -157,7 +157,7 @@ The following examples illustrate how billing periods could end:
 * Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
 * Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
 
-Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months is available from the portal. For historical data before 13 months, please use [Exports](tutorial-export-acm-data.md) or the [UsageDetails API](/rest/api/consumption/usage-details/list).
+Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months is available from the portal. For historical data before 13 months, please use [Exports](tutorial-export-acm-data.md) or the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api).
 
 ### Rerated data
 

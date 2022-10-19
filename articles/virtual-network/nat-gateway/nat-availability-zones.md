@@ -57,7 +57,8 @@ If your scenario requires inbound endpoints, you have two options:
 | (1) | **Align** the inbound endpoints with the respective **zonal stacks** you're creating for outbound. | Create a standard load balancer with a zonal frontend. | Same failure model for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
 | (2) | **Overlay** the zonal stacks with a cross-zone inbound endpoint. | Create a standard load balancer with a zone-redundant front-end. | Single IP address for inbound endpoint. | Varying models for inbound and outbound. More complex to operate. |
 
-Note that zonal configuration for a load balancer works differently from NAT gateway. The load balancer's availability zone selection is synonymous with its frontend IP configuration's zone selection. For public load balancers, if the public IP in the Load balancer's frontend is zone redundant then the load balancer is also zone-redundant. If the public IP in the load balancer's frontend is zonal, then the load balancer will also be designated to the same zone.
+> [!NOTE]
+> Note that zonal configuration for a load balancer works differently from NAT gateway. The load balancer's availability zone selection is synonymous with its frontend IP configuration's zone selection. For public load balancers, if the public IP in the Load balancer's frontend is zone redundant then the load balancer is also zone-redundant. If the public IP in the load balancer's frontend is zonal, then the load balancer will also be designated to the same zone.
 
 ## Limitations
 
@@ -65,10 +66,6 @@ Note that zonal configuration for a load balancer works differently from NAT gat
 
 ## Next steps
 
-* Learn more about [Azure regions and availability zones](/azure/availability-zones/az-overview)
-* Learn more about [Azure Virtual network NAT](/azure/virtual-network/nat-gateway/nat-overview)
-* Learn more about [Azure Load balancer](/azure/load-balancer/load-balancer-overview)
-
-
-
-
+* Learn more about [Azure regions and availability zones](../../availability-zones/az-overview.md)
+* Learn more about [Azure Virtual network NAT](./nat-overview.md)
+* Learn more about [Azure Load balancer](../../load-balancer/load-balancer-overview.md)
