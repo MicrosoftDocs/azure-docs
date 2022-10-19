@@ -48,7 +48,7 @@ Each authorization option is briefly described below:
     > [The status of ABAC condition features](../../role-based-access-control/conditions-overview.md#status-of-condition-features)
     >
     > [The status of ABAC condition features in Azure Storage](#status-of-condition-features-in-azure-storage)
-    
+
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
 
 - **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over SMB through AD DS. Your AD DS environment can be hosted in on-premises machines or in Azure VMs. SMB access to Files is supported using AD DS credentials from domain joined machines, either on-premises or in Azure. You can use a combination of Azure RBAC for share level access control and NTFS DACLs for directory/file level permission enforcement. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
@@ -69,10 +69,10 @@ The table below shows the current status of ABAC by storage account performance 
 
 | Performance tier | Resource types | Attribute types | Specific attributes | Availability |
 |--|--|--|--|--|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
-| Standard | Data Lake Storage Gen2                      | Resource                           | snapshot | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Principal                          | all      | Preview |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource<br/>Principal | all      | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
+| Standard | Data Lake Storage Gen2                      | resource                           | snapshot | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | principal                          | all      | Preview |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>principal | all      | Preview |
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
