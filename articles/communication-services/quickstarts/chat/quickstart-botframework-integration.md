@@ -53,7 +53,7 @@ In order to use Azure Communication Services chat as a channel in Azure Bot Serv
 
    3. Choose Azure Bot to create it.
    
-   :::image type="content" source="./media/create-azure-bot.png" alt-text="Creat Azure Bot":::
+   :::image type="content" source="./media/create-azure-bot.png" alt-text="Create Azure Bot":::
 
    4. Finally create an Azure Bot resource. You might use an existing Microsoft app ID or use a new one created automatically. 
    
@@ -148,15 +148,15 @@ With the Azure Communication Services resource, we can configure the Azure Commu
    
 2. Click on the connect button to see a list of ACS resources available under your subscriptions.
 
-   :::image type="content" source="./media/bot-connect-acs-chat-channel.png" alt-text="DemoApp Connect Acs Resource" lightbox="./media/bot-connect-acs-chat-channel.png":::
+   :::image type="content" source="./media/smaller-bot-connect-acs-chat-channel.png" alt-text="DemoApp Connect Acs Resource" lightbox="./media/bot-connect-acs-chat-channel.png":::
 
 3. Once you have selected the required ACS resource from the resources dropdown list, press on apply button.
 
-   :::image type="content" source="./media/bot-choose-resource.png" alt-text="DemoApp Save Acs Resource mapping" lightbox="./media/bot-choose-resource.png":::
+   :::image type="content" source="./media/smaller-bot-choose-resource.png" alt-text="DemoApp Save Acs Resource mapping" lightbox="./media/bot-choose-resource.png":::
 
 4. Once the provided resource details are verified, you'll see the **bot's Azure Communication Services ID** assigned. With this ID, you can add the bot to the conversation at whenever appropriate using Chat's AddParticipant API. Once the bot is added as participant to a chat, it will start receiving chat related activities and can respond back in the chat thread. 
 
-   :::image type="content" source="./media/acs-chat-channel-saved.png" alt-text="DemoApp Bot Detail" lightbox="./media/acs-chat-channel-saved.png":::
+   :::image type="content" source="./media/smaller-acs-chat-channel-saved.png" alt-text="DemoApp Bot ACS Details saved" lightbox="./media/acs-chat-channel-saved.png":::
 
 
 ## Step 4 - Create a chat app and add bot as a participant
@@ -279,7 +279,7 @@ If you would like to deploy the chat application, you can follow these steps:
 
 
 ## More things you can do with bot
-Besides simple text message, bot is also able to receive and send many other activities including
+Besides simple text message, bot is also able to receive many other activities from the user including
 - Conversation update
 - Message update
 - Message delete 
@@ -342,7 +342,7 @@ await turnContext.SendActivityAsync(reply, cancellationToken);
 ```
 You can find sample payloads for adaptive cards at [Samples and Templates](https://adaptivecards.io/samples)
 
-And on the Azure Communication Services User side, the Azure Communication Services message's metadata field will indicate this is a message with attachment.The key is microsoft.azure.communication.chat.bot.contenttype, which is set to the value azurebotservice.adaptivecard. This is an example of the chat message that will be received:
+And on the Azure Communication Services User side, the Azure Communication Services message's metadata field will indicate this is a message with attachment. The key is `microsoft.azure.communication.chat.bot.contenttype`, which is set to the value `azurebotservice.adaptivecard`. This is an example of the chat message that will be received:
 
 ```json
 {
@@ -354,6 +354,74 @@ And on the Azure Communication Services User side, the Azure Communication Servi
  "messageType": "Text"
 }
 ```
+
+### Send a message from user to bot
+
+We can send a simple text message from user to bot just the same way we will send to another user.
+However, when sending a message carrying an attachment from a user to the bot, we need to add this flag to the ACS Chat metadata `"microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.adaptivecard"`. For sending an event activity from user to bot we need to add to ACS Chat metadata `"microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.event"`. Below are some sample formats for user to bot ACS Chat messages.
+
+#### Simple text message
+
+```json
+{
+    "content":"Simple text message",
+    "senderDisplayName":"Acs-Dev-Bot",
+    "metadata":{
+        "text":"random text",
+        "key1":"value1",
+        "key2":"{\r\n  \"subkey1\": \"subValue1\"\r\n
+        "},   	 
+    "messageType": "Text"
+}
+``` 
+
+#### Message with an attachment
+
+```json
+{
+	"content": "{
+                        \"text\":\"sample text\", 
+                        \"attachments\": [{
+                            \"contentType\":\"application/vnd.microsoft.card.adaptive\",
+                            \"content\": { \"*adaptive card payload*\" }
+                        }]
+        }",
+	"senderDisplayName": "Acs-Dev-Bot",
+	"metadata": {
+		"microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.adaptivecard",
+		"text": "random text",
+		"key1": "value1",
+		"key2": "{\r\n  \"subkey1\": \"subValue1\"\r\n}"
+	},
+        "messageType": "Text"
+}
+```
+
+#### Message with an event activity
+
+Event payload is assumed to be all other json fields in content other than name which should contain the name of the event. Below event name `endOfConversation` with the payload `"{field1":"value1", "field2": { "nestedField":"nestedValue" }}` is sent to the bot
+
+```json
+{
+    "content":"{
+                   \"name\":\"endOfConversation\",
+                   \"field1\":\"value1\",
+                   \"field2\": {  
+                       \"nestedField\":\"nestedValue\"
+                    }
+               }",
+    "senderDisplayName":"Acs-Dev-Bot",
+    "metadata":{  
+                   "microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.event",
+                   "text":"random text",
+                   "key1":"value1",
+                   "key2":"{\r\n  \"subkey1\": \"subValue1\"\r\n}"
+               },
+    "messageType": "Text"
+}
+```
+
+> The metadata field `"microsoft.azure.communication.chat.bot.contenttype"` is only to be used in user to bot direction. It is not needed in bot to user message in bot channel data. If added from bot to user, it might result in an unexpected format.
 
 ## Supported bot activity fields
 
@@ -413,6 +481,20 @@ Additionally, for managed identity bots you might have to [update bot service id
 ## Bot handoff patterns
 
 Sometimes it may be necessary to handoff the chat thread from a bot to a human agent if the bot couldn't understand or answer a question or the customer is not satisfied with the bot's answer, they may request to be connected to a human agent. In such cases it may be necessary to [transition conversation from bot to human](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0) and those patterns can be put to use.
+
+## Troubleshooting
+
+### Chat channel cannot be added
+
+- Please verify that in the ABS portal, Configuration -> Bot Messaging endpoint has been set correctly.
+
+### Bot gets a forbidden exception while replying to a message
+
+- Please verify that bot's microsoft app id and secret are saved correctly in the bot configuration file uploaded to the webapp.
+
+### Bot is not able to be added as a participant
+
+- Please verify that bot's ACS Id is being used correctly while sending a request to add bot to a chat thread.
 
 ## Upcoming features in GA (General Availability)
 
