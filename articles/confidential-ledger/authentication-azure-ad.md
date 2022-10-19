@@ -24,7 +24,7 @@ To do so, the client performs a two-steps process:
 Azure confidential ledger then executes the request on behalf of the security principal for which Azure AD issued the access token. All authorization checks are performed using this identity.
 
 In most cases, the recommendation is to use one of Azure confidential ledger SDKs to access the service programmatically, as they remove much of the hassle of implementing the
-flow above (and much more). See, for example, the [Python client library](https://pypi.org/project/azure-confidentialledger/) and [.NET client library](/dotnet/api/overview/azure/storage.confidentialledger-readme-pre).
+flow above (and much more). See, for example, the [Python client library](https://pypi.org/project/azure-confidentialledger/) and [.NET client library](/dotnet/api/azure.security.confidentialledger).
 
 The main authenticating scenarios are:
 
