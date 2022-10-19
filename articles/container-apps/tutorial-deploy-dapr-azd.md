@@ -11,7 +11,7 @@ ms.date: 10/18/2022
 
 # Tutorial: Deploy a Dapr application to Azure Container Apps using Azure Developer CLI (preview) 
 
-[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. In this tutorial, a sample Dapr bindings API microservice is deployed to Azure Container Apps via the [Azure Developer CLI (`azd`)](./azure/developer/azure-developer-cli/overview.md). The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostgreSql output binding.
+[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. In this tutorial, a sample Dapr bindings API microservice is deployed to Azure Container Apps via the [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md). The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostgreSql output binding.
 
 > ![NOTE]
 > The Azure Developer CLI (`azd`) is currently in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. The `azd` previews are partially covered by customer support on a best-effort basis.
