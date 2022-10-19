@@ -151,7 +151,7 @@ To learn more about autoscale, see the following resources:
 * [Use autoscale actions to send email and webhook alert notifications](autoscale-webhook-email.md)
 * [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
 * [Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
-* [Tutorial: Automatically scale a Virtual Machine Scale Set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
+* [Tutorial: Automatically scale a Virtual Machine Scale Set with Azure PowerShell](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
 * [Autoscale CLI reference](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
 * [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
 * [PowerShell Az.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
