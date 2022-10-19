@@ -41,13 +41,13 @@ This integration can't be disabled.
 
 Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
 
-- If you already have your AADIP connector enabled in Microsoft Sentinel, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
+- If you already have your AADIP connector enabled in Microsoft Sentinel, and you've enabled incident creation, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
 
     | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
     | - | - | - |
-    | **1** | Keep the default AADIP integration of **Selective alerts**. | Disable **incident creation** in your AADIP data connector. |
-    | **2** | Choose the **All alerts** AADIP integration. | Use automation rules to automatically close incidents with unwanted alerts.<br><br>Disable **incident creation** in your AADIP data connector. |
-    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose either option for AADIP integration. | Use automation rules to close all incidents where <br>- the *incident provider* is `Microsoft 365 Defender` and <br>- the *alert provider* is `Azure Active Directory Identity Protection`. <br><br>Keep **incident creation** enabled in your AADIP data connector. |
+    | **1** | Keep the default AADIP integration of **Selective alerts**. | Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **2** | Choose the **All alerts** AADIP integration. | Create automation rules to automatically close incidents with unwanted alerts.<br><br>Disable any [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
+    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose either option for AADIP integration. | Create automation rules to close all incidents where <br>- the *incident provider* is `Microsoft 365 Defender` and <br>- the *alert provider* is `Azure Active Directory Identity Protection`. <br><br>Leave enabled those [**Microsoft Security** analytics rules](detect-threats-built-in.md) that create incidents from AADIP alerts. |
 
 - If you don't have your [AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
 
