@@ -111,7 +111,7 @@ This tutorial requires you to set up Silverfort Azure AD Adapter in your Azure A
 
     ![image shows destination](./media/silverfort-azure-ad-integration/destination.png)
 
-15. Select the action to **AZURE AD BRIDGE**.
+15. For Action, select **AZURE AD BRIDGE**.
 
     ![image shows save azure ad bridge](./media/silverfort-azure-ad-integration/save-azure-ad-bridge.png)
 
