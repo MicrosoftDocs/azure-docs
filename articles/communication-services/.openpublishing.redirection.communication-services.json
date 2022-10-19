@@ -52,7 +52,7 @@
       },
       {
         "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/download-recording-file-sample.md",
-        "redirect_url": "/articles/communication-services/quickstarts/voice-video-calling/get-started-call-recording.md",
+        "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/get-started-call-recording",
         "redirect_document_id": false
       } 
     ]
