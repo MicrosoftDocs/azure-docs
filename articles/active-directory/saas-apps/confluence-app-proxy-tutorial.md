@@ -54,7 +54,7 @@ As of now, following versions of Confluence are supported:
 In this tutorial, you configure and test Azure AD SSO for on-premise confluence setup using application proxy mode.
 - Download and Install Azure AD App Proxy connector.
 - Add Application Proxy in Azure AD.
-- Add an Confluence SAML SSO app in Azure AD.
+- Add a Confluence SAML SSO app in Azure AD.
 - Configure SSO for SAML SSO Confluence Application in Azure AD.
 - Create an Azure AD Test user.
 - Assigning the test user for the Confluence Azure AD App.
@@ -70,7 +70,7 @@ In this tutorial, you configure and test Azure AD SSO for on-premise confluence 
 
     ![Screenshot for Download connector service](./media/confluence-app-proxy-tutorial/download-connector-service.png)
 
-4. Accept terms & conditions to download connector. Once downloaded, install it to the system which hosts the confluence application.
+4. Accept terms & conditions to download connector. Once downloaded, install it to the system, which hosts the confluence application.
 
 ## Add an On-premises Application in Azure AD
 
@@ -94,10 +94,10 @@ To add an Application proxy, we need to create an enterprise application.
     4.	Choose **Connector Group** which lists your connector agent under it as active.
     5.	Leave the **Additional Settings** as default.
 
-1. Click on the **Save** from the top options to configure a application proxy.
+1. Click on the **Save** from the top options to configure an application proxy.
 
 
-## Add an Confluence SAML SSO app in Azure AD
+## Add a Confluence SAML SSO app in Azure AD
 
 Now that you've prepared your environment and installed a connector, you're ready to add confluence applications to Azure AD.
 
@@ -144,4 +144,4 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Verify the App Proxy setup by checking if the configured test user is able to SSO using the external URL mentioned in the on-premises application.
 
 > [!NOTE]
-> Complete the setup of the JIRA SAML SSO by Microsoft application by following [this](https://learn.microsoft.com/azure/active-directory/saas-apps/jiramicrosoft-tutorial) tutorial.
+> Complete the setup of the JIRA SAML SSO by Microsoft application by following [this](jiramicrosoft-tutorial.md) tutorial.
