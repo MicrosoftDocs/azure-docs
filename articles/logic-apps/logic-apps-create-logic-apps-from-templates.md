@@ -100,7 +100,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
 
 1. Continue building your workflow.
 
-1. When you're ready, save your changes, which automatically publishes your logic app resource live to Azure. On the designer toolbar, select **Save**.
+1. When you're ready, save your workflow, which automatically publishes your logic app resource live to Azure. On the designer toolbar, select **Save**.
 
    :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png" alt-text="Screenshot showing the designer with top part of a workflow. On the toolbar, 'Save' is selected.":::
 
@@ -149,7 +149,7 @@ This how-to guide shows how to use these templates as provided or edit them to f
    > If you haven't saved your changes, you can discard your work and return to 
    > your previous workflow. On the designer toolbar, select **Discard**.
 
-1. When you're ready, save your changes, which automatically publishes your logic app resource live to Azure. On the designer toolbar, select **Save**.
+1. When you're ready, save your workflow, which automatically publishes your logic app resource live to Azure. On the designer toolbar, select **Save**.
 
    :::image type="content" source="./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png" alt-text="Screenshot showing the designer with top part of a workflow visible. On the toolbar, 'Save' is selected.":::
 
