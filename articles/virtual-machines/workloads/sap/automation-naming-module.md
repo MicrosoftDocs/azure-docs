@@ -68,7 +68,7 @@ The names for the key vaults are defined in the "keyvault_names" structure. The 
 ```
 
 > [!NOTE]
-> This key vault names need to be unique across Azure, SAP Deployment Automation Framework appends 3 random characters (ABC in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+> This key vault names need to be unique across Azure, SAP deployment automation framework appends 3 random characters (ABC in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
 
 The "private_access" names are currently not used.
 
@@ -93,7 +93,7 @@ The names for the storage accounts are defined in the "storageaccount_names" str
 ```
 
 > [!NOTE]
-> This key vault names need to be unique across Azure, SAP Deployment Automation Framework appends 3 random characters (abc in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+> This key vault names need to be unique across Azure, SAP deployment automation framework appends 3 random characters (abc in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
 
 ### Virtual Machine names
 
