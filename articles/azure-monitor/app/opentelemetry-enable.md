@@ -424,7 +424,7 @@ from azure.monitor.opentelemetry.exporter import (
 )
 
 # Sampler expects a sample rate of between 0 and 1 inclusive
-# 0.1 means approximately 10% of your telemetry is sent
+# 0.1 means approximately 10% of your traces are sent
 sampler = ApplicationInsightsSampler(0.1)
 trace.set_tracer_provider(TracerProvider(sampler=sampler))
 tracer = trace.get_tracer(__name__)
@@ -433,7 +433,7 @@ span_processor = BatchSpanProcessor(exporter)
 trace.get_tracer_provider().add_span_processor(span_processor)
 
 for i in range(100):
-    # Approximately 25% of these spans should be sampled out
+    # Approximately 90% of these spans should be sampled out
     with tracer.start_as_current_span("hello"):
         print("Hello, World!")
 ```
