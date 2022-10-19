@@ -30,7 +30,7 @@ Sign-in using the Azure AD account you assigned a role to previously.
 
 :::image type="content" source="../../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
-### [Visual Studio Code](#tab/vs-code)
+### [Visual Studio Code](#tab/visual-studio-code)
 
 You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
 

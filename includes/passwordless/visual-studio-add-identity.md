@@ -8,7 +8,7 @@ To use `DefaultAzureCredential`, add the **Azure.Identity** package to your appl
 
     :::image type="content" source="../../articles/storage/common/media/visual-studio-identity-package.png" alt-text="A screenshot showing how to add the identity package."::: 
 
-### [.NET CLI](#tab/net-cli)
+### [.NET CLI](#tab/netcore-cli)
 
 ```dotnetcli
 dotnet add package Azure.Identity
