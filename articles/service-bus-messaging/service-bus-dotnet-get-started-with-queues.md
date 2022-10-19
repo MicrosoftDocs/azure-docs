@@ -25,7 +25,7 @@ In this quickstart, you will do the following steps:
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
-- **Microsoft Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
+- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
 
@@ -72,7 +72,7 @@ This section shows you how to create a .NET console application to send messages
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > Make sure to update the `queueName` variable and the `queueNamespace` values in the code snippets with the values from the Service Bus you created.
+    > Per the `TODO` comment, update the placeholder values in the code snippets with the values from the Service Bus you created.
 
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     * Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
@@ -228,7 +228,7 @@ This section shows you how to create a .NET console application to send messages
 
     1. Notice the values in the **Essentials** section.
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
+        :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
 
     Notice the following values:
     - The **Active** message count value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
@@ -240,7 +240,7 @@ This section shows you how to create a .NET console application to send messages
 In this section, you'll create a .NET console application that receives messages from the queue.
 
 > [!NOTE]
-> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+> This quickstart provides step-by-step instructions to implement a scenario of sending a batch of messages to a Service Bus queue and then receiving them. For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ### Create a project for the receiver
 
@@ -281,7 +281,7 @@ In this section, you'll create a .NET console application that receives messages
 
 In this section, you'll add code to retrieve messages from the queue.
 
-1. Within the `Program` class, add the following `using` statements and properties, just before the `Main` method.
+1. Within the `Program` class, add the following code, just before the `Main` method.
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -349,7 +349,7 @@ In this section, you'll add code to retrieve messages from the queue.
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //
-    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses port 443. 
     // If you use the default AmqpTcp, make sure that ports 5671 and 5672 are open.
 
     // TODO: Replace the <NAMESPACE-NAME> placeholder
@@ -406,8 +406,8 @@ In this section, you'll add code to retrieve messages from the queue.
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //
-    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses port 443. 
+    // If you use the default AmqpTcp, make sure that ports 5671 and 5672 are open.
 
     // TODO: Replace the <NAMESPACE-CONNECTION-STRING> and <QUEUE-NAME> placeholders
     var clientOptions = new ServiceBusClientOptions()
@@ -468,7 +468,7 @@ In this section, you'll add code to retrieve messages from the queue.
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //
-    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443.
+    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses port 443.
     // If you use the default AmqpTcp, make sure that ports 5671 and 5672 are open.
 
     // TODO: Replace the <NAMESPACE-NAME> and <QUEUE-NAME> placeholders
@@ -544,8 +544,8 @@ In this section, you'll add code to retrieve messages from the queue.
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //
-    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses port 443. 
+    // If you use the default AmqpTcp, make sure that ports 5671 and 5672 are open.
     
     // TODO: Replace the <NAMESPACE-CONNECTION-STRING> and <QUEUE-NAME> placeholders
     var clientOptions = new ServiceBusClientOptions()
