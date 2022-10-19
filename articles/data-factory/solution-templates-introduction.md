@@ -89,7 +89,7 @@ After checking the **My templates** box in the **Template gallery** page, you ca
 
 Community members are now welcome to contribute to the Template Gallery. You will be able to see these templates when you filter by **Contributor**. 
 
-:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-6.png" alt-text="Screenshot showing how to save a pipeline as a template.":::
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-6.png" alt-text="Screenshot of template gallery showing a Community contributor option under the Contributor filter.":::
 
 To learn how you can contribute to the template gallery, please read our [introduction](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-azure-data-factory-community-templates/ba-p/3650989) and [instructions](https://github.com/Azure/Azure-DataFactory/tree/main/community%20templates). 
 
