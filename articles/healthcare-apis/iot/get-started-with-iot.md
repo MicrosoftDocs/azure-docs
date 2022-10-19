@@ -139,7 +139,7 @@ When MedTech service is deployed and connected to the Event Hubs and FHIR servic
 
 ### Data sent from Device to Event Hubs
 
-The data is sent to an Event Hub instance so that it can wait until MedTech service is ready to receive it. The data transfer needs to be asynchronous because it is sent over the Internet and delivery times cannot be precisely measured. Normally the data won't sit on an event hub longer than 24 hours.
+The data is sent to an Event Hubs instance so that it can wait until MedTech service is ready to receive it. The data transfer needs to be asynchronous because it is sent over the Internet and delivery times cannot be precisely measured. Normally the data won't sit on an event hub longer than 24 hours.
 
 For more information about Event Hubs, see [Event Hubs](../../event-hubs/event-hubs-about.md).
 
