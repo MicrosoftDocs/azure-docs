@@ -195,7 +195,7 @@ additionalContent:
               url: ../ddos-protection/ddos-protection-overview.md
             - text: Create DDoS Network Protection
               url: ../ddos-protection/manage-ddos-protection.md
-            -text: Create DDoS IP Protection
+            - text: Create DDoS IP Protection
               url: ../ddos-protection/manage-ddos-protection-powershell-ip.md
             - text: See more
               url: ../ddos-protection/index.yml
