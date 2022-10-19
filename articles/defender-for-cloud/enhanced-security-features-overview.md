@@ -87,9 +87,9 @@ To request your discount, [contact Defender for Cloud's support team](https://po
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
 
-### My subscription has Microsoft Defender for Servers enabled, do I pay for not-running servers?
+### My subscription has Microsoft Defender for Servers enabled, which machines do I pay for?
 
-No. When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in a deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
+When you enable [Microsoft Defender for Servers](defender-for-servers-introduction.md) on a subscription, all machines in that subscription (including machines that are part of PaaS services and reside in this subscription) are billed according to their power state as shown in the following table:
 
 | State        | Description                                                                                                                                      | Instance usage billed |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
