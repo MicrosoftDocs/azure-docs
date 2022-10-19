@@ -27,7 +27,7 @@ Some popular modules are available for use in the Enterprise tier of Azure Cache
 |RediSearch   |    No   |    Yes     | Yes (preview)    |
 |RedisBloom   |      No   |    Yes    |   No    |
 |RedisTimeSeries |   No    |    Yes   |   No    |
-|RedisJSON  |     No    |  Yes    |   Yes (preview)      |
+|RedisJSON  |     No    |  Yes    |   Yes      |
 
 Currently, `RediSearch` is the only module that can be used concurrently with active geo-replication.
 
