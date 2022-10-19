@@ -43,7 +43,13 @@ Each authorization option is briefly described below:
 
     For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). 
 
-    For more information about ABAC and its availability status, see [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md) and [the Status of condition features in Azure Storage](#status-of-condition-features-in-azure-storage).
+    For more information about ABAC and its feature status, see:
+
+    [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)
+
+    [The status of ABAC condition features](../../role-based-access-control/conditions-overview.md#status-of-condition-features)
+
+    [The status of ABAC condition features in Azure Storage](#status-of-condition-features-in-azure-storage)
 
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
 
@@ -66,9 +72,9 @@ The table below shows the current status of ABAC by storage account performance 
 | Performance tier | Resource types | Attribute types | Specific attributes | Availability |
 |--|--|--|--|--|
 | Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource<br/>Principal | all      | Preview |
 | Standard | Data Lake Storage Gen2                      | Resource                           | snapshot | Preview |
 | Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Principal                          | all      | Preview |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | Request<br/>Resource<br/>Principal | all      | Preview |
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
