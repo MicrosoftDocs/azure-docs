@@ -36,6 +36,8 @@ Training custom neural models is now supported in six additional regions.
 * France Central
 * UK South
 * West US2
+* East US
+* East US2
 
 For a complete list of regions where training is supported see [custom neural models](concept-custom-neural.md). 
 
