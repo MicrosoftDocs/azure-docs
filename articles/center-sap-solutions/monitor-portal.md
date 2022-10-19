@@ -1,6 +1,6 @@
 ---
 title: Monitor SAP system from the Azure portal (preview)
-description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Center for SAP solutions (ACSS) within the Azure portal.
+description: Learn how to monitor the health and status of your SAP system, along with important SAP metrics, using the Azure Center for SAP solutions within the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
 ms.date: 10/19/2022
@@ -13,7 +13,7 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this how-to guide, you'll learn how to monitor the health and status of your SAP system with *Azure Center for SAP solutions (ACSS)* through the Azure portal. The following capabilities are available for your *Virtual Instance for SAP solutions* resource:
+In this how-to guide, you'll learn how to monitor the health and status of your SAP system with *Azure Center for SAP solutions* through the Azure portal. The following capabilities are available for your *Virtual Instance for SAP solutions* resource:
 
 - Monitor your SAP system, along with its instances and VMs.
 - Analyze important SAP infrastructure metrics.
@@ -21,7 +21,7 @@ In this how-to guide, you'll learn how to monitor the health and status of your 
 
 ## System health
 
-The *health* of an SAP system within ACSS is based on the status of its underlying instances. Codes for health are also determined by the collective impact of these instances on the performance of the SAP system.
+The *health* of an SAP system within Azure Center for SAP solutions is based on the status of its underlying instances. Codes for health are also determined by the collective impact of these instances on the performance of the SAP system.
 
 Possible values for health are:
 
@@ -32,7 +32,7 @@ Possible values for health are:
 
 ## System status
 
-The *status* of an SAP system within ACSS indicates the current state of the system. 
+The *status* of an SAP system within Azure Center for SAP solutions indicates the current state of the system. 
 
 Possible values for status are:
 
@@ -100,7 +100,7 @@ To check basic health and status settings:
 
 1. On the page for the VIS, review the table of instances. There is an overview of health and status information for each VIS.
 
-    :::image type="content" source="media/monitor-portal/all-vis-statuses.png" lightbox="media/monitor-portal/all-vis-statuses.png" alt-text="Screenshot of the ACSS service in the Azure portal, showing a page of all VIS resources with their health and status information.":::
+    :::image type="content" source="media/monitor-portal/all-vis-statuses.png" lightbox="media/monitor-portal/all-vis-statuses.png" alt-text="Screenshot of the Azure Center for SAP solutions service in the Azure portal, showing a page of all VIS resources with their health and status information.":::
 
 1. Select the VIS you want to check.
 
@@ -134,7 +134,7 @@ To see information about SAP application server instances:
 
 ## Monitor SAP infrastructure
 
-ACSS enables you to analyze important SAP infrastructure metrics from the Azure portal. 
+Azure Center for SAP solutions enables you to analyze important SAP infrastructure metrics from the Azure portal. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
