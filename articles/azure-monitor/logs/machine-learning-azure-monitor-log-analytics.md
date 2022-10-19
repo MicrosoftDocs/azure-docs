@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Analyze the root cause of anomalies
 
 > [!NOTE]
-> This tutorial provides links to a Log Analytics demo environment in which you can run the KQL query examples. However, you can implement the same KQL queries and principals in all [Azure Monitor tools that use KQL](/logs/log-query-overview.md). 
+> This tutorial provides links to a Log Analytics demo environment in which you can run the KQL query examples. However, you can implement the same KQL queries and principals in all [Azure Monitor tools that use KQL](log-query-overview.md). 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -187,5 +187,5 @@ The *PercentDiffAB* column shows the absolute percentage point difference betwee
 
 Learn more about: 
 
-- [Log queries in Azure Monitor](/logs/log-query-overview.md).
+- [Log queries in Azure Monitor](log-query-overview.md).
 - [How to use Kusto queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
