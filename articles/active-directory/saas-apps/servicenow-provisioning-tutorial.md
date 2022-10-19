@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 10/19/2022
 ms.author: jeedes
 ---
 
@@ -22,11 +22,11 @@ For more information on the Azure AD automatic user provisioning service, see [A
 ## Capabilities supported
 
 > [!div class="checklist"]
-> * Create users in ServiceNow
-> * Remove users in ServiceNow when they don't need access anymore
-> * Keep user attributes synchronized between Azure AD and ServiceNow
-> * Provision groups and group memberships in ServiceNow
-> * Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
+> - Create users in ServiceNow
+> - Remove users in ServiceNow when they don't need access anymore
+> - Keep user attributes synchronized between Azure AD and ServiceNow
+> - Provision groups and group memberships in ServiceNow
+> - Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ For more information on the Azure AD automatic user provisioning service, see [A
 
    ![Screenshot that shows a ServiceNow instance.](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
-2. Obtain credentials for an admin in ServiceNow. Go to the user profile in ServiceNow and verify that the user has the admin role. 
+1. Obtain credentials for an admin in ServiceNow. Go to the user profile in ServiceNow and verify that the user has the admin role. 
 
    ![Screenshot that shows a ServiceNow admin role.](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
@@ -76,41 +76,43 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications** > **All applications**.
 
-2. In the list of applications, select **ServiceNow**.
+   ![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
 
-3. Select the **Provisioning** tab.
+1. In the list of applications, select **ServiceNow**.
 
-4. Set **Provisioning Mode** to **Automatic**.
+1. Select the **Provisioning** tab.
 
-5. In the **Admin Credentials** section, enter your ServiceNow admin credentials and username. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. If the connection fails, ensure that your ServiceNow account has admin permissions and try again.
+1. Set **Provisioning Mode** to **Automatic**.
+
+1. In the **Admin Credentials** section, enter your ServiceNow admin credentials and username. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. If the connection fails, ensure that your ServiceNow account has admin permissions and try again.
 
  	![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
-6. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. In the **Mappings** section, select **Synchronize Azure Active Directory Users to ServiceNow**.
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to ServiceNow**.
 
-9. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. 
+1. Review the user attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in ServiceNow for update operations. 
 
    If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the ServiceNow API supports filtering users based on that attribute. 
    
    Select the **Save** button to commit any changes.
 
-10. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ServiceNow**.
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ServiceNow**.
 
-11. Review the group attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in ServiceNow for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in ServiceNow for update operations. Select the **Save** button to commit any changes.
 
-12. To configure scoping filters, see the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, see the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for ServiceNow, change **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for ServiceNow, change **Provisioning Status** to **On** in the **Settings** section.
 
-14. Define the users and groups that you want to provision to ServiceNow by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and groups that you want to provision to ServiceNow by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Screenshot that shows choices for provisioning scope.](common/provisioning-scope.png)
 
-15. When you're ready to provision, select **Save**.
+1. When you're ready to provision, select **Save**.
 
 This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles. Subsequent cycles occur about every 40 minutes, as long as the Azure AD provisioning service is running. 
 
