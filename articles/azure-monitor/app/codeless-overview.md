@@ -8,9 +8,9 @@ ms.reviewer: abinetabate
 
 # What is auto-instrumentation for Azure Monitor application insights?
 
-Auto-instrumentation collects [Application Insights](app-insights-overview) [telemetry](data-model.md) when enabled either through the portal or by configuring an agent.
+Auto-instrumentation collects [Application Insights](app-insights-overview.md) [telemetry](data-model.md) when enabled either through the portal or by configuring an agent.
 
-It's the preferred instrumentation method because no code changes are required and [SDK update](sdk-support-guidance) overhead is eliminated.
+It's the preferred instrumentation method because no code changes are required and [SDK update](sdk-support-guidance.md) overhead is eliminated.
 
 > [!NOTE] 
 > Auto-instrumentation was known as "codeless attach" before October 2021.
