@@ -67,7 +67,7 @@ The native cloud connector requires:
         > To enable the Azure Arc auto-provisioning, you'll need **Owner** permission on the relevant Azure subscription.
         
     - Additional extensions should be enabled on the Arc-connected machines.
-    - Log Analytics (LA) agent on Arc machines, and ensure the selected workspace has security solution installed. The LA agent is currently configured in the subscription level. All of your multicloud AWS accounts and GCP projects under the same subscription will inherit the subscription settings.
+    - Log Analytics (LA) agent on Arc machines, or Azure Monitor agent (AMA), and ensure the selected workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your multicloud AWS accounts and GCP projects under the same subscription will inherit the subscription settings.
         
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -91,9 +91,9 @@ The native cloud connector requires:
     - Additional extensions should be enabled on the Arc-connected machines:
         - Microsoft Defender for Endpoint
         - VA solution (TVM/Qualys)
-        - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+        - Log Analytics (LA) agent on Arc machines, or Azure Monitor agent (AMA). Ensure the selected workspace has security solution installed.
         
-            The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to the LA agent.
+            The LA agent and AMA are currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to the LA agent/ AMA.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
