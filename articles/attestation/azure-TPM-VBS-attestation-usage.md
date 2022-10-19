@@ -31,13 +31,13 @@ Here's how you can set up an attestation endpoint using Portal
 <ul>
 <li> Prerequisite: Access to the Microsoft Azure Active Directory(Azure AD) tenant and subscription under which you want to create the attestation endpoint.</li>
 <li> Create an endpoint under the desired resource group, with the desired name.
-[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5azcU>]
+> [!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5azcU>]
 </li>
 <li> Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
-[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRj>]
+> [!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRj>]
 </li>
 <li> Configure the endpoint with the required policy.
-[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRk>]
+> [!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRk>]
 </li>
 Sample policies can be found in the [Policy Samples](tpm-attestation-sample-policies.md) Section.</br>
 
@@ -51,13 +51,13 @@ A client to communicate with the attestation service endpoint needs to ensure it
 
 <ul>
 <li> Add Attestation Reader Role to the identity that will be used for authentication against the endpoint.
-[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRi>]
+> [!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRi>]
 </li>
 </ul>
 
 ## Execute the Attestation Workflow:
 Using the [Client](https://github.com/microsoft/Attestation-Client-Samples) to trigger an attestation flow. A successful attestation will result in an attestation report (encoded JWT token). Parsing the JWT token, the contents of the report can be easily validated against expected outcome. 
-[!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5azcT>]
+> [!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE5azcT>]
 
 Here's a sample of the contents of the attestation report.
 :::image type="content" source="./media/sampledecodedtoken.jpg" alt-text="Sample decoded token for tpm attestation" lightbox="./media/sampledecodedtoken.jpg":::
