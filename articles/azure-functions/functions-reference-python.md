@@ -878,6 +878,8 @@ Note that when using the new programming model, the following app setting needs 
 "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
 ```
 
+When deploying the function, this setting will not be automatically imported- the flag must be declated in Azure for the function application to run using the V2 model.
+
 Multiple Python workers are not supported in V2 at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than 1 is not supported for the functions using the V2 model.
 
 ---

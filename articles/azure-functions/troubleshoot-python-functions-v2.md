@@ -10,12 +10,14 @@ ms.custom: devx-track-python
 
 # V2 Programming Model: Known issues and their workarounds
 
-* Multiple Python workers are not supported in V2 at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the V2 model. 
+* [Multiple Python workers not supported](#multiple-python-workers-not-supported)
 * [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
 * [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-Azure-Storage-connection-named-Storage)
-* Facing an issue during deployment? On the Portal, navigate to Settings -> Configuration and ensure that the flag "AzureWebJobsFeatureFlags" is set to "EnableWorkerIndexing". If it is not found, add this flag to the function application.
+* [Issues with deployment](#issue-with-deployment)
 
+## Multiple Python workers not supported
 
+Multiple Python workers are not supported in V2 at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the V2 model
 
 ## Troubleshoot "could not load file or assembly"
 
@@ -72,3 +74,7 @@ This specific error may ready:
 The reason this error may be occuring is due to the way extensions are loaded from the bundle. To resolve this error, you can do one of the following:
 * Use a storage emulator such as [Azurerite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite?tabs=visual-studio). This is a good option if you are not planning to use a storage account in your function application.
 * Create a storage account and add a connection string to the AzureWebJobsStorage environment variable in `localsettings.json`. This is a suitable option if are planning to use a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+
+## Issue with Deployment
+
+On the Portal, navigate to Settings -> Configuration and ensure that the flag "AzureWebJobsFeatureFlags" is set to "EnableWorkerIndexing". If it is not found, add this flag to the function application.
