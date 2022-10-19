@@ -80,7 +80,7 @@ The native cloud connector requires:
     - Azure Arc for servers installed on your EC2 instances. 
         - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
             
-            Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If that is the case, their AMI's are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you'll need to install it using either of the following relevant instructions from Amazon:
+            Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent pre-installed. If that is the case, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you'll need to install it using either of the following relevant instructions from Amazon:
             - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
             - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
         > [!NOTE]
@@ -178,24 +178,24 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 ## AWS Authentication
 
-Federated authentication technology is used between Microsoft Defender for Cloud and AWS. This technology allows users to access multiple tools, applications, and domains with only one set of credentials. All the resources related to the authentication are created as part of the CloudFormation template deployment, including an identity provider (OpenID connect), as well as  identity and access management (IAM) roles with a federated principal (connected to the identity providers).
+Federated authentication technology is used between Microsoft Defender for Cloud and AWS. This technology allows users to access multiple tools, applications, and domains with only one set of credentials. All the resources related to the authentication are created as part of the CloudFormation template deployment, including an identity provider (OpenID connect) and  identity and access management (IAM) roles with a federated principal (connected to the identity providers).
 The authentication flow is described as follows.
 
 :::image type="content" source="media/quickstart-onboard-aws/authentication-design-flow2.png" alt-text="diagram that shows authentication design flow." lightbox="media/quickstart-onboard-aws/authentication-design-flow.png":::
 
-Microsoft Defender for Cloud CSPM service acquires an AAD token which is signed by the AAD using the RS256 algorithm. This token has a viability life time of 1 hour.
+Microsoft Defender for Cloud CSPM service acquires an Azure AD token that is signed by the Azure AD using the RS256 algorithm. This token has a validity life time of 1 hour.
 
-The AAD token is exchanged with AWS short-life credentials. CSPM assumes the CSPM IAM role authenticated with web identity.
+The Azure AD token is exchanged with AWS short-life credentials. CSPM assumes the CSPM IAM role authenticated with web identity.
 
-Since the principal of the role is a federated identity as defined in a trust relationship policy level, the AWS identity provider validates the AAD token against the AAD through a process which includes:
+Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Azure AD token against the Azure AD through a process that includes:
 
-- Audience validation
-- Signing of the token
-- Certificate thumbprint
+- audience validation
+- signing of the token
+- certificate thumbprint
     
- Only after the validation conditions defined at the role on the trust relationship level have been met, is the Microsoft Defender for Cloud CSPM role assumed. The conditions defined at the role is used for internal validation within AWS which allows only the Microsoft Defender for Cloud CSPM application audience access to the specific role (and not any other Microsoft token).
+ Only after the validation conditions defined at the role on the trust relationship level have been met, is the Microsoft Defender for Cloud CSPM role assumed. The conditions defined at the role are used for internal validation within AWS that allows only the Microsoft Defender for Cloud CSPM application audience access to the specific role (and not any other Microsoft token).
 
-The AAD token is validated, and AWS STS exchanges the token with AWS short-life credentials which CSPM service uses to scan the AWS Account.
+The Azure AD token is validated, and AWS STS exchanges the token with AWS short-life credentials which CSPM service uses to scan the AWS account.
 
 
 ::: zone-end
@@ -225,6 +225,8 @@ Follow the steps below to create your AWS cloud connector.
     1. Enable [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/gs-console.html).
     1. Enable [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html).
     1. Verify that data is flowing to the Security Hub. When you first enable Security Hub, it might take several hours for data to be available.
+
+### Step 2. Set up authentication for Defender for Cloud in AWS
 
 There are two ways to allow Defender for Cloud to authenticate to AWS:
 
