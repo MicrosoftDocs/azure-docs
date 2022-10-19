@@ -17,7 +17,7 @@ The following example assigns the `Azure Service Bus Data Owner` role to your us
 > [!IMPORTANT]
 > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
 
-### [Azure portal](#tab/roles-azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, locate your service bus namespace using the main search bar or left navigation.
 
@@ -37,7 +37,7 @@ The following example assigns the `Azure Service Bus Data Owner` role to your us
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
-### [Azure CLI](#tab/roles-azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus namespace show` command. You can filter the output properties using the `--query` parameter. 
 
@@ -53,7 +53,7 @@ az role assignment create --assignee "<user@domain>" \
 --scope "<your-resource-id>"
 ```
 
-### [PowerShell](#tab/roles-powershell)
+### [PowerShell](#tab/powershell)
 
 To assign a role at the resource level using Azure PowerShell, you first must retrieve the resource id using the `Get-AzResource` command.
 
