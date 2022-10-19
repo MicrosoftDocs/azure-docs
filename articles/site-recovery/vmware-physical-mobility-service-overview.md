@@ -182,7 +182,7 @@ Setting | Details
 --- | ---
 Syntax | `cd /usr/local/ASR/Vx/bin`</br> `UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | Mandatory parameter. `<CSIP>` specifies the configuration server's IP address. Use any valid IP address.
-`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](/azure/site-recovery/vmware-azure-manage-configuration-server#generate-configuration-server-passphrase).
+`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](./vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 
 ## Azure Virtual Machine agent
 

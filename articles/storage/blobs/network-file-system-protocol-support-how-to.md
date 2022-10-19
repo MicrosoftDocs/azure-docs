@@ -112,6 +112,7 @@ Create a directory on your Linux system, and then mount the container in the sto
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
 |`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
 |`mount: /nfsdata: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
+|`Connection Timed Out`| Make sure that client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports. Makes sure to mount the storage account by using the Blob service endpoint and not the Data Lake Storage endpoint. |
 
 ## See also
 

@@ -142,11 +142,7 @@
       - name: Security baseline
         href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
   - name: Azure Virtual Desktop for Azure Stack HCI
-    items:
-      - name: Overview (preview)
-        href: azure-stack-hci-overview.md
-      - name: Azure Stack HCI FAQ (preview)
-        href: azure-stack-hci-faq.yml
+    href: azure-stack-hci-overview.md
   - name: Tag Azure Virtual Desktop resources
     href: tag-virtual-desktop-resources.md
   - name: Fair Share technologies
@@ -337,6 +333,8 @@
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
+  - name: Session host statuses and health checks
+    href: troubleshoot-statuses-checks.md
   - name: Management issues
     href: troubleshoot-management-issues.md
   - name: Azure Virtual Desktop PowerShell

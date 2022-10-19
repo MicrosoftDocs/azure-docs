@@ -37,7 +37,7 @@ This section talks about limited access features in Azure Video Indexer.
 
 FAQ about Limited Access can be found [here](https://aka.ms/limitedaccesscogservices).
 
-If you need help with Azure Video Indexer, find support [here](/azure/cognitive-services/cognitive-services-support-options). 
+If you need help with Azure Video Indexer, find support [here](../cognitive-services/cognitive-services-support-options.md). 
 
 [Report Abuse](https://msrc.microsoft.com/report/abuse) of Azure Video Indexer. 
 
@@ -45,4 +45,3 @@ If you need help with Azure Video Indexer, find support [here](/azure/cognitive-
 
 Learn more about the legal terms that apply to this service [here](https://azure.microsoft.com/support/legal/). 
 
- 

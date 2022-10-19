@@ -28,18 +28,18 @@ items:
     href: quick-create-simulated-device-tpm.md
 - name: Tutorials
   items:
-  - name: 1 - Provision sets of devices with enrollment groups
+  - name: Provision sets of devices with enrollment groups
     items:
      - name: Provision devices with symmetric keys
        href: how-to-legacy-device-symm-key.md
      - name: Provision multiple X.509 devices
        href: tutorial-custom-hsm-enrollment-group-x509.md
-     - name: Use custom allocation policies
-       href: tutorial-custom-allocation-policies.md
-  - name: 2 - Provision devices to multiple hubs
+  - name: Provision devices to multiple hubs
     items:
      - name: Link multiple hubs to DPS
        href: tutorial-provision-multiple-hubs.md
+     - name: Use custom allocation policies
+       href: tutorial-custom-allocation-policies.md
      - name: Provision for geolatency
        href: how-to-provision-multitenant.md
 - name: Concepts
