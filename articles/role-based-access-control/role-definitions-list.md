@@ -420,7 +420,7 @@ The following shows an example of the output:
 
 ### List a role definition
 
-To list the details of a specific role, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) or [Role Definitions - Get By Id](/rest/api/authorization/role-definitions/get-by-id) REST API.
+To list the details of a specific role, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) or [Role Definitions - Get By ID](/rest/api/authorization/role-definitions/get-by-id) REST API.
 
 1. Start with the following request:
 
