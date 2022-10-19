@@ -9,10 +9,10 @@ ms.date: 10/17/2022
 # Azure Monitor managed service for Prometheus remote write - managed identity (preview)
 Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into our managed service.
 
-This article describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. You either use an existing identity created by AKS or create one of your own. Both options are described here.
+This article describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. You either use an existing identity created by AKS or [create one of your own](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Both options are described here.
 
 ## Architecture
-Azure Monitor provides a reverse proxy container (Azure Monitor side car container) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace. Certificates required for Azure AD based authentication are downloaded to the local mount on your cluster by the [CSI driver](../../aks/csi-secrets-store-driver.md).
+Azure Monitor provides a reverse proxy container (Azure Monitor side car container) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
 
 
 ## Cluster configurations
@@ -23,7 +23,7 @@ This article applies to the following cluster configurations:
 
 ## Prerequisites
 
-- You must have self-managed Prometheus running on your AKS cluster.
+- You must have self-managed Prometheus running on your AKS cluster. For example, see [Using Azure Kubernetes Service with Grafana and Prometheus](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459).
 
 
 ## Create Azure Monitor workspace
@@ -55,14 +55,14 @@ The identities created by AKS are listed in [Use a managed identity in Azure Kub
 
 ### [Own identity](#tab/own)
 
-1. Note the **Client ID** on the **Overview** page of the managed identity.
+1. Note the **Client ID** on the **Overview** page of the [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/client-id.png" alt-text="Screenshot showing client ID on overview page of managed identity." lightbox="media/prometheus-remote-write-managed-identity/client-id.png":::
 
 ---
 
-## Add Monitoring Metrics Publisher role assignment to the data collection rule
-The data collection rule associated with your Azure Monitor workspace requires the *Monitoring Metrics Publisher* role.
+## Assign managed identity the Monitoring Metrics Publisher role on the data collection rule
+The managed identity requires the *Monitoring Metrics Publisher* role on the data collection rule associated with your Azure Monitor workspace.
 
 1. From the menu of your Azure Monitor Workspace account, click the **Data collection rule** to open the **Overview** page for the data collection rule.
 
@@ -115,7 +115,7 @@ This step isn't required if you're using an AKS identity. This identity already 
 1. Copy the YAML below and save to a file, replacing the following values. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
 
     `<AKS-CLUSTER-NAME>`: Name of your AKS cluster
-    `<CONTAINER-IMAGE-VERSION>`: `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2`. This is the remote write container image version.
+    `<CONTAINER-IMAGE-VERSION>`: The remote write container image version.: `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2` 
     `<INGESTION-URL>`: **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace.
     `<MANAGED-IDENTITY-CLIENT-ID>`: - **Client ID** from the **Overview** page for the managed identity
     `<CLUSTER-NAME>`: Name of the cluster Prometheus is running on
