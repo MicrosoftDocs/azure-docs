@@ -1,10 +1,10 @@
 ---
 title: Manage IoT Edge certificates
-description: Create test certificates, install, and manage them on an Azure IoT Edge device to prepare for production deployment. 
+description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/30/2022
+ms.date: 10/19/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
