@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 10/19/2022
 ---
 
 # Supported database versions in Azure Cosmos DB for PostgreSQL
@@ -20,6 +20,12 @@ The version of PostgreSQL running in a cluster is
 customizable during creation. Azure Cosmos DB for PostgreSQL currently supports the
 following major [PostgreSQL
 versions](https://www.postgresql.org/docs/release/):
+
+### PostgreSQL version 15
+
+The current minor release is 15.0. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/release/15.0/) to
+learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 14
 
@@ -81,6 +87,7 @@ policy](https://www.postgresql.org/support/versioning/).
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Apr 6, 2021 	| November 14, 2024
 | [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | Apr 6, 2021 	| November 13, 2025
 | [PostgreSQL 14](https://www.postgresql.org/about/news/postgresql-14-released-2318/) | [Features](https://www.postgresql.org/docs/14/release-14.html) | Oct 1, 2021 | November 12, 2026
+| [PostgreSQL 15](https://www.postgresql.org/about/news/postgresql-15-released-2526/) | [Features](https://www.postgresql.org/docs/15/release-15.html) | TODO | TODO
 
 ### Retired PostgreSQL engine versions not supported in Azure Cosmos DB for PostgreSQL
 
