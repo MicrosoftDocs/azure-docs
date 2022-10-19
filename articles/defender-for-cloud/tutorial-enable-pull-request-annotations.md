@@ -3,7 +3,7 @@ title: Tutorial Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 ---
 
 # Tutorial: Enable pull request annotations in GitHub and Azure DevOps
@@ -49,7 +49,7 @@ By enabling pull request annotations in GitHub, your developers gain the ability
 
 1. Select a repository that you've onboarded to Defender for Cloud.
 
-1. Select **.github/workflows**.
+1. Navigate to **`Your repository's home page`** > **.github/workflows**.
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/workflow-folder.png" alt-text="Screenshot that shows where to navigate to, to select the GitHub workflow folder.":::
 
