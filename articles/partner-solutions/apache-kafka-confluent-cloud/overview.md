@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka on Confluent Cloud overview - Azure partner solutions
+title: Apache Kafka on Confluent Cloud overview
 description: Learn about using Apache Kafka on Confluent Cloud in the Azure Marketplace.
 ms.topic: conceptual
 ms.date: 02/22/2022
