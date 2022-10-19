@@ -80,7 +80,7 @@ This preload script exposes a renderer methods to give the renderer process cont
 
 *CustomProtocolListener* class can be instantiated in order to register and unregister a custom typed protocol on which MSAL Node can listen for Auth Code responses.
 
-8. Finally, create a file named *constants.js* that will store the strings constants for describing the application **events**:
+6. Finally, create a file named *constants.js* that will store the strings constants for describing the application **events**:
 
     :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/constants.js":::
 
