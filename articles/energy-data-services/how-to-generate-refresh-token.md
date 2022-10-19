@@ -5,13 +5,14 @@ author: elizabethhalper #Required; your GitHub user alias, with correct capitali
 ms.author: elhalper #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 08/25/2022
+ms.date: 10/06/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
+#Customer intent: As a developer, I want to learn how to generate a refresh token
 ---
 
-# OAuth 2.0 authorization
+# How to generate a refresh token
 
-The following are the basic steps to use the OAuth 2.0 authorization code grant flow to get a refresh token from the Microsoft identity platform endpoint:
+In this article, you will learn how to generate a refresh token. The following are the basic steps to use the OAuth 2.0 authorization code grant flow to get a refresh token from the Microsoft identity platform endpoint:
 
   1. Register your app with Azure AD.
   2. Get authorization.
@@ -19,7 +20,7 @@ The following are the basic steps to use the OAuth 2.0 authorization code grant 
  
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## 1. Register your app with Azure AD
+## Register your app with Azure AD
 To use the Microsoft Energy Data Services Preview platform endpoint, you must register your app using the [Azure app registration portal](https://go.microsoft.com/fwlink/?linkid=2083908). You can use either a Microsoft account or a work or school account to register an app.
 
 To configure an app to use the OAuth 2.0 authorization code grant flow, save the following values when registering the app:
@@ -27,16 +28,12 @@ To configure an app to use the OAuth 2.0 authorization code grant flow, save the
 - The `Directory (tenant) ID` that will be used in place of `{Tenant ID}`
 - The `application (client) ID` assigned by the app registration portal, which will be used instead of `client_id`.
 - A `client (application) secret`, either a password or a public/private key pair (certificate). The client secret isn't required for native apps. This secret will be used instead of `{AppReg Secret}` later.
-- A `redirect URI (or reply URL)` for your app to receive responses from Azure AD. 
-  
-> [!NOTE]
-> If there's no redirect URIs specified, add a platform, select "Web", then add `http://localhost:8080`, and select save.
+- A `redirect URI (or reply URL)` for your app to receive responses from Azure AD. If there's no redirect URIs specified, add a platform, select "Web", then add `http://localhost:8080`, and select save.
 
+For steps on how to configure an app in the Azure portal, see [Register your app](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
-For steps on how to configure an app in the Azure portal, see [Register your app](/azure/active-directory/develop/quickstart-register-app#register-an-application).
-
-## 2. Get authorization
-The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform /authorize endpoint. Azure AD will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Azure AD will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform /token endpoint for an access token.
+## Get authorization
+The first step to getting an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Azure AD will sign the user in and request their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Azure AD will return an `authorization_code` to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
 ### Authorization request
 
@@ -83,7 +80,7 @@ Copy the code between `code=` and `&state`.
 > [!WARNING]
 > Running the URL in Postman won't work as it requires extra configuration for token retrieval.
 
-## 3. Get a refresh token
+## Get a refresh token
 Your app uses the authorization code received in the previous step to request an access token by sending a POST request to the `/token` endpoint.
 
 ### Sample request
@@ -128,13 +125,9 @@ Your app uses the authorization code received in the previous step to request an
 
 For more information, see [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
 
-## Alternative options
-
-If you're struggling with getting a proper authorization token, follow the steps in [OSDU&trade; auth app](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/tree/release/0.15/tools/rest/osduauth) to locally run a static webpage that generates the refresh token for you. Once it's running, fill in the correct values in the UI of the static webpage (they may be filled in with the wrong values to start). Use the UI to generate a refresh token.
-
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
+To learn more about how to use the generated refresh token, follow the section below:
 > [!div class="nextstepaction"]
 > [How to convert segy to ovds](how-to-convert-segy-to-zgy.md)

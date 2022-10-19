@@ -187,6 +187,8 @@
           href: flexible-server/how-to-restart-stop-start-server-cli.md
       - name: Move Servers between regions
         href: flexible-server/how-to-move-regions.md
+      - name: Major version upgrade
+        href: flexible-server/how-to-upgrade.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)
@@ -526,7 +528,6 @@
         items:
         - name: Azure Pipelines
           href: single-server/azure-pipelines-mysql-deploy.md
-
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal
@@ -675,15 +676,15 @@
 - name: Migration
   items:
   - name: FAQ
-    href: /azure/dms/faq-mysql-single-to-flex?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+    href: ../dms/faq-mysql-single-to-flex.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Choose the right tools for migration to Azure Database for MySQL
     href: migrate/how-to-decide-on-right-migration-tools.md
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
   - name: Migrate MySQL - Single Server to Flexible Server offline using DMS
-    href: /azure/dms/tutorial-mysql-azure-single-to-flex-offline-portal?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+    href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate MySQL - Single Server to Flexible Server online using DMS
-    href: /azure/dms/tutorial-mysql-azure-single-to-flex-online-portal?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+    href: ../dms/tutorial-mysql-azure-single-to-flex-online-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate data with mysqldump or phpmyadmin
     href: single-server/concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
