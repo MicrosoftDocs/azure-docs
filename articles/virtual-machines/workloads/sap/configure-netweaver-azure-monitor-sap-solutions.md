@@ -1,11 +1,11 @@
 ---
 title: Configure SAP NetWeaver for Azure Monitor for SAP solutions (preview)
-description: Learn how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions (AMS).
+description: Learn how to configure SAP NetWeaver for use with Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
-ms.date: 07/28/2022
+ms.date: 10/19/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
 ---
@@ -15,18 +15,18 @@ ms.author: sujaj
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this how-to guide, you'll learn to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions (AMS)*. You can use SAP NetWeaver with both versions of the service, *AMS* and *AMS (classic)*.
+In this how-to guide, you'll learn to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions*. You can use SAP NetWeaver with both versions of the service, *Azure Monitor for SAP solutions* and *Azure Monitor for SAP solutions (classic)*.
 
-The SAP start service provides multiple services, including monitoring the SAP system. Both versions of AMS use **SAPControl**, which is a SOAP web service interface that exposes these capabilities. The **SAPControl** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use AMS with NetWeaver.
+The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAPControl**, which is a SOAP web service interface that exposes these capabilities. The **SAPControl** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
 
 ## Prerequisites
 
 - An Azure subscription. 
-- An existing AMS resource. To create an AMS resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
+- An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](azure-monitor-sap-quickstart.md) or the [quickstart for PowerShell](azure-monitor-sap-quickstart-powershell.md).
 
-## Configure NetWeaver for AMS
+## Configure NetWeaver for Azure Monitor for SAP solutions
 
-To configure the NetWeaver provider for the current AMS version, you'll need to:
+To configure the NetWeaver provider for the current Azure Monitor for SAP solutions version, you'll need to:
 
 1. [Unprotect methods for metrics](#unprotect-methods-for-metrics)
 1. [Check that the rules have updated properly](#check-updated-rules)
@@ -125,7 +125,7 @@ To validate the rules, run a test query against the web methods. Replace the `<h
 
 For AS ABAP applications only, you can set up the NetWeaver RFC metrics.
 
-Create or upload the following role in the SAP NW ABAP system. AMS requires this role to connect to SAP. The role uses least privilege access.
+Create or upload the following role in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses least privilege access.
 
 1. Log in to your SAP system.
 1. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/files/8710130/Z_AMS_NETWEAVER_MONITORING.zip).
@@ -179,7 +179,7 @@ It's also recommended to check that you enabled the ICF ports.
 To add the NetWeaver provider:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to the AMS service page.
+1. Go to the Azure Monitor for SAP solutions service page.
 1. Select **Create** to open the resource creation page.
 1. Enter information for the **Basics** tab.
 1. Select the **Providers** tab. Then, select **Add provider**.
@@ -189,7 +189,7 @@ To add the NetWeaver provider:
     1. For **Application Server**, enter the IP address or the fully qualified domain name (FQDN) of the SAP NetWeaver system to monitor. For example, `sapservername.contoso.com` where `sapservername` is the hostname and  `contoso.com` is the domain. 
 1. Save your changes.
 
-If you're using a hostname, make sure there's connectivity from the virtual network that you used to create the AMS resource.
+If you're using a hostname, make sure there's connectivity from the virtual network that you used to create the Azure Monitor for SAP solutions resource.
 
 - For **Instance number**, specify the instance number of SAP NetWeaver (00-99)
 - For **Host file entries**, provide the DNS mappings for all SAP VMs associated with the SID.
@@ -212,9 +212,9 @@ Make sure that host file entries are provided for all hostnames that the command
 - For **SAP password**, enter the password for the user.
 
 
-## Configure NetWeaver for AMS (classic)
+## Configure NetWeaver for Azure Monitor for SAP solutions (classic)
 
-To configure the NetWeaver provider for the AMS (classic) version:
+To configure the NetWeaver provider for the Azure Monitor for SAP solutions (classic) version:
 
 1. [Unprotect some methods](#unprotect-methods)
 1. [Restart the SAP start service](#restart-sap-start-service)
@@ -280,7 +280,7 @@ To install the NetWeaver provider in the Azure portal:
 
 1. Go to the **Azure Monitor for SAP solutions** service.
 
-1. Select **Create** to add a new AMS resource.
+1. Select **Create** to add a new Azure Monitor for SAP solutions resource.
 
 1. Select **Add provider**.
 
@@ -302,7 +302,7 @@ To install the NetWeaver provider in the Azure portal:
 
 1. Select **Create** to finish creating the resource.
 
-If the SAP application servers (VMs) are part of a network domain, such as an Azure Active Directory (Azure AD) managed domain, you must provide the corresponding subdomain. The AMS collector VM exists inside the virtual network, and isn't joined to the domain. AMS can't resolve the hostname of instances inside the SAP system unless the hostname is an FQDN. If you don't provide the subdomain, there can be missing or incomplete visualizations in the NetWeaver workbook.
+If the SAP application servers (VMs) are part of a network domain, such as an Azure Active Directory (Azure AD) managed domain, you must provide the corresponding subdomain. The Azure Monitor for SAP solutions collector VM exists inside the virtual network, and isn't joined to the domain. Azure Monitor for SAP solutions can't resolve the hostname of instances inside the SAP system unless the hostname is an FQDN. If you don't provide the subdomain, there can be missing or incomplete visualizations in the NetWeaver workbook.
 
 For example, if the hostname of the SAP system has an FQDN of `myhost.mycompany.contoso.com`:
 
@@ -316,4 +316,4 @@ Don't specify an IP address for the hostname if your SAP system is part of netwo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about AMS provider types](azure-monitor-providers.md)
+> [Learn about Azure Monitor for SAP solutions provider types](azure-monitor-providers.md)
