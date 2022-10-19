@@ -138,7 +138,7 @@ The collection of virtual machines in an availability set that are updated at th
 See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/windows/toc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=/azure/virtual-machines/linux/toc.json)
 
 ## <a name="vm"></a>virtual machine
-The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes. For more information, see [Virtual Machines documentation](/azure/virtual-machines/)
+The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes. For more information, see [Virtual Machines documentation](./virtual-machines/index.yml)
 
 ## <a name="vm-extension"></a>virtual machine extension
 A resource that implements behaviors or features that either help other programs work or provide the ability for you to interact with a running computer. For example, you could use the VM Access extension to reset or modify remote access values on an Azure virtual machine.

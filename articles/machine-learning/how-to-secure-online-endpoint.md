@@ -184,9 +184,9 @@ The following diagram shows the overall architecture of this example:
 
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
 
-:::code language="azurecli" source="~/azureml-examples-v2samplesreorg/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
 
 ### Create the virtual machine jump box
 

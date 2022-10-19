@@ -66,7 +66,7 @@ NAT gateway can be deployed with AKS clusters in order to allow for explicit out
 
 2. **User-Assigned NAT gateway**: NAT gateway is provisioned by you to an existing virtual network for the AKS cluster. 
 
-Learn more at [Managed NAT Gateway](/azure/aks/nat-gateway).
+Learn more at [Managed NAT Gateway](../../aks/nat-gateway.md).
 
 ### Can't update my NAT gateway IPs or idle timeout timer for an AKS cluster 
 
@@ -107,7 +107,7 @@ Update your idle timeout timer configuration on your User-Assigned NAT gateway w
 
 ### How NAT gateway integration with Azure Firewall works 
 
-Azure Firewall can provide outbound connectivity to the internet from virtual networks. Azure Firewall provides only 2,496 SNAT ports per public IP address. While Azure Firewall can be associated with up to 250 public IP addresses to handle egress traffic, often, customers require much fewer public IP addresses for connecting outbound due to various architectural requirements and limitations by destination endpoints for the number of public IP addresses they can allowlist. One method by which to get around this allowlist IP limitation and to also reduce the risk of SNAT port exhaustion is to use NAT gateway in the same subnet with Azure Firewall. To learn how to set up NAT gateway in an Azure Firewall subnet, see [Scale SNAT ports with Azure Virtual Network NAT](/azure/firewall/integrate-with-nat-gateway). 
+Azure Firewall can provide outbound connectivity to the internet from virtual networks. Azure Firewall provides only 2,496 SNAT ports per public IP address. While Azure Firewall can be associated with up to 250 public IP addresses to handle egress traffic, often, customers require much fewer public IP addresses for connecting outbound due to various architectural requirements and limitations by destination endpoints for the number of public IP addresses they can allowlist. One method by which to get around this allowlist IP limitation and to also reduce the risk of SNAT port exhaustion is to use NAT gateway in the same subnet with Azure Firewall. To learn how to set up NAT gateway in an Azure Firewall subnet, see [Scale SNAT ports with Azure Virtual Network NAT](../../firewall/integrate-with-nat-gateway.md). 
 
 ## Azure Databricks
 
@@ -125,10 +125,8 @@ We're always looking to improve the experience of our customers. If you're exper
 
 To learn more about NAT gateway, see: 
 
-* [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) 
+* [Virtual Network NAT](./nat-overview.md) 
 
-* [NAT gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource) 
+* [NAT gateway resource](./nat-gateway-resource.md) 
 
-* [Metrics and alerts for NAT gateway resources](/azure/virtual-network/nat-gateway/nat-metrics) 
-
-
+* [Metrics and alerts for NAT gateway resources](./nat-metrics.md)

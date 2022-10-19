@@ -7,4 +7,4 @@ ms.topic: include
 ms.author: eur
 ---
 
-[Language service documentation](/azure/cognitive-services/language-service/) | [Language Studio](https://aka.ms/LanguageStudio) | [Speech service documentation](/azure/cognitive-services/speech-service/) | [Speech Studio](https://aka.ms/SpeechStudio)
+[Language service documentation](../../../../language-service/index.yml) | [Language Studio](https://aka.ms/LanguageStudio) | [Speech service documentation](../../../index.yml) | [Speech Studio](https://aka.ms/SpeechStudio)

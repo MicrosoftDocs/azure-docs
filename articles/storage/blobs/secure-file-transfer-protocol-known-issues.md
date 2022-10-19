@@ -38,21 +38,21 @@ The unsupported client list above is not exhaustive and may change over time.
 
 ## Client settings
 
-To transfer files to or from Azure storage via client applications, see the following recommended client settings.
+To transfer files to or from Azure Blob Storage via SFTP clients, see the following recommended settings.
 
 - WinSCP
 
   - Under the **Preferences** dialog, under **Transfer** - **Endurance**, select **Disable** to disable the **Enable transfer resume/transfer to temporary filename** option.
   
-  > [!CAUTION]
-  > Leaving this option enabled can cause failures or degraded performance during large file uploads.
+> [!CAUTION]
+> Leaving this option enabled can cause failures or degraded performance during large file uploads.
 
 ## Unsupported operations
 
 | Category | Unsupported operations |
 |---|---|
 | ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving permissions |
-| Resume operations |<li>`reget`, `get -a`- resume download<li>`reput`. `put -a` - resume upload |
+| Resuming Uploads | `reput`. `put -a` |
 | Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
 | Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
 | Capacity Information | `df` - usage info for filesystem |
@@ -84,6 +84,8 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 ## Other
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
+  
+- Maximum file upload size via the SFTP endpoint is 100 GB. 
   
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 

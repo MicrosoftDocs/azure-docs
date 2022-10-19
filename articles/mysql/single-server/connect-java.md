@@ -209,7 +209,7 @@ az mysql db create \
 Next, create a non-admin user and grant all permissions on the `demo` database to it.
 
 > [!NOTE]
-> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
+> You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](./how-to-create-users.md).
 
 #### [Passwordless connection (Recommended)](#tab/passwordless)
 
