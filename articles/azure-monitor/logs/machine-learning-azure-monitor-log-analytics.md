@@ -157,7 +157,7 @@ let starttime = 21d; // Start date for the time series, counting back from the c
 let endtime = 0d; // End date for the time series, counting back from the current date
 let anomalyDate = datetime_add('day',-1, make_datetime(startofday(ago(endtime)))); //Start of day of anomayDate, in our example we picked anomalyDate as June 15
 AzureDiagnostics	
-| extend AnomalyDate = iff(startofday(TimeGenerated) == last_date_in_range, "AnomalyDate", "OtherDates") // Adds calculated column called AnomalyDate, which splits the result set into two data sets – AnomalyDate and OtherDates
+| extend AnomalyDate = iff(startofday(TimeGenerated) == anomalyDate, "AnomalyDate", "OtherDates") // Adds calculated column called AnomalyDate, which splits the result set into two data sets – AnomalyDate and OtherDates
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Defines the time range for the query
 | project AnomalyDate, Resource // Defines which columns to return
 | evaluate diffpatterns(AnomalyDate, "OtherDates", "AnomalyDate") // Compares usage on the anomaly date with the regular usage pattern
