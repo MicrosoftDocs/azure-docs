@@ -47,7 +47,7 @@ The SHA solution for this scenario is made up of:
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-   ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-headers-easy-button/sp-initiated-flow.png)
+   ![Screenshot of Secure hybrid access - SP initiated flow.](./media/f5-big-ip-headers-easy-button/sp-initiated-flow.png)
 
 | Steps| Description |
 | - |----|
@@ -64,7 +64,7 @@ Prior BIG-IP experience isn’t necessary, but you’ll need:
 
 * An Azure AD free subscription or above.
 
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](../manage-apps/f5-bigip-deployment-guide.md).
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure.](../manage-apps/f5-bigip-deployment-guide.md).
 
 * Any of the following F5 BIG-IP license SKUs.
 
@@ -126,15 +126,15 @@ Initiate the APM's **Guided Configuration** to launch the **Easy Button** Templa
 
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
-   ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-headers-easy-button/easy-button-template.png)
+   ![Screenshot for Configure Easy Button- Install the template.](./media/f5-big-ip-headers-easy-button/easy-button-template.png)
 
 2. Review the list of configuration steps and select **Next**.
 
-   ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-headers-easy-button/config-steps.png)
+   ![Screenshot for Configure Easy Button - List configuration steps.](./media/f5-big-ip-headers-easy-button/configuration-steps.png)
 
 3. Follow the sequence of steps required to publish your application.
 
-   ![Configuration steps flow](./media/f5-big-ip-headers-easy-button/config-steps-flow.png#lightbox)
+   ![Screenshot of Configuration steps flow.](./media/f5-big-ip-headers-easy-button/configuration-steps-flow.png#lightbox)
 
 
 ### Configuration Properties
@@ -151,7 +151,7 @@ Some of these are global settings so can be reused for publishing more applicati
 
 4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**.
 
-   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-headers-easy-button/config-properties.png)
+   ![Screenshot for Configuration General and Service Account properties.](./media/f5-big-ip-headers-easy-button/configuration-properties.png)
 
 ### Service Provider
 
@@ -161,31 +161,31 @@ The Service Provider settings define the properties for the SAML SP instance of 
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token.
 
-   ![Screenshot for Service Provider settings](./media/f5-big-ip-headers-easy-button/service-provider.png)
+   ![Screenshot for Service Provider settings.](./media/f5-big-ip-headers-easy-button/service-provider.png)
 
    The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
 3.	From the **Assertion Decryption Private Key** list, select **Create New**.
  
-      ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-headers-easy-button/configure-security-create-new.png)
+      ![Screenshot for Configure Easy Button- Create New import.](./media/f5-big-ip-headers-easy-button/configure-security-create-new.png)
 
 4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab. 
 
 6.	Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
 
-      ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-headers-easy-button/import-ssl-certificates-and-keys.png)
+      ![Screenshot for Configure Easy Button- Import new cert.](./media/f5-big-ip-headers-easy-button/import-ssl-certificates-and-keys.png)
 
 6.	Check **Enable Encrypted Assertion**.
 7.	If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions.
 8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
    
-   ![Screenshot for Service Provider security settings](./media/f5-big-ip-headers-easy-button/service-provider-security-settings.png)
+   ![Screenshot for Service Provider security settings.](./media/f5-big-ip-headers-easy-button/service-provider-security-settings.png)
 
 ### Azure Active Directory
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario select **F5 BIG-IP APM Azure AD Integration > Add**.
 
-   ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-headers-easy-button/azure-config-add-app.png)
+   ![Screenshot for Azure configuration add BIG-IP application.](./media/f5-big-ip-headers-easy-button/azure-configuration-add-app.png)
 
 #### Azure Configuration
 
@@ -193,7 +193,7 @@ This section defines all properties that you would normally use to manually conf
 
 2. Do not enter anything in the **Sign On URL (optional)** to enable IdP initiated sign-on.
    
-   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-headers-easy-button/azure-configuration-properties.png)
+   ![Screenshot for Azure configuration add display info.](./media/f5-big-ip-headers-easy-button/azure-configuration-properties.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier.
  
@@ -201,11 +201,11 @@ This section defines all properties that you would normally use to manually conf
 
 6. Enable **Signing Option** (optional). This ensures that BIG-IP only accepts tokens and claims that are signed by Azure AD.
    
-   ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-headers-easy-button/azure-configuration-sign-certificates.png)
+   ![Screenshot for Azure configuration - Add signing certificates info.](./media/f5-big-ip-headers-easy-button/azure-configuration-sign-certificates.png)
 
 7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied.
    
-   ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-headers-easy-button/azure-configuration-add-user-groups.png)
+   ![Screenshot for Azure configuration - Add users and groups.](./media/f5-big-ip-headers-easy-button/azure-configuration-add-user-groups.png)
 
 #### User Attributes & Claims
 
@@ -217,13 +217,13 @@ For this example, you can include one more attribute:
 
 2. Enter **Source Attribute** as user.employeeid.
 
-   ![Screenshot for user attributes and claims](./media/f5-big-ip-headers-easy-button/user-attributes-claims.png)
+   ![Screenshot for user attributes and claims.](./media/f5-big-ip-headers-easy-button/user-attributes-claims.png)
 
 #### Additional User Attributes
 
 In the **Additional User Attributes tab**, you can enable session augmentation required by a variety of distributed systems such as Oracle, SAP, and other JAVA based implementations requiring attributes stored in other directories. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. 
 
-   ![Screenshot for additional user attributes](./media/f5-big-ip-headers-easy-button/additional-user-attributes.png)
+   ![Screenshot for additional user attributes.](./media/f5-big-ip-headers-easy-button/additional-user-attributes.png)
 
 >[!NOTE] 
 >This feature has no correlation to Azure AD but is another source of attributes. 
@@ -243,7 +243,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-   ![Screenshot for CA policies](./media/f5-big-ip-headers-easy-button/conditional-access-policy.png)
+   ![Screenshot for CA policies.](./media/f5-big-ip-headers-easy-button/conditional-access-policy.png)
 
 > [!NOTE]
 > The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -260,7 +260,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing.
 
-   ![Screenshot for Virtual server](./media/f5-big-ip-headers-easy-button/virtual-server.png)
+   ![Screenshot for Virtual server.](./media/f5-big-ip-headers-easy-button/virtual-server.png)
 
 ### Pool Properties
 
@@ -272,7 +272,7 @@ The **Application Pool tab** details the services behind a BIG-IP that are repre
 
 3. For **Pool Servers** select an existing node or specify an IP and port for the server hosting the header-based application.
 
-   ![Screenshot for Application pool](./media/f5-big-ip-headers-easy-button/application-pool.png)
+   ![Screenshot for Application pool.](./media/f5-big-ip-headers-easy-button/application-pool.png)
 
 Our backend application sits on HTTP port 80 but obviously switch to 443 if yours is HTTPS.
 
@@ -288,7 +288,7 @@ Enabling SSO allows users to access BIG-IP published services without having to 
 * **Header Name:** employeeid
 * **Header Value:** %{session.saml.last.attr.name.employeeid}
 
-   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-headers-easy-button/sso-http-headers.png)
+   ![Screenshot for SSO and HTTP headers.](./media/f5-big-ip-headers-easy-button/sso-http-headers.png)
 
 >[!NOTE]
 >APM session variables defined within curly brackets are CASE sensitive. For example, if you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
@@ -317,7 +317,7 @@ From a browser, **connect** to the application’s external URL or select the **
 
 This shows the output of the injected headers displayed by our headers-based application.
 
-   ![Screenshot for App views](./media/f5-big-ip-headers-easy-button/app-view.png)
+   ![Screenshot for App views.](./media/f5-big-ip-headers-easy-button/app-view.png)
 
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
 
@@ -329,7 +329,7 @@ Alternatively, the BIG-IP gives you the option to disable **Guided Configuration
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
-   ![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-headers-easy-button/strict-mode-padlock.png)
+   ![Screenshot for Configure Easy Button - Strict Management.](./media/f5-big-ip-headers-easy-button/strict-mode-padlock.png)
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
