@@ -28,11 +28,11 @@ In this article, you'll learn how to use the [MedTech service](iot-connector-ove
 
    :::image type="content" source="media\iot-monitoring-tab\select-monitoring-tab.png" alt-text="Screenshot of select the Metrics option within your MedTech service." lightbox="media\iot-monitoring-tab\select-monitoring-tab.png":::
 
-4. The MedTech service monitoring tab will open displaying a subset of the supported MedTech service metrics. By default, the **Show data for last** option is set to 1 hour. To adjust the time duration, select the **Show data for last option**, select the time period you would like to view, and select **Apply**. Clicking the down arrow in the **Traffic** MedTech service metrics tile will display the next set of traffic metrics. 
+4. The MedTech service monitoring tab will open displaying a subset of the supported MedTech service metrics. By default, the **Show data for last** option is set to 1 hour. To adjust the time duration, select the **Show data for last option**, select the time period you would like to view, and select **Apply**. Select the down arrow in the **Traffic** MedTech service metrics tile to display the next set of MedTech service traffic metrics. 
 
    :::image type="content" source="media\iot-monitoring-tab\display-metrics-tile.png" alt-text="Screenshot the MedTech service monitoring tab with drop-down menus." lightbox="media\iot-monitoring-tab\display-metrics-tile.png":::
 
-5. Clicking the pin icon will allow you to pin the tile to an Azure portal dashboard of your choosing.
+5. Select the pin icon to pin the tile to an Azure portal dashboard of your choosing.
 
    :::image type="content" source="media\iot-monitoring-tab\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\iot-monitoring-tab\pin-metrics-to-dashboard.png":::
 
