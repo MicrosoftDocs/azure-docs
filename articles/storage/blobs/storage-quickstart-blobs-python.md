@@ -101,8 +101,6 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
-:::image type="content" source="./media/storage-quickstart-blobs-python/defaultazurecredential-flow-python.png" alt-text="A diagram of the credential flow.":::
-
 For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
 
 #### Assign roles to your Azure AD user account
