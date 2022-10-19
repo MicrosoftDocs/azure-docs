@@ -170,6 +170,6 @@ Below is an example of an activity log record for flapping:
 
 To learn more about autoscale, see the following resources:
 
-* [Overview of common autoscale patterns](/azure/azure-monitor/autoscale/autoscale-common-scale-patterns)
-* [Automatically scale a virtual machine scale](/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
-* [Use autoscale actions to send email and webhook alert notifications](/azure/azure-monitor/autoscale/autoscale-webhook-email)
+* [Overview of common autoscale patterns](./autoscale-common-scale-patterns.md)
+* [Automatically scale a virtual machine scale](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+* [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)

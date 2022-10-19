@@ -243,8 +243,9 @@ After you deploy the VMs for your SAP system, create a load balancer. Then, use 
          1. Enter the name of the new load balancer rule (for example **lb.NW1.ASCS**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.NW1.ASCS**, **backend.NW1**, and **health.NW1.ASCS**)
          1. Select **HA ports**
-         1. **Make sure to enable Floating IP**
-         1. Click OK
+         2. Increase idle timeout to 30 minutes
+         3. **Make sure to enable Floating IP**
+         4. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.NW1.ERS**)
 1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these steps instead to create basic load balancer:  
    1. Create the frontend IP addresses
