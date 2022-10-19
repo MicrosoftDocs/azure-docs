@@ -1,6 +1,6 @@
 To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
-### [Visual Studio 2022](#tab/visual-studio)
+### [Visual Studio](#tab/visual-studio)
 
 1. In **Solution Explorer**, right-click the **Dependencies** node of your project. Select **Manage NuGet Packages**.
 
