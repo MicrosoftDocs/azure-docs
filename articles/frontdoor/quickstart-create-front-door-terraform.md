@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 
 # Create a Front Door using Terraform
 
-This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
+This quickstart describes how to use Terraform to create a Front Door (classic) profile to set up high availability for a web endpoint.
 
 The steps in this article were tested with the following Terraform and Terraform provider versions:
 
@@ -77,4 +77,4 @@ TODO
 
 ## Next steps
 
-In this quickstart, you deployed a simple Front Door profile using Terraform. [Learn more about Azure Front Door.](front-door-overview.md)
+In this quickstart, you deployed a simple Front Door (classic) profile using Terraform. [Learn more about Azure Front Door.](front-door-overview.md)
