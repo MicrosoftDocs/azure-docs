@@ -143,6 +143,8 @@
       href: search-query-overview.md
     - name: Relevance scoring
       href: index-similarity-and-scoring.md
+    - name: Semantic ranking
+      href: semantic-ranking.md 
   - name: Indexing
     items:
     - name: Search indexes
@@ -456,11 +458,9 @@
       href: search-normalizers.md
   - name: Relevance
     items:
-    - name: Similarity ranking
+    - name: Configure scoring
       href: index-ranking-similarity.md
-    - name: Semantic ranking
-      href: semantic-ranking.md
-    - name: Scoring profiles 
+    - name: Add a scoring profile
       href: index-add-scoring-profiles.md
   - name: Performance and monitoring
     items:

@@ -26,7 +26,7 @@ Only Azure AD administrator users can create/enable users for Azure AD-based aut
 
 ## Prerequisites
 
-The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by tenant administrator or a user with tenant admin rights and this is one time activity per tenant.
+The below three steps are mandatory to use Azure Active Directory Authentication with Azure Database for PostgreSQL Flexible Server and must be run by `tenant administrator`or a user with tenant admin rights and this is one time activity per tenant.
 
 Install AzureAD PowerShell: AzureAD Module
 
@@ -38,7 +38,7 @@ Connect-AzureAD -TenantId <customer tenant id>
 ### Step 2: Grant Flexible Server Service Principal read access to customer tenant
 
 ```powershell
-New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed
+New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
 ```
 This command will grant Azure Database for PostgreSQL Flexible Server Service Principal read access to customer tenant to request Graph API tokens for Azure AD validation tasks. AppID (5657e26c-cc92-45d9-bc47-9da6cfdb4ed) in the above command is the AppID for Azure Database for PostgreSQL Flexible Server Service.
 

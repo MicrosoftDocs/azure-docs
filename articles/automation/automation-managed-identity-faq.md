@@ -19,7 +19,7 @@ Automation Run As accounts will be supported until *September 30, 2023*. Althoug
 
 Existing users can still create a Run As account. You can go to the account properties and renew a certificate upon expiration until *January 30, 2023*. After that date, you won't be able to create a Run As account from the Azure portal. 
 
-You'll still be able to create a Run As account through a [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell) until support ends. You can [use this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/RunAsAccountAssessAndRenew.ps1) to renew the certificate after *January 30, 2023*, until *September 30, 2023*. This script will assess the Automation account that has configured Run As accounts and renew the certificate if you choose to do so. On confirmation, the script will renew the key credentials of the Azure Active Directory (Azure AD) app and upload new a self-signed certificate to the Azure AD app.
+You'll still be able to create a Run As account through a [PowerShell script](./create-run-as-account.md#create-account-using-powershell) until support ends. You can [use this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/RunAsAccountAssessAndRenew.ps1) to renew the certificate after *January 30, 2023*, until *September 30, 2023*. This script will assess the Automation account that has configured Run As accounts and renew the certificate if you choose to do so. On confirmation, the script will renew the key credentials of the Azure Active Directory (Azure AD) app and upload new a self-signed certificate to the Azure AD app.
 
 ## Will existing runbooks that use the Run As account be able to authenticate?
 Yes, they'll be able to authenticate. There will be no impact to existing runbooks that use a Run As account.
@@ -39,7 +39,7 @@ Yes, the runbooks will be able to authenticate until the Run As account certific
 ## What is a managed identity?
 Applications use managed identities in Azure AD when they're connecting to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens without managing credentials, secrets, certificates, or keys. 
 
-For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). 
+For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 ## What can I do with a managed identity in Automation accounts? 
 An Azure Automation managed identity from Azure AD allows your runbook to access other Azure AD-protected resources easily. This identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. 
@@ -55,13 +55,13 @@ A Run As account creates an Azure AD app that's used to manage the resources wit
 Run As accounts also have a management overhead that involves creating a service principal, Run As certificate, Run As connection, certificate renewal, and so on. Managed identities eliminate this overhead by providing a secure method for users to authenticate and access resources that support Azure AD authentication without worrying about any certificate or credential management.
 
 ## Can a managed identity be used for both cloud and hybrid jobs?
-Azure Automation supports [system-assigned managed identities](/azure/automation/automation-security-overview#managed-identities) for both cloud and hybrid jobs. Currently, Azure Automation [user-assigned managed identities](/azure/automation/automation-security-overview#managed-identities-preview) can be used for cloud jobs only and can't be used for jobs that run on a hybrid worker.
+Azure Automation supports [system-assigned managed identities](./automation-security-overview.md#managed-identities) for both cloud and hybrid jobs. Currently, Azure Automation [user-assigned managed identities](./automation-security-overview.md) can be used for cloud jobs only and can't be used for jobs that run on a hybrid worker.
 
 ## Can I use a Run As account for new Automation account?
-Yes, but only in a scenario where managed identities aren't supported for specific on-premises resources. We'll allow the creation of a Run As account through a [PowerShell script](/azure/automation/create-run-as-account#create-account-using-powershell).
+Yes, but only in a scenario where managed identities aren't supported for specific on-premises resources. We'll allow the creation of a Run As account through a [PowerShell script](./create-run-as-account.md#create-account-using-powershell).
 
 ## How can I migrate from an existing Run As account to a managed identity?
-Follow the steps in [Migrate an existing Run As account to a managed identity](/azure/automation/migrate-run-as-accounts-managed-identity).
+Follow the steps in [Migrate an existing Run As account to a managed identity](./migrate-run-as-accounts-managed-identity.md).
 
 ## How do I see the runbooks that are using a Run As account and know what permissions are assigned to that account?
 Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utility/AzRunAs/Check-AutomationRunAsAccountRoleAssignments.ps1) to find out which Automation accounts are using a Run As account. If your Azure Automation accounts contain a Run As account, it will have the built-in contributor role assigned to it by default. You can use the script to check the Azure Automation Run As accounts and determine if their role assignment is the default one or if it has been changed to a different role definition.
@@ -70,5 +70,5 @@ Use [this script](https://github.com/azureautomation/runbooks/blob/master/Utilit
 
 If your question isn't answered here, you can refer to the following sources for more questions and answers:
 
-- [Azure Automation](https://docs.microsoft.com/answers/topics/azure-automation.html)
+- [Azure Automation](/answers/topics/azure-automation.html)
 - [Feedback forum](https://feedback.azure.com/d365community/forum/721a322e-bd25-ec11-b6e6-000d3a4f0f1c)
