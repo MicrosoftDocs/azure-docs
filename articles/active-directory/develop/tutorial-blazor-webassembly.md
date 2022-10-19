@@ -1,9 +1,8 @@
 ---
 title: Tutorial - Sign in users and call a protected API from a Blazor WebAssembly app 
 description: In this tutorial, sign in users and call a protected API using the Microsoft identity platform in a Blazor WebAssembly (WASM) app.
-author: knicholasa
-
-ms.author: nichola
+author: janicericketts
+ms.author: jricketts
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
