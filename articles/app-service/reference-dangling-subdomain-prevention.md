@@ -20,7 +20,7 @@ The risks of subdomain takeover include:
 
 Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover.md).
 
-Azure App Service provides [Name Reservation](#how-name-reservation-service-works) Service and [domain verification tokens](#domain-verification-token) to prevent subdomain takeovers.
+Azure App Service provides [Name Reservation Service](#how-app-service-prevents-subdomain-takeovers) and [domain verification tokens](#how-you-can-prevent-subdomain-takeovers) to prevent subdomain takeovers.
 ## How App Service prevents subdomain takeovers
 
 Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, re-use of the DNS will be forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
