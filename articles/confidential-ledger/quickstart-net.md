@@ -18,7 +18,7 @@ Get started with the Azure confidential ledger client library for .NET. [Azure c
 
 Azure confidential ledger client library resources:
 
-[API reference documentation](/dotnet/api/overview/azure/security.confidentialledger-readme-pre) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger/Azure.Security.ConfidentialLedger) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.ConfidentialLedger/1.0.0)
+[API reference documentation](/dotnet/api/overview/azure/security.confidentialledger-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger/Azure.Security.ConfidentialLedger) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.ConfidentialLedger/1.0.0)
 
 ## Prerequisites
 
