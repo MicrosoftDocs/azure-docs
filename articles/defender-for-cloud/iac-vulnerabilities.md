@@ -210,7 +210,7 @@ Remote debugging requires inbound ports to be opened on an API app. These ports 
 
 Enable FTPS enforcement for enhanced security.
 
-**Recommendation**: To [enforce FTPS](/azure/app-service/deploy-ftp?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
+**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
 
 **Severity level**: 1
 
@@ -218,7 +218,7 @@ Enable FTPS enforcement for enhanced security.
 
 API apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -226,7 +226,7 @@ API apps should require HTTPS to ensure connections are made to the expected ser
 
 API apps should require the latest TLS version.
 
-**Recommendation**: To [enforce the latest TLS version](/azure/app-service/configure-ssl-bindings#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
+**Recommendation**: To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
 
 **Severity level**: 1
 
@@ -242,7 +242,7 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](/azure/app-service/overview-managed-identity?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
 
 **Severity level**: 2
 
@@ -258,7 +258,7 @@ Remote debugging requires inbound ports to be opened on a function app. These po
 
 Enable FTPS enforcement for enhanced security.
 
-**Recommendation**: To [enforce FTPS](/azure/app-service/deploy-ftp?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
+**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
 
 **Severity level**: 1
 
@@ -266,7 +266,7 @@ Enable FTPS enforcement for enhanced security.
 
 Function apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -274,7 +274,7 @@ Function apps should require HTTPS to ensure connections are made to the expecte
 
 Function apps should require the latest TLS version.
 
-**Recommendation**: To [enforce the latest TLS version](/azure/app-service/configure-ssl-bindings#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
+**Recommendation**: To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
 
 **Severity level**: 1
 
@@ -290,7 +290,7 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](/azure/app-service/overview-managed-identity?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
 
 **Severity level**: 2
 
@@ -306,7 +306,7 @@ Remote debugging requires inbound ports to be opened on a web application. These
 
 Enable FTPS enforcement for enhanced security.
 
-**Recommendation**: To [enforce FTPS](/azure/app-service/deploy-ftp?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
+**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
 
 **Severity level**: 1
 
@@ -314,7 +314,7 @@ Enable FTPS enforcement for enhanced security.
 
 Web apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -323,7 +323,7 @@ Web apps should require HTTPS to ensure connections are made to the expected ser
 Web apps should require the latest TLS version.
 
 **Recommendation**: 
-To [enforce the latest TLS version](/azure/app-service/configure-ssl-bindings#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
+To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
 
 **Severity level**: 1
 
@@ -339,7 +339,7 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](/azure/app-service/overview-managed-identity?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
 
 **Severity level**: 2
 
@@ -347,7 +347,7 @@ For enhanced authentication security, use a managed identity. On Azure, managed 
 
 Audit built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC roles, which are error prone. Using custom roles is treated as an exception and requires a rigorous review and threat modeling.
 
-**Recommendation**: [Use built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC roles](/azure/role-based-access-control/built-in-roles)
+**Recommendation**: [Use built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC roles](../role-based-access-control/built-in-roles.md)
 
 **Severity level**: 3
 
@@ -355,7 +355,7 @@ Audit built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC
 
 It is important to enable encryption of Automation account variable assets when storing sensitive data. This step can only be taken at creation time. If you have Automation Account Variables storing sensitive data that are not already encrypted, then you will need to delete them and recreate them as encrypted variables. To apply encryption of the Automation account variable assets, in Azure PowerShell - run [the following command](/powershell/module/az.automation/set-azautomationvariable?view=azps-5.4.0&viewFallbackFrom=azps-1.4.0): `Set-AzAutomationVariable -AutomationAccountName '{AutomationAccountName}' -Encrypted $true -Name '{VariableName}' -ResourceGroupName '{ResourceGroupName}' -Value '{Value}'`
 
-**Recommendation**: [Enable encryption of Automation account variable assets](/azure/automation/shared-resources/variables?tabs=azure-powershell)
+**Recommendation**: [Enable encryption of Automation account variable assets](../automation/shared-resources/variables.md?tabs=azure-powershell)
 
 **Severity level**: 1
 
@@ -371,7 +371,7 @@ Enable only connections via SSL to Redis Cache. Use of secure connections ensure
 
 To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes Service Management API server. It is recommended to limit access to authorized IP ranges to ensure that only applications from allowed networks can access the cluster.
 
-**Recommendation**: [Restrict access by defining authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges) or [set up your API servers as private clusters](/azure/aks/private-clusters)
+**Recommendation**: [Restrict access by defining authorized IP ranges](../aks/api-server-authorized-ip-ranges.md) or [set up your API servers as private clusters](../aks/private-clusters.md)
 
 **Severity level**: 1
 
@@ -379,7 +379,7 @@ To ensure that only applications from allowed networks, machines, or subnets can
 
 To provide granular filtering on the actions that users can perform, use Role-Based Access Control (RBAC) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies. To Use Role-Based Access Control (RBAC) you must recreate your Kubernetes Service cluster and enable RBAC during the creation process.
 
-**Recommendation**: [Enable RBAC in Kubernetes clusters](/azure/aks/operator-best-practices-identity#use-azure-rbac)
+**Recommendation**: [Enable RBAC in Kubernetes clusters](../aks/operator-best-practices-identity.md#use-azure-rbac)
 
 **Severity level**: 1
 
@@ -387,7 +387,7 @@ To provide granular filtering on the actions that users can perform, use Role-Ba
 
 Upgrade your Kubernetes service cluster to a later Kubernetes version to protect against known vulnerabilities in your current Kubernetes version. [Vulnerability CVE-2019-9946](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9946) has been patched in Kubernetes versions 1.11.9+, 1.12.7+, 1.13.5+, and 1.14.0+. Running on older versions could mean you are not using latest security classes. Usage of such old classes and types can make your application vulnerable.
 
-**Recommendation**: To [upgrade Kubernetes service clusters](/azure/aks/upgrade-cluster), in the [Microsoft.ContainerService/managedClusters resource properties](/azure/templates/microsoft.containerservice/managedclusters?tabs=json#managedclusterproperties-object), update the *kubernetesVersion* property, setting its value to one of the following versions (making sure to specify the minor version number): 1.11.9+, 1.12.7+, 1.13.5+, or 1.14.0+.
+**Recommendation**: To [upgrade Kubernetes service clusters](../aks/upgrade-cluster.md), in the [Microsoft.ContainerService/managedClusters resource properties](/azure/templates/microsoft.containerservice/managedclusters?tabs=json#managedclusterproperties-object), update the *kubernetesVersion* property, setting its value to one of the following versions (making sure to specify the minor version number): 1.11.9+, 1.12.7+, 1.13.5+, or 1.14.0+.
 
 **Severity level**: 1
 
@@ -395,7 +395,7 @@ Upgrade your Kubernetes service cluster to a later Kubernetes version to protect
 
 Service Fabric clusters should only use Azure Active Directory for client authentication. A Service Fabric cluster offers several entry points to its management functionality, including the web-based Service Fabric Explorer, Visual Studio and PowerShell. Access to the cluster must be controlled using AAD.
 
-**Recommendation**: [Enable AAD client authentication on your Service Fabric clusters](/azure/service-fabric/service-fabric-cluster-creation-setup-aad)
+**Recommendation**: [Enable AAD client authentication on your Service Fabric clusters](../service-fabric/service-fabric-cluster-creation-setup-aad.md)
 
 **Severity level**: 1
 
