@@ -86,7 +86,7 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 ## Get port number
 
-You Node.js app needs to listen to the right port to receive incoming requests.
+Your Node.js app needs to listen to the right port to receive incoming requests.
 
 ::: zone pivot="platform-windows"  
 

@@ -141,7 +141,7 @@ If you then run `Schedule.list(ws)` again, you should get an empty list.
 
 ## Use Azure Logic Apps for complex triggers 
 
-More complex trigger rules or behavior can be created using an [Azure Logic App](/azure/logic-apps/logic-apps-overview).
+More complex trigger rules or behavior can be created using an [Azure Logic App](../../logic-apps/logic-apps-overview.md).
 
 To use an Azure Logic App to trigger a Machine Learning pipeline, you'll need the REST endpoint for a published Machine Learning pipeline. [Create and publish your pipeline](./how-to-create-machine-learning-pipelines.md). Then find the REST endpoint of your `PublishedPipeline` by using the pipeline ID:
 
@@ -154,11 +154,11 @@ published_pipeline.endpoint
 
 ## Create a Logic App
 
-Now create an [Azure Logic App](/azure/logic-apps/logic-apps-overview) instance. If you wish, [use an integration service environment (ISE)](/azure/logic-apps/connect-virtual-network-vnet-isolated-environment) and [set up a customer-managed key](/azure/logic-apps/customer-managed-keys-integration-service-environment) for use by your Logic App.
+Now create an [Azure Logic App](../../logic-apps/logic-apps-overview.md) instance. If you wish, [use an integration service environment (ISE)](../../logic-apps/connect-virtual-network-vnet-isolated-environment.md) and [set up a customer-managed key](../../logic-apps/customer-managed-keys-integration-service-environment.md) for use by your Logic App.
 
 Once your Logic App has been provisioned, use these steps to configure a trigger for your pipeline:
 
-1. [Create a system-assigned managed identity](/azure/logic-apps/create-managed-service-identity) to give the app access to your Azure Machine Learning Workspace.
+1. [Create a system-assigned managed identity](../../logic-apps/create-managed-service-identity.md) to give the app access to your Azure Machine Learning Workspace.
 
 1. Navigate to the Logic App Designer view and select the Blank Logic App template. 
     > [!div class="mx-imgBorder"]
