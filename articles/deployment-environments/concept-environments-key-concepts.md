@@ -41,7 +41,7 @@ The managed identity that's attached to the dev center needs to be granted appro
 
 ## Dev center environment types
 
-You can use environment types to define the types of environments that the development teams can create: for example, dev, test, sandbox, pre-production, or production. Azure Deployment Environments provides the flexibility to name the environment types according to the nomenclature that your enterprise uses. When you create an environment type, you can configure and apply settings for various environment types based on the specific needs of the development teams.
+You can define the types of environments that development teams can create: for example, dev, test, sandbox, pre-production, or production. Azure Deployment Environments provides the flexibility to name the environment types according to the nomenclature that your enterprise uses. You can configure settings for various environment types based on the specific needs of the development teams.
 
 ## Project environment types 
 

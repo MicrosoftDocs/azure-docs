@@ -10,7 +10,7 @@ ms.date: 10/12/2022
 ---
 # Scenarios for using Azure Deployment Environments Preview
 
-This article discusses a few possible scenarios and benefits of Azure Deployment Environments Preview, along with the resources that an organization can use to implement those scenarios. Azure Deployment Environments can be configured to meet the requirements of an enterprise. 
+This article discusses a few possible scenarios for Azure Deployment Environments Preview, along with the resources that an organization can use to implement those scenarios. Azure Deployment Environments can be configured to meet the needs of an enterprise. 
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

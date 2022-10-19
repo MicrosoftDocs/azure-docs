@@ -18,12 +18,12 @@ A deployment environment is a preconfigured collection of Azure resources deploy
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Azure Deployment Environments scenario flow.":::
 
-With Azure Deployment Environments, your development infrastructure (dev infra) admin can enforce enterprise security policies and provide a curated set of predefined infrastructure-as-code (IaC) templates. 
+With Azure Deployment Environments, your development infrastructure (dev infra) admin can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates. 
 
 >[!NOTE]
 > Azure Deployment Environments Preview currently supports only Azure Resource Manager (ARM) templates.
 
-[Learn more about the key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
+You can [learn more about the key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -44,14 +44,14 @@ Developers have the following self-service experience when working with [environ
 >[!NOTE]
 > Developers have a CLI-based experience to create and manage environments for Azure Deployment Environments Preview.
 
-- Deploy a preconfigured environment for any stage of your development cycle.
+- Deploy a preconfigured environment for any stage of the development cycle.
 - Spin up a sandbox environment to explore Azure.
 - Create platform as a service (PaaS) and infrastructure as a service (IaaS) environments quickly and easily by following a few simple steps.
-- Deploy environments right from where you work.
+- Deploy environments right from where they work.
 
 ### Dev infra scenarios
 
-Azure Deployment Environments enables your dev infra admin to ensure that the right set of policies and settings are applied on various types of environments, control the resource configuration that the developers can create, and centrally track environments across projects by doing the following tasks:  
+Azure Deployment Environments helps your dev infra admin apply the right set of policies and settings on various types of environments, control the resource configuration that developers can create, and centrally track environments across projects by doing the following tasks:  
 
 - Provide a project-based, curated set of reusable IaC templates.
 - Define specific Azure deployment configurations per project and per environment type.
@@ -60,8 +60,8 @@ Azure Deployment Environments enables your dev infra admin to ensure that the ri
 
 Azure Deployment Environments Preview supports two [built-in roles](../role-based-access-control/built-in-roles.md):
 
-- **Dev Center Project Admin**, who can create environments and manage the environment types for a project
-- **Deployment Environments User**, who can create environments based on appropriate access 
+- **Dev Center Project Admin**: Creates environments and manages the environment types for a project.
+- **Deployment Environments User**: Creates environments based on appropriate access. 
 
 
 ## Benefits
@@ -81,7 +81,7 @@ Create and organize environment templates by the types of applications that deve
 Enable your development teams to quickly and easily create app infrastructure (PaaS, serverless, and more) resources by using a set of preconfigured templates. You can also track costs on these resources to stay within your budget.
 
 - **Integration with your existing toolchain**:
-Use the APIs to provision environments directly from your preferred CI tool, integrated development environment (IDE), or automated release pipeline. You can also use the comprehensive command-line tool.
+Use APIs to provision environments directly from your preferred CI tool, integrated development environment (IDE), or automated release pipeline. You can also use the comprehensive command-line tool.
 
 ## Next steps
 Start using Azure Deployment Environments:
