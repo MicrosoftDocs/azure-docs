@@ -19,17 +19,17 @@ resource properties with different needs for compliance.
 
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
-- display name
-- description
-- metadata
-- enforcement mode
-- excluded scopes
-- policy definition
-- non-compliance messages
-- parameters
-- identity
-- resource selectors (preview)
-- overrides (preview)
+- [display name](#display-name-and-description)
+- [description](#display-name-and-description)
+- [metadata](#metadata)
+- [resource selectors (preview)](#resource-selectors-preview)
+- [overrides (preview)](#overrides-preview)
+- [enforcement mode](#enforcement-mode)
+- [excluded scopes](#excluded-scopes)
+- [policy definition](#policy-definition-id)
+- [non-compliance messages](#non-compliance-messages)
+- [parameters](#parameters)
+- [identity](#identity)
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
