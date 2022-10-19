@@ -288,7 +288,7 @@ INSERT 0 264308
 
     In your storage account, open **Access keys**. Copy the **Storage account name** and copy the **Key** from **key1** section (you have to select **Show** next to the key first).
 
-    :::image type="content" source="media/howto-ingestion/azure-blob-storage-account-key.png" alt-text="Security + networking > Access keys section of an Azure Blob Storage page in the Azure portal" border="true":::
+    :::image type="content" source="media/howto-ingestion/azure-blob-storage-account-key.png" alt-text="Screenshot of Security + networking > Access keys section of an Azure Blob Storage page in the Azure portal." border="true":::
 
 1. Adding an account to pg_azure_storage
     
