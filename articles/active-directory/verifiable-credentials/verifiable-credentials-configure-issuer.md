@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 The following diagram illustrates the Microsoft Entra Verified ID architecture and the component you configure.
 
-:::image type="content" source="media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png" alt-text="Diagram that illustrates the Azure A D Verifiable Credentials architecture.":::
+:::image type="content" source="media/verifiable-credentials-configure-issuer/verifiable-credentials-architecture.png" alt-text="Diagram that illustrates the Azure AD Verifiable Credentials architecture.":::
 
 ## Prerequisites
 
@@ -245,11 +245,11 @@ Now you're ready to issue your first verified credential expert card by running 
 
 1. From a web browser, select **Get Credential**.
 
-     :::image type="content" source="media/verifiable-credentials-configure-issuer/get-credentials.png" alt-text="Screenshot that shows how to choose get the credential from the sample app.":::
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/get-credentials.png" alt-text="Screenshot that shows how to choose to get the credential from the sample app.":::
 
 1. Using your mobile device, scan the QR code with the Authenticator app. You can also scan the QR code directly from your camera, which will open the Authenticator app for you.
 
-     :::image type="content" source="media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png" alt-text="Screenshot that shows how to scan the Q R code.":::
+     :::image type="content" source="media/verifiable-credentials-configure-issuer/scan-issuer-qr-code.png" alt-text="Screenshot that shows how to scan the QR code.":::
 
 1. At this time, you'll see a message warning that this app or website might be risky. Select **Advanced**.
 

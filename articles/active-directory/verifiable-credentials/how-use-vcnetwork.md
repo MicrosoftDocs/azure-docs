@@ -42,7 +42,7 @@ In our scenario, Proseware is a verifier. Woodgrove is the issuer. The verifier 
 
 1. In the first screen we now have Woodgrove in the issuer list and the next step is to select the **Review** button. 
 
-    :::image type="content" source="media/how-use-vcnetwork/vcnetwork-issuer-list.png" alt-text="Verified ID Network list of isuers.":::
+    :::image type="content" source="media/how-use-vcnetwork/vcnetwork-issuer-list.png" alt-text="Screenshot of verified ID Network list of issuers.":::
 
 1. The Review screen displays a skeleton presentation request JSON payload for the Request Service API. The important pieces of information are the DID inside the **acceptedIssuers** collection and the **type** value. This information is needed to create a presentation request. The request prompts the user for a credential of a certain type issued by a trusted organization.
 

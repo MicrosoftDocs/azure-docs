@@ -103,7 +103,7 @@ If you ever are in need of manually resetting the permissions, the access policy
 | Verifiable Credentials Service | bb2a64ee-5d29-4b07-a491-25806dc854d3 | Get, Sign |
 | Verifiable Credentials Service Request | 3db474b9-6a0c-4840-96ac-1fceb342124f | Sign |
 
-:::image type="content" source="media/verifiable-credentials-configure-tenant/sp-key-vault-admin-access-policy.png" alt-text="Screenshot of key vault access policies for security principals":::
+:::image type="content" source="media/verifiable-credentials-configure-tenant/sp-key-vault-admin-access-policy.png" alt-text="Screenshot of key vault access policies for security principals.":::
 
 ## Register an application in Azure AD
 
