@@ -754,6 +754,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/aks-resource-health.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/concepts-diagnostics.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/node-access.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/troubleshooting.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/troubleshoot-linux.md",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cdn/index.yml",
             "redirect_url": "/azure/frontdoor",
             "redirect_document_id": false
@@ -29137,6 +29162,11 @@
         {
             "source_path_from_root": "/articles/virtual-machines/windows/using-visual-studio-vm.md",
             "redirect_url": "/visualstudio/install/using-visual-studio-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/configuration-front-end-ip.md",
+            "redirect_url": "/azure/application-gateway/configuration-frontend-ip",
             "redirect_document_id": false
         }
 
