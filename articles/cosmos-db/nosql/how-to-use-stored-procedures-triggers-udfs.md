@@ -343,7 +343,7 @@ The following code shows how to register a pre-trigger using the JavaScript SDK:
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
 const triggerId = "trgPreValidateToDoItemTimestamp";
-await container.triggers.create({
+await container.scripts.triggers.create({
     id: triggerId,
     body: require(`../js/${triggerId}`),
     triggerOperation: "create",
@@ -504,7 +504,7 @@ The following code shows how to register a post-trigger using the JavaScript SDK
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
 const triggerId = "trgPostUpdateMetadata";
-await container.triggers.create({
+await container.scripts.triggers.create({
     id: triggerId,
     body: require(`../js/${triggerId}`),
     triggerOperation: "create",
