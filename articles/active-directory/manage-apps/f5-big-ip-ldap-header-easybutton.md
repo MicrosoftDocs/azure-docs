@@ -188,7 +188,7 @@ For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
 
    ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 
-#### Azure Configuration
+#### Azure configuration
 
 1. Enter **Display Name** of the app that the BIG-IP creates in your Azure AD tenant, and the icon that users see on [MyApps portal](https://myapplications.microsoft.com/).
 2. Enter nothing in the **Sign On URL (optional)**.
@@ -205,7 +205,7 @@ For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
 
    ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
-#### User Attributes & Claims tab
+#### User Attributes & Claims
 
 When a user authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims tab** shows the default claims to issue for the new application. It also lets you configure more claims.
 
@@ -234,7 +234,7 @@ On the **Additional User Attributes** tab, you can enable session augmentation f
 
    ![Screenshot for LDAP query properties](./media/f5-big-ip-easy-button-ldap/user-properties-ldap.png)
 
-#### Conditional Access policy
+#### Conditional Access Policy
 
 CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
@@ -260,7 +260,7 @@ To select a policy to be applied to the application being published:
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Received traffic is processed and evaluated against the APM profile associated with the virtual server, before directed according to policy.
 
 1. Enter **Destination Address**, an available IPv4/IPv6 address the BIG-IP can use to receive client traffic. There should be a corresponding record in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the application. Using a test PC localhost DNS is acceptable for testing.
-2. Enter **Service Port** as *443* for HTTPS.
+2. For **Service Port** enter 443 and HTTPS.
 3. Check **Enable Redirect Port** and then enter **Redirect Port** to redirects incoming HTTP client traffic to HTTPS.
 4. The Client SSL Profile enables the virtual server for HTTPS, so client connections are encrypted over TLS. Select the **Client SSL Profile** you created or leave the default while testing.
 
