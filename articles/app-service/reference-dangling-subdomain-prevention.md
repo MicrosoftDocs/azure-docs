@@ -7,7 +7,7 @@ ms.author: msangapu
 author: msangapu-msft
 ---
 
-# What is a subdomain takeover?
+# Mitigating subdomain takeovers in Azure App Service?
 
 Subdomain takeovers are a common threat for organizations that regularly create and delete many resources. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
@@ -18,10 +18,10 @@ The risks of subdomain takeover include:
 - Phishing campaigns
 - Further risks of classic attacks such as XSS, CSRF, CORS bypass
 
-Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](../security/fundamentals/subdomain-takeover.md).
+Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover.md).
 
 Azure App Service provides [Name Reservation](#how-name-reservation-service-works) Service and [domain verification tokens](#domain-verification-token) to prevent subdomain takeovers.
-## How Name Reservation Service works
+## How App Service prevents subdomain takeovers
 
 Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, re-use of the DNS will be forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
 
@@ -34,7 +34,7 @@ Subscription 'A' and subscription 'B' are the only subscriptions belonging to te
 During the reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.azurewebsites.net' by creating a web app named 'test'. No other subscriptions will be allowed to claim it. After the reservation period is complete, any subscription in Azure can now claim 'test.azurewebsites.net'.
 
 
-## Domain verification token
+## How you can prevent subdomain takeovers
 
 When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT record with the Domain Verification ID. When such a TXT record exists, no other Azure Subscription can validate the Custom Domain or take it over unless they add their token verification ID to the DNS entries.
 
