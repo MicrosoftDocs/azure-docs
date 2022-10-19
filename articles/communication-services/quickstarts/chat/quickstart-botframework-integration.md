@@ -482,6 +482,10 @@ Additionally, for managed identity bots you might have to [update bot service id
 
 Sometimes it may be necessary to handoff the chat thread from a bot to a human agent if the bot couldn't understand or answer a question or the customer is not satisfied with the bot's answer, they may request to be connected to a human agent. In such cases it may be necessary to [transition conversation from bot to human](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0) and those patterns can be put to use.
 
+## Handling bot to bot communication
+
+ There could be certain usecases where 2 bots need to be added to the same thread. In that case there could be chances that the bots start replying to each other's messages. If this is not handled properly, then the bots' automated interaction between themselves might result in an infinite loop of messages. Such a scenario is handled by ACS Chat by throttling the requests which will result in bot not being able to send and receive the messages. You can learn more about the [throttle limits](https://learn.microsoft.com/en-us/azure/communication-services/concepts/service-limits#chat).
+
 ## Troubleshooting
 
 ### Chat channel cannot be added
