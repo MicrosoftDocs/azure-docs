@@ -282,7 +282,7 @@ In this section, you'll create a .NET console application that receives messages
 
 In this section, you'll add code to retrieve messages from the queue.
 
-1. Within the `Program` class, add the following `using` statements and properties, just before the `Main` method.
+1. Within the `Program` class, add the following code:
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -366,7 +366,8 @@ In this section, you'll add code to retrieve messages from the queue.
         clientOptions);
 
     // create a processor that we can use to process the messages
-    processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+    // TODO: Replace the <QUEUE-NAME> placeholder
+    processor = client.CreateProcessor("<QUEUE-NAME>", new ServiceBusProcessorOptions());
 
     try
     {
