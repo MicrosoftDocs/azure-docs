@@ -381,7 +381,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
    $p.device.webproxy.connectionURI = "<specify a URI depending on the geographic location of the device>"
    ```
 
-1. Run the package with the updated webProxy property.
+1. Run the package with the updated webProxy properties.
 
    ```azurepowershell
    $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
