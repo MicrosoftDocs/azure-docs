@@ -33,9 +33,9 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.AppConfiguration/configurationStores |Yes | No | [Azure App Configuration](../essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft.AppPlatform/spring | Yes | No | [Azure Spring Cloud](../essentials/metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | Yes| No | [Azure Automation accounts](../essentials/metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft.AVS/privateClouds | No | No | [Azure VMware Solution](../essentials/metrics-supported.md#microsoftavsprivateclouds) |
+|Microsoft.AVS/privateClouds | No | No | [Azure VMware Solution](../essentials/metrics-supported.md) |
 |Microsoft.Batch/batchAccounts | Yes | No | [Azure Batch accounts](../essentials/metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Bing/accounts | Yes | No | [Bing accounts](../essentials/metrics-supported.md#microsoftbingaccounts) |
+|Microsoft.Bing/accounts | Yes | No | [Bing accounts](../essentials/metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft.BotService/botServices | Yes | No | [Azure Bot Service](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/redis | Yes | Yes | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
 |Microsoft.Cache/redisEnterprise | Yes | No | [Azure Cache for Redis Enterprise](../essentials/metrics-supported.md#microsoftcacheredisenterprise) |
@@ -52,7 +52,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Compute/cloudServices/roles | Yes | No |  [Azure Cloud Services roles](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Azure Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Azure Virtual Machine Scale Sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
-|Microsoft.ConnectedVehicle/platformAccounts | Yes | No |[Connected Vehicle Platform Accounts](../essentials/metrics-supported.md#microsoftconnectedvehicleplatformaccounts) |
+|Microsoft.ConnectedVehicle/platformAccounts | Yes | No |[Connected Vehicle Platform Accounts](../essentials/metrics-supported.md) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | No | No | [Azure Container Registry](../essentials/metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Yes | No | [Managed clusters](../essentials/metrics-supported.md#microsoftcontainerservicemanagedclusters) |
@@ -107,7 +107,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Peering/peeringServices | Yes | No | [Azure Peering Service](../essentials/metrics-supported.md#microsoftpeeringpeeringservices) |
 |Microsoft.PowerBIDedicated/capacities | No | No | [Power BI dedicated capacities](../essentials/metrics-supported.md#microsoftpowerbidedicatedcapacities) |
 |Microsoft.Purview/accounts | Yes | No | [Azure Purview accounts](../essentials/metrics-supported.md#microsoftpurviewaccounts) |
-|Microsoft.RecoveryServices/vaults | Yes | Yes | [Recovery Services vaults](../essentials/metrics-supported.md#microsoftrecoveryservicesvaults) |
+|Microsoft.RecoveryServices/vaults | Yes | Yes | [Recovery Services vaults](../essentials/metrics-supported.md) |
 |Microsoft.Relay/namespaces | Yes | No | [Relays](../essentials/metrics-supported.md#microsoftrelaynamespaces) |
 |Microsoft.Search/searchServices | No | No | [Search services](../essentials/metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | Yes | No | [Azure Service Bus](../essentials/metrics-supported.md#microsoftservicebusnamespaces) |
@@ -126,7 +126,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Synapse/workspaces | Yes | No | [Azure Synapse Analytics](../essentials/metrics-supported.md#microsoftsynapseworkspaces) |
 |Microsoft.Synapse/workspaces/bigDataPools | Yes | No | [Azure Synapse Analytics Apache Spark pools](../essentials/metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
 |Microsoft.Synapse/workspaces/sqlPools | Yes | No | [Azure Synapse Analytics SQL pools](../essentials/metrics-supported.md#microsoftsynapseworkspacessqlpools) |
-|Microsoft.VMWareCloudSimple/virtualMachines | Yes | No | [CloudSimple virtual machines](../essentials/metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
+|Microsoft.VMWareCloudSimple/virtualMachines | Yes | No | [CloudSimple virtual machines](../essentials/metrics-supported.md) |
 |Microsoft.Web/containerApps | Yes | No | Azure Container Apps |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [Azure App Service environment multi-role pools](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [Azure App Service environment worker pools](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
