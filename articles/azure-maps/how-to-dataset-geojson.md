@@ -100,15 +100,15 @@ See [Next steps](#next-steps) for links to articles to help you complete your in
 
 ## Add data to an existing dataset
 
-When creating a dataset, the facility being created must be complete. It cannot be added to. Additional facilities, however, can be added to a dataset.
+<!--When creating a dataset, the facility being created must be complete. It cannot be added to. Additional facilities, however, can be added to a dataset.-->
 
 Data can be added to an existing dataset by providing the `datasetId` parameter to the [dataset create API][Dataset Create 2022-09-01-preview] along with the unique identifier of the data you wish to add. The unique identifier can be either a `udid` or `conversionId`. This creates a new dataset consisting of the data (facilities) from both the existing dataset and the new data being imported. Once the new dataset has been created successfully, the old dataset can be deleted.
 
-One thing to consider when adding to an existing dataset is how the facility IDs are created. If a dataset is created from a converted drawing package, the facility IDs are generated automatically. When a dataset is created from a GeoJSON package, facility IDs must be provided in the GeoJSON file. When appending to an existing dataset, the original dataset drives the way feature IDs are created. If the original dataset was created using a `udid`, it uses the IDs from the GeoJSON, and will continue to do so with all GeoJSON packages appended to that dataset in the future.  If the dataset was created using a `conversionId`, IDs will be internally generated, and will continue to be internally generated with all GeoJSON packages appended to that dataset in the future.
+One thing to consider when adding to an existing dataset is how the feature IDs are created. If a dataset is created from a converted drawing package, the feature IDs are generated automatically. When a dataset is created from a GeoJSON package, feature IDs must be provided in the GeoJSON file. When appending to an existing dataset, the original dataset drives the way feature IDs are created. If the original dataset was created using a `udid`, it uses the IDs from the GeoJSON, and will continue to do so with all GeoJSON packages appended to that dataset in the future.  If the dataset was created using a `conversionId`, IDs will be internally generated, and will continue to be internally generated with all GeoJSON packages appended to that dataset in the future.
 
 ### Add to dataset created from a GeoJSON source
 
-If your original dataset was created from a GoeJSON source and you wish to add another facility created from a drawing package, once you import the drawing package and convert it, you can create a dataset and append it to your existing dataset with a single HTTP POST request:
+If your original dataset was created from a GoeJSON source and you wish to add another facility created from a drawing package, you can append it to your existing dataset by referencing its `conversionId`, as demonstrated by this HTTP POST request:
 
 ```http
 https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversionId={conversionId}&outputOntology=facility-2.0&datasetId={datasetId}
@@ -152,8 +152,8 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
   - Each level must be inside the facility.
 - Each [level][level] contain [units][unit], [structures][structure], [verticalPenetrations][verticalPenetration] and [openings][opening]. All of the items defined in the level must be fully contained within the Level geometry.
   - `unit` can consist of an array of items such as hallways, offices and courtyards, which are defined by [area][areaElement], [line][lineElement] or [point][pointElement] elements. Units are defined in the file *unit.goejson*.
-    - All `unit` elements must be fully contained within their level and intersect with their respective units.
-  - `structure` defines physical, non-overlapping areas that can't be navigated through. Structures are defined in the file *structure.goejson*.
+    - All `unit` elements must be fully contained within their level and intersect with their children.
+  - `structure` defines physical, non-overlapping areas that can't be navigated through, such as a wall. Structures are defined in the file *structure.goejson*.
   - `verticalPenetration` represents a method of navigating vertically between levels, such as stairs and elevators and are defined in the file *verticalPenetration.geojson*.
     - verticalPenetrations can't intersect with other verticalPenetrations on the same level.
   - `openings` define traversable boundaries between two units, or a `unit` and `verticalPenetration` and are defined in the file *opening.geojson*.
