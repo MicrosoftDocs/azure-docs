@@ -3,18 +3,14 @@ metadata:
   title: Azure Active Directory reports FAQ | Microsoft Docs
   description: Frequently asked questions around Azure Active Directory reports.
   services: active-directory
-  documentationcenter: ''
-  author: cawrites
-  manager: MarkusVi
-  
-  ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
+  author: shlipsey3
+  manager: amycolannino
   ms.service: active-directory
   ms.workload: identity
-  ms.tgt_pltfrm: na
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 11/23/2021
-  ms.author: markvi
+  ms.date: 10/04/2022
+  ms.author: sarahlipsey
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
 title: Frequently asked questions around Azure Active Directory reports
@@ -48,12 +44,12 @@ sections:
       - question: |
           Can I see last month's data after getting an Azure AD premium license?
         answer: |
-          If you have recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
+          If you've recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
 
       - question: |
           Do I need to be a global administrator to see the activity sign-ins to the Azure portal or to get data through the API?
         answer: |
-          No, you can also access the reporting data through the portal or through the API if you are a **Security Reader** or **Security Administrator** for the tenant. Of course, **Global Administrators** will also have access to this data.
+          No, you can also access the reporting data through the portal or through the API if you're a **Security Reader** or **Security Administrator** for the tenant. **Global Administrators** will also have access to this data.
 
   - name: Activity logs
     questions:
@@ -63,14 +59,14 @@ sections:
           For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
           
       - question: |
-          How long does it take until I can see the activity data after I have completed my task?
+          How long does it take until I can see the activity data after I've completed my task?
         answer: |
           Audit logs have a latency ranging from 15 minutes to an hour. Sign-in activity logs can take from 15 minutes to up to 2 hours for some records.
 
       - question: |
           Can I get Microsoft 365 activity log information through the Azure portal?
         answer: |
-          Even though Microsoft 365 activity and Azure AD activity logs share a lot of the directory resources, if you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
+          Microsoft 365 and Azure AD activity logs share many directory resources. If you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
           
       - question: |
           Which APIs do I use to get information about Microsoft 365 Activity logs?
@@ -88,11 +84,16 @@ sections:
       - question: |
           What data is included in the CSV file I can download from the Azure AD sign-in logs?
         answer: |
-          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included. For example, conditional access policies and report-only information are not included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
+          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign-in logs isn't included. For example, conditional access policies and report-only information aren't included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
       - question: |
-          I see .XXX in part of the IP address from a user in my sign in logs. Why is that happening?
+          I see .XXX in part of the IP address from a user in my sign-in logs. Why is that happening?
         answer: |
-          Azure AD may redact part of an IP address in the sign in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service was not able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
+          Azure AD may redact part of an IP address in the sign-in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This action happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service wasn't able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
+      - question: |
+          I see "PII Removed" in the Device Details of a user in my sign-in logs. Why is that happening?
+        answer: |
+          Azure AD redacts Personally Identifiable Information (PII) generated by devices that do not belong to your tenant to ensure customer data does not spread beyond tenant boundaries without user and data owner consent.
+
 
   - name: Conditional Access
     questions:
@@ -107,7 +108,7 @@ sections:
           To get started:
           
           * Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com).
-          * Click on the sign-in that you want to troubleshoot.
+          * Select the sign-in that you want to troubleshoot.
           * Navigate to the **Conditional Access** tab.
           Here, you can view all the policies that impacted the sign-in and the result for each policy. 
               
@@ -116,8 +117,8 @@ sections:
         answer: |
           Conditional Access status can have the following values:
           
-          * **Not Applied**: This means that there was no Conditional Access policy with the user and app in scope. 
-          * **Success**: This means that there was a Conditional Access policy with the user and app in scope and Conditional Access policies were successfully satisfied. 
+          * **Not Applied**: There was no Conditional Access policy with the user and app in scope. 
+          * **Success**: There was a Conditional Access policy with the user and app in scope and Conditional Access policies were successfully satisfied. 
           * **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
               
       - question: |
@@ -126,14 +127,14 @@ sections:
           A Conditional Access policy can have the following results:
           
           * **Success**: The policy was successfully satisfied.
-          * **Failure**: The policy was not satisfied.
-          * **Not applied**: This might be because the policy conditions did not meet.
-          * **Not enabled**: This is due to the policy in disabled state. 
+          * **Failure**: The policy wasn't satisfied.
+          * **Not applied**: The policy conditions may not have been met.
+          * **Not enabled**: The policy may be in a disabled state. 
               
       - question: |
-          The policy name in the all sign-in report does not match the policy name in CA. Why?
+          The policy name in the all sign-in report doesn't match the policy name in Conditional Access. Why?
         answer: |
-          The policy name in the all sign-in report is based on the Conditional Access policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
+          The policy name in the all sign-in report is based on the Conditional Access (CA) policy name at the time of the sign-in. The name can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
 
       - question: |
           My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?

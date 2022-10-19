@@ -525,7 +525,9 @@ Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<
 
 If the SDK reports correlation recursively, enable the configuration setting of `excludeRequestFromAutoTrackingPatterns` to exclude the duplicate data. This scenario can occur when you use connection strings. The syntax for the configuration setting is `excludeRequestFromAutoTrackingPatterns: [<endpointUrl>]`.
 
-## <a name="next"></a> Next steps
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
+## Next steps
 
 * [Source map for JavaScript](source-map-support.md)
 * [Track usage](usage-overview.md)

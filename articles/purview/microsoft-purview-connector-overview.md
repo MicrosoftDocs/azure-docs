@@ -6,8 +6,8 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 08/03/2022
-ms.custom: ignite-fall-2021
+ms.date: 10/10/2022
+ms.custom: ignite-2022
 ---
 
 # Supported data sources and file types
@@ -20,7 +20,8 @@ The table below shows the supported capabilities for each data source. Select th
 
 |**Category**|  **Data Store**  |**Technical metadata** |**Classification** |**Lineage** | **Access Policy** | **Data Sharing** |
 |---|---|---|---|---|---|---|
-| Azure | [Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes (Preview)](register-scan-azure-blob-storage-source.md#access-policy) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
+| Azure |[Multiple sources](register-scan-azure-multiple-sources.md)| [Yes](register-scan-azure-multiple-sources.md#register) | [Yes](register-scan-azure-multiple-sources.md#scan) | No |[Yes (Preview)](register-scan-azure-multiple-sources.md#access-policy) | No |
+||[Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes (Preview)](register-scan-azure-blob-storage-source.md#access-policy) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
 ||    [Azure Cosmos DB](register-scan-azure-cosmos-database.md)| [Yes](register-scan-azure-cosmos-database.md#register) | [Yes](register-scan-azure-cosmos-database.md#scan)|No*|No| No|
 ||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | No | No|
 || [Azure Data Factory](how-to-link-azure-data-factory.md) | [Yes](how-to-link-azure-data-factory.md) | No | [Yes](how-to-link-azure-data-factory.md) | No | No|
@@ -41,7 +42,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No| No |
 || [MongoDB](register-scan-mongodb.md) | [Yes](register-scan-mongodb.md#register) | No | No | No | No |
 || [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#lineage) | No | No |
-|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  No | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
+|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
 || [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No | No |
 || [SAP Business Warehouse](register-scan-sap-bw.md) | [Yes](register-scan-sap-bw.md#register) | No | No | No | No |
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |
@@ -134,7 +135,7 @@ For all structured file formats, the Microsoft Purview Data Map scanner samples 
 - For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it isn't subject to a deep scan (subject to classification). In that case, Microsoft Purview captures only basic meta data like file name and fully qualified name.
 - For **tabular data sources (SQL)**, it samples the top 128 rows.
-- For **Azure Cosmos DB (SQL API)**, up to 300 distinct properties from the first 10 documents in a container will be collected for the schema and for each property, values from up to 128 documents or the first 1 MB will be sampled.
+- For **Azure Cosmos DB for NoSQL**, up to 300 distinct properties from the first 10 documents in a container will be collected for the schema and for each property, values from up to 128 documents or the first 1 MB will be sampled.
 
 ## Resource set file sampling
 
@@ -145,12 +146,9 @@ File sampling for resource sets by file types:
 - **Delimited files (CSV, PSV, SSV, TSV)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 - **Data Lake file types (Parquet, Avro, Orc)** - 1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 - **Other structured file types (JSON, XML, TXT)** - 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
-- **SQL objects and CosmosDB entities** - Each file is L3 scanned.
+- **SQL objects and Azure Cosmos DB entities** - Each file is L3 scanned.
 - **Document file types** - Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
-## Classification
-
-All 208 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in the Microsoft Purview Data Map](supported-classifications.md).
 
 ## Next steps
 

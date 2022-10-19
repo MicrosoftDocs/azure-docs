@@ -4,13 +4,14 @@ description: Use Azure Cosmos DB free tier to get started, develop, test your ap
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/08/2022
 ---
 
 # Azure Cosmos DB free tier
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Azure Cosmos DB free tier makes it easy to get started, develop, test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 1000 RU/s and 25 GB of storage in the account for free. The throughput and storage consumed beyond these limits are billed at regular price. Free tier is available for all API accounts with provisioned throughput, autoscale throughput, single, or multiple write regions.
 
@@ -51,7 +52,7 @@ You can create a free tier account from the Azure portal, PowerShell, CLI, or Az
 
 ### Azure portal
 
-When creating the account using the Azure portal, set the **Apply Free Tier Discount** option to **Apply**. See [create a new account with free tier](create-cosmosdb-resources-portal.md) article for step-by-step guidance.
+When creating the account using the Azure portal, set the **Apply Free Tier Discount** option to **Apply**. See [create a new account with free tier](nosql/quickstart-portal.md) article for step-by-step guidance.
 
 ### ARM template
 
@@ -62,7 +63,7 @@ To create a free tier account by using an ARM template, set the property `"enabl
 To create an account with free tier using CLI, set the `--enable-free-tier` parameter to true:
 
 ```azurecli-interactive
-# Create a free tier account for SQL API
+# Create a free tier account for API for NoSQL
 az cosmosdb create \
     -n "Myaccount" \
     -g "MyResourcegroup" \
@@ -75,7 +76,7 @@ az cosmosdb create \
 To create an account with free tier using Azure PowerShell, set the `-EnableFreeTier` parameter to true:
 
 ```powershell-interactive
-# Create a free tier account for SQL API. 
+# Create a free tier account for API for NoSQL. 
 New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
     -Name "Myaccount" `
     -ApiKind "sql" `
@@ -92,6 +93,6 @@ If the option to create a free-tier account is disabled or if you receive an err
 After you create a free tier account, you can start building apps with Azure Cosmos DB with the following articles:
 
 * [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
-* [Build a .NET web app using Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-dotnet.md)
-* [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
+* [Build a .NET web app using Azure Cosmos DB for MongoDB](mongodb/create-mongodb-dotnet.md)
+* [Create a Jupyter notebook](notebooks-overview.md) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)

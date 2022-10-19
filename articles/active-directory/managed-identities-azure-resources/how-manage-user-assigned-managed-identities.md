@@ -152,6 +152,7 @@ For a full list of Azure CLI identity commands, see [az identity](/cli/azure/ide
 
 For information on how to assign a user-assigned managed identity to an Azure VM, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
+Learn how to use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
 
 ::: zone-end
 
@@ -238,7 +239,7 @@ Remove-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER AS
 
 For a full list and more details of the Azure PowerShell managed identities for Azure resources commands, see [Az.ManagedServiceIdentity](/powershell/module/az.managedserviceidentity#managed_service_identity).
 
-
+Learn how to use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
 ::: zone-end
 
 
@@ -305,7 +306,7 @@ To create a user-assigned managed identity, use the following template. Replace 
 
 To assign a user-assigned managed identity to an Azure VM using a Resource Manager template, see [Configure managed identities for Azure resources on an Azure VM using a template](qs-configure-template-windows-vm.md).
 
-
+Learn how to use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
 ::: zone-end
 
 
@@ -412,6 +413,5 @@ For information on how to assign a user-assigned managed identity to an Azure VM
 - [Configure managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity) 
 - [Configure managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-managed-identity)
 
+Learn how to use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
 ::: zone-end
-
-

@@ -1,8 +1,8 @@
 ---
 title: 'Configure package repository for package updates | Microsoft Docs'
 description: Follow an example to configure package repository for package updates.
-author: ValOlson 
-ms.author: valls
+author: eross-msft 
+ms.author: lizross
 ms.date: 8/8/2022
 ms.topic: how-to
 ms.service: iot-hub-device-update
@@ -21,7 +21,7 @@ Following this document, learn how to configure a package repository using [OSCo
 
 You need an Azure account with an [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) and Microsoft Azure Portal or Azure CLI to interact with devices via your IoT Hub. Follow the next steps to get started:
 - Create a Device Update account and instance in your IoT Hub. See [how to create it](create-device-update-account.md).
-- Install the [IoT Hub Identity Service](https://azure.github.io/iot-identity-service/installation.html) (or skip if [IoT Edge 1.2](/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&preserve-view=true&tabs=azure-portal%2Cubuntu#install-iot-edge) or higher is already installed on the device).
+- Install the [IoT Hub Identity Service](https://azure.github.io/iot-identity-service/installation.html) (or skip if [IoT Edge 1.2](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&tabs=azure-portal%2cubuntu&view=iotedge-2020-11#install-iot-edge) or higher is already installed on the device).
 - Install the Device Update agent on the device. See [how to](device-update-ubuntu-agent.md#manually-prepare-a-device).
 - Install the OSConfig agent on the device. See [how to](/azure/osconfig/howto-install?tabs=package#step-11-connect-a-device-to-packagesmicrosoftcom).
 - Now that both the agent and IoT Hub Identity Service are present on the device, the next step is to configure the device with an identity so it can connect to Azure. See example [here](/azure/osconfig/howto-install?tabs=package#job-2--connect-to-azure)

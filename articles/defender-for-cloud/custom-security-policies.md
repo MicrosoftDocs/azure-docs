@@ -2,6 +2,7 @@
 title: Create custom security policies in Microsoft Defender for Cloud
 description: Azure custom policy definitions monitored by Microsoft Defender for Cloud.
 ms.topic: how-to
+ms.custom: ignite-2022
 ms.date: 07/20/2022
 zone_pivot_groups: manage-asc-initiatives
 ---
@@ -79,7 +80,7 @@ Important concepts in Azure Policy:
 
 - An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
-Defender for Cloud has a built-in initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), that includes all of its security policies. To assess Defender for Cloud’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
+Defender for Cloud has a built-in initiative, [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), that includes all of its security policies. To assess Defender for Cloud’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
 
 The built-in initiative has all of Defender for Cloud’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Defender for Cloud’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**.
 

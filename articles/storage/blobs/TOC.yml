@@ -26,35 +26,25 @@ items:
         href: quickstart-storage-explorer.md
       - name: PowerShell
         href: storage-quickstart-blobs-powershell.md
-      - name: CLI
+      - name: Azure CLI
         href: storage-quickstart-blobs-cli.md
       - name: .NET
-        items:
-        - name: .NET (v12 SDK)
-          href: storage-quickstart-blobs-dotnet.md
-        - name: .NET (v11 SDK)
-          href: storage-quickstart-blobs-dotnet-legacy.md
+        href: storage-quickstart-blobs-dotnet.md
       - name: Java
         items:
-        - name: Java (v12 SDK)
+        - name: Java
           href: storage-quickstart-blobs-java.md
-        - name: Java (v8 SDK)
-          href: storage-quickstart-blobs-java-legacy.md
         - name: Spring
           href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
       - name: Python
-        items:
-        - name: Python (v12 SDK)
-          href: storage-quickstart-blobs-python.md
-        - name: Python (v2.1 SDK)
-          href: storage-quickstart-blobs-python-legacy.md
+        href: storage-quickstart-blobs-python.md
       - name: JavaScript
         items:
         - name: JavaScript for Node.js
           href: storage-quickstart-blobs-nodejs.md
         - name: JavaScript for browser
           href: quickstart-blobs-javascript-browser.md
-      - name: C++ (v12 SDK)
+      - name: C++
         href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
@@ -62,8 +52,6 @@ items:
         href: storage-quickstart-blobs-php.md
       - name: Ruby
         href: storage-quickstart-blobs-ruby.md
-      - name: Xamarin
-        href: storage-quickstart-blobs-xamarin.md
   - name: Tutorials
     items:
     - name: Upload and process image files
@@ -148,7 +136,7 @@ items:
           - name: Authorize with Azure roles
             href: authorize-access-azure-active-directory.md
           - name: Authorize with conditions
-            href: storage-auth-abac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            href: storage-auth-abac.md
           - name: Actions and attributes for conditions
             href: storage-auth-abac-attributes.md
           - name: Security for conditions
@@ -410,18 +398,18 @@ items:
               href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/blobs/toc.json
             - name: Configure customer-managed keys in Azure Key Vault
               items:
-              - name: Configure customer-managed keys in the same tenant
+              - name: Configure keys and storage account in the same tenant
+                items:
+                - name: Configure keys for a new account
+                  href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/blobs/toc.json
+                - name: Configure keys for an existing account
+                  href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/blobs/toc.json
+              - name: Configure keys and storage account in different tenants
                 items:
                 - name: Configure customer-managed keys for a new account
-                  href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/blobs/toc.json
+                  href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json
                 - name: Configure customer-managed keys for an existing account
-                  href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/blobs/toc.json
-              - name: Configure customer-managed keys in a different tenant
-                items:
-                  - name: Configure customer-managed keys for a new account
-                    href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json
-                  - name: Configure customer-managed keys for an existing account
-                    href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json
+                  href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json
             - name: Configure customer-managed keys in a managed HSM
               href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json
           - name: Provide an encryption key on a request
@@ -480,10 +468,10 @@ items:
           href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json
         - name: Design highly available applications
           items:
-            - name: .NET (v12 SDK)
-              href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json
-            - name: .NET (v11 SDK)
-              href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json
+          - name: .NET (v12 SDK)
+            href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json
+          - name: .NET (v11 SDK)
+            href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json
         - name: Check the Last Sync Time property
           href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json
         - name: Initiate account failover
@@ -552,13 +540,15 @@ items:
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=/azure/storage/blobs/toc.json
       - name: BlobFuse
         items:
-        - name: What is BlobFuse2?
+        - name: What is BlobFuse2 Preview?
           href: blobfuse2-what-is.md
         - name: Deploy BlobFuse2 on Linux
           href: blobfuse2-how-to-deploy.md
         - name: Deploy BlobFuse v1 on Linux
           href: storage-how-to-mount-container-linux.md
-        - name: Troubleshooting
+        - name: Health Monitor for BlobFuse2
+          href: blobfuse2-health-monitor.md
+        - name: Troubleshoot BlobFuse2
           href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json
@@ -566,8 +556,6 @@ items:
         href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Mount storage from Linux using BlobFuse
-        href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json
     - name: Develop applications
@@ -601,7 +589,7 @@ items:
             - name: Upload blobs
               href: storage-blob-upload.md
             - name: Append to blobs
-              href: storage-blob-append.md              
+              href: storage-blob-append.md
             - name: Download blobs
               href: storage-blob-download.md
             - name: Copy blobs
@@ -615,13 +603,15 @@ items:
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
-              href: storage-blob-container-lease.md              
+              href: storage-blob-container-lease.md
+          - name: Implement a retry policy
+            href: storage-retry-policy.md
         - name: JavaScript
           items:
           - name: Get started
             href: storage-blob-javascript-get-started.md
           - name: Work with SAS tokens
-            items: 
+            items:
             - name: Account SAS
               href: storage-blob-account-delegation-sas-create-javascript.md
             - name: User SAS
@@ -630,6 +620,8 @@ items:
             items:
             - name: Create a container
               href: storage-blob-container-create-javascript.md
+            - name: Get container URL
+              href: storage-blob-get-url-javascript.md
             - name: Delete and restore containers
               href: storage-blob-container-delete-javascript.md
             - name: List containers
@@ -640,6 +632,8 @@ items:
             items:
             - name: Upload blobs
               href: storage-blob-upload-javascript.md
+            - name: Get blob URL
+              href: storage-blob-get-url-javascript.md
             - name: Download blobs
               href: storage-blob-download-javascript.md
             - name: Copy blobs
@@ -651,7 +645,7 @@ items:
             - name: Find blobs using tags
               href: storage-blob-tags-javascript.md
             - name: Manage blob properties and metadata
-              href: storage-blob-properties-metadata-javascript.md             
+              href: storage-blob-properties-metadata-javascript.md
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
@@ -688,8 +682,30 @@ items:
             href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json
   - name: Reference
     items:
-    - name: Blob Storage API reference
-      href: ../blobs/reference.md
+    - name: APIs for data access
+      items:
+      - name: REST API
+        href: /rest/api/storageservices/blob-service-rest-api
+      - name: .NET SDK
+        href: /dotnet/api/overview/azure/storage
+      - name: Java SDK
+        href: /java/api/overview/azure/storage
+      - name: Python SDK
+        href: /python/api/overview/azure/storage
+      - name: JavaScript SDK
+        href: /javascript/api/overview/azure/storage
+    - name: APIs for resource management
+      items:
+      - name: REST API
+        href: /rest/api/storagerp/
+      - name: .NET SDK
+        href: /dotnet/api/overview/azure/storage/management
+      - name: Java SDK
+        href: /java/api/overview/azure/storage/management
+      - name: Python SDK
+        href: /python/api/overview/azure/storage/management
+      - name: JavaScript SDK
+        href: /javascript/api/overview/azure/storage/management
     - name: Spring Cloud Azure
       href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/blobs/toc.json#resource-handing
     - name: AzCopy v10
@@ -736,7 +752,7 @@ items:
         href: ../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json
     - name: BlobFuse2
       items:
-      - name: Configuration settings
+      - name: Configure settings
         href: blobfuse2-configuration.md?toc=/azure/storage/blobs/toc.json
       - name: Commands
         items:
@@ -918,6 +934,23 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:
+    - name: Authorization
+      items:
+      - name: Authorizing data operations
+        href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Authorize with Azure AD
+          items:
+          - name: Authorize with Azure roles
+            href: authorize-access-azure-active-directory.md
+          - name: Authorize with conditions
+            href: storage-auth-abac.md
+          - name: Actions and attributes for conditions
+            href: storage-auth-abac-attributes.md
+          - name: Security for conditions
+            href: storage-auth-abac-security.md
+          - name: Example conditions
+            href: storage-auth-abac-examples.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
@@ -977,7 +1010,7 @@ items:
         - name: Migrate using Azure portal
           href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
         - name: Migration guidelines and patterns
-          href: data-lake-storage-migrate-gen1-to-gen2.md          
+          href: data-lake-storage-migrate-gen1-to-gen2.md
       - name: Migrate HDFS stores
         items:
         - name: Migrate an HDFS store offline

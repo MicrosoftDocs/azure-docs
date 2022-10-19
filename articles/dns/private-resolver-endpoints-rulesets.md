@@ -4,8 +4,9 @@ description: In this article, understand the Azure DNS Private Resolver endpoint
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 10/13/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -13,9 +14,6 @@ ms.author: greglin
 # Azure DNS Private Resolver endpoints and rulesets
 
 In this article, you'll learn about components of the [Azure DNS Private Resolver](dns-private-resolver-overview.md). Inbound endpoints, outbound endpoints, and DNS forwarding rulesets are discussed. Properties and settings of these components are described, and examples are provided for how to use them. 
-
-> [!IMPORTANT]
-> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 The architecture for Azure DNS Private Resolver is summarized in the following figure. In this example network, a DNS resolver is deployed in a hub vnet that peers with a spoke vnet. [Ruleset links](#ruleset-links) are provisioned in the [DNS forwarding ruleset](#dns-forwarding-rulesets) to both the hub and spoke vnets, enabling resources in both vnets to resolve custom DNS namespaces using DNS forwarding rules. A private DNS zone is also deployed and linked to the hub vnet, enabling resources in the hub vnet to resolve records in the zone. The spoke vnet resolves records in the private zone by using a DNS forwarding [rule](#rules) that forwards private zone queries to the inbound endpoint VIP in the hub vnet. 
 
@@ -46,9 +44,9 @@ DNS forwarding rulesets enable you to specify one or more custom DNS servers to 
 Rulesets have the following associations: 
 - A single ruleset can be associated with multiple outbound endpoints. 
 - A ruleset can have up to 1000 DNS forwarding rules. 
-- A ruleset can be linked to any number of virtual networks in the same region
+- A ruleset can be linked to up to 500 virtual networks in the same region
 
-A ruleset can't be linked to a virtual network in another region. 
+A ruleset can't be linked to a virtual network in another region. For more information about ruleset and other private resolver limits, see [What are the usage limits for Azure DNS?](dns-faq.yml#what-are-the-usage-limits-for-azure-dns-).
 
 ### Ruleset links
 
@@ -96,4 +94,4 @@ A query for `secure.store.azure.contoso.com` will match the **AzurePrivate** rul
 * Learn how to [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md)
 * Learn how to [configure hybrid DNS](private-resolver-hybrid-dns.md) using private resolvers.
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
-* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
+* [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

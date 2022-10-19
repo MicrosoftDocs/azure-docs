@@ -5,8 +5,8 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/16/2019
-ms.author: amsriva 
+ms.date: 09/13/2022
+ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ Learn how to troubleshoot bad gateway (502) errors received when using Azure App
 
 ## Overview
 
-After configuring an application gateway, one of the errors that you may see is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen for the following main reasons:
+After you configure an application gateway, one of the errors that you may see is **Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server**. This error may happen for the following main reasons:
 
 * NSG, UDR, or Custom DNS is blocking access to backend pool members.
 * Back-end VMs or instances of virtual machine scale set aren't responding to the default health probe.
@@ -31,42 +31,42 @@ After configuring an application gateway, one of the errors that you may see is 
 
 ### Cause
 
-If access to the backend is blocked because of an NSG, UDR, or custom DNS, application gateway instances can't reach the backend pool. This causes probe failures, resulting in 502 errors.
+If access to the backend is blocked because of an NSG, UDR, or custom DNS, application gateway instances can't reach the backend pool. This issue causes probe failures, resulting in 502 errors.
 
 The NSG/UDR could be present either in the application gateway subnet or the subnet where the application VMs are deployed.
 
-Similarly, the presence of a custom DNS in the VNet could also cause issues. A FQDN used for backend pool members might not resolve correctly by the user configured DNS server for the VNet.
+Similarly, the presence of a custom DNS in the VNet could also cause issues. An FQDN used for backend pool members might not resolve correctly by the user configured DNS server for the VNet.
 
 ### Solution
 
 Validate NSG, UDR, and DNS configuration by going through the following steps:
 
-* Check NSGs associated with the application gateway subnet. Ensure that communication to backend isn't blocked.
-* Check UDR associated with the application gateway subnet. Ensure that the UDR isn't directing traffic away from the backend subnet. For example, check for routing to network virtual appliances or default routes being advertised to the application gateway subnet via ExpressRoute/VPN.
+1. Check NSGs associated with the application gateway subnet. Ensure that communication to backend isn't blocked.
+2. Check UDR associated with the application gateway subnet. Ensure that the UDR isn't directing traffic away from the backend subnet. For example, check for routing to network virtual appliances or default routes being advertised to the application gateway subnet via ExpressRoute/VPN.
 
-```azurepowershell
-$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
-```
+    ```azurepowershell
+    $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+    Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+    ```
 
-* Check effective NSG and route with the backend VM
+3. Check effective NSG and route with the backend VM
 
-```azurepowershell
-Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
-```
+    ```azurepowershell
+    Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+    Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+    ```
 
-* Check presence of custom DNS in the VNet. DNS can be checked by looking at details of the VNet properties in the output.
+4. Check presence of custom DNS in the VNet. DNS can be checked by looking at details of the VNet properties in the output.
 
-```json
-Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
-DhcpOptions            : {
-                           "DnsServers": [
-                             "x.x.x.x"
-                           ]
-                         }
-```
-If present, ensure that the DNS server can resolve the backend pool member's FQDN correctly.
+    ```json
+    Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+    DhcpOptions            : {
+                               "DnsServers": [
+                                 "x.x.x.x"
+                               ]
+                             }
+    ```
+5. If present, ensure that the DNS server can resolve the backend pool member's FQDN correctly.
 
 ## Problems with default health probe
 
@@ -91,9 +91,9 @@ The following table lists the values associated with the default health probe:
 * Protocol of the request is determined by the BackendHttpSetting protocol.
 * URI Path will be set to */*.
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
-* The call to `protocol://127.0.0.1:port` should return an HTTP result code of 200. This should be returned within the 30-second timeout period.
+* The call to `protocol://127.0.0.1:port` should return an HTTP result code of 200. This code should be returned within the 30-second timeout period.
 * Ensure the configured port is open and there are no firewall rules or Azure Network Security Groups blocking incoming or outgoing traffic on the port configured.
-* If Azure classic VMs or Cloud Service is used with a FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
+* If Azure classic VMs or Cloud Service is used with an FQDN or a public IP, ensure that the corresponding [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where the application gateway is deployed, a [Network Security Group](../virtual-network/network-security-groups-overview.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe
@@ -128,7 +128,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 
 ### Cause
 
-When a user request is received, the application gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway does not receive a response from the back-end application in this interval, the request will be tried against a second back-end pool member.  If the second request fails the user request gets a 502 error.
+When a user request is received, the application gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway doesn't receive a response from back-end application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway doesn't receive a response from the back-end application in this interval, the request will be tried against a second back-end pool member.  If the second request fails the user request gets a 502 error.
 
 ### Solution
 
@@ -152,7 +152,7 @@ Ensure that the back-end address pool isn't empty. This can be done either via P
 Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
-The output from the preceding cmdlet should contain non-empty back-end address pool. The following example shows two pools returned which are configured with a FQDN or an IP addresses for the backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
+The output from the preceding cmdlet should contain non-empty back-end address pool. The following example shows two pools returned which are configured with an FQDN or an IP addresses for the backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
 
 BackendAddressPoolsText:
 

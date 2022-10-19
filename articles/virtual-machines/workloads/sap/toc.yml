@@ -48,8 +48,14 @@
   items:
   - name: Azure Storage types for SAP
     href: planning-guide-storage.md
-  - name: Configure Azure VM storage
+  - name: Azure VM storage for HANA
     href: hana-vm-operations-storage.md
+  - name: Premium storage for HANA
+    href: hana-vm-premium-ssd-v1.md
+  - name: Premium SSD v2 for HANA
+    href: hana-vm-premium-ssd-v2.md
+  - name: Ultra disk for HANA
+    href: hana-vm-ultra-disk.md
   - name: SAP HANA with Azure NetApp Files
     href: hana-vm-operations-netapp.md
 - name: DBMS Guides (Azure VMs)
@@ -150,12 +156,12 @@
       href: high-availability-guide-rhel-ibm-db2-luw.md
   - name: SAP Application Layer - SLES
     items:
+    - name: Install HA SAP NetWeaver with NFS simple mount
+      href: high-availability-guide-suse-nfs-simple-mount.md
     - name: Install HA SAP NetWeaver with NFS on Azure Files
       href: high-availability-guide-suse-nfs-azure-files.md
     - name: Install HA SAP NetWeaver with Azure NetApp Files
       href: high-availability-guide-suse-netapp-files.md
-    - name: Install HA SAP NetWeaver with NFS simple mount
-      href: high-availability-guide-suse-nfs-simple-mount.md
     - name: Install HA SAP NetWeaver
       href: high-availability-guide-suse.md
     - name: Install HA NFS server
@@ -288,7 +294,7 @@
         href: module/automation-new-saplibrary.md
       - name: Removing the control plane using PowerShell
         href: module/automation-remove-sapautomationregion.md
-      - name: Removing a SAP deployment using PowerShell
+      - name: Removing an SAP deployment using PowerShell
         href: module/automation-remove-sapsystem.md
       - name: Set the Keyvault secrets using PowerShell
         href: module/automation-set-sapsecrets.md
@@ -334,19 +340,19 @@
       href: azure-monitor-faq.yml
   - name: Concepts
     items:
-    - name: Providers in AMS
+    - name: Providers in Azure Monitor for SAP solutions
       href: azure-monitor-providers.md
   - name: Quickstarts
     items:
-    - name: Get started with AMS - Azure portal
+    - name: Get started with Azure Monitor for SAP solutions - Azure portal
       href: azure-monitor-sap-quickstart.md
-    - name: Get started with AMS - PowerShell
+    - name: Get started with Azure Monitor for SAP solutions - PowerShell
       href: azure-monitor-sap-quickstart-powershell.md
   - name: How-to guides
     items:
-    - name: Set up network for AMS
+    - name: Set up network for Azure Monitor for SAP solutions
       href: create-network-azure-monitor-sap-solutions.md
-    - name: Configure AMS alerts in Azure portal
+    - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
       href: azure-monitor-alerts-portal.md
     - name: Provider configuration
       items:
@@ -364,7 +370,7 @@
         href: configure-db-2-azure-monitor-sap-solutions.md
   - name: Reference
     items:
-    - name: Data reference for AMS
+    - name: Data reference for Azure Monitor for SAP solutions
       href: monitor-sap-on-azure-reference.md
 - name: Integration with Microsoft Services
   items:
@@ -372,6 +378,8 @@
     href: exchange-online-integration-sap-email-outbound.md
   - name: Expose SAP Process Orchestration on Azure securely
     href: expose-sap-process-orchestration-on-azure.md
+  - name: Enable SAP Principal Propagation for live OData feeds with Power Query
+    href: expose-sap-odata-to-power-query.md
 - name: SAP on Azure Large Instances
   items:
   - name: Overview
@@ -424,7 +432,7 @@
     items:
     - name: Options and considerations
       href: hana-overview-high-availability-disaster-recovery.md
-    - name: Backup and restore
+    - name: Back up and restore
       href: hana-backup-restore.md
     - name: Principles and preparation
       href: hana-concept-preparation.md
@@ -442,15 +450,15 @@
     items:
     - name: Azure HANA Large Instances control through Azure portal
       href: hana-li-portal.md
-    - name: HA Setup with STONITH
-      href: ha-setup-with-stonith.md
+    - name: HA Setup with fencing device
+      href: ha-setup-with-fencing-device.md
     - name: OS Backup
       href: large-instance-os-backup.md
     - name: OS Backup HLI TYPE - 2
       href: os-backup-hli-type-ii-skus.md
     - name: Azure Large Instances high availability for SAP on RHEL
       href: large-instance-high-availability-rhel.md
-    - name: Enable Kdump for HANA Large Instances
+    - name: Enable kernel dump for HANA Large Instances
       href: hana-large-instance-enable-kdump.md
     - name: OS Upgrade for HANA Large Instances
       href: os-upgrade-hana-large-instance.md

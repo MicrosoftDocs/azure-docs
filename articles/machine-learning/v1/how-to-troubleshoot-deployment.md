@@ -20,8 +20,8 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 > [!NOTE]
 > If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](/azure/azure-monitor/containers/container-insights-enable-existing-clusters) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
 >
-> * [Check for Resource Health events impacting your AKS cluster](/azure/aks/aks-resource-health)
-> * [Azure Kubernetes Service Diagnostics](/azure/aks/concepts-diagnostics)
+> * [Check for Resource Health events impacting your AKS cluster](../../aks/aks-resource-health.md)
+> * [Azure Kubernetes Service Diagnostics](../../aks/concepts-diagnostics.md)
 >
 > If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 
@@ -30,7 +30,9 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [CLI extension v1 for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Steps for Docker deployment of machine learning models
 

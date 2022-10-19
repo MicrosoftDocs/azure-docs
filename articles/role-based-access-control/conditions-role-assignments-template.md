@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/29/2021
+ms.date: 10/19/2022
 ms.author: rolyon
 ---
 
@@ -23,7 +23,13 @@ An [Azure role assignment condition](conditions-overview.md) is an additional ch
 
 ## Prerequisites
 
-For information about the prerequisites to add role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
+You must use the following versions:
+
+- `2020-03-01-preview` or later
+- `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
+- `2022-04-01` is the first stable version
+
+For more information about the prerequisites to add role assignment conditions, see [Conditions prerequisites](conditions-prerequisites.md).
 
 ## Add a condition
 
@@ -66,7 +72,7 @@ To use the template, you must specify the following input:
         {
             "name": "[parameters('roleAssignmentGuid')]",
             "type": "Microsoft.Authorization/roleAssignments",
-            "apiVersion": "2020-04-01-preview", // API version to call the role assignment PUT.
+            "apiVersion": "2022-04-01", // API version to call the role assignment PUT.
             "properties": {
                 "roleDefinitionId": "[variables('StorageBlobDataReader')]",
                 "principalId": "[parameters('principalId')]",
@@ -92,6 +98,6 @@ az deployment group create --resource-group example-group --template-file rbac-t
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
 - [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
 - [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md)
