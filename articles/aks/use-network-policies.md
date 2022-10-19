@@ -60,7 +60,7 @@ Azure Network Policy Manager(NPM) doesn't support IPv6. Otherwise, Azure NPM ful
 
 ## Scale:
 
-With the current limits set on Azure NPM for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us if you'd like to increase your memory limit.
+With the current limits set on Azure NPM for Linux, it can scale up to 500 Nodes and 40k Pods. You may see OOM kills beyond this scale. Please reach out to us on [aks-acn-github] if you'd like to increase your memory limit.
 
 ## Create an AKS cluster and enable Network Policy
 
@@ -327,6 +327,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [calico-support]: https://www.tigera.io/tigera-products/calico/
 [calico-logs]: https://docs.projectcalico.org/maintenance/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
+[aks-acn-github]: https://github.com/Azure/azure-container-networking/issues
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
