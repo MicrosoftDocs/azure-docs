@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 10/20/2022
 ---
 
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -104,6 +104,39 @@ sudo su - hive
 STACK_VERSION=$(hdp-select status hive-server2 | awk '{ print $3; }')
 /usr/hdp/$STACK_VERSION/hive/bin/hive --config /etc/hive/conf --service strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
+### 6. Class not found error with `MultiDelimitSerDe`
+
+**Problem**
+
+In certain situations when running a Hive query, you might receive `java.lang.ClassNotFoundException` stating  `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` class is not found. This will happen when customer migrate from HDInsight 3.6 to HDInsight 4.0. The serde class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` which is a part of `hive-contrib-1.2.1000.2.6.5.3033-1.jar` in HDInsight 3.6 is removed and we are using `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` class which is a part of `hive-exec jar` in HDI-4.0. `hive-exec jar` will load to HS2 by default when we start the service.
+
+**STEPS TO TROUBLESHOOT**
+
+1. Check if any JAR under a folder (likely that it supposed to be under Hive libraries folder, which is `/usr/hdp/current/hive/lib` in HDInsight) contains this class or not. 
+1. Check for the class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` and `org.apache.hadoop.hive.serde2.MultiDelimitSerDe` as mentioned in the solution.
+
+**Solution**
+
+1. Although a JAR file is a binary file, you can still use `grep` command with `-Hrni` switches as below to search for a particular class name
+     ```
+     grep -Hrni "org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe" /usr/hdp/current/hive/lib
+     ```
+1. If it couldn't find the class, it will return no output. If it finds the class in a JAR file, it will return the output.
+
+1. Below is the example took from HDI-4.x cluster
+
+    ```
+    sshuser@hn0-alters:~$ grep -Hrni "org.apache.hadoop.hive.serde2.MultiDelimitSerDe" /usr/hdp/4.1.9.7/hive/lib/
+    Binary file /usr/hdp/4.1.9.7/hive/lib/hive-exec-3.1.0.4.1-SNAPSHOT.jar matches
+    ```
+1. From this output we can confirm that no jar contains the class `org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe` and hive-exec jar contains `org.apache.hadoop.hive.serde2.MultiDelimitSerDe`.
+1. Try to create the table with row format serde as `ROW FORMAT SERDE org.apache.hadoop.hive.serde2.MultiDelimitSerDe`
+1. This will fix the issue. If you have already created the table you can rename it using the below commands
+    ```
+    Hive => ALTER TABLE TABLE_NAME SET SERDE 'org.apache.hadoop.hive.serde2.MultiDelimitSerDe'
+    Backend DB => UPDATE SERDES SET SLIB='org.apache.hadoop.hive.serde2.MultiDelimitSerDe' where SLIB='org.apache.hadoop.hive.contrib.serde2.MultiDelimitSerDe';
+    ```
+The update command is to update the details manually in the backend DB and the alter command is used to alter the table with the new serde class from beeline or Hive.
 
 ## Secure Hive across HDInsight versions
 
