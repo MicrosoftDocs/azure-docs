@@ -344,7 +344,7 @@ The BIG-IP doesn’t support group Managed Service Accounts (gMSA), therefore cr
 
 Or if the app ran in the machine context, add the SPN to the object of the computer account in AD.
 
-    ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
+   ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
 
 With the SPNs defined, the APM service account needs trust to delegate to that service. The configuration varies depending on the topology of your BIG-IP and application server.
 
