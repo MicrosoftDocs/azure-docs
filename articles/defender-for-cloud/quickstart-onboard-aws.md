@@ -226,7 +226,7 @@ CSPM service will assume the CSPM IAM role (Assume with web identity).
         1. Signing of the token
         - Certificate thumbprint
     1. The Microsoft Defender for Cloud CSPM role is assumed only after the condition defined at the trust-relationship is validated. The condition defined at the role is for internal validation (within AWS) which allows only Microsoft Defender for Cloud CSPM application (audience) to get access to the specific role (and not any Microsoft token).
-1. After the AAD Token is validated, AWS STS exchanges the token with short-living AWS credentials
+1.  The AAD Token is validated, and AWS STS exchanges the token with short-living AWS credentials
 1. CSPM service will use the short-living AWS credentials to scan the AWS Account.
 
 There are two ways to allow Defender for Cloud to authenticate to AWS:
