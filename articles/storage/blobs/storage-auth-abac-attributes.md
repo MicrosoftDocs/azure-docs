@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -19,7 +19,7 @@ This article describes the supported attribute dictionaries that can be used in 
 
 To understand the role assignment condition format, see [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md).
 
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Suboperations
 

@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -19,7 +19,7 @@ Attribute-based access control (ABAC) is an authorization strategy that defines 
 
 Azure ABAC builds on Azure role-based access control (Azure RBAC) by adding [conditions to Azure role assignments](../../role-based-access-control/conditions-overview.md). This preview includes support for role assignment conditions on Blobs and Data Lake Storage Gen2. It enables you to author role-assignment conditions based on principal, resource and request attributes.
 
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Overview of conditions in Azure Storage
 

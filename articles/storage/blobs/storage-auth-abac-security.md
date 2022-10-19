@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -19,7 +19,7 @@ To fully secure resources using [Azure attribute-based access control (Azure ABA
 
 This article describes security considerations that you should factor into your role assignment conditions.
 
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Use of other authorization mechanisms
 

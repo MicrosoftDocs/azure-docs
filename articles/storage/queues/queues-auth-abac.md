@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2022
+ms.date: 10/19/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: queues
@@ -15,15 +15,9 @@ ms.subservice: queues
 
 # Authorize access to queues using Azure role assignment conditions
 
-> [!IMPORTANT]
-> Currently, Azure ABAC is generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using `request` and `resource` attributes in the standard storage account performance tier. It is still in preview for premium storage accounts and for the security principal attribute in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
->
-> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is generally available or in preview.
->
-> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with an access request such as the security principal, the resource, the environment and the request itself. With ABAC, you can grant a security principal access to a resource based on [Azure role assignment conditions](../../role-based-access-control/conditions-overview.md).
+
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Overview of conditions in Azure Storage
 

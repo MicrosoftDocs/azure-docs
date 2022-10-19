@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -19,7 +19,7 @@ ms.date: 10/18/2022
 
 This article list some examples of role assignment conditions for controlling access to Azure Blob Storage.
 
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Prerequisites
 

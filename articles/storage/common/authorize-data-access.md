@@ -61,7 +61,7 @@ Each authorization option is briefly described below:
 
 ## About the ABAC Preview
 
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ### Status of condition features in Azure Storage
 

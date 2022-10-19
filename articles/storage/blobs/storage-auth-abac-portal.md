@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 
 #Customer intent:
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > - Add a condition to a role assignment
 > - Restrict access to blobs based on a blob index tag
 
-[!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-abac-preview.md)]
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Prerequisites
 
