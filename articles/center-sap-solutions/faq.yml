@@ -30,7 +30,7 @@ sections:
         answer: | 
                 No. Azure Center for SAP solutions brings Azure services together into a unified experience for deploying 
                 and managing SAP workloads on Azure. Customers can choose to use other Azure services, such as Azure 
-                Monitor for SAP solutions (AMS), independently or in an integrated manner with Azure Center for SAP solutions.
+                Monitor for SAP solutions, independently or in an integrated manner with Azure Center for SAP solutions.
                 AMS is an Azure-native monitoring product for customers running SAP 
                 landscapes on Azure. This product helps you collect data from Azure infrastructure and databases in one 
                 central location and visually correlate the data for faster troubleshooting.
@@ -49,7 +49,7 @@ sections:
                 - Software installation of SAP S4/HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00
                 - Registration of an existing Windows and Linux based ABAP/NetWeaver SAP system on Azure
                 - Monitoring the health and status of an SAP system
-                - Creating a new AMS provider or integrating an existing one
+                - Creating a new Azure Monitor for SAP solutions provider or integrating an existing one
                 - Starting and stopping an SAP System
                 - Quality checks and recommendations for an SAP system with Azure Advisor
                 - Analyze the cost of running the SAP System in Azure [non-shared resources only]
