@@ -276,7 +276,7 @@ Below are some considerations when designing a governed subscription lifecycle p
 
 ## Operations
 
-The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), [Azure Security Benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](./active-directory-ops-guide-ops.md) for detailed guidance to operate individual environments.
+The following are additional operational considerations for Azure AD, specific to multiple isolated environments. Check the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/), the [Microsoft cloud security benchmark](/security/benchmark/azure/) and [Azure AD Operations guide](./active-directory-ops-guide-ops.md) for detailed guidance to operate individual environments.
 
 ### Cross-environment roles and responsibilities
 
