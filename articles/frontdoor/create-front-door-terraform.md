@@ -64,7 +64,35 @@ The steps in this article were tested with the following Terraform and Terraform
 
 ## Verify the results
 
-TODO
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+# [Portal](#tab/Portal)
+
+You can also use the Azure portal to validate the deployment.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Resource groups** from the left pane.
+
+1. Select the FrontDoor resource group.
+
+1. Select the Front Door you created and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
+
+    :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource list --resource-group FrontDoor
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName FrontDoor
+```
+
+---
 
 ## Clean up resources
 
