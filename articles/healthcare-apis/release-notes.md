@@ -109,7 +109,7 @@ For more information about the currently known issues with the FHIR service, see
 
 |Enhancements | Related information |
 | :------------------------ | :------------------------------- |
-|Modality worklists (UPS-RS) is GA.   |The modality worklists (UPS-RS) service is now generally available. Learn more about the [worklists service](https://github.com/microsoft/dicom-server/blob/main/docs/resources/conformance-statement.md#worklist-service-ups-rs).  |
+|Modality worklists (UPS-RS) is GA.   |The modality worklists (UPS-RS) service is now generally available. Learn more about the [worklists service](./../healthcare-apis/dicom/dicom-services-conformance-statement.md).  |
 
 ## July 2022
 
