@@ -78,7 +78,7 @@ Now, we will show you how to switch back to federation.  To do this, do the foll
 1.  Double-click the Azure AD Connect icon that was created on the desktop
 2.  Click **Configure**.
 3.  Select **Change user sign-in** and click **Next**.
-4.  Enter the username and password for your global administrator or your hybrid identity administrator.  This is the account that was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
+4.  Enter the username and password for your Hybrid Identity Administrator or your hybrid identity administrator.  This is the account that was created [here](tutorial-federation.md#create-a-global-administrator-in-azure-ad) in the previous tutorial.
 5.  On the **User sign-in** screen, select **Federation with AD FS** and click **Next**.  
 6. On the Domain Administrator credentials page, enter the contoso\Administrator username and password and click **Next.**
 7. On the AD FS farm screen, click **Next**.

@@ -208,7 +208,7 @@ Now we need to create an Azure AD tenant so that we can synchronize our users to
 Now that we have an Azure AD tenant, we will create a Hybrid Identity Administratoristrator account.  This account is used to create the Azure AD Connector account during Azure AD Connect installation.  The Azure AD Connector account is used to write information to Azure AD.   To create the Hybrid Identity Administrator account do the following.
 
 1.  Under **Manage**, select **Users**.</br>
-![Screenshot that shows the User option selected in the Manage section where you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Screenshot that shows the User option selected in the Manage section where you create a Hybrid Identity Administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Select **All users** and then select **+ New user**.
 3.  Provide a name and username for this user. This will be your Hybrid Identity Administrator for the tenant. You will also want to change the **Directory role** to **Hybrid Identity Administrator.** You can also show the temporary password. When you are done, select **Create**.</br>
 ![Screenshot that shows the Create button you select when you create a global administrator in Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>

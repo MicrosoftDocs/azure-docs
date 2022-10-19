@@ -123,7 +123,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
    ![Deploy Web Application Proxy](./media/how-to-connect-fed-management/WapServer1.PNG)
 
-2. Provide the Azure global administrator credentials.
+2. Provide the Azure Hybrid Identity Administrator credentials.
 
    ![Screenshot that shows the "Connect to Azure AD" page with an example username and password entered.](./media/how-to-connect-fed-management/wapserver2.PNG)
 

@@ -128,7 +128,7 @@ For most customers, three Authentication Agents in total are sufficient for high
 
 To begin, follow these instructions to download the Authentication Agent software:
 
-1. To download the latest version of the Authentication Agent (version 1.5.193.0 or later), sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with your tenant's global administrator credentials.
+1. To download the latest version of the Authentication Agent (version 1.5.193.0 or later), sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with your tenant's Hybrid Identity Administrator credentials.
 2. Select **Azure Active Directory** in the left pane.
 3. Select **Azure AD Connect**, select **Pass-through authentication**, and then select **Download Agent**.
 4. Select the **Accept terms & download** button.

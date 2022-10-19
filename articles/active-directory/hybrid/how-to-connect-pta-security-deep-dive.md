@@ -91,7 +91,7 @@ The Authentication Agents use the following steps to register themselves with Az
     - The access token acquired in step 1.
     - The public key generated in step 2.
     - A Certificate Signing Request (CSR or Certificate Request). This request applies for a digital identity certificate, with Azure AD as its certificate authority (CA).
-4. Azure AD validates the access token in the registration request and verifies that the request came from a global administrator or hybrid identity administrator.
+4. Azure AD validates the access token in the registration request and verifies that the request came from a Hybrid Identity Administrator or hybrid identity administrator.
 5. Azure AD then signs and sends a digital identity certificate back to the Authentication Agent.
     - The root CA in Azure AD is used to sign the certificate. 
 

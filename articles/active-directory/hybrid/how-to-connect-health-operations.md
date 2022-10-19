@@ -104,7 +104,7 @@ Azure AD Connect Health supports the following built-in roles:
 
 | Role | Permissions |
 | --- | --- |
-| Owner |Owners can *manage access* (for example, assign a role to a user or group), *view all information* (for example, view alerts) from the portal, and *change settings* (for example, email notifications) within Azure AD Connect Health. <br>By default, Azure AD global administrators are assigned this role, and this cannot be changed. |
+| Owner |Owners can *manage access* (for example, assign a role to a user or group), *view all information* (for example, view alerts) from the portal, and *change settings* (for example, email notifications) within Azure AD Connect Health. <br>By default, Azure AD Hybrid Identity Administrators are assigned this role, and this cannot be changed. |
 | Contributor |Contributors can *view all information* (for example, view alerts) from the portal, and *change settings* (for example, email notifications) within Azure AD Connect Health. |
 | Reader |Readers can *view all information* (for example, view alerts) from the portal within Azure AD Connect Health. |
 
