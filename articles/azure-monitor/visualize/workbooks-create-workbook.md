@@ -21,12 +21,12 @@ This video walks you through creating workbooks.
 To create a new Azure workbook:
 1. From the Azure Workbooks page, select an empty template or select **New** in the top toolbar.
 1. Combine any of these elements to add to your workbook:
-   - [Text](#adding-text)
-   - [Parameters](#adding-parameters)
-   - [Queries](#adding-queries)
-   - [Metric charts](#adding-metric-charts)
-   - [Links](#adding-links)
-   - [Groups](#adding-groups)
+   - [Text](#add-text)
+   - [Parameters](#add-parameters)
+   - [Queries](#add-queries)
+   - [Metric charts](#add-metric-charts)
+   - [Links](#add-links)
+   - [Groups](#add-groups)
    - Configuration options
 
 ## Add text
@@ -221,8 +221,8 @@ You can apply styles to the link element itself and to individual links.
 |List     |:::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-list.png" alt-text="Screenshot of list style workbook link.":::         | Links appear as a list of links, with no bullets.        |
 |Paragraph     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-paragraph.png" alt-text="Screenshot of paragraph style workbook link.":::        |Links appear as a paragraph of links, wrapped like a paragraph of text.         |
 |Navigation     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-navigation.png" alt-text="Screenshot of navigation style workbook link.":::        | Links appear as links, with vertical dividers, or pipes (`|`) between each link.        |
-|Tabs     |  :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link.":::       |Links appear as tabs. Each link appears as a tab, no link styling options apply to individual links. See the [tabs](#using-tabs) section below for how to configure tabs.         |
-|Toolbar     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::        | Links appear an Azure portal styled toolbar, with icons and text.  Each link appears as a toolbar button. See the [toolbar](#using-toolbars) section below for how to configure toolbars.        |
+|Tabs     |  :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-tabs.png" alt-text="Screenshot of tabs style workbook link.":::       |Links appear as tabs. Each link appears as a tab, no link styling options apply to individual links. See the [tabs](#tabs) section below for how to configure tabs.         |
+|Toolbar     | :::image type="content" source="media/workbooks-create-workbook/workbooks-link-style-toolbar.png" alt-text="Screenshot of toolbar style workbook link.":::        | Links appear an Azure portal styled toolbar, with icons and text.  Each link appears as a toolbar button. See the [toolbar](#toolbars) section below for how to configure toolbars.        |
 
 
 **Link styles**
