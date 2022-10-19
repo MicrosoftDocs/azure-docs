@@ -19,8 +19,8 @@ ms.author: pafarley
 >
 > | Input | Examples | API | Benefit |
 > |----------|--------------|-------------------------|-------------------------|
-> | General in-the-wild images |  labels, street signs, and posters | [Image&nbsp;Analysis Read&nbsp;(preview)](../concept-ocr.md) | Optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
-> | Documents, digital and scanned including embedded images | books, reports, and forms | [Form&nbsp;Recognizer Read](../../../applied-ai-services/form-recognizer/concept-read.md) | Optimized for text-heavy scanned and digital documents with asynchronous API to help automate intelligent document processing.
+> | Images: General, in-the-wild images |  labels, street signs, and posters | [Image&nbsp;Analysis Read&nbsp;(preview)](../concept-ocr.md) | Optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
+> | Documents: Digital and scanned, including images | books, articles, and reports | [Form&nbsp;Recognizer Read](../../../applied-ai-services/form-recognizer/concept-read.md) | Optimized for text-heavy scanned and digital documents with an asynchronous API to help automate intelligent document processing at scale.
 >
 > **Computer Vision 3.2 GA Read**
 >
