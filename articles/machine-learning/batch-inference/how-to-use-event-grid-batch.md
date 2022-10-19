@@ -1,5 +1,5 @@
 ---
-title: "Invoking batch endpoints from Even Grid events in storage"
+title: "Invoking batch endpoints from Event Grid events in storage"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch endpoints to be automatically triggered when new files are generated in storage.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Invoking batch endpoints from Even Grid events in storage
+# Invoking batch endpoints from Event Grid events in storage
 
 [!INCLUDE [ml v2](../../../includes/machine-learning-dev-v2.md)]
 
@@ -27,7 +27,7 @@ The workflow will work in the following way:
 4. It will trigger the batch endpoint (default deployment) using the newly created file as input.
 
 > [!IMPORTANT]
-> The proposed Logic App will create a batch deployment job for each file that triggers the event of *blog created*. However, keep in mind that batch deployments distribute the work at the file level. Since this execution is specifying only one file, then, there will not be any parallelization happening in the deployment. Instead, you will be taking advantage of the capability of batch deployments of executing multiple scoring jobs under the same compute cluster. If you need to run jobs on folders, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-adf.md).
+> The proposed Logic App will create a batch deployment job for each file that triggers the event of *blog created*. However, keep in mind that batch deployments distribute the work at the file level. Since this execution is specifying only one file, then, there will not be any parallelization happening in the deployment. Instead, you will be taking advantage of the capability of batch deployments of executing multiple scoring jobs under the same compute cluster. If you need to run jobs on folders, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ We recommend to using a service principal for authentication and interaction wit
 
 ## Enabling data access
 
-We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. When reading data from cloud locations, batch deployments use the identity of the compute to gain access instead of the identity used to submit the job. In order to ensure the identity of the compute does have read access to the underlying data, we will need to assign to it an user assigned managed identity. Follow these steps to ensure data access:
+We will be using cloud URIs provided by event grid to indicate the input data to send to the deployment job. When reading data from cloud locations, batch deployments use the identity of the compute to gain access instead of the identity used to submit the job. In order to ensure the identity of the compute does have read access to the underlying data, we will need to assign to it a user assigned managed identity. Follow these steps to ensure data access:
 
 1. Create a [managed identity resource](../../active-directory/managed-identities-azure-resources/overview.md):
 
@@ -153,11 +153,11 @@ This Logic App will use parameters to store specific pieces of information that 
 
 1. On the workflow designer, under the tool bar, select the option __Parameters__ and configure them as follows:
 
-    :::image type="content" source="./media/how-to-use-event-grid-batch/parameters.png" alt-text="The parameters in designer.":::
+    :::image type="content" source="./media/how-to-use-event-grid-batch/parameters.png" alt-text="Screenshot of all the parameters required in the workflow.":::
 
 1. To create a parameter, use the __Add parameter__ option:
 
-    :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Adding a parameter to designer.":::
+    :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Screenshot showing how to add one parameter in designer.":::
     
 1. Create the following parameters.
 
@@ -198,7 +198,7 @@ We want to trigger the Logic App each time a new file is created in a given fold
 
    The trigger will look as follows:
    
-   :::image type="content" source="./media/how-to-use-event-grid-batch/create-trigger.png" alt-text="The trigger activity of the Logic App.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/create-trigger.png" alt-text="Screenshot of the trigger activity of the Logic App.":::
 
 ## Configure the actions
 
@@ -217,7 +217,7 @@ We want to trigger the Logic App each time a new file is created in a given fold
    
    The action will look as follows:
    
-   :::image type="content" source="./media/how-to-use-event-grid-batch/authorize.png" alt-text="The authorize activity of the Logic App.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/authorize.png" alt-text="Screenshot of the authorize activity of the Logic App.":::
 
 1. Click on __+ New step__. 
 
@@ -249,17 +249,17 @@ We want to trigger the Logic App each time a new file is created in a given fold
    
    The action will look as follows:
    
-   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke.png" alt-text="The invoke activity of the Logic App.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke.png" alt-text="Screenshot of the invoke activity of the Logic App.":::
    
    > [!NOTE]
-   > Notice that this last action will trigger the batch deployment job, but it will not wait for its completion. Logic Apps are not long running applications. If you need to wait for the job to complete, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-adf.md).
+   > Notice that this last action will trigger the batch deployment job, but it will not wait for its completion. Logic Apps are not long running applications. If you need to wait for the job to complete, we recommend you to switch to [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md).
 
 1. Click on __Save__.
 
 1. The Logic App is ready to be executed and it will trigger automatically each time a new file is created under the indicated path. You will notice the app has successfully received the event by checking the __Run history__ of it:
 
-   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke-history.png" alt-text="The invoke history of the Logic App.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/invoke-history.png" alt-text="Screenshot of the invoke history of the Logic App.":::
 
 ## Next steps
 
-* [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-adf.md)
+* [Invoking batch endpoints from Azure Data Factory](how-to-use-batch-azure-data-factory.md)
