@@ -138,7 +138,6 @@ The following services are supported by autoscale:
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Azure Stream Analytics | [Autoscale streaming units (Preview)](../../stream-analytics/stream-analytics-autoscale.md) |
 | Azure Machine Learning Workspace | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md) |
-| API Management service|[Automatically scale an Azure API Management instance](../../api-management/api-management-howto-autoscale.md)
  Spring Cloud |[Set up autoscale for microservice applications](../../spring-apps/how-to-setup-autoscale.md)|
 | Media Services | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling) |
 | Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
