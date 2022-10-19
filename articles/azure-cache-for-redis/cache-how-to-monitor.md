@@ -161,7 +161,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
   - The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.
 
 > [!IMPORTANT]
-> Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 >
 
 - Geo Replication Connectivity Lag (preview)
@@ -192,7 +192,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
   - This metric may indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
   - A value of 0 does not mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy. 
-  - If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+  - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - Gets
   - The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.

@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 10/19/2022
 ms.author: rolyon
 
 #Customer intent: 
@@ -36,6 +36,16 @@ When using Azure PowerShell to add or update conditions, you must use the follow
 When using Azure CLI to add or update conditions, you must use the following versions:
 
 - [Azure CLI 2.18 or later](/cli/azure/install-azure-cli)
+
+## REST API
+
+When using the REST API to add or update conditions, you must use the following versions:
+
+- `2020-03-01-preview` or later
+- `2020-04-01-preview` or later if you want to utilize the `description` property for role assignments
+- `2022-04-01` is the first stable version
+
+For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
 ## Permissions
 
