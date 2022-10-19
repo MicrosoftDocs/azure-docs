@@ -137,7 +137,7 @@ Take the following steps to order Data Box Disk.
 
 1. The **Select a key** blade will display your selected key vault.
     
-    ![Screenshot of new key vault](media/data-box-disk-deploy-ordered/dbd-new-kv.png)
+    ![Screenshot of new key vault 2](media/data-box-disk-deploy-ordered/dbd-new-kv.png)
     
     If you want to create a new key, select **Create new key**. You must use an **RSA key**. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
