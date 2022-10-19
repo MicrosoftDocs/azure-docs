@@ -1,19 +1,19 @@
 ---
 title: Start and stop SAP systems (preview)
-description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions (ACSS) through the Azure portal.
+description: Learn how to start or stop an SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions through the Azure portal.
 ms.service: azure-center-sap-solutions
 ms.topic: how-to
-ms.date: 07/19/2022
+ms.date: 10/19/2022
 ms.author: ladolan
 author: lauradolan
-#Customer intent: As a developer, I want to start and stop SAP systems in ACSS so that I can control instances through the Virtual Instance for SAP resource.
+#Customer intent: As a developer, I want to start and stop SAP systems in Azure Center for SAP solutions so that I can control instances through the Virtual Instance for SAP resource.
 ---
 
 # Start and stop SAP systems (preview)
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-In this how-to guide, you'll learn to start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in *Azure Center for SAP solutions (ACSS)*. 
+In this how-to guide, you'll learn to start and stop your SAP systems through the *Virtual Instance for SAP solutions (VIS)* resource in *Azure Center for SAP solutions*. 
 
 Through the Azure portal, you can start and stop:
 
@@ -26,7 +26,7 @@ Through the Azure portal, you can start and stop:
 
 ## Prerequisites
 
-- An SAP system that you've [created in ACSS](prepare-network.md) or [registered with ACSS](register-existing-system.md).
+- An SAP system that you've [created in Azure Center for SAP solutions](prepare-network.md) or [registered with Azure Center for SAP solutions](register-existing-system.md).
 - For the start operation to work, all virtual machines (VMs) inside the SAP system must be running. This capability starts or stops the SAP application instances, not the VMs that make up the SAP system resources.
 - The `sapstartsrv` service must be running on all VMs related to the SAP system.
 - For HA deployments, the HA interface cluster connector for SAP (`sap_vendor_cluster_connector`) must be installed on the ASCS instance. For more information, see the [SUSE connector specifications](https://www.suse.com/c/sap-netweaver-suse-cluster-integration-new-sap_suse_cluster_connector-version-3-0-0/) and [RHEL connector specifications](https://access.redhat.com/solutions/3606101).
