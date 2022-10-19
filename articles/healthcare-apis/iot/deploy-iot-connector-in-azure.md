@@ -29,13 +29,13 @@ For more information about the Quickstart template and the Deploy to Azure butto
 
 Azure provides Azure PowerShell and Azure CLI to speed up your configurations when used in enterprise environments. Deploying MedTech service with Azure PowerShell or Azure CLI can be useful for adding automation so that you can scale your deployment for a large number of developers. This method is more detailed but provides extra speed and efficiency because it allows you to automate your deployment.
 
-For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](/deploy-08-new-ps-cli.md).
+For more information about Using an ARM template with Azure PowerShell and Azure CLI, see [Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates](/azure/healthcare-apis/iot/deploy-08-new-ps-cli).
 
 ## Manual deployment
 
 The manual deployment method uses Azure portal to implement each deployment task individually. There are no shortcuts. Because you will be able to see all the details of how to complete the sequence of each task, this procedure can be beneficial if you need to customize or troubleshoot your deployment process. This is the most complex method, but it provides valuable technical information and developmental options that will enable you to fine-tune your deployment very precisely.
 
-For more information about manual deployment with portal, see [Overview of how to manually deploy the MedTech service using the Azure portal](/deploy-03-new-manual.md).
+For more information about manual deployment with portal, see [Overview of how to manually deploy the MedTech service using the Azure portal](/azure/healthcare-apis/iot/deploy-03-new-manual).
 
 ## Deployment architecture overview
 
@@ -90,6 +90,6 @@ For information about granting access to the FHIR service, see [Granting access 
 In this article, you learned about the different types of deployment for MedTech service. To learn more about MedTech service, see
 
 >[!div class="nextstepaction"]
->[What is MedTech service?](/iot-connector-overview.md).
+>[What is MedTech service?](/rest/api/healthcareapis/iot-connectors).
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
