@@ -51,15 +51,13 @@ Like every VM, the agent requires available compute, memory, network, and storag
 
 ### Network resources
 
-The agent will require unrestricted internet connectivity. To accomplish this, create a virtual network switch with internet access. After the switch is created, ensure that the management VM and agent VM are both on the same switch. On the WAN link firewall, port 443 (TCP) must be open outbound.
+The agent will require unrestricted internet connectivity.
 
-There is no single network configuration option that will work for every environment. However, the simplest configuration will involve the deployment of an External virtual switch. The external switch type is connected to a physical adapter, and allows communication between a physical network and the management operating system and the virtual adapters on virtual machines. 
+There's no single network configuration option that will work for every environment. However, the simplest configuration will involve the deployment of an external virtual switch. The external switch type is connected to a physical adapter and will allow your host operating system (OS) to share its connection with all your virtual machines (VMs). This switch allows communication between your physical network, the management operating system, and the virtual adapters on your virtual machines. This approach is fine for a test environment, but may not be suitable for a production server.
 
+After the switch is created, ensure that the management and agent VMs are both on the same switch. On the WAN link firewall, outbound TCP port 443 must be open. Keep in mind that connectivity interruptions are to be expected when changing network configurations.
 
-
-This switch will allow your host OS to share its connection with all your VMs. This approach is fine for a test environment, thous may not be suitable for a production server. 
-
-Keep in mind that connectivity interruptions are to be expected when changing network configurations.
+You can get help with [creating a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines.md) in the [Windows Server](/windows-server/) documentation.
 
 ### Recommended compute and memory resources
 
