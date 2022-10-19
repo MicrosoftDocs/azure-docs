@@ -17,7 +17,7 @@ In this article, you use Visual Studio Code to create a Python function with the
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There's also a [CLI-based version](create-first-function-cli-python-v2.md) of this article.
+There's also a [CLI-based version](create-first-function-cli-python.md) of this article.
 
 In this example, you use the V2 programming model which is currently in Preview. To learn more about the V2 programming model, the [Developer Reference Guide](functions-reference-python).
 
@@ -61,13 +61,48 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 ## Create a function
 
-Note that by default, the file `function_app.py` will contain the functions. To get started with an HTTP triggered function, you can uncomment the code in the file. To create a new function, open the Command Palette by navigating to View > Command Palette, or by pressing Ctrl-Shift-P (Windows) or Command-Shift-P (macOS).
+Note that by default, the file `function_app.py` will contain the functions. To get started with an HTTP triggered function, you can uncomment the code in the file, as follows.
 
-Once opening the Command Palette, select the function trigger you'd like to use and fill in the requested details.
+```python
+@app.function_name(name="HttpTrigger1")
+@app.route(route="hello")
+def test_function(req: func.HttpRequest) -> func.HttpResponse:
+     logging.info('Python HTTP trigger function processed a request.')
+
+     name = req.params.get('name')
+     if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+     if name:
+        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+     else:
+        return func.HttpResponse(
+             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             status_code=200
+        )
+```
+
+Next, enable one of the following storage options:
+
+    + Use a storage emulator such as [Azurerite](../storage/common/storage-use-azurite.md). This is a good option if you only have HTTP triggered functions and aren't planning to use storage in your functions.
+
+    + Create or use an existing Azure Storage account. This is a good option when you're planning to use storage-based functions and when you already have an existing storage account. To create a storage account, see [Create a storage account](../storage/common/storage-account-create.md).
+
+
+### Add an additional function (Optional)
+
+To add another function, open the Command Palette by navigating to View > Command Palette, or by pressing Ctrl-Shift-P (Windows) or Command-Shift-P (macOS).
+
+Once opening the Command Palette, select the function trigger you'd like to use and fill in the requested details. 
 
 ![VS Code Template Options](.media/create-first-function-vs-code-python-v2/vscode_template_options)
 
-* Select "Preview Template" to learn more about the trigger and see sample code directly in VS Code.
+* Select "Preview Template" to learn more about the trigger and see sample code previewed in VS Code.
 * Select "Append to 'function_app.py'" if you are ready to use the template to create the function
 * Select "Append to selected file..." if you are interested in using [blueprints](functions-reference-python#blueprints)
 
@@ -95,6 +130,8 @@ Visual Studio Code integrates with [Azure Functions Core tools](../articles/azur
 
 
 After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
+
+Note that local settings are not imported from VS Code to Azure by default. For the V2 model to work, the flag AzureWebJobsFeatureFlags" should be explicitly set to "EnableWorkerIndexing".
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
