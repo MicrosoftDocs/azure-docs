@@ -21,7 +21,7 @@ This article will show you how to set up Private Link for Azure Virtual Desktop 
 In order to use Private Link in your Azure Virtual Desktop deployment, you'll need the following things:
 
 - An Azure account with an active subscription.
-- An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and workspaces.
+- An Azure Virtual Desktop deployment with service objects, such as host pools, app groups, and [workspaces](environment-setup.md#workspaces).
 - The [required permissions to use Private Link](../private-link/rbac-permissions.md).
 
 In addition, you'll also need the resources listed in the following table:
@@ -31,6 +31,20 @@ In addition, you'll also need the resources listed in the following table:
 | Microsoft.DesktopVirtualization/workspaces | global | One for all Azure Virtual Desktop deployments |
 | Microsoft.DesktopVirtualization/workspaces | feed | One per workspace |
 | Microsoft.DesktopVirtualization/hostpools | connection | One per host pool |
+
+## Enable preview content on your Azure subscription
+
+In order to use Private Link, you'll need to enable preview features on your Azure subscription first. To enable preview features:
+
+1. Go to [Preview features - Microsoft Azure](https://portal.azure.com/#view/Microsoft_Azure_Resources/PreviewFeaturesBlade).
+
+1. In the search box under **Preview features**, search for **Private**.
+
+2. Select the **Azure Virtual Desktop Private Link Public Preview** check box.
+
+3. In the bottom-right corner of the screen, select **Register**.
+
+Once you select **Register**, you'll be registered to use the Private Link public preview feature.
 
 ## Set up Private Link in the Azure portal
 
