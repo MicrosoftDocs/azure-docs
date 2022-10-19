@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in the Authenticator app that will be enabled by default for all tenants a few months after general availability (GA).<br> 
+>Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will be enabled by default for all tenants at the end of February 2023.<br> 
 >We highly recommend enabling number matching in the near-term for improved sign-in security.
 
 ## Prerequisites
