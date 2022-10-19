@@ -22,11 +22,27 @@ The benefit is first applied to the product that has the greatest savings plan d
 
 A savings plan discount only applies to resources associated with Enterprise Agreement, Microsoft Partner Agreement, and Microsoft Customer Agreements. Resources that run in a subscription with other offer types don't receive the discount.
 
+## Savings plans and VM reserved instances
+
+If you have both dynamic and stable workloads, you likely will have both Azure savings plans and VM reserved instances. Since reservation benefits are more restrictive than savings plans, and usually have greater discounts, Azure applies reservation benefits first.
+
+For example, VM *X* has the highest savings plan discount of all savings plan-eligible resources you used in a particular hour. If you have an available VM reservation that's compatible with *X*, the reservation is consumed instead of the savings plan. The approach reduces the possibility of waste and it ensures that you’re always getting the best benefit.
+
+## Savings plan and Azure consumption discounts
+
+In most situations, an Azure savings plan provides the best combination of flexibility and pricing.  If you're operating under an Azure consumption discount (ACD), in rare occasions, you may have some pay-as-you-go rates that are lower than the savings plan rate. In these cases, Azure uses the lower of the two rates.
+
+For example, VM *X* has the highest savings plan discount of all savings plan-eligible resources you used in a particular hour. If you have an ACD rate that is lower than the savings plan rate, the ACD rate is applied to your hourly usage. The result is decremented from your hourly commitment. The approach ensures you always get the best available rate.
+
 ## Benefit allocation window
 
 With an Azure savings plan, you get significant and flexible discounts off your pay-as-you-go rates in exchange for a one or three-year spend commitment. When you use an Azure resource, usage details are periodically reported to the Azure billing system. The billing system is tasked with quickly applying your savings plan in the most beneficial manner possible. The plan benefits are applied to usage that has the largest discount percentage first. For the application to be most effective, the billing system needs visibility to your usage in a timely manner.
 
-The Azure savings plan benefit application operates under a best fit benefit model. When your benefit application is evaluated for a given hour, the billing system incorporates usage arriving up to 48 hours after the given hour. During the sliding 48-hour window, you may see changes to charges, including the possibility of savings plan utilization that's greater than 100%. This situation happens because the system is constantly working to provide the best possible benefit application. Keep the 48-hour window in mind when you inspect your usage.
+The Azure savings plan benefit application operates under a best fit benefit model. When your benefit application is evaluated for a given hour, the billing system incorporates usage arriving up to 48 hours after the given hour. During the sliding 48-hour window, you may see changes to charges, including the possibility of savings plan utilization that's greater than 100%. The situation happens because the system is constantly working to provide the best possible benefit application. Keep the 48-hour window in mind when you inspect your usage.
+
+## Utilize multiple savings plans
+
+Azure's intent is to always maximize the benefit you receive from savings plans. When you have multiple savings plans with the different term lengths, Azure applies the benefits from the three year plan first. The intent is to ensure that the best rates are applied first. If you have multiple savings plans that have different benefit scopes, Azure applies benefits from the more restrictively scoped plan first. The intent is to reduce the possibility of waste.
 
 ## When the savings plan term expires
 
