@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 Use the KQL `make-series` operator to create a time series. 
 
-Let's create a time series based on logs in the `Usage` table, which holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data.
+Let's create a time series based on logs in the [Usage table](/azure/azure-monitor/reference/tables/usage), which holds information about how much data each table in a workspace ingests every hour, including billable and non-billable data.
 
 This query uses `make-series` to chart the total amount of billable data ingested by each table in the workspace every day, over the past 21 days:
 
