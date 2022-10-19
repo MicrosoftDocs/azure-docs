@@ -36,6 +36,8 @@ Let's create a time series based on logs in the `Usage` table, which holds infor
 
 This query uses `make-series` to chart the total amount of billable data ingested by each table in the workspace every day, over the past 21 days:
 
+<a href="https://portal.azure.com#@ec7cb332-9a0a-4569-835a-ce7658e8444e/blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade/resourceId/%2FDemo/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA3WQwYrCQBBE735F4ylzUFyvkoMiiMcF9wM6TkWDkxnp6UEC%252B%252FFOQggS8Nj1mqrqdlCKyqLatKCStj92t3BZhLejtBmVfqyFB63f%252Bot8w%252BKfXncI6JLpCR7CCksV9AV4KgbvUFvuCr6FYooyZr2esTHRGDOZnuOhcY4rlzNLWqokLDNs%252BYFVhDSItL9qYjd0KWNqi9%252FEXhvtDFnUnJz2F1Dws4K1hJa%252BlyMNczrVywDPj29UHR1Z%252BdI9%252B29I3oMM%252BHrPBm%252FkaatgYQEAAA%253D%253D" target="_blank">Click to run query</a>
+
 ```kusto
 let starttime = 21d; // The start date of the time series, counting back from the current date
 let endtime = 0d; // The end date of the time series, counting back from the current date
@@ -61,6 +63,8 @@ Next, we'll use a KQL function to list all of the anomalies in a time series.
 The `series_decompose_anomalies()` function takes a series of values as input and extracts anomalies.
 
 Let's give the result set of our time series query as input to the `series_decompose_anomalies()` function:  
+
+<a href="https://portal.azure.com#@ec7cb332-9a0a-4569-835a-ce7658e8444e/blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade/resourceId/%2FDemo/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA3WSPU%252FDMBCG9%252F6Ko5MtpRWwog5FIMSIKHN1iS8l4NiRfaGNxI%252FHTtvUCbDF9%252Fm870UTg2d0zFVNsILbG3U30yFIRp1C16dIfJYO%252B1isevO4o9k37N%252FJEWxC9okMOWRSkBPviQyIfrYtFXYCd1YMq6RcLie500Yp5TD02d9XWmOuw84VzNm1NA%252FJGj9p4clV5GFdcIu6Z1n5thYvLRquuJOgqMRWc1QA1kwAS2dr%252BB8O2E6zA15IUJO4kXfwgIybrolu0IFDpVgbW6MOgBkcP7vXwjrK4PHQUBEIemIZ4I46tooKWzfW0xbPrSLRJiHq%252FlrQoUGjUtURlcNuWwpl22CVzCZak4Lw7kWcqaKDv%252FtT4r%252FGjzQkBdqaXQ96vN5lxVW8QYg3zn6EzjFflojJRqNHINnF0rPdEGd66zjeAHMv0vr4A%252FjiB1sP1MrgAgAA" target="_blank">Click to run query</a>
 
 ```kusto
 let starttime = 21d; // Start date for the time series, counting back from the current date
@@ -115,6 +119,8 @@ The [syntax of the `series_decompose_anomalies()` function](/azure/data-explorer
 
 To exclude the last data point, set `Test_points` to `1`: 
 
+<a href="https://portal.azure.com#@ec7cb332-9a0a-4569-835a-ce7658e8444e/blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade/resourceId/%2FDemo/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA3WSy07DMBBF9%252F2KoZvaklsRJFaoiyIQYoko62oST0LAsSPbaRuJj8dOH7gBdvE8z70TRR6cR%252Bt93RAs4SaTdxMVgqTlMXR9jMRnaXGIxao3hxVNvmD3TpZgHbJPpMmiJwk5%252BR2RBjbMNqXEnmFl2HkV54vFKHfcyDmH89Rnd18rhbkKS5cw9bajacw2%252BElzR7YmB6vCd6gGmqXrGvbSofa17zlIKrFTPmoAo0eIpTUN%252FI8H3oyzZ8CQoDbxI%252B%252FhAT2u%252B5YiHO19KGUrbRpUgVDA4bN%252FLYwlAY%252F7loqAMCDzQHcQspFUmKY1jjZ4amWJOJEtbsU8EzPcVjORDS412zntW9QydSGi%252B8BiSiZNF7zjYqQ9KQjvQdQJMjr6uz8V8Nf4C0lJgTK6Ss75s%252BIq3iQmWms%252BQusloEhlX8y%252BIBE%252FFqf%252BO2N9vAnmjqXl8YdwxTdoO89x8gIAAA%253D%253D" target="_blank">Click to run query</a>
+
 ```kusto
 let starttime = 21d; // Start date for the time series, counting back from the current date
 let endtime = 0d; // End date for the time series, counting back from the current date
@@ -122,7 +128,7 @@ let timeframe = 1d; // How often to sample data
 Usage // The table we’re analyzing
 | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) // Time range for the query, beginning at 12:00 AM of the first day and ending at 12:00 AM of the last day in the time range
 | where IsBillable == "true" // Includes only billable data in the result set
-| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // TODO
+| make-series ActualUsage=sum(Quantity) default = 0 on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DataType // Creates the time series, listed by data type
 | extend(Anomalies, AnomalyScore, ExpectedUsage) = series_decompose_anomalies(ActualUsage,1.5,-1,'avg',1) // Scores and extracts anomalies based on the output of make-series, excluding the last value in the series 
 | mv-expand ActualUsage to typeof(double), TimeGenerated to typeof(datetime), Anomalies to typeof(double),AnomalyScore to typeof(double), ExpectedUsage to typeof(long) // Expands the array created by series_decompose_anomalies()
 | where Anomalies != 0  // Returns all positive and negative deviations from expected usage
@@ -143,6 +149,8 @@ Comparing expected values to anomalous values helps you understand the cause of 
 The KQL `diffpatterns()` plugin compares two data sets of the same structure and finds patterns that characterize differences between the two data sets.
 
 This query compares `AzureDiagnostics` usage on June 15, the extreme outlier in our example, with the table usage on other days: 
+
+<a href="" target="_blank">Click to run query</a>
 
 ```kusto
 let starttime = 21d; // Start date for the time series, counting back from the current date
