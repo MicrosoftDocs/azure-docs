@@ -62,7 +62,7 @@ The [TLS policy](./application-gateway-ssl-policy-overview.md) applies only to t
 
 Application Gateway only communicates with those backend servers that have either allow-listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. These include the trusted Azure services such as Azure App Service/Web Apps and Azure API Management.
 
-If the certificates of the members in the backend pool aren't signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
+If the certificates of the members in the backend pool aren't signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known backend instances. This further secures the end-to-end communication.
 
 > [!NOTE] 
 >

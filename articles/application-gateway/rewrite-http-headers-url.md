@@ -21,7 +21,7 @@ Application Gateway allows you to rewrite selected content of requests and respo
 
 HTTP headers allow a client and server to pass additional information with a request or response. By rewriting these headers, you can accomplish important tasks, such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields that might reveal sensitive information, and removing port information from X-Forwarded-For headers.
 
-Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and back-end pools.
+Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools.
 
 To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
 
@@ -179,7 +179,7 @@ Here, with only header rewrite configured, the WAF evaluation will be done on `"
 
 #### Remove port information from the X-Forwarded-For header
 
-Application Gateway inserts an X-Forwarded-For header into all requests before it forwards the requests to the backend. This header is a comma-separated list of IP ports. There might be scenarios in which the back-end servers only need the headers to contain IP addresses. You can use header rewrite to remove the port information from the X-Forwarded-For header. One way to do this is to set the header to the add_x_forwarded_for_proxy server variable. Alternatively, you can also use the variable client_ip:
+Application Gateway inserts an X-Forwarded-For header into all requests before it forwards the requests to the backend. This header is a comma-separated list of IP ports. There might be scenarios in which the backend servers only need the headers to contain IP addresses. You can use header rewrite to remove the port information from the X-Forwarded-For header. One way to do this is to set the header to the add_x_forwarded_for_proxy server variable. Alternatively, you can also use the variable client_ip:
 
 ![Remove port](./media/rewrite-http-headers-url/remove-port.png)
 
@@ -191,7 +191,7 @@ Modification of a redirect URL can be useful under certain circumstances.  For e
 > [!WARNING]
 > The need to modify a redirection URL sometimes comes up in the context of a configuration whereby Application Gateway is configured to override the hostname towards the backend.  The hostname as seen by the backend is in that case different from the hostname as seen by the browser.  In this situation, the redirect would not use the correct hostname.  This configuration isn't recommended.
 >
-> The limitations and implications of such a configuration are described in [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).  The recommended setup for App Service is to follow the instructions for **"Custom Domain (recommended)"** in [Configure App Service with Application Gateway](configure-web-app.md).  Rewriting the location header on the response as described in the below example should be considered a workaround and does not address the root cause.
+> The limitations and implications of such a configuration are described in [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation).  The recommended setup for App Service is to follow the instructions for **"Custom Domain (recommended)"** in [Configure App Service with Application Gateway](configure-web-app.md).  Rewriting the location header on the response as described in the below example should be considered a workaround and does not address the root cause.
 
 When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
 
@@ -212,7 +212,7 @@ You can fix several security vulnerabilities by implementing necessary headers i
 
 ### Delete unwanted headers
 
-You might want to remove headers that reveal sensitive information from an HTTP response. For example, you might want to remove information like the back-end server name, operating system, or library details. You can use the application gateway to remove these headers:
+You might want to remove headers that reveal sensitive information from an HTTP response. For example, you might want to remove information like the backend server name, operating system, or library details. You can use the application gateway to remove these headers:
 
 ![Deleting header](./media/rewrite-http-headers-url/remove-headers.png)
 

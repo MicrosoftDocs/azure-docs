@@ -16,7 +16,7 @@ Once your Application Gateway WAF is operational, you can enable logs to inspect
 
 ## Import WAF logs
 
-To import your firewall logs into Log Analytics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). When you have the firewall logs in your Log Analytics workspace, you can view data, write queries, create visualizations, and add them to your portal dashboard.
+To import your firewall logs into Log Analytics, see [Backend health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). When you have the firewall logs in your Log Analytics workspace, you can view data, write queries, create visualizations, and add them to your portal dashboard.
 
 ## Explore data with examples
 
@@ -79,4 +79,4 @@ Once you create a query, you can add it to your dashboard.  Select the **Pin to 
 
 ## Next steps
 
-[Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md)
+[Backend health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md)

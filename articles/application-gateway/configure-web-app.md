@@ -3,18 +3,18 @@ title: Manage traffic to App Service
 titleSuffix: Azure Application Gateway
 description: This article provides guidance on how to configure Application Gateway with Azure App Service
 services: application-gateway
-author: xstof
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 02/17/2022
-ms.author: christoc
+ms.author: greglin
 ---
 
 <!-- markdownlint-disable MD044 -->
 
 # Configure App Service with Application Gateway
 
-Application gateway allows you to have an App Service app or other multi-tenant service as a back-end pool member. In this article, you learn to configure an App Service app with Application Gateway.  The configuration for Application Gateway will differ depending on how App Service will be accessed:
+Application gateway allows you to have an App Service app or other multi-tenant service as a backend pool member. In this article, you learn to configure an App Service app with Application Gateway.  The configuration for Application Gateway will differ depending on how App Service will be accessed:
 - The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend.  
 - The second option is to have Application Gateway access App Service using its **default domain**, suffixed as ".azurewebsites.net".
 
@@ -141,7 +141,7 @@ We will connect to the backend using HTTPS.
 1. Under **HTTP Settings**, select an existing HTTP setting or add a new one.
 2. When creating a new HTTP Setting, give it a name
 3. Select HTTPS as the desired backend protocol using port 443
-4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of back-end servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
+4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of backend servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-backend-servers)
 5. Make sure to set "Override with new host name" to "No"
 6. Select the custom HTTPS health probe in the dropdown for "Custom probe".  
    > [!Note] 
@@ -156,7 +156,7 @@ An HTTP Setting is required that instructs Application Gateway to access the App
 1. Under **HTTP Settings**, select an existing HTTP setting or add a new one.
 2. When creating a new HTTP Setting, give it a name
 3. Select HTTPS as the desired backend protocol using port 443
-4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of back-end servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
+4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of backend servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-backend-servers)
 5. Make sure to set "Override with new host name" to "Yes"
 6. Under "Host name override", select "Pick host name from backend target". This setting will cause the request towards App Service to use the "azurewebsites.net" host name, as is configured in the Backend Pool.
 

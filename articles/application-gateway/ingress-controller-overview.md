@@ -2,11 +2,11 @@
 title: What is Azure Application Gateway Ingress Controller?
 description: This article provides an introduction to what Application Gateway Ingress Controller is. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
 ms.date: 03/02/2021
-ms.author: caya
+ms.author: greglin
 ---
 
 # What is Application Gateway Ingress Controller?

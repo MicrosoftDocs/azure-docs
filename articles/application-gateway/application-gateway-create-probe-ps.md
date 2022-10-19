@@ -71,9 +71,9 @@ $vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Locati
 $subnet = $vnet.Subnets[0]
 ```
 
-### Create a public IP address for the front-end configuration
+### Create a public IP address for the frontend configuration
 
-Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. This example uses a public IP address for the front-end IP address of the application gateway.  Application gateway requires the public IP address to have a dynamically created DNS name therefore the `-DomainNameLabel` cannot be specified during the creation of the public IP address.
+Create a public IP resource **publicIP01** in resource group **appgw-rg** for the West US region. This example uses a public IP address for the frontend IP address of the application gateway.  Application gateway requires the public IP address to have a dynamically created DNS name therefore the `-DomainNameLabel` cannot be specified during the creation of the public IP address.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -97,7 +97,7 @@ You set up all configuration items before creating the application gateway. The 
 # Creates an application gateway Frontend IP configuration named gatewayIP01
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-#Creates a back-end IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.
+#Creates a backend IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.
 $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
 
 # Creates a probe that will check health at http://contoso.com/path/path.htm
@@ -109,7 +109,7 @@ $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -
 # Creates a frontend port for the application gateway to listen on port 80 that will be used by the listener.
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01 -Port 80
 
-# Creates a frontend IP configuration. This associates the $publicip variable defined previously with the front-end IP that will be used by the listener.
+# Creates a frontend IP configuration. This associates the $publicip variable defined previously with the frontend IP that will be used by the listener.
 $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 # Creates the listener. The listener is a combination of protocol and the frontend IP configuration $fipconfig and frontend port $fp created in previous steps.

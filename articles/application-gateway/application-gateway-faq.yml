@@ -443,7 +443,7 @@ sections:
           2. Open the HTTP settings that’s associated with your certificate.
           3. Click on “Add certificate” and upload the reissued certificate and click save.
           4. You can remove the old certificate later by clicking on the “…” options button next to the old certificate and select delete and click save.
-          For more information, see [Configure end-to-end TLS by using Application Gateway with the portal](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers).
+          For more information, see [Configure end-to-end TLS by using Application Gateway with the portal](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-backend-servers).
           
           If you are using the V2 SKU of the Application Gateway/WAF service, you don’t have to upload the new certificate in the HTTP settings since V2 SKU uses “trusted root certificates” and no action needs to be taken here.
           

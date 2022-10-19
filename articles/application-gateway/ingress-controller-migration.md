@@ -2,11 +2,11 @@
 title: How to migrate from Azure Application Gateway Ingress Controller Helm to AGIC add-on
 description: This article provides instructions on how to migrate from AGIC deployed through Helm to AGIC deployed as an AKS add-on
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
 ms.date: 03/02/2021
-ms.author: caya
+ms.author: greglin
 ---
 
 # Migrate from AGIC Helm to AGIC add-on 

@@ -2,11 +2,11 @@
 title: Expose a WebSocket server to Application Gateway
 description: This article provides information on how to expose a WebSocket server to Application Gateway with ingress controller for AKS clusters. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
-ms.author: caya
+ms.author: greglin
 ---
 
 # Expose a WebSocket server to Application Gateway

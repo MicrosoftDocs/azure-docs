@@ -2,11 +2,11 @@
 title: Application gateway components
 description: This article provides information about the various components in an application gateway
 services: application-gateway
-author: surajmb
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.author: surmb
+ms.author: greglin
 ---
 
 # Application gateway components
@@ -79,7 +79,7 @@ After you create a listener, you associate it with a request routing rule. This 
 
 ## Request routing rules
 
-A request routing rule is a key component of an application gateway because it determines how to route traffic on the listener. The rule binds the listener, the back-end server pool, and the backend HTTP settings.
+A request routing rule is a key component of an application gateway because it determines how to route traffic on the listener. The rule binds the listener, the backend server pool, and the backend HTTP settings.
 
 When a listener accepts a request, the request routing rule forwards the request to the backend or redirects it elsewhere. If the request is forwarded to the backend, the request routing rule defines which backend server pool to forward it to. The request routing rule also determines if the headers in the request are to be rewritten. One listener can be attached to one rule.
 
@@ -144,7 +144,7 @@ You can create different backend pools for different types of requests. For exam
 
 By default, an application gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
 
-In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure a custom hostname, URL path, probe interval, and how many failed responses to accept before marking the back-end pool instance as unhealthy, custom status codes and response body match, etc. We recommend that you configure custom probes to monitor the health of each backend pool.
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure a custom hostname, URL path, probe interval, and how many failed responses to accept before marking the backend pool instance as unhealthy, custom status codes and response body match, etc. We recommend that you configure custom probes to monitor the health of each backend pool.
 
 For more information, see [Monitor the health of your application gateway](../application-gateway/application-gateway-probe-overview.md).
 

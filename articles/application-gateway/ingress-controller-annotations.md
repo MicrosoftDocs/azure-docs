@@ -2,11 +2,11 @@
 title: Application Gateway Ingress Controller annotations
 description: This article provides documentation on the annotations specific to the Application Gateway Ingress Controller. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/18/2022
-ms.author: caya
+ms.author: greglin
 ---
 
 # Annotations for Application Gateway Ingress Controller 
