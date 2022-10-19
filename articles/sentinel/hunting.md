@@ -115,7 +115,7 @@ In the example above, start with the table name SecurityEvent and add piped elem
 
 1. Add a filter in the query to only show event ID 4688.
 
-1. Add a filter in the query on the Command Line to contain only instances of cscript.exe.
+1. Add a filter in the query on the command line to contain only instances of cscript.exe.
 
 1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
 
