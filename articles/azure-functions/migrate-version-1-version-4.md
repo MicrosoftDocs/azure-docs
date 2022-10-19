@@ -184,20 +184,59 @@ Most of the code changes between version 1.x and version 4.x affect HTTP trigger
 
 # [Version 1.x](#tab/v1)
 
-:::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs":::
+```csharp
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Host;
+
+namespace Company.Function
+{
+    public static class HttpTriggerCSharp
+    {
+        [FunctionName("HttpTriggerCSharp")]
+        public static async Task<HttpResponseMessage> 
+            Run([HttpTrigger(AuthorizationLevel.AuthLevelValue, "get", "post", 
+            Route = null)]HttpRequestMessage req, TraceWriter log)
+        {
+            log.Info("C# HTTP trigger function processed a request.");
+
+            // parse query parameter
+            string name = req.GetQueryNameValuePairs()
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+            
+            if (name == null)
+            {
+                // Get request body
+                dynamic data = await req.Content.ReadAsAsync<object>();
+                name = data?.name;
+            }
+            
+            return name == null
+                ? req.CreateResponse(HttpStatusCode.BadRequest, 
+                    "Please pass a name on the query string or in the request body")
+                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+        }
+    }
+}
+```
 
 # [Version 4.x](#tab/v4)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs" range="2-4":::
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
 # [.NET 7](#tab/net7)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs" range="2-4":::
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
 ---
 
 
-## General changes after version 1.x
+## Behavior changes after version 1.x
 
 This section details changes made after version 1.x in both trigger and binding behaviors as well as in core Functions features and behaviors.
 
@@ -233,8 +272,8 @@ In version 2.x, the following changes were made:
 
 
 ## Next steps
-TODO: Add your next step link(s)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+> [!div class="nextstepaction"]
+> [Learn more about Functions versions](functions-versions.md)
+
+
