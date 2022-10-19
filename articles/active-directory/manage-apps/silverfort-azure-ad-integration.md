@@ -76,7 +76,7 @@ This tutorial requires you to set up Silverfort Azure AD Adapter in your Azure A
 
    ![image shows registration completed](./media/silverfort-azure-ad-integration/registration-completed.png)
 
-5. On the **Settings** page, select **Save changes**.
+5. On the **Settings** page, select **Save Changes**.
 
    ![image shows the azure ad adapter](./media/silverfort-azure-ad-integration/silverfort-azure-ad-adapter.png)
 
