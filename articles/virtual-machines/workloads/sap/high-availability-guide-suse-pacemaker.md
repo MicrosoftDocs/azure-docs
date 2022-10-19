@@ -581,6 +581,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
    </code></pre>
+   
+    c. Make sure vm.swappiness is set to 10 to avoid [hang issues with backups/compression on NetAPP filesystem] (https://me.sap.com/notes/2080199) as well as to reduce swap usage and favor memory.
+
+   <pre><code>sudo vi /etc/sysctl.conf
+   # Change/set the following setting
+   vm.swappiness = 10
+   </code></pre>
 
 1. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
 
