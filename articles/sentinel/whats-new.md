@@ -27,6 +27,32 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2022
 
+- [Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
+- [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
+
+### Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
+
+As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) will be integrating [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between two levels of integration:
+
+- **Selective alerts** (default) includes only alerts chosen by Microsoft security researchers, mostly of Medium and High severities.
+- **All alerts** includes all AADIP alerts of any severity.
+
+This integration can't be disabled.
+
+Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
+
+- If you already have your AADIP connector enabled in Microsoft Sentinel, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
+
+    | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
+    | - | - | - |
+    | **1** | Keep the default AADIP integration of **Selective alerts**. | Disable **incident creation** in your AADIP data connector. |
+    | **2** | Choose the **All alerts** AADIP integration. | Use automation rules to automatically close incidents with unwanted alerts.<br><br>Disable **incident creation** in your AADIP data connector. |
+    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose either option for AADIP integration. | Use automation rules to close all incidents where <br>- the *incident provider* is `Microsoft 365 Defender` and <br>- the *alert provider* is `Azure Active Directory Identity Protection`. <br><br>Keep **incident creation** enabled in your AADIP data connector. |
+
+- If you don't have your [AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
+
+- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection will be made automatically behind the scenes. You won't need to do anything else.
+
 ### Out of the box anomaly detection on the SAP audit log (Preview)
 
 The SAP audit log records audit and security events on SAP systems, like failed sign-in attempts or other over 200 security related actions. Customers monitor the SAP audit log and generate alerts and incidents out of the box using Microsoft Sentinel built-in analytics rules.
@@ -139,33 +165,9 @@ Learn how to [add an entity to your threat intelligence](add-entity-to-threat-in
 
 ## August 2022
 
-- [Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)](#heads-up-microsoft-365-defender-now-integrates-azure-active-directory-identity-protection-aadip)
 - [Azure resource entity page (Preview)](#azure-resource-entity-page-preview)
 - [New data sources for User and entity behavior analytics (UEBA) (Preview)](#new-data-sources-for-user-and-entity-behavior-analytics-ueba-preview)
 - [Microsoft Sentinel Solution for SAP is now generally available](#microsoft-sentinel-solution-for-sap-is-now-generally-available)
-
-### Heads up: Microsoft 365 Defender now integrates Azure Active Directory Identity Protection (AADIP)
-
-As of **October 24, 2022**, [Microsoft 365 Defender](/microsoft-365/security/defender/) will be integrating [Azure Active Directory Identity Protection (AADIP)](../active-directory/identity-protection/index.yml) alerts and incidents. Customers can choose between two levels of integration:
-
-- **Selective alerts** (default) includes only alerts chosen by Microsoft security researchers, mostly of Medium and High severities.
-- **All alerts** includes all AADIP alerts of any severity.
-
-This integration can't be disabled.
-
-Microsoft Sentinel customers (who are also AADIP subscribers) with [Microsoft 365 Defender integration](microsoft-365-defender-sentinel-integration.md) enabled will automatically start receiving AADIP alerts and incidents in their Microsoft Sentinel incidents queue. Depending on your configuration, this may affect you as follows:
-
-- If you already have your AADIP connector enabled in Microsoft Sentinel, you may receive duplicate incidents. To avoid this, you have a few choices, listed here in descending order of preference:
-
-    | Preference | Action in Microsoft 365 Defender | Action in Microsoft Sentinel |
-    | - | - | - |
-    | **1** | Keep the default AADIP integration of **Selective alerts**. | Disable **incident creation** in your AADIP data connector. |
-    | **2** | Choose the **All alerts** AADIP integration. | Use automation rules to automatically close incidents with unwanted alerts.<br><br>Disable **incident creation** in your AADIP data connector. |
-    | **3** | Don't use Microsoft 365 Defender for AADIP alerts:<br>Choose either option for AADIP integration. | Use automation rules to close all incidents where <br>- the *incident provider* is `Microsoft 365 Defender` and <br>- the *alert provider* is `Azure Active Directory Identity Protection`. <br><br>Keep **incident creation** enabled in your AADIP data connector. |
-
-- If you don't have your [AADIP connector](data-connectors-reference.md#azure-active-directory-identity-protection) enabled, you must enable it. Be sure **not** to enable incident creation on the connector page. If you don't enable the connector, you may receive AADIP incidents without any data in them.
-
-- If you're first enabling your Microsoft 365 Defender connector now, the AADIP connection will be made automatically behind the scenes. You won't need to do anything else.
 
 ### Azure resource entity page (Preview)
 
