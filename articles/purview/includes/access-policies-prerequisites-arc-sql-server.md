@@ -18,6 +18,7 @@ ms.custom:
 - East US 2
 - South Central US
 - West Central US
+- West US
 - West US3
 - Canada Central
 - Brazil South
