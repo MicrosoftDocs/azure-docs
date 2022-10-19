@@ -81,6 +81,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Availability Zone volume overview.](../media/azure-netapp-files/availability-zone-volume-overview.png) ](../media/azure-netapp-files/availability-zone-volume-overview.png#lightbox) 
 
+> [!IMPORTANT]
+> Once the volume is created using the availability zone volume placement feature, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there is an issue with backup and restore on the volume, it will be supported because the problem is not with the availability zone volume placement feature itself.
 
 ## Next steps  
 
