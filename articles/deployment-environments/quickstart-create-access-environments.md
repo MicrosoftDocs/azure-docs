@@ -1,6 +1,7 @@
 ---
 title: Create and access an environment
-description: This quickstart shows you how to create and access an environment in an Azure Deployment Environments Preview project.
+titleSuffix: Azure Deployment Environments
+description: Learn how to create and access an environment in an Azure Deployment Environments Preview project.
 author: anandmeg
 ms.author: meghaanand
 ms.service: deployment-environments
