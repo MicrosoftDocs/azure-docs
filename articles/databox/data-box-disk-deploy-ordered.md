@@ -95,55 +95,83 @@ Take the following steps to order Data Box Disk.
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see Verify data upload to Azure.
 
-7. Select Next: Security> to continue.
+7. Select **Next: Security>** to continue.
 
-    The Security screen lets you use your own encryption key.
+    The **Security** screen lets you use your own encryption key.
     
-    All settings on the Security screen are optional. If you don't change any settings, the default settings will apply.
+    All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
-8. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand Encryption type.
+8. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
+    
+    ![Screenshot of Data Box Disk encryption type](media/data-box-disk-deploy-ordered/dbd-encryption.png)
 
     Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.
 
     A customer-managed key doesn't affect how data on the device is encrypted. The key is only used to encrypt the device unlock passkey.
 
-    If you don't want to use a customer-managed key, skip to Step 15.
+    If you don't want to use a customer-managed key, skip to Step 14.
 
-1. To use a customer-managed key, select Customer managed key as the key type. Then choose Select a key vault and key.
+1. To use a customer-managed key, select **Customer managed key** as the key type. Then choose **Select a key vault and key**.
 
-1. In the Select key from Azure Key Vault blade:
+    ![Screenshot of Customer managed key selection](media/data-box-disk-deploy-ordered/dbd-cmk.png)
 
-    - The Subscription is automatically populated.
+1. In the **Select key from Azure Key Vault** blade:
 
-    - For Key vault, you can select an existing key vault from the dropdown list.
+    - The **Subscription** is automatically populated.
 
-    Or select Create new key vault if you want to create a new key vault.
+    - For **Key vault**, you can select an existing key vault from the dropdown list.
 
-    Then, on the Create key vault screen, enter the resource group and a key vault name. Ensure that Soft delete and Purge protection are enabled. Accept all other defaults, and select Review + Create.
+    ![Screenshot of existing key vault](media/data-box-disk-deploy-ordered/dbd-select-key-vault.png)
 
-    Review the information for your key vault, and select Create. Wait for a couple minutes for key vault creation to complete.
+    Or select **Create new key vault** if you want to create a new key vault.
 
-1. The Select a key blade will display your selected key vault.
+    ![Screenshot of new key vault](media/data-box-disk-deploy-ordered/dbd-create-new-kv.png)
+
+    Then, on the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
+
+    ![Screenshot of Create key vault blade](media/data-box-disk-deploy-ordered/dbd-kv-blade.png)
+
+    Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
+
+    ![Screenshot of Review + create](media/data-box-disk-deploy-ordered/dbd-create-kv.png)
+
+1. The **Select a key** blade will display your selected key vault.
     
-    If you want to create a new key, select Create new key. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select Create.
-
-    You'll be notified when the key has been created in your key vault. Your new key will be selected and displayed on the Select a key blade.
-
-1. Select the Version of the key to use, and then choose Select.
+    ![Screenshot of new key vault](media/data-box-disk-deploy-ordered/dbd-new-kv.png)
     
-    If you want to create a new key version, select Create new version.
+    If you want to create a new key, select **Create new key**. You must use an **RSA key**. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
-    Choose settings for the new key version, and select Create.
+    ![Screenshot of Create new key](media/data-box-disk-deploy-ordered/dbd-new-key.png)
 
-    The Encryption type settings on the Security screen show your key vault and key.
+    You'll be notified when the key has been created in your key vault. Your new key will be selected and displayed on the **Select a key** blade.
 
-1. Select a user identity that you'll use to manage access to this resource. Choose Select a user identity. In the panel on the right, select the subscription and the managed identity to use. Then choose Select.
+1. Select the **Version** of the key to use, and then choose **Select**.
+    
+    ![Screenshot of key version](media/data-box-disk-deploy-ordered/dbd-key-version.png)
+    
+    If you want to create a new key version, select **Create new version**.
+
+    ![Screenshot of new key version](media/data-box-disk-deploy-ordered/dbd-new-key-version.png)
+
+    Choose settings for the new key version, and select **Create**.
+
+    ![Screenshot of new key version settings](media/data-box-disk-deploy-ordered/dbd-new-key-settings.png)
+
+    The **Encryption type** settings on the **Security** screen show your key vault and key.
+
+    ![Screenshot of encryption type settings](media/data-box-disk-deploy-ordered/dbd-encryption-settings.png)
+
+1. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
     A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see Managed identity types.
 
     If you need to create a new managed identity, follow the guidance in Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal.
 
+    ![Screenshot of user identity](media/data-box-disk-deploy-ordered/dbd-user-identity.png)
+
     The user identity is shown in Encryption type settings.
+
+    ![Screenshot of user identity 2](media/data-box-disk-deploy-ordered/dbd-user-identity-2.png)
 
 
 8. In the **Contact details** tab, select **Add address** and enter the address details. Click Validate address. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
@@ -159,37 +187,6 @@ Take the following steps to order Data Box Disk.
 9. Review the information in the **Review + Order** tab related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
 10.	Click **Order**. The order takes a few minutes to be created.
-
-    If using storage account as the storage destination, you see the following screenshot:
-
-    
-
-    If using Data Box Disk to create managed disks from the on-premises VHDs, you also need to provide the following information:
-
-    |Setting  |Value  |
-    |---------|---------|
-    |Resource group     | Create a new resource group if you intend to create managed disks from on-premises VHDs. Use an existing resource group only if it was created for Data Box Disk order for managed disk by Data Box service. <br> Only one resource group is supported.|
-
-    ![Data Box Disk order for managed disk](media/data-box-disk-deploy-ordered/order-managed-disks.png)
-
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see [Verify data upload to Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
-
-6. Click **Next**.
-
-    ![Supply order details](media/data-box-disk-deploy-ordered/data-box-order-details.png)
-
-7. In the **Shipping address** tab, provide your first and last name, name and postal address of the company and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
-
-   After the order is processed, you will receive an email notification. If you have chosen self-managed shipping, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
-
-    ![Provide shipping address](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
-8. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
-
-    We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
-
-9. Review the information **Summary** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
-
-10. Click **Order**. The order takes a few minutes to be created.
 
 ## Track the order
 
