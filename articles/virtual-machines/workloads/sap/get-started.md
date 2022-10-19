@@ -25,7 +25,7 @@ When you use Microsoft Azure, you can reliably run your mission-critical SAP wor
 
 Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure.
 
-We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
+We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
 For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP deployment automation framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
