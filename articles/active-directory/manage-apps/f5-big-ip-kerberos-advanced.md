@@ -175,7 +175,7 @@ Because BIG-IP doesn't support group-managed service accounts, create a standard
     1. Confirm your web application is running in the computer context or a dedicated service account. 
     2. Use the following command to query the account object in Active Directory to see its defined SPNs. Replace `<name_of_account>` with the account for your environment. 
 
-       ```Get-ADUser -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
+    ```Get-ADUser -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames ```
 
 5. Use an SPN defined against a web application service account. For better security, use a dedicated SPN that matches the host header of the application. For example, because the web application host header in this example is myexpenses.contoso.com, add `HTTP/myexpenses.contoso.com` to the application service account object in Active Directory:
 
@@ -183,7 +183,7 @@ Because BIG-IP doesn't support group-managed service accounts, create a standard
 
 Or if the app ran in the machine context, add the SPN to the object of the computer account in Active Directory:
 
-    ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
+   ```Set-ADComputer -Identity APP-VM-01 -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
 
 With SPNs defined, establish trust for the APM service account delegate to that service. The configuration varies depending on the topology of your BIG-IP instance and application server.
 
