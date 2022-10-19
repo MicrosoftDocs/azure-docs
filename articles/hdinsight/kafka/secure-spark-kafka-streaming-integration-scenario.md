@@ -10,7 +10,7 @@ ms.date: 10/20/2022
 
 # Secure Spark and Kafka – Spark streaming integration scenario
 
-In this document, you will learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
+In this document, you'll learn how to execute a Spark job in a secure Spark cluster that reads from a topic in secure Kafka cluster, provided the virtual networks are same/peered.
 
 **Pre-requisites**
 
