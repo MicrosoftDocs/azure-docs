@@ -209,6 +209,7 @@ Follow the steps below to create your AWS cloud connector.
 The authentication between Microsoft Defender for Cloud and AWS is federated authentication. All the resources related to the authentication will be created as part of the CloudFormation template deployment.
 
 1. Identity provider (OpenID connect)
+
 1. IAM roles with a federated principal (connected to the identity providers)
 The diagram below describes the authentication flow.
 
