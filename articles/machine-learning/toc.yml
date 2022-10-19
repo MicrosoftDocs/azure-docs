@@ -557,6 +557,22 @@
               href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
+            - name: Scenarios
+              items:
+                - name: Using low priority VMs in batch deployments
+                  href: batch-inference/how-to-use-low-priority-batch.md
+                - name: Using MLflow models in batch deployments
+                  href: batch-inference/how-to-mlflow-batch.md
+                - name: Image processing tasks with batch deployments
+                  href: batch-inference/how-to-image-processing-batch.md
+                - name: NLP tasks with batch deployments
+                  href: batch-inference/how-to-nlp-processing-batch.md
+                - name: Customize outputs in batch deployments
+                  href: batch-inference/how-to-deploy-model-custom-output.md
+                - name: Invoking batch endpoints from Azure Data Factory
+                  href: batch-inference/how-to-use-batch-azure-data-factory.md
+                - name: Invoking batch endpoints from Event Grid events in storage
+                  href: batch-inference/how-to-use-event-grid-batch.md
         - name: Deploying MLflow models
           items:
             - name: Deploy MLflow models
