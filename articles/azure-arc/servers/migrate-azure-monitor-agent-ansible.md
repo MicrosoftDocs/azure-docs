@@ -93,7 +93,7 @@ This workflow performs the following tasks:
 
 ### Create template to install Azure Connected Machine agent
 
-This template is responsible for installing the Azure Arc [Connected Machine agent](/azure/azure-arc/servers/agent-overview) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
+This template is responsible for installing the Azure Arc [Connected Machine agent](./agent-overview.md) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
 
 Follow the steps below to create the template:
 
@@ -287,4 +287,3 @@ After following the steps in this article, you have created an automation workfl
 ## Next steps
 
 Learn more about [connecting machines using Ansible playbooks](onboard-ansible-playbooks.md).
-
