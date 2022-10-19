@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 
 # Create a Front Door using Terraform
 
-Article tested with the following Terraform and Terraform provider versions:
+This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
+
+The steps in this article were tested with the following Terraform and Terraform provider versions:
 
 - [Terraform v1.3.2](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.3.27.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-
-This article shows you how to create a TODO.
 
 ## Prerequisites
 
