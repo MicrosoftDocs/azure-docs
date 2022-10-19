@@ -216,7 +216,7 @@ The diagram below describes the authentication flow.
 :::image type="content" source="media/quickstart-onboard-aws/authentication-design-flow.png" alt-text="diagram that shows authentication design flow." lightbox="media/quickstart-onboard-aws/authentication-design-flow.png":::
 
 1. Microsoft Defender for Cloud CSPM service acquires an AAD token.  
-    1. This token is signed by AAD using RS256 algorithm.
+    - This token is signed by AAD using RS256 algorithm.
     1. The token time to live is 1 hour.
 1. The AAD token will be exchanged with an AWS short-living credentials.
 CSPM service will assume the CSPM IAM role (Assume with web identity).
