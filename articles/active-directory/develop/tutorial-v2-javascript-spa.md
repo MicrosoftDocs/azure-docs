@@ -69,7 +69,7 @@ To configure the code sample before you run it, skip to the [registration step](
 
 ## Create the project
 
-1. Make sure [Node.js](https://nodejs.org/en/download/) is installed, and then create a folder to host the application. Name the folder *sampleApp*. In this folder, an [Express](https://expressjs.com/) web server is created to serve the *index.html* file.
+1. Make sure that [Node.js](https://nodejs.org/en/download/) is installed, and then create a folder to host the application. Name the folder *sampleApp*. In this folder, an [Express](https://expressjs.com/) web server is created to serve the *index.html* file.
 
 1. By using a terminal (such as the Visual Studio Code integrated terminal), locate the project folder and move into it. Then enter:
 
@@ -130,7 +130,7 @@ To configure the code sample before you run it, skip to the [registration step](
    const morgan = require('morgan');
    const path = require('path');
 
-   //initialize Express.
+   //Initialize Express.
    const app = express();
 
    // Initialize variables.
@@ -327,7 +327,7 @@ Before you proceed with authentication, register the application on Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Go to **Azure Active Directory**.
-1. On the left panel, under **Manage**, select **App registrations**. Then on the top menu bar, select **New registration**.
+1. On the left panel, under **Manage**, select **App registrations**. Then, on the top menu bar, select **New registration**.
 1. For **Name**, enter a name for the application (for example, **sampleApp**). You can change the name later if necessary.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. In the **Redirect URI** section, select the **Web** platform from the dropdown list. 
