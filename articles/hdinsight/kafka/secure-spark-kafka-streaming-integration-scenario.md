@@ -336,3 +336,7 @@ From Spark cluster, read from Kafka topic `bobtopic2` as user `bobadmin` is allo
 1. On the Kafka cluster’s Ranger UI, audit logs for the same will be shown.
 
     :::image type="content" source="./media/hdinsight-spark-kafka/audit-logs-with-sucess-state-spark-kafka.png" alt-text="Screenshot showing for scenario 4 audit logs with success state":::
+    
+## Next steps
+
+* [Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight](apache-kafka-ssl-encryption-authentication.md)
