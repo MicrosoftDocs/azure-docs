@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui, ignite-2022
 ms.topic: quickstart
-ms.date: 08/11/2022
+ms.date: 10/14/2022
 ---
 
 # Create and distribute tables
@@ -85,19 +85,26 @@ SELECT create_distributed_table('github_events', 'user_id');
 We're ready to fill the tables with sample data. For this quickstart, we'll use
 a dataset previously captured from the GitHub API.
 
-Run the following commands to download example CSV files and load them into the
-database tables. (The `curl` command downloads the files, and comes
-pre-installed in the Azure Cloud Shell.)
+We're going to use the pg_azure_storage extension, to load the data directly from a public container in Azure Blob Storage. First we need to create the extension in our database:
 
-```
+```sql
+SELECT * FROM create_extension('azure_storage');
+``` 
+
+Run the following commands to have the database fetch the example CSV files and load them into the
+database tables.
+
+```sql
 -- download users and store in table
 
-\COPY github_users FROM PROGRAM 'curl https://examples.citusdata.com/users.csv' WITH (FORMAT CSV)
+COPY github_users FROM 'https://pgquickstart.blob.core.windows.net/github/users.csv.gz';
 
 -- download events and store in table
 
-\COPY github_events FROM PROGRAM 'curl https://examples.citusdata.com/events.csv' WITH (FORMAT CSV)
+COPY github_events FROM 'https://pgquickstart.blob.core.windows.net/github/events.csv.gz';
 ```
+
+Notice how the extension recognized that the URLs provided to the copy command are from Azure Blob Storage, the files we pointed were gzip compressed and that was also automatically handled for us.
 
 We can review details of our distributed tables, including their sizes, with
 the `citus_tables` view:
