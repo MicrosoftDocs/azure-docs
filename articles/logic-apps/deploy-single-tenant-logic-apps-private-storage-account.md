@@ -31,7 +31,7 @@ For more information, review the following documentation:
 This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section. 
 
 > [!NOTE]
-> One exception to the above rule is deploying to App Service Environment. You can use portal to deploy a logic app to App Service
+> An exception to the previous rule is that you can use the Azure portal to deploy your logic app to an App Service Environment, 
 > even if the storage account is protected with a private endpoint. However, you'll need connectivity between the 
 > subnet used by the App Service Environment and the subnet used by the storage account's private endpoint. 
 
