@@ -188,7 +188,7 @@ For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add.**
 
    ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-kerberos-easy-button/azure-config-add-app.png)
 
-#### Azure configuration
+#### Azure Configuration
 
 1. Enter a **Display Name** of the app that BIG-IP creates in your Azure AD tenant, and the icon in [MyApps portal](https://myapplications.microsoft.com/).
 2. Leave the **Sign On URL (optional)** blank to enable IdP initiated sign-on.
@@ -222,7 +222,7 @@ The **Additional User Attributes** tab supports various distributed systems requ
 >[!NOTE] 
 >This feature has no correlation to Azure AD but is another source of attributes.
 
-#### Conditional Access policy
+#### Conditional Access Policy
 
 CA policies are enforced after Azure AD pre-authentication to control access based on device, application, location, and risk signals.
 
@@ -242,7 +242,7 @@ Selected policies need an **Include** or **Exclude** option checked. If both opt
 >[!NOTE]
 >The policy list appears once, after switching to this tab. You can use the **refresh** button to manually force the wizard to query your tenant, but this button is appears after the application is deployed.
 
-### Virtual server properties
+### Virtual Server Properties
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to policy.
 
@@ -253,7 +253,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
    ![Screenshot for Virtual server](./media/f5-big-ip-kerberos-easy-button/virtual-server.png)
 
-### Pool properties
+### Pool Properties
 
 The **Application Pool** tab details the services behind a BIG-IP, represented as a pool with application servers.
 
@@ -265,7 +265,7 @@ The **Application Pool** tab details the services behind a BIG-IP, represented a
 
 The back-end application runs on HTTP port 80. You can switch the port to 443, if your application runs on HTTPS.
 
-#### Single sign-on and HTTP headers
+#### Single Sign-On and HTTP Headers
 
 Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO. Use the Kerberos delegation account you created to complete this step. 
 
@@ -306,7 +306,7 @@ If you can't change the app, then consider having the BIG-IP listen for the appl
 
 ## Summary
 
-This last section is a breakdown of your configurations. 
+This section is a breakdown of your configurations. 
 
 Select **Deploy** to commit settings and verify the application is in your tenant's list of Enterprise applications.
 
