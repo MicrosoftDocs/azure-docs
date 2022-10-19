@@ -16,7 +16,7 @@ ms.date: 10/17/2022
 
 In this tutorial, you'll deploy a reference ASP.NET web application on an Azure Kubernetes Service (AKS) cluster that connects to Azure Cosmos DB for NoSQL.
 
-**[Azure Cosmos DB](../introduction.md)**  is a fully managed NoSQL database for modern application development.
+**[Azure Cosmos DB](../introduction.md)** is a fully managed distributed database platform for modern application development with NoSQL or relational databases.
 
 **[Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters.
 
@@ -56,7 +56,7 @@ This tutorial uses the following security best practices with Azure Cosmos DB.
 
 1. Implements access control using [role-based access control](../../role-based-access-control/overview.md) and [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). These features eliminate the need for developers to manage secrets, credentials, certificates, and keys used to secure communication between services.
 1. Limits Azure Cosmos DB access to the AKS subnet by [configuring a virtual network service endpoint](../how-to-configure-vnet-service-endpoint.md).
-1. Set `disableLocalAuth = true` in the **databaseAccount** resource to [enforce role-based access control as the only authentication method](../how-to-setup-role-based access control.md#disable-local-auth).
+1. Set `disableLocalAuth = true` in the **databaseAccount** resource to [enforce role-based access control as the only authentication method](../how-to-setup-rbac.md#disable-local-auth).
 
 > [!TIP]
 > The steps in this tutorial uses [Azure Cosmos DB for NoSQL](./quickstart-dotnet.md). However, the same concepts can also be applied to **[Azure Cosmos DB for MongoDB](../mongodb/introduction.md)**.
