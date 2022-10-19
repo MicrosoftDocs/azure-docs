@@ -1,6 +1,6 @@
 ---
-title: Offerings from partners - Azure partner solutions 
-description: Learn about solutions offered by partners on Azure. 
+title: Partner services
+description: Learn about services  offered by partners on Azure. 
 author: flang-msft
 
 ms.topic: conceptual
