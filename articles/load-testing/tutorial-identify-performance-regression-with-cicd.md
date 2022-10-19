@@ -53,7 +53,7 @@ Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/
 
 # [Azure Pipelines](#tab/pipelines)
 
-To access your Azure Load Testing resource from the Azure Pipelines workflow, you first create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the Azure Pipelines workflow, you first create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. 
 
 Next, you grant permissions to this service principal to create and run a load test with your Azure Load Testing resource.
 
@@ -112,7 +112,7 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
 
 Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
 
@@ -195,7 +195,7 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
 
 You'll now create a CI/CD workflow to create and run a load test for the sample application. The sample application repository already contains a CI/CD workflow definition that first deploys the application to Azure, and then creates a load test based on JMeter test script (*SampleApp.jmx*). You'll update the sample workflow definition file to specify the Azure subscription and application details.
 
-On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about ARM templates [here](/azure-resource-manager/templates/overview).
+On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about ARM templates [here](/azure/azure-resource-manager/templates/overview).
 
 # [Azure Pipelines](#tab/pipelines)
 
