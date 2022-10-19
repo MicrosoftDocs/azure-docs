@@ -60,7 +60,7 @@ System is UP! (medium)
 
 ### Restart an appliance
 
-Use the following commands to restart an OT sensor appliance.
+Use the following commands to restart the OT sensor appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -77,7 +77,7 @@ root@xsense: system reboot
 
 ### Shut down an appliance
 
-Use the following commands to shut down an OT sensor appliance.
+Use the following commands to shut down the OT sensor appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -175,15 +175,13 @@ root@xsense:
 
 Use the following commands to reset passwords for local users on your OT sensor.
 
-- To reset passwords that you've created on the sensor, sign in as the *cyberx* user and define the user and new password in the command attributes.<!--not sure we need to say for web access here. these users don't have ssh access, right?-->
-- To reset the password for the *cyberx* or *support* user, sign in as the *cyberx_host*. Passwords are reset for both SSH and web access. <!--how do define which user and how to know what the new password is? do we get a new computer generated one?-->
+- To reset the password for the *cyberx* or *support* user. Passwords will be reset for both SSH and web access.
+- To reset the password for locally defined users accessing the local management web-interface.
 
-<!--what about cyberx_host user? you can't reset those passwords?-->
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
-|**cyberx_host**  |   `passwd` | No attributes <!--i'm confused here. how does it know which use to reset it for and what the new password is?-->     |
 
 
 The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
@@ -196,6 +194,21 @@ Open UDS connection with /var/cyberx/system/os_manager.sock
 Received data: b'ack'
 resetting the password of UI user "support"
 root@xsense:/#
+```
+
+The *cyberx_host* user can be changed after a successful login with the following command:
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx_host**  |   `passwd` | No attributes   |
+
+```bash
+cyberx_host@xsense:/# passwd
+Changing password for user cyberx_host.
+(current) UNIX password:
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+cyberx_host@xsense:/#
 ```
 
 ## Validate network settings
@@ -221,20 +234,20 @@ monitor interfaces mapping: local_listener=adiot0
 root@xsense:
 ```
 
-### Ping an OT sensor
+### Check network connectivity from the OT sensor
 
-Use the following commands to send a ping message to an OT sensor.
+Use the following commands to send a ping message from the OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `ping <IP address>`      |  No attributes|
 |**cyberx**      |   `ping <IP address>`      |   No attributes |
 
-In these commands, `<IP address>` is the IP address of a valid IPv4 network host from the management port on your OT sensor.
+In these commands, `<IP address>` is the IP address of a valid IPv4 network host accessible from the management port on your OT sensor.
 
-### Locate a connection with blinking an interface light
+### Locate a physical port by blinking interface lights
 
-Use the following command to locate a specific connection by causing the interface lights to blink.
+Use the following command to locate a specific physical interface by causing the interface lights to blink.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -249,9 +262,9 @@ root@xsense: network blink eth0
 Blinking interface for 20 seconds ...
 ```
 
-### List connected ethernet interfaces
+### List connected physical interfaces
 
-Use the following commands to list the connected ethernet interfaces on your OT sensor.
+Use the following commands to list the connected physical interfaces on your OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -294,11 +307,16 @@ Use the following command to check the internet connectivity on your appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**cyberx**     |   `ifconfig`      |   No attributes |
+|**cyberx**     |   `cyberx-xsense-internet-connectivity`      |   No attributes |
 
-<!--I think we need an example here - how does this ifconfig differ from other ifconfigs? perhaps an example of one showing that the internet connection is *down*?-->
+```bash
+root@xsense:/# cyberx-xsense-internet-connectivity
+Checking internet connectivity...
+The machine was successfully able to connect the internet.
+root@xsense:/#
+```
 
-### Check network interfaces usage
+### Check network interface current load
 
 Use the following command to display network traffic and bandwidth using a six-second test.
 
@@ -329,7 +347,7 @@ root@xsense:/#
 
 ### Set bandwidth limit for the management network interface
 
-Use the following command set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
+Use the following command to set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
 
 Setting outbound bandwidth limits can be helpful in maintaining networking quality of service (QoS). This command is supported only in bandwidth-constrained environments, such as over a satellite or serial link.
 
@@ -384,15 +402,16 @@ Use the following command to re-run the OT monitoring software configuration wiz
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**cyberx**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
+|**cyberx_host**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
 
-For example, for the **cyberx** user:
+For example with the **cyberx_host** user:
 
 ```bash
 root@xsense:/# sudo dpkg-reconfigure iot-sensor
 ```
 
-The configuration wizard starts automatically after you run this command. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
+The configuration wizard starts automatically after you run this command. 
+For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Manage SSL and TLS certificates
 
