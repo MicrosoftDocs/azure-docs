@@ -31,7 +31,7 @@ Silverfort integrates your corporate assets and third-party Identity and Access 
 
 Use this tutorial to configure and test the Silverfort Azure AD bridge in your Azure AD tenant to communicate with your Silverfort implementation. After configuration, you can create Silverfort authentication policies that bridge authentication requests from identity sources to Azure AD for SSO. After an application is bridged, you can manage it in Azure AD.
 
-## Silverfort with Azure AD Authentication Architecture
+## Silverfort with Azure AD authentication architecture
 
 The following diagram describes the authentication architecture orchestrated by Silverfort in a hybrid environment.
 
