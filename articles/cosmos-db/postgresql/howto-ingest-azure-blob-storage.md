@@ -6,7 +6,7 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 10/19/2022
 ---
 
 # How to ingest data using Azure Blob Storage
@@ -288,7 +288,7 @@ INSERT 0 264308
 
     In your storage account, open **Access keys**. Copy the **Storage account name** and copy the **Key** from **key1** section (you have to select **Show** next to the key first).
 
-    :::image type="content" source="media/howto-ingestion/azure-blob-storage-account-key.png" alt-text="Security + networking > Access keys section of an Azure Blob Storage page on the Azure portal. Red underline is under Access keys section in the left navigation menu, another red underline is under Storage account name, which states mystorageaccount. Final red underline is present under Key in the key1 section underlining the masked secret value." border="true":::
+    :::image type="content" source="media/howto-ingestion/azure-blob-storage-account-key.png" alt-text="Security + networking > Access keys section of an Azure Blob Storage page in the Azure portal" border="true":::
 
 1. Adding an account to pg_azure_storage
     
