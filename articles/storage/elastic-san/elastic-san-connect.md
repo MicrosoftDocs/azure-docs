@@ -104,7 +104,7 @@ Set-Service -Name MSiSCSI -StartupType Automatic
 
 To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
 
-As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with RedHat you'd use `sudo yum install iscsi-initiator-utils -y`.
+As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
 
 ## Connect to a volume
 
@@ -226,9 +226,9 @@ Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR
 
 #### Linux
 
-Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for Redhat the command would be `sudo yum install device-mapper-multipath`.
+Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
 
-Once you've installed the package, modify **/etc/multipath.conf** based on your needs. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example. For Redhat, you can use `mpathconf --enable` to create **/etc/multipath.conf**.
+Once you've installed the package, modify **/etc/multipath.conf** based on your needs. If **/etc/multipath.conf** doesn't exist, create an empty file and use the settings in the following example for a general configuration. If you need to make any specific configurations, such as excluding volumes from the multipath topology, see the man page for multipath.conf. As an example, for RHEL, use `mpathconf --enable` to create **/etc/multipath.conf**.
 
 ```
 defaults {
@@ -238,12 +238,6 @@ defaults {
     failback immediate			# For immediate failback to highest priority path group with active paths
     no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
 }
-
-# To exclude volumes from multipath topology
-blacklist {
-    wwid <your volume WWID>
-    wwid <your volume WWID>
-}
 devices {
   device {
     vendor "MSFT"
@@ -252,7 +246,7 @@ devices {
 }
 ```
 
-After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command would be `sudo systemctl restart multipath-tools.service` and on Redhat the command would be `sudo systemctl restart multipathd`.
+After creating or modifying the file, restart Multipath I/O. On Ubuntu, the command would be `sudo systemctl restart multipath-tools.service` and on RHEL the command would be `sudo systemctl restart multipathd`.
 
 ## Next steps
 
