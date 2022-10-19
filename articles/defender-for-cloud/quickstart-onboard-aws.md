@@ -181,9 +181,9 @@ Since the principal of the role is a federated identity as defined in a trust re
 - signing of the token
 - certificate thumbprint
     
- Only after the validation conditions defined at the role on the trust relationship level have been met, is the Microsoft Defender for Cloud CSPM role assumed. The conditions defined at the role are used for internal validation within AWS that allows only the Microsoft Defender for Cloud CSPM application audience access to the specific role (and not any other Microsoft token).
+ The Microsoft Defender for Cloud CSPM role is assumed only after the validation conditions defined at the trust relationship have been met. The conditions defined for the role level are used for validation within AWS and allows only the Microsoft Defender for Cloud CSPM application (validated audience) access to the specific role (and not any other Microsoft token).
 
-The Azure AD token is validated, and AWS STS exchanges the token with AWS short-life credentials which CSPM service uses to scan the AWS account.
+After the Azure AD token is validated by the AWS identity provider, the AWS STS provides the token with AWS short-life credentials which CSPM service uses to scan the AWS account.
 
 
 
