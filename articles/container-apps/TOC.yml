@@ -139,6 +139,8 @@
       href: microservices-dapr-azure-resource-manager.md
     - name: Deploy a Dapr application using GitHub Actions
       href: dapr-github-actions.md
+    - name: Deploy a Dapr application using Azure Developer CLI
+      href: tutorial-deploy-dapr-azd.md
     - name: Background processing
       href: background-processing.md
     - name: Create an Azure Files storage mount
