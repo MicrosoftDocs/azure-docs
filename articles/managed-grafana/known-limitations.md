@@ -1,6 +1,5 @@
 ---
 title: Azure Managed Grafana limitations
-description: List of known limitations in Azure Managed Grafana
 ms.service: managed-grafana
 ms.topic: troubleshooting
 ms.date: 10/18/2022
