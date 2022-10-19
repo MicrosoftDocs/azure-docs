@@ -130,7 +130,7 @@ IBM Db2 data includes:
 
 ## What is the architecture?
 
-There are separate explanations for the [Azure Monitor for SAP solutions architecture](#ams-architecture) and the [Azure Monitor for SAP solutions (classic) architecture](#ams-classic-architecture).
+There are separate explanations for the [Azure Monitor for SAP solutions architecture](#azure-monitor-for-sap-solutions-architecture) and the [Azure Monitor for SAP solutions (classic) architecture](#azure-monitor-for-sap-solutions-classic-architecture).
 
 Some important points about the architecture include: 
 

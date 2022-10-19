@@ -15,7 +15,7 @@ ms.author: sujaj
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
-In this how-to guide, you'll learn to configure an SAP HANA provider for Azure Monitor for SAP solutions through the Azure portal. There are instructions to set up the [current version](#configure-ams) and the [classic version](#configure-ams-classic) of Azure Monitor for SAP solutions.
+In this how-to guide, you'll learn to configure an SAP HANA provider for Azure Monitor for SAP solutions through the Azure portal. There are instructions to set up the [current version](#configure-azure-monitor-for-sap-solutions) and the [classic version](#configure-azure-monitor-for-sap-solutions-classic) of Azure Monitor for SAP solutions.
 
 ## Prerequisites
 
