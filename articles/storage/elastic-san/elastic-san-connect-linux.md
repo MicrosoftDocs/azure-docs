@@ -1,18 +1,18 @@
 ---
-title: Connect to an Azure Elastic SAN (preview) volume
-description: Learn how to connect to an Azure Elastic SAN (preview) volume.
+title: Connect to an Azure Elastic SAN (preview) volume - Linux.
+description: Learn how to connect to an Azure Elastic SAN (preview) volume from a Linux client.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/20/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
 ---
 
-# Connect to Elastic SAN (preview) volumes
+# Connect to Elastic SAN (preview) volumes - Linux
 
-This article explains how to connect to an elastic storage area network (SAN) volume.
+This article explains how to connect to an elastic storage area network (SAN) volume from a Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN (preview) volumes - Windows](elastic-san-connect-windows.md)
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with R
 
 You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
 
-To aggregate multiple I/O sessions and paths to your Elastic SAN volumes and efficiently distribute I/O over these sessions, use native Multipath I/O. For instructions on configuring Multipath I/O, see.
+When using multiple sessions, generally, you should aggregate them with Multipath I/O. Multipath I/O enables highly available and fault-tolerant iSCSI network connections. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
 ### Single-session connections
 
@@ -133,7 +133,7 @@ tcp:[15] <name>:port,-1 <iqn>
 ```
 In the previous example, 15 is the session ID.
 
-With the session ID, you can create as many additional sessions as you need with the following command, replace $max with your desired number of additional sessions. However, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot.
+With the session ID, you can create as many sessions as you need with the following command, replace $max with your desired number of additional sessions. However, none of the additional sessions are persistent, even if you modified node.startup. You must recreate them after each reboot.
 
 ```
 for i in `seq 1 $max`; do sudo iscsiadm -m session -r 1 --op new; done
@@ -142,8 +142,6 @@ for i in `seq 1 $max`; do sudo iscsiadm -m session -r 1 --op new; done
 You can verify the number of sessions using `sudo multipath -ll`
 
 ### Multipath I/O
-
-Multipath I/O enables highly available and fault-tolerant iSCSI network connections. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
 Install the Multipath I/O package for your Linux distribution. The installation will vary based on your distribution, and you should consult their documentation. As an example, on Ubuntu the command would be `sudo apt install multipath-tools` and for RHEL the command would be `sudo yum install device-mapper-multipath`.
 

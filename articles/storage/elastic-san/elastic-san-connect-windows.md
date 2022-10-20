@@ -1,18 +1,18 @@
 ---
-title: Connect to an Azure Elastic SAN (preview) volume
-description: Learn how to connect to an Azure Elastic SAN (preview) volume.
+title: Connect to an Azure Elastic SAN (preview) volume - Windows
+description: Learn how to connect to an Azure Elastic SAN (preview) volume from a Windows client.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 10/20/2022
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: references_regions, ignite-2022
 ---
 
-# Connect to Elastic SAN (preview) volumes
+# Connect to Elastic SAN (preview) volumes - Windows
 
-This article explains how to connect to an elastic storage area network (SAN) volume.
+This article explains how to connect to an elastic storage area network (SAN) volume from a Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN (preview) volumes - Linux](elastic-san-connect-linux.md).
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $vol
 ```
 ---
 
-## Environment setup
+## Set up your environment
 
 To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
 
@@ -102,9 +102,7 @@ Set-Service -Name MSiSCSI -StartupType Automatic
 
 You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
 
-To aggregate multiple I/O sessions and paths to your Elastic SAN volumes and efficiently distribute I/O over these sessions, use native Multipath I/O. For instructions on configuring Multipath I/O, see.
-
-You can connect to Elastic SAN volumes over iSCSI from multiple compute clients. The following sections cover how to establish connections from a Windows client and a Linux client.
+When using multiple sessions, generally, you should aggregate them with Multipath I/O. Multipath I/O enables highly available and fault-tolerant iSCSI network connections. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
 ### Single-session configuration
 
@@ -140,9 +138,9 @@ iscsicli PersistentLoginTarget $yourStorageTargetIQN t $yourStorageTargetPortalH
 
 To create multiple sessions to each volume, you must configure the target and connect to it multiple times, based on the number of sessions you want to that volume. To do this, set the login flag to **0x00000002** to enable multipathing for the target.
 
-You can then re-run the commands from the single session configuration or use the a script.
+You can then rerun the commands from the single session configuration or use a script.
 
-To script multi-session configurations, use two files. An XML configuration file that you update for each volume you'd like to establish connections to, and a script which uses the XML files to create connections.
+To script multi-session configurations, use two files. An XML configuration file that you update for each volume you'd like to establish connections to, and a script that uses the XML files to create connections.
 
 The following example shows you how to format your XML file for the script:
 
