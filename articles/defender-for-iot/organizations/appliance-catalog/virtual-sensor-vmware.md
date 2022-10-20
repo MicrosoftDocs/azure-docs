@@ -71,6 +71,13 @@ This procedure describes how to create a virtual machine by using ESXi.
 1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
 
 
+## Installation using VMware Workstation Player
+
+Defender for IoT supports OT sensor software installations using VMWare Workstation Player for testing environments only. You can use the same installation steps as for VMWare ESXi, with the following exceptions during installation:
+
+- Make sure to allocate required resources for the sensor as required for VMWare Workstation Player
+- When creating your virtual machine and selecting your guest operating system, make sure to set the operating system version to a Linux version. If VMWare Workstation Player automatically detects the sensor software image as Ubuntu, you'll need to switch this to Linux.
+
 ## Next steps
 
 For more information, see:
