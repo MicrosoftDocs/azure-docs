@@ -24,7 +24,7 @@ In this article, you'll learn how to define test fail criteria for your load tes
 
 ## Load test fail criteria
 
-Load test fail criteria are conditions for the client metrics that your test should meet. You define test criteria at the load test level in Azure Load Testing. A load test can have one or more test criteria. When at least one of the test criteria evaluates to true, the load test gets the *failed* status.
+Load test fail criteria are conditions for client-side metrics, that your test should meet. You define test criteria at the load test level in Azure Load Testing. A load test can have one or more test criteria. When at least one of the test criteria evaluates to true, the load test gets the *failed* status.
 
 You can define test criteria at two levels. A load test can combine criteria at the different levels.
 
@@ -33,19 +33,24 @@ You can define test criteria at two levels. A load test can combine criteria at 
 
 You can define a maximum of 10 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
 
-### Fail criteria syntax
+### Fail criteria structure
 
-The structure of a test criterion is: `Request: Aggregate_function (client_metric) condition threshold`.
+The format of fail criteria in Azure Load Testing follows that of a conditional statement for a [supported metric](#supported-client-metrics-for-fail-criteria). For example, ensure that the average number of requests per second is greater than 500.
+
+The general structure of fail criteria is the following:
+
+- Test criteria at the load test level: `Aggregate_function (client_metric) condition threshold`.
+- Test criteria applied to specific JMeter requests: `Request: Aggregate_function (client_metric) condition threshold`.
 
 The following table describes the different components:
 
 |Parameter            |Description  |
 |---------------------|-------------|
-|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script.  |
-|`Client metric`      | *Required.* The client metric on which the criteria should be applied.  |
+|`Client metric`      | *Required.* The client metric on which the condition should be applied.  |
 |`Aggregate function` | *Required.* The aggregate function to be applied on the client metric.  |
-|`Condition`          | *Required.* The comparison operator, such as `greater than`, or `less than`.        |
+|`Condition`          | *Required.* The comparison operator, such as `greater than`, or `less than`. |
 |`Threshold`          | *Required.* The numeric value to compare with the client metric. |
+|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script.  |
 
 ### Supported client metrics for fail criteria
 
@@ -77,6 +82,8 @@ In this section, you configure test criteria for a load test in the Azure portal
 
     Optionally, enter the **Request name** information to add a test criterion for a specific JMeter request. The value should match the name of the JMeter sampler in the JMX file.
 
+    :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
+
 1. Select **Apply** to save the changes.
 
     When you now run the load test, Azure Load Testing uses the test criteria to determine the status of the load test run.
@@ -95,20 +102,31 @@ Learn how to [set up automated performance testing with CI/CD](./tutorial-identi
 
 To specify test fail criteria in the YAML configuration file:
 
-1. Open the YAML test configuration file.
+1. Open the YAML test configuration file for your load test in your editor of choice.
 
-1. Add the test criteria to the configuration file. For more information about YAML syntax, see [test configuration YAML reference](./reference-test-config-yaml.md).
+1. Add your test criteria in the `failureCriteria` setting.
 
-    The following code snippet defines three fail criteria. The first two criteria are at the load test level, and the last one specifies a threshold for the latency of the `GetCustomerDetails` request.
+    Use the [fail criteria format](#fail-criteria-structure), as described earlier. You can add multiple fail criteria for a load test.
 
-    ```yml
-    failureCriteria: 
-        - avg(response_time_ms) > 300
-        - percentage(error) > 20
-        - GetCustomerDetails: avg(latency_ms) >200
+    The following example defines three fail criteria. The first two criteria apply to the overall load test, and the last one specifies a condition for the `GetCustomerDetails` request.
+
+    ```yaml
+    version: v0.1
+    testName: SampleTest
+    testPlan: SampleTest.jmx
+    description: Load test website home page
+    engineInstances: 1
+    failureCriteria:
+      - avg(response_time_ms) > 300
+      - percentage(error) > 50
+      - GetCustomerDetails: avg(latency_ms) >200
     ```
+    
+    When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.
 
-1. Save the YAML configuration file. 
+    :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
+
+1. Save the YAML configuration file, and commit the changes to source control.
 
 1. After the CI/CD workflow runs, verify the test status in the CI/CD log.
 
