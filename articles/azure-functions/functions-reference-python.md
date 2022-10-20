@@ -250,7 +250,7 @@ In `function_app.py` the blueprint object is imported and its functions are regi
 
 ```python
 import azure.functions as func 
-from blueprint import bp 
+from http_blueprint import bp
  
 app = func.FunctionApp() 
  

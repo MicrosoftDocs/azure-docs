@@ -1,6 +1,6 @@
 ---
 title: New Programming Models in Azure Functions
-description: Understand how to develop functions with Python
+description: General information about new programming models
 ms.topic: article
 ms.date: 09/23/22
 ms.devlang: python, node, powershell
