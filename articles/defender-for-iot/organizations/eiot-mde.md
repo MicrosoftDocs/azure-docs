@@ -38,15 +38,15 @@ To modify settings for your Defender for Endpoint integration, the user must hav
 
 1. Select the following options for your plan:
 
-    - Select the Azure subscription from the list of available subscriptions in your Azure Active Directory tenant where you'd like to add a plan.
+    - **Select an Azure subscription**: Select the Azure subscription that you want to use for the integration. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
 
-    - For the sake of this tutorial, select a trial pricing plan. Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+    - **Price plan**: For the sake of this tutorial, select a trial pricing plan. Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-        For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+1. Select the **I accept the terms and conditions** option and then select **Save**.
 
-    <!--For example: TBD image and validate this with the UI-->
+For example:
 
-1. Accept the **terms and conditions** and select **Save**.
+:::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint.":::
 
 ## View and manage IoT devices
 
