@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 10/20/2022
 ms.author: anfdocs
 ---
 # Understand default and individual user and group quotas  
 
-Quotas enable you to restrict the storage space that a user or group can use. Quotas apply to a specific Azure NetApp Files volume. 
+User and group quotas enable you to restrict the logical space that a user or group can use in a volume. Quotas apply to a specific Azure NetApp Files volume. 
 
 The following are the types of quotas based on the targets that they apply to for a volume: 
 * **Individual user quota**   

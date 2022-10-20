@@ -30,69 +30,49 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
-   - name: "Form Recognizer v3.0"
-     items:
-       - name: Form Recognizer Studio | v3.0
-         displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-         href: quickstarts/try-v3-form-recognizer-studio.md
-       - name: Form Recognizer SDKs and REST API v3.0
-         displayName: get started, documentAnalysisClient, document analysis client, AzureKeyCredential, azure key credential, AnalyzeResult, analyze result, output, polygon, bounding, boundingPolygon, key, endpoint, packages, headers
-         href: quickstarts/get-started-v3-sdk-rest-api.md
-   - name: Form Recognizer v2.1
-     items:
-     - name: Sample Labeling tool
-       displayName: tables, labels, ocr, bounding box
-       href: quickstarts/try-sample-label-tool.md
-     - name: Form Recognizer SDKs and REST API v2.1
-       displayName: formRecognizerClient, form recognizer client
-       href: quickstarts/get-started-v2-1-sdk-rest-api.md
+    - name: Form Recognizer Studio
+      displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
+      href: quickstarts/try-v3-form-recognizer-studio.md
+    - name: "Get started with Form Recognizer"
+      displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
+      href: quickstarts/get-started-sdks-rest-api.md
+    - name: Sample Labeling tool
+      displayName: tables, labels, ocr, bounding box
+      href: quickstarts/try-sample-label-tool.md
 - name: How-to guides
   items:
   - name: Create a Form Recognizer resource
     displayName: endpoint, key, portal
     href:  create-a-form-recognizer-resource.md
-  - name: Check my usage and estimate the cost
-    displayName: price, metrics, dashboard, check, estimate
-    href: how-to-guides/estimate-cost.md
   - name: Migrate to Form Recognizer v3.0
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-migration-guide.md
-  - name: Use the prebuilt-read model (v3.0)
-    displayName: documentAnalysisClient, document analysis client, AnalyzeResult, analyze, output
-    href: how-to-guides/use-prebuilt-read.md
+  - name: Use Form Recognizer models
+    displayName: documentAnalysisClient, document analysis client, polygon, boundingPolygon, begin_analyze_document,ormRecognizerClient, form recognizer client, boundingBox, box, begin_recognize, v2.1
+    href: how-to-guides/use-sdk-rest-api.md
+  - name: Check my usage and estimate the cost
+    displayName: price, metrics, dashboard, check, estimate
+    href: how-to-guides/estimate-cost.md
   - name: Create SAS tokens for storage containers
     displayName: blob, delegation, shared, explorer
     href:  create-sas-tokens.md
-  - name: Use SDKs and the REST API (v2.1)
-    displayName: formRecognizerClient, form recognizer client, boundingBox, bounding box, begin_analyze
-    href: how-to-guides/try-sdk-rest-api.md
   - name: Custom models
     items:
-    - name: Build a custom model (v3.0)
+    - name: Build a custom model
       displayName: tables, labels, ocr, template, neural, input, train, training, sets, testing
-      href: how-to-guides/build-custom-model-v3.md
-    - name: Build a custom model (v2.1)
-      items:
-      - name: Assemble a training data set
-        displayName: tables, labels, ocr, upload
-        href: build-training-data-set.md
-      - name: Deploy the sample-labeling tool
-        displayName: FOTT, migration, containers, docker
-        href: deploy-label-tool.md
-      - name: Train a custom model with the sample-labeling tool
-        displayName: FOTT, migration, containers, docker
-        href: label-tool.md
-      - name: Use table tags to train your custom model
-        displayName: FOTT, migration, dynamic
-        href: supervised-table-tags.md
-  - name: Composed models
-    items:
-     - name: Compose models v3.0
-       displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
-       href: compose-custom-models-v3.md
-     - name: Compose models v2.1
-       displayName: FOTT, label, ocr, confidence, bounding box
-       href: compose-custom-models-v2-1.md
+      href: how-to-guides/build-a-custom-model.md
+    - name: Compose custom models
+      displayName: custom, models, modelId, model ID, train, dataset, data set, label, ocr, upload
+      href: how-to-guides/compose-custom-models.md
+    - name: Deploy the sample-labeling tool
+      displayName: FOTT, migration, containers, docker
+      href: deploy-label-tool.md
+    - name: Train a custom model with the sample-labeling tool
+      displayName: FOTT, migration, containers, docker
+      href: label-tool.md
+    - name: Use table tags to train your custom model
+      displayName: FOTT, migration, dynamic
+      href: supervised-table-tags.md
   - name: Back up and recover models
     displayName: disaster, recovery, region, copy, modelId, model ID
     href: disaster-recovery.md
@@ -153,30 +133,30 @@ items:
   - name: Model overview
     displayName: get started, prebuilt, extraction, input
     href: concept-model-overview.md
-  - name: Form Recognizer Studio | v3.0
+  - name: Form Recognizer Studio 
     href: concept-form-recognizer-studio.md
-  - name: General document model | v3.0
-    displayName: key value pairs, selection marks, structured
-    href: concept-general-document.md
-  - name: W-2 form model | v3.0
-    displayName: wages, taxes, salary, employees
-    href: concept-w2.md
-  - name: Read OCR model | v3.0
+  - name: Read OCR model
     displayName: text
     href: concept-read.md
-  - name: Layout model
+  - name: General document model
+    displayName: key value pairs, selection marks, structured
+    href: concept-general-document.md
+  - name: Layout model 
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: Invoice model
+  - name: W-2 form model
+    displayName: wages, taxes, salary, employees
+    href: concept-w2.md
+  - name: Invoice model 
     displayName: sales, vendors, VAT
     href: concept-invoice.md
-  - name: Receipt model
+  - name: Receipt model 
     displayName: sales, merchants
     href: concept-receipt.md
-  - name: ID document model
+  - name: ID document model 
     displayName: passport, visa, ID, social security, green card
     href: concept-id-document.md
-  - name: Business card model
+  - name: Business card model 
     displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     href: concept-business-card.md
   - name: Custom models
@@ -190,12 +170,12 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, signatures
       href: concept-custom-neural.md
-    - name: Accuracy and confidence scores
-      displayName: tables, labels, ocr, performance, signatures
-      href: concept-accuracy-confidence.md
-  - name: Composed models
-    displayName: custom, assign, modelId, model ID, template, neural
-    href:  concept-composed-models.md
+    - name: Composed models
+      displayName: custom, assign, modelId, model ID, template, neural
+      href:  concept-composed-models.md
+  - name: Accuracy and confidence scores
+    displayName: tables, labels, ocr, performance, signatures
+    href: concept-accuracy-confidence.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps
@@ -222,36 +202,14 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Azure Form Recognizer REST API v3.0 (GA)
-    items:
-    - name: REST API v3.0 reference
+    - name: REST API v3.0 
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     - name: Error codes and messages v3.0
       href: v3-error-guide.md
-    - name: Supported REST API v3.0 SDKs
-      items:
-      - name: .NET
-        href: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
-      - name: Java
-        href: https://azure.github.io/azure-sdk/releases/latest/java.html
-      - name: JavaScript
-        href: https://azure.github.io/azure-sdk/releases/latest/js.html
-      - name: Python
-        href: https://azure.github.io/azure-sdk/releases/latest/python.html
-  - name: Azure Form Recognizer REST API v2.1 (GA)
-    items:
-    - name: REST API v2.1 reference
+    - name: REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
-    - name: Supported REST API v2.1 SDKs
-      items:
-      - name: .NET
-        href: /dotnet/api/overview/azure/ai.formrecognizer-readme
-      - name: Python
-        href: /python/api/azure-ai-formrecognizer/
-      - name: Java
-        href: /java/api/overview/azure/ai-formrecognizer-readme
-      - name: JavaScript
-        href: /javascript/api/overview/azure/ai-form-recognizer-readme
+    - name: REST API versions
+      href: https://westus.dev.cognitive.microsoft.com/docs/services?pattern=form
 - name: Resources
   items:
   - name:  Customer spotlight

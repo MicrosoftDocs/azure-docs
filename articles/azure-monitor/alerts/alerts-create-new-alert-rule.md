@@ -4,6 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/23/2022
 ms.reviewer: harelbr
 ---
@@ -90,8 +91,8 @@ And then defining these elements for the resulting alert actions using:
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
         |Unit|If the selected metric signal supports different units,such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
         |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
-        |Aggregation granularity| Select the interval over which data points are grouped using the aggregation type function.|
-        |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
+        |Aggregation granularity| Select the interval that is used to group the data points using the aggregation type function. Choose an **Aggregation granularity** (Period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
+        |Frequency of evaluation|Select how often the alert rule is be run. Select a frequency that is smaller than the aggregation granularity to generate a sliding window for the evaluation.|
 
     1. Select **Done**.
     ### [Log alert](#tab/log)
@@ -220,7 +221,7 @@ And then defining these elements for the resulting alert actions using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
     1. (Optional) If you have configured action groups for this alert rule, you can add custom properties to the alert payload to add additional information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
          
 
@@ -236,7 +237,7 @@ And then defining these elements for the resulting alert actions using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to resolve the alert when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 

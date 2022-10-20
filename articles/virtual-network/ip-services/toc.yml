@@ -98,6 +98,8 @@ items:
         href: configure-public-ip-bastion.md
     - name: Upgrade a public IP address
       items:
+      - name: Upgrade guidance for Basic SKU public IP addresses
+        href: public-ip-basic-upgrade-guidance.md
       - name: Upgrade a public IP address - Portal
         href: public-ip-upgrade-portal.md
       - name: Upgrade a public IP address - PowerShell
@@ -203,8 +205,8 @@ items:
     href: ../policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

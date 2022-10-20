@@ -72,5 +72,6 @@ newAssignment, err = assignmentClient.CreateOrUpdate(context.Background(), "defa
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 Learn how to conduct more operations with the GO Automanage Client by visiting the [azure-sdk-for-go repo](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/automanage/armautomanage/).
 

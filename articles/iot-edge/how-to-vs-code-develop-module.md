@@ -5,7 +5,7 @@ services: iot-edge
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/30/2022
+ms.date: 10/18/2022
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
@@ -67,6 +67,9 @@ To build and deploy your module image, you need Docker to build the module image
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli)
+
+::: zone pivot="iotedge-dev-cli"
+
 - Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
 
     ```cmd
@@ -78,6 +81,8 @@ To build and deploy your module image, you need Docker to build the module image
     > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
     >
     > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+
+::: zone-end
 
 Install prerequisites specific to the language you're developing in:
 
@@ -125,18 +130,18 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
     mkdir c:\dev\iotedgesolution
     ```
 
-1. Use the **iotedgedev init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
+1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
 
     # [C](#tab/c)
     
     ```bash
-    iotedgedev init --template c
+    iotedgedev solution init --template c
     ```
     
     # [C\#](#tab/csharp)
     
     ```bash
-    iotedgedev init --template csharp
+    iotedgedev solution init --template csharp
     ```
     
     The solution includes a default C# module named *filtermodule*.
@@ -144,30 +149,30 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
     # [Azure Functions](#tab/azfunctions)
     
     ```bash
-    iotedgedev init --template csharpfunction
+    iotedgedev solution init --template csharpfunction
     ```
     
     # [Java](#tab/java)
     
     ```bash
-    iotedgedev init --template java
+    iotedgedev solution init --template java
     ```
 
     # [Node.js](#tab/node)
 
     ```bash
-    iotedgedev init --template nodejs
+    iotedgedev solution init --template nodejs
     ```
 
     # [Python](#tab/python)
 
     ```bash
-    iotedgedev init --template python
+    iotedgedev solution init --template python
     ```
 
     ---
 
-The *iotedgedev init* script prompts you to complete several steps including:
+The *iotedgedev solution init* script prompts you to complete several steps including:
 
 * Authenticate to Azure
 * Choose an Azure subscription

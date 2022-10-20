@@ -103,13 +103,13 @@ public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+    var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
-message = new SendGridMessage();
-message.AddTo(emailObject.To);
-message.AddContent("text/html", emailObject.Body);
-message.SetFrom(new EmailAddress(emailObject.From));
-message.SetSubject(emailObject.Subject);
+    message = new SendGridMessage();
+    message.AddTo(emailObject.To);
+    message.AddContent("text/html", emailObject.Body);
+    message.SetFrom(new EmailAddress(emailObject.From));
+    message.SetSubject(emailObject.Subject);
 }
 
 public class OutgoingEmail
@@ -135,23 +135,23 @@ public static async Task Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
  [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+    var emailObject = JsonSerializer.Deserialize<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
- var message = new SendGridMessage();
- message.AddTo(emailObject.To);
- message.AddContent("text/html", emailObject.Body);
- message.SetFrom(new EmailAddress(emailObject.From));
- message.SetSubject(emailObject.Subject);
+    var message = new SendGridMessage();
+    message.AddTo(emailObject.To);
+    message.AddContent("text/html", emailObject.Body);
+    message.SetFrom(new EmailAddress(emailObject.From));
+    message.SetSubject(emailObject.Subject);
  
- await messageCollector.AddAsync(message);
+    await messageCollector.AddAsync(message);
 }
 
 public class OutgoingEmail
 {
- public string To { get; set; }
- public string From { get; set; }
- public string Subject { get; set; }
- public string Body { get; set; }
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
 }
 ```
 

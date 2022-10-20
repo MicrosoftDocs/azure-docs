@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022
+ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022, ignite-2022
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
@@ -15,12 +15,11 @@ ms.date: 08/29/2022
 
 # Configure a private endpoint for an Azure Machine Learning workspace
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [SDK v1](v1/how-to-configure-private-link.md)
-> * [SDK v2 (current version)](how-to-configure-private-link.md)
+> [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
+> * [CLI or SDK v1](v1/how-to-configure-private-link.md)
+> * [CLI v2 (current)](how-to-configure-private-link.md)
 
 In this document, you learn how to configure a private endpoint for your Azure Machine Learning workspace. For information on creating a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
@@ -50,7 +49,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 ## Limitations
 
 * If you enable public access for a workspace secured with private endpoint and use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
-* You may encounter problems trying to access the private endpoint for your workspace if you're using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla Firefox. We recommend using Microsoft Edge or Google Chrome as a workaround.
+* You may encounter problems trying to access the private endpoint for your workspace if you're using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla Firefox. We recommend using Microsoft Edge or Google Chrome.
 * Using a private endpoint doesn't affect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal. Data plane operations, such as using Azure Machine Learning studio, APIs (including published pipelines), or the SDK use the private endpoint.
 * When creating a compute instance or compute cluster in a workspace with a private endpoint, the compute instance and compute cluster must be in the same Azure region as the workspace.
 * When attaching an Azure Kubernetes Service cluster to a workspace with a private endpoint, the cluster must be in the same region as the workspace.
@@ -69,7 +68,8 @@ Use one of the following methods to create a workspace with a private endpoint. 
 > [!TIP]
 > If you'd like to create a workspace, private endpoint, and virtual network at the same time, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
-# [Azure CLI extension 2.0](#tab/azurecliextensionv2)
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), a YAML document is used to configure the workspace. The following example demonstrates creating a new workspace using a YAML configuration:
 
@@ -142,7 +142,7 @@ az network private-endpoint dns-zone-group add \
 
 # [Portal](#tab/azure-portal)
 
-The __Networking__ tab in Azure Machine Learning studio allows you to configure a private endpoint. However, it requires an existing virtual network. For more information, see [Create workspaces in the portal](how-to-manage-workspace.md).
+The __Networking__ tab in Azure Machine Learning portal allows you to configure a private endpoint. However, it requires an existing virtual network. For more information, see [Create workspaces in the portal](how-to-manage-workspace.md).
 
 ---
 
@@ -154,7 +154,8 @@ Use one of the following methods to add a private endpoint to an existing worksp
 >
 > If you have any existing compute targets associated with this workspace, and they are not behind the same virtual network tha the private endpoint is created in, they will not work.
 
-# [Azure CLI extension 2.0](#tab/azurecliextensionv2)
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
 
@@ -231,7 +232,9 @@ You can remove one or all private endpoints for a workspace. Removing a private 
 
 To remove a private endpoint, use the following information:
 
-# [Azure CLI extension 2.0](#tab/azurecliextensionv2)
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 
 When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the following command to remove the private endpoint:
 
@@ -268,14 +271,16 @@ To enable public access, use the following steps:
 > [!TIP]
 > There are two possible properties that you can configure:
 > * `allow_public_access_when_behind_vnet` - used by the Python SDK v1
-> * `public_network_access` - used by the CLI and Python SDK v2 (preview)
+> * `public_network_access` - used by the CLI and Python SDK v2
 > Each property overrides the other. For example, setting `public_network_access` will override any previous setting to `allow_public_access_when_behind_vnet`.
 >
 > Microsoft recommends using `public_network_access` to enable or disable public access to a workspace.
 
-# [Azure CLI extension 2.0](#tab/azurecliextensionv2)
+# [Azure CLI](#tab/cli)
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
+
+When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
 
 ```azurecli
 az ml workspace update \

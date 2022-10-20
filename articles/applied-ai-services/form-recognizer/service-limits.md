@@ -8,23 +8,28 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
+recommendations: false
 ---
 
 # Form Recognizer service quotas and limits
+<!-- markdownlint-disable MD033 -->
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 This article contains a quick reference and the **detailed description** of Azure Form Recognizer service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/form-recognizer/). It also contains some best practices to avoid request throttling.
 
-For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer REST API](quickstarts/get-started-v3-sdk-rest-api.md), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
+For the usage with [Form Recognizer SDK](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true), [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md) and [Sample Labeling Tool](https://fott-2-1.azurewebsites.net/).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
 | **Concurrent Request limit** | 1 | 15 (default value) |
 | Adjustable | No | Yes<sup>2</sup> |
-| **Max document size** | 500 MB | 500 MB |
+| **Max document size** | 4 MB | 500 MB |
 | Adjustable | No | No |
-| **Max number of pages (Analysis)** | 2 | No limit |
+| **Max number of pages (Analysis)** | 2 | 2000 |
 | Adjustable | No | No |
 | **Max size of labels file** | 10 MB | 10 MB |
 | Adjustable | No | No |
@@ -35,7 +40,7 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api
 | **Max number of Neural models** | 100 | 500 |
 | Adjustable | No | No |
 
-# [Form Recognizer v3.0 ](#tab/v30)
+::: moniker range="form-recog-3.0.0"
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -54,7 +59,9 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api
 
 <sup>3</sup> Open a support request to increase the monthly training limit.
 
-# [Form Recognizer v2.1 ](#tab/v21)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
@@ -65,7 +72,7 @@ For the usage with [Form Recognizer SDK](quickstarts/get-started-v3-sdk-rest-api
 | **Max number of pages (Training)** | 500 | 500 (default value) |
 | Adjustable | No | No |
 
------
+::: moniker-end
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/form-recognizer/).</br>
 <sup>2</sup> See [best practices](#example-of-a-workload-pattern-best-practice),  and [adjustment instructions](#create-and-submit-support-request).

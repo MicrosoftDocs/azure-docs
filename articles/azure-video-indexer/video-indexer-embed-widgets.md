@@ -26,8 +26,8 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
-|`search` | String | Allows you to control the initial search term.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?search=azure` renders the insights filtered by the word “azure”. | 
-|`sort` | Strings separated by comma | Allows you to control the sorting of an insight.<br/>Each sort consist of 3 values: widget name, property and order, connected with '_' `sort=name_property_order`<br/>Available options:<br/>widgets: keywords, audioEffects, labels, sentiments, emotions, keyframes, scenes, namedEntities and spokenLanguage.<br/>property: startTime, endTime, seenDuration, name and id.<br/>order: asc and desc.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?sort=labels_id_asc,keywords_name_desc` renders the labels sorted by id in ascending order and keywords sorted by name in descending order.| 
+|`search` | String | Allows you to control the initial search term.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?search=azure` renders the insights filtered by the word "Azure". | 
+|`sort` | Strings separated by comma | Allows you to control the sorting of an insight.<br/>Each sort consists of 3 values: widget name, property and order, connected with '_' `sort=name_property_order`<br/>Available options:<br/>widgets: keywords, audioEffects, labels, sentiments, emotions, keyframes, scenes, namedEntities and spokenLanguage.<br/>property: startTime, endTime, seenDuration, name and ID.<br/>order: asc and desc.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?sort=labels_id_asc,keywords_name_desc` renders the labels sorted by ID in ascending order and keywords sorted by name in descending order.| 
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 ### Player widget
@@ -43,6 +43,7 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 |`autoplay` | A Boolean value | Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`. |
 |`language`/`locale` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
 |`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
+|`boundingBoxes`|Array of bounding boxes options: people (faces) and observed people. <br/>Values should be separated by a comma (",").|Controls the option to set bounding boxes on/off when embedding the player.<br/>All mentioned option will be turned on.<br/><br/>Example: `boundingBoxes= observedPeople, people`<br/>Default value is `boundingBoxes= observedPeople` (only observed people bounding box are turned on).|
 
 ### Editor widget
 
@@ -59,13 +60,13 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
 ## Embed videos
 
-This section discusses embedding videos by [using the portal](#the-portal-experience) or by [assembling the URL manually](#assemble-the-url-manually) into apps. 
+This section discusses embedding videos by [using the website](#the-website-experience) or by [assembling the URL manually](#assemble-the-url-manually) into apps. 
 
 The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
-### The portal experience
+### The website experience
 
-To embed a video, use the portal as described below:
+To embed a video, use the website as described below:
 
 1. Sign in to the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 1. Select the video that you want to work with and press **Play**.
@@ -305,9 +306,10 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 
 ## Supported browsers
 
-For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
+For more information, see [supported browsers](video-indexer-get-started.md#supported-browsers).
 
 ## Embed and customize Azure Video Indexer widgets in your app using npm package
+
 Using our [@azure/video-analyzer-for-media-widgets](https://www.npmjs.com/package/@azure/video-analyzer-for-media-widgets) NPM package, you can add the insights widgets to your app and customize it according to your needs.
 
 Instead of adding an iframe element to embed the insights widget, with this new package you can easily embed & communicate between our widgets. Customizing your widget is only supported in this package - all in one place.   

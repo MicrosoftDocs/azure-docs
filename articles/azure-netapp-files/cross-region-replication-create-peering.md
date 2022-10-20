@@ -110,3 +110,4 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
 * [Manage default and individual user and group quotas for a volume](manage-default-individual-user-group-quotas.md)
+* [Manage Azure NetApp Files volume replication with the CLI](/cli/azure/netappfiles/volume/replication)

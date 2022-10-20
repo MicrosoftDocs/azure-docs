@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 09/07/2022
+ms.date: 10/13/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
@@ -22,6 +22,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Volume user and group quotas](default-individual-user-group-quotas-introduction.md)
 
     Azure NetApp Files volumes provide flexible, large and scalable storage shares for applications and users. Storage capacity and consumption by users is only limited by the size of the volume. On some scenarios you may want to limit this storage consumption of users and groups within the volume. With Azure NetApp Files volume and group quotas you can now do so. User and/or group quotas enable you to restrict the storage space that a user or group can use within a specific Azure NetApp Files volume. You can choose to set default (same for all users) or individual user quotas on all NFS, SMB, and dual protocol-enabled volumes. On all NFS-enabled volumes, you can set default (same for all users) or individual group quotas.
+
+## October 2022
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
+
+    The application volume group for SAP HANA feature is now generally available. You no longer need to register the feature to use it. 
 
 ## August 2022
 

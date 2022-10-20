@@ -3,12 +3,12 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 09/09/2022
+ms.date: 09/15/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.2.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
 
 Use this quickstart to create a sentiment analysis application with the client library for Python. In the following example, you will create a Python application that can identify the sentiment(s) expressed in a text sample, and perform aspect-based sentiment analysis.
 
@@ -34,7 +34,7 @@ Use this quickstart to create a sentiment analysis application with the client l
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure-ai-textanalytics==5.1.0
+pip install azure-ai-textanalytics==5.2.0
 ```
 
 > [!div class="nextstepaction"]
@@ -122,7 +122,7 @@ sentiment_analysis_with_opinion_mining_example(client)
 
 ```console
 Document Sentiment: mixed
-Overall scores: positive=0.47; neutral=0.00; negative=0.52 
+Overall scores: positive=0.47; neutral=0.00; negative=0.52
 
 Sentence: The food and service were unacceptable.
 Sentence sentiment: negative

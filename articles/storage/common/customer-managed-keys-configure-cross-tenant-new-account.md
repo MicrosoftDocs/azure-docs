@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 10/14/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -24,7 +24,7 @@ To learn how to configure customer-managed keys for an existing storage account,
 
 ## About the preview
 
-To use the preview, you must register for the Azure Active Directory federated client identity feature. Follow these instructions to register with PowerShell or Azure CLI:
+To use the preview, you must register for the Azure Active Directory federated client identity feature in the ISV's tenant. Follow these instructions to register with PowerShell or Azure CLI:
 
 ### [PowerShell](#tab/powershell-preview)
 
@@ -93,7 +93,7 @@ When you configure encryption with customer-managed keys for an existing storage
 >
 > Azure Storage checks the key vault for a new key version only once daily. When you rotate a key in Azure Key Vault, be sure to wait 24 hours before disabling the older version.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 To configure cross-tenant customer-managed keys for a new storage account in the Azure portal, follow these steps:
 
@@ -109,13 +109,70 @@ To configure cross-tenant customer-managed keys for a new storage account in the
 
 1. Select the **Review** button to validate and create the account.
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
-N/A
+To configure cross-tenant customer-managed keys for a new storage account in PowerShell, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview), version 4.4.2-preview.
+
+Next, call [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
+
+Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```azurepowershell
+$accountName = "<account-name>"
+$kvUri = "<key-vault-uri>"
+$keyName = "<keyName>"
+$location = "<location>"
+$multiTenantAppId = "<application-id>"
+
+$userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName $rgName
+
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -Name $accountName `
+    -Kind StorageV2 `
+    -SkuName Standard_LRS `
+    -Location $location `
+    -UserAssignedIdentityId $userIdentity.Id `
+    -IdentityType SystemAssignedUserAssigned `
+    -KeyName $keyName `
+    -KeyVaultUri $kvUri `
+    -KeyVaultUserAssignedIdentityId $userIdentity.Id `
+    -KeyVaultFederatedClientId $multiTenantAppId 
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
-N/A
+To configure cross-tenant customer-managed keys for a new storage account with Azure CLI, first install the [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/main/src/storage-preview) extension. For more information about installing Azure CLI extensions, see [How to install and manage Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+
+Next, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
+
+Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```azurecli
+accountName="<storage-account>"
+kvUri="<key-vault-uri>"
+keyName="<key-name>"
+multiTenantAppId="<multi-tenant-app-id>"
+
+# Get the resource ID for the user-assigned managed identity.
+identityResourceId=$(az identity show --name $managedIdentity \
+    --resource-group $isvRgName \
+    --query id \
+    --output tsv)
+
+az storage account create \
+    --name $accountName \
+    --resource-group $isvRgName \
+    --location $isvLocation \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id $identityResourceId \
+    --encryption-key-vault $kvUri \
+    --encryption-key-name $keyName \
+    --encryption-key-source Microsoft.Keyvault \
+    --key-vault-user-identity-id $identityResourceId \
+    --key-vault-federated-client-id $multiTenantAppId
+```
 
 ---
 

@@ -27,7 +27,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Private Link
-            url: /learn/modules/introduction-azure-private-link/
+            url: /training/modules/introduction-azure-private-link/
       - linkListType: video
         links:
           - text: Secure Azure PaaS resources using Private Link
@@ -84,7 +84,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Design and implement private access to Azure Services
-            url: /learn/modules/design-implement-private-access-to-azure-services
+            url: /training/modules/design-implement-private-access-to-azure-services
 
       - linkListType: reference
         links:

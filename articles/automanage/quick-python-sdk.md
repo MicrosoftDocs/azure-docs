@@ -67,5 +67,6 @@ client.configuration_profile_assignments.create_or_update("default", "resourceGr
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 Learn how to conduct more operations with the Automanage Client by visiting the [azure-samples-python-management repo](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/automanage).
 

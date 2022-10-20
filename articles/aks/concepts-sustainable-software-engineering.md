@@ -98,4 +98,4 @@ Learn more about the features of AKS mentioned in this article:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-sse]: /learn/modules/sustainable-software-engineering-overview/
+[principles-sse]: /training/modules/sustainable-software-engineering-overview/

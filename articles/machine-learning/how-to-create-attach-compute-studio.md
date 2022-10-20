@@ -87,7 +87,7 @@ To detach your compute use the following steps:
 
 ## Next steps
 
-* Use the compute resource to [submit a training run](how-to-train-sdk.md).
+* Use the compute resource to [submit a training run](how-to-train-model.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-managed-online-endpoints.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)

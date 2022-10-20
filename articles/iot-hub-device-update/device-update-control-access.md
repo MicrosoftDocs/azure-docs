@@ -31,7 +31,7 @@ A combination of roles can be used to provide the right level of access. For exa
 
 Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
 
-Below actions will be blocked, after 9/28/22, if these permissions are not set:
+Below actions will be blocked with upcoming release, if these permissions are not set:
 * Create Deployment
 * Cancel Deployment
 * Retry Deployment 

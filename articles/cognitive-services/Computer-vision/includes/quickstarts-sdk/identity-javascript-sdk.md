@@ -53,6 +53,9 @@ Get started with facial recognition using the Face client library for JavaScript
 
 1. Create a file named `index.js`, open it in a text editor, and paste in the following code:
 
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
+
     :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart-single.js" id="snippet_single":::
 
 

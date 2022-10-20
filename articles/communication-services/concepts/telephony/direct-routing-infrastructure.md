@@ -67,6 +67,7 @@ Learn more:
 
 >[!IMPORTANT]
 >Azure Communication Services direct routing supports only TLS 1.2 (or a later version). To avoid any service impact, ensure that your SBCs are configured to support TLS1.2 and can connect using one of the following cipher suites: 
+>
 >TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 i.e. ECDHE-RSA-AES256-GCM-SHA384 
 >TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 i.e. ECDHE-RSA-AES128-GCM-SHA256 
 >TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 i.e. ECDHE-RSA-AES256-SHA384 
@@ -118,8 +119,8 @@ The port ranges of the Media Processors are shown in the following table:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
-|UDP/SRTP|Media Processor|SBC|3478–3481 and 49152–53247|Defined on the SBC|
-|UDP/SRTP|SBC|Media Processor|Defined on the SBC|3478–3481 and 49152–53247|
+|UDP/SRTP|Media Processor|SBC|49152–53247|Defined on the SBC|
+|UDP/SRTP|SBC|Media Processor|Defined on the SBC|49152–53247|
 
   > [!NOTE]
   > Microsoft recommends at least two ports per concurrent call on the SBC.

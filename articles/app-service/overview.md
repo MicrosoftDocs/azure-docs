@@ -32,7 +32,7 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 * **API and mobile features** - App Service provides turn-key CORS support for RESTful API scenarios, and simplifies mobile app scenarios by enabling authentication, offline data sync, push notifications, and more.
 * **Serverless code** - Run a code snippet or script on-demand without having to explicitly provision or manage infrastructure, and pay only for the compute time your code actually uses (see [Azure Functions](../azure-functions/index.yml)).
 
-Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](/azure/service-fabric).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](/azure/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](../service-fabric/index.yml).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](../virtual-machines/index.yml). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## App Service on Linux
 
@@ -72,14 +72,14 @@ First, validate that the new platform update which contains Debian 11 has reache
 Next, create a deployment slot to test that your application works properly with Debian 11 before applying the change to production.
 
 1. [Create a deployment slot](deploy-staging-slots.md#add-a-slot) if you do not already have one, and clone your settings from the production slot. A deployment slot will allow you to safely test changes to your application (such as upgrading to Debian 11) and swap those changes into production after review. 
-1. To upgrade to Debian 11 (Bullseye), create an app setting on your slot named `ORYX_DEFAULT_OS` with a value of `bullseye`.
+1. To upgrade to Debian 11 (Bullseye), create an app setting on your slot named `WEBSITE_LINUX_OS_VERSION` with a value of `DEBIAN|BULLSEYE`.
 
     ```bash
-    az webapp config appsettings set -g MyResourceGroup -n MyUniqueApp --settings ORYX_DEFAULT_OS=bullseye
+    az webapp config appsettings set -g MyResourceGroup -n MyUniqueApp --settings WEBSITE_LINUX_OS_VERSION="DEBIAN|BULLSEYE"
     ```
 1. Deploy your application to the deployment slot using the tool of your choice (VS Code, Azure CLI, GitHub Actions, etc.)
 1. Confirm your application is functioning as expected in the deployment slot.
-1. [Swap your production and staging slots](deploy-staging-slots.md#swap-two-slots). This will apply the `APPSETTING_DEFAULT_OS=bullseye` app setting to production.
+1. [Swap your production and staging slots](deploy-staging-slots.md#swap-two-slots). This will apply the `WEBSITE_LINUX_OS_VERSION=DEBIAN|BULLSEYE` app setting to production.
 1. Delete the deployment slot if you are no longer using it.
 
 ##### Resources
@@ -124,7 +124,7 @@ Create your first web app.
 > [Python (on Linux)](quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [HTML (on Windows or Linux)](quickstart-html.md)
+> [HTML](quickstart-html.md)
 
 > [!div class="nextstepaction"]
 > [Custom container (Windows or Linux)](tutorial-custom-container.md)

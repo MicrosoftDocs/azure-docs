@@ -54,7 +54,7 @@ Response body example:
   "subscriptionName": "Contoso Cloud Solution", // SaaS subscription name
   "offerId": "offer1", // purchased offer ID
   "planId": "silver", // purchased offer's plan ID
-  "quantity": "20", // number of purchased seats, might be empty if the plan is not per seat
+  "quantity": 20, // number of purchased seats, might be empty if the plan is not per seat
   "subscription": { // full SaaS subscription details, see Get Subscription APIs response body for full description
     "id": "<guid>",
     "publisherId": "contoso",

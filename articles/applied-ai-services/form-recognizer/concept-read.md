@@ -7,13 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 10/14/2022
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 
 # Form Recognizer Read OCR model
+
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
 Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) model. The Read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
 
@@ -26,21 +28,21 @@ Form Recognizer v3.0 includes the new Read Optical Character Recognition (OCR) m
 
 | **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Read  | ✓  | ✓  | ✓  | ✓ (preview)  | ✓ (preview)  | ✓ (preview) | ✓ (preview) |
+| **prebuilt-read**  | GA</br> (2022-08-31)| GA</br> (2022-08-31)  | GA</br> (2022-08-31)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview)  | Preview</br>(2022-06-30-preview) | Preview</br>(2022-06-30-preview) |
 
 ### Data extraction
 
-| **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
+| **Model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
 | --- | --- | --- |
-prebuilt-read  | ✓  |✓  |
+**prebuilt-read**  | ✓  |✓  |
 
 ## Development options
 
 The following resources are supported by Form Recognizer v3.0:
 
-| Feature | Resources | Model ID |
+| Model | Resources | Model ID |
 |----------|------------|------------|
-|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)</li><li>[**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Try Form Recognizer
 
@@ -88,11 +90,11 @@ The Read model extracts all identified blocks of text in the `paragraphs` collec
 
 ```json
 "paragraphs": [
-	{
-	    "spans": [],
-	    "boundingRegions": [],
-	    "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
-	}
+    {
+        "spans": [],
+        "boundingRegions": [],
+        "content": "While healthcare is still in the early stages of its Al journey, we are seeing pharmaceutical and other life sciences organizations making major investments in Al and related technologies.\" TOM LAWRY | National Director for Al, Health and Life Sciences | Microsoft"
+    }
 ]
 ```
 ### Language detection <sup>🆕</sup>
@@ -114,7 +116,7 @@ Read adds [language detection](language-support.md#detected-languages-read-api) 
 ]
 ```
 ### Microsoft Office and HTML support (preview) <sup>🆕</sup>
-Use the parameter `api-version=2022-06-30-preview when using the REST API or the corresponding SDKs of that API version to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. 
+Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview the support for Microsoft Word, Excel, PowerPoint, and HTML files. 
 
 :::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
 
@@ -139,17 +141,17 @@ The page units in the model output are computed as shown:
 
 ```json
 "pages": [
-	{
-	    "pageNumber": 1,
-	    "angle": 0,
-	    "width": 915,
-	    "height": 1190,
-	    "unit": "pixel",
-	    "words": [],
-	    "lines": [],
-	    "spans": [],
-	    "kind": "document"
-	}
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": [],
+        "kind": "document"
+    }
 ]
 ```
 
@@ -189,11 +191,11 @@ Complete a Form Recognizer quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)
-> * [**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+> * [**C# SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 

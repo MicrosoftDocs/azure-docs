@@ -136,7 +136,7 @@ sections:
           The Cost Management + Billing team hasn't announced a deprecation timeline for the APIs. The APIs are no longer in active development. We recommend that you plan any needed work to migrate away from them.
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
-          See [Migrate from EA reporting to Azure Resource Manager APIs](costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md).
+          See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).
       - question: Why do I get Usage Details API timeouts?
         answer: |
           The Usage Details dataset can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usagedetails/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of usage details, see [Retrieve large usage datasets recurringly with Exports](costs/ingest-azure-usage-at-scale.md).
@@ -362,7 +362,7 @@ sections:
 
       - question: Can I associate my existing Azure account to Azure EA enrollment?
         answer: |
-          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, MPN, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
+          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, Microsoft Cloud Partner Program, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
       - question: How many Azure account owners can you have per subscription?
         answer: |
           Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
@@ -471,15 +471,15 @@ sections:
       - question: Can other partners or customers edit or remove the link to the partner ID?
         answer: |
           The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
-      - question: Which MPN ID should I use if my company has multiple?
+      - question: Which Partner ID should I use if my company has multiple?
         answer: |
-          Be sure to use the **Associated MPN ID** shown in your partner profile. It's usually the local account ID association with your organization.
+          Be sure to use the **Associated Partner ID** shown in your partner profile. It's usually the local account ID association with your organization.
       - question: How do I explain PAL to my customer?
         answer: |
-          PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
+          PAL enables Microsoft to identify and recognize those partners who are helping customers achieve business goals and realize value in the cloud. Customers must first provide a partner access to their Power Apps resource. Once access is granted, the partner's Partner ID is associated. This association helps Microsoft understand service providers and to refine the tools and programs needed to best support customers.
       - question: What data does PAL collect?
         answer: |
           The PAL association to existing credentials provides no new customer data to Microsoft. It provides the information to Microsoft where a partner is actively involved in a customer's Power Apps environments. Microsoft can attribute usage and influence from customer environment to partner organization based on the account's permissions (Power Apps role) and scope (tenant, Resource Group, Resource) provided to the partner by customer.
       - question: Does PAL association affect the security of a customer's Power Apps environment?
         answer: |
-          PAL association only adds partner's MPN ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.
+          PAL association only adds the partner's Partner ID to the credential already provisioned. It doesn't alter any permissions (Power Apps role) or provide extra Power Apps service data to the partner or Microsoft.

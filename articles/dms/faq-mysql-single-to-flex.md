@@ -3,15 +3,15 @@ title: FAQ about using Azure Database Migration Service for Azure Database MySQL
 titleSuffix: "Azure Database Migration Service"
 description: Frequently asked questions about using Azure Database Migration Service to perform database migrations from Azure Database MySQL Single Server to Flexible Server.
 services: database-migration
-author: adig
+author: aditivgupta
 ms.author: adig
 manager: pariks
-ms.reviewer: pariks
+ms.reviewer: maghan
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: faq
-ms.date: 09/08/2022
+ms.date: 09/17/2022
 ---
 
 # Frequently Asked Questions (FAQs)
@@ -58,10 +58,10 @@ To support migrations of databases that are 1 TB+, raise a support ticket with A
 Azure Database Migration Service supports cross-region migrations, so you can migrate your single server to a flexible server that is deployed in a different region using DMS.  
 
 - **Is cross-subscription migration supported?**
-A. Azure Database Migration Service supports cross-subscription migrations, so you can migrate your single server to a flexible server that deployed on a different subscription using DMS.
+Azure Database Migration Service supports cross-subscription migrations, so you can migrate your single server to a flexible server that deployed on a different subscription using DMS.
 
 - **Is cross-resource group subscription supported?**
-A. Azure Database Migration Service supports cross-resource group migrations, so you can migrate your single server to a flexible server that is deployed in a different resource group using DMS.  
+Azure Database Migration Service supports cross-resource group migrations, so you can migrate your single server to a flexible server that is deployed in a different resource group using DMS.  
 
 - **Is there cross-version support?**
 Yes, migration from lower version MySQL servers (v5.6 and above) to higher versions is supported.
