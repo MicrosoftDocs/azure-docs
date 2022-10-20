@@ -4,7 +4,7 @@ description: This article explains how to respond to recommendations in Microsof
 ms.topic: how-to
 ms.author: benmansheim
 author: bmansheim
-ms.date: 10/18/2022
+ms.date: 10/20/2022
 ---
 # Implement security recommendations in Microsoft Defender for Cloud
 
@@ -29,11 +29,6 @@ After reviewing all the recommendations, decide which one to remediate first. We
 To simplify remediation and improve your environment's security (and increase your secure score), many recommendations include a **Fix** option.
 
 **Fix** helps you quickly remediate a recommendation on multiple resources.
-
-> [!TIP]
-> The **Fix** feature is only available for specific recommendations. To find recommendations that have an available fix, use the **Response actions** filter for the list of recommendations:
->
-> :::image type="content" source="media/implement-security-recommendations/quick-fix-filter.png" alt-text="Use the filters above the recommendations list to find recommendations that have the Fix option.":::
 
 To implement a **Fix**:
 
