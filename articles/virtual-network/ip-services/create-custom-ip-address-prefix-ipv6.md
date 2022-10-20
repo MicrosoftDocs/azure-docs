@@ -71,7 +71,7 @@ New-AzResourceGroup @rg
 
 ### Provision a global custom IPv6 address prefix
 
-The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-AuthorizationMessage` and `-SignedMessage` parameters are constructed in the same manner as they are for IPv4; for more information see [Create a custom IP prefix - Powershell](create-custom-ip-address-prefix-powershell.md).)  Note that no zonal properties are provided because the global range is not associated with any particular region (and therefore no regional availability zones).
+The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-AuthorizationMessage` and `-SignedMessage` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - Powershell](create-custom-ip-address-prefix-powershell.md).)  Note that no zonal properties are provided because the global range is not associated with any particular region (and therefore no regional availability zones).
 
  ```azurepowershell-interactive
 $prefix =@{
@@ -125,7 +125,7 @@ Followed by:
 Update-AzCustomIpPrefix -ResourceId $myCustomIPv6GlobalPrefix.Id -Commission
 ```
 
-It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however note that this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommenced for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
+It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, note that this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
 
 ## Next steps
 
