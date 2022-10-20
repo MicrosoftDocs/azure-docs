@@ -389,7 +389,7 @@ Total Costs = $3,507.08
 
 ## Azure DDoS Protection Standard Plan
 
-When Azure DDoS Protection Standard Plan is enabled on your application gateway with WAF you'll be billed at the lower non-WAF rates. Please see [Azure DDoS Protection pricing](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/) for more details.
+When Azure DDoS Protection Standard Plan is enabled on your application gateway with WAF you'll be billed at the lower non-WAF rates. Please see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/) for more details.
 
 
 ## Monitoring Billed Usage
