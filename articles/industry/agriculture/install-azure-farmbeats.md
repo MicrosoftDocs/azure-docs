@@ -173,7 +173,7 @@ To upgrade FarmBeats to the latest version, run the following steps in a Cloud S
 
 First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
-1. Download the [upgrade script](https://aka.ms/FarmBeatsUpgradeScript)
+1. Download the upgrade script
 
     ```azurepowershell-interactive
         wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./upgrade-farmbeats.ps1
