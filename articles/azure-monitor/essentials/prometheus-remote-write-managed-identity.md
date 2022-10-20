@@ -24,7 +24,7 @@ This article applies to the following cluster configurations:
 ## Prerequisites
 
 - You must have self-managed Prometheus running on your AKS cluster. For example, see [Using Azure Kubernetes Service with Grafana and Prometheus](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/using-azure-kubernetes-service-with-grafana-and-prometheus/ba-p/3020459).
-- You used Kube-Prometheus Stack when you setup Prometheus on your AKS cluster. 
+- You used [Kube-Prometheus Stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) when you setup Prometheus on your AKS cluster.
 
 
 ## Create Azure Monitor workspace
@@ -107,50 +107,45 @@ This step isn't required if you're using an AKS identity since it will already h
     This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
 
     ```yml
-    prometheus: 
-    prometheusSpec: 
-        externalLabels: 
-        cluster: <AKS-CLUSTER-NAME> 
-    
-        remoteWrite: 
-        - url: "http://localhost:8081/api/v1/write" 
-    
-        containers: 
-        - name: prom-remotewrite 
-        Image <CONTAINER-IMAGE-VERSION> 
-        imagePullPolicy: Always 
-        
-        ports: 
-            - name: rw-port 
-            containerPort: 8081 
-    livenessProbe: 
-    httpGet: 
-        path: /health 
-        port: rw-port 
-    readinessProbe: 
-    httpGet: 
-        path: /ready 
-        port: rw-port 
-    resources: 
-    limits: 
-    cpu: 500mc 
-    memory: 200Mi 
-    requests: 
-    cpu: 350mc 
-    memory: 150Mi 
-        env: 
-            - name: INGESTION_URL 
-            value: “<INGESTION-URL>" 
-            - name: LISTENING_PORT 
-            value: "8081" 
-            - name: IDENTITY_TYPE 
-            value: "userAssigned"       
-            - name: AZURE_CLIENT_ID 
-            value: "<MANAGED-IDENTITY-CLIENT-ID>" 
-    # Optional parameters 
-    - name: CLUSTER 
-    value: “<CLUSTER-NAME>” 
+    prometheus:
+    prometheusSpec:
+        externalLabels:
+        cluster: <AKS-CLUSTER-NAME>
+
+        ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
+        ##
+        remoteWrite:
+        - url: "http://localhost:8081/api/v1/write"
+
+        containers:
+        - name: prom-remotewrite
+        image: <CONTAINER-IMAGE-VERSION>
+        imagePullPolicy: Always
+        ports:
+            - name: rw-port
+            containerPort: 8081
+        livenessProbe:
+            httpGet:
+                path: /health
+                port: rw-port
+        readinessProbe:
+            httpGet:
+                path: /ready
+                port: rw-port
+        env:
+            - name: INGESTION_URL
+            value: "<INGESTION_URL>"
+            - name: LISTENING_PORT
+            value: "8081"
+            - name: IDENTITY_TYPE
+            value: "userAssigned"      
+            - name: AZURE_CLIENT_ID
+            value: "<MANAGED-IDENTITY-CLIENT-ID>"
+            # Optional parameters
+            - name: CLUSTER
+            value: "<CLUSTER-NAME>"
     ```
+
 
 2. Open Azure Cloud Shell and upload the YAML file.
 3. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands. 
