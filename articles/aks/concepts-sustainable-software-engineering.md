@@ -62,8 +62,8 @@ We recommend careful consideration of these design patterns for building a susta
 | [Design for independent scaling of logical components](#design-for-independent-scaling-of-logical-components) | ✔️ |  |
 | [Design for event-driven scaling](#design-for-event-driven-scaling) | ✔️ |  |
 | [Aim for stateless design](#aim-for-stateless-design) | ✔️ |  |
-| [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
 | [Enable cluster and node auto-updates](#enable-cluster-and-node-auto-updates) |  | ✔️ |
+| [Containerize your workload where applicable](#containerize-your-workload-where-applicable) | ✔️ |  |
 | [Choose a region that is closest to users](#choose-a-region-that-is-closest-to-users) | | ✔️ |
 | [Reduce network traversal between nodes](#reduce-network-traversal-between-nodes) | | ✔️ |
 | [Evaluate using a service mesh](#evaluate-using-a-service-mesh) | | ✔️ |
