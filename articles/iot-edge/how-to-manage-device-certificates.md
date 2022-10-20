@@ -148,6 +148,8 @@ Overhead with manual certificate management can be risky and error-prone. For pr
 
 IoT Edge can interface with an EST server for automatic certificate issuance and renewal. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. It can be configured globally and overridden for each certificate type.
 
+In this scenario, the bootstrap certificate and private key are expected to be long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue another certificate (the EST identity certificate) that is used in subsequent requests.
+
 1. You need access to an EST server. If you don't have an EST server, you can use one of the following options to start testing:
 
    * Create a test EST server using the steps in [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
@@ -193,7 +195,7 @@ IoT Edge can interface with an EST server for automatic certificate issuance and
    sudo iotedge config apply
    ```
 
-In this scenario, the bootstrap certificate and private key are expected to be long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue another certificate (the EST identity certificate) that is used in subsequent requests.
+
 
 If you wish, use the `identity_cert` and `identity_pk` values to set the file names of the EST identity certificate and private key. These settings are optional. If not set, IoT Edge provides a default value and automatically manages them.
 
@@ -240,7 +242,7 @@ The following table lists what each option in `auto_renew` does:
 | Parameter | Description |
 |---------|---------|
 |`rotate_key`| Controls if the private key should be rotated when IoT Edge renews the certificate.|
-|`threshold`| Sets when IoT Edge should start renewing the certificate. It can be specified as: <br> - Percentage: integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. <br> - Absolute time: integer followed by `m` (minutes) or `d` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4d` for four days or `10m` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend using *percentage* instead whenever possible.|
+|`threshold`| Sets when IoT Edge should start renewing the certificate. It can be specified as: <br> - Percentage: integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. <br> - Absolute time: integer followed by `min` (minutes) or `day` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4day` for four days or `10min` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend using *percentage* instead whenever possible.|
 |`retry`| controls how often renewal should be retried on failure. Like `threshold`, it can similarly be specified as a *percentage* or *absolute time* using the same format.|
 
 ## Device identity certificate examples
