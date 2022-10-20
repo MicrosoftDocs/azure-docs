@@ -6,8 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-author: blackmist
-ms.author: larryfr
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 03/15/2022
 ms.custom: automl, event-tier1-build-2022, ignite-2022
 ---
