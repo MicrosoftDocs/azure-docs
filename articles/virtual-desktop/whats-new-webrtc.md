@@ -3,7 +3,7 @@ title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 10/21/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -21,13 +21,17 @@ The following sections describe what changed in each version of the Remote Deskt
 
 Date published: June 20, 2022
 
+Download: [MSI installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4YM8L)
+
 - Fixed an issue that made the WebRTC redirector service disconnect from Teams on Azure Virtual Desktop.
-- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3313 or later of the Windows Desktop client. 
+- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3313 or later of the Windows Desktop client.
 - Added further stability and reliability improvements to the service.
 
 ### Updates for version 1.4.2111.18001
 
 Date published: December 2, 2021
+
+Download: [MSI installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWQ1UW)
 
 - Fixed a mute notification problem.
 - Multiple z-ordering fixes in Teams on Azure Virtual Desktop and Teams on Microsoft 365.
@@ -42,6 +46,19 @@ Date published: October 15, 2021
 - You can now control the meeting, ringtone, and notification volume from the host VM. You can only use this feature with version 1.2.2459 or later of [the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 - The installer will now make sure that Teams is closed before installing updates.
 - Fixed an issue that prevented users from returning to full screen mode after leaving the call window.
+
+## Updates for version 1.0.2106.14001
+
+Date published: July 29, 2021
+
+Increased the connection reliability between the WebRTC redirector service and the WebRTC client plugin.
+
+## Updates for version 1.0.2006.11001
+
+Date published: July 28, 2020
+
+- Fixed an issue where minimizing the Teams app during a call or meeting caused incoming video to drop.
+- Added support for selecting one monitor to share in multi-monitor desktop sessions.
 
 ## Next steps
 

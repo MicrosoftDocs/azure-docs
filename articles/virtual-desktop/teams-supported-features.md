@@ -3,7 +3,7 @@ title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/14/2022
+ms.date: 10/21/2022
 ms.author: helohr
 manager: femila
 ---
@@ -14,13 +14,14 @@ This article lists the features of Microsoft Teams that Azure Virtual Desktop cu
 
 ## Supported features
 
+The following table lists whether the Windows Desktop client or macOS client supports specific features for Teams on Azure Virtual Desktop.
+
 |Feature|Windows Desktop client|macOS client|
 |---|---|---|
 |Audio/video call|Yes|Yes|
 |Screen share|Yes|Yes|
 |Configure camera devices|Yes|Yes|
 |Configure audio devices|Yes|No|
-|Large gallery view and Together mode|Yes|Yes|
 |Live captions|Yes|Yes|
 |Communication Access Real-time Translation (CART) transcriptions|Yes|Yes|
 |Give and take control |Yes|Yes|
@@ -35,7 +36,7 @@ This article lists the features of Microsoft Teams that Azure Virtual Desktop cu
 
 ## Minimum requirements
 
-The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure VIrtual Desktop, we recommend using the latest supported versions of each client, which you can find in the following list:
+The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure VIrtual Desktop, we recommend using the latest supported versions of each client and the WebRTC service, which you can find in the following list:
 
 - [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
 - [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
@@ -44,11 +45,10 @@ The following table lists the minimum required versions for each Teams feature. 
 
 |Supported features|Windows Desktop client version |macOS client version|WebRTC Service version|Teams version|
 |---|---|---|---|---|
-|Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.11001 and later|Updates within 90 days of the current version|
 |Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
 |Configure camera devices|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
 |Configure audio devices|1.2.1755 and later|Not supported|1.0.2006.1101 and later|Updates within 90 days of the current version|
-|Large gallery view and Together mode|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
 |Live captions|1.2.2322 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
 |CART transcriptions|1.2.2322 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
 |Give and take control |1.2.2924 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
