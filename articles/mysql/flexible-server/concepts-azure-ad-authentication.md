@@ -65,7 +65,7 @@ Methods of authentication for accessing the MySQL flexible server include:
 To allow the UMI to read from Microsoft Graph as the server identity, the following permissions are required. Alternatively, give the UMI the [Directory Readers](../../active-directory/roles/permissions-reference.md#directory-readers) role.
 
 > [!IMPORTANT]
-> Only a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) or [Privileged Role Administrator](/azure/active-directory/roles/permissions-reference#privileged-role-administrator) can grant these permissions.
+> Only a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) can grant these permissions.
 
 - [User.Read.All](/graph/permissions-reference#user-permissions): Allows access to Azure AD user information.
 - [GroupMember.Read.All](/graph/permissions-reference#group-permissions): Allows access to Azure AD group information.
