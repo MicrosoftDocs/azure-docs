@@ -165,7 +165,7 @@ This command creates a small MySQL server.
 
 ---
 
-The MySQL server that you created has a empty database called `flexibleserverdb`.
+The MySQL server that you created has an empty database called `flexibleserverdb`.
 
 [Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
@@ -398,7 +398,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 Next, add the Java code that will use JDBC to store and retrieve data from your MySQL server.
 
-Create a *src/main/java/DemoApplication.java* file, that contains:
+Create a *src/main/java/DemoApplication.java* file and add the following contents:
 
 ```java
 package com.example.demo;
