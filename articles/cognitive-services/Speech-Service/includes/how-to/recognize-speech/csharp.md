@@ -28,7 +28,7 @@ class Program
 {
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     }
 }
 ```
@@ -67,7 +67,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromMic(speechConfig);
     }
 }
@@ -99,7 +99,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromFile(speechConfig);
     }
 }
@@ -142,7 +142,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+        var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
         await FromStream(speechConfig);
     }
 }

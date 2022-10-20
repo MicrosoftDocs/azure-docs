@@ -95,6 +95,9 @@ Send mail that includes the alert information. You can enter one email address p
 
 1. Select **Save**.
 
+>[!NOTE]
+>Make sure you also add an SMTP server to System Settings -> Integrations -> SMTP Server in order for the EMAIL forwarding rule to function
+
 ### Syslog server actions
 
 The following formats are supported:

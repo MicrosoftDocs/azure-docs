@@ -4,6 +4,7 @@ description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 08/23/2022
 ms.reviewer: harelbr
 ---
@@ -90,8 +91,8 @@ And then defining these elements for the resulting alert actions using:
         |Threshold value|If you selected a **static** threshold, enter the threshold value for the condition logic. |
         |Unit|If the selected metric signal supports different units,such as bytes, KB, MB, and GB, and if you selected a **static** threshold, enter the unit for the condition logic.|
         |Threshold sensitivity| If you selected a **dynamic** threshold, enter the sensitivity level. The sensitivity level affects the amount of deviation from the metric series pattern is required to trigger an alert. |
-        |Aggregation granularity| Select the interval over which data points are grouped using the aggregation type function.|
-        |Frequency of evaluation|Select the frequency on how often the alert rule should be run. Selecting frequency smaller than granularity of data points grouping will result in sliding window evaluation.  |
+        |Aggregation granularity| Select the interval that is used to group the data points using the aggregation type function. Choose an **Aggregation granularity** (Period) that's greater than the **Frequency of evaluation** to reduce the likelihood of missing the first evaluation period of an added time series.|
+        |Frequency of evaluation|Select how often the alert rule is be run. Select a frequency that is smaller than the aggregation granularity to generate a sliding window for the evaluation.|
 
     1. Select **Done**.
     ### [Log alert](#tab/log)
@@ -452,7 +453,7 @@ The *sampleActivityLogAlert.parameters.json* file contains the values provided f
 If you're creating a new log alert rule, please note that current alert rule wizard is a little different from the earlier experience:
 
 - Previously, search results were included in the payload of the triggered alert and its associated notifications. The email included only 10 rows from the unfiltered results while the webhook payload contained 1000 unfiltered results. To get detailed context information about the alert so that you can decide on the appropriate action:
-    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-by-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
+    - We recommend using [Dimensions](alerts-types.md#narrow-the-target-using-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
     - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
     - If you need the raw search results or for any other advanced customizations, use Logic Apps.
 - The new alert rule wizard doesn't support customization of the JSON payload.

@@ -5,6 +5,7 @@ description: Troubleshoot connectivity issues with Virtual Network NAT.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 08/29/2022
 ms.author: allensu
@@ -38,7 +39,7 @@ The table below describes two common outbound connectivity failure scenarios due
 
 ### TCP idle timeout timers set higher than the default value 
 
-The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If the timer is setting is set to a higher value than the default, NAT gateway will hold on to flows longer, and can create [extra pressure on SNAT port inventory](/azure/virtual-network/nat-gateway/nat-gateway-resource#timers). The table below describes a scenario where a long TCP idle timeout timer is causing SNAT exhaustion and provides possible mitigation steps to take: 
+The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is configurable up to 120 minutes. If the timer is setting is set to a higher value than the default, NAT gateway will hold on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers). The table below describes a scenario where a long TCP idle timeout timer is causing SNAT exhaustion and provides possible mitigation steps to take: 
 
 | Scenario | Evidence | Mitigation | 
 |---|---|---| 
@@ -48,7 +49,7 @@ The NAT gateway TCP idle timeout timer is set to 4 minutes by default but is con
 
 ### TCP idle timeout 
 
-As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) section above, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [Timer considerations](/azure/virtual-network/nat-gateway/nat-gateway-resource#timer-considerations). 
+As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) section above, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [Timer considerations](./nat-gateway-resource.md#timer-considerations). 
 
 >[!Note] 
 >Increasing the TCP idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low-rate failures when timeout expires and introduce delay and unnecessary failures. 
@@ -94,7 +95,7 @@ Once the custom UDR is removed from the routing table, the NAT gateway public IP
 
 ### Private IPs are used to connect to Azure services by Private Link 
 
-[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Storage, SQL, or Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you'll notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.  
+[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Azure Storage, Azure SQL, or Azure Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you'll notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.
 
 To check which Private Endpoints you have set up with Private Link: 
 
@@ -165,7 +166,7 @@ When SNAT ports are exhausted or application failures occur, aggressive or brute
 
 Depending on the configured idle timeout, if retries are too aggressive, connections may not have enough time to close and release SNAT ports for reuse. 
 
-For extra guidance and examples, see [Retry pattern](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). 
+For extra guidance and examples, see [Retry pattern](../../app-service/troubleshoot-intermittent-outbound-connection-errors.md). 
 
 ### Use keepalives to reset the outbound idle timeout 
 
@@ -173,12 +174,12 @@ For more information about keepalives, see [TCP idle timeout timers set higher t
 
 ### Use Private link to reduce SNAT port usage for connecting to other Azure services  
 
-When possible, Private Link should be used to connect directly from your virtual networks to Azure platform services in order to [reduce the demand](/azure/virtual-network/nat-gateway/troubleshoot-nat#tcp-idle-timeout-timers-set-higher-than-the-default-value) on SNAT ports. Reducing the demand on SNAT ports can help reduce the risk of SNAT port exhaustion. 
+When possible, Private Link should be used to connect directly from your virtual networks to Azure platform services in order to [reduce the demand](./troubleshoot-nat.md) on SNAT ports. Reducing the demand on SNAT ports can help reduce the risk of SNAT port exhaustion. 
 
 To create a Private Link, see the following Quickstart guides to get started: 
 
-* [Create a Private Endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip) 
-* [Create a Private Link](/azure/private-link/create-private-link-service-portal)
+* [Create a Private Endpoint](../../private-link/create-private-endpoint-portal.md?tabs=dynamic-ip) 
+* [Create a Private Link](../../private-link/create-private-link-service-portal.md)
 
 ## Next steps 
 
@@ -186,8 +187,6 @@ We're always looking to improve the experience of our customers. If you're exper
 
 To learn more about NAT gateway, see: 
 
-* [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview) 
-* [NAT gateway resource](/azure/virtual-network/nat-gateway/nat-gateway-resource) 
-* [Metrics and alerts for NAT gateway resources](/azure/virtual-network/nat-gateway/nat-metrics) 
-
-
+* [Virtual Network NAT](./nat-overview.md) 
+* [NAT gateway resource](./nat-gateway-resource.md) 
+* [Metrics and alerts for NAT gateway resources](./nat-metrics.md)

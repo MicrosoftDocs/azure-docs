@@ -5,6 +5,7 @@ metadata:
   services: azure-monitor
   ms.topic: faq
   ms.service: azure-monitor
+  ms.custom: ignite-2022
   author: bwren
   ms.author: bwren
   ms.date: 06/23/2022
@@ -350,7 +351,7 @@ sections:
       - question: |
           Does the Azure Monitor Agent support private links?
         answer: |
-          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent).
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-azure-monitor-agent).
 
       - question: |
           Does AMA support AuditD logs on linux, or AUOMS?
@@ -373,7 +374,7 @@ sections:
           There's no impact to the machine once the Azure Arc is installed. It hardly uses system or network resources, and is designed to have a low footprint on the host where it’s run.
           
       - question: |
-          What types of machines does the new Azure Monitor Agent support?
+          What types of machines do the new Azure Monitor Agent support?
         answer: |
           You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. You can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
 
@@ -470,7 +471,7 @@ sections:
           * Open the **Usage and estimated costs page** in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
           * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
           
-      - question: What does Application Insights modify in my project?
+      - question: What do Application Insights modify in my project?
         answer: |
           The details depend on the type of project. For a web application:
           
@@ -622,7 +623,7 @@ sections:
           * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
           
       - question: |
-          How does Application Insights generate device information (Browser, OS, Language, Model)?
+          How do Application Insights generate device information (Browser, OS, Language, Model)?
         answer: |
           The browser passes the User Agent string in the HTTP header of the request, and the Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
           
@@ -900,13 +901,9 @@ sections:
           The **Other processes** includes:
           
           - Self-managed or managed Kubernetes non-containerized processes
-          
           - Container Run-time processes
-          
           - Kubelet
-          
           - System processes running on your node
-          
           - Other non-Kubernetes workloads running on node hardware or VM
           
       - question: |
@@ -953,7 +950,7 @@ sections:
       - question: |
           Can I view metrics collected in Grafana?
         answer: |
-          Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
+          Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
           
       - question: |
           Can I monitor my AKS-engine cluster with Container insights?
@@ -983,10 +980,10 @@ sections:
       - question: |
           How do I enable log collection for containers in the kube-system namespace through Helm?
         answer: |
-          The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
+          The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the Azure Monitor Agent. For more information, see the [Container insights](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page.
           
       - question: |
-          How do I update the omsagent to the latest released version?
+          How do I update the Azure Monitor Agent in Container Insights to the latest released version?
         answer: |
           To learn how to upgrade the agent, see [Agent management](containers/container-insights-manage-agent.md).
           
@@ -998,7 +995,7 @@ sections:
       - question: |
           How do I enable multi-line logging?
         answer: |
-          Currently Container insights doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
+          Currently Container insights don't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
           
           For example, you can wrap your log as a JSON object as shown in the example below for a sample Node.js application:
           
@@ -1037,7 +1034,7 @@ sections:
       - question: |
           Is there support for collecting of Kubernetes Audit logs for ARO clusters?
         answer:
-          No, Container Insights doesn’t support collection of Kubernetes Audit Logs.
+          No, Container Insights don’t support collection of Kubernetes Audit Logs.
 
       - question: |
           Why don’t I see Normal Event Types when I query the KubeEvents table?

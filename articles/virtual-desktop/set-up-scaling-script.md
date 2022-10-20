@@ -18,9 +18,10 @@ In this article, you'll learn about the scaling tool that uses an Azure Automati
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
-- Session host pool VMs configured and registered with the Azure Virtual Desktop service
-- A user with the [Contributor role](../role-based-access-control/role-assignments-portal.md) assigned on the Azure subscription
+- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md).
+- Session host pool VMs configured and registered with the Azure Virtual Desktop service.
+- A user with the [Contributor role](../role-based-access-control/role-assignments-portal.md) assigned on the Azure subscription.
+- A Log Analytics workspace (optional).
 
 The machine you use to deploy the tool must have:
 

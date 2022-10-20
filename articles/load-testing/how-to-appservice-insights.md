@@ -67,4 +67,4 @@ In this section, you use [App Service diagnostics](../app-service/overview-diagn
 
 - Learn how to [parameterize a load test](./how-to-parameterize-load-tests.md) with secrets.
 
-- Learn how to [configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

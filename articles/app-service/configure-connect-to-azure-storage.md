@@ -37,7 +37,7 @@ This guide shows how to mount Azure Storage Files as a network share in a Window
 - Make static content like video and images readily available for your App Service app. 
 - Write application log files or archive older application log to Azure File shares.  
 - Share content across multiple apps or with other Azure services.
-- Mount Azure Storage in a Windows container in a Standard tier or higher plan, including Isolated ([App Service environment v3](environment/overview.md)).
+- Mount Azure Storage in a Windows container, including Isolated ([App Service environment v3](environment/overview.md)).
 
 The following features are supported for Windows containers:
 
