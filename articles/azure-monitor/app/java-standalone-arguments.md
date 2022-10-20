@@ -10,9 +10,13 @@ ms.reviewer: mmcc
 
 # Tips for updating your JVM args - Azure Monitor Application Insights for Java
 
-## Azure environments
+## Azure App Services
 
-Configure [App Services](../../app-service/configure-language-java.md#set-java-runtime-options).
+See [Application Monitoring for Azure App Service and Java](./azure-web-apps-java.md).
+
+## Azure Functions
+
+See [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-public-preview).
 
 ## Spring Boot
 
