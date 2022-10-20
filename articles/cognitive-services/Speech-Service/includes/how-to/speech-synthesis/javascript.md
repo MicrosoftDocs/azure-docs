@@ -351,6 +351,7 @@ Here's an example that shows how to subscribe to events for speech synthesis. Yo
     var sdk = require("microsoft-cognitiveservices-speech-sdk");
 
     var audioFile = "YourAudioFile.wav";
+    // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
 

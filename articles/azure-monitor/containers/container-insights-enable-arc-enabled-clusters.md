@@ -117,7 +117,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 To use [managed identity authentication (preview)](container-insights-onboard.md#authentication), add the `configuration-settings` parameter as in the following:
 
 ```azurecli
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogsagent.useAADAuth=true
 ```
 
 
@@ -134,7 +134,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 If you want to tweak the default resource requests and limits, you can use the advanced configurations settings:
 
 ```azurecli
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogsagent.resources.daemonset.limits.cpu=150m amalogsagent.resources.daemonset.limits.memory=600Mi amalogsagent.resources.deployment.limits.cpu=1 amalogsagent.resources.deployment.limits.memory=750Mi
 ```
 
 Checkout the [resource requests and limits section of Helm chart](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml) for the available configuration settings.
@@ -144,7 +144,7 @@ Checkout the [resource requests and limits section of Helm chart](https://github
 If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, then a custom mount path `/home/data/docker` needs to be used.
 
 ```azurecli
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogsagent.logsettings.custommountpath=/home/data/docker
 ```
 
 
@@ -233,7 +233,7 @@ az k8s-extension show --name azuremonitor-containers --cluster-name \<cluster-na
 Enable Container insights extension with managed identity authentication option using the workspace returned in the first step. 
 
 ```cli
-az k8s-extension create --name azuremonitor-containers --cluster-name \<cluster-name\> --resource-group \<resource-group\> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true logAnalyticsWorkspaceResourceID=\<workspace-resource-id\> 
+az k8s-extension create --name azuremonitor-containers --cluster-name \<cluster-name\> --resource-group \<resource-group\> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogsagent.useAADAuth=true logAnalyticsWorkspaceResourceID=\<workspace-resource-id\> 
 ```
 
 ## [Resource Manager](#tab/migrate-arm)

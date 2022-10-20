@@ -35,7 +35,7 @@
   items: 
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
-  - name: Connect to a Cosmos DB account
+  - name: Connect to an Azure Cosmos DB account
     href: tutorial-private-endpoint-cosmosdb-portal.md
   - name: Connect to a web app
     href: tutorial-private-endpoint-webapp-portal.md

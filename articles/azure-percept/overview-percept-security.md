@@ -1,15 +1,17 @@
 ---
 title: Azure Percept security
 description: Learn more about Azure Percept security
-author: nkhuyent
+author: yvonne-dq
 ms.author: ngt
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 10/06/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
 # Azure Percept security
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Percept devices are designed with a hardware root of trust. This built-in security helps protect inference data and privacy-sensitive sensors like cameras and microphones and enables device authentication and authorization for Azure Percept Studio services.
 
@@ -43,5 +45,3 @@ Device Update for IoT Hub enables more secure, scalable, and reliable over-the-a
 > [!div class="nextstepaction"]
 > [Learn more about firewall configurations and security recommendations](concept-security-configuration.md)
 
-> [!div class="nextstepaction"]
-> [Buy an Azure Percept DK from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

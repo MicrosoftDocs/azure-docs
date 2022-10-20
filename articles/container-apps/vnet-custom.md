@@ -1,6 +1,6 @@
 ---
-title: Provide an external virtual network to an Azure Container Apps environment
-description: Learn how to provide an external VNET to an Azure Container Apps environment.
+title: Integrate a virtual network with an external Azure Container Apps environment
+description: Learn how to integrate a VNET with an external Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> Network address prefixes requires a CIDR range of `/23`.
+> Network address prefixes requires a CIDR range of `/23` or larger (`/23`, `/22` etc.).
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
@@ -78,7 +78,7 @@ $VnetName = 'my-custom-vnet'
 Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CDIR range of `/23` is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -221,11 +221,11 @@ First, extract identifiable information from the environment.
 # [Bash](#tab/bash)
 
 ```bash
-ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query defaultDomain --out json | tr -d '"'`
+ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.defaultDomain --out json | tr -d '"'`
 ```
 
 ```bash
-ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query staticIp --out json | tr -d '"'`
+ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.staticIp --out json | tr -d '"'`
 ```
 
 ```bash
@@ -236,6 +236,7 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 
 ```azurepowershell
 $EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
+
 ```
 
 ```azurepowershell
@@ -335,10 +336,10 @@ You must either provide values for all three of these properties, or none of the
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
 
+::: zone pivot="azure-cli"
+
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
-
-::: zone pivot="azure-cli"
 
 # [Bash](#tab/bash)
 
@@ -355,11 +356,6 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ---
 
 ::: zone-end
-
-## Additional resources
-
-- For more information about configuring your private endpoints, see [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md).
-- To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
 
 ## Next steps
 

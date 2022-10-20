@@ -2,15 +2,14 @@
 title: "How to use Continuous Access Evaluation enabled APIs in your applications"
 description: How to increase app security and resilience by adding support for Continuous Access Evaluation, enabling long-lived access tokens that can be revoked based on critical events and policy evaluation.
 services: active-directory
-author: knicholasa
-manager: CelesteDG
-
+manager: martinco
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/09/2021
-ms.author: nichola
+author: janicericketts
+ms.author: jricketts
 ms.reviewer:
 # Customer intent: As an application developer, I want to learn how to use Continuous Access Evaluation for building resiliency through long-lived, refreshable tokens that can be revoked based on critical events and policy evaluation.
 ---
@@ -137,8 +136,8 @@ Your app would then use the claims challenge to acquire a new access token for t
 ```javascript
 const tokenRequest = {
     claims: window.atob(claimsChallenge), // decode the base64 string
-    scopes: ['User.Read']
-    account: msalInstance.getActiveAccount();
+    scopes: ['User.Read'],
+    account: msalInstance.getActiveAccount()
 };
 
 let tokenResponse;
@@ -173,8 +172,9 @@ You can test your application by signing in a user and then using the Azure port
 
 ## Code samples
 
-- [React single-page application using MSAL React to sign-in users against Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
-- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+- [Enable your Angular single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your React single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ## Next steps
 

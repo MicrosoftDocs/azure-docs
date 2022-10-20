@@ -31,7 +31,7 @@ In order to access capabilities related to marketplace or your developer account
 > [!NOTE]
 > For the commercial marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.
 
-For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network, see [Assign users roles and permissions in Partner Center](/partner-center/permissions-overview).
+For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Cloud Partner Program, see [Assign users roles and permissions in Partner Center](/partner-center/permissions-overview).
 
 > [!NOTE]
 > Any user management, role assignment activities done on these lines will be in context of the account you are on. Refer to section on switching between seller if you need to manage a different account.

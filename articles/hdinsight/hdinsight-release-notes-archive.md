@@ -1075,7 +1075,7 @@ The new updates and capabilities fall in to the following categories:
 
 *  ***Support for Azure Data Lake Storage Gen2*** – HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS Gen2 account as the Primary or Secondary store for their HDInsight clusters.
 
-*  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) support for Azure Blob Storage, ADLS Gen1, Cosmos DB, and Azure DB.
+*  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) support for Azure Blob Storage, ADLS Gen1, Azure Cosmos DB, and Azure DB.
 
 ### Component versions
 
@@ -1421,7 +1421,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive-site settings are ignored during HCatInputFormat split-calculation.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Have a approved/not-approved config to allow selective caching of tables/partitions and allow read while prewarming.
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Have an approved/not-approved config to allow selective caching of tables/partitions and allow read while prewarming.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Add multiple\_agg.q test for blobstores.
 

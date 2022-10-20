@@ -37,6 +37,9 @@ curl --location --request POST \
 --data-binary $audio_file
 ```
 
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+
 You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. Up to 30 seconds of audio will be recognized and converted to text.
 
 ```console

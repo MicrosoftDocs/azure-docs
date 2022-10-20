@@ -4,7 +4,8 @@ description: How to attach and detach permissions for groups, users, and service
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
