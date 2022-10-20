@@ -13,7 +13,7 @@ ms.custom: devx-track-python, mode-api
 
 # Quickstart: Azure Blob Storage client library for Python
 
-Get started with the Azure Blob Storage client library for Python to manage blobs and containers. Follow steps to install the package and try out example code for basic tasks.
+Get started with the Azure Blob Storage client library for Python to manage blobs and containers. Follow steps to install the package and try out example code for basic tasks in an interactive console app.
 
 [API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Samples](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
@@ -97,7 +97,7 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
-`DefaultAzureCredential` is a class provided by the Azure Identity client library for Python. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+`DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
@@ -214,7 +214,7 @@ Decide on a name for the new container. The code below appends a UUID value to t
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Create an instance of the [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) class by calling the [from_connection_string](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#from-connection-string-conn-str--credential-none----kwargs-) method. Then, call the [create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#create-container-name--metadata-none--public-access-none----kwargs-) method to actually create the container in your storage account.
+Call the [create_container](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#create-container-name--metadata-none--public-access-none----kwargs-) method to actually create the container in your storage account.
 
 Add this code to the end of the `try` block:
 
@@ -294,7 +294,7 @@ Before you begin the cleanup process, check your *data* folder for the two files
 
 ## Clean up resources
 
-After you've verified the files and finished testing, press the **Enter** key to delete the test files along with the container you created in the storage account.
+After you've verified the files and finished testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
 
 ## Next steps
 
