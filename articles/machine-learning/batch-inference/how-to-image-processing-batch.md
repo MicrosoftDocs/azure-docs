@@ -78,7 +78,7 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
     ```python
     model_name = 'imagenet-classifier'
     model = ml_client.models.create_or_update(
-        Model(path=model_path, type=AssetTypes.CUSTOM_MODEL)
+        Model(name=model_name, path=model_path, type=AssetTypes.CUSTOM_MODEL)
     )
     ```
 
