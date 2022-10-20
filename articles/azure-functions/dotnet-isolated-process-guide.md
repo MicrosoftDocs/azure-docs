@@ -140,7 +140,7 @@ For a more complete example of using custom middleware in your function app, see
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Cancellation tokens are supported in .NET functions when running in an isolated process. The following example raises an exception when a cancellation requst has been received:
+Cancellation tokens are supported in .NET functions when running in an isolated process. The following example raises an exception when a cancellation request has been received:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_throw":::
  
