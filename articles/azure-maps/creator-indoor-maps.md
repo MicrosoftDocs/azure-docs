@@ -316,4 +316,4 @@ The following example shows how to update a dataset, create a new tileset, and d
 [ontology]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [unit]: creator-facility-ontology.md?pivots=facility-ontology-v2#unit
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
-[structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structures
+[structures]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure

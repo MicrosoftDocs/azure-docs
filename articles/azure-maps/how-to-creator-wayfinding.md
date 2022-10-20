@@ -173,7 +173,7 @@ The wayfinding service calculates the path through specific intervening points. 
 
 ## Implement the wayfinding service in your map
 
-[dataset]: creator-indoor-maps.md#dataset
+[dataset]: creator-indoor-maps.md#datasets
 [tileset]: creator-indoor-maps.md#tilesets
 [how to manage access to creator services]: how-to-manage-creator.md#access-to-creator-services
 [check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
