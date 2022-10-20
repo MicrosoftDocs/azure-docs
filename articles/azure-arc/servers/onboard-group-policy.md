@@ -44,7 +44,7 @@ Before you can run the script to connect your machines, you'll need to do the fo
 
 The group policy will project machines as Arc-enabled servers in the Azure subscription, resource group, and region specified in this configuration file.
 
-## Save the onboarding script to a remote share
+## Save the onboarding script to the remote share
 
 Before you can run the script to connect your machines, you'll need to save the onboarding script to the remote share. This will be referenced when creating the Group Policy Object.
 
