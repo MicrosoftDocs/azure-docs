@@ -26,11 +26,9 @@ Migrating from version 1.x to version 4.x also can affect bindings. If you're mi
 
 The following sections let you compare C# code, project files, and behaviors between versions. This comparison makes it easier for you to prepare your application for migration. 
 
-Use the tabs to switch between the following versions for comparison: 
+For comparison, use the tabs to switch between the following .NET runtimes, both of which run on Functions version 4.x: 
 
-+ **Version 1.x**: the current version of your C# app that requires .NET Framework 2.1. 
-
-+ **Version 4.x**: migrated C# project code that requires .NET Framework 4.8. 
++ **.NET Framework 4.8**: migrated C# project code that requires .NET Framework 4.8. 
 
 + **.NET 7**:  C# project migrated to run on .NET 7 instead of .NET Framework 4.8.  
 This migration is recommended when your migrated app no longer requires .NET Framework 4.8 APIs.
@@ -41,13 +39,15 @@ When applicable, these tabs compare the code directly from the templates for eac
 
 The following changes are required in the .csproj file:
 
-# [Version 1.x](#tab/v1)
+#### Version 1.x
 
 Complete project file for version 1.x:
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/Company.FunctionApp.csproj":::
 
-# [Version 4.x](#tab/v4)
+#### Version 4.x
+
+# [.NET Framework 4.8](#tab/v4)
 
 Update `PropertyGroup`:
 
@@ -87,13 +87,13 @@ Add new `ItemGroup`:
 
 ### program.cs file
 
-Migrating requires you to add a program.cs file to your project: 
+#### Version 1.x
 
-# [Version 1.x](#tab/v1)
+Migrating requires you to add a program.cs file to your project.
 
-Not required in version 1.x.
+#### Version 4.x
 
-# [Version 4.x](#tab/v4)
+# [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Program.cs" range="2-20":::
 
@@ -107,11 +107,13 @@ Not required in version 1.x.
 
 Settings in the host.json file apply at the function app level, both locally and in Azure. For more information, see [Host.json](./functions-host-json.md).
 
-# [Version 1.x](#tab/v1)
+#### Version 1.x
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/host.json":::
 
-# [Version 4.x](#tab/v4)
+#### Version 4.x
+
+# [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
 
@@ -125,11 +127,13 @@ Settings in the host.json file apply at the function app level, both locally and
 
 The local.settings.json file is only used when running locally. For information, see [Local settings file](functions-develop-local.md#local-settings-file).
 
-# [Version 1.x](#tab/v1)
+#### Version 1.x
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json":::
 
-# [Version 4.x](#tab/v4)
+#### Version 4.x
+
+# [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -141,13 +145,15 @@ The local.settings.json file is only used when running locally. For information,
 
 ### Function code
 
-The following changes to `using` statements are required in your C# functions (.cs) code files:  
+Changes to `using` statements are required in your C# functions (.cs) code files.  
 
-# [Version 1.x](#tab/v1)
+#### Version 1.x
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs" range="11-13":::
 
-# [Version 4.x](#tab/v4)
+#### Version 4.x
+
+# [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs" range="2-4":::
 
@@ -157,16 +163,18 @@ The following changes to `using` statements are required in your C# functions (.
 
 ---
 
-The following .NET classes you use in your functions changed between versions:
+#### Version 1.x
 
-# [Version 1.x](#tab/v1)
+The following .NET classes you use in your functions changed between versions:
 
 + `FunctionName` (attribute)
 + `TraceWriter`
 + `HttpRequestMessage`
 + `HttpResonseMessage` 
 
-# [Version 4.x](#tab/v4)
+#### Version 4.x
+
+# [.NET Framework 4.8](#tab/v4)
 
 + `Function` (attribute)
 + `ILogger`
@@ -184,9 +192,9 @@ The following .NET classes you use in your functions changed between versions:
 
 ### HTTP trigger template
 
-Most of the code changes between version 1.x and version 4.x can be seen in HTTP triggered functions. You can compare the differences between versions in HTTP trigger templates, as follows:
+Most of the code changes between version 1.x and version 4.x can be seen in HTTP triggered functions. You can compare the differences between versions in HTTP trigger templates.
 
-# [Version 1.x](#tab/v1)
+#### Version 1.x
 
 ```csharp
 using System.Linq;
@@ -229,7 +237,9 @@ namespace Company.Function
 }
 ```
 
-# [Version 4.x](#tab/v4)
+#### Version 4.x
+
+# [.NET Framework 4.8](#tab/v4)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp-Isolated/HttpTriggerCSharp.cs":::
 
