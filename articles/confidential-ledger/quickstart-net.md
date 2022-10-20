@@ -68,7 +68,7 @@ dotnet add package Azure.Identity
 
 ## Object model
 
-The Azure confidential ledger client library for .NET allows you to create an immutable ledger entry in the service.  The [Code examples](#code-examples) section shows how to create a write to the ledger and retrieve the transaction id.
+The Azure confidential ledger client library for .NET allows you to create an immutable ledger entry in the service.  The [Code examples](#code-examples) section shows how to create a write to the ledger and retrieve the transaction ID.
 
 ## Code examples
 
