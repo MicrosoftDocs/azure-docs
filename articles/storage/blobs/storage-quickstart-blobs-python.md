@@ -3,7 +3,7 @@ title: 'Quickstart: Azure Blob Storage client library for Python'
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 10/13/2022
+ms.date: 10/20/2022
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
