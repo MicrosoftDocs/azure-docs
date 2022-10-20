@@ -55,7 +55,7 @@ Here are a few pointers to get you started:
 * [Query table data by using the API for Table](tutorial-query.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the API for Table](tutorial-global-distribution.md)
 * [Azure Cosmos DB Table .NET Standard SDK](dotnet-standard-sdk.md)
-* [Azure Cosmos DB Table .NET SDK](dotnet-sdk.md)
+* [Azure Cosmos DB Table .NET SDK](/dotnet/api/overview/azure/data.tables-readme)
 * [Azure Cosmos DB Table Java SDK](java-sdk.md)
 * [Azure Cosmos DB Table Node.js SDK](nodejs-sdk.md)
 * [Azure Cosmos DB Table SDK for Python](python-sdk.md)

@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: application-gateway
   ms.topic: faq
-  ms.date: 09/13/2022
+  ms.date: 10/19/2022
   ms.author: greglin
   ms.custom: references_regions
 title: Frequently asked questions about Application Gateway
@@ -74,6 +74,8 @@ sections:
           $publicIP.IdleTimeoutInMinutes = "15"
           Set-AzPublicIpAddress -PublicIpAddress $publicIP
           ```
+
+          For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is non-configurable.
  
       - question: Can I rename my Application Gateway resource?
         answer: No. There is no way to rename an Application Gateway resource. You must create a new resource with a different name. 
