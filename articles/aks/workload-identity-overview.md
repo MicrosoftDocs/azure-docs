@@ -41,7 +41,7 @@ This article helps you understand this new authentication feature, and reviews t
 
 ## Limitations
 
-- You can only have 20 federated identities.
+- You can only have 20 federated identity credentials per managed identity.
 - It takes a few seconds for the federated identity credential to be propagated after being initially added.
 
 ## How it works

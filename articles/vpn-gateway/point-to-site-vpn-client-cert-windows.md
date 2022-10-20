@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 10/12/2022
 ms.author: cherylmc
 ---
 
@@ -67,13 +67,13 @@ You can generate VPN client profile configuration files using PowerShell, or by 
 
 1. For next steps, depending on your P2S configuration, go to one of the following sections:
 
-   * [IKEv2 and SSTP - native client steps](#ike)
+   * [IKEv2 and SSTP - native VPN client steps](#ike)
    * [OpenVPN - OpenVPN client steps](#openvpn)
-   * [OpenVPN - Azure VPN client steps](#azurevpn)
+   * [OpenVPN - Azure VPN Client steps](#azurevpn)
 
 ## <a name="ike"></a>IKEv2 and SSTP - native VPN client steps
 
-This section helps you configure the native VPN client on your Windows computer to connect to your VNet. This configuration doesn't require additional client software.
+This section helps you configure the native VPN client that's part of your Windows operating system to connect to your VNet. This configuration doesn't require additional client software.
 
 ### <a name="view-ike"></a>View config files
 
@@ -95,10 +95,10 @@ You can use the same VPN client configuration package on each Windows client com
 
 ## <a name="azurevpn"></a>OpenVPN - Azure VPN Client steps
 
-This section applies to certificate authentication configurations that are configured to use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN client to connect to your VNet. To connect to your VNet, each client must have the following items:
+This section applies to certificate authentication configurations that use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. To connect to your VNet, each client must have the following items:
 
-* The Azure VPN client software is installed.
-* Azure VPN client profile is configured using the downloaded **azurevpnconfig.xml** configuration file.
+* The Azure VPN Client software is installed.
+* Azure VPN Client profile is configured using the downloaded **azurevpnconfig.xml** configuration file.
 * The client certificate is installed locally.
 
 ### <a name="view-azurevpn"></a>View config files
@@ -114,7 +114,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
 ### Configure the VPN client profile
 
-1. Open the Azure VPN client.
+1. Open the Azure VPN Client.
 
 1. Click **+** on the bottom left of the page, then select **Import**.
 

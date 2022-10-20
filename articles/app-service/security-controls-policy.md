@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure App Service
 description: Lists Azure Policy Regulatory Compliance controls available for Azure App Service. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 09/30/2022
+ms.date: 10/12/2022
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
@@ -70,9 +70,11 @@ compliant with the specific standard.
 - **Configure Function app slots to use the latest TLS version**
   - New policy created
 - **App Service apps should use latest 'HTTP Version'**
-  - Updated scope to include Windows apps
+  - Update scope to include Windows apps
 - **Function apps should use latest 'HTTP Version'**
-  - Updated scope to include Windows apps
+  - Update scope to include Windows apps
+- **App Service Environment apps should not be reachable over public internet**
+  - Modify policy definition to remove check on API version
 
 ### September 2022
 

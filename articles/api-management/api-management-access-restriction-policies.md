@@ -373,6 +373,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 The `ip-filter` policy filters (allows/denies) calls from specific IP addresses and/or address ranges.
 
+> [!NOTE]
+> The policy filters the immediate caller's IP address. However, if API Management is hosted behind Application Gateway, the policy considers its IP address, not the originator of the API request. Presently, IP addresses in the `X-Forwarded-For` are not considered.
+
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
 ### Policy statement
@@ -557,7 +560,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
-The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
+The `validate-jwt` policy enforces existence and validity of a JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value. The JSON Web Key Set (JWKS) is cached and is not fetched on each request. Automatic metadata refresh occurs once per hour. If retrieval fails, it will be refreshed in five minutes.
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.

@@ -6,7 +6,7 @@ ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: how-to 
 ms.date: 07/05/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-2022
 ---
 
 # How to manage data partitions?
@@ -35,7 +35,7 @@ Each partition provides the highest level of data isolation within a single depl
 
 3. **Choose a name for your data partition**
 
-    Each data partition name needs to be - "1-10 characters long and be a combination of lowercase letters, numbers and hyphens only" The data partition name will be prepended with the name of the MEDS instance. Choose a name for your data partition and hit create. Soon as you hit create, the deployment of the underlying data partition resources such as Cosmos DB and Storage Accounts is started. 
+    Each data partition name needs to be - "1-10 characters long and be a combination of lowercase letters, numbers and hyphens only" The data partition name will be prepended with the name of the MEDS instance. Choose a name for your data partition and hit create. Soon as you hit create, the deployment of the underlying data partition resources such as Azure Cosmos DB and Azure Storage accounts is started.
 
     >[!NOTE]
     >It generally takes 15-20 minutes to create a data partition.

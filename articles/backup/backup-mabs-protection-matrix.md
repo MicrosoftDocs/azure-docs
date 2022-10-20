@@ -93,7 +93,7 @@ For more information, see the [ExpressRoute routing requirements](../expressrout
 
 Support for the following operating systems and applications in MABS are deprecated. We recommended you to upgrade them to continue protecting your data.
 
-If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](/azure/backup/). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
+If the existing commitments prevent upgrading Windows Server or SQL Server, migrate them to Azure and [use Azure Backup to protect the servers](./index.yml). For more information, see [migration of Windows Server, apps and workloads](https://azure.microsoft.com/migration/windows-server/).
 
 For on-premises or hosted environments that you can't upgrade or migrate to Azure, activate Extended Security Updates for the machines for protection and support. Note that only limited editions are eligible for Extended Security Updates. For more information, see [Frequently asked questions](https://www.microsoft.com/windows-server/extended-security-updates).
 
