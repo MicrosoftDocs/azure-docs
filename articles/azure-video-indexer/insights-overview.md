@@ -1,4 +1,3 @@
-
 ---
 title:  Azure Video Indexer insights overview
 description: This article gives a brief overview of Azure Video Indexer insights.
