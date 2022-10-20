@@ -546,7 +546,7 @@ These attributes might include adding a custom property to your telemetry. You m
 > [!TIP]
 > The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
 
-#### Add a custom property
+#### Add a custom property to a Trace
 
 Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests or the dependencies tables in Application Insights.
 
