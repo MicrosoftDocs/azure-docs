@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -18,6 +18,8 @@ recommendations: false
 <!-- markdownlint-disable MD051 -->
 
 # What's new in Azure Form Recognizer
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
