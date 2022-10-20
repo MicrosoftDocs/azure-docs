@@ -43,7 +43,7 @@ Request URI query strings are case sensitive. While the scheme and host are case
 
 Request header names are case insensitive. However, request header values are case sensitive. 
 
-In all cases matching is case insensitive. Regular expressions aren't allowed as selectors.
+In all other cases matching is case insensitive. Regular expressions aren't allowed as selectors.
 
 > [!NOTE]
 > For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
