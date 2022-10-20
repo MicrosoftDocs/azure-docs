@@ -44,7 +44,7 @@ Four Azure resources are defined in the template.
 
 1. Select the following link to sign in to Azure and open a template.
 
-    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json) <!-- TODO: check if this link needs changing if the folder name changes -->
+    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
 
 2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
     
@@ -58,7 +58,7 @@ Four Azure resources are defined in the template.
     | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site.|
     | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
-    | **Azure Stack Edge Device** | Enter the name of the Azure Stack Edge resource in the site. <!-- TODO: check field name and position --> |
+    | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. <!-- TODO: check field name and position --> |
     | **Control Plane Access Interface Name** | Enter the name of the control plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
     | **User Plane Access Interface Name** | Enter the name of the user plane interface on the access network. This must match the corresponding virtual network name on port 5 on your Azure Stack Edge Pro device. |
