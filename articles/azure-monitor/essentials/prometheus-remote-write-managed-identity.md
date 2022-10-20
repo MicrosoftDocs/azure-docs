@@ -3,7 +3,7 @@ title: Remote-write in Azure Monitor Managed Service for Prometheus (preview)
 description: Describes how to configure remote-write to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using managed identity authentication. 
 author: bwren 
 ms.topic: conceptual
-ms.date: 10/17/2022
+ms.date: 10/20/2022
 ---
 
 # Azure Monitor managed service for Prometheus remote write - managed identity (preview)
@@ -32,7 +32,7 @@ Data for Azure Monitor managed service for Prometheus is stored in an [Azure Mon
 
 
 ## Locate AKS node resource group
-The node resource group of the AKS contains resources that you will require for other steps in this process. This resource group has the name `MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>`. You can locate it from the **Resource groups** menu in the Azure portal. Start by making sure that you can locate this resource group since other steps below will refer to it.
+The node resource group of the AKS cluster contains resources that you will require for other steps in this process. This resource group has the name `MC_<AKS-RESOURCE-GROUP>_<AKS-CLUSTER-NAME>_<REGION>`. You can locate it from the **Resource groups** menu in the Azure portal. Start by making sure that you can locate this resource group since other steps below will refer to it.
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-groups.png" alt-text="Screenshot showing list of resource groups." lightbox="media/prometheus-remote-write-managed-identity/resource-groups.png":::
 
@@ -43,7 +43,7 @@ Get the **Client ID** from the **Overview** page of your [managed identity](../.
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/client-id.png" alt-text="Screenshot showing client ID on overview page of managed identity." lightbox="media/prometheus-remote-write-managed-identity/client-id.png":::
 
-Instead of creating your own ID, you can use one of the identities created by AKS, which are listed in [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md). This procedure will use the `Kubelet` identity. The name of this identity will be `<AKS-CLUSTER-NAME>-agentpool` and located in the node resource group of the AKS cluster.
+Instead of creating your own ID, you can use one of the identities created by AKS, which are listed in [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md). This article uses the `Kubelet` identity. The name of this identity will be `<AKS-CLUSTER-NAME>-agentpool` and located in the node resource group of the AKS cluster.
 
 :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-group-details.png" alt-text="Screenshot showing list of resources in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details.png":::
 
@@ -76,12 +76,12 @@ The managed identity requires the *Monitoring Metrics Publisher* role on the dat
 
 
 ## Grant AKS cluster access to the identity
-This step isn't required if you're using an AKS identity since it will already has access to the cluster.
+This step isn't required if you're using an AKS identity since it will already have access to the cluster.
 
 > [!IMPORTANT]
 > You must have owner/user access administrator access on the cluster.
 
-1. Identify the virtual machine scale sets in the node resource group for your AKS cluster.
+1. Identify the virtual machine scale sets in the [node resource group](#locate-aks-node-resource-group) for your AKS cluster.
 
     :::image type="content" source="media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png" alt-text="Screenshot showing virtual machine scale sets in the node resource group." lightbox="media/prometheus-remote-write-managed-identity/resource-group-details-virtual-machine-scale-sets.png":::
 
@@ -94,17 +94,7 @@ This step isn't required if you're using an AKS identity since it will already h
 
 ## Deploy Side car and configure remote write on the Prometheus server
 
-1. Copy the YAML below and save to a file, replacing the following values. 
-
-    | Value | Description |
-    |:---|:---|
-    | `<AKS-CLUSTER-NAME>` | Name of your AKS cluster |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2`<br>This is the remote write container image version.   |
-    | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
-    | `<MANAGED-IDENTITY-CLIENT-ID>` | - **Client ID** from the **Overview** page for the managed identity |
-    | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
-
-    This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
+1. Copy the YAML below and save to a file. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
 
     ```yml
     prometheus:
@@ -147,8 +137,22 @@ This step isn't required if you're using an AKS identity since it will already h
     ```
 
 
-2. Open Azure Cloud Shell and upload the YAML file.
-3. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands. 
+2. Replace the following values in the YAML.
+
+    | Value | Description |
+    |:---|:---|
+    | `<AKS-CLUSTER-NAME>` | Name of your AKS cluster |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20221012.2`<br>This is the remote write container image version.   |
+    | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
+    | `<MANAGED-IDENTITY-CLIENT-ID>` | **Client ID** from the **Overview** page for the managed identity |
+    | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
+
+    
+
+
+
+3. Open Azure Cloud Shell and upload the YAML file.
+4. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands. 
 
     ```azurecli
     # set context to your cluster 
@@ -162,7 +166,4 @@ This step isn't required if you're using an AKS identity since it will already h
 
 ## Next steps
 
-- [Use preconfigured alert rules for your Kubernetes cluster](../containers/container-insights-metric-alerts.md).
-- [Learn more about the Azure alerts](../alerts/alerts-types.md).
-- [Prometheus documentation for recording rules](https://aka.ms/azureprometheus-promio-recrules).
-- [Prometheus documentation for alerting rules](https://aka.ms/azureprometheus-promio-alertrules).
+- [Learn more about Azure Monitor managed service for Prometheus](../prometheus-metrics-overview.md).
