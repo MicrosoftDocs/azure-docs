@@ -51,15 +51,15 @@ By enabling pull request annotations in GitHub, your developers gain the ability
 
 1. Navigate to **`Your repository's home page`** > **.github/workflows**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/workflow-folder.png" alt-text="Screenshot that shows where to navigate to, to select the GitHub workflow folder.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/workflow-folder.png" alt-text="Screenshot that shows where to navigate to, to select the GitHub workflow folder." lightbox="media/tutorial-enable-pr-annotations/workflow-folder.png":::
 
 1. Select **msdevopssec.yml**, which was created in the [prerequisites](#prerequisites).
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/devopssec.png" alt-text="Screenshot that shows you where on the screen to select the msdevopssec.yml file.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/devopssec.png" alt-text="Screenshot that shows you where on the screen to select the msdevopssec.yml file." lightbox="media/tutorial-enable-pr-annotations/devopssec.png":::
 
 1. Select **edit**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/edit-button.png" alt-text="Screenshot that shows you what the edit button looks like.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/edit-button.png" alt-text="Screenshot that shows you what the edit button looks like." lightbox="media/tutorial-enable-pr-annotations/edit-button.png":::
 
 1. Locate and update the trigger section to include:
 
@@ -68,8 +68,6 @@ By enabling pull request annotations in GitHub, your developers gain the ability
     pull_request:
       branches: ["main"]
     ```
-
-    :::image type="content" source="media/tutorial-enable-pr-annotations/trigger-section.png" alt-text="Screenshot of how the code will look when added.":::
 
     You can also view a [sample repository](https://github.com/microsoft/security-devops-action/tree/main/samples).
 
@@ -117,7 +115,7 @@ Before you can enable pull request annotations, your main branch must have enabl
 
 1. Navigate to **Branch Policies** > **Main branch**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/branch-policies.png" alt-text="Screenshot that shows where to locate the branch policies.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/branch-policies.png" alt-text="Screenshot that shows where to locate the branch policies." lightbox="media/tutorial-enable-pr-annotations/branch-policies.png":::
 
 1. Locate the Build Validation section. 
 
