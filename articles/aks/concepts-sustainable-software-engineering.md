@@ -51,7 +51,7 @@ Learn more about the [shared responsibility model for sustainability](/azure/arc
     Being carbon aware means responding to shifts in carbon intensity by increasing or decreasing your demand.
 
 
-## Design patterns
+## Design patterns and practices
 
 We recommend careful consideration of these design patterns for building a sustainable workload on Azure Kubernetes Service, before reviewing the detailed recommendations in each of the design areas.
 
