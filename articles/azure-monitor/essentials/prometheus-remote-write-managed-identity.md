@@ -104,7 +104,7 @@ This step isn't required if you're using an AKS identity since it will already h
     | `<MANAGED-IDENTITY-CLIENT-ID>` | - **Client ID** from the **Overview** page for the managed identity |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
 
-This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
+    This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
 
     ```yml
     prometheus: 
