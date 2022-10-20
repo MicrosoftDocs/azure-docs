@@ -39,7 +39,7 @@ Read more about [the shared responsibility model for sustainability](/framework/
 
  **[Energy Efficiency](https://learn.greensoftware.foundation/practitioner/energy-efficiency/)**: Use the least amount of energy possible.
 
-&nbsp;&nbsp;&nbsp; One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate ; thereby increasing hardware efficiency as well.
+    One way to increase energy efficiency, is to run the application on as few servers as possible, with the servers running at the highest utilization rate; thereby increasing hardware efficiency as well.
 
  **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
 
