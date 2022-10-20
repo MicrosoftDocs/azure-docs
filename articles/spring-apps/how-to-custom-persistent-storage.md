@@ -64,9 +64,9 @@ Use the following steps to bind an Azure Storage account as a storage resource i
 
    :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of Azure portal Apps page." lightbox="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png":::
 
-1. Select **Configuration**, then select **Persistent Storage**.
+1. Select **Configuration**, and then select **Persistent Storage**.
 
-1. Select **Add persistent storage**, add the values in the following table, and then select **Apply**.
+1. Select **Add persistent storage**. Add the values in the following table, and then select **Apply**.
 
     | Setting                 | Value                                                          |
     |-------------------------|----------------------------------------------------------------|
@@ -77,7 +77,7 @@ Use the following steps to bind an Azure Storage account as a storage resource i
     | Mount options           | Optional                                                       |
     | Read only               | Optional                                                       |
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/add-persistent-storage.png" alt-text="Screenshot of Azure portal 'Add persistent storage' form.":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-persistent-storage.png" alt-text="Screenshot of Azure portal Add persistent storage page." lightbox="media/how-to-custom-persistent-storage/add-persistent-storage.png":::
 
 1. Select **Save** to apply all the configuration changes.
 
