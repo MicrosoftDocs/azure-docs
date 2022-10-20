@@ -99,7 +99,7 @@ Azure FarmBeats require Azure Active Directory application creation and registra
 
 Run the following steps in a Cloud Shell instance using the PowerShell environment. First-time users will be prompted to select a subscription and create a storage account. Complete the setup as instructed.
 
-1. Download the [AAD app generator script](https://aka.ms/FarmBeatsAADScript)
+1. Download the AAD app generator script
 
     ```azurepowershell-interactive
         wget -q https://aka.ms/FarmBeatsAADScript -O ./create_aad_script.ps1
