@@ -111,7 +111,7 @@ Next, create the function that acts as the trigger and listens to the queue.
 
      ![Select template for existing function app](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. On the **Azure Service Bus Queue trigger** pane, provide a name for your trigger, and set up the **Service Bus connection** for the queue, which uses the Azure Service Bus SDK `OnMessageReceive()` listener, and select **Create**.
+1. Under **Template details**, enter a name for your function, and set up the **Service Bus connection** for the queue, which uses the Azure Service Bus SDK `OnMessageReceive()` listener. Next, enter the queue name, and then select **Create**.
 
 1. Write a basic function to call the previously created logic app endpoint by using the queue message as a trigger. Before you write your function, review these considerations:
 
