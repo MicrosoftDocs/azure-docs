@@ -38,7 +38,7 @@ The IoT Central REST API lets you:
 Use the following request to create a new device.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+PUT https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 The following example shows a request body that adds a device for a device template. You can get the `template` details from the device templates page in IoT Central application UI.
@@ -79,7 +79,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -104,7 +104,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve credentials of a device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}/credentials?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/devices/{deviceId}/credentials?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example:
@@ -122,13 +122,13 @@ The response to this request looks like the following example:
 ### Update a device
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which updates the `displayName` to the device:
+The sample request body looks like the following example that updates the `displayName` to the device:
 
 ```json
 {
@@ -159,7 +159,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-05-31
+DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-07-31
 ```
 
 ### List devices
@@ -167,7 +167,7 @@ DELETE https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=2022-
 Use the following request to retrieve a list of devices from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example: 
@@ -360,7 +360,7 @@ The response to this request looks like the following example:
 
 You can also combine two or more filters.
 
-The following example shows how to retrieve the top 2 device where the display name contains the string `thermostat`.
+The following example shows how to retrieve the top two devices where the display name contains the string `thermostat`.
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
@@ -400,7 +400,7 @@ The response to this request looks like the following example:
 Use the following request to create a new device group.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+PUT https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
 When you create a device group, you define a `filter` that selects the devices to add to the group. A `filter` identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" template where the `provisioned` property is true
@@ -444,7 +444,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device group from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
 * deviceGroupId - Unique ID for the device group.
@@ -466,10 +466,10 @@ The response to this request looks like the following example:
 ### Update a device group
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+PATCH https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
-The sample request body looks like the following example which updates the `displayName` of the device group:
+The sample request body looks like the following example that updates the `displayName` of the device group:
 
 ```json
 {
@@ -497,7 +497,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device group:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-05-31
+DELETE https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-version=2022-07-31
 ```
 
 ### List device groups
@@ -505,7 +505,7 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceGroups/{deviceGroupId}?api-ver
 Use the following request to retrieve a list of device groups from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=2022-05-31
+GET https://{subdomain}.{baseDomain}/api/deviceGroups?api-version=2022-07-31
 ```
 
 The response to this request looks like the following example: 
@@ -860,7 +860,7 @@ Use the following request to update an enrollment group.
 PATCH https://{your app subdomain}.azureiotcentral.com/api/enrollmentGroups/myx509eg?api-version=2022-07-31
 ```
 
-The following example shows a request body that updates the display name of a  enrollment group:
+The following example shows a request body that updates the display name of an enrollment group:
 
 ```json
 {

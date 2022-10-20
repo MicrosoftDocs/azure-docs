@@ -496,6 +496,10 @@
       href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
+  - name: Identity verification tools
+    items:
+    - name: Grit IEF editor 
+      href: partner-grit-editor.md
   - name: Domain name
     items:
     - name: b2clogin.com overview

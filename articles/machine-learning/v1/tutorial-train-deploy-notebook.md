@@ -51,7 +51,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 1. At the top, select the **Samples** tab.
 
-1. Open the **v1 (`<version>`)** folder. The version number represents the current v1 release for the Python SDK.
+1. Open the **SDK v1** folder.
 
 1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
 

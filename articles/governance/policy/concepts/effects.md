@@ -747,10 +747,7 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Manual (preview)
 
-The new `manual` (preview) effect enables you to define and track your own custom attestation
-resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
-allows for manual changes to the compliance state. To change the compliance for a manual policy,
-you'll need to create an attestation for that compliance state.
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender
