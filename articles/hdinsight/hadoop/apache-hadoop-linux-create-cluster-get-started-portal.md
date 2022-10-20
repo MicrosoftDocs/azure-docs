@@ -66,13 +66,13 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 1. From the **Review + create** tab, verify the values you selected in the earlier steps.
 
-   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight Linux get started cluster summary" border="true":::
+   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="Screenshot showing HDInsight Linux get started cluster summary" border="true":::
 
 1. Select **Create**. It takes about 20 minutes to create a cluster.
 
    Once the cluster is created, you see the cluster overview page in the Azure portal.
 
-   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png" alt-text="HDInsight Linux get started cluster settings" border="true":::
+   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png" alt-text="Screenshot showing HDInsight Linux get started cluster settings" border="true":::
 
 ## Run Apache Hive queries
 
@@ -83,7 +83,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 1. To open Ambari, from the previous screenshot, select **Cluster Dashboard**.  You can also browse to  `https://ClusterName.azurehdinsight.net` where `ClusterName` is the cluster you created in the previous section.
 
-   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png" alt-text="HDInsight Linux get started cluster dashboard" border="true":::
+   :::image type="content" source="./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png" alt-text="Screenshot showing HDInsight Linux get started cluster dashboard" border="true":::
 
 2. Enter the Hadoop username and password that you specified while creating the cluster. The default username is **admin**.
 
