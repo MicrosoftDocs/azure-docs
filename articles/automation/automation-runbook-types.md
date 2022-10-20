@@ -55,13 +55,13 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
 
-The PowerShell version is determined by the **Runtime version** specified (that is version 7.2 preview, 7.1 preview or 5.1). The Azure Automation service supports the latest PowerShell runtime.
+The PowerShell version is determined by the **Runtime version** specified (that is version 7.2 (preview), 7.1 (preview) or 5.1). The Azure Automation service supports the latest PowerShell runtime.
  
 The same Azure sandbox and Hybrid Runbook Worker can execute **PowerShell 5.1** and **PowerShell 7.1 (preview)** runbooks side by side.   
 
 > [!NOTE]
 > - PowerShell 7.2 (preview) runtime version is currently supported in six regions for Cloud jobs only: West Central US, East US, South Africa North, Japan East, North Europe, Australia Southeast 
->  - At the time of runbook execution, if you select **Runtime Version** as **7.1 (preview)**, PowerShell modules targeting 7.1 runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used. This applies for PowerShell 7.2 (preview) modules and runbooks. 
+>  - At the time of runbook execution, if you select **Runtime Version** as **7.1 (preview)**, PowerShell modules targeting 7.1 (preview) runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used. This applies for PowerShell 7.2 (preview) modules and runbooks. 
  
 Ensure that you select the right Runtime Version for modules.
 
