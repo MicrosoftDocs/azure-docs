@@ -368,7 +368,7 @@ To delete an Azure file share, you can use the Azure portal, Azure PowerShell, o
    Login-AzAccount -TenantId <YourTenantID>
    ```
 
-1. Run the following script. Replace `<YourStorageAccountName>`, `<StorageAccountKey>`, and `<FileShareName>` with your information. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` cmdlet.
+1. Run the following script. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<FileShareName>` with your information. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` cmdlet.
 
    ```azurepowershell
    $context = New-AzStorageContext -StorageAccountName <YourStorageAccountName> -StorageAccountKey <YourStorageAccountKey>
