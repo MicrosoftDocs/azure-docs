@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/10/2022
 ms.author: lajanuar
+ms.custom: references_regions
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
