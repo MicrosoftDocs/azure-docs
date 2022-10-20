@@ -12,20 +12,19 @@ services: azure-maps
 
 # Indoor maps wayfinding service (preview)
 
-The Azure Maps Creator wayfinding service allows you to navigate from place to place anywhere within your indoor map. The service utilizes stairs and elevators to navigate between floors and provides guidance to help you navigate around physical obstructions. This article describes how to plot a route from a starting point to a destination point in a sample indoor map.
+The Azure Maps Creator wayfinding service allows you to navigate from place to place anywhere within your indoor map. The service utilizes stairs and elevators to navigate between floors and provides guidance to help you navigate around physical obstructions. This article describes how to generate a path from a starting point to a destination point in a sample indoor map.
 
 ## Prerequisites
 
 - Understanding of [Creator concepts](creator-indoor-maps.md).
-- An Azure Maps Creator [dataset] and [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps](tutorial-creator-indoor-maps.md) tutorial helpful.
-- The [sample drawing package][sample drawing package].
+- An Azure Maps Creator [dataset][dataset] and [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps](tutorial-creator-indoor-maps.md) tutorial helpful.
 
 >[!IMPORTANT]
 >
-> * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL. For more information, see [Access to Creator Services][how to manage access to creator services].
-> * In the URL examples in this article you will need to:
->   * Replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
->   * Replace `{datasetId`} with your `datasetId`. For more information, see the [Check the dataset creation status][check dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL. For more information, see [Access to Creator Services][how to manage access to creator services].
+> - In the URL examples in this article you will need to:
+>   - Replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+>   - Replace `{datasetId`} with your `datasetId`. For more information, see the [Check the dataset creation status][check dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
 
 ## Create a routeset
 
@@ -172,10 +171,7 @@ The wayfinding service calculates the path through specific intervening points. 
 
 ## Implement the wayfinding service in your map
 
-
-
-[dataset]: /rest/api/maps/v2/dataset
-[tileset]: /rest/api/maps/v2/tileset
-[sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip
+[dataset]: creator-indoor-maps.md#dataset
+[tileset]: creator-indoor-maps.md#tilesets
 [how to manage access to creator services]: how-to-manage-creator.md#access-to-creator-services
 [check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
