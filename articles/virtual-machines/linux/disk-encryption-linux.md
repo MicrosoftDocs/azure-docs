@@ -188,7 +188,7 @@ To disable the encryption, see [Disable encryption and remove the encryption ext
 
 You can enable disk encryption on an existing or running Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad).
 
-1. Click **Deploy to Azure** on the Azure quickstart template.
+1. Click **Deploy to Azure** on the Azure Quickstart Template.
 
 2. Select the subscription, resource group, resource group location, parameters, legal terms, and agreement. Click **Create** to enable encryption on the existing or running VM.
 
@@ -449,7 +449,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 
 - Encrypting basic tier VM or VMs created through the classic VM creation method.
 - Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
-- Encrypting the OS drive for Linux virtual machine scale sets.
+- Encrypting the OS drive for Linux Virtual Machine Scale Sets.
 - Encrypting custom images on Linux VMs.
 - Integration with an on-premises key management system.
 - Azure Files (shared file system).
