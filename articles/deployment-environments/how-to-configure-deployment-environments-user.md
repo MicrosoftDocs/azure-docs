@@ -22,52 +22,52 @@ Based on the scope of access that you allow, a Deployment Environments User can:
 * Read, write, delete, or perform actions (like deploy or reset) on their own environment.
 * Read or perform actions (deploy or reset) on environments that other users created.
 
-When you assign the role at the project level, the Deployment Environments User can perform the preceding actions on all environment types enabled at the project level. When you assign the role to specific environment types, the Deployment Environments User can perform the actions only on the respective environment types.
+When you assign the role at the project level, the user can perform the preceding actions on all environment types enabled at the project level. When you assign the role to specific environment types, the user can perform the actions only on the respective environment types.
 
 ## Assign permissions to developers for a project
 
-1. Select the project you want to provide your development team members access to.
+1. Select the project that you want your development team members to be able to access.
 2. Select **Access Control(IAM)** from the left menu.
 
-   :::image type="content" source=".\media\configure-deployment-environments-user\access-control-page.png" alt-text="Screenshot showing link to access control page.":::
+   :::image type="content" source=".\media\configure-deployment-environments-user\access-control-page.png" alt-text="Screenshot that shows the link to the access control page.":::
 
 3. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source=".\media\configure-deployment-environments-user\add-role-assignment.png" alt-text="Screenshot showing Add role assignment menu option.":::
+   :::image type="content" source=".\media\configure-deployment-environments-user\add-role-assignment.png" alt-text="Screenshot that shows the menu option for adding a role assignment.":::
 
-4. On the Add role assignment page, on the Role tab, search for *deployment environments user*, select the **Deployment Environments User** built-in role, and then select **Next**.
-5. On the Members tab, select **+ Select Members**.
-6. In **Select members**, select the Active Directory Users or Groups you want to add, and then select **Select**.
-7. On the Members tab, select **Review + assign**.
+4. On the **Add role assignment** page, on the **Role** tab, search for **deployment environments user**, select the **Deployment Environments User** built-in role, and then select **Next**.
+5. On the **Members** tab, select **+ Select Members**.
+6. In **Select members**, select the Active Directory users or groups that you want to add, and then choose **Select**.
+7. On the **Members** tab, select **Review + assign**.
 
-The user can now view the project and all the Environment Types enabled within it. Deployment Environments users can [create environments from the CLI](./quickstart-create-access-environments.md).
+The users can now view the project and all the environment types that you've enabled within it. Deployment Environments users can also [create environments from the Azure CLI](./quickstart-create-access-environments.md).
 
 ## Assign permissions to developers for an environment type
 
-1. Select the project you want to provide your development team members access to.
-2. Select **Environment Types** and select the **...** beside the specific environment type.
+1. Select the project that you want your development team members to be able to access.
+2. Select **Environment Types**, and then select the ellipsis (**...**) beside the specific environment type.
 
-   :::image type="content" source=".\media\configure-deployment-environments-user\project-environment-types.png" alt-text="Screenshot showing the environment types associated with a project.":::
+   :::image type="content" source=".\media\configure-deployment-environments-user\project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project.":::
 
 3. Select **Access Control**.
 
-   :::image type="content" source=".\media\configure-deployment-environments-user\access-control-page.png" alt-text="Screenshot showing link to access control page.":::
+   :::image type="content" source=".\media\configure-deployment-environments-user\access-control-page.png" alt-text="Screenshot that shows the link to the access control page.":::
 
 4. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source=".\media\configure-deployment-environments-user\add-role-assignment.png" alt-text="Screenshot showing Add role assignment menu option.":::
+   :::image type="content" source=".\media\configure-deployment-environments-user\add-role-assignment.png" alt-text="Screenshot that shows the menu option for adding a role assignment.":::
 
-5. On the Add role assignment page, on the Role tab, search for *deployment environments user*, select the **Deployment Environments User** built-in role, and then select **Next**.
-6. On the Members tab, select **+ Select Members**.
-7. In **Select members**, select the Active Directory Users or Groups you want to add, and then select **Select**.
-8. On the Members tab, select **Review + assign**.
+5. On the **Add role assignment** page, on the **Role** tab, search for **deployment environments user**, select the **Deployment Environments User** built-in role, and then select **Next**.
+6. On the **Members** tab, select **+ Select Members**.
+7. In **Select members**, select the Active Directory users or groups that you want to add, and then choose **Select**.
+8. On the **Members** tab, select **Review + assign**.
 
-The user can now view the project and the specific environment type that they have been granted access to. Deployment Environments users can [create environments using the CLI](./quickstart-create-access-environments.md).
+The users can now view the project and the specific environment type that you've granted them access to. Deployment Environments users can also [create environments by using the CLI](./quickstart-create-access-environments.md).
 
 > [!NOTE]
-> Only users assigned the Deployment Environments User role, the DevCenter Project Admin role, or a built-in role with appropriate permissions will be able to create environments.
+> Only users who have the Deployment Environments User role, the DevCenter Project Admin role, or a built-in role with appropriate permissions can create environments.
 
 ## Next steps
 
-* [Create and Configure Projects](./quickstart-create-and-configure-projects.md)
-* [Provide access to Dev Managers](./how-to-configure-project-admin.md)
+* [Create and configure projects](./quickstart-create-and-configure-projects.md)
+* [Provide access to dev managers](./how-to-configure-project-admin.md)
