@@ -3,7 +3,7 @@ title: Tutorial Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 10/19/2022
+ms.date: 10/20/2022
 ---
 
 # Tutorial: Enable pull request annotations in GitHub and Azure DevOps
@@ -69,6 +69,8 @@ By enabling pull request annotations in GitHub, your developers gain the ability
       branches: ["main"]
     ```
 
+    :::image type="content" source="media/tutorial-enable-pr-annotations/trigger-section.png" alt-text="Screenshot of how the code will look when added.":::
+
     You can also view a [sample repository](https://github.com/microsoft/security-devops-action/tree/main/samples).
 
     (Optional) You can select which branches you want to run it on by entering the branch(es) under the trigger section. If you want to include all branches remove the lines with the branch list.  
@@ -107,15 +109,25 @@ Before you can enable pull request annotations, your main branch must have enabl
 
 1. Navigate to **Project settings** > **Repositories**.
 
+    :::image type="content" source="media/tutorial-enable-pr-annotations/project-settings.png" alt-text="Screenshot that shows you where to navigate to, to select repositories.":::
+
 1. Select the repository to enable pull requests on.
 
 1. Select **Policies**.
 
-1. Navigate to **Branch Policies** > **Main branch** > **Build Validation**. 
+1. Navigate to **Branch Policies** > **Main branch**.
+
+    :::image type="content" source="media/tutorial-enable-pr-annotations/branch-policies.png" alt-text="Screenshot that shows where to locate the branch policies.":::
+
+1. Locate the Build Validation section. 
 
 1. Ensure the CI Build is toggled to **On**.
 
+    :::image type="content" source="media/tutorial-enable-pr-annotations/build-validation.png" alt-text="Screenshot that shows where the CI Build toggle is located.":::
+
 1. Select **Save**. 
+
+    :::image type="content" source="media/tutorial-enable-pr-annotations/validation-policy.png" alt-text="Screenshot that shows the build validation.":::
 
 Once you have completed these steps you can select the build pipeline you created previously and customize it's settings to suit your needs.  
 
@@ -134,6 +146,8 @@ Once you have completed these steps you can select the build pipeline you create
     :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select configure, on the screen.":::
 
 1. Toggle Pull request annotations to **On**.
+
+    :::image type="content" source="media/tutorial-enable-pr-annotations/annotation-on.png" alt-text="Screenshot that shows the toggle switched to on.":::
 
 1. (Optional) Select a category from the drop-down menu. 
 
@@ -158,6 +172,8 @@ Once you've configured the scanner, you'll be able to view all issues that were 
 1. Sign in to the [Azure DevOps](https://azure.microsoft.com/products/devops).
 
 1. Navigate to **Pull requests**.
+
+    :::image type="content" source="media/tutorial-enable-pr-annotations/pull-requests.png" alt-text="Screenshot showing where to go to navigate to pull requests.":::
 
 1. On the Overview, or files page, locate an affected line with an annotation.
 
