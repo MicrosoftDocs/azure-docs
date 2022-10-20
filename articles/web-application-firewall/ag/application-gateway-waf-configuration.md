@@ -39,6 +39,10 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Contains**: This operator matches all request fields that contain the specified selector value.
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
+Request URI query strings are case sensitive. While the scheme and host are case-insensitive and normally provided in lowercase; all other components are compared in a case-sensitive manner. Therefore, exclusion rules for query strings should be written in a case sensitive format.
+
+Request header names are case insensitive. However, request header values are case sensitive. 
+
 In all cases matching is case insensitive. Regular expressions aren't allowed as selectors.
 
 > [!NOTE]
