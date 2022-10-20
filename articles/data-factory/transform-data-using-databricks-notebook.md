@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 09/08/2021
+ms.date: 09/22/2022
 ---
 
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory

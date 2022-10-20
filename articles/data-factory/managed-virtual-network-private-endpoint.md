@@ -121,6 +121,8 @@ The following table lists the differences between different types of TTL：
 | Can be disabled | Y | Y | N |
 | Reserved compute is configurable | N | Y | N |
 
+> [!NOTE]
+> You can't enable TTL in default auto-resolve Azure integration runtime. You can create a new Azure integration runtime for it.
 
 ## Create a managed virtual network via Azure PowerShell
 

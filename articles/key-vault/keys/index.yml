@@ -94,7 +94,7 @@ landingContent:
 
 
   # Card
-  - title: Microsoft Learn
+  - title: Microsoft Learn training
     linkLists:
       - linkListType: learn
         links:

@@ -39,7 +39,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| [Speech-to-text REST API V2.0 and v3.0](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
+| [Speech-to-text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
 | Max input blob size (for example, can contain more than one file in a zip archive). Note the file size limit from the preceding row. | N/A | 2.5 GB |
 | Max blob container size | N/A | 5 GB |
@@ -55,7 +55,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
-| Max text size when you're using the `text` parameter in the [Create Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API request | 200 KB | 500 KB |
+| Max text size when you're using the `text` parameter in the [CreateModel](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API request | 200 KB | 500 KB |
 
 <sup>1</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).<br/>

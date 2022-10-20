@@ -2,11 +2,11 @@
 title: What is Azure DNS Private Resolver?
 description: In this article, get started with an overview of the Azure DNS Private Resolver service.
 services: dns
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 09/20/2022
+ms.date: 09/27/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -14,9 +14,6 @@ ms.author: greglin
 # What is Azure DNS Private Resolver? 
 
 Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. 
-
-> [!IMPORTANT]
-> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## How does it work?
 
@@ -59,16 +56,21 @@ Azure DNS Private Resolver provides the following benefits:
 
 Azure DNS Private Resolver is available in the following regions:
 
-- Australia East
-- UK South
-- North Europe
-- South Central US
-- West US 3
-- East US
-- North Central US
-- West Central US
-- East US 2
-- West Europe
+| Americas         | Europe           | Asia & Africa     |
+|------------------|------------------|-------------------|
+| East US          | West Europe      | East Asia         |
+| East US 2        | North Europe     | Southeast Asia    |
+| Central US       | UK South         | Japan East        |
+| South Central US | France Central   | Korea Central     |
+| North Central US | Sweden Central   | South Africa North|
+| West Central US  | Switzerland North| Australia East    |
+| West US 3        |                  |                   |
+| Canada Central   |                  |                   |
+| Brazil South     |                  |                   |
+
+## Data residency
+
+Azure DNS Private Resolver doesn't move or store customer data out of the region where the resolver is deployed.
 
 ## DNS resolver endpoints
 
@@ -122,11 +124,11 @@ Outbound endpoints have the following limitations:
 
 ### Ruleset restrictions
 
-- Rulesets can have no more than 25 rules in Public Preview.
+- Rulesets can have up to 1000 rules.
 
 ### Other restrictions
 
-- IPv6 enabled subnets aren't supported in Public Preview.
+- IPv6 enabled subnets aren't supported.
 
 ## Next steps
 
