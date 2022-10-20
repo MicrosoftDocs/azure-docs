@@ -43,9 +43,10 @@ Read more about [the shared responsibility model for sustainability](/framework/
 
  **[Hardware Efficiency](https://learn.greensoftware.foundation/practitioner/hardware-efficiency)**: Use the least amount of embodied carbon possible. 
 
-&nbsp;&nbsp;&nbsp; There are two main approaches to hardware efficiency:
- - For end-user devices, it's extending the lifespan of the hardware.
- - For cloud computing, it's increasing the utilization of the resource.
+    There are two main approaches to hardware efficiency:
+
+        - For end-user devices, it's extending the lifespan of the hardware.
+        - For cloud computing, it's increasing the utilization of the resource.
 
  **[Carbon Awareness](https://learn.greensoftware.foundation/practitioner/carbon-awareness)**: Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
