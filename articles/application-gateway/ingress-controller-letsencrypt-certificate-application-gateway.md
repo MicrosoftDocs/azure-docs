@@ -92,7 +92,7 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
         # certificates, and issues related to your account.
         email: <YOUR.EMAIL@ADDRESS>
         # ACME server URL for Let’s Encrypt’s staging environment.
-        # The staging environment will not issue trusted certificates but is
+        # The staging environment won't issue trusted certificates but is
         # used to ensure that the verification process is working properly
         # before moving to production
         server: https://acme-staging-v02.api.letsencrypt.org/directory
