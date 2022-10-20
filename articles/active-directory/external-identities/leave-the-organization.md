@@ -111,4 +111,4 @@ Permanent deletion can be initiated by the admin, or it happens at the end of th
 ## Next steps
 
 - Learn more about [Azure AD B2B collaboration](what-is-b2b.md) and [Azure AD B2B direct connect](b2b-direct-connect-overview.md)
-- [Close your Microsoft account](https://learn.microsoft.com/microsoft-365/commerce/close-your-account?source=recommendations&view=o365-worldwide)
+- [Close your Microsoft account](/microsoft-365/commerce/close-your-account)
