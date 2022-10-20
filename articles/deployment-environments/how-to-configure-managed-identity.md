@@ -85,30 +85,35 @@ To add a role assignment to a managed identity:
 
 ## Assign the managed identity access to the key vault secret
 
+You can set up your key vault to use either a [key vault access policy'](../key-vault/general/assign-access-policy.md) or the [Azure role-based access control](../key-vault/general/rbac-guide.md) permission model.
+
 > [!NOTE]
-> Providing the identity with access to the Key Vault secret, which contains the repo's personal access token (PAT), is a prerequisite to adding the repo as a catalog.
+> Providing the identity with access to the key vault secret, which contains the repository's personal access token, is a prerequisite to adding the repo as a catalog.
 
-To grant the identity access to the secret:
+### Key vault access policy
 
-A Key Vault can be configured to use either the [Vault access policy'](../key-vault/general/assign-access-policy.md) or the [Azure role-based access control](../key-vault/general/rbac-guide.md) permission model.
+If the key vault is configured to use the key vault access policy permission model:
 
-1. If the Key Vault is configured to use the **Vault access policy** permission model, 
-    1. Access the [Azure portal](https://portal.azure.com/) and search for the specific Key Vault that contains the PAT secret.
-    1. Select **Access policies** from the left pane.
-    1. Select **+ Create**.
-    1. On the **Create an access policy** page, provide the following details:
-        1. Enable **Get** for **Secret permissions** on the **Permissions** page.
-        1. Select the identity that is attached to the dev center as **Principal**.
-        1. Select **Create** on the **Review + create** page.
+1. In the [Azure portal](https://portal.azure.com/), go to the key vault that contains the personal access token secret.
+1. In the left menu, select **Access policies**, and then select **Create**.
+1. In **Create an access policy**, enter or select the following information:
 
-1. If the Key Vault is configured to use **Azure role-based access control** permission model,
-    1. Select the specific identity and select the **Azure role assignments** from the left pane.
-    1. Select **Add Role Assignment** and provide the following details:
-        1. Select Key Vault from the **Scope** dropdown.
-        1. Select the **Subscription** in which the Key Vault exists.
-        1. Select the specific Key Vault for **Resource**.
-        1. Select **Key Vault Secrets User** from the dropdown for **Role**.
-        1. Select **Save**.
+    1. Under **Permissions**, under **Secret permissions**, select the **Get** checkbox. Select **Next**.
+    1. Under **Principal**, select the identity that's attached to the dev center.
+    1. Select **Review + create**, and then select **Create**.
+
+### Azure role-based access control
+
+If the Key Vault is configured to use **Azure role-based access control** permission model,
+
+1. Select the specific identity and select the **Azure role assignments** from the left pane.
+1. Select **Add Role Assignment** and provide the following details:
+
+    1. Select Key Vault from the **Scope** dropdown.
+    1. Select the **Subscription** in which the Key Vault exists.
+    1. Select the specific Key Vault for **Resource**.
+    1. Select **Key Vault Secrets User** from the dropdown for **Role**.
+    1. Select **Save**.
 
 ## Next steps
 
