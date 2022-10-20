@@ -66,7 +66,7 @@ az ml model create --name $MODEL_NAME --type "custom_model" --path "bart-text-su
 ```python
 model_name = 'bart-text-summarization'
 model = ml_client.models.create_or_update(
-    Model(path='bart-text-summarization/model', type=AssetTypes.CUSTOM_MODEL)
+    Model(name=model_name, path='bart-text-summarization/model', type=AssetTypes.CUSTOM_MODEL)
 )
 ```
 ---

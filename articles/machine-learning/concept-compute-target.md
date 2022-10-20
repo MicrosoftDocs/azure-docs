@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.date: 10/19/2022
 ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2

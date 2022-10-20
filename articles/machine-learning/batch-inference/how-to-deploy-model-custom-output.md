@@ -63,10 +63,13 @@ az ml model create --name $MODEL_NAME --type "mlflow_model" --path "heart-classi
 ```python
 model_name = 'heart-classifier'
 model = ml_client.models.create_or_update(
-     Model(path='heart-classifier-mlflow/model', type=AssetTypes.MLFLOW_MODEL)
+     Model(name=model_name, path='heart-classifier-mlflow/model', type=AssetTypes.MLFLOW_MODEL)
 )
 ```
 ---
+
+> [!NOTE]
+> The model used in this tutorial is an MLflow model. However, the steps apply for both MLflow models and custom models.
 
 ### Creating a scoring script
 
