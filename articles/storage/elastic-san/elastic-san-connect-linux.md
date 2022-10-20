@@ -93,7 +93,7 @@ As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with R
 
 You can either create single sessions or multiple-sessions to every Elastic SAN volume based on your application's multi-threaded capabilities and performance requirements. To achieve higher IOPS and throughput to a volume and reach its maximum limits, use multiple sessions and adjust the queue depth and IO size as needed, if your workload allows.
 
-When using multiple sessions, generally, you should aggregate them with Multipath I/O. Multipath I/O enables highly available and fault-tolerant iSCSI network connections. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
+When using multiple sessions, generally, you should aggregate them with Multipath I/O. It allows you to aggregate multiple sessions from an iSCSI initiator to the target into a single device, and can improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
 ### Single-session connections
 
