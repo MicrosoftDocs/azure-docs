@@ -20,7 +20,7 @@ Migrating from version 1.x to version 4.x also can affect bindings. If you're mi
 
 ## Prepare the C# project for migration
 
-> [!div class="article-selector" title="Tab rendering type: "]
+> [!div class="op_single_selector" title="Tab rendering type: "]
 > - [Three tab version](migrate-version-1-version-4.md)
 > - [Two tab version](migrate-version-1-version-4-b.md)
 

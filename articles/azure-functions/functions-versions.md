@@ -42,7 +42,7 @@ By default, function apps created in the Azure portal and by the Azure CLI are s
 
 + [Between 3.x and 4.x](#breaking-changes-between-3x-and-4x) 
 + [Between 2.x and 3.x](#breaking-changes-between-2x-and-3x)
-+ [Between 1.x and later versions](#migrating-from-1x-to-later-versions)
++ [Between 1.x and later versions](./migrate-version-1-version-4.md)
 
 If you don't see your programming language, go select it from the [top of the page](#top).
 

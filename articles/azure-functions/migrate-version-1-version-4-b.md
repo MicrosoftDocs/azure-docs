@@ -20,7 +20,7 @@ Migrating from version 1.x to version 4.x also can affect bindings. If you're mi
 
 ## Prepare the C# project for migration
 
-> [!div class="article-selector" title="Tab rendering type: "]
+> [!div class="op_single_selector" title="Tab rendering type: "]
 > - [Three tab version](migrate-version-1-version-4.md)
 > - [Two tab version](migrate-version-1-version-4-b.md)
 
@@ -39,13 +39,13 @@ When applicable, these tabs compare the code directly from the templates for eac
 
 The following changes are required in the .csproj file:
 
-#### Version 1.x
+**Version 1.x**
 
 Complete project file for version 1.x:
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/Company.FunctionApp.csproj":::
 
-#### Version 4.x
+**Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
@@ -87,11 +87,11 @@ Add new `ItemGroup`:
 
 ### program.cs file
 
-#### Version 1.x
+**Version 1.x**
 
 Migrating requires you to add a program.cs file to your project.
 
-#### Version 4.x
+**Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
@@ -107,11 +107,11 @@ Migrating requires you to add a program.cs file to your project.
 
 Settings in the host.json file apply at the function app level, both locally and in Azure. For more information, see [Host.json](./functions-host-json.md).
 
-#### Version 1.x
+**Version 1.x**
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/host.json":::
 
-#### Version 4.x
+**Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
@@ -127,11 +127,11 @@ Settings in the host.json file apply at the function app level, both locally and
 
 The local.settings.json file is only used when running locally. For information, see [Local settings file](functions-develop-local.md#local-settings-file).
 
-#### Version 1.x
+**Version 1.x**
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json":::
 
-#### Version 4.x
+**Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
@@ -147,11 +147,11 @@ The local.settings.json file is only used when running locally. For information,
 
 Changes to `using` statements are required in your C# functions (.cs) code files.  
 
-#### Version 1.x
+**Version 1.x**
 
 :::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs" range="11-13":::
 
-#### Version 4.x
+**Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
@@ -163,7 +163,7 @@ Changes to `using` statements are required in your C# functions (.cs) code files
 
 ---
 
-#### Version 1.x
+**Version 1.x**
 
 The following .NET classes you use in your functions changed between versions:
 
@@ -172,7 +172,7 @@ The following .NET classes you use in your functions changed between versions:
 + `HttpRequestMessage`
 + `HttpResonseMessage` 
 
-#### Version 4.x
+**Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
@@ -194,7 +194,7 @@ The following .NET classes you use in your functions changed between versions:
 
 Most of the code changes between version 1.x and version 4.x can be seen in HTTP triggered functions. You can compare the differences between versions in HTTP trigger templates.
 
-#### Version 1.x
+**Version 1.x**
 
 ```csharp
 using System.Linq;
@@ -237,7 +237,7 @@ namespace Company.Function
 }
 ```
 
-#### Version 4.x
+**Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
