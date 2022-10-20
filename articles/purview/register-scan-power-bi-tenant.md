@@ -39,7 +39,7 @@ For a list of metadata available for Power BI, see our [available metadata docum
 -  You can create only one scan for a Power BI data source that is registered in your Microsoft Purview account.
 -  If Power BI dataset schema isn't shown after scan, it's due to one of the current limitations with [Power BI Metadata scanner](/power-bi/admin/service-admin-metadata-scanning).
 -  Empty workspaces are skipped.
--  Payload is currently limited to 2MB and 300 columns when scanning an asset.
+-  Payload is currently limited to 2MB and 800 columns when scanning an asset.
 
 ## Prerequisites
 

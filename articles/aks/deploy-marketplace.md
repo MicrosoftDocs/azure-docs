@@ -31,11 +31,11 @@ Included among these solutions are Kubernetes application-based Container offers
 
 ## Register resource providers
 
-You must have registered the `Microsoft.KubernetesConfiguration` and `Microsoft.ContainerService` providers on your subscription using the `az provider register` command:
+You must have registered the  `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` providers on your subscription using the `az provider register` command:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az provider register --namespace Microsoft.ContainerService --wait
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
 ```
 
 ## Browse offers
@@ -46,6 +46,8 @@ az provider register --namespace Microsoft.ContainerService --wait
 
 - > [!IMPORTANT]
   > The *Azure Containers* category includes both Kubernetes applications and standalone container images. This walkthrough is Kubernetes application-specific. If you find the steps to deploy an offer differ in some way, you are most likely trying to deploy a container image-based offer instead of a Kubernetes-application based offer.
+  >
+  > To ensure you're searching for Kubernetes applications, include the term `KubernetesApps` in your search.
 
 - Once you've decided on an application, click on the offer.
 

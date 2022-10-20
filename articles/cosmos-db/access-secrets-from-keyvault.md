@@ -5,13 +5,14 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.devlang: csharp
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.reviewer: thweiss
 ---
 
-# Secure Azure Cosmos credentials using Azure Key Vault 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+# Secure Azure Cosmos DB credentials using Azure Key Vault 
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 >[!IMPORTANT]
 > The recommended solution to access Azure Cosmos DB is to use a [system-assigned managed identity](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [cert based solution](certificate-based-authentication.md). If both the managed identity solution and cert based solution do not meet your needs, please use the key vault solution below.
@@ -44,7 +45,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 
    * Select **Manual** for **Upload options**.
    * Provide a **Name** for your secret
-   * Provide the connection string of your Cosmos DB account into the **Value** field. And then select **Create**.
+   * Provide the connection string of your Azure Cosmos DB account into the **Value** field. And then select **Create**.
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Screenshot of the Create a secret dialog in the Azure portal.":::
 

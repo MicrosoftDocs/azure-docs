@@ -67,13 +67,6 @@ To fix, follow the steps to [Enable TLS 1.2](../../azure-monitor/agents/agent-wi
 
 ## Monitoring agent service health checks
 
-### Monitoring Agent
-To fix the issue, start **HealthService** service 
-
-```
-Start-Service -Name *HealthService* -ErrorAction SilentlyContinue
-```
-
 ### Hybrid Runbook Worker
 To fix the issue, do a force re-registration of Hybrid Runbook Worker.
 
@@ -89,12 +82,6 @@ Restart-service healthservice
 To validate, check event id *15003 (HW start event) OR 15004 (hw stopped event) EXISTS in Microsoft-SMA/Operational event logs.* 
 
 Raise a support ticket if the issue is not fixed still.
-
-### Monitoring Agent Service
-
-Check the event id 4502 (error event) in **Operations Manager** event logs and check the description.
-
-To troubleshoot, run the [MMA Agent Troubleshooter](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 ### VMs linked workspace
 See [Network requirements](../../azure-monitor/agents/agent-windows-troubleshoot.md#connectivity-issues).

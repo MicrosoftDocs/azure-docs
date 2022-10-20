@@ -1,12 +1,12 @@
 ---
 title: How to manage network connections
-titleSuffix: Microsoft Dev Box
-description: This article describes how to create, delete, attach and remove Microsoft Dev Box network connections.
+titleSuffix: Microsoft Dev Box Preview
+description: This article describes how to create, delete, attach and remove Microsoft Dev Box Preview network connections.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/15/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
@@ -66,7 +66,7 @@ Network ingress and egress can be controlled using a firewall, network security 
 If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
 ## Plan a network connection
-The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
+The following steps show you how to create and configure a network connection in Microsoft Dev Box Preview.  
 ### Types of Azure Active Directory Join
 The Dev Box service requires a configured and working Azure AD join or Hybrid AD join, which defines how dev boxes join your domain and access resources. 
 
@@ -75,8 +75,8 @@ If your organization uses Azure AD, you can use an Azure AD join, sometimes call
 If your organization has an on-premises Active Directory implementation, you can still benefit from some of the functionality provided by Azure AD by using hybrid Azure AD joined dev boxes. These dev boxes are joined to your on-premises Active Directory and registered with Azure Active Directory. Hybrid Azure AD joined dev boxes require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. 
 
 You can learn more about each type of join and how to plan for them here:  
--	[Plan your hybrid Azure Active Directory join deployment](/azure/active-directory/devices/hybrid-azuread-join-plan)
--	[Plan your Azure Active Directory join deployment](/azure/active-directory/devices/azureadjoin-plan)
+-	[Plan your hybrid Azure Active Directory join deployment](../active-directory/devices/hybrid-azuread-join-plan.md)
+-	[Plan your Azure Active Directory join deployment](../active-directory/devices/azureadjoin-plan.md)
 
 ### Create a network connection
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -169,4 +169,4 @@ The network connection will no longer be available for use in the dev center.
 ## Next steps
 
 <!-- [Manage a dev center](./how-to-manage-dev-center.md) -->
-- [Quickstart: Configure a Microsoft Dev Box Project](./quickstart-configure-dev-box-project.md)
+- [Quickstart: Configure a Microsoft Dev Box Preview Project](./quickstart-configure-dev-box-project.md)

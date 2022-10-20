@@ -2,7 +2,7 @@
 title: Prompt behavior with MSAL.js
 description: Learn to customize prompt behavior using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-author: mmacy
+author: OwenRichards1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: marsma
+ms.author: owenrichards
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about customizing the UI prompt behaviors in MSAL.js library so I can decide if this platform meets my application development needs and requirements.
@@ -88,4 +88,5 @@ In some cases however, the prompt value `none` can be used together with an inte
 - [Single sign-on with MSAL.js](msal-js-sso.md)
 - [Handle errors and exceptions in MSAL.js](msal-error-handling-js.md)
 - [Handle ITP in Safari and other browsers where third-party cookies are blocked](reference-third-party-cookies-spas.md)
-- [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
+- [OAuth 2.0 authorization code flow on the Microsoft identity platform](v2-oauth2-auth-code-flow.md)
+- [OpenID Connect on the Microsoft identity platform](v2-protocols-oidc.md)

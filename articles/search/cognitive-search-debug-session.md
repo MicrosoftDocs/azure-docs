@@ -23,6 +23,12 @@ A cached copy of the enriched document and skillset is loaded into the visual ed
 
 If the enrichment pipeline does not have any errors, a debug session can be used to incrementally enrich a document, test and validate each change before committing the changes.
 
+## Managing the Debug Session state
+
+The debug session can be run again after its creation and its first run using the **Start** button. It may also be canceled while it is still executing using the **Cancel** button. Finally, it may be deleted using the **Delete** button.
+
+:::image type="content" source="media/cognitive-search-debug/debug-session-commands.png" alt-text="Screenshot of the Debug Session control buttons." border="true":::
+
 ## AI Enrichments tab > Skill Graph
 
 The visual editor is organized into tabs and panes. This section introduces the components of the visual editor.

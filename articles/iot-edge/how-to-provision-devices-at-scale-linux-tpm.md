@@ -52,6 +52,8 @@ The tasks are as follows:
 
 A physical Linux device to be the IoT Edge device.
 
+If you are a device manufacturer then refer to guidance on [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
+
 # [Virtual machine](#tab/virtual-machine)
 
 A Windows development machine with [Hyper-V enabled](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
@@ -141,6 +143,8 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ## Retrieve provisioning information for your TPM
 
+<!-- 1.1 -->
+:::moniker range="<iotedge-1.4"
 In this section, you build a tool that you can use to retrieve the registration ID and endorsement key for your TPM.
 
 1. Sign in to your device, and then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
@@ -157,10 +161,73 @@ In this section, you build a tool that you can use to retrieve the registration 
 
 1. The output window displays the device's **Registration ID** and the **Endorsement key**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
-> [!TIP]
-> If you don't want to use the SDK tool to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, you can create an SHA-256 hash of the endorsement key.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+
+> [!NOTE]
+> This article previously used the `tpm_device_provision` tool from the IoT C SDK to generate provisioning info. If you relied on that tool previously, then be aware the steps below generate a different registration ID for the same public endorsement key. If you need to recreate the registration ID as before then refer to how the C SDK's [tpm_device_provision tool](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/tools/tpm_device_provision) generates it. Be sure the registration ID for the individual enrollment in DPS matches the regisration ID the IoT Edge device is configured to use.
+
+In this section, you use the TPM2 software tools to retrieve the endorsement key for your TPM and then generate a unique registration ID. This section corresponds with [Step 3: Device has firmware and software installed](../iot-dps/concepts-device-oem-security-practices.md#step-3-device-has-firmware-and-software-installed) in the process for [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
+
+### Install the TPM2 Tools
+Sign in to your device, and install the `tpm2-tools` package.
+
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+
+
+   ```bash
+   sudo apt-get install tpm2-tools
+   ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+
+   ```bash
+   sudo yum install tpm2-tools
+   ```
+
+---
+
+Run the following script to read the endorsement key, creating one if it does not already exist.
+
+   ```bash
+   #!/bin/sh
+   if [ "$USER" != "root" ]; then
+     SUDO="sudo "
+   fi
+
+   $SUDO tpm2_readpublic -Q -c 0x81010001 -o ek.pub 2> /dev/null
+   if [ $? -gt 0 ]; then
+     # Create the endorsement key (EK)
+     $SUDO tpm2_createek -c 0x81010001 -G rsa -u ek.pub
+
+     # Create the storage root key (SRK)
+     $SUDO tpm2_createprimary -Q -C o -c srk.ctx > /dev/null
+
+     # make the SRK persistent
+     $SUDO tpm2_evictcontrol -c srk.ctx 0x81000001 > /dev/null
+
+     # open transient handle space for the TPM
+     $SUDO tpm2_flushcontext -t > /dev/null
+   fi
+
+   printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
+   $SUDO rm ek.pub srk.ctx 2> /dev/null
+
+   ```
+
+The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
+
+:::moniker-end
+<!-- end iotedge-1.4 -->
 
 After you have your registration ID and endorsement key, you're ready to continue.
+
+> [!TIP]
+> If you don't want to use the TPM2 software tools to retrieve the information, you need to find another way to obtain the provisioning information. The endorsement key, which is unique to each TPM chip, is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device. For example, as shown above you can create an SHA-256 hash of the endorsement key.
 
 <!-- Create an enrollment for your device using TPM provisioning information H2 and content -->
 [!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
