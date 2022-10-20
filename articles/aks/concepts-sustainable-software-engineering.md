@@ -225,4 +225,4 @@ Many attacks on cloud infrastructure seek to misuse deployed resources for the a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Well-Architected Framework review of AKS][/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service]
+> [Azure Well-Architected Framework review of AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
