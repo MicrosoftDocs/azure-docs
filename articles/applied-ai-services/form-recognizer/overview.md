@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/12/2022
+ms.date: 10/20/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -16,8 +16,6 @@ recommendations: false
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # What is Azure Form Recognizer?
-
-[!INCLUDE [versioning and navigation](includes/versioning-and-navigation.md)]
 
 ::: moniker range="form-recog-3.0.0"
 [!INCLUDE [applies to v3.0](includes/applies-to-v3-0.md)]
