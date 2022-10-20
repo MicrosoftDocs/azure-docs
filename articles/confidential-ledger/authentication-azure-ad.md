@@ -84,7 +84,7 @@ For detailed steps on registering an Azure confidential ledger application with 
 
 At the end of registration, the application owner gets the following values:
 
-- An **Application ID** (also known as the AAD Client ID or appID)
+- An **Application ID** (also known as the Azure Active Directory Client ID or appID)
 - An **authentication key** (also known as the shared secret).
 
 The application must present both these values to Azure Active Directory to get a token.
