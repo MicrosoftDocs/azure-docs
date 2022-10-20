@@ -37,7 +37,7 @@ Number matching is a good example of protection for an authentication method tha
 As MFA fatigue attacks rise, number matching becomes more critical to sign-in security. As a result, Microsoft will change the default behavior for push notifications in Microsoft Authenticator. 
 
 >[!NOTE]
->Azure AD will make number matching in push notifications the default behavior for all users in every tenant at the end of February 2023. 
+>Number matching will begin to be enabled for all users of Microsoft Authenticator starting February 27, 2023.
 
 <!---Add link to Mayur Blog post here--->
 
@@ -47,7 +47,7 @@ In addition to configuring Authentication methods policy settings to be either *
 
 The option to let Azure AD manage the setting is a convenient way for an organization to allow Microsoft to enable or disable a feature by default. Organizations can more easily improve their security posture by trusting Microsoft to manage when a feature should be enabled by default. By configuring a setting as **Microsoft managed** (named *default* in Graph APIs), IT admins can trust Microsoft to enable a security feature they haven't explicitly disabled. 
 
-For example, an admin can enable [location and application name](how-to-mfa-number-match.md) in push notifications to give users more context when they approve MFA requests by with Microsoft Authenticator. The additional context can also be explicitly disabled, or set as **Microsoft managed**. Today, the **Microsoft managed** configuration for location and application name is **Disabled**, which effectively disables it for any environment where an admin chooses to let Azure AD manage the setting. 
+For example, an admin can enable [location and application name](how-to-mfa-number-match.md) in push notifications to give users more context when they approve MFA requests with Microsoft Authenticator. The additional context can also be explicitly disabled, or set as **Microsoft managed**. Today, the **Microsoft managed** configuration for location and application name is **Disabled**, which effectively disables the option for any environment where an admin chooses to let Azure AD manage the setting. 
 
 As the security threat landscape changes over time, Microsoft may change the **Microsoft managed** configuration for location and application name to **Enabled**. For customers who want to rely upon Microsoft to improve their security posture, setting security features to **Microsoft managed** is an easy way stay ahead of security threats. They can trust Microsoft to determine the best way to configure security settings based on the current threat landscape.  
 
