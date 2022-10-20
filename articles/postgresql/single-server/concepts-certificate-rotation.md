@@ -14,19 +14,19 @@ ms.date: 09/20/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-Azure Database for PostgreSQL Single Server planning the root certificate change starting  **October, 2022 (10/2022)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+Azure Database for PostgreSQL Single Server planning the root certificate change starting  **December 2022 (12/2022)** as part of standard maintenance and security best practices. This article gives you more details about the changes, the resources affected, and the steps needed to ensure that your application maintains connectivity to your database server.
 
 ## Why root certificate update is required?
 
 Historically, Azure database for PostgreSQL users could only use the predefined certificate to connect to their PostgreSQL server, which is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). However, [Certificate Authority (CA) Browser forum](https://cabforum.org/) recently published reports of multiple certificates issued by CA vendors to be non-compliant.
 
-As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your MySQL servers.
+As per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for PostgreSQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your Postgres servers.
 
-The new certificate is rolled out and in effect starting October, 2022 (10/2022). 
+The new certificate is rolled out and in effect starting December, 2022 (12/2022). 
 
-## What change will be performed starting November 2022 (11/2022)?
+## What change will be performed starting December 2022 (12/2022)?
 
-Starting November 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
+Starting December 2022, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) will be  replaced with a **compliant version** known as [DigiCertGlobalRootG2 root certificate ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem). If your applications take advantage of **verify-ca** or **verify-full** as value of [**sslmode** parameter](https://www.postgresql.org/docs/current/libpq-ssl.html) in the database client connectivity will need to follow directions below to add new certificates to certificate store to maintain connectivity.
 
 ## Do I need to make any changes on my client to maintain connectivity?
 
@@ -125,8 +125,8 @@ For connector using Self-hosted Integration Runtime where you explicitly include
 
 No. Since the change here is only on the client side to connect to the database server, there's no maintenance downtime needed for the database server for this change.
 
-### 8. If I create a new server after October 2022 (10/2022), will I be impacted?
-For servers created after October 2022 (10/2022), you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
+### 8. If I create a new server after November 30, 2022, will I be impacted?
+For servers created after November 30, 2022, you will continue to use the [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)  together with new [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) root certificates in your database client SSL certificate store for your applications to connect using SSL.
 
 ### 9. How often does Microsoft update their certificates or what is the expiry policy?
 
@@ -145,7 +145,7 @@ To verify if you are using SSL connection to connect to the server refer [SSL ve
 No. There's no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
 ### 13. What if you are using docker image of PgBouncer sidecar provided by Microsoft?
-A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting October, 2022. 
+A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting December, 2022. 
 
 ### 14. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help please create a [support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request):

@@ -219,7 +219,7 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 :::image type="content" source="./media/storage-quickstart-blobs-java/defaultazurecredential-flow-java.png" alt-text="A diagram of the credential flow.":::
 
-For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
 #### Assign roles to your Azure AD user account
 
@@ -284,7 +284,7 @@ You can authorize access to data in your storage account using the following ste
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](/azure/role-based-access-control/resource-provider-operations#microsoftstorage). The least privilege built-in role with permissions for this action is [Storage Account Key Operator Service Role](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role), but any role which includes this action will work.
+> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privilege built-in role with permissions for this action is [Storage Account Key Operator Service Role](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
 

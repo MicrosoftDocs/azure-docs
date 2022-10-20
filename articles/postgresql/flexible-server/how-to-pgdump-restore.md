@@ -111,8 +111,8 @@ Here's an example of how this syntax might appear:
 Create a virtual machine in the same region and availability zone, preferably where you have both your target and source servers, or at least have the virtual machine closer to the source server or a target server. We recommend that you use Azure Virtual Machines with a high-performance local SSD. 
 
 For more information about the SKUs, see:
-* [Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)   
-* [Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)
+* [Edv4 and Edsv4-series](../../virtual-machines/edv4-edsv4-series.md)   
+* [Ddv4 and Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md)
 
 ## Next steps
 
