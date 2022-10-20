@@ -123,6 +123,12 @@ To schedule recurring updates at scale, follow these steps:
 
 1. In the **Machines** page, verify if the selected machines are listed. You can add or remove machines from the list. Select **Next** to continue.
 
+1. In the **Updates** page, specify the updates to include in the deployment such as update classification(s) or KB ID/ packages that must be installed when you trigger your schedule.
+
+    > [!Note] 
+	> Update management center (preview) doesn't support driver updates.
+
+
 1. In the **Tags** page, assign tags to maintenance configurations.
 
 1. In the **Review + Create** page, verify your update deployment options and select **Create**.
