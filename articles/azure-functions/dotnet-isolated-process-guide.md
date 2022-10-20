@@ -319,7 +319,7 @@ Because your isolated process app runs outside the Functions runtime, you need t
 [ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger
 [ILogger&lt;T&gt;]: /dotnet/api/microsoft.extensions.logging.ilogger-1
 [GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger?view=azure-dotnet&preserve-view=true
-[BlobClient]: /dotnet/api/azure.storage.blobs.blobclient?view=azure-dotnet
+[BlobClient]: /dotnet/api/azure.storage.blobs.blobclient?view=azure-dotnet&preserve-view=true
 [DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
