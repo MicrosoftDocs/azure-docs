@@ -340,19 +340,19 @@
       href: azure-monitor-faq.yml
   - name: Concepts
     items:
-    - name: Providers in AMS
+    - name: Providers in Azure Monitor for SAP solutions
       href: azure-monitor-providers.md
   - name: Quickstarts
     items:
-    - name: Get started with AMS - Azure portal
+    - name: Get started with Azure Monitor for SAP solutions - Azure portal
       href: azure-monitor-sap-quickstart.md
-    - name: Get started with AMS - PowerShell
+    - name: Get started with Azure Monitor for SAP solutions - PowerShell
       href: azure-monitor-sap-quickstart-powershell.md
   - name: How-to guides
     items:
-    - name: Set up network for AMS
+    - name: Set up network for Azure Monitor for SAP solutions
       href: create-network-azure-monitor-sap-solutions.md
-    - name: Configure AMS alerts in Azure portal
+    - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
       href: azure-monitor-alerts-portal.md
     - name: Provider configuration
       items:
@@ -370,7 +370,7 @@
         href: configure-db-2-azure-monitor-sap-solutions.md
   - name: Reference
     items:
-    - name: Data reference for AMS
+    - name: Data reference for Azure Monitor for SAP solutions
       href: monitor-sap-on-azure-reference.md
 - name: Integration with Microsoft Services
   items:

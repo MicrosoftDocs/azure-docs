@@ -156,6 +156,19 @@ honoring the SAP named user mapping.
 
 Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query enabled Microsoft product. For more information which products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), [Excel for the web](https://www.office.com/launch/excel), [Azure Data Factory](../../../data-factory/control-flow-power-query-activity.md), [Azure Synapse Analytics Pipelines](../../../data-factory/control-flow-power-query-activity.md), [Power Automate](/flow/) and [Dynamics 365](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
 
+## Tackle SAP write-back scenarios with Power Automate
+
+The described approach is also applicable to write-back scenarios. For example, you can use [Power Automate](/flow/) to update a business partner in SAP using OData with the [http-enabled connectors](/training/modules/http-connectors/) (alternatively use [RFCs or BAPIs](/connectors/saperp/)). See below an example of a [Power BI service](/power-bi/fundamentals/power-bi-service-overview) dashboard that is connected to Power Automate through [value-based alerts](/power-bi/create-reports/service-set-data-alerts) and a [button](/power-bi/create-reports/power-bi-automate-visual?tabs=powerbi-desktop) (highlighted on the screenshot). Learn more about triggering flows from Power BI reports on the [Power Automate documentation](/power-automate/trigger-flow-powerbi-report).
+
+:::image type="content" source="media/expose-sap-odata-to-power-query/powerbi-flow-enabled-dashboard.png" alt-text="Screenshot that shows the flow-enabled Power BI service dashboard.":::
+
+The highlighted button triggers a flow that forwards the OData PATCH request to the SAP Gateway to change the business partner role.
+
+> [!NOTE]
+> Use the Azure API Management [policy for SAP](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) to handle the authentication, refresh tokens, [CSRF tokens](https://blogs.sap.com/2021/06/04/how-does-csrf-token-work-sap-gateway/) and overall caching of tokens outside of the flow.
+
+:::image type="content" source="media/expose-sap-odata-to-power-query/power-automate-powerbi-button-flow.png" alt-text="Screenshot that shows the flow on Power Automate requesting the business partner change on the SAP back end.":::
+
 ## Next steps
 
 [Learn from where you can use Power Query](/power-query/power-query-what-is-power-query#where-can-you-use-power-query)
