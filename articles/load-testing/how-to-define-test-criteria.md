@@ -59,7 +59,7 @@ Azure Load Testing supports the following client metrics:
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
 |`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     | Total number of requests. |
 
-## Define test pass/fail criteria in the Azure portal
+## Define test fail criteria in the Azure portal
 
 In this section, you configure test criteria for a load test in the Azure portal.
 
@@ -87,7 +87,7 @@ In this section, you configure test criteria for a load test in the Azure portal
 
     :::image type="content" source="media/how-to-define-test-criteria/test-criteria-dashboard.png" alt-text="Screenshot that shows the test criteria on the load test dashboard.":::
  
-## Define test pass/fail criteria in CI/CD workflows
+## Define test fail criteria in CI/CD workflows
 
 In this section, you learn how to define test criteria for continuous integration and continuous delivery (CI/CD) workflows. When you run a load test as part of your CI/CD workflow, you define the load test configuration in a [YAML test configuration file](./reference-test-config-yaml.md).
 
