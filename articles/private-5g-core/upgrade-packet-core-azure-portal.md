@@ -14,9 +14,10 @@ ms.custom: template-how-to
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal.
 
+If you deployment contains multiple sites, we recommend upgrading a single packet core instance first to ensure the upgrade is successful before upgrading the remaining instances.
+
 ## Prerequisites
 
-- Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, [update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update).
 - Use Log Analytics or the packet core dashboards to confirm your packet core instance is operating normally. <!-- Should we include this advice, so they have a healthy state to roll back to in case there are issues post-upgrade? -->
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
@@ -42,16 +43,27 @@ To check which version your packet core instance is currently running, and wheth
 
 ## Upgrade the packet core instance
 
-### Prepare your deployment for upgrade
+### Plan for your upgrade
 
-<!-- TODO: add info on maintenance windows and upgrade planning, including information on amount of load running during upgrade and time required for upgrade. -->
-We recommend upgrading your packet core instance during a maintenance window.
+We recommend upgrading your packet core instance during a maintenance window or a period of low traffic to minimize the impact of the upgrade on your service.
+
+Consider the following points when planning for your upgrade:
+
+- A typical upgrade takes around 1 hour if you have a high-bandwidth connection to Azure. On a limited 1 Mbps connection, this can increase to <><!-- TODO: add estimated time --> hours.
+- Refer to the release notes for the current version of packet core, and whether it's supported by the version your Azure Stack Edge (ASE) is currently running. If your ASE version is incompatible with the latest packet core, you'll need to upgrade ASE first.
+  - If you're upgrading from a packet core version that the current version of ASE supports, you can upgrade ASE and packet core independently.
+  - If you're upgrading from a packet core version that isn't supported by the current version of ASE, it's possible that packet core won't operate normally with the new ASE version. In this case, you'll need to plan a maintenance window until both ASE and packet core are fully upgraded.
 
 ### Back up deployment information
 
 <!-- TODO: add info on what data gets lost and how to back up -->
+The following information will be lost over an upgrade:
 
-<!-- Should we have a Gather diagnostics section? -->
+
+
+### Upgrade ASE
+
+If you determined in [Plan for your upgrade](#plan-for-your-upgrade) that you need to upgrade your ASE, follow the steps in [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update).
 
 ### Upgrade packet core
 
@@ -66,7 +78,7 @@ We recommend upgrading your packet core instance during a maintenance window.
     :::image type="content" source="media/upgrade-packet-core-azure-portal/upgrade-packet-core-version.png" alt-text="Screenshot of the Azure portal showing the New version field on the Upgrade packet core version screen.":::
 
     > [!NOTE]
-    > If a warning appears about an incompatibility between the selected packet core version and the current Azure Stack Edge version, you'll need to update ASE first. Select **Upgrade ASE** from the warning prompt and follow the instructions in [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update). Once you've finished updating your ASE, go back to the beginning of this step to upgrade packet core.
+    > If a warning appears about an incompatibility between the selected packet core version and the current Azure Stack Edge version, you'll need to upgrade ASE first. Select **Upgrade ASE** from the warning prompt and follow the instructions in [Update your Azure Stack Edge Pro GPU](/azure/databox-online/azure-stack-edge-gpu-install-update). Once you've finished updating your ASE, go back to the beginning of this step to upgrade packet core.
 
 5. Select **Modify**.
 6. Azure will now redeploy the packet core instance at the new software version. The Azure portal will display the following confirmation screen when this deployment is complete.
@@ -75,17 +87,24 @@ We recommend upgrading your packet core instance during a maintenance window.
 
 ### Restore backed up deployment information
 <!-- TODO -->
+1. Follow [Access the distributed tracing web GUI](distributed-tracing.md#access-the-distributed-tracing-web-gui) to restore access to distributed tracing.
+2. Follow [Access the packet core dashboards](packet-core-dashboards.md#access-the-packet-core-dashboards) to restore access to your packet core dashboards.
+3. Recreate dashboards
+4. Re-register devices
 
 ### Verify upgrade
 
-1. Select **Go to resource group**, and then select the **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
-1. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
+Once the upgrade completes, check if your deployment is operating normally.
+
+1. Select **Go to resource group**, and then select the **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site. Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
+2. Test registered devices and sessions.
+3. Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 
 ## Rollback
 
 If you encountered issues after the upgrade, you can roll back the packet core instance to the previous version.
 
-Note that any configuration you set while your packet core instance was running a newer versions will be lost if you roll back to a version where this configuration is unsupported. Check the release notes for information on when new features were introduced.
+Note that any configuration you set while your packet core instance was running a newer versions will be lost if you roll back to a version that does not support this configuration. Check the release notes for information on when new features were introduced.
 
 1. Follow the steps in [Upgrade packet core](#upgrade-packet-core). When selecting the version you want to upgrade to, choose the previous packet core version you noted down earlier.
 <!-- TODO: TBC how rollback will work -->
