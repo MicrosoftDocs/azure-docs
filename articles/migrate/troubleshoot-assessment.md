@@ -235,10 +235,10 @@ To collect network traffic logs:
 
 ## Where is the Operating System data in my assessment discovered from?
 
-- For VMware VMs, by default, it's the Operating System data provided by the vCenter Server.
-   - For VMware Linux VMs, if application discovery is enabled, the OS details are fetched from the guest VM. To check which OS details are in the assessment, go to the **Discovered servers** view, and mouse over the value in the **Operating system** column. In the text that pops up, you'd be able to see whether the OS data you see is gathered from the vCenter Server or from the guest VM by using the VM credentials.
+- For VMware VMs, by default, it's the operating system data provided by the vCenter Server.
+   - For VMware Linux VMs, if application discovery is enabled, the OS details are fetched from the guest VM. To check which OS details are in the assessment, go to the **Discovered servers** view, and hover over the value in the **Operating system** column. In the text that pops up, you'd be able to see whether the OS data you see is gathered from the vCenter Server or from the guest VM by using the VM credentials.
    - For Windows VMs, the operating system details are always fetched from the vCenter Server.
-- For Hyper-V VMs, the Operating System data is gathered from the Hyper-V host.
+- For Hyper-V VMs, the operating system data is gathered from the Hyper-V host.
 - For physical servers, it is fetched from the server.
 
 ## Common web apps discovery errors
