@@ -41,3 +41,7 @@
       href: charge-back-costs.md
     - name: Renew a savings plan
       href: renew-savings-plan.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot utilization
+      href: troubleshoot-savings-plan-utilization.md

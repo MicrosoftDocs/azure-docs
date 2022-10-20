@@ -163,13 +163,15 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-     docker push $ACR_NAME.azurecr.io/albumapp-ui 
+
+     docker push "$ACR_NAME.azurecr.io/albumapp-ui" 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker push $ACR_NAME.azurecr.io/albumapp-ui 
+
+    docker push "$ACR_NAME.azurecr.io/albumapp-ui"
     ```
 
     ---
