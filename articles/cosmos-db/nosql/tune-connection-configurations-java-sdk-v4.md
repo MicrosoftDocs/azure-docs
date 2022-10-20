@@ -29,8 +29,6 @@ Azure Cosmos DB is a fast and flexible distributed database that scales seamless
 
 ## Connection Configuration
 
-Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS called *Gateway mode*. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and uses TLS for initial authentication and encrypting traffic, called *Direct mode*. 
-
 > [!NOTE]
 > In Azure Cosmos DB Java SDK v4, *Direct mode* is the best choice to improve database performance with most workloads.
 
