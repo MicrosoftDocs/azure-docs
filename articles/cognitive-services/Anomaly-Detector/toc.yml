@@ -100,13 +100,13 @@
       href: /javascript/api/@azure/ai-anomaly-detector/?view=azure-node-preview&preserve-view=true
     - name: Packages
       items:
-      - name: .NET 
+      - name: .NET (preview)
         href: https://www.nuget.org/packages/Azure.AI.AnomalyDetector
-      - name: Java
+      - name: Java (preview)
         href: https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector
-      - name: Python
+      - name: Python (preview)
         href: https://pypi.org/project/azure-ai-anomalydetector
-      - name: Node.js
+      - name: Node.js (preview)
         href: https://www.npmjs.com/package/@azure/ai-anomaly-detector
 - name: Resources
   items:
