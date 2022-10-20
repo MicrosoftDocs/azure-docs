@@ -78,17 +78,9 @@ The renderer methods are exposed by the preload script found in the *preload.js*
 
 This preload script exposes a renderer methods to give the renderer process controlled access to some `Node APIs` by applying IPC channels that have been configured for communication between the main and renderer processes.
 
-6. Next, create *UIManager.js* class inside the *App* folder and add the following code:
-
-    :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/UIManager.js":::
-
-7. After that, create *CustomProtocolListener.js* class and add the following code there:
-
-    :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/CustomProtocolListener.js":::
-
 *CustomProtocolListener* class can be instantiated in order to register and unregister a custom typed protocol on which MSAL Node can listen for Auth Code responses.
 
-8. Finally, create a file named *constants.js* that will store the strings constants for describing the application **events**:
+6. Finally, create a file named *constants.js* that will store the strings constants for describing the application **events**:
 
     :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/constants.js":::
 
@@ -117,12 +109,6 @@ In *App* folder, create a file named *AuthProvider.js*. The *AuthProvider.js* fi
 :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/AuthProvider.js":::
 
 In the code snippet above, we first initialized MSAL Node `PublicClientApplication` by passing a configuration object (`msalConfig`). We then exposed `login`, `logout` and `getToken` methods to be called by main module (*main.js*). In `login` and `getToken`, we acquire ID and access tokens, respectively, by first requesting an authorization code and then exchanging this with a token using MSAL Node `acquireTokenByCode` public API.
-
-## Add a method to call a web API
-
-Create another file named *fetch.js*. This file will contain an Axios HTTP client for making REST calls to the Microsoft Graph API.
-
-:::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/fetch.js":::
 
 ## Add app registration details
 
