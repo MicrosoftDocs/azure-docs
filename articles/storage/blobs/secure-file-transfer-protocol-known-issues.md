@@ -57,7 +57,7 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 
 ## Authentication and authorization
   
-- _Local users_ is the only form of identity management that is currently supported for the SFTP endpoint.
+- _Local users_ are the only form of identity management that is currently supported for the SFTP endpoint.
 
 - Azure Active Directory (Azure AD) isn't supported for the SFTP endpoint.
 
@@ -73,7 +73,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - Internet routing is not supported. Use Microsoft network routing.
 
-- There's a 2 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
+- There's a 2 minute time out for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
 ## Other
 
