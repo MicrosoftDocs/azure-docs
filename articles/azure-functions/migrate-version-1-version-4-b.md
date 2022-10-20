@@ -37,13 +37,13 @@ When applicable, these tabs compare the code directly from the templates for eac
 
 ### .csproj file
 
-The following changes are required in the .csproj file:
+The following changes are required in the .csproj XML file:
 
 **Version 1.x**
 
 Complete project file for version 1.x:
 
-:::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/Company.FunctionApp.csproj":::
+:::code language="xml" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/Company.FunctionApp.csproj":::
 
 **Version 4.x**
 
@@ -57,11 +57,11 @@ Update `PropertyGroup`:
 
 Update `ItemGroup`:
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
+:::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
 
 Add new `ItemGroup`:
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="31-33":::
+:::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="31-33":::
 
 # [.NET 7](#tab/net7)
 
@@ -77,11 +77,11 @@ Update `PropertyGroup`:
 
 Update `ItemGroup`:
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
+:::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="12-15":::
 
 Add new `ItemGroup`:
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="26-28":::
+:::code language="xml" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/Company.FunctionApp.csproj" range="26-28":::
 
 ---
 
@@ -109,17 +109,17 @@ Settings in the host.json file apply at the function app level, both locally and
 
 **Version 1.x**
 
-:::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/host.json":::
+:::code language="json" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/host.json":::
 
 **Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
 
 # [.NET 7](#tab/net7)
 
-:::code language="csharp" source="~/functions-quickstart-templates//Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
+:::code language="json" source="~/functions-quickstart-templates//Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
 
 ---
 
@@ -129,17 +129,17 @@ The local.settings.json file is only used when running locally. For information,
 
 **Version 1.x**
 
-:::code language="csharp" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json":::
+:::code language="json" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json":::
 
 **Version 4.x**
 
 # [.NET Framework 4.8](#tab/v4)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
 # [.NET 7](#tab/net7)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
 ---
 
